@@ -1,0 +1,3954 @@
+/** @file VX_OSD_Simple.c
+  * @brief OSD subtitle display program
+  *
+  * Message is displayed on the screen.
+  *
+  * @author Cunu-Yu
+  * @date 2019/06/20
+  */
+
+#include <string.h>
+#include "VXIS_Extern_Define.h"
+#include "VX_OSD.h"
+#include "VX_OSD_Simple.h"
+#include "VX_swi2c.h"
+
+#include "printf.h"
+#include "etc_eep.h"
+#include "keyremo.h"
+#include 	"Audio.h"
+
+#include "tpinc/TP2802.h"
+
+
+//struct MenuType   	CODE *MenuFormat;
+struct RegisterInfo  *BarRange;
+struct DefineMenu   *MenuTitle;
+struct DefineMenu    *MenuChild;
+struct DefineMenu	   *MenuStack[4];
+extern struct RegisterInfo UserRange;
+//struct RegisterInfo ContrastRange={	0x11,0x99,128};
+//struct RegisterInfo BrightnessRange={	0x51,0x99,0x7a};
+struct RegisterInfo ContrastRange={0,255,128};
+struct RegisterInfo BrightnessRange={	0,255,128};
+
+struct RegisterInfo SharpnessRange={	0,0x3f,0x1f};
+struct RegisterInfo HueRange={	0,63,32};
+struct RegisterInfo SaturationRange={	0,255,128};
+struct RegisterInfo BacklightRange={	0,255,128};
+//struct RegisterInfo AudioVolRange={	0,63,32};
+struct RegisterInfo AudioVolRange={	0,32,16};
+struct RegisterInfo AudioVolBarRange={	0,126,63};
+
+
+extern tByte u8gDrawOSDFlg ;
+extern tByte gbVXIS_OuputSize  ;
+extern tByte gbVXIS_OuputModeflg ;
+extern tByte gbVXIS_InputMode[4]  ;
+extern tByte gaHDMI_MapWindowIndex[4] ;
+extern tByte gu8AudioMode  ;
+extern BYTE   OSDMenuLevel;
+extern BYTE	title_item, cursor_item;
+extern bit OnChangingValue;
+extern tByte DayNightLevel;
+extern BYTE OSD_LOCKF;
+extern BYTE Disp_Input;
+extern BYTE	Priority;
+extern BYTE CAMA_M;	
+extern BYTE CAMB_M;	
+extern BYTE CAMC_M;	
+extern BYTE CAMR_M;
+extern BYTE SEQFlag;
+extern BYTE NowModeState;
+extern tByte DisplayedOSD;
+extern BYTE OSD_MIRROR[4];
+extern BYTE OSD_SPEAKER[4];
+extern BYTE TriggerFlag;
+extern BYTE TriggerStatus;
+
+static  WORD	OSDItemValue;
+extern tByte newInRes[4];
+extern tByte gWindowNum ;
+
+BYTE PanelBrightnessRange=10;
+BYTE OSD_Diapley=1;
+BYTE OSD_DAY=0;
+BYTE  SEQTime=0;
+BYTE SEQIndex=0;
+BYTE ResetCamMirror=0;
+extern BYTE TimeStep;
+extern BYTE	SelectModeType;
+extern BYTE CURRENT_CH;
+static tByte PreVXIS_OuputSize = _OUTPUT_NUMBER ;
+
+
+
+#define _Color 0x07
+
+#define CH_BLINK			0x80//0x08	
+#define CH_COLOR_MASK		0x0f	
+//OSD Level
+#define _NO_OSD     		0
+#define _TITLE_OSD  		1
+#define _PICTURE_OSD  	2
+#define _INPUT_OSD  		3
+#define _VIDEO_OSD  	4
+#define _ULIT_OSD 			5
+#define _MIRROR_OSD 			6
+#define _DIR_IMAGE_OSD 			7
+#define _TRIGGER_DELAY_OSD 			8
+#define _RGB_GAIN_OSD 			9
+
+///OSD NUMBER
+ #if (RGBGAINOSD==ON)
+#define _TITLE_NUMBER  	4+1+1	
+#else
+#define _TITLE_NUMBER  	4+1	
+#endif
+#define _PICTURE_NUMBER  	6
+#define _INPUT_NUMBER  		6
+#define _VIDEO_NUMBER 	7
+#define _ULIT_NUMBER		2
+#define _MIRROR_NUMBER		5
+#define _DIR_IMAGE_NUMBER 	 		4
+#define _TRIGGER_DELAY_NUMBER		5
+#define _RGB_GAIN_NUMBER		7
+
+
+tcByte *ptcOSDbar ;
+#if 1
+#if 1
+tcByte OSD_720x480I60_param[]=  {10 ,_7,_2,_0,_X,_4,_8,_0,_I,_spc,_spc};
+tcByte OSD_720x480P60_param[]=  {10 ,_7,_2,_0,_X,_4,_8,_0,_P,_spc,_spc};
+tcByte OSD_720x576I50_param[]=  {10 ,_7,_2,_0,_X,_5,_7,_6,_I,_spc,_spc};
+tcByte OSD_720x576P50_param[]=  {10 ,_7,_2,_0,_X,_5,_7,_6,_P,_spc,_spc};
+tcByte OSD_1280x720P_param[] =  {10 ,_1,_2,_8,_0,_X,_7,_2,_0,_P  ,_spc};
+tcByte OSD_1920x1080P_param[]=  {10 ,_1,_9,_2,_0,_X,_1,_0,_8,_0  ,_P  };
+ tcByte OSD_1920x1080I_param[]=  {10 ,_1,_9,_2,_0,_X,_1,_0,_8,_0  ,_I  };
+//DVI
+tcByte OSD_640X480P_param[]=   {10 ,_6,_4,_0,_X,_4,_8,_0,_P,_spc,_spc};
+tcByte OSD_800X600P_param[]=  {10 ,_8,_0,_0,_X,_6,_0,_0,_P,_spc,_spc};
+tcByte OSD_1024X768P_param[]=  {10 ,_1,_0,_2,_4,_X,_7,_6,_8,_P  ,_spc};
+tcByte OSD_1280X768P_param[]=  {10 ,_1,_2,_8,_0,_X,_7,_6,_8,_P  ,_spc};
+//static tcByte OSD_1360X768P_param[]=  {10 ,_1,_3,_6,_0,_X,_7,_6,_8,_P  ,_spc};
+tcByte OSD_1366X768P_param[]=  {10 ,_1,_3,_6,_6,_X,_7,_6,_8,_P  ,_spc};
+tcByte OSD_1280X800P_param[]=  {10 ,_1,_2,_8,_0,_X,_8,_0,_0,_P  ,_spc};
+tcByte OSD_1440X900P_param[]=  {10 ,_1,_4,_4,_0,_X,_9,_0,_0,_P  ,_spc};
+tcByte OSD_1280X1024P_param[]= {10 ,_1,_2,_8,_0,_X,_1,_0,_2,_4  ,_P  };
+tcByte OSD_1400X1050P_param[]= {10 ,_1,_4,_0,_0,_X,_1,_0,_5,_0  ,_P  };
+tcByte OSD_1680X1050P_param[]= {10 ,_1,_6,_8,_0,_X,_1,_0,_5,_0  ,_P  };
+tcByte OSD_1600X1200P_param[]= {10 ,_1,_6,_0,_0,_X,_1,_2,_0,_0  ,_P  };
+tcByte OSD_1920X1200P_param[]= {10 ,_1,_9,_2,_0,_X,_1,_2,_0,_0  ,_P  };
+
+#else
+static tcByte OSD_720x480I60_param[]=  {10 ,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc};
+static tcByte OSD_720x480P60_param[]=  {10 ,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc};
+static tcByte OSD_720x576I50_param[]=  {10 ,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc};
+static tcByte OSD_720x576P50_param[]=  {10 ,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc};
+static tcByte OSD_1280x720P_param[] =  {10 ,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc};
+static tcByte OSD_1920x1080P_param[]=  {10  ,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc };
+static tcByte OSD_1920x1080I_param[]=  {10  ,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc };
+#endif
+#else
+static tcByte OSD_720x480I60_param[]=  {10 ,_7,_2,_0,_X,_4,_8,_0,_I,_spc,_spc};
+static tcByte OSD_720x480P60_param[]=  {10 ,_7,_2,_0,_X,_4,_8,_0,_P,_spc,_spc};
+static tcByte OSD_720x576I50_param[]=  {10 ,_7,_2,_0,_X,_5,_7,_6,_I,_spc,_spc};
+static tcByte OSD_720x576P50_param[]=  {10 ,_7,_2,_0,_X,_5,_7,_6,_P,_spc,_spc};
+static tcByte OSD_1280x720P_param[] =  {10 ,_1,_2,_8,_0,_X,_7,_2,_0,_P  ,_spc};
+static tcByte OSD_1920x1080P_param[]=  {10 ,_1,_9,_2,_0,_X,_1,_0,_8,_0  ,_P  };
+static tcByte OSD_1920x1080I_param[]=  {10 ,_1,_9,_2,_0,_X,_1,_0,_8,_0  ,_I  };
+#endif
+static tcByte OSD_No_Signal_param[]=   {10 ,_N,_o,_spc,_S,_i,_g,_n,_a,_l,_spc};
+//static tcByte OSD_No_Signal_param[]=   {10 ,_spc,_spc,_V,_L,_o,_s,_s,_spc,_spc,_spc};
+
+//static tcByte OSD_CH0_param[]= {10,_C,_H,_spc,_1,_spc,_spc,0x80,0x81,0x82,0x83};
+/*    
+static tcByte OSD_CH0_param[]= {6,_C,_H,_spc,_1,_spc,_spc};
+static tcByte OSD_CH1_param[]= {6,_C,_H,_spc,_2,_spc,_spc};
+static tcByte OSD_CH2_param[]= {6,_C,_H,_spc,_3,_spc,_spc};
+static tcByte OSD_CH3_param[]= {6,_C,_H,_spc,_4,_spc,_spc};
+*/
+static tcByte OSD_CH0_param[]= {6,_A,_spc,_spc,_spc,_spc,_spc};
+//static tcByte OSD_CH0_param[]= {6,_J,_spc,_spc,_A,_M,0x80};
+
+static tcByte OSD_CH1_param[]= {6,_B,_spc,_spc,_spc,_spc,_spc};
+static tcByte OSD_CH2_param[]= {6,_C,_spc,_spc,_spc,_spc,_spc};
+static tcByte OSD_CH3_param[]= {6,_R,_spc,_spc,_spc,_spc,_spc};
+
+static tcByte   Str_OSD_SPEAKER[]= {1,0x80};
+static tcByte   Str_OSD_MIRROR[]= {1,_M};
+static tcByte   Str_OSD_JUMP[]= {2,_spc,_J};
+static tcByte   Str_OSD_SEQ[]= {2,_spc,_S};
+//static tcByte   Str_OSD_CLRJUMP[] ={1,_spc};
+
+tcByte   Str_OSD_TRI_LEFT[]= {1,0x82};
+tcByte   Str_OSD_TRI_RIGHT[]= {1,0x81};
+tcByte   Str_OSD_TRI_CAMC[]= {1,_T};
+tcByte   Str_OSD_TRI_CAMR[]= {1,0x83};
+tcByte   Str_OSD_TRI_CLR[]= {1,_spc};
+
+/*
+static tcByte Str_Picture_E[] = {7,_P,_i,_c,_t,_u,_r,_e};
+static tcByte Str_Input_E[] = {5,_I,_n,_P,_u,_t};
+static tcByte Str_Camera_E[] = {6,_C,_a,_m,_e,_r,_a};
+static tcByte Str_Exit_E[] = {4,_E,_x,_i,_t};
+*/
+//static tcByte Str_Picture[] = {20,_P,_i,_c,_t,_u,_r,_e,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_action};
+static tcByte Str_Picture[] = {20,_V,_I,_D,_E,_O,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_action};
+//static tcByte Str_Input[] = {20,_I,_n,_P,_u,_t,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_action};
+static tcByte Str_Input[] = {20,_S,_Y,_S,_T,_E,_M,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_action};
+//static tcByte Str_Video[] = {20,_V,_i,_d,_e,_o,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_action};
+static tcByte Str_Video[] = {20,_D,_I,_S,_P,_L,_A,_Y,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_action};
+//static tcByte Str_Ulti[] = {20,_U,_l,_t,_i,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_action};
+static tcByte Str_Ulti[] = {20,_D,_E,_F,_A,_U,_L,_T,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_action};
+static tcByte Str_Exit[] = {20,_E,_X,_I,_T,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_action};
+
+static tcByte Str_NO[] = {20,_N,_O,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_action};
+
+static tcByte Str_Return[] = {20,_R,_e,_t,_u,_r,_n,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_action};
+#if (RGBGAINOSD==ON)
+static tcByte Str_RGBGain[] = {20,_R,_G,_B,_spc,_G,_A,_I,_N,_spc,_S,_E,_T,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_action};
+#endif
+
+static tcByte Str_VolumeTXT[] = {20,_spc,_V,_o,_l,_u,_m,_e,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc};
+static tcByte Str_VolumeBAR[] = {20,_bar0,_bar1,_bar1,_bar1,_bar1,_bar1,_bar1,_bar1,_bar1,_bar1,_bar1,_bar1,_bar1,_bar1,_bar1,_bar10,_spc,_1,_0,_0};
+
+static tcByte Str_OSD_LOCK2[] = {20,_O,_S,_D,_spc,_L,_O,_C,_K,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc};
+static tcByte Str_OSD_UNLOCK[] = {20,_O,_S,_D,_spc,_U,_N,_L,_O,_C,_K,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc};
+
+//static tcByte Str_GAUGE_OSD0[] = {20,_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0};
+//static tcByte Str_GAUGE_OSD0[] = {20,0x84,0x85,0x86,0x87,0x88,0x89,0x8A,_7,_8,_9,_0,_1,_2,_3,_4,_5,_6,_7,_8,_9};
+
+#if 1
+
+static tcByte Str_GAUGE_OSD0[] = {20,_spc,_spc,_spc,_g01,_g21,_g21,_g21	,_g21,_g21,_g21,_g21,_g21,_g21,_g21,_g21,_g11,_spc,_spc,_spc,_spc};
+static tcByte Str_GAUGE_OSD1[] = {20,_spc,_spc,_spc,_g02,_spc,_spc,_spc	,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_g12,_spc,_spc,_spc,_spc};
+static tcByte Str_GAUGE_OSD2[] = {20,_spc,_spc,_g03,_g04,_g21,_g21,_g21	,_g21,_g21,_g21,_g21,_g21,_g21,_g21,_g21,_g13,_g14,_spc,_spc,_spc};
+static tcByte Str_GAUGE_OSD3[] = {20,_spc,_spc,_g05,_spc,_spc,_spc,_spc	,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_g15,_spc,_spc,_spc};
+static tcByte Str_GAUGE_OSD4[] = {20,_spc,_spc,_g06,_spc,_spc,_spc,_spc	,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_g16,_spc,_spc,_spc};
+static tcByte Str_GAUGE_OSD5[] = {20,_spc,_g07,_g08,_spc,_spc,_spc,_spc	,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_g17,_g18,_spc,_spc};
+static tcByte Str_GAUGE_OSD6[] = {20,_spc,_g09,_g23,_g23,_g23,_g23,_g23	,_g23,_g23,_g22,_g23,_g23,_g23,_g23,_g23,_g23,_g23,_g19,_spc,_spc};
+static tcByte Str_GAUGE_OSD7[] = {20,_spc,_g10,_spc,_spc,_spc,_spc,_spc	,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_g20,_spc,_spc};
+/*
+static tcByte Str_GAUGE_OSD0[] = {20,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_g01,_spc,_spc,_spc,_spc,_g05,_spc,_spc,_spc,_spc,_spc,_spc,_spc};
+static tcByte Str_GAUGE_OSD1[] = {20,_spc,_spc,_spc,_spc,_spc,_spc,_g01,_spc,_spc,_spc,_spc,_spc,_spc,_g05,_spc,_spc,_spc,_spc,_spc,_spc};
+static tcByte Str_GAUGE_OSD2[] = {20,_spc,_spc,_spc,_spc,_spc,_g02,_g03,_g03,_g03,_g03,_g03,_g03,_g03,_g03,_g04,_spc,_spc,_spc,_spc,_spc};
+static tcByte Str_GAUGE_OSD3[] = {20,_spc,_spc,_spc,_spc,_g01,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_g05,_spc,_spc,_spc,_spc};
+static tcByte Str_GAUGE_OSD4[] = {20,_spc,_spc,_spc,_g01,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_g05,_spc,_spc,_spc};
+static tcByte Str_GAUGE_OSD5[] = {20,_spc,_spc,_g02,_g03,_g03,_g03,_g03,_g03,_g03,_g06,_g03,_g03,_g03,_g03,_g03,_g03,_g03,_g04,_spc,_spc};
+static tcByte Str_GAUGE_OSD6[] = {20,_spc,_g01,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_g05,_spc};
+static tcByte Str_GAUGE_OSD7[] = {20,_g01,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_g05};
+*/
+#else
+static tcByte Str_GAUGE_OSD1[] = {20,_1,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0};
+static tcByte Str_GAUGE_OSD2[] = {20,_2,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0};
+static tcByte Str_GAUGE_OSD3[] = {20,_3,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0};
+static tcByte Str_GAUGE_OSD4[] = {20,_4,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0};
+static tcByte Str_GAUGE_OSD5[] = {20,_5,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0};
+static tcByte Str_GAUGE_OSD6[] = {20,_6,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0};
+static tcByte Str_GAUGE_OSD7[] = {20,_7,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_0};
+#endif
+static tcByte *Str_GAUGE_OSD[8] = {Str_GAUGE_OSD0,Str_GAUGE_OSD1,Str_GAUGE_OSD2,Str_GAUGE_OSD3,
+	Str_GAUGE_OSD4,Str_GAUGE_OSD5,Str_GAUGE_OSD6,Str_GAUGE_OSD7,};
+
+//static tcByte Str_action[] = {1,_action};
+//{20,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc},
+
+//osd menu 
+/*
+static tcByte MENU1[4][6]= {
+					{10,_T,_E,_S,_T,_spc,_1,_spc,_spc,_spc,_spc},
+					{10,_T,_E,_S,_T,_spc,_2,_spc,_spc,_spc,_spc},
+					{10,_T,_E,_S,_T,_spc,_3,_spc,_spc,_spc,_spc},
+					{10,_T,_E,_S,_T,_spc,_4,_spc,_spc,_spc,_spc}
+				};
+*/
+//static tcByte MENU1[]= {10,_T,_E,_S,_T,_1,_2,_3,_4,_5,_6};
+/*
+CODE BYTE Str_Brightness_E[] = {'B','r','i','g','h','t','n','e','s','s',0};
+CODE BYTE Str_Contrast_E[] = {'C','o','n','t','r','a','s','t',0};
+CODE BYTE Str_Saturation_E[] = {'S','a','t','u','r','a','t','i','o','n',0};
+CODE BYTE Str_Hue_E[] = {'H','u','e',0};
+CODE BYTE Str_Sharpness_E[] = {'S','h','a','r','p','n','e','s','s',0};
+CODE BYTE Str_Reset_E[] = {'R','e','s','e','t',0};
+
+CODE BYTE 	*Str_Brightness[]=	{Str_Brightness_E};
+CODE BYTE 	*Str_Contrast[]=		{Str_Contrast_E};
+CODE BYTE 	*Str_Saturation[]=	{Str_Saturation_E};
+CODE BYTE 	*Str_Hue[]=			{Str_Hue_E};
+CODE BYTE 	*Str_Sharpness[]=		{Str_Sharpness_E};
+CODE BYTE 	*Str_Reset[]=	{Str_Reset_E};
+*/
+/*
+	struct DefineMenu {
+			BYTE						MenuID;
+			BYTE						*Str_E;
+			BYTE						Type;				// MENU, CHOICEMENU, BAR, NUMBER, TIME, ACTION, ENUM_STRING
+			BYTE						ActiveWithCursor;
+			BYTE						Id;
+	
+	} ;
+*/
+static tcByte ONOFFChoiceString[] = {
+				0x02, //size
+				4,		//char  leng.
+				3,_O,_F,_F,
+				3,_O,_N,_spc };
+
+static tcByte  IMAGE_A_String[]={
+	         0x07, //size
+             5,      // None by lang.
+				 4,_spc,_spc,_spc,_A,
+				 4,_spc,_A,_plus,_B,
+				 4,_spc,_A,_plus,_C,
+				 4,_spc,_A,_plus,_R,
+				 4,_A,_plus,_B,_C,
+				 4,_A,_plus,_B,_R,
+				 4,_A,_plus,_C,_R
+             };
+
+static tcByte  IMAGE_B_String[]={
+	         0x07, 
+             5,      
+				 4,_spc,_spc,_spc,_B,
+				 4,_spc,_B,_plus,_A,
+				 4,_spc,_B,_plus,_C,
+				 4,_spc,_B,_plus,_R,
+				 4,_B,_plus,_A,_C,
+				 4,_B,_plus,_A,_R,
+				 4,_B,_plus,_C,_R
+             };
+
+static tcByte  IMAGE_C_String[]={
+	         0x07, //size
+             5,      
+				 4,_spc,_spc,_spc,_C,
+				 4,_spc,_C,_plus,_A,
+				 4,_spc,_C,_plus,_B,
+				 4,_spc,_C,_plus,_R,
+				 4,_C,_plus,_A,_B,
+				 4,_C,_plus,_A,_R,
+				 4,_C,_plus,_B,_R
+             };
+
+static tcByte  REARString[]={
+	        10, //size
+             5,      
+				 4,_spc,_spc,_spc,_R,
+				 4,_spc,_R,_plus,_A,
+				 4,_spc,_R,_plus,_B,
+				 4,_spc,_R,_plus,_C,
+				 4,_R,_slash,_A,_B,
+				 4,_R,_slash,_A,_C,
+				 4,_R,_slash,_B,_C,
+				4,_R,_plus,_A,_B,
+				4,_R,_plus,_A,_C,
+				4,_R,_plus,_B,_C
+    };
+
+static tcByte JUMPString[]={
+	14, //size
+	 5, 	 
+		 4,_Q,_U,_A,_D,
+		 4,_spc,_S,_E,_Q,
+		 4,_spc,_A,_plus,_B,
+		 4,_spc,_C,_plus,_R,
+		 4,_spc,_A,_plus,_R,
+		 4,_spc,_R,_plus,_B,
+		 4,_spc,_A,_plus,_C,
+		4,_spc,_C,_plus,_B,
+		4,_R,_slash,_A,_B,
+		4,_R,_plus,_A,_B,
+		4,_spc,_spc,_spc,_A,
+		4,_spc,_spc,_spc,_B,
+		4,_spc,_spc,_spc,_C,
+		4,_spc,_spc,_spc,_R
+};
+/*
+static tcByte MChoiceString[] = {
+            2, //size
+            7,    
+		6,_N,_O,_R,_M,_A,_L,
+		6,_M,_I,_R,_R,_O,_R
+};			
+*/
+//static tByte *Str_Main_OSD[4]={Str_Picture_E,Str_Input_E,Str_Camera_E,Str_Exit_E};
+static tcByte Str_Brightness[] = {10,_B,_r,_i,_g,_h,_t,_n,_e,_s,_s};
+static tcByte  Str_Contrast[] = {8,_C,_o,_n,_t,_r,_a,_s,_t};
+static tcByte  Str_Saturation[] = {10,_S,_a,_t,_u,_r,_a,_t,_i,_o,_n};
+static tcByte  Str_Hue[] = {3,_H,_u,_e};
+static tcByte  Str_Sharpness[] = {9,_S,_h,_a,_r,_p,_n,_e,_s,_s};
+
+
+//static tcByte Str_Brightness[] = {20,_B,_r,_i,_g,_h,_t,_n,_e,_s,_s,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_1,_0,_0};
+
+//static tcByte Str_Auto_Day_Night[] = {20,_A,_u,_t,_o,_D,_a,_y,_A,_n,_d,_N,_i,_g,_h,_t,_spc,_spc,_O,_F,_F};
+//static tcByte Str_DISPLAY[] = {20,_D,_i,_s,_p,_l,_a,_y,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_O,_F,_F};
+static tcByte Str_Auto_Day_Night[] = {14,_A,_u,_t,_o,_spc,_D,_a,_y,_and,_N,_i,_g,_h,_t};
+//static tcByte Str_DISPLAY[] = {7,_D,_i,_s,_p,_l,_a,_y};
+static tcByte Str_DISPLAY[] = {5,_T,_i,_t,_l,_e};//TITLE
+
+static tcByte Str_DISTANCE[]={14,_D,_i,_s,_t,_a,_n,_c,_e,_spc,_G,_a,_u,_g,_e}; 
+static tcByte  Str_OSD_LOCK[]={8,_O,_S,_D,_spc,_L,_o,_c,_k}; 
+//static tcByte  Str_PRIORITY[] = {8,_P,_R,_I,_O,_R,_I,_T,_Y};
+static tcByte  Str_PRIORITY[] = {8,_P,_r,_i,_o,_r,_i,_t,_y};
+//static tcByte Str_Volume[] = {6,_V,_o,_l,_u,_m,_e};
+
+static tcByte  Str_DIR_IMAGE[]={9,_D,_i,_r,_spc,_I,_m,_a,_g,_e};
+static tcByte  Str_DIR_IMAGE_CAMA[]={11,_D,_i,_r,_spc,_I,_m,_a,_g,_e,_spc,_A};
+static tcByte  Str_DIR_IMAGE_CAMB[]={11,_D,_i,_r,_spc,_I,_m,_a,_g,_e,_spc,_B};
+static tcByte  Str_DIR_IMAGE_CAMC[]={11,_D,_i,_r,_spc,_I,_m,_a,_g,_e,_spc,_C};
+
+static tcByte  Str_REAR_SETUP[]={10,_R,_e,_a,_r,_spc,_S,_e,_t,_u,_p};
+static tcByte  Str_JUMP[]={4,_J,_u,_m,_p};
+static tcByte  Str_Mirror[]={6,_M,_i,_r,_r,_o,_r};
+static tcByte  Str_SEQ_Time_step[]={13,_S,_E,_Q,_spc,_T,_i,_m,_e,_spc,_S,_t,_e,_p};
+static tcByte  Str_Trigger_Delay[]={13,_T,_r,_i,_g,_g,_e,_r,_spc,_D,_e,_l,_a,_y};
+static tcByte  Str_CAM_A[]={5,_C,_A,_M,_spc,_A};
+static tcByte  Str_CAM_B[]={5,_C,_A,_M,_spc,_B};
+static tcByte  Str_CAM_C[]={5,_C,_A,_M,_spc,_C};
+static tcByte  Str_CAM_R[]={5,_C,_A,_M,_spc,_R};
+
+#if (RGBGAINOSD==ON)
+static tcByte  Str_R_B_GAIN[]={8,_R,_spc,_B,_spc,_G,_A,_I,_N};
+static tcByte  Str_G_B_GAIN[]={8,_G,_spc,_B,_spc,_G,_A,_I,_N};
+static tcByte  Str_B_B_GAIN[]={8,_B,_spc,_B,_spc,_G,_A,_I,_N};
+static tcByte  Str_R_C_GAIN[]={8,_R,_spc,_C,_spc,_G,_A,_I,_N};
+static tcByte  Str_G_C_GAIN[]={8,_G,_spc,_C,_spc,_G,_A,_I,_N};
+static tcByte  Str_B_C_GAIN[]={8,_B,_spc,_C,_spc,_G,_A,_I,_N};
+#endif
+
+//static tcByte Str_RESET[] = {20,_R,_E,_S,_E,_T,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_O,_F,_F};
+//static tcByte Str_RESET[] = {6,_R,_e,_c,_a,_l,_l};
+static tcByte Str_RESET[] = {3,_Y,_E,_S};
+
+
+///_PICTURE_OSD
+struct DefineMenu Picture_Menu[]={ 
+{_PICTURE_OSD,_PICTURE_NUMBER, Str_Brightness,0,NUMBER,0,VIDEO_BRIGHTNESS,0},
+{_PICTURE_OSD,_PICTURE_NUMBER, Str_Contrast,0,NUMBER,0,VIDEO_CONTRAST,0},
+{_PICTURE_OSD,_PICTURE_NUMBER, Str_Saturation,0,NUMBER,0,VIDEO_SATURATION,0},
+{_PICTURE_OSD,_PICTURE_NUMBER, Str_Hue,0,NUMBER,0,VIDEO_HUE,0},
+{_PICTURE_OSD,_PICTURE_NUMBER, Str_Sharpness,0,NUMBER,0,VIDEO_SHARPNESS,0},
+{_PICTURE_OSD,_PICTURE_NUMBER, Str_Return,0,EXIT,0,_TITLE_OSD,0}
+};
+
+//_INPUT_OSD
+struct DefineMenu Input_Menu[]={ 
+{_INPUT_OSD,_INPUT_NUMBER, Str_Auto_Day_Night,0,ENUM_STRING,0,DayChoice,ONOFFChoiceString},
+{_INPUT_OSD,_INPUT_NUMBER, Str_DISPLAY,0,ENUM_STRING,0,CAMOSDONOFF,ONOFFChoiceString},
+{_INPUT_OSD,_INPUT_NUMBER, Str_DISTANCE,0,ENUM_STRING,0,GAUGEChoice,ONOFFChoiceString},
+{_INPUT_OSD,_INPUT_NUMBER, Str_OSD_LOCK,0,ENUM_STRING,0,OsdLockChoice,ONOFFChoiceString},
+{_INPUT_OSD,_INPUT_NUMBER, Str_PRIORITY,0,ENUM_STRING,0,PRIORITYChoice,ONOFFChoiceString},
+{_INPUT_OSD,_INPUT_NUMBER, Str_Return,0,EXIT,0,_TITLE_OSD,0}
+};
+
+//_MIRROR_OSD
+struct DefineMenu Mirror_Menu[]={ 
+{_MIRROR_OSD,_MIRROR_NUMBER, Str_CAM_A,0,ENUM_STRING,0,CAMAONOFF,ONOFFChoiceString},
+{_MIRROR_OSD,_MIRROR_NUMBER, Str_CAM_B,0,ENUM_STRING,0,CAMBONOFF,ONOFFChoiceString},
+{_MIRROR_OSD,_MIRROR_NUMBER, Str_CAM_C,0,ENUM_STRING,0,CAMCONOFF,ONOFFChoiceString},
+{_MIRROR_OSD,_MIRROR_NUMBER, Str_CAM_R,0,ENUM_STRING,0,CAMRONOFF,ONOFFChoiceString},
+{_MIRROR_OSD,_MIRROR_NUMBER, Str_Return,0,EXIT,0,_VIDEO_OSD,0}
+};
+
+//_DIR_IMAGE_OSD
+struct DefineMenu Dir_Image_Menu[]={ 
+{_DIR_IMAGE_OSD,_DIR_IMAGE_NUMBER, Str_DIR_IMAGE_CAMA,0,ENUM_STRING,0,IMAGE_A_Choice,IMAGE_A_String},
+{_DIR_IMAGE_OSD,_DIR_IMAGE_NUMBER, Str_DIR_IMAGE_CAMB,0,ENUM_STRING,0,IMAGE_B_Choice,IMAGE_B_String},
+{_DIR_IMAGE_OSD,_DIR_IMAGE_NUMBER, Str_DIR_IMAGE_CAMC,0,ENUM_STRING,0,IMAGE_C_Choice,IMAGE_C_String},
+{_DIR_IMAGE_OSD,_DIR_IMAGE_NUMBER, Str_Return,0,EXIT,0,_VIDEO_OSD,0}
+};
+
+//_TRIGGER_DELAY_OSD
+struct DefineMenu Trigger_Delay_Menu[]={ 
+{_TRIGGER_DELAY_OSD,_TRIGGER_DELAY_NUMBER, Str_CAM_A,0,NUMBER,0,DELAYCAMA,0},
+{_TRIGGER_DELAY_OSD,_TRIGGER_DELAY_NUMBER, Str_CAM_B,0,NUMBER,0,DELAYCAMB,0},
+{_TRIGGER_DELAY_OSD,_TRIGGER_DELAY_NUMBER, Str_CAM_C,0,NUMBER,0,DELAYCAMC,0},
+{_TRIGGER_DELAY_OSD,_TRIGGER_DELAY_NUMBER, Str_CAM_R,0,NUMBER,0,DELAYCAMR,0},
+{_TRIGGER_DELAY_OSD,_TRIGGER_DELAY_NUMBER, Str_Return,0,EXIT,0,_VIDEO_OSD,0}
+};
+
+//_VIDEO_OSD
+struct DefineMenu Video_Menu[]={ 
+{_VIDEO_OSD,_VIDEO_NUMBER, Str_Mirror,Mirror_Menu,OSDMENU,0,0,ONOFFChoiceString},
+{_VIDEO_OSD,_VIDEO_NUMBER, Str_DIR_IMAGE,Dir_Image_Menu,OSDMENU,0,NO,0},
+{_VIDEO_OSD,_VIDEO_NUMBER, Str_REAR_SETUP,0,ENUM_STRING,0,REARChoice,REARString},
+{_VIDEO_OSD,_VIDEO_NUMBER, Str_JUMP,0,ENUM_STRING,0,JUMPChoice,JUMPString},
+{_VIDEO_OSD,_VIDEO_NUMBER, Str_SEQ_Time_step,0,NUMBER,0,STIME_STEP,0},
+{_VIDEO_OSD,_VIDEO_NUMBER, Str_Trigger_Delay,Trigger_Delay_Menu,OSDMENU,0,NO,0},
+{_VIDEO_OSD,_VIDEO_NUMBER, Str_Return,0,EXIT,0,_TITLE_OSD,0}
+};
+
+//_ULIT_OSD
+struct DefineMenu Ulti_Menu[]={ 
+{_ULIT_OSD,_ULIT_NUMBER, Str_RESET,0,ACTION,0,RESET_VIDEOVALUE,0},
+//{_ULIT_OSD,_ULIT_NUMBER, Str_Exit,0,EXIT,0,EXIT,0}
+{_VIDEO_OSD,_VIDEO_NUMBER, Str_NO,0,EXIT,0,_TITLE_OSD,0}
+
+};
+
+///RGB GAIN OSD
+#if (RGBGAINOSD==ON)
+struct DefineMenu RGBGain_Menu[]={ 
+{_RGB_GAIN_OSD,_RGB_GAIN_NUMBER, Str_R_B_GAIN,0,NUMBER,0,VIDEO_R_B_GAIN,0},
+{_RGB_GAIN_OSD,_RGB_GAIN_NUMBER, Str_G_B_GAIN,0,NUMBER,0,VIDEO_G_B_GAIN,0},
+{_RGB_GAIN_OSD,_RGB_GAIN_NUMBER, Str_B_B_GAIN,0,NUMBER,0,VIDEO_B_B_GAIN,0},
+{_RGB_GAIN_OSD,_RGB_GAIN_NUMBER, Str_R_C_GAIN,0,NUMBER,0,VIDEO_R_C_GAIN,0},
+{_RGB_GAIN_OSD,_RGB_GAIN_NUMBER, Str_G_C_GAIN,0,NUMBER,0,VIDEO_G_C_GAIN,0},
+{_RGB_GAIN_OSD,_RGB_GAIN_NUMBER, Str_B_C_GAIN,0,NUMBER,0,VIDEO_B_C_GAIN,0},
+{_RGB_GAIN_OSD,_RGB_GAIN_NUMBER, Str_Return,0,EXIT,0,_TITLE_OSD,0}
+};
+#endif
+///_TITLE_OSD
+struct DefineMenu Title_Menu[_TITLE_NUMBER]={ 
+{_TITLE_OSD,_TITLE_NUMBER, Str_Picture,Picture_Menu,OSDMENU,0,0,0},
+{_TITLE_OSD,_TITLE_NUMBER, Str_Input,Input_Menu,OSDMENU,0,0,0},
+{_TITLE_OSD,_TITLE_NUMBER, Str_Video,Video_Menu,OSDMENU,0,0,0},
+{_TITLE_OSD,_TITLE_NUMBER, Str_Ulti,Ulti_Menu,OSDMENU,0,0,0},
+#if (RGBGAINOSD==ON)
+{_TITLE_OSD,_TITLE_NUMBER, Str_RGBGain,RGBGain_Menu,OSDMENU,0,0,0},
+#endif
+{_TITLE_OSD,_TITLE_NUMBER, Str_Exit,0,EXIT,0,EXIT,0}
+};
+
+
+/*
+static tcByte MENU1[8][21]={
+						{20,_T,_E,_S,_T,_1,_2,_3,_4,_5,_1,_T,_E,_S,_T,_1,_2,_3,_4,_1,_1},
+						{20,_T,_E,_S,_T,_2,_2,_3,_4,_5,_2,_T,_E,_S,_T,_1,_2,_3,_4,_2,_2},
+						{20,_T,_E,_S,_T,_3,_2,_3,_4,_5,_3,_T,_E,_S,_T,_1,_2,_3,_4,_3,_3},
+						{20,_T,_E,_S,_T,_4,_2,_3,_4,_5,_4,_T,_E,_S,_T,_1,_2,_3,_4,_1,_1},
+						
+						{20,_T,_E,_S,_T,_5,_2,_3,_4,_5,_5,_T,_E,_S,_T,_1,_2,_3,_4,_4,_4},
+						{20,_T,_E,_S,_T,_6,_2,_3,_4,_5,_6,_T,_E,_S,_T,_1,_2,_3,_4,_5,_5},
+						{20,_T,_E,_S,_T,_7,_2,_3,_4,_5,_7,_T,_E,_S,_T,_1,_2,_3,_4,_6,_6},
+						{20,_T,_E,_S,_T,_8,_2,_3,_4,_5,_8,_T,_E,_S,_T,_1,_2,_3,_4,_7,_7}
+					};
+*/
+/*
+static tcByte   Str_Menu_Clr[8][21]={
+							{20,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc},
+							{20,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc},
+							{20,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc},
+							{20,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc},
+
+							{20,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc},
+							{20,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc},
+							{20,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc},
+							{20,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc}
+
+						};
+*/
+static tcByte   Str_Menu_Clr[21]=	{20,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc};
+
+static tcByte   Str_Menu_Cursor[17]= {16,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc,_spc};
+//static tcByte Str_Menu_Cursor2[4]= {4,_spc,_spc,_spc,_spc};
+
+/*						
+static tcByte MENU2[]= {10,_T,_E,_S,_T,_2,_2,_3,_4,_5,_6}
+static tcByte MENU3[]= {10,_T,_E,_S,_T,_3,_2,_3,_4,_5,_6}
+static tcByte MENU4[]= {10,_T,_E,_S,_T,_4,_2,_3,_4,_5,_6}
+static tcByte MENU5[]= {10,_T,_E,_S,_T,_5,_2,_3,_4,_5,_6}
+static tcByte MENU6[]= {10,_T,_E,_S,_T,_6,_2,_3,_4,_5,_6}
+static tcByte MENU7[]= {10,_T,_E,_S,_T,_7,_2,_3,_4,_5,_6}
+static tcByte MENU8[]= {10,_T,_E,_S,_T,_8,_2,_3,_4,_5,_6};
+*/
+
+
+
+
+
+//tByte  OSD_CHx_param[7] ;
+
+tcWord Mode0_1080P_param[]   = {180,61} ;
+tcWord Mode1_w0_1080P_param[]= {180,61} ;
+tcWord Mode1_w1_1080P_param[]= {1140,61} ;
+tcWord Mode1_w2_1080P_param[]= {180,603} ;
+tcWord Mode1_w3_1080P_param[]= {1140,603} ;
+tcWord Mode2_w0_1080P_param[]= {180,61} ;
+tcWord Mode2_w1_1080P_param[]= {664,61} ;
+tcWord Mode2_w2_1080P_param[]= {664,603} ;
+tcWord Mode2_w3_1080P_param[]= {1624,61} ;
+tcWord Mode8_w0_1080P_param[]= {180,61} ;
+tcWord Mode8_w1_1080P_param[]= {1140,61} ;
+tcWord Mode8_w2_1080P_param[]= {1140,603} ;
+tcWord Mode9_w0_1080P_param[]= {1140,61} ;
+tcWord Mode9_w1_1080P_param[]= {180,61};
+tcWord Mode9_w2_1080P_param[]= {180,603} ;
+tcWord Mode12_w0_1080P_param[]= {180,61} ;
+tcWord Mode12_w1_1080P_param[]= {1140,61} ;
+tcWord Mode14_w0_1080P_param[]= {180,61} ;
+tcWord Mode14_w1_1080P_param[]= {820,61} ;
+tcWord Mode14_w2_1080P_param[]= {1460,61} ;
+
+tcWord Mode10_w0_1080P_param[]= {180,61} ;
+tcWord Mode10_w1_1080P_param[]= {1140,61} ;
+tcWord Mode10_w2_1080P_param[]= {1140,603} ;
+
+tcWord Mode0_720P_param[]   = {244,37} ;
+tcWord Mode1_w0_720P_param[]= {244,37} ;
+tcWord Mode1_w1_720P_param[]= {886,37} ;
+tcWord Mode1_w2_720P_param[]= {244,401} ;
+tcWord Mode1_w3_720P_param[]= {886,401} ;
+tcWord Mode2_w0_720P_param[]= {244,37} ;
+tcWord Mode2_w1_720P_param[]= {566,37} ;
+tcWord Mode2_w2_720P_param[]= {566,401} ;
+tcWord Mode2_w3_720P_param[]= {1206,37} ;
+tcWord Mode8_w0_720P_param[]= {244,37} ;
+tcWord Mode8_w1_720P_param[]= {886,37} ;
+tcWord Mode8_w2_720P_param[]= {886,401} ;
+tcWord Mode9_w0_720P_param[]= {886,37}  ;
+tcWord Mode9_w1_720P_param[]= {244,37};
+tcWord Mode9_w2_720P_param[]= {244,401} ;
+tcWord Mode12_w0_720P_param[]= {244,37} ;
+tcWord Mode12_w1_720P_param[]= {886,37} ;
+tcWord Mode14_w0_720P_param[]= {244,37} ;
+tcWord Mode14_w1_720P_param[]= {670,37} ;
+tcWord Mode14_w2_720P_param[]= {1096,37} ;
+
+tcWord Mode10_w0_720P_param[]= {244,37} ;
+tcWord Mode10_w1_720P_param[]= {886,37} ;
+tcWord Mode10_w2_720P_param[]= {886,401} ;
+
+tcWord Mode0_800x480_param[]   = {48+350+48,24+3} ;
+tcWord Mode1_w0_800x480_param[]= {48+200,24+3} ;
+tcWord Mode1_w1_800x480_param[]= {452+200,24+3} ;
+tcWord Mode1_w2_800x480_param[]= {48+200,265+3} ;
+tcWord Mode1_w3_800x480_param[]= {452+200,265+3} ;
+
+tcWord Mode2_w0_800x480_param[]= {48,24} ;
+tcWord Mode2_w1_800x480_param[]= {251,24} ;
+tcWord Mode2_w2_800x480_param[]= {251,265} ;
+tcWord Mode2_w3_800x480_param[]= {653,24} ;
+tcWord Mode8_w0_800x480_param[]= {48+200,24+3} ;
+tcWord Mode8_w1_800x480_param[]= {452+200,24+3} ;
+tcWord Mode8_w2_800x480_param[]= {452+200,265+3} ;
+tcWord Mode9_w0_800x480_param[]= {452,24} ;
+tcWord Mode9_w1_800x480_param[]= {48,24} ;
+tcWord Mode9_w2_800x480_param[]= {48,265} ;
+tcWord Mode12_w0_800x480_param[]= {48+200,24+3} ;
+tcWord Mode12_w1_800x480_param[]= {452+200,24+3} ;
+tcWord Mode14_w0_800x480_param[]= {48,24} ;
+tcWord Mode14_w1_800x480_param[]= {318,24} ;
+tcWord Mode14_w2_800x480_param[]= {588,24} ;
+
+tcWord Mode10_w0_800x480_param[]= {48+350+48,24+3} ;
+tcWord Mode10_w1_800x480_param[]= {48+200,265+3} ;
+tcWord Mode10_w2_800x480_param[]= {452+200,265+3} ;
+
+tcWord Mode0S_800x480_param[]   = {48+324,24+200} ;
+
+tcWord Mode1S_w0_800x480_param[]= {48+125,24+75} ;
+tcWord Mode1S_w1_800x480_param[]= {452+125,24+75} ;
+tcWord Mode1S_w2_800x480_param[]= {48+125,265+75} ;
+tcWord Mode1S_w3_800x480_param[]= {452+125,265+75} ;
+
+tcWord Mode12S_w0_800x480_param[]= {48+125,24+75+100+24} ;
+tcWord Mode12S_w1_800x480_param[]= {452+125,24+75+100+24} ;
+
+tcWord Mode10S_w0_800x480_param[]= {48+324,24+75} ;
+tcWord Mode10S_w1_800x480_param[]= {48+125,265+75} ;
+tcWord Mode10S_w2_800x480_param[]= {452+125,265+75} ;
+
+
+tcWord Mode8S_w0_800x480_param[]= {48+125,24+75+100+24} ;
+tcWord Mode8S_w1_800x480_param[]= {452+125,24+75} ;
+tcWord Mode8S_w2_800x480_param[]= {452+125,265+75} ;
+
+
+
+tcByte aLineModeReg[] = {0xB8,0xBA,0xBB,0xBC,0xBD,0xBE ,0xB9} ;
+
+tcByte aLineMode1080PMode1Lin1[]= {0x01,0x04,0x25,0x5c,0x04,0x51 ,0x83} ;
+tcByte aLineMode1080PMode1Lin2[]= {0x02,0x08,0x94,0x13,0x82,0x41 ,0x83} ;
+tcByte aLineMode1080PMode2Lin1[]= {0x01,0x04,0x25,0x5C,0x02,0x72 ,0x83} ;
+tcByte aLineMode1080PMode2Lin2[]= {0x02,0x04,0x25,0x5C,0x06,0x32 ,0x83} ;
+tcByte aLineMode1080PMode2Lin3[]= {0x03,0x26,0x74,0x33,0x82,0x41 ,0x83} ;
+tcByte aLineMode1080PMode8Lin1[]= {0x01,0x04,0x25,0x5A,0x04,0x53 ,0x83} ;
+tcByte aLineMode1080PMode8Lin2[]= {0x02,0x48,0x53,0x14,0x82,0x40 ,0x83} ;
+tcByte aLineMode1080PMode9Lin1[]= {0x01,0x04,0x25,0x5A,0x04,0x53 ,0x83} ;
+tcByte aLineMode1080PMode9Lin2[]= {0x02,0x04,0x93,0x53,0x82,0x40 ,0x83} ;
+tcByte aLineMode1080PMode12Lin1[]= {0x01,0x04,0x25,0x5C,0x04,0x51 ,0x83} ;
+tcByte aLineMode1080PMode14Lin1[]= {0x01,0x04,0x25,0x5C,0x03,0x12 ,0x83} ;
+tcByte aLineMode1080PMode14Lin2[]= {0x02,0x04,0x25,0x5C,0x05,0x92 ,0x83} ;
+
+tcByte aLineMode720PMode1Lin1[]= {0x01,0x02,0x15,0xE4,0x03,0x5A ,0x83} ;
+tcByte aLineMode720PMode1Lin2[]= {0x02,0x05,0xDC,0xDB,0x81,0x7D ,0x83} ;
+tcByte aLineMode720PMode2Lin1[]= {0x01,0x02,0x15,0xE4,0x02,0x1A ,0x83} ;
+tcByte aLineMode720PMode2Lin2[]= {0x02,0x02,0x15,0xE4,0x04,0x9A ,0x83} ;
+tcByte aLineMode720PMode2Lin3[]= {0x03,0x24,0x1B,0x9B,0x81,0x7D ,0x83} ;
+tcByte aLineMode720PMode8Lin1[]= {0x01,0x02,0x14,0xE7,0x03,0x5A ,0x83} ;
+tcByte aLineMode720PMode8Lin2[]= {0x02,0x35,0x5A,0xDC,0x81,0x7E ,0x83} ;
+tcByte aLineMode720PMode9Lin1[]= {0x01,0x02,0x15,0xE6,0x03,0x5A ,0x83} ;
+tcByte aLineMode720PMode9Lin2[]= {0x02,0x03,0x94,0x5B,0x81,0x7E ,0x83} ;
+tcByte aLineMode720PMode12Lin1[]= {0x01,0x02,0x15,0xE4,0x03,0x5A ,0x83} ;
+tcByte aLineMode720PMode14Lin1[]= {0x01,0x02,0x16,0xE4,0x02,0x84 ,0x83} ;
+tcByte aLineMode720PMode14Lin2[]= {0x02,0x02,0x16,0xE4,0x04,0x2E ,0x83} ;
+
+
+tcByte aLineMode800x480Mode1Lin1[]=   {0x01,0x02,0x00,0xE4,0x01,0x97 ,0x81} ;
+tcByte aLineMode800x480Mode1Lin2[]=   {0x02,0x03,0x00,0x2A,0x81,0x05 ,0x81} ;
+
+tcByte aLineMode800x480Mode2Lin1[]=   {0x01,0x02,0x00,0xE4,0x00,0xCF ,0x81} ;
+tcByte aLineMode800x480Mode2Lin2[]=   {0x02,0x02,0xCF,0x62,0x81,0x05 ,0x81} ;
+tcByte aLineMode800x480Mode2Lin3[]=   {0x03,0x02,0x00,0xE4,0x02,0x61 ,0x81} ;
+
+tcByte aLineMode800x480Mode10Lin1[]=   {0x01,0x02|0x10,0x00+5,0x98,0x01,0x97,0x81} ;
+tcByte aLineMode800x480Mode10Lin2[]=   {0x02,/*0x13*/0x03,/*0x98*/0,0x20+5,0x81,0x05 ,0x81} ;
+
+tcByte aLineMode800x480Mode8Lin1[]=   {0x01,0x02,0x00,0xE4,0x01,0x97 ,0x81} ;
+tcByte aLineMode800x480Mode8Lin2[]=   {0x02,0x13,0x98,0x20+5,0x81,0x05 ,0x81} ;
+
+tcByte aLineMode800x480Mode9Lin1[]=   {0x01,0x02,0x00,0xE4,0x01,0x97 ,0x81} ;
+tcByte aLineMode800x480Mode9Lin2[]=   {0x02,0x01,0x00,0x97,0x81,0x05 ,0x81} ;
+
+tcByte aLineMode800x480Mode12Lin1[]=   {0x01,0x02,0x00,0xE4,0x01,0x97 ,0x81} ;
+
+tcByte aLineMode800x480Mode14Lin1[]=   {0x01,0x02,0x00,0xE4,0x01,0x11 ,0x81} ;
+tcByte aLineMode800x480Mode14Lin2[]=   {0x02,0x02,0x00,0xE4,0x02,0x1C ,0x81} ;
+
+tcByte aLineMode1080PMode6Lin1[]= {0x01,0x04,0x25,0x5C,0x05,0x90 ,0x83} ;
+tcByte aLineMode1080PMode6Lin2[]= {0x02,0x58,0x92,0x13,0x81,0x8C ,0x83} ;
+tcByte aLineMode1080PMode6Lin3[]= {0x03,0x58,0x92,0x13,0x82,0xF5 ,0x83} ;
+
+tcByte aLineMode720PMode6Lin1[]= {0x01,0x02,0x15,0xE4,0x04,0x2E ,0x83} ;
+tcByte aLineMode720PMode6Lin2[]= {0x02,0x45,0x30,0xDB,0x81,0x04 ,0x83} ;
+tcByte aLineMode720PMode6Lin3[]= {0x03,0x45,0x30,0xDB,0x81,0xF5 ,0x83} ;
+
+static void GetconvertBarStr(tByte in_mode);
+
+
+static void VX_Write_OSD_In_OutString(tByte ch , tByte *Str1,tByte *Str2, int out_mode)
+{
+    tiWord ix,iy,sx,sy ;
+    tByte TitleFlg ;
+    tByte BarFlg;
+
+//    tByte loop;
+    TitleFlg = (u8gDrawOSDFlg & 0x02 ) >> 1 ;
+    BarFlg   = u8gDrawOSDFlg & 0x01 ;
+
+    if (out_mode <= VS4210_1080P_MODE0_w3 )
+    {
+        if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+        {
+            ix = Mode0_1080P_param[0] ;
+            iy = Mode0_1080P_param[1] ;
+        }
+        else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+        {
+            ix = Mode0_720P_param[0] ;
+            iy = Mode0_720P_param[1] ;
+        }
+        else
+        {
+            ix = Mode0_800x480_param[0] ;
+            iy = Mode0_800x480_param[1] ;
+            sx = Mode0S_800x480_param[0] ;
+            sy = Mode0S_800x480_param[1] ;
+        }
+
+    }
+    else if (out_mode == VS4210_1080P_MODE1  )
+    {
+        if (ch == 0 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode1_w0_1080P_param[0] ;
+                iy = Mode1_w0_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode1_w0_720P_param[0] ;
+                iy = Mode1_w0_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode1_w0_800x480_param[0] ;
+                iy = Mode1_w0_800x480_param[1] ;
+		sx = Mode1S_w0_800x480_param[0] ;
+		sy = Mode1S_w0_800x480_param[1] ;
+            }
+        }
+        else if (ch == 1 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode1_w1_1080P_param[0] ;
+                iy = Mode1_w1_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode1_w1_720P_param[0] ;
+                iy = Mode1_w1_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode1_w1_800x480_param[0] ;
+                iy = Mode1_w1_800x480_param[1] ;
+		sx = Mode1S_w1_800x480_param[0] ;
+		sy = Mode1S_w1_800x480_param[1] ;				
+
+            }
+        }
+        else if (ch == 2 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode1_w2_1080P_param[0] ;
+                iy = Mode1_w2_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode1_w2_720P_param[0] ;
+                iy = Mode1_w2_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode1_w2_800x480_param[0] ;
+                iy = Mode1_w2_800x480_param[1] ;
+		sx = Mode1S_w2_800x480_param[0] ;
+		sy = Mode1S_w2_800x480_param[1] ;				
+            }
+        }
+        else //if (ch == 3 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode1_w3_1080P_param[0] ;
+                iy = Mode1_w3_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode1_w3_720P_param[0] ;
+                iy = Mode1_w3_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode1_w3_800x480_param[0] ;
+                iy = Mode1_w3_800x480_param[1] ;
+		sx = Mode1S_w3_800x480_param[0] ;
+		sy = Mode1S_w3_800x480_param[1] ;				
+				
+            }
+        }
+    }
+	#if 1
+	else if (out_mode == VS4210_1080P_MODE10 )
+	   {
+		   if (ch == 0 )
+		   {
+			   if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+			   {
+				   ix = Mode8_w0_1080P_param[0] ;
+				   iy = Mode8_w0_1080P_param[1] ;
+			   }
+			   else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+			   {
+				   ix = Mode8_w0_720P_param[0] ;
+				   iy = Mode8_w0_720P_param[1] ;
+			   }
+			   else
+			   {
+				   ix = Mode10_w0_800x480_param[0] ;
+				   iy = Mode10_w0_800x480_param[1] ;
+				   sx = Mode10S_w0_800x480_param[0] ;
+				   sy = Mode10S_w0_800x480_param[1] ;
+
+			   }
+		   }
+		   else if (ch == 1 )
+		   {
+			   if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+			   {
+				   ix = Mode8_w1_1080P_param[0] ;
+				   iy = Mode8_w1_1080P_param[1] ;
+			   }
+			   else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+			   {
+				   ix = Mode8_w1_720P_param[0] ;
+				   iy = Mode8_w1_720P_param[1] ;
+			   }
+			   else
+			   {
+				   ix = Mode10_w1_800x480_param[0] ;
+				   iy = Mode10_w1_800x480_param[1] ;
+				   sx = Mode10S_w1_800x480_param[0] ;
+				   sy = Mode10S_w1_800x480_param[1] ;
+			   }
+		   }
+		   else if (ch == 2 )
+		   {
+			   if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+			   {
+				   ix = Mode8_w2_1080P_param[0] ;
+				   iy = Mode8_w2_1080P_param[1] ;
+			   }
+			   else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+			   {
+				   ix = Mode8_w2_720P_param[0] ;
+				   iy = Mode8_w2_720P_param[1] ;
+			   }
+			   else
+			   {
+				   ix = Mode10_w2_800x480_param[0] ;
+				   iy = Mode10_w2_800x480_param[1] ;
+				   sx = Mode10S_w2_800x480_param[0] ;
+				   sy = Mode10S_w2_800x480_param[1] ;
+			   }
+		   }
+	   }
+
+	#else
+    else if (out_mode == VS4210_1080P_MODE2  )
+    {
+        if (ch == 0 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode2_w0_1080P_param[0] ;
+                iy = Mode2_w0_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode2_w0_720P_param[0] ;
+                iy = Mode2_w0_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode2_w0_800x480_param[0] ;
+                iy = Mode2_w0_800x480_param[1] ;
+            }
+        }
+        else if (ch == 1 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode2_w1_1080P_param[0] ;
+                iy = Mode2_w1_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode2_w1_720P_param[0] ;
+                iy = Mode2_w1_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode2_w1_800x480_param[0] ;
+                iy = Mode2_w1_800x480_param[1] ;
+            }
+        }
+        else if (ch == 2 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode2_w2_1080P_param[0] ;
+                iy = Mode2_w2_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode2_w2_720P_param[0] ;
+                iy = Mode2_w2_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode2_w2_800x480_param[0] ;
+                iy = Mode2_w2_800x480_param[1] ;
+            }
+        }
+        else //if (ch == 3 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode2_w3_1080P_param[0] ;
+                iy = Mode2_w3_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode2_w3_720P_param[0] ;
+                iy = Mode2_w3_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode2_w3_800x480_param[0] ;
+                iy = Mode2_w3_800x480_param[1] ;
+            }
+        }
+    }
+	#endif
+    else if (out_mode == VS4210_1080P_MODE8  )
+    {
+        if (ch == 0 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode8_w0_1080P_param[0] ;
+                iy = Mode8_w0_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode8_w0_720P_param[0] ;
+                iy = Mode8_w0_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode8_w0_800x480_param[0] ;
+                iy = Mode8_w0_800x480_param[1] ;
+                sx = Mode8S_w0_800x480_param[0] ;
+                sy = Mode8S_w0_800x480_param[1] ;
+            }
+        }
+        else if (ch == 1 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode8_w1_1080P_param[0] ;
+                iy = Mode8_w1_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode8_w1_720P_param[0] ;
+                iy = Mode8_w1_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode8_w1_800x480_param[0] ;
+                iy = Mode8_w1_800x480_param[1] ;
+               sx = Mode8S_w1_800x480_param[0] ;
+                sy = Mode8S_w1_800x480_param[1] ;				
+            }
+        }
+        else if (ch == 2 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode8_w2_1080P_param[0] ;
+                iy = Mode8_w2_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode8_w2_720P_param[0] ;
+                iy = Mode8_w2_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode8_w2_800x480_param[0] ;
+                iy = Mode8_w2_800x480_param[1] ;
+               sx = Mode8S_w2_800x480_param[0] ;
+                sy = Mode8S_w2_800x480_param[1] ;				
+            }
+        }
+    }
+    else if (out_mode == VS4210_1080P_MODE9  )
+    {
+        if (ch == 0 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode9_w0_1080P_param[0] ;
+                iy = Mode9_w0_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode9_w0_720P_param[0] ;
+                iy = Mode9_w0_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode9_w0_800x480_param[0] ;
+                iy = Mode9_w0_800x480_param[1] ;
+                sx = Mode9_w0_800x480_param[0] ;
+                sy = Mode9_w0_800x480_param[1] ;				
+            }
+        }
+        else if (ch == 1 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode9_w1_1080P_param[0] ;
+                iy = Mode9_w1_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode9_w1_720P_param[0] ;
+                iy = Mode9_w1_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode9_w1_800x480_param[0] ;
+                iy = Mode9_w1_800x480_param[1] ;
+               sx = Mode9_w1_800x480_param[0] ;
+                sy = Mode9_w1_800x480_param[1] ;						
+            }
+        }
+        else if (ch == 2 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode9_w2_1080P_param[0] ;
+                iy = Mode9_w2_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode9_w2_720P_param[0] ;
+                iy = Mode9_w2_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode9_w2_800x480_param[0] ;
+                iy = Mode9_w2_800x480_param[1] ;
+               sx = Mode9_w2_800x480_param[0] ;
+                sy = Mode9_w2_800x480_param[1] ;						
+            }
+        }
+    }
+    else if (out_mode == VS4210_1080P_MODE12 )
+    {
+        if (ch == 0 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode12_w0_1080P_param[0] ;
+                iy = Mode12_w0_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode12_w0_720P_param[0] ;
+                iy = Mode12_w0_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode12_w0_800x480_param[0] ;
+                iy = Mode12_w0_800x480_param[1] ;
+                sx = Mode12S_w0_800x480_param[0] ;
+                sy = Mode12S_w0_800x480_param[1] ;
+
+            }
+        }
+        else
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode12_w1_1080P_param[0] ;
+                iy = Mode12_w1_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode12_w1_720P_param[0] ;
+                iy = Mode12_w1_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode12_w1_800x480_param[0] ;
+                iy = Mode12_w1_800x480_param[1] ;
+                sx = Mode12S_w1_800x480_param[0] ;
+                sy = Mode12S_w1_800x480_param[1] ;
+				
+            }
+        }
+    }
+    else if (out_mode == VS4210_1080P_MODE14  )
+    {
+        if (ch == 0 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode14_w0_1080P_param[0] ;
+                iy = Mode14_w0_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode14_w0_720P_param[0] ;
+                iy = Mode14_w0_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode14_w0_800x480_param[0] ;
+                iy = Mode14_w0_800x480_param[1] ;
+            }
+        }
+        else if (ch == 1 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode14_w1_1080P_param[0] ;
+                iy = Mode14_w1_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode14_w1_720P_param[0] ;
+                iy = Mode14_w1_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode14_w1_800x480_param[0] ;
+                iy = Mode14_w1_800x480_param[1] ;
+            }
+        }
+        else if (ch == 2 )
+        {
+            if(gbVXIS_OuputSize == _OUTPUT_1080P60)
+            {
+                ix = Mode14_w2_1080P_param[0] ;
+                iy = Mode14_w2_1080P_param[1] ;
+            }
+            else if(gbVXIS_OuputSize == _OUTPUT_720P60)
+            {
+                ix = Mode14_w2_720P_param[0] ;
+                iy = Mode14_w2_720P_param[1] ;
+            }
+            else
+            {
+                ix = Mode14_w2_800x480_param[0] ;
+                iy = Mode14_w2_800x480_param[1] ;
+            }
+        }
+    }
+    else
+    {
+        ix = 224 ;
+        iy = 64 ;
+    }
+
+    if (ch == 0  )
+    {
+        if (TitleFlg == 1 )
+        {
+            SetOsdSize(_Title0,Str1[0],1);
+            SetOsdStartAddress(_Title0,0x00);
+            OsdDumpString(0x00,Str1);
+            OsdDumpAttribute(0x00,Str1,DEFAULT_COLOR);
+       //     	OsdDumpAttribute(0x00,Str1,BG_COLOR_Royal_Blue|CH_COLOR_RED);//test
+            SetOsdPosition(_Title0,ix,iy);
+        }
+
+	if(OSD_MIRROR[0]==_TRUE)
+		{
+		OsdDumpString(0+MIRROR_OSD_START,Str_OSD_MIRROR);
+	 	 OsdDumpAttribute(0+MIRROR_OSD_START,Str_OSD_MIRROR,CH_COLOR_YELLOW);
+		}
+	if(OSD_SPEAKER[0]==ON)
+		{
+		OsdDumpString(0+SPEAKER_OSD_START,Str_OSD_SPEAKER);
+	 	 OsdDumpAttribute(0+SPEAKER_OSD_START,Str_OSD_SPEAKER,CH_COLOR_GREEN);
+		}
+
+	ShowTRIGOSD();
+
+	if (BarFlg == 1)
+        {
+            SetOsdSize(_Bar0,Str2[0],1);
+            SetOsdStartAddress(_Bar0,24);
+            OsdDumpString(24,Str2);
+            OsdDumpAttribute(24,Str2,_Color);
+ //       	OsdDumpAttribute(24,Str2,BG_COLOR_BLACK|CH_COLOR_YELLOW);//test
+            SetOsdPosition(_Bar0,sx,sy + 20);
+        }
+
+    }
+    else if (ch == 1 )
+    {
+        if (TitleFlg == 1 )
+        {
+            SetOsdSize(_Title1,Str1[0],1);
+            SetOsdStartAddress(_Title1,6);
+            OsdDumpString(6,Str1);
+            OsdDumpAttribute(6,Str1,DEFAULT_COLOR);
+            SetOsdPosition(_Title1,ix,iy);
+        }
+
+	if(OSD_MIRROR[1]==_TRUE)
+		{
+		OsdDumpString(6+MIRROR_OSD_START,Str_OSD_MIRROR);
+	 	 OsdDumpAttribute(6+MIRROR_OSD_START,Str_OSD_MIRROR,CH_COLOR_YELLOW);
+		}
+	
+	if(OSD_SPEAKER[1]==ON)
+		{
+		OsdDumpString(6+SPEAKER_OSD_START,Str_OSD_SPEAKER);
+	 	 OsdDumpAttribute(6+SPEAKER_OSD_START,Str_OSD_SPEAKER,CH_COLOR_GREEN);
+		}
+
+		ShowTRIGOSD();
+
+        if (BarFlg == 1 )
+        {
+            SetOsdSize(_Bar1,Str2[0],1);
+            SetOsdStartAddress(_Bar1,34);
+            OsdDumpString(34,Str2);
+            OsdDumpAttribute(34,Str2,_Color);
+            SetOsdPosition(_Bar1,sx,sy + 20);
+        }
+    }
+    else if (ch == 2 )
+    {
+        if (TitleFlg == 1 )
+        {
+            SetOsdSize(_Title2,Str1[0],1);
+            SetOsdStartAddress(_Title1,12);
+            OsdDumpString(12,Str1);
+            OsdDumpAttribute(12,Str1,DEFAULT_COLOR);
+            SetOsdPosition(_Title2,ix,iy);
+        }
+
+		if(OSD_MIRROR[2]==_TRUE)
+			{
+			OsdDumpString(12+MIRROR_OSD_START,Str_OSD_MIRROR);
+			 OsdDumpAttribute(12+MIRROR_OSD_START,Str_OSD_MIRROR,CH_COLOR_YELLOW);
+			}
+		if(OSD_SPEAKER[2]==ON)
+			{
+			OsdDumpString(12+SPEAKER_OSD_START,Str_OSD_SPEAKER);
+			 OsdDumpAttribute(12+SPEAKER_OSD_START,Str_OSD_SPEAKER,CH_COLOR_GREEN);
+			}
+		ShowTRIGOSD();
+
+        if (BarFlg == 1 )
+        {
+            SetOsdSize(_Bar2,Str2[0],1);
+            SetOsdStartAddress(_Bar2,44);
+            OsdDumpString(44,Str2);
+            OsdDumpAttribute(44,Str2,_Color);
+            SetOsdPosition(_Bar2,sx,sy + 20);
+        }
+    }
+    else if (ch == 3 )
+    {
+        if (TitleFlg == 1 )
+        {
+            SetOsdSize(_Title3,Str1[0],1);
+            SetOsdStartAddress(_Title3,18);
+            OsdDumpString(18,Str1);
+            OsdDumpAttribute(18,Str1,DEFAULT_COLOR);
+            SetOsdPosition(_Title3,ix,iy);
+        }
+
+		if(OSD_MIRROR[3]==_TRUE)
+			{
+			OsdDumpString(18+MIRROR_OSD_START,Str_OSD_MIRROR);
+			 OsdDumpAttribute(18+MIRROR_OSD_START,Str_OSD_MIRROR,CH_COLOR_YELLOW);
+			}
+		
+		if(OSD_SPEAKER[3]==ON)
+			{
+			OsdDumpString(18+SPEAKER_OSD_START,Str_OSD_SPEAKER);
+			 OsdDumpAttribute(18+SPEAKER_OSD_START,Str_OSD_SPEAKER,CH_COLOR_GREEN);
+			}
+		
+		ShowTRIGOSD();
+
+        if (BarFlg == 1 )
+        {
+            SetOsdSize(_Bar3,Str2[0],1);
+            SetOsdStartAddress(_Bar3,54);
+            OsdDumpString(54,Str2);
+            OsdDumpAttribute(54,Str2,_Color);
+            SetOsdPosition(_Bar3,sx,sy + 20);
+        }
+		
+    }
+
+setTransParentIndex(8);
+
+    if (u8gDrawOSDFlg == 3 )
+    {
+ 	if((TriggerStatus==4)&&(TriggerFlag==REVERSE_T)&&(GetItemValue(GAUGEChoice)==_TRUE) &&(ReadEEP(EEP_RearMode)==0))
+		ShowGaugeOSD();
+	else
+		VXIS_fSetOsdOnOff(ch , _TitleOn | _BottomOn);	
+//         VXIS_fSetOsdOnOff(ch , _TitleOn | _BottomOn|_ContentOn|WINZOOMx2 );
+    }
+    else if (TitleFlg == 1 )
+    { 
+          VXIS_fSetOsdOnOff(ch , _TitleOn  );
+    }
+    else if (BarFlg == 1 )
+    { 
+        VXIS_fSetOsdOnOff(ch , _BottomOn  );
+    }
+    else
+    {
+        VXIS_fSetOsdOnOff(ch , _TurnoffAll   );
+    }
+
+	if(GetItemValue(CAMOSDONOFF)==_FALSE)
+	{
+	
+	MCUTimerCancelTimerEvent(_USER_TIMER_EVENT_DISPLAY_DISABLE);
+	MCUTimerActiveTimerEvent(SEC(2),_USER_TIMER_EVENT_DISPLAY_DISABLE);
+	}
+	
+
+//	if((TriggerStatus==4)&&((TriggerFlag&REVERSE_T)==REVERSE_T))
+/*
+	if((TriggerStatus==4)&&	(TriggerFlag&REVERSE_T==REVERSE_T))
+	{
+	ShowGaugeOSD();
+	}
+	*/
+
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+BYTE Mapping1( int fromValue, CODE_P struct RegisterInfo *fromRange,
+                                 int * toValue, CODE_P struct RegisterInfo *toRange ){
+
+	// calculate intermediate values
+	int a;
+	int b;
+
+	// perform mapping
+	if ( fromValue <= fromRange->Default ) {
+		a = toRange->Default - toRange->Min;
+		b = fromRange->Default - fromRange->Min;
+		// prevent divide by zero
+		if( b==0 )		return (FALSE);
+		*toValue = (int) ( (DWORD)fromValue- (DWORD)fromRange->Min ) * a / b 
+						+(DWORD)toRange->Min;
+	}
+	else {
+		a = toRange->Max - toRange->Default;
+		b = fromRange->Max - fromRange->Default;
+		// prevent divide by zero
+		if( b==0 )		return (FALSE);
+        *toValue = (int) ( (DWORD)fromValue - (DWORD)fromRange->Default ) * a / b
+                       + (DWORD)toRange->Default;
+	}
+
+	return ( TRUE );
+   
+}
+
+static void GetconvertBarStr(tByte in_mode)
+{
+	#if 1
+	 switch(in_mode)
+		{
+	//HDMI
+		case _OSD_720X480I60:
+			ptcOSDbar = &OSD_720x480I60_param[0] ; 
+			break ;
+		case _OSD_720X576I50:
+			ptcOSDbar = &OSD_720x576I50_param[0] ; 
+			break ;
+		case _OSD_720X480P60:
+			ptcOSDbar = &OSD_720x480P60_param[0] ; 
+			break ;
+		case _OSD_720X576P50:
+			ptcOSDbar = &OSD_720x576P50_param[0] ; 
+			break ;
+		case _OSD_1920X1080I:
+			ptcOSDbar = &OSD_1920x1080I_param[0] ; 
+			break;
+		case _OSD_1280X720P :
+			ptcOSDbar = &OSD_1280x720P_param[0] ; 
+			break;
+		case _OSD_1920X1080P:
+			ptcOSDbar = &OSD_1920x1080P_param[0] ; 
+			break;
+	//DVI
+		case _OSD_640X480P	:
+			ptcOSDbar = &OSD_640X480P_param[0] ; 
+			break;
+		case _OSD_800X600P	:
+			ptcOSDbar = &OSD_800X600P_param[0] ; 
+			break;
+		case _OSD_1024X768P :
+			ptcOSDbar = &OSD_1024X768P_param[0] ; 
+			break;
+		case _OSD_1280X768P :
+			ptcOSDbar = &OSD_720x480P60_param[0] ; 
+			break;
+		case _OSD_1360X768P :
+			ptcOSDbar = &OSD_1280X768P_param[0] ; 
+			break;
+		case _OSD_1366X768P :
+			ptcOSDbar = &OSD_1366X768P_param[0] ; 
+			break;
+		case _OSD_1280X800P :
+			ptcOSDbar = &OSD_1280X800P_param[0] ; 
+			break;
+		case _OSD_1440X900P :
+			ptcOSDbar = &OSD_1440X900P_param[0] ; 
+			break;
+		case _OSD_1280X1024P:
+			ptcOSDbar = &OSD_1280X1024P_param[0] ; 
+			break;
+		case _OSD_1400X1050P:
+			ptcOSDbar = &OSD_1400X1050P_param[0] ; 
+			break;
+		case _OSD_1680X1050P:
+			ptcOSDbar = &OSD_1680X1050P_param[0] ; 
+			break;
+		case _OSD_1600X1200P:
+			ptcOSDbar = &OSD_1600X1200P_param[0] ; 
+			break;
+		case _OSD_1920X1200P:
+			ptcOSDbar = &OSD_1920X1200P_param[0] ; 
+			break;
+		case _OSD_No_Signal :
+			ptcOSDbar = &OSD_No_Signal_param[0] ; 
+			break;
+	
+		default :
+			ptcOSDbar = &OSD_No_Signal_param[0] ; 
+			break;
+		}
+
+	#else
+    switch(in_mode)
+    {
+//HDMI
+    case _OSD_720X480I60:
+        ptcOSDbar = &OSD_720x480I60_param[0] ; 
+        break ;
+    case _OSD_720X576I50:
+        ptcOSDbar = &OSD_720x576I50_param[0] ; 
+        break ;
+    case _OSD_720X480P60:
+        ptcOSDbar = &OSD_720x480P60_param[0] ; 
+        break ;
+    case _OSD_720X576P50:
+        ptcOSDbar = &OSD_720x576P50_param[0] ; 
+        break ;
+    case _OSD_1920X1080I:
+        ptcOSDbar = &OSD_1920x1080I_param[0] ; 
+        break;
+    case _OSD_1280X720P :
+        ptcOSDbar = &OSD_1280x720P_param[0] ; 
+        break;
+    case _OSD_1920X1080P:
+        ptcOSDbar = &OSD_1920x1080P_param[0] ; 
+        break;
+    case _OSD_No_Signal :
+        ptcOSDbar = &OSD_No_Signal_param[0] ; 
+        break;
+
+    default :
+        ptcOSDbar = &OSD_No_Signal_param[0] ; 
+        break;
+    }    
+	#endif
+}
+
+void VXIS_fShowInOutMode0Fast( tByte ch ,  tByte in_mode,  tByte out_mode  )
+{
+    tcByte *ptr1 ;
+    tByte  OSD_CHx_param[7] ;
+    tByte  pu8aOSDbar[11] ; 
+    tByte  chFix ;
+
+    if (ch == 0 )
+    {
+        ptr1 = OSD_CH0_param ;
+    }
+    else if (ch == 1 )
+    {
+        ptr1 = OSD_CH1_param ;
+    }
+    else if (ch == 2 )
+    {
+        ptr1 = OSD_CH2_param ;
+    }
+    else
+    {
+        ptr1 = OSD_CH3_param ;
+    }
+
+    if (gu8AudioMode == ch )
+    {
+        memcpy(OSD_CHx_param , ptr1 , 6 ) ;        
+        OSD_CHx_param[6] =  0x6C ;
+    }
+    else
+    {
+        memcpy(OSD_CHx_param , ptr1 , 7 ) ;
+    }
+
+    chFix = 0  ;    
+    GetconvertBarStr(in_mode ) ;     
+    memcpy(pu8aOSDbar , ptcOSDbar , 11) ; 
+    VX_Write_OSD_In_OutString(chFix , OSD_CHx_param, pu8aOSDbar ,out_mode) ;
+
+}
+
+WORD GetItemValue( BYTE id)
+{
+	WORD val=0;
+
+	switch(id)
+		{
+		case VIDEO_CONTRAST:	
+			val=ReadEEP(EEP_CONTRAST);
+			break;
+	case VIDEO_BRIGHTNESS:	
+		val=ReadEEP(EEP_BRIGHTNESS);
+		break;
+	case VIDEO_SATURATION:	
+		val=ReadEEP(EEP_SATURATION_U);	
+		break;
+	case VIDEO_HUE:	
+		val=ReadEEP(EEP_HUE);	
+		break;
+	case VIDEO_SHARPNESS:		
+		val=ReadEEP(EEP_SHARPNESS);	
+		break;
+	case VIDEO_BACKLIGHT:
+				val=123;
+				break;
+case CAMOSDONOFF:	
+	val=ReadEEP(EEP_COSDMode); 
+			break;
+case DayChoice:	
+	val=ReadEEP(EEP_AutoMode); 	
+	break;
+case GAUGEChoice: 
+	val=ReadEEP(EEP_GAUGEMode);	
+	break;
+case OsdLockChoice: 
+	val=ReadEEP(EEP_ONOFFChoice); 
+	break;
+case PRIORITYChoice:
+	val=ReadEEP(EEP_PRIORITY); 
+	break;
+	case CAMAONOFF:
+		val=ReadEEP(EEP_CAMAMode); 
+		break;
+case CAMBONOFF:
+	val=ReadEEP(EEP_CAMBMode); 
+	break;
+	case CAMCONOFF:
+		val=ReadEEP(EEP_CAMCMode); 
+		break;
+	case CAMRONOFF:
+		val=ReadEEP(EEP_CAMRMode); 
+		break;
+	case IMAGE_A_Choice:
+		val=ReadEEP(EEP_IMAGE_A_Mode); 
+		break;
+	case IMAGE_B_Choice:
+		val=ReadEEP(EEP_IMAGE_B_Mode); 
+		break;
+	case IMAGE_C_Choice:
+		val=ReadEEP(EEP_IMAGE_C_Mode); 
+		break;
+	case REARChoice:
+		val=ReadEEP(EEP_RearMode); 
+		break;
+	case JUMPChoice:
+		val=ReadEEP(EEP_JUMPMode); 
+		break;
+	case STIME_STEP:
+		val=ReadEEP(EEP_TimeStep); 
+		break;
+	case DELAYCAMA:
+		val=ReadEEP(EEP_DELAYCAMA); 
+		break;
+	case DELAYCAMB:
+		val=ReadEEP(EEP_DELAYCAMB); 
+		break;
+	case DELAYCAMC:
+		val=ReadEEP(EEP_DELAYCAMC); 
+		break;
+	case DELAYCAMR:
+		val=ReadEEP(EEP_DELAYCAMR); 
+		break;
+	#if (RGBGAINOSD==ON)
+ 	case VIDEO_R_B_GAIN:		
+ 	case VIDEO_G_B_GAIN:
+	case VIDEO_B_B_GAIN:
+	case VIDEO_R_C_GAIN:
+	case VIDEO_G_C_GAIN:
+	case VIDEO_B_C_GAIN:
+   	val=VXISI2CRead(id);	
+
+	   	break;
+	#endif
+		}
+	
+return val;
+}
+
+BYTE SetOSDStep(BYTE id,BYTE newv) 
+{
+
+	int regv;
+	struct RegisterInfo ptr;
+
+switch(id)
+{  		case VIDEO_BRIGHTNESS:
+				ptr=BrightnessRange;
+			break;
+			case VIDEO_CONTRAST:	
+				ptr=ContrastRange;
+				break;
+		case VIDEO_SATURATION:	
+		ptr=SaturationRange;
+			break;
+		case VIDEO_HUE: 
+			ptr=HueRange;
+			break;	
+		case VIDEO_SHARPNESS:	
+			ptr=SharpnessRange;
+			break;
+}
+
+	Mapping1( newv, &UserRange , &regv, &ptr);
+
+//Printf("\r\nSETOSD id=%02x val=%02x",(WORD) id,(WORD) regv);
+	////從這裡寫入資料到暫存器
+//	WriteAD5110(AD5110_CMD_Write_Data_To_RDAC ,AD5110_setp[regv]);
+
+				return regv;
+}
+
+BYTE ChangeVideoData(BYTE id, BYTE flag)
+{
+	int newv, inc,reg;
+
+	inc = ( flag==UP  ? 1  :  -1  );
+
+	newv = OSDItemValue + inc;
+	if( newv< UserRange.Min || newv> UserRange.Max ) {
+		return OSDItemValue;
+	}
+
+	reg=SetOSDStep(id,newv);
+
+	switch(id)
+{  		case VIDEO_BRIGHTNESS:
+					VXISI2CWrite(VS4210_BRIGHTNESS,reg);
+			break;
+			case VIDEO_CONTRAST:	
+				VXISI2CWrite(VS4210_CONTRAST,reg);
+				break;
+		case VIDEO_SATURATION:	
+		VXISI2CWrite(VS4210_SATURATION,reg);
+			break;
+		case VIDEO_HUE: 
+			VXISI2CWrite(VS4210_HUE,((VXISI2CRead(VS4210_HUE)&0xC0)| reg));
+			break;	
+		case VIDEO_SHARPNESS:	
+			VXISI2CWrite(VS4210_SHARPNESS, reg);
+			break;
+}	
+
+	OSDItemValue = newv;
+	return newv;
+	
+}
+void LoadVideoData(void)
+{
+	BYTE reg;
+reg=SetOSDStep(VIDEO_BRIGHTNESS,GetItemValue(VIDEO_BRIGHTNESS));
+VXISI2CWrite(VS4210_BRIGHTNESS,reg);
+
+reg=SetOSDStep(VIDEO_SATURATION,GetItemValue(VIDEO_SATURATION));
+VXISI2CWrite(VS4210_SATURATION,reg);
+
+reg=SetOSDStep(VIDEO_CONTRAST,GetItemValue(VIDEO_CONTRAST));
+VXISI2CWrite(VS4210_CONTRAST,reg);
+
+reg=SetOSDStep(VIDEO_HUE,GetItemValue(VIDEO_HUE));
+VXISI2CWrite(VS4210_HUE,((VXISI2CRead(VS4210_HUE)&0xC0)| reg));
+
+
+reg=SetOSDStep(VIDEO_SHARPNESS,GetItemValue(VIDEO_SHARPNESS));
+VXISI2CWrite( 0x4B, 0xA0 ); ///enable sharpness
+VXISI2CWrite(VS4210_SHARPNESS,reg);
+/*
+gpio_i2c_write(TVI_I2C, TVI_BRIGHTNESS,0);
+gpio_i2c_write(TVI_I2C, TVI_CONTRAST,64);
+gpio_i2c_write(TVI_I2C, TVI_SATURATION,50);
+gpio_i2c_write(TVI_I2C, TVI_HUE,0);
+gpio_i2c_write(TVI_I2C,TVI_SHARPNESS,0);
+*/
+}
+	BYTE CloseOSDMenu(void)
+{
+BYTE x;
+	Printf("\r\nCloseOSD");
+
+	VXIS_fSetOsdOnOff(0 , _TitleOn | _BottomOn);
+	//VXIS_fSetOsdOnOff(1 , _TitleOn | _BottomOn);
+	//VXIS_fSetOsdOnOff(2 , _TitleOn | _BottomOn);
+	//VXIS_fSetOsdOnOff(3 , _TitleOn | _BottomOn);
+	ClearDisplayedOSD(MENU|TVVOL|_GAUGE_OSD);
+
+
+	for(x=0;x<8;x++)
+			{	
+			 OsdDumpString(MENU_START+(x*MENU_WIDTH),&Str_Menu_Clr);
+			 OsdDumpAttribute(MENU_START+(x*MENU_WIDTH),&Str_Menu_Clr,DEFAULT_COLOR);
+			}
+
+	SHOWOSDINFO();
+
+//if(GetItemValue(CAMOSDONOFF)==_FALSE)
+//{	
+	MCUTimerCancelTimerEvent(_USER_TIMER_EVENT_DISPLAY_DISABLE);
+	MCUTimerActiveTimerEvent(SEC(2),_USER_TIMER_EVENT_DISPLAY_DISABLE);
+//}
+	SetNowMode();
+
+	if((NowModeState==JumpMode)&&(TriggerFlag==0))
+				 ShowJUMPOSD();
+
+	return 0;
+
+}
+BYTE CloseOSDINFO(void)
+{
+
+	Printf("\r\nCloseOSDINFO");
+
+/*
+VS4210_1080P_MODE0_w0 = 0x00,
+VS4210_1080P_MODE0_w1 = 0x01,
+VS4210_1080P_MODE0_w2 = 0x02,
+VS4210_1080P_MODE0_w3 = 0x03,
+VS4210_1080P_MODE1	  = 0x10,
+ VS4210_1080P_MODE2    = 0x20,
+VS4210_1080P_MODE10    = 0x25,
+  VS4210_1080P_MODE8	= 0x30,
+VS4210_1080P_MODE9	  = 0x40,
+VS4210_1080P_MODE12   = 0x50,
+VS4210_1080P_MODE14   = 0x60,
+VS4210_1080P_MODE_NUMBER=0x90,*/
+
+switch(gbVXIS_OuputModeflg)
+{
+case VS4210_1080P_MODE0_w0:
+case VS4210_1080P_MODE0_w1:
+case VS4210_1080P_MODE0_w2:
+case VS4210_1080P_MODE0_w3:
+	if( GetDisplayedOSD() & (MENU|TVVOL))
+	{
+		VXIS_fSetOsdOnOff(0 , _ContentOn|_BottomOn);
+	
+	}
+	else
+	{
+		VXIS_fSetOsdOnOff(0 , _BottomOn);
+	}	
+	break;
+
+case VS4210_1080P_MODE1:
+if(	GetDisplayedOSD() & (MENU|TVVOL))
+{
+	VXIS_fSetOsdOnOff(0 , _ContentOn|_BottomOn);
+	VXIS_fSetOsdOnOff(1 , _ContentOn|_BottomOn);
+	VXIS_fSetOsdOnOff(2 , _ContentOn|_BottomOn);
+	VXIS_fSetOsdOnOff(3 , _ContentOn|_BottomOn);
+
+}
+else
+{
+	VXIS_fSetOsdOnOff(0 , _BottomOn);
+	VXIS_fSetOsdOnOff(1 , _BottomOn);
+	VXIS_fSetOsdOnOff(2 , _BottomOn);
+	VXIS_fSetOsdOnOff(3 , _BottomOn);
+}		
+break;
+case VS4210_1080P_MODE12:
+		if( GetDisplayedOSD() & (MENU|TVVOL))
+	{
+		VXIS_fSetOsdOnOff(0 , _ContentOn|_BottomOn);
+		VXIS_fSetOsdOnOff(1 , _ContentOn|_BottomOn);
+	//	VXIS_fSetOsdOnOff(2 , _ContentOn|_BottomOn);
+	//	VXIS_fSetOsdOnOff(3 , _ContentOn|_BottomOn);
+	
+	}
+	else
+	{
+		VXIS_fSetOsdOnOff(0 , _BottomOn);
+		VXIS_fSetOsdOnOff(1 , _BottomOn);
+	//	VXIS_fSetOsdOnOff(2 , _BottomOn);
+	//	VXIS_fSetOsdOnOff(3 , _BottomOn);
+	}	
+
+	break;
+
+case VS4210_1080P_MODE10:
+	case VS4210_1080P_MODE8:
+	if(	GetDisplayedOSD() & (MENU|TVVOL))
+{
+	VXIS_fSetOsdOnOff(0 , _ContentOn|_BottomOn);
+	VXIS_fSetOsdOnOff(1 , _ContentOn|_BottomOn);
+	VXIS_fSetOsdOnOff(2 , _ContentOn|_BottomOn);
+//	VXIS_fSetOsdOnOff(3 , _ContentOn|_BottomOn);
+
+}
+else
+{
+	VXIS_fSetOsdOnOff(0 , _BottomOn);
+	VXIS_fSetOsdOnOff(1 , _BottomOn);
+	VXIS_fSetOsdOnOff(2 , _BottomOn);
+//	VXIS_fSetOsdOnOff(3 , _BottomOn);
+}	
+break;
+
+
+}
+/*
+if(	GetDisplayedOSD() & (MENU|TVVOL))
+{
+	VXIS_fSetOsdOnOff(0 , _ContentOn|_BottomOn);
+	VXIS_fSetOsdOnOff(1 , _ContentOn|_BottomOn);
+	VXIS_fSetOsdOnOff(2 , _ContentOn|_BottomOn);
+	VXIS_fSetOsdOnOff(3 , _ContentOn|_BottomOn);
+
+}
+else
+{
+	VXIS_fSetOsdOnOff(0 , _BottomOn);
+	VXIS_fSetOsdOnOff(1 , _BottomOn);
+	VXIS_fSetOsdOnOff(2 , _BottomOn);
+	VXIS_fSetOsdOnOff(3 , _BottomOn);
+}	
+*/
+	return 0;
+
+}
+
+BYTE SHOWOSDINFO(void)
+{
+	Printf("\r\SHOWOSDINFO=%02x",(WORD)gbVXIS_OuputModeflg);
+/*
+VS4210_1080P_MODE0_w0 = 0x00,
+VS4210_1080P_MODE0_w1 = 0x01,
+VS4210_1080P_MODE0_w2 = 0x02,
+VS4210_1080P_MODE0_w3 = 0x03,
+VS4210_1080P_MODE1	  = 0x10,
+ VS4210_1080P_MODE2    = 0x20,
+VS4210_1080P_MODE10    = 0x25,
+  VS4210_1080P_MODE8	= 0x30,
+VS4210_1080P_MODE9	  = 0x40,
+VS4210_1080P_MODE12   = 0x50,
+VS4210_1080P_MODE14   = 0x60,
+VS4210_1080P_MODE_NUMBER=0x90,*/
+
+switch(gbVXIS_OuputModeflg)
+{
+case VS4210_1080P_MODE0_w0:
+case VS4210_1080P_MODE0_w1:
+case VS4210_1080P_MODE0_w2:
+case VS4210_1080P_MODE0_w3:
+	VXIS_fSetOsdOnOff(0 , _BottomOn|_TitleOn);
+	break;
+
+case VS4210_1080P_MODE1:
+
+	VXIS_fSetOsdOnOff(0 , _BottomOn|_TitleOn);
+	VXIS_fSetOsdOnOff(1 , _BottomOn|_TitleOn);
+	VXIS_fSetOsdOnOff(2 , _BottomOn|_TitleOn);
+	VXIS_fSetOsdOnOff(3 , _BottomOn|_TitleOn);
+	SET_CROSS_LINE(ON);
+break;
+case VS4210_1080P_MODE12:
+	
+		VXIS_fSetOsdOnOff(0 , _BottomOn|_TitleOn);
+		VXIS_fSetOsdOnOff(1 , _BottomOn|_TitleOn);
+		SET_CROSS_LINE(ON);	
+
+	break;
+
+case VS4210_1080P_MODE10:
+case VS4210_1080P_MODE8:
+	VXIS_fSetOsdOnOff(0 , _BottomOn|_TitleOn);
+	VXIS_fSetOsdOnOff(1 , _BottomOn|_TitleOn);
+	VXIS_fSetOsdOnOff(2 , _BottomOn|_TitleOn);
+	SET_CROSS_LINE(ON);
+break;
+
+
+
+}
+/*
+if(	GetDisplayedOSD() & (MENU|TVVOL))
+{
+	VXIS_fSetOsdOnOff(0 , _ContentOn|_BottomOn);
+	VXIS_fSetOsdOnOff(1 , _ContentOn|_BottomOn);
+	VXIS_fSetOsdOnOff(2 , _ContentOn|_BottomOn);
+	VXIS_fSetOsdOnOff(3 , _ContentOn|_BottomOn);
+
+}
+else
+{
+	VXIS_fSetOsdOnOff(0 , _BottomOn);
+	VXIS_fSetOsdOnOff(1 , _BottomOn);
+	VXIS_fSetOsdOnOff(2 , _BottomOn);
+	VXIS_fSetOsdOnOff(3 , _BottomOn);
+}	
+*/
+	return 0;
+
+}
+
+#define VOLBAR_LENGTH 16//+3//ryan@21070919
+
+void DisplayVolumebar(BYTE val)
+{
+	#if 1
+	int regv;
+
+#if 1
+BYTE DEC_Number[10]={_0,_1,_2,_3,_4,_5,_6,_7,_8,_9};
+BYTE Str_Number[]={4,_spc,_spc,_spc,_spc};
+BYTE i,temp;
+BYTE Bar_str2[VOLBAR_LENGTH]={ 14,_bar9, _bar9,_bar9, _bar9, _bar9,
+						   _bar9, _bar9,_bar9, _bar9, _bar9,
+						   _bar9, _bar9,_bar9, _bar9 }; 
+
+BYTE Bar_str[14]={ _bar9, _bar9,_bar9, _bar9, _bar9,
+				   _bar9, _bar9,_bar9, _bar9, _bar9,
+				   _bar9, _bar9,_bar9, _bar9 }; 
+
+BYTE BAR_ROM_TABLE[] = {
+	_bar1,
+	_bar2,
+	_bar3,
+	_bar4,
+	_bar5,
+	_bar6,
+	_bar7,
+	_bar8, 
+	_bar9 
+};
+
+
+	Mapping1( val, &UserRange , &regv, &AudioVolBarRange);
+
+//Printf("\r\nAudioVolBarRange val=%d  regv=%d",(WORD) val,(WORD) regv);
+	////從這裡寫入資料到暫存器
+
+/*
+BYTE BAR_ROM_TABLE[] = {
+	_bar1, // ...
+	_bar3,
+	_bar4, // |..
+	_bar5,
+	_bar6,
+	_bar7, // ||.
+	_bar8, // |
+	_bar9 // |||
+};
+*/
+/*
+BYTE BAR_ROM_TABLE[] = {
+	_bar1, // ...
+	0x02,0x02, // |..
+	0x05,0x05,0x04, // ||.
+	0x03, // |
+	0x04, // |||
+};
+*/
+
+//if(val <100)
+	if(regv <126)
+{
+	#if 1
+
+	/*
+		if(val<6)
+	   {
+		for(i = 1; i < (16); i++)
+		   {
+			Bar_str2[i] = _bar1;
+		   }
+	   }
+		else
+	   {
+	*/
+//		Bar_str2[((val/6-1))] = BAR_ROM_TABLE[val%(6)];
+	
+			
+		for(i = (regv/(9)); i < (16-1); i++)
+		{
+			Bar_str[i] = _bar1;
+		   }
+		
+		Bar_str[((regv/9))] = BAR_ROM_TABLE[regv%(9)];
+	/*	
+		if((val>95)&&(val<100))
+			Bar_str2[14]= _bar8;
+		if((val>1)&&(val<13))
+			Bar_str2[1]= _bar2;
+*/
+		//if((val>49)&&(val<54))
+		//	Bar_str2[7]= _bar9;			
+	//	 }
+	
+	}
+
+	for(i=1;i<15;i++)
+	Bar_str2[i]=Bar_str[i-1] ;
+
+	#else
+/*
+	if(val<6)
+   {
+	for(i = 1; i < (16); i++)
+	   {
+		Bar_str2[i] = _bar1;
+	   }
+   }
+	else
+   {
+*/
+	Bar_str2[((val/6-1))] = BAR_ROM_TABLE[val%(6)];
+   		
+	for(i = ((val/(6))); i < (16-1); i++)
+	{
+		Bar_str2[i] = _bar1;
+	   }
+//   }
+
+}
+
+Bar_str2[0] =14;
+ #endif
+#else
+	 BYTE DEC_Number[10]={_0,_1,_2,_3,_4,_5,_6,_7,_8,_9};
+	 BYTE Str_Number[]={3,_spc,_spc,_spc};
+	 BYTE i,temp;
+	 BYTE Bar_str2[VOLBAR_LENGTH]={ 15,_bar9, _bar9,_bar9, _bar9, _bar9,
+	 							_bar9, _bar9,_bar9, _bar9, _bar9,
+	 							_bar9, _bar9,_bar9, _bar9, _bar9}; 
+	 BYTE BAR_ROM_TABLE[] = {
+		 _bar1, // ...
+		 _bar3,_bar4, // |..
+		 _bar5,_bar6,_bar7, // ||.
+		 _bar8, // |
+		 _bar9 // |||
+	 };
+	 
+	 /*
+	 BYTE BAR_ROM_TABLE[] = {
+		 _bar1, // ...
+		 0x02,0x02, // |..
+		 0x05,0x05,0x04, // ||.
+		 0x03, // |
+		 0x04, // |||
+	 };
+	 */
+	 
+	 if(val <100)
+	 {
+		 if(val<6)
+	 	{
+		 for(i = 1; i < (16); i++)
+		 	{
+			 Bar_str2[i] = _bar1;
+		 	}
+	 	}
+		 else
+		{
+	 
+			 Bar_str2[val/6] = BAR_ROM_TABLE[val%6];
+		
+		 for(i = val/6; i < (16); i++)
+		 	{
+			 Bar_str2[i] = _bar1;
+		 	}
+	 	}
+	 
+	 }
+#endif
+	
+	// if( val==99 )
+	//	 Bar_str2[16] = _bar7; // ||.
+	 
+	 
+	// if( Bar_str2[0] == 0x01 )
+	//	 Bar_str2[0] = 0x02;  // |..
+	 /*
+	 // Number
+	 Bar_str[20] = val % 10 + '0';	  val /= 10;
+	 Bar_str[19] =	val % 10 + '0';    val /= 10;
+	 Bar_str[18] = val + '0';
+	 
+	 if( Bar_str[18] == '0' )
+		 Bar_str[18] = ' ';
+	 
+	 addr = OSDMENU_BARADDR  + VOLBAR_LENGTH;
+*/
+	 #else
+	 BYTE BAR_ROM_TABLE[] = {
+		0x01, // ...
+		0x02,0x02, // |..
+		0x05,0x05,0x04, // ||.
+		0x03, // |
+		0x04, // |||
+	};
+	
+	BYTE i;
+	BYTE Bar_str[VOLBAR_LENGTH]={   0x04, 0x04,
+							   0x04, 0x04, 0x04, 0x04, 0x04,
+							   0x04, 0x04, 0x04, 0x04, 0x04,
+							   0x04, 0x04, 0x04, 0x04, 0x04, 0x03,' ',' ',' ' };
+
+	WORD addr;
+
+	if(val <100)
+	{
+		Bar_str[val/6] = BAR_ROM_TABLE[val%6];
+		for(i = val/6+1; i < 17; i++)
+			Bar_str[i] = BAR_ROM_TABLE[0];
+	}
+	else
+		{
+
+		}
+#endif
+
+//	if( val==99 )
+//		Bar_str[16] = 0x05; // ||.
+
+
+	//if( Bar_str[0] == 0x01 )
+		//Bar_str[0] = 0x02;	// |..
+
+	// Number
+//    Bar_str[20] = val % 10 + '0';    val /= 10;
+  //  Bar_str[19] =  val % 10 + '0';    val /= 10;
+  //  Bar_str[18] = val + '0';
+
+//	if( Bar_str[18] == '0' )
+//	ar_str[18] = ' ';
+
+//	addr = OSDMENU_BARADDR  + VOLBAR_LENGTH;
+		//val=GetItemValue();
+		if(val/100)
+			{
+			Str_Number[1]=DEC_Number[(val/100)];
+			val=val%100;
+			Str_Number[2]=DEC_Number[(val/10)];
+			val=val%10; 		
+			Str_Number[3]=DEC_Number[(val)];			
+			}
+		else if(val/10)
+			{
+			Str_Number[2]=DEC_Number[(val/10)];
+			val=val%10; 		
+			Str_Number[3]=DEC_Number[(val)];			
+			}
+		else
+			Str_Number[3]=DEC_Number[(val)];			
+		OsdDumpString(OSDMENU_MAINADDR+(1*MENU_WIDTH)+1,Bar_str2);	
+	OsdDumpString(OSDMENU_MAINADDR+(1*MENU_WIDTH)+17-1,Str_Number);	
+
+	
+}
+
+void DisplayVol(void)
+{
+	BYTE CODE *Str ;
+	BYTE len;
+	BYTE x;
+/*
+	#ifdef Hs_debug
+	Printf("\r\n++(DisplayVol)");
+	#endif
+
+	WriteDecoder(0xff, 0x01);
+	Wait_ms(5);
+	//	WriteDecoder(0x82, 0x0c);
+	WriteDecoder(0x82, 0x01);
+	Wait_ms(5);
+	WriteDecoder(0xff, 0x00);
+	*/
+
+	if(( DisplayedOSD & TVVOL ) == 0 ) 
+	{
+	//Printf("\r\nDisplay Volume bar");
+
+	VXIS_fSetOsdOnOff(0 ,0);
+	VXIS_fSetOsdOnOff(1 ,0);	
+	VXIS_fSetOsdOnOff(2 ,0);	
+	VXIS_fSetOsdOnOff(3 ,0);
+
+	 SetOsdSize(_Content,MENU_WIDTH,2);
+	 SetOsdStartAddress(_Content,MENU_START);
+//	 SetOsdPosition(_Content,48,24+40);
+	 SetOsdPosition(_Content,MENU_OSD_X_ADDR,MENU_OSD_Y_ADDR+250);
+
+	 OsdDumpString(MENU_START+(0*MENU_WIDTH),Str_VolumeTXT);
+	 OsdDumpAttribute(MENU_START+(0*MENU_WIDTH),Str_VolumeTXT,DEFAULT_COLOR);
+
+	OsdDumpString(MENU_START+(1*MENU_WIDTH),Str_VolumeBAR);
+	OsdDumpAttribute(MENU_START+(1*MENU_WIDTH),Str_VolumeBAR,DEFAULT_COLOR);
+
+	/*
+		ClearOSDInfo();
+		#ifdef REFERENCE
+		Change_OSDColorLookup();
+		#endif
+		delay(10);
+
+		InitOSDWindow(Init_Osd_BarWindow);
+
+		ClearDataCnt(OSDMENU_BARADDR, 50); // Total 25*2 Char.
+		DrawAttrCnt(OSDMENU_BARADDR, BG_COLOR_CYAN | CH_COLOR_WHITE, 25 );	 
+		#ifdef TW8816
+		DrawAttrCnt(OSDMENU_BARADDR+21, BG_COLOR_WHITE | CH_COLOR_CYAN, 25 );
+		#else
+		DrawAttrCnt(OSDMENU_BARADDR+25, BG_COLOR_WHITE | CH_COLOR_CYAN, 25 );
+		#endif
+#ifdef E_Wintek
+		Str = StrVolume2[GetOSDLang()];
+#else
+		Str = StrVolume[GetOSDLang()];
+#endif
+		len=CStrlen(Str);
+		WriteStringToAddr(OSDMENU_BARADDR, Str, len);  
+
+		ShowOSDWindow(OSDBARWINDOW,TRUE);
+		ShowOSDWindow(DVRStatus_OSDWIN,FALSE);
+		ShowOSDWindowAll(1);
+		*/
+		 // VXISI2CWrite(0x58,0x94);
+	}
+	//if((NowModeState==SelectMode&&SelectModeType==VGAMode)||(NowModeState==JumpMode&&((ReadEEP(EEP_JUMPMode)==14)||SelectModeType==VGAMode)))		//william-v1.1-20110114
+	//if(VGAAudio)
+	//	DisplayVolumebar(PCAudioVol);
+	//else	
+
+
+	//AudioVol=GetAudioVolEE();
+
+	DisplayVolumebar(AudioVol);
+
+	WriteEEP( EEP_AUDIOPVOL, AudioVol );
+
+	SetDisplayedOSD( TVVOL);
+
+	//VXIS_fSetOsdOnOff(0 , _BottomOn|_ContentOn );
+
+VXIS_fSetOsdOnOff(0 ,_ContentOn|WINZOOMx2);
+VXIS_fSetOsdOnOff(1 ,_ContentOn|WINZOOMx2);	
+VXIS_fSetOsdOnOff(2 ,_ContentOn|WINZOOMx2);	
+VXIS_fSetOsdOnOff(3 ,_ContentOn|WINZOOMx2);	
+SET_CROSS_LINE(OFF);
+
+MCUTimerCancelTimerEvent(_USER_TIMER_EVENT_OSD_DISABLE);
+MCUTimerActiveTimerEvent(SEC(3),_USER_TIMER_EVENT_OSD_DISABLE);	
+//	OSDDisplayedTime = GetTime_ms();
+}
+
+void ShowOSDLOCK(void)
+{
+//	BYTE CODE *Str ;
+//	BYTE len;
+//	BYTE x;
+	if(GetItemValue(OsdLockChoice)==_TRUE ) 
+	{
+
+	 SetOsdSize(_Content,MENU_WIDTH,1);
+	 SetOsdStartAddress(_Content,MENU_START);
+	SetOsdPosition(_Content,MENU_OSD_X_ADDR+190,MENU_OSD_Y_ADDR+250);
+	//SetOsdPosition(_Content,48,24+40);
+
+	 OsdDumpString(MENU_START+(0*MENU_WIDTH),Str_OSD_LOCK2);
+	 OsdDumpAttribute(MENU_START+(0*MENU_WIDTH),Str_OSD_LOCK2,OSDLOCK_COLOR);
+
+
+	}
+	else
+		{
+		SetOsdSize(_Content,MENU_WIDTH,1);
+		SetOsdStartAddress(_Content,MENU_START);
+		SetOsdPosition(_Content,MENU_OSD_X_ADDR+170,MENU_OSD_Y_ADDR+250);
+		//SetOsdPosition(_Content,48,24+40);
+		
+		OsdDumpString(MENU_START+(0*MENU_WIDTH),Str_OSD_UNLOCK);
+		OsdDumpAttribute(MENU_START+(0*MENU_WIDTH),Str_OSD_UNLOCK,DEFAULT_COLOR);
+
+
+	}
+
+	ClearDisplayedOSD(MENU|TVVOL);
+
+	/*	
+if(GetItemValue(CAMOSDONOFF)==_FALSE)
+VXIS_fSetOsdOnOff(0 ,_ContentOn|_BottomOn);
+else
+VXIS_fSetOsdOnOff(0 ,_ContentOn |_TitleOn|_BottomOn);
+*/
+
+VXIS_fSetOsdOnOff(0 ,_ContentOn|WINZOOMx2);
+VXIS_fSetOsdOnOff(1 ,_ContentOn|WINZOOMx2);	
+VXIS_fSetOsdOnOff(2 ,_ContentOn|WINZOOMx2);	
+VXIS_fSetOsdOnOff(3 ,_ContentOn|WINZOOMx2);	
+SET_CROSS_LINE(OFF);
+
+
+MCUTimerCancelTimerEvent(_USER_TIMER_EVENT_OSD_DISABLE);
+MCUTimerActiveTimerEvent(SEC(2),_USER_TIMER_EVENT_OSD_DISABLE); 
+
+
+//	OSDDisplayedTime = GetTime_ms();
+}
+
+void ShowGaugeOSD(void)
+{
+	//BYTE CODE *Str ;
+	//BYTE len;
+	BYTE x;
+	if((GetItemValue(GAUGEChoice)==_TRUE) &&(ReadEEP(EEP_RearMode)==0)) 
+	{
+
+	 SetOsdSize(_Content,MENU_WIDTH,MENU_HEIGHT);
+	 SetOsdStartAddress(_Content,MENU_START);
+	 SetOsdPosition(_Content,48+48+20+16,24+40);
+
+			 for(x=0;x<8;x++)
+			 {	 
+//			  OsdDumpString(MENU_START+(x*MENU_WIDTH),&Str_Menu_Clr[x][0]);
+//			  OsdDumpAttribute(MENU_START+(x*MENU_WIDTH),&Str_Menu_Clr[x][0],DEFAULT_COLOR);
+			  OsdDumpString(MENU_START+(x*MENU_WIDTH),&Str_Menu_Clr);
+			  OsdDumpAttribute(MENU_START+(x*MENU_WIDTH),&Str_Menu_Clr,DEFAULT_COLOR);
+
+			 }
+	
+		 OsdDumpString(MENU_START+(0*MENU_WIDTH),Str_GAUGE_OSD[0]);
+		 OsdDumpAttribute(MENU_START+(0*MENU_WIDTH),Str_GAUGE_OSD[0],DEFAULT_COLOR);
+		 OsdDumpString(MENU_START+(1*MENU_WIDTH),Str_GAUGE_OSD[1]);
+		 OsdDumpAttribute(MENU_START+(1*MENU_WIDTH),Str_GAUGE_OSD[1],DEFAULT_COLOR);
+
+		OsdDumpString(MENU_START+(2*MENU_WIDTH),Str_GAUGE_OSD[2]);
+		OsdDumpAttribute(MENU_START+(2*MENU_WIDTH),Str_GAUGE_OSD[2],CH_COLOR_YELLOW);
+		OsdDumpString(MENU_START+(3*MENU_WIDTH),Str_GAUGE_OSD[3]);
+		OsdDumpAttribute(MENU_START+(3*MENU_WIDTH),Str_GAUGE_OSD[3],CH_COLOR_YELLOW);
+		OsdDumpString(MENU_START+(4*MENU_WIDTH),Str_GAUGE_OSD[4]);
+		OsdDumpAttribute(MENU_START+(4*MENU_WIDTH),Str_GAUGE_OSD[4],CH_COLOR_YELLOW);
+
+		OsdDumpString(MENU_START+(5*MENU_WIDTH),Str_GAUGE_OSD[5]);
+		OsdDumpAttribute(MENU_START+(5*MENU_WIDTH),Str_GAUGE_OSD[5],CH_COLOR_RED);
+		OsdDumpString(MENU_START+(6*MENU_WIDTH),Str_GAUGE_OSD[6]);
+		OsdDumpAttribute(MENU_START+(6*MENU_WIDTH),Str_GAUGE_OSD[6],CH_COLOR_RED);
+		OsdDumpString(MENU_START+(7*MENU_WIDTH),Str_GAUGE_OSD[7]);
+		OsdDumpAttribute(MENU_START+(7*MENU_WIDTH),Str_GAUGE_OSD[7],CH_COLOR_RED);
+/*
+	    SetOsdSize(_Title3,OSD_CH3_CLR[0],1);
+            SetOsdStartAddress(_Title3,18);
+            OsdDumpString(18,OSD_CH3_CLR);
+            OsdDumpAttribute(18,OSD_CH3_CLR,DEFAULT_COLOR);
+            SetOsdPosition(_Title3,Mode0_800x480_param[0],Mode0_800x480_param[1]);
+*/
+	//  VXIS_fSetOsdOnOff(3 , 0  );
+	  
+		ClearDisplayedOSD(MENU|TVVOL);
+		SetDisplayedOSD(_GAUGE_OSD);
+	
+			
+	//if(GetItemValue(CAMOSDONOFF)==_FALSE)
+	//VXIS_fSetOsdOnOff(0 ,_ContentOn|_BottomOn);
+	//else
+//	VXIS_fSetOsdOnOff(0 ,_ContentOn |WINZOOMx2);
+	VXIS_fSetOsdOnOff(0 ,_ContentOn |_TitleOn|_BottomOn|WINZOOMx2);
+	
+
+	}
+
+}
+void ShowJUMPOSD(void)
+{
+
+//	BYTE CODE *Str ;
+//	BYTE len;
+	BYTE x;
+	//if((GetDisplayedOSD()&_JUMP_OSD)==0 ) 
+	{
+	Printf("\r\n(*ShowJUMPOSD)");
+	
+	 SetOsdSize(_Content,JUMP_WIDTH,JUMP_HEIGHT);
+	 SetOsdStartAddress(_Content,MENU_START);
+	 SetOsdPosition(_Content,48,24+3);
+
+			/*
+			 for(x=0;x<8;x++)
+			 {	 
+			  //OsdDumpString(MENU_START+(x*MENU_WIDTH),&Str_Menu_Clr[x][0]);
+			  //OsdDumpAttribute(MENU_START+(x*MENU_WIDTH),&Str_Menu_Clr[x][0],DEFAULT_COLOR);
+			  OsdDumpString(MENU_START+(x*MENU_WIDTH),&Str_Menu_Clr);
+			  OsdDumpAttribute(MENU_START+(x*MENU_WIDTH),&Str_Menu_Clr,DEFAULT_COLOR);
+			 }
+			 */
+			if(SEQFlag==_TRUE)
+			{
+			OsdDumpString(MENU_START,Str_OSD_SEQ);
+			OsdDumpAttribute(MENU_START,Str_OSD_SEQ,DEFAULT_COLOR);
+			}
+			else
+			{
+			 OsdDumpString(MENU_START,Str_OSD_JUMP);
+			 OsdDumpAttribute(MENU_START,Str_OSD_JUMP,DEFAULT_COLOR);
+			}
+		
+		ClearDisplayedOSD(MENU|TVVOL);
+			
+	if(GetItemValue(CAMOSDONOFF)==_FALSE)
+	VXIS_fSetOsdOnOff(0 ,_ContentOn|_BottomOn);
+	else
+//	VXIS_fSetOsdOnOff(0 ,_ContentOn |_TitleOn|_BottomOn|WINZOOMx2);
+	VXIS_fSetOsdOnOff(0 ,_ContentOn |_TitleOn|_BottomOn);
+
+	}
+
+SetDisplayedOSD(_JUMP_OSD);
+
+
+}
+
+void ShowTRIGOSD(void)
+{
+	if(TriggerFlag!=0)
+			{
+				if(TriggerStatus==1)
+					{
+				OsdDumpString(TRIGGER_OSD_START,Str_OSD_TRI_LEFT);
+				 OsdDumpAttribute(TRIGGER_OSD_START,Str_OSD_TRI_LEFT,CH_COLOR_RED);
+					}
+				else if(TriggerStatus==2)
+					{
+					OsdDumpString(TRIGGER_OSD_START,Str_OSD_TRI_RIGHT);
+					 OsdDumpAttribute(TRIGGER_OSD_START,Str_OSD_TRI_RIGHT,CH_COLOR_RED);
+					}
+				else if(TriggerStatus==3)
+					{
+					OsdDumpString(TRIGGER_OSD_START,Str_OSD_TRI_CAMC);
+					 OsdDumpAttribute(TRIGGER_OSD_START,Str_OSD_TRI_CAMC,CH_COLOR_RED);
+					}
+				else if(TriggerStatus==4)
+					{
+					OsdDumpString(TRIGGER_OSD_START,Str_OSD_TRI_CAMR);
+					 OsdDumpAttribute(TRIGGER_OSD_START,Str_OSD_TRI_CAMR,CH_COLOR_RED);
+					}
+	
+			}	
+	else
+		{
+		
+			OsdDumpString(TRIGGER_OSD_START,Str_OSD_TRI_CLR);
+			 OsdDumpAttribute(TRIGGER_OSD_START,Str_OSD_TRI_CLR,CH_COLOR_RED);
+
+
+		}
+
+}
+BYTE DoAction(BYTE id)
+{
+BYTE ret=1;
+
+Printf("\r\nDoAction=%02x",(WORD)id);
+
+switch(id)
+{
+	case RESET_VIDEOVALUE:
+		CloseOSDMenu();
+		ResetOSDValue();
+		break;
+}
+return ret;
+
+}
+
+void VS4210_ResetCamMirror(tByte ch )
+{
+  
+   switch(CURRENT_CH)
+  {
+	  case VS4210_LOOP_MODE0_w0: 
+	  	  if(ch==CH1)
+			PreVXIS_OuputSize=_OUTPUT_NUMBER;	  		
+		  break;
+	  case VS4210_LOOP_MODE0_w1: 
+	  	  if(ch==CH2)
+			PreVXIS_OuputSize=_OUTPUT_NUMBER;	  		
+		  break;
+	  case VS4210_LOOP_MODE0_w2: 
+	  	  if(ch==CH3)
+	   		PreVXIS_OuputSize=_OUTPUT_NUMBER;	  		
+		  break;
+	  case VS4210_LOOP_MODE0_w3: 
+	  	  if(ch==CH4)
+			PreVXIS_OuputSize=_OUTPUT_NUMBER;	  		
+			  break;
+	  case VS4210_LOOP_MODE12_12: 
+	  case VS4210_LOOP_MODE12_21:		  
+	  	  if((ch==CH1)||(ch==CH2))
+			PreVXIS_OuputSize=_OUTPUT_NUMBER;	  		
+		  break;
+	  case VS4210_LOOP_MODE12_14:
+		  if((ch==CH1)||(ch==CH4))
+			  PreVXIS_OuputSize=_OUTPUT_NUMBER;		  
+		  break;
+  case VS4210_LOOP_MODE10_123:
+  case VS4210_LOOP_MODE8:	  
+  case VS4210_LOOP_MODE8_123:
+  case VS4210_LOOP_MODE8_213:
+  case VS4210_LOOP_MODE8_312:
+  case VS4210_LOOP_MODE9:	  
+	  if((ch==CH1)||(ch==CH2)||(ch==CH3))
+		  PreVXIS_OuputSize=_OUTPUT_NUMBER;		  
+	  break;
+
+  case VS4210_LOOP_MODE12_23:
+  case VS4210_LOOP_MODE12_32:
+	  if((ch==CH2)||(ch==CH3))
+		  PreVXIS_OuputSize=_OUTPUT_NUMBER;		  
+				  break;
+  case VS4210_LOOP_MODE12_34:
+  case VS4210_LOOP_MODE12_43:
+	  if((ch==CH4)||(ch==CH3))
+		  PreVXIS_OuputSize=_OUTPUT_NUMBER;		  
+			  break;
+  case VS4210_LOOP_MODE12_31:
+  case VS4210_LOOP_MODE12_13: 
+	  if((ch==CH1)||(ch==CH3))
+		  PreVXIS_OuputSize=_OUTPUT_NUMBER;		  
+				  break;
+  case VS4210_LOOP_MODE1:
+  case VS4210_LOOP_MODE2:
+		  PreVXIS_OuputSize=_OUTPUT_NUMBER;		  
+	  break;
+  case VS4210_LOOP_MODE12_42:
+  case VS4210_LOOP_MODE12_24:
+	  if((ch==CH4)||(ch==CH2))
+		  PreVXIS_OuputSize=_OUTPUT_NUMBER;		  
+	  break;
+  case VS4210_LOOP_MODE8_412: 
+  case VS4210_LOOP_MODE8_124:
+  case VS4210_LOOP_MODE8_214: 
+  case VS4210_LOOP_MODE10_412:
+	  if((ch==CH4)||(ch==CH1)||(ch==CH2))
+		  PreVXIS_OuputSize=_OUTPUT_NUMBER;		  
+	  break;
+  case VS4210_LOOP_MODE8_134:
+  case VS4210_LOOP_MODE8_314:
+  case VS4210_LOOP_MODE10_413:
+  case VS4210_LOOP_MODE8_413: 
+	  if((ch==CH1)||(ch==CH3)||(ch==CH4))
+		  PreVXIS_OuputSize=_OUTPUT_NUMBER;		  
+	  break;
+  case VS4210_LOOP_MODE8_234:
+  case VS4210_LOOP_MODE8_324: 
+  case VS4210_LOOP_MODE10_423:
+  case VS4210_LOOP_MODE8_423:		  
+	  if((ch==CH2)||(ch==CH3)||(ch==CH4))
+		  PreVXIS_OuputSize=_OUTPUT_NUMBER;		  
+			  break;
+  default:
+	  break;
+  }
+
+
+}
+
+WORD SetItemValue( BYTE id, BYTE flag )
+{
+
+WORD val=0;
+
+	
+		switch(id)
+			{
+			case VIDEO_CONTRAST:	
+				val=ReadEEP(EEP_CONTRAST);
+				OSDItemValue=val;
+				val=ChangeVideoData(VIDEO_CONTRAST,flag);
+				WriteEEP(EEP_CONTRAST,val); 
+				break;
+		case VIDEO_BRIGHTNESS:	
+			val=ReadEEP(EEP_BRIGHTNESS);
+			OSDItemValue=val;
+			val=ChangeVideoData(VIDEO_BRIGHTNESS,flag);
+			    WriteEEP(EEP_BRIGHTNESS,val);   
+			break;
+		case VIDEO_SATURATION:	
+			val=ReadEEP(EEP_SATURATION_U);	
+				OSDItemValue=val;
+				val=ChangeVideoData(VIDEO_SATURATION,flag);	
+				   WriteEEP(EEP_SATURATION_U,val);   
+			break;
+		case VIDEO_HUE: 
+			val=ReadEEP(EEP_HUE);	
+			OSDItemValue=val;
+			val=ChangeVideoData(VIDEO_HUE,flag);
+			    WriteEEP(EEP_HUE,val);   			
+			break;
+		case VIDEO_SHARPNESS:		
+			val=ReadEEP(EEP_SHARPNESS); 
+			OSDItemValue=val;
+			val=ChangeVideoData(VIDEO_SHARPNESS,flag);
+			    WriteEEP(EEP_SHARPNESS,val); 			
+			break;
+		case VIDEO_BACKLIGHT:
+					val=123;
+					break;
+	case CAMOSDONOFF:	
+		val=ReadEEP(EEP_COSDMode); 
+		 if(flag==UP)                                                        
+              val = (!val ? 1 : 0);                                             
+         else                                              
+              val = (val ? 0 : 1);                                              
+         WriteEEP(EEP_COSDMode,val);   
+
+		Disp_Input=val;
+//	if(val==0) SetNowMode();//ryan@20170922
+				break;
+	case DayChoice: 
+		val=ReadEEP(EEP_AutoMode);	
+
+			 if (flag == UP)
+			  val = (!val ? 1 : 0);
+		  else 
+			  val = (val ? 0 : 1);
+		  
+			DayNightLevel = val;
+		WriteEEP( EEP_AutoMode,val);
+		
+		break;
+	case GAUGEChoice: 
+		val=ReadEEP(EEP_GAUGEMode); 
+
+	    if(flag==UP)                                  
+           val = (!val ? 1 : 0);                                             
+         else                                                                
+           val = (val ? 0 : 1);                                              
+         WriteEEP(EEP_GAUGEMode,val);  
+		break;
+	case OsdLockChoice: 
+		val=ReadEEP(EEP_ONOFFChoice); 
+
+		if(flag==UP)                                  
+            val = (!val ? 1 : 0);                                             
+         else                                                                
+            val = (val ? 0 : 1);                                              
+         WriteEEP(EEP_ONOFFChoice,val);   
+		 
+		 OSD_LOCKF=val;		
+		break;
+	case PRIORITYChoice:
+		val=ReadEEP(EEP_PRIORITY); 
+
+		if(flag==UP)								  
+			val = (!val ? 1 : 0); 											
+		else																
+			val = (val ? 0 : 1);	
+		
+			Priority= val;
+		
+		if(Priority==ON)  
+		{		
+			WriteEEP( EEP_JUMPMode,0);	
+			//WriteEEP(EEP_ONOFFChoice,OFF);     // OSD  lock....... on   
+			// OSD_LOCKF=OFF;
+
+		}
+		else
+		{	
+	
+		WriteEEP(EEP_JUMPMode,13); 
+
+		if(SelectModeType>CAM_R)
+		{
+			SelectModeType=CAM_A;
+			SetNowMode();
+			WriteEEP(EEP_SelectMode,SelectModeType);
+		}
+
+		WriteEEP(EEP_ONOFFChoice,ON); 	// OSD	lock....... off 	   
+		OSD_LOCKF=ON;
+
+		}
+
+		WriteEEP(EEP_PRIORITY,val);				
+		break;
+		case CAMAONOFF:
+			val=ReadEEP(EEP_CAMAMode); 
+			if(flag==UP)														 
+			   val = (!val ? 1 : 0);											 
+			 else											
+			   val = (val ? 0 : 1); 	
+
+			if(CAMA_M!=val)
+			 VS4210_ResetCamMirror(CH1);
+	
+		CAMA_M=val;	 
+		 WriteEEP(EEP_CAMAMode,val);   		  
+
+			break;
+	case CAMBONOFF:
+		val=ReadEEP(EEP_CAMBMode); 
+		   if(flag==UP) 														
+			  val = (!val ? 1 : 0); 											
+			else										   
+			  val = (val ? 0 : 1);	   
+
+					if(CAMB_M!=val)
+			VS4210_ResetCamMirror(CH2);
+					
+		   CAMB_M=val;	
+		WriteEEP(EEP_CAMBMode,val);   
+			
+			
+		break;
+		case CAMCONOFF:
+			val=ReadEEP(EEP_CAMCMode); 
+			   if(flag==UP) 														
+				  val = (!val ? 1 : 0); 											
+				else										   
+				  val = (val ? 0 : 1);	   
+
+			if(CAMC_M!=val)
+				  VS4210_ResetCamMirror(CH3);
+
+			   CAMC_M=val;	
+			WriteEEP(EEP_CAMCMode,val);   			   
+			
+		
+			break;
+		case CAMRONOFF:
+			val=ReadEEP(EEP_CAMRMode); 
+			   if(flag==UP) 														
+				  val = (!val ? 1 : 0); 											
+				else										   
+				  val = (val ? 0 : 1);	   
+
+					if(CAMR_M!=val)
+				VS4210_ResetCamMirror(CH4);
+					
+			   CAMR_M=val;	
+			WriteEEP(EEP_CAMRMode,val);   		   
+			
+			break;
+		case IMAGE_A_Choice:
+			val=ReadEEP(EEP_IMAGE_A_Mode); 
+			if(flag==UP)
+			{
+			   if(val<6) val+=1;
+			   else val=0;
+			}			 
+			else 
+			{
+			   if(val>0) val-=1;
+			   else val=6;
+			}
+			WriteEEP(EEP_IMAGE_A_Mode,val);   			
+			break;
+		case IMAGE_B_Choice:
+			val=ReadEEP(EEP_IMAGE_B_Mode); 
+		         if(flag==UP)
+		           {
+		              if(val<6) val+=1;
+		              else val=0;
+		           }            
+		           else 
+		           {
+		              if(val>0) val-=1;
+		              else val=6;
+		           }
+           		WriteEEP(EEP_IMAGE_B_Mode,val);   			
+			break;
+		case IMAGE_C_Choice:
+			val=ReadEEP(EEP_IMAGE_C_Mode); 
+		  if(flag==UP)
+		  {
+			 if(val<6) val+=1;
+			 else val=0;
+		  } 		   
+		  else 
+		  {
+			 if(val>0) val-=1;
+			 else val=6;
+		  }
+		  WriteEEP(EEP_IMAGE_C_Mode,val);	 			
+			break;
+		case REARChoice:
+			val=ReadEEP(EEP_RearMode); 
+	 if(flag==UP)
+        {			
+            if(val<9)
+		val+=1;
+            else
+		val=0;
+        }            
+        else 
+        {
+            if(val>0)
+		val-=1;
+            else
+		val=9;
+         }
+	    WriteEEP(EEP_RearMode,val);  			
+			break;
+			
+		case JUMPChoice:
+			val=ReadEEP(EEP_JUMPMode); 
+		if(flag==UP)
+		{
+		   if(val<13) 
+		   val+=1;
+		   else val=0;
+		}			
+		else 
+		{
+		   if(val>0) 
+		   	val-=1;
+		   else val=13;  
+		}	
+
+		WriteEEP( EEP_JUMPMode,val);  			
+/*
+		if(val==0x01 && NowModeState==JumpMode)//if JUMP mode=SEQ
+		{
+			SEQIndex=0;
+			//TW2835Cmd("\n\rmode 2\n\r");//set 
+			SEQMode();
+			SEQFlag=1;
+			SEQTime=0;
+		}
+		else if(NowModeState==JumpMode)///ryan@20170921
+			{
+			SetJumpMode();
+			SEQFlag=0;//clear SEQ mode
+			}	
+		*/
+			break;
+		case STIME_STEP:
+			val=ReadEEP(EEP_TimeStep); 
+	  if(flag==UP)
+          {
+                	   if(val<100) val+=1;
+				  else val=2;
+          }           
+          else 
+          {
+		                 if(val>2) val-=1;
+				  else val=100;
+          }     
+		  
+          WriteEEP(EEP_TimeStep,val); 
+		  TimeStep=val;  			
+			break;
+		case DELAYCAMA:
+			val=ReadEEP(EEP_DELAYCAMA); 
+	  if(flag==UP)
+		{
+		 if(val<3) val+=1;
+		   else val=0;
+		}			
+		else 
+		{
+		 if(val>0) val-=1;
+		   else val=3;
+		}	
+	WriteEEP(EEP_DELAYCAMA,val); 
+	
+			break;
+		case DELAYCAMB:
+			val=ReadEEP(EEP_DELAYCAMB); 
+			  if(flag==UP)
+				{
+				 if(val<3) val+=1;
+				   else val=0;
+				}			
+				else 
+				{
+				 if(val>0) val-=1;
+				   else val=3;
+				}	
+			WriteEEP(EEP_DELAYCAMB,val); 
+			
+			break;
+		case DELAYCAMC:
+			val=ReadEEP(EEP_DELAYCAMC); 
+			  if(flag==UP)
+				{
+				 if(val<3) val+=1;
+				   else val=0;
+				}			
+				else 
+				{
+				 if(val>0) val-=1;
+				   else val=3;
+				}	
+			WriteEEP(EEP_DELAYCAMC,val); 
+			
+			break;
+		case DELAYCAMR:
+			val=ReadEEP(EEP_DELAYCAMR); 
+			  if(flag==UP)
+				{
+				 if(val<3) val+=1;
+				   else val=0;
+				}			
+				else 
+				{
+				 if(val>0) val-=1;
+				   else val=3;
+				}	
+			WriteEEP(EEP_DELAYCAMR,val); 
+			
+			break;
+	 #if (RGBGAINOSD==ON)	
+       	case VIDEO_R_B_GAIN:	
+ 	case VIDEO_G_B_GAIN:
+	case VIDEO_B_B_GAIN:
+	case VIDEO_R_C_GAIN:
+	case VIDEO_G_C_GAIN:
+	case VIDEO_B_C_GAIN:
+		val=VXISI2CRead(id);				
+		if(flag==UP)
+			{
+				 if(val==255) 
+				val=0;
+				  else 
+				val++;
+			}
+		else	
+			{
+				 if(val==0) 
+				val=255;
+			  	else 
+				val --;
+			}
+		
+   		VXISI2CWrite( id, val );
+	   	break;
+		#endif
+			}
+	
+	return val;
+
+}
+
+
+void DisplayOSDMenuOneItem( struct DefineMenu *DMp, BYTE x, BYTE y, BYTE NOTViewflag )
+{
+BYTE DEC_Number[10]={_0,_1,_2,_3,_4,_5,_6,_7,_8,_9};
+BYTE Str_Number[]={3,_spc,_spc,_spc};
+BYTE Str_action[]={1,_action};
+
+BYTE val;
+//BYTE *ptr;
+
+	
+
+	switch (DMp[y].Type ) {
+	case BAR:	// Draw Bar and Number value
+	   		
+		break;
+
+	case NUMBER: // Draw Number value
+Printf("(NUM)");	
+			val=GetItemValue(DMp[y].Id);
+			if(val/100)
+				{
+				Str_Number[1]=DEC_Number[(val/100)];
+				val=val%100;
+				Str_Number[2]=DEC_Number[(val/10)];
+				val=val%10;			
+				Str_Number[3]=DEC_Number[(val)];			
+				}
+			else if(val/10)
+				{
+				Str_Number[2]=DEC_Number[(val/10)];
+				val=val%10;			
+				Str_Number[3]=DEC_Number[(val)];			
+				}
+			else
+				Str_Number[3]=DEC_Number[(val)];			
+			
+		OsdDumpString(OSDMENU_MAINADDR+(y*MENU_WIDTH)+17,Str_Number);	
+	//	OsdDumpAttribute(OSDMENU_MAINADDR+(y*MENU_WIDTH)+17,str_test,CH_COLOR_GREEN);
+
+		break;
+		
+	case INFORMATION: // Draw Number value
+		
+		
+		break;
+		
+	case ENUM_STRING:		
+Printf("(ENUM_STR)");	
+			val=GetItemValue(DMp[y].Id);	
+			//if(DMp[y].Id==CAMOSDONOFF)
+			//	ptr=ONOFFChoiceString;
+//			OsdDumpString(OSDMENU_MAINADDR+(y*MENU_WIDTH)+17,&ONOFFChoiceString[2+(val*4)]);	
+			OsdDumpString(OSDMENU_MAINADDR+(y*MENU_WIDTH)+(MENU_WIDTH-(DMp[y].TypeData[1])+1),&DMp[y].TypeData[2+(val*(DMp[y].TypeData[1]))]);	
+		break;
+	case	ACTION:
+	case OSDMENU:
+		OsdDumpString(OSDMENU_MAINADDR+(y*MENU_WIDTH)+19,Str_action);
+		break;
+
+	case NUMBER_STRING:
+	case CHOICEMENU:
+	
+		//Printf("(other)");
+		
+//		 WriteStringToAddr(addr, RightSign_str, BARNUM_LENGTH); 
+		 break;
+
+			
+	case TEXT_STR:  // V1.1 02/28/07 simonsung
+	case EXIT:
+	 //    WriteStringToAddr(addr, SpaceStr, BARNUM_LENGTH); 
+		 break;
+
+
+	}
+	
+}
+
+
+void DrawMenulist(BYTE NOTViewflag)
+{
+
+	tByte x,y;
+	//struct DefineMenu *MDpr=Title_Menu[0];
+	//BYTE *ptr;
+
+	//MenuChild=Title_Menu[0].Child;
+	
+	 SetOsdSize(_Content,MENU_WIDTH,MENU_HEIGHT);
+	 SetOsdStartAddress(_Content,OSDMENU_MAINADDR);
+	SetOsdPosition(_Content,MENU_OSD_X_ADDR,MENU_OSD_Y_ADDR);
+	//SetOsdPosition(_Content,48,24+40);
+/*
+	for(loop=0;loop<8;loop++)
+		{	
+		 OsdDumpString(64+(loop*20),&MENU1[loop][0]);
+		 OsdDumpAttribute(64+(loop*20),&MENU1[loop][0],CH_COLOR_GREEN);
+		}
+	*/
+	for(x=0;x<8;x++)
+		{	
+//		 OsdDumpString(OSDMENU_MAINADDR+(x*MENU_WIDTH),&Str_Menu_Clr[x][0]);
+//		 OsdDumpAttribute(OSDMENU_MAINADDR+(x*MENU_WIDTH),&Str_Menu_Clr[x][0],DEFAULT_COLOR);
+
+		OsdDumpString(OSDMENU_MAINADDR+(x*MENU_WIDTH),&Str_Menu_Clr);
+		OsdDumpAttribute(OSDMENU_MAINADDR+(x*MENU_WIDTH),&Str_Menu_Clr,DEFAULT_COLOR);
+		}
+	//show osd main menu	
+	
+	for(y=0;y<MenuChild[0].MenuNum;y++)
+			{
+			//ptr = DMp->TypeData;
+			//ptr=Title_Menu[x]->Str_E;
+			 OsdDumpString(OSDMENU_MAINADDR+(y*MENU_WIDTH),MenuChild[y].Str_E);
+			 OsdDumpAttribute(OSDMENU_MAINADDR+(y*MENU_WIDTH),MenuChild[y].Str_E,DEFAULT_COLOR);
+
+			 DisplayOSDMenuOneItem(MenuChild,0,y,0);
+			}
+
+	OsdDumpAttribute(OSDMENU_MAINADDR,Str_Menu_Cursor,CURSOR_COLOR);
+	/*
+	if(GetItemValue(CAMOSDONOFF)==_FALSE)
+	VXIS_fSetOsdOnOff(0 ,_ContentOn|_BottomOn);
+	else
+	VXIS_fSetOsdOnOff(0 ,_ContentOn |_TitleOn|_BottomOn);
+*/
+//	OSDMenuLevel=1;
+//	title_item=0;
+//	cursor_item=0;
+	
+//	SetDisplayedOSD( MENU);
+
+
+
+}
+#if 0
+void ClearCursor(void)
+{
+	//BYTE cursor_x;
+	BYTE cursor_y;
+	WORD addr;
+/*
+	if( cursor_item==NIL )
+		return;
+
+	//cursor_x = MenuFormat->CursorStart;
+	cursor_y = cursor_item + ( MenuFormat->TitleColor ==NIL ? 0 : 1 );
+	if( cur_osdwin == 4 ) addr = 0;
+	else addr = 14; //weylis -@121008 modify
+	//else addr = 10;
+	addr += cursor_y*MenuFormat->width;
+	DrawAttrCnt(addr, DEFAULT_COLOR, MenuFormat->width );
+#ifdef HS_NEWOSDMENU_2
+  // DrawAttrCnt(addr+46, DEFAULT_COLOR, (MenuFormat->width) );	//Weylis -@121008
+#endif  
+*/
+}
+
+void DisplayCursor(void)
+{
+	BYTE cursor_y=0,i ;
+	WORD addr;
+//#ifdef HS_NEWOSDMENU  //weylis -@121008
+//	CODE_P BYTE 	*Str;
+//#endif
+//	if( cursor_item==NIL )
+//		return;
+
+//    for(i=0;i<8;i++)  //william-20091026
+    for(i=0;i<(MENU_HEIGHT+1);i++)  //ryan@20170825
+    {
+     // cursor_y = i ;
+     // addr = OSDMENU_SUBADDR;  
+     // addr += cursor_y*MenuFormat->width; 
+    //  DrawAttrCnt(addr, DEFAULT_COLOR, MenuFormat->width );  // 清除殘留小方格 
+      	 OsdDumpString(64+(i*20),&Str_Menu_Clr[i][0]);
+	 OsdDumpAttribute(64+(i*20),&Str_Menu_Clr[i][0],CH_COLOR_GREEN);
+    }
+/*
+	cursor_y = cursor_item + ( MenuFormat->TitleColor ==NIL ? 0 : 1 );
+#ifdef HS_NEWOSDMENU_2
+	if( OSDMenuLevel == 1 ) addr = OSDMENU_MAINADDR+HS_CHSPACE;
+	//if( OSDMenuLevel == 1 ) addr = OSDMENU_MAINADDR;
+	else addr = OSDMENU_SUBADDR+HS_CHSPACE;
+#else
+	if( OSDMenuLevel == 1 ) addr = OSDMENU_MAINADDR;
+	else addr = OSDMENU_SUBADDR;
+#endif
+*/
+	addr = OSDMENU_SUBADDR;
+
+	//addr += cursor_y*MenuFormat->width;
+
+	if( OSDMenuLevel == 1)
+		//DrawAttrCnt(addr, MenuFormat->CursorColor, MenuFormat->width );	
+	else
+	{
+		if(OnChangingValue)
+		{
+			GetItemValue(GetItemValue(MenuChild[cursor_item].Id));
+			//DrawAttrCnt(addr, MenuFormat->CursorColor, MenuFormat->width );	
+		}
+		else
+		{
+			//DrawAttrCnt(addr, MenuFormat->CursorColor, MenuFormat->width-BARNUM_LENGTH );	
+			//DrawAttrCnt(addr+MAX_DESC, DEFAULT_COLOR, BARNUM_LENGTH );	
+		}
+	}
+
+}
+#endif
+//void DisplayOSDMenu(void)
+//{
+
+//}
+
+void SET_CROSS_LINE(BYTE sel)
+{
+
+		if(sel==ON)
+		{
+		
+			switch(gbVXIS_OuputModeflg)
+			{
+			case VS4210_1080P_MODE0_w0:
+			case VS4210_1080P_MODE0_w1:
+			case VS4210_1080P_MODE0_w2:
+			case VS4210_1080P_MODE0_w3:
+				break;
+			
+			case VS4210_1080P_MODE1:
+			case VS4210_1080P_MODE10:
+			case VS4210_1080P_MODE8:
+				#if 0
+/*
+				VXISI2CWrite(0xB8,0x01);
+				VXISI2CWrite(0xB9,0x80);
+				VXISI2CWrite(0xB9,0x81);
+				
+				VXISI2CWrite(0xB8,0x02);
+				VXISI2CWrite(0xB9,0x80);			
+				VXISI2CWrite(0xB9,0x81);
+				*/
+				//VXISI2CWrite(0xB8,0x02);
+				//VXISI2CWrite(0xB9,0x81);
+				//VXISI2CWrite(0xB9,0x81);
+
+				#else
+				/*
+				VXISI2CWrite(0xB8,0x01);
+				VXISI2CWrite(0xB9,0x81);
+				VXISI2CWrite(0xB8,0x02);
+				VXISI2CWrite(0xB9,0x81);
+				*/
+				VS4210_Line_Draw(gbVXIS_OuputModeflg);
+				#endif
+
+			break;
+			case VS4210_1080P_MODE12:
+				/*
+				VXISI2CWrite(0xB8,0x01);
+				VXISI2CWrite(0xB9,0x81);
+				*/
+				VS4210_Line_Draw(gbVXIS_OuputModeflg);
+				//VXISI2CWrite(0xB8,0x02);
+				//VXISI2CWrite(0xB9,0x81);			
+			break;
+			
+			
+			}
+
+		}
+		else
+		{
+			VXISI2CWrite(0xB8,0x01);
+			VXISI2CWrite(0xB9,0x01);
+			VXISI2CWrite(0xB8,0x02);
+			VXISI2CWrite(0xB9,0x01);
+		}
+
+}
+
+
+
+void OpenOSDMenu(BYTE OSD_ID)
+
+{
+
+		tByte x;
+		//struct DefineMenu *MDpr=Title_Menu[0];
+		//BYTE *ptr;
+	
+		VXIS_fSetOsdOnOff(0 ,0);
+		VXIS_fSetOsdOnOff(1 ,0);	
+		VXIS_fSetOsdOnOff(2 ,0);	
+		VXIS_fSetOsdOnOff(3 ,0);
+		
+		SET_CROSS_LINE(OFF);
+		
+		Printf("\r\n(OpenOSDMenu)");
+		
+		MenuChild=Title_Menu;	
+		 SetOsdSize(_Content,MENU_WIDTH,MENU_HEIGHT);
+		 SetOsdStartAddress(_Content,MENU_START);
+		 SetOsdPosition(_Content,MENU_OSD_X_ADDR,MENU_OSD_Y_ADDR);
+
+		 //SetOsdPosition(_Content,48,24+40);
+	/*
+		for(loop=0;loop<8;loop++)
+			{	
+			 OsdDumpString(64+(loop*20),&MENU1[loop][0]);
+			 OsdDumpAttribute(64+(loop*20),&MENU1[loop][0],CH_COLOR_GREEN);
+			}
+		*/	
+		
+		//clr jump osd  Str_OSD_CLRJUMP
+		// OsdDumpString(MENU_START,Str_OSD_CLRJUMP);
+
+		for(x=0;x<8;x++)
+			{	
+			 OsdDumpString(MENU_START+(x*MENU_WIDTH),&Str_Menu_Clr);
+			 OsdDumpAttribute(MENU_START+(x*MENU_WIDTH),&Str_Menu_Clr,DEFAULT_COLOR);
+			//OsdDumpString(MENU_START+(x*MENU_WIDTH),&Str_Menu_Clr[x][0]);
+			//OsdDumpAttribute(MENU_START+(x*MENU_WIDTH),&Str_Menu_Clr[x][0],DEFAULT_COLOR);
+			}
+
+		//show osd main menu	
+		 VXISI2CWrite(0x51,0x0A);//_ContentOn |WINZOOMx2
+		 msleep(100) ;
+		#if 1
+		for(x=0;x<_TITLE_NUMBER;x++)
+				{
+				//ptr = DMp->TypeData;
+				//ptr=Title_Menu[x]->Str_E;
+				 OsdDumpString(MENU_START+(x*MENU_WIDTH),MenuChild[x].Str_E);
+				 OsdDumpAttribute(MENU_START+(x*MENU_WIDTH),MenuChild[x].Str_E,DEFAULT_COLOR);
+				 
+				}
+
+		#else
+		
+		for(x=0;x<4;x++)
+			{
+			 OsdDumpString(64+(x*20),Str_Main_OSD[x]);
+			 OsdDumpAttribute(64+(x*20),Str_Main_OSD[x],CH_COLOR_GREEN);
+			}
+		#endif
+				//action 
+				//for(x=0;x<4;x++)
+				//{
+				// OsdDumpString(84+(x*20),Str_action[x]);
+				// OsdDumpAttribute(84+(x*20),Str_action[x],CH_COLOR_GREEN);
+			//	}
+
+
+	OsdDumpAttribute(MENU_START,&Str_Menu_Cursor[0],CURSOR_COLOR);
+	
+
+//if(GetItemValue(CAMOSDONOFF)==_FALSE)
+//VXIS_fSetOsdOnOff(0 ,_ContentOn|_BottomOn);
+//else
+//{
+//VXIS_fSetOsdOnOff(0 ,_ContentOn |_TitleOn|_BottomOn|WINZOOMx2);
+/*
+VXIS_fSetOsdOnOff(0 ,0);
+VXIS_fSetOsdOnOff(1 ,0);	
+VXIS_fSetOsdOnOff(2 ,0);	
+VXIS_fSetOsdOnOff(3 ,0);	
+*/
+//	msleep(100) ;
+/*
+msleep(1000) ;
+
+VXISI2CWrite(0x51,0x08);//_ContentOn 
+//VXISI2CWrite(0x51,0x02);//_ContentOn 
+msleep(1000) ;
+VXISI2CWrite(0x51,0x0A);//_ContentOn |WINZOOMx2
+*/
+//}
+
+//SET_CROSS_LINE(OFF);
+
+//OsdDumpAttribute(MENU_START,&Str_Menu_Cursor[0],CURSOR_COLOR);
+
+OSDMenuLevel=1;
+OnChangingValue=0;
+
+cursor_item=0;
+//MenuChild=Title_Menu;
+
+SetDisplayedOSD( MENU);
+
+
+}
+#if 0
+BYTE GetLowerMenuItem(  struct DefineMenu *DMp, BYTE itemno )
+{
+	if( itemno==NIL )
+		return NIL;
+	itemno++;
+//	if( (DMp[itemno].IconColor==NIL) && (DMp[itemno].DescColor==NIL) )		// end
+//		return NIL;
+	return itemno;
+
+}
+
+BYTE GetUpperMenuItem(  BYTE itemno )
+{
+	//if( itemno==0 || 
+	if(	itemno==NIL )
+		return NIL;
+	itemno--;
+	return itemno;
+}
+
+BYTE GetNextCursorMenuItem( struct DefineMenu *DMp, BYTE itemno, BYTE flag)
+{
+	BYTE new_cursor;
+
+	switch( flag ) {
+	case UP:	new_cursor = GetUpperMenuItem( /*DMp,*/ itemno );		break;
+	case DN:	new_cursor = GetLowerMenuItem( DMp, itemno );		break;
+	}
+	return new_cursor;
+}
+#endif
+void OSDValueUpDn(BYTE flag)
+{
+
+	switch ( MenuChild[cursor_item].Type ) {
+		case NUMBER:
+			SetItemValue(MenuChild[cursor_item].Id, flag);
+			DisplayOSDMenuOneItem(MenuChild,0,cursor_item,0);
+								//DrawNum( addr, (CODE_P struct NumType *)ptr, val );
+
+  		  break;
+		case ENUM_STRING:
+Printf("(OSDValUpDn)");
+				SetItemValue(MenuChild[cursor_item].Id, flag);
+					DisplayOSDMenuOneItem(MenuChild,0,cursor_item,0);
+
+			break;
+		}
+
+
+}
+void GetOSDMenu(void)
+{
+//	if(OSDMenuLevel==2)
+//		{
+//		MenuChild=Title_Menu;
+//		}
+//	if(MenuChild[cursor_item].MenuID!=_TITLE_OSD)
+//			MenuChild=Title_Menu;
+	switch(MenuChild[cursor_item].MenuID)
+	{
+		case _PICTURE_OSD:
+		case _INPUT_OSD:
+		case _VIDEO_OSD:		
+		case _RGB_GAIN_OSD:				
+			MenuChild=Title_Menu;
+			break;
+		case _MIRROR_OSD:
+		case _DIR_IMAGE_OSD:
+		case _TRIGGER_DELAY_OSD:
+			MenuChild=Video_Menu;
+		break;		
+	}
+
+}
+
+void DisplayCursor(void)
+{
+	if(OnChangingValue)
+			{
+				//GetItemValue(GetItemValue(MenuChild[cursor_item].Id));
+				//DrawAttrCnt(addr, MenuFormat->CursorColor, MenuFormat->width ); 
+//				OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*MENU_WIDTH),&Str_Menu_Clr[0][0],DEFAULT_COLOR);
+//				OsdDumpAttribute((OSDMENU_MAINADDR)+(cursor_item*MENU_WIDTH),&Str_Menu_Cursor[0],CURSOR_COLOR);
+
+//			OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*MENU_WIDTH),&Str_Menu_Clr[0][0],CURSOR_COLOR);
+				OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*MENU_WIDTH),&Str_Menu_Clr,CURSOR_COLOR);
+
+			}
+			else
+			{
+			//	DrawAttrCnt(addr, MenuFormat->CursorColor, MenuFormat->width-BARNUM_LENGTH );	
+				//DrawAttrCnt(addr+MAX_DESC, DEFAULT_COLOR, BARNUM_LENGTH );	
+//			OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*MENU_WIDTH),&Str_Menu_Clr[0][0],DEFAULT_COLOR);	
+
+OsdDumpAttribute(OSDMENU_CURSORADDR+(cursor_item*MENU_WIDTH),&Str_Menu_Cursor[0],DEFAULT_COLOR);	
+	
+			//OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*MENU_WIDTH),&Str_Menu_Cursor[0],CURSOR_COLOR);
+			}
+
+}
+void OSDSelect(void)
+{
+	Printf("\r\nOSDSel ");
+
+//if(OSDMenuLevel==1)
+//{
+switch(MenuChild[cursor_item].Type)
+{
+case EXIT:
+//	if(MenuChild[cursor_item].MenuID==_ULIT_OSD)
+	if(MenuChild[cursor_item].Id==EXIT)
+				{
+				MCUTimerCancelTimerEvent(_USER_TIMER_EVENT_OSD_DISABLE);
+				CloseOSDMenu(); 
+				}
+			else ///if(OSDMenuLevel==_PICTURE_OSD)
+				{
+			        GetOSDMenu();
+	  		   	DrawMenulist(0);
+			        cursor_item=0;
+				}
+
+	break;
+case OSDMENU:
+			switch(MenuChild[cursor_item].MenuID)
+				{
+				case _TITLE_OSD:
+				MenuChild=Title_Menu[cursor_item].Child;
+				break;
+				case _VIDEO_OSD:
+						MenuChild=Video_Menu[cursor_item].Child;		
+				break;
+				}
+			cursor_item=0;
+			DrawMenulist(0);
+			
+	break;
+case NUMBER:
+
+						OnChangingValue = 1;
+						//switch ( MenuChild[cursor_item].Id ) {
+						//default:
+								DisplayCursor();
+
+						//		DrawNum( (CODE_P struct NumType *)ptr, GetItemValue(MenuChild[cursor_item].Id) );
+								//break;
+						//}
+						//return;
+	break;
+  case ENUM_STRING:
+						OnChangingValue = 1; // Value changable label on 				
+						DisplayCursor();	//Display Setect Item cursor
+					//	GetItemValue(MenuChild[cursor_item].Id);
+	break;
+case ACTION:
+	DoAction(MenuChild[cursor_item].Id); // Action.
+	return;
+}
+
+	#if 0
+	if(MenuChild[cursor_item].Type==EXIT)
+	 {
+	 	if(MenuChild[cursor_item].MenuID==_ULIT_OSD)
+	 		{
+			CloseOSDMenu(); 
+	 		}
+		else ///if(OSDMenuLevel==_PICTURE_OSD)
+			{
+		   GetOSDMenu();
+		   DrawMenulist(0);
+		 //  OSDMenuLevel=_PICTURE_OSD;
+		   cursor_item=0;
+		   	}
+	 }
+	else	if(MenuChild[cursor_item].Type==OSDMENU)
+	{
+	MenuChild=Title_Menu[cursor_item].Child;
+	cursor_item=0;
+	//OSDMenuLevel=MenuChild[0].MenuID;
+	DrawMenulist(0);
+	}
+	#endif
+//}
+
+}
+
+void ClearCursor(void)
+{
+//	OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*MENU_WIDTH),&Str_Menu_Clr[0][0],DEFAULT_COLOR);
+	OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*MENU_WIDTH),&Str_Menu_Clr,DEFAULT_COLOR);
+
+}
+
+void OSDCursorMove(BYTE flag )
+{
+#if 0
+
+	BYTE new_cursor, old_cursor;
+		WORD dat;
+		
+		new_cursor = GetNextCursorMenuItem( MenuChild, cursor_item, flag ); // Get item to move
+
+
+old_cursor = cursor_item;
+	cursor_item = new_cursor;
+	if(OSDMenuLevel == 1)
+	{		
+	OsdDumpAttribute(64+(cursor_item*20),&Str_Menu_Clr[0][0],CH_COLOR_GREEN|BG_COLOR_Gray);
+	}
+	else	
+	{
+		//if( MenuChild[ old_cursor ].Id == OSDLANG)
+		//	DrawMenulist(0); // 	Recover Attr. and menu Data list
+		DisplayCursor();
+	}
+
+
+
+#else
+if(flag ==UP)
+{
+
+	Printf("Move Cursor up");
+
+//			if( title_item==3 && cur_osdwin==2
+
+
+//if(OSDMenuLevel == 1)///4
+	{
+//	OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*MENU_WIDTH),&Str_Menu_Clr[0][0],DEFAULT_COLOR);
+	
+
+//	OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*MENU_WIDTH),&Str_Menu_Cursor[0],DEFAULT_COLOR);
+OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*MENU_WIDTH),Str_Menu_Cursor,DEFAULT_COLOR);
+//	ClearCursor();
+
+	if(cursor_item==0)
+	{
+	cursor_item=MenuChild[0].MenuNum;
+	}
+
+	cursor_item--;
+//	OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*CURSOR_WIDTH),&Str_Menu_Clr[0][0],CURSOR_COLOR);		
+	OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*MENU_WIDTH),Str_Menu_Cursor,CURSOR_COLOR);		
+
+	}
+
+
+
+}
+else
+{
+	Printf("Move Cursor down");
+	//if(OSDMenuLevel == 1)///4
+	{
+//	OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*MENU_WIDTH),&Str_Menu_Clr[0][0],DEFAULT_COLOR);
+
+	OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*MENU_WIDTH),Str_Menu_Cursor,DEFAULT_COLOR);
+
+//ClearCursor();
+cursor_item++;
+				
+			if(cursor_item>=MenuChild[0].MenuNum)
+			{
+			cursor_item=0;
+			}
+//	OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*CURSOR_WIDTH),&Str_Menu_Clr[0][0],CURSOR_COLOR);		
+	OsdDumpAttribute(OSDMENU_MAINADDR+(cursor_item*MENU_WIDTH),Str_Menu_Cursor,CURSOR_COLOR);		
+
+
+	}
+
+}
+#endif
+
+//cursor_item=title_item;
+
+}
+
+
+/**
+ * @brief Input resolution
+ *
+ * Input resolution on the screen display
+ *
+ * @param in_mode Input resolution
+ * @param out_mode Output resolution
+ * @return none
+ */
+void VXIS_fShowInOutMode(tByte ch , tByte in_mode, tByte out_mode  )
+{
+
+    tcByte *ptr1 ;    
+    tByte  OSD_CHx_param[7+4] ;
+    tByte  pu8aOSDbar[11] ; 
+    tByte chFix ;
+
+    chFix = gaHDMI_MapWindowIndex[ch] ;
+    ptr1 = &OSD_CH1_param[0] ;
+
+    if (out_mode == VS4210_1080P_MODE0_w1 )
+    {
+        if (ch == 1 )
+        {
+            ptr1 = OSD_CH1_param ;
+            chFix = 0 ;
+        }
+    }
+    else if (out_mode == VS4210_1080P_MODE0_w2 )
+    {
+        if (ch == 2 )
+        {
+            ptr1 = OSD_CH2_param ;
+            chFix = 0 ;
+        }
+    }
+    else if (out_mode == VS4210_1080P_MODE0_w3 )
+    {
+        if (ch == 3 )
+        {
+            ptr1 = OSD_CH3_param ;
+            chFix = 0 ;
+        }
+    }
+    else
+    {
+        if (chFix == 0 )
+        {
+            ptr1 = OSD_CH0_param ;
+        }
+        else  	if (chFix == 1 )
+        {
+            ptr1 = OSD_CH1_param ;
+        }
+        else  	if (chFix == 2 )
+        {
+            ptr1 = OSD_CH2_param ;
+        }
+        else
+        {
+            ptr1 = OSD_CH3_param ;
+        }
+    }
+
+    if (gu8AudioMode == chFix  )
+    {
+        memcpy(OSD_CHx_param , ptr1 , 6 ) ;
+        OSD_CHx_param[6] =  0x6C ;
+    }
+    else
+    {
+        memcpy(OSD_CHx_param , ptr1 , 7+4) ;///test
+    }
+    
+    GetconvertBarStr(in_mode ) ; 
+    memcpy(pu8aOSDbar , ptcOSDbar , 11) ; 
+    VX_Write_OSD_In_OutString(ch , OSD_CHx_param, pu8aOSDbar ,out_mode) ;    
+
+}
+
+
+
+void VXIS_fShowInOutMode0OSD(tByte ch , tByte in_mode, tByte out_mode  )
+{
+
+    tcByte *ptr1 ;
+    tByte  OSD_CHx_param[7] ;
+    tByte  pu8aOSDbar[11] ; 
+    tByte  chFix ;
+
+    if (ch == 0 )
+    {
+        ptr1 = OSD_CH0_param ;
+    }
+    else if (ch == 1 )
+    {
+        ptr1 = OSD_CH1_param ;
+    }
+    else if (ch == 2 )
+    {
+        ptr1 = OSD_CH2_param ;
+    }
+    else
+    {
+        ptr1 = OSD_CH3_param ;
+    }
+
+    if (gu8AudioMode == ch )
+    {
+        memcpy(OSD_CHx_param , ptr1 , 6 ) ;        
+        OSD_CHx_param[6] =  0x6C ;
+    }
+    else
+    {
+        memcpy(OSD_CHx_param , ptr1 , 7 ) ;
+    }
+
+    chFix = 0  ;    
+    GetconvertBarStr(in_mode ) ;     
+    memcpy(pu8aOSDbar , ptcOSDbar , 11) ; 
+    VX_Write_OSD_In_OutString(chFix , OSD_CHx_param, pu8aOSDbar ,out_mode) ;   
+
+}
+
+
+void OSD_Clear(tByte Win )
+{
+    tByte temp53;
+    tByte temp5E ;
+    tByte temp2 ;
+
+    if (Win == 0 )
+    {
+        SetOsdSize(_Title0,0,1);
+        SetOsdSize(_Bar0,0,1);
+    }
+    else
+    {
+        temp2 = VXISI2CRead(0x53);
+        temp53 = temp2 & 0x3f ;
+        temp2 = VXISI2CRead(0x5E);
+        temp5E = temp2 & 0x3f ;
+
+        if (Win == 1 )
+        {
+            VXISI2CWrite(0x53,0x40|temp53 );
+            VXISI2CWrite(0x5E,0x40|temp5E );
+        }
+        else if (Win == 2 )
+        {
+            VXISI2CWrite(0x53,0x80|temp53 );
+            VXISI2CWrite(0x5E,0x80|temp5E );
+        }
+        else if (Win == 3 )
+        {
+            VXISI2CWrite(0x53,0xC0|temp53 );
+            VXISI2CWrite(0x5E,0xC0|temp5E );
+        }
+        VXISI2CWrite(0x51,0x00);
+    }
+}
+
+void OSD_Clear_4(void )
+{
+    OSD_Clear(3) ;
+}
+
+void OSD_Clear_34(void )
+{
+    tByte i ;
+    for (i = 2 ; i < 4 ;i++)
+    {
+        OSD_Clear(i) ;
+    }
+}
+
+void OSD_Clear_234(void )
+{
+    tByte i ;
+    for (i = 1 ; i < 4 ;i++)
+    {
+        OSD_Clear(i) ;
+    }
+}
+
+void OSD_Clear_All(void )
+{
+    tByte i ;
+    for (i = 0 ; i < 4 ;i++)
+    {
+        OSD_Clear(i) ;
+    }
+}
+
+/*
+void ClearAudioOSD(void)
+{
+    tByte i ;
+    for (i = 0  ; i < HDMI_IN_NUMBER ; i++ )
+    {
+        VXIS_fShowInOutMode(gaHDMI_MapWindowIndex[i]  ,  gbVXIS_InputMode[i] , gbVXIS_OuputModeflg )  ;
+    }
+}
+
+void Clear1ChAudioOSD(tByte ch )
+{
+    VXIS_fShowInOutMode(gaHDMI_MapWindowIndex[ch]  ,  gbVXIS_InputMode[ch] , gbVXIS_OuputModeflg )  ;
+}
+
+*/
+	/**
+	 * @brief Initialize the custom font function
+	 *
+	 * Initialize the custom font data.
+	 *
+	 * @param Size, Number of custom fonts.
+	 * @param *UserDefineFont, Font data start position.
+	 * @return none
+	 */
+void VXOSD_UseFont_init(uint8_t Size,const uint8_t *UserDefineFontPtr) //20200110-01
+{//Extern OSD
+	//16*20
+		uint16_t size1 ;
+		uint8_t  bytecommand, Hsize,Lsize ;
+		uint8_t i  ;
+		uint16_t FontIndex ;
+		uint8_t OSDarray[80] ;
+		uint8_t Size2 ;
+		Size2 = Size *2 ;
+	
+		size1 = 0 ;
+		for ( i = 0 ; i< Size2 ; i++)
+		{
+			OSDarray[i] = 0x80 + i ;
+			size1 = i * 20 ;
+			Hsize = (uint8_t) ((size1 & 0x0700) >> 8)  ;
+			Lsize = (uint8_t) (size1 & 0x00FF) ;
+			bytecommand = 0x20 | Hsize ;
+			FontIndex = 40*i ;
+			osd_cont_write(bytecommand, Lsize, 40, &UserDefineFontPtr[FontIndex] );   // user define font
+		}
+		osd_cont_write(0x10, 0x80, Size, &OSDarray[0] );
+}
+
+
+
+
+

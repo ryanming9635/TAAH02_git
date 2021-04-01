@@ -1,0 +1,3354 @@
+ARM GAS  /tmp/cc0fBAHR.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"SysTimer.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.MCUTimerDelayXms,"ax",%progbits
+  16              		.align	1
+  17              		.global	MCUTimerDelayXms
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	MCUTimerDelayXms:
+  24              	.LFB68:
+  25              		.file 1 "VS4210/SysTimer.c"
+   1:VS4210/SysTimer.c **** /*****************************************************************************/
+   2:VS4210/SysTimer.c **** /*                                                                           										*/
+   3:VS4210/SysTimer.c **** /*  TELI ML070I   MCU                    													*/
+   4:VS4210/SysTimer.c **** /*                                                                           										*/
+   5:VS4210/SysTimer.c **** /*  SysTimer.c                                          											*/
+   6:VS4210/SysTimer.c **** /*                                                                           										*/
+   7:VS4210/SysTimer.c **** /*****************************************************************************/
+   8:VS4210/SysTimer.c **** 
+   9:VS4210/SysTimer.c **** 
+  10:VS4210/SysTimer.c **** #include "VXIS_Extern_Define.h"
+  11:VS4210/SysTimer.c **** 
+  12:VS4210/SysTimer.c **** #include "tpinc/Device_Rx.h"
+  13:VS4210/SysTimer.c **** #include "tpinc/TP2802.h"
+  14:VS4210/SysTimer.c **** #include "stdlib.h"
+  15:VS4210/SysTimer.c **** #include "VX_swi2c.h"
+  16:VS4210/SysTimer.c **** #include "VS4210.h"
+  17:VS4210/SysTimer.c **** #include "VX_OSD_Simple.h"
+  18:VS4210/SysTimer.c **** 
+  19:VS4210/SysTimer.c **** //#include "config.h"
+  20:VS4210/SysTimer.c **** 
+  21:VS4210/SysTimer.c **** //#ifdef SERIAL
+  22:VS4210/SysTimer.c **** 
+  23:VS4210/SysTimer.c **** //#include "typedefs.h"
+  24:VS4210/SysTimer.c **** #include "main.h"
+  25:VS4210/SysTimer.c **** //#include "i2c.h"
+  26:VS4210/SysTimer.c **** //#include "reg.h"
+  27:VS4210/SysTimer.c **** #include "printf.h"
+  28:VS4210/SysTimer.c **** //#include "etc_eep.h"
+  29:VS4210/SysTimer.c **** #include "monitor.h"
+  30:VS4210/SysTimer.c **** //#include "cpu.h"
+  31:VS4210/SysTimer.c **** //#include "Adc.h"
+  32:VS4210/SysTimer.c **** 
+  33:VS4210/SysTimer.c **** #include <math.h>
+ARM GAS  /tmp/cc0fBAHR.s 			page 2
+
+
+  34:VS4210/SysTimer.c **** #include <stdio.h>
+  35:VS4210/SysTimer.c **** #include "keyremo.h"
+  36:VS4210/SysTimer.c **** 
+  37:VS4210/SysTimer.c **** /*
+  38:VS4210/SysTimer.c **** #include "Config.h"
+  39:VS4210/SysTimer.c **** 
+  40:VS4210/SysTimer.c **** #include "reg.h"
+  41:VS4210/SysTimer.c **** #include "typedefs.h"
+  42:VS4210/SysTimer.c **** #include "main.h"
+  43:VS4210/SysTimer.c **** //#include "tw88.h"
+  44:VS4210/SysTimer.c **** #include "i2c.h"
+  45:VS4210/SysTimer.c **** #include "adc.h"
+  46:VS4210/SysTimer.c **** //#include "osdbasic.h"
+  47:VS4210/SysTimer.c **** //#include "dispinfo.h"
+  48:VS4210/SysTimer.c **** //#include "debug.h"
+  49:VS4210/SysTimer.c **** #include "etc_eep.h"
+  50:VS4210/SysTimer.c **** //#include "measure.h"
+  51:VS4210/SysTimer.c **** #include "Printf.h"
+  52:VS4210/SysTimer.c **** //#include "audio.h"
+  53:VS4210/SysTimer.c **** //#include "osdmenu.h"
+  54:VS4210/SysTimer.c **** //#include "pc_eep.h"
+  55:VS4210/SysTimer.c **** #include "KeyRemo.h"
+  56:VS4210/SysTimer.c **** #include "Monitor.h"
+  57:VS4210/SysTimer.c **** #include "CPU.h"
+  58:VS4210/SysTimer.c **** //#include "HS_keyremo.h"
+  59:VS4210/SysTimer.c **** //#include "HS_DisplayOSD.h"
+  60:VS4210/SysTimer.c **** //#include "rgbmix.h"			
+  61:VS4210/SysTimer.c **** //#include "panel.h"
+  62:VS4210/SysTimer.c **** //#include "HS_IOdef.h"
+  63:VS4210/SysTimer.c **** #include "HS_DVRProtocol.h"
+  64:VS4210/SysTimer.c **** */
+  65:VS4210/SysTimer.c **** 
+  66:VS4210/SysTimer.c **** //****************************************************************************
+  67:VS4210/SysTimer.c **** // DEFINITIONS / MACROS
+  68:VS4210/SysTimer.c **** //****************************************************************************
+  69:VS4210/SysTimer.c **** #define GET_EVENT_VALID(x)                      (g_stTimerEvent[x].b1EventValid)
+  70:VS4210/SysTimer.c **** #define SET_EVENT_VALID(x)                      (g_stTimerEvent[x].b1EventValid = _TRUE)
+  71:VS4210/SysTimer.c **** #define CLR_EVENT_VALID(x)                      (g_stTimerEvent[x].b1EventValid = _FALSE)
+  72:VS4210/SysTimer.c **** 
+  73:VS4210/SysTimer.c **** #define GET_EVENT_ID(x)                         (g_stTimerEvent[x].b7EventID)
+  74:VS4210/SysTimer.c **** #define SET_EVENT_ID(x, y)                      (g_stTimerEvent[x].b7EventID = y)
+  75:VS4210/SysTimer.c **** 
+  76:VS4210/SysTimer.c **** #define GET_EVENT_TIME(x)                       (g_stTimerEvent[x].usTime)
+  77:VS4210/SysTimer.c **** #define SET_EVENT_TIME(x, y)                    (g_stTimerEvent[x].usTime = y)
+  78:VS4210/SysTimer.c **** 
+  79:VS4210/SysTimer.c **** 
+  80:VS4210/SysTimer.c **** //****************************************************************************
+  81:VS4210/SysTimer.c **** // VARIABLE DECLARATIONS
+  82:VS4210/SysTimer.c **** //****************************************************************************
+  83:VS4210/SysTimer.c **** volatile bit g_bNotifyTimer0Int = _FALSE;
+  84:VS4210/SysTimer.c **** BYTE tic02=0;
+  85:VS4210/SysTimer.c **** WORD tic03=0,tic04=0,tic05=0;
+  86:VS4210/SysTimer.c **** 
+  87:VS4210/SysTimer.c **** volatile WORD  g_usTimerCounter = 0;
+  88:VS4210/SysTimer.c **** StructTimerEventTableType g_stTimerEvent[_TIMER_EVENT_COUNT];
+  89:VS4210/SysTimer.c **** WORD BatteryBTH,BatteryVoltage;
+  90:VS4210/SysTimer.c **** BYTE PSW_Flag=0;
+ARM GAS  /tmp/cc0fBAHR.s 			page 3
+
+
+  91:VS4210/SysTimer.c **** BYTE WDT_Echo_Count=0;
+  92:VS4210/SysTimer.c **** BYTE CameraVolt;
+  93:VS4210/SysTimer.c **** BYTE	 year1=0,year2=0,month=0,day=0,hour=0,minute=0,second=0;
+  94:VS4210/SysTimer.c **** extern BYTE Monitor_flag;
+  95:VS4210/SysTimer.c **** extern tByte DayNightLevel;
+  96:VS4210/SysTimer.c **** extern void EQ_Detect();
+  97:VS4210/SysTimer.c **** extern tWord LightSensor_ADC;
+  98:VS4210/SysTimer.c **** extern ADC_HandleTypeDef hadc1;
+  99:VS4210/SysTimer.c **** extern  volatile BYTE Encoder_flag;
+ 100:VS4210/SysTimer.c **** extern tByte DisplayedOSD;
+ 101:VS4210/SysTimer.c **** 
+ 102:VS4210/SysTimer.c **** extern WORD GetItemValue( BYTE id);
+ 103:VS4210/SysTimer.c **** extern BYTE TimeStep;
+ 104:VS4210/SysTimer.c **** extern BYTE TriggerFlag;
+ 105:VS4210/SysTimer.c **** extern BYTE PowerFlag;
+ 106:VS4210/SysTimer.c **** extern BYTE SEQFlag;
+ 107:VS4210/SysTimer.c **** extern BYTE PWMLevel;
+ 108:VS4210/SysTimer.c **** extern BYTE TriggerStatus;
+ 109:VS4210/SysTimer.c **** extern volatile BYTE  MainSetSelectMode[13];
+ 110:VS4210/SysTimer.c **** extern BYTE SelectModeType;
+ 111:VS4210/SysTimer.c **** extern BYTE NowModeState;
+ 112:VS4210/SysTimer.c **** extern tByte gaHDMI_MapWindowIndex[4];
+ 113:VS4210/SysTimer.c **** extern BYTE BOOT_ISSUE;
+ 114:VS4210/SysTimer.c **** extern BYTE CURRENT_CH;
+ 115:VS4210/SysTimer.c **** extern BYTE TP_ACTION;
+ 116:VS4210/SysTimer.c **** extern void RS2_tx(BYTE tx_buf);
+ 117:VS4210/SysTimer.c **** extern tByte	mode[0];
+ 118:VS4210/SysTimer.c **** extern tByte TP_InputMode;
+ 119:VS4210/SysTimer.c **** extern tByte SelectInputMode;///0=HDMI , 1=AHD
+ 120:VS4210/SysTimer.c **** extern tByte Pre_InputMode;
+ 121:VS4210/SysTimer.c **** extern tByte bVloss_Flag;
+ 122:VS4210/SysTimer.c **** 
+ 123:VS4210/SysTimer.c **** //extern StructBatteryInfoType g_stBatteryInfo;
+ 124:VS4210/SysTimer.c **** /*
+ 125:VS4210/SysTimer.c **** extern BYTE EncorderCountPN;
+ 126:VS4210/SysTimer.c **** extern BYTE EncorderLenint;
+ 127:VS4210/SysTimer.c **** extern short EncorderCount;
+ 128:VS4210/SysTimer.c **** extern WORD EncorderLenfloaat;
+ 129:VS4210/SysTimer.c **** */
+ 130:VS4210/SysTimer.c **** // StructPowerInfoType idata g_stPowerInfo;
+ 131:VS4210/SysTimer.c ****  StructPowerInfoType  g_stPowerInfo;
+ 132:VS4210/SysTimer.c **** //--------------------------------------------------
+ 133:VS4210/SysTimer.c **** // Definitions of Timer2
+ 134:VS4210/SysTimer.c **** //--------------------------------------------------
+ 135:VS4210/SysTimer.c **** #define _EVENT_TIME_MAX                         61000	// Please do not modify this value.
+ 136:VS4210/SysTimer.c **** 
+ 137:VS4210/SysTimer.c **** //****************************************************************************
+ 138:VS4210/SysTimer.c **** // CODE TABLES
+ 139:VS4210/SysTimer.c **** //****************************************************************************
+ 140:VS4210/SysTimer.c **** 
+ 141:VS4210/SysTimer.c **** 
+ 142:VS4210/SysTimer.c **** //****************************************************************************
+ 143:VS4210/SysTimer.c **** // FUNCTION DECLARATIONS
+ 144:VS4210/SysTimer.c **** //****************************************************************************
+ 145:VS4210/SysTimer.c **** void SysTimerHandler(void);
+ 146:VS4210/SysTimer.c **** void SysTimerEventProc(EnumSystemTimerEventID enumEventID);
+ 147:VS4210/SysTimer.c **** void SysTimerIntProc0(void);
+ARM GAS  /tmp/cc0fBAHR.s 			page 4
+
+
+ 148:VS4210/SysTimer.c **** void SysTimerIntProc1(void);
+ 149:VS4210/SysTimer.c **** void SysTimerIntProc2(void);
+ 150:VS4210/SysTimer.c **** void MCUTimerInitialTimerEvent(void);
+ 151:VS4210/SysTimer.c **** void MCUTimerActiveTimerEvent(WORD usTime, BYTE ucEventID);
+ 152:VS4210/SysTimer.c **** void MCUTimerCancelTimerEvent(BYTE ucEventID);
+ 153:VS4210/SysTimer.c **** void MCUTimerDelayXms(WORD usNum);
+ 154:VS4210/SysTimer.c **** void PowerLED(EnumSystemTimerEventID flag);
+ 155:VS4210/SysTimer.c **** 
+ 156:VS4210/SysTimer.c **** extern void ShowWorkingTimer(void);	
+ 157:VS4210/SysTimer.c **** extern void GraphicsPrint(PRINT_COLOR_e mode, const char *Message, ...);
+ 158:VS4210/SysTimer.c **** extern void AdjustAutoDayNight(BYTE val);
+ 159:VS4210/SysTimer.c **** extern BYTE CheckKeyIn(void);
+ 160:VS4210/SysTimer.c **** extern BYTE GET_PCA9554PW(BYTE reg);
+ 161:VS4210/SysTimer.c **** extern void AudioMute(bit mute);
+ 162:VS4210/SysTimer.c **** 
+ 163:VS4210/SysTimer.c **** extern void COC_test(void);
+ 164:VS4210/SysTimer.c **** 
+ 165:VS4210/SysTimer.c **** 
+ 166:VS4210/SysTimer.c **** /*
+ 167:VS4210/SysTimer.c **** extern WORD GetBatteryBTH(void);
+ 168:VS4210/SysTimer.c **** extern WORD GetBatteryVoltage(void);
+ 169:VS4210/SysTimer.c **** extern void SetAD5110Step(BYTE newv) ;
+ 170:VS4210/SysTimer.c **** extern void UserInterfacePowerSwitch(EnumPowerAction enumSwitch);
+ 171:VS4210/SysTimer.c **** */
+ 172:VS4210/SysTimer.c **** 
+ 173:VS4210/SysTimer.c **** //****************************************************************************
+ 174:VS4210/SysTimer.c **** // FUNCTION DEFINITIONS
+ 175:VS4210/SysTimer.c **** //****************************************************************************
+ 176:VS4210/SysTimer.c **** //--------------------------------------------------
+ 177:VS4210/SysTimer.c **** // Description  : Timer Delay
+ 178:VS4210/SysTimer.c **** // Input Value  : usNum --> Delay in ms
+ 179:VS4210/SysTimer.c **** // Output Value : None
+ 180:VS4210/SysTimer.c **** //--------------------------------------------------
+ 181:VS4210/SysTimer.c **** void MCUTimerDelayXms(WORD usNum)
+ 182:VS4210/SysTimer.c **** {
+  26              		.loc 1 182 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 0
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30              		@ link register save eliminated.
+  31              	.LVL0:
+ 183:VS4210/SysTimer.c ****     if(usNum)
+  32              		.loc 1 183 0
+  33 0000 0246     		mov	r2, r0
+  34 0002 58B1     		cbz	r0, .L1
+ 184:VS4210/SysTimer.c ****     {
+ 185:VS4210/SysTimer.c ****         g_bNotifyTimer0Int = _FALSE;
+  35              		.loc 1 185 0
+  36 0004 064B     		ldr	r3, .L5
+  37 0006 0021     		movs	r1, #0
+  38 0008 1960     		str	r1, [r3]
+  39              	.LVL1:
+  40              	.L3:
+ 186:VS4210/SysTimer.c **** 
+ 187:VS4210/SysTimer.c ****         while(_TRUE)
+ 188:VS4210/SysTimer.c ****         {
+ 189:VS4210/SysTimer.c ****             if(g_bNotifyTimer0Int)
+ARM GAS  /tmp/cc0fBAHR.s 			page 5
+
+
+  41              		.loc 1 189 0
+  42 000a 054B     		ldr	r3, .L5
+  43 000c 1B68     		ldr	r3, [r3]
+  44 000e 002B     		cmp	r3, #0
+  45 0010 FBD0     		beq	.L3
+ 190:VS4210/SysTimer.c ****             {
+ 191:VS4210/SysTimer.c ****                 g_bNotifyTimer0Int = _FALSE;
+  46              		.loc 1 191 0
+  47 0012 034B     		ldr	r3, .L5
+  48 0014 0021     		movs	r1, #0
+  49 0016 1960     		str	r1, [r3]
+  50              	.LVL2:
+ 192:VS4210/SysTimer.c **** 
+ 193:VS4210/SysTimer.c ****                 if(--usNum)
+  51              		.loc 1 193 0
+  52 0018 013A     		subs	r2, r2, #1
+  53              	.LVL3:
+  54 001a F6D1     		bne	.L3
+  55              	.L1:
+ 194:VS4210/SysTimer.c ****                 {
+ 195:VS4210/SysTimer.c ****                 }
+ 196:VS4210/SysTimer.c ****                 else
+ 197:VS4210/SysTimer.c ****                 {
+ 198:VS4210/SysTimer.c ****                     return;
+ 199:VS4210/SysTimer.c ****                 }
+ 200:VS4210/SysTimer.c ****             }
+ 201:VS4210/SysTimer.c ****         }
+ 202:VS4210/SysTimer.c ****     }
+ 203:VS4210/SysTimer.c **** }
+  56              		.loc 1 203 0
+  57 001c 7047     		bx	lr
+  58              	.L6:
+  59 001e 00BF     		.align	2
+  60              	.L5:
+  61 0020 00000000 		.word	.LANCHOR0
+  62              		.cfi_endproc
+  63              	.LFE68:
+  65              		.section	.text.MCUTimerGetEventTime,"ax",%progbits
+  66              		.align	1
+  67              		.global	MCUTimerGetEventTime
+  68              		.syntax unified
+  69              		.thumb
+  70              		.thumb_func
+  71              		.fpu softvfp
+  73              	MCUTimerGetEventTime:
+  74              	.LFB69:
+ 204:VS4210/SysTimer.c **** 
+ 205:VS4210/SysTimer.c **** //--------------------------------------------------
+ 206:VS4210/SysTimer.c **** // Description  : Get Event Time
+ 207:VS4210/SysTimer.c **** // Input Value  : ucEventIndex --> Event which time is needed
+ 208:VS4210/SysTimer.c **** // Output Value : Event Time
+ 209:VS4210/SysTimer.c **** //--------------------------------------------------
+ 210:VS4210/SysTimer.c **** WORD MCUTimerGetEventTime(BYTE ucEventIndex)
+ 211:VS4210/SysTimer.c **** {
+  75              		.loc 1 211 0
+  76              		.cfi_startproc
+  77              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/cc0fBAHR.s 			page 6
+
+
+  78              		@ frame_needed = 0, uses_anonymous_args = 0
+  79              		@ link register save eliminated.
+  80              	.LVL4:
+ 212:VS4210/SysTimer.c ****     return GET_EVENT_TIME(ucEventIndex);
+  81              		.loc 1 212 0
+  82 0000 024B     		ldr	r3, .L8
+  83 0002 03EBC000 		add	r0, r3, r0, lsl #3
+  84              	.LVL5:
+ 213:VS4210/SysTimer.c **** }
+  85              		.loc 1 213 0
+  86 0006 4068     		ldr	r0, [r0, #4]
+  87 0008 7047     		bx	lr
+  88              	.L9:
+  89 000a 00BF     		.align	2
+  90              	.L8:
+  91 000c 00000000 		.word	g_stTimerEvent
+  92              		.cfi_endproc
+  93              	.LFE69:
+  95              		.section	.text.MCUTimerGetEventID,"ax",%progbits
+  96              		.align	1
+  97              		.global	MCUTimerGetEventID
+  98              		.syntax unified
+  99              		.thumb
+ 100              		.thumb_func
+ 101              		.fpu softvfp
+ 103              	MCUTimerGetEventID:
+ 104              	.LFB70:
+ 214:VS4210/SysTimer.c **** 
+ 215:VS4210/SysTimer.c **** //--------------------------------------------------
+ 216:VS4210/SysTimer.c **** // Description  : Get Event ID
+ 217:VS4210/SysTimer.c **** // Input Value  : Referenced Event Index
+ 218:VS4210/SysTimer.c **** // Output Value : Stored Event ID
+ 219:VS4210/SysTimer.c **** //--------------------------------------------------
+ 220:VS4210/SysTimer.c **** BYTE MCUTimerGetEventID(BYTE ucEventIndex)
+ 221:VS4210/SysTimer.c **** {
+ 105              		.loc 1 221 0
+ 106              		.cfi_startproc
+ 107              		@ args = 0, pretend = 0, frame = 0
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 109              		@ link register save eliminated.
+ 110              	.LVL6:
+ 222:VS4210/SysTimer.c ****     return GET_EVENT_ID(ucEventIndex);
+ 111              		.loc 1 222 0
+ 112 0000 024B     		ldr	r3, .L11
+ 113 0002 13F83000 		ldrb	r0, [r3, r0, lsl #3]	@ zero_extendqisi2
+ 114              	.LVL7:
+ 223:VS4210/SysTimer.c **** }
+ 115              		.loc 1 223 0
+ 116 0006 4008     		lsrs	r0, r0, #1
+ 117 0008 7047     		bx	lr
+ 118              	.L12:
+ 119 000a 00BF     		.align	2
+ 120              	.L11:
+ 121 000c 00000000 		.word	g_stTimerEvent
+ 122              		.cfi_endproc
+ 123              	.LFE70:
+ 125              		.section	.text.MCUTimerClrEventValid,"ax",%progbits
+ARM GAS  /tmp/cc0fBAHR.s 			page 7
+
+
+ 126              		.align	1
+ 127              		.global	MCUTimerClrEventValid
+ 128              		.syntax unified
+ 129              		.thumb
+ 130              		.thumb_func
+ 131              		.fpu softvfp
+ 133              	MCUTimerClrEventValid:
+ 134              	.LFB71:
+ 224:VS4210/SysTimer.c **** 
+ 225:VS4210/SysTimer.c **** //--------------------------------------------------
+ 226:VS4210/SysTimer.c **** // Description  : Clear Event Time
+ 227:VS4210/SysTimer.c **** // Input Value  : ucEventIndex --> Event which time is needed to be cleared
+ 228:VS4210/SysTimer.c **** // Output Value : None
+ 229:VS4210/SysTimer.c **** //--------------------------------------------------
+ 230:VS4210/SysTimer.c **** 
+ 231:VS4210/SysTimer.c **** void MCUTimerClrEventValid(BYTE ucEventIndex)
+ 232:VS4210/SysTimer.c **** {
+ 135              		.loc 1 232 0
+ 136              		.cfi_startproc
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 0, uses_anonymous_args = 0
+ 139              		@ link register save eliminated.
+ 140              	.LVL8:
+ 233:VS4210/SysTimer.c ****     CLR_EVENT_VALID(ucEventIndex);
+ 141              		.loc 1 233 0
+ 142 0000 034B     		ldr	r3, .L14
+ 143 0002 13F83020 		ldrb	r2, [r3, r0, lsl #3]	@ zero_extendqisi2
+ 144 0006 6FF30002 		bfc	r2, #0, #1
+ 145 000a 03F83020 		strb	r2, [r3, r0, lsl #3]
+ 234:VS4210/SysTimer.c **** }
+ 146              		.loc 1 234 0
+ 147 000e 7047     		bx	lr
+ 148              	.L15:
+ 149              		.align	2
+ 150              	.L14:
+ 151 0010 00000000 		.word	g_stTimerEvent
+ 152              		.cfi_endproc
+ 153              	.LFE71:
+ 155              		.section	.text.MCUTimerCheckEventValid,"ax",%progbits
+ 156              		.align	1
+ 157              		.global	MCUTimerCheckEventValid
+ 158              		.syntax unified
+ 159              		.thumb
+ 160              		.thumb_func
+ 161              		.fpu softvfp
+ 163              	MCUTimerCheckEventValid:
+ 164              	.LFB72:
+ 235:VS4210/SysTimer.c **** 
+ 236:VS4210/SysTimer.c **** //--------------------------------------------------
+ 237:VS4210/SysTimer.c **** // Description  : Check if Event is Valid
+ 238:VS4210/SysTimer.c **** // Input Value  : ucEventIndex --> Event to be checked
+ 239:VS4210/SysTimer.c **** // Output Value : Validity(_TRUE/_FALSE)
+ 240:VS4210/SysTimer.c **** //--------------------------------------------------
+ 241:VS4210/SysTimer.c **** bit MCUTimerCheckEventValid(BYTE ucEventIndex)
+ 242:VS4210/SysTimer.c **** {
+ 165              		.loc 1 242 0
+ 166              		.cfi_startproc
+ARM GAS  /tmp/cc0fBAHR.s 			page 8
+
+
+ 167              		@ args = 0, pretend = 0, frame = 0
+ 168              		@ frame_needed = 0, uses_anonymous_args = 0
+ 169              		@ link register save eliminated.
+ 170              	.LVL9:
+ 243:VS4210/SysTimer.c ****     return GET_EVENT_VALID(ucEventIndex);;
+ 171              		.loc 1 243 0
+ 172 0000 024B     		ldr	r3, .L17
+ 173 0002 13F83000 		ldrb	r0, [r3, r0, lsl #3]	@ zero_extendqisi2
+ 174              	.LVL10:
+ 244:VS4210/SysTimer.c **** }
+ 175              		.loc 1 244 0
+ 176 0006 00F00100 		and	r0, r0, #1
+ 177 000a 7047     		bx	lr
+ 178              	.L18:
+ 179              		.align	2
+ 180              	.L17:
+ 181 000c 00000000 		.word	g_stTimerEvent
+ 182              		.cfi_endproc
+ 183              	.LFE72:
+ 185              		.section	.text.MCUTimerGetTimerCounter,"ax",%progbits
+ 186              		.align	1
+ 187              		.global	MCUTimerGetTimerCounter
+ 188              		.syntax unified
+ 189              		.thumb
+ 190              		.thumb_func
+ 191              		.fpu softvfp
+ 193              	MCUTimerGetTimerCounter:
+ 194              	.LFB73:
+ 245:VS4210/SysTimer.c **** 
+ 246:VS4210/SysTimer.c **** //--------------------------------------------------
+ 247:VS4210/SysTimer.c **** // Description  : Get Timer Counter.
+ 248:VS4210/SysTimer.c **** // Input Value  : None
+ 249:VS4210/SysTimer.c **** // Output Value : Timer Counter
+ 250:VS4210/SysTimer.c **** //--------------------------------------------------
+ 251:VS4210/SysTimer.c **** WORD MCUTimerGetTimerCounter(void)
+ 252:VS4210/SysTimer.c **** {
+ 195              		.loc 1 252 0
+ 196              		.cfi_startproc
+ 197              		@ args = 0, pretend = 0, frame = 0
+ 198              		@ frame_needed = 0, uses_anonymous_args = 0
+ 199              		@ link register save eliminated.
+ 253:VS4210/SysTimer.c ****     WORD usPresentTime = g_usTimerCounter;
+ 200              		.loc 1 253 0
+ 201 0000 054B     		ldr	r3, .L21
+ 202 0002 1868     		ldr	r0, [r3]
+ 203              	.LVL11:
+ 254:VS4210/SysTimer.c ****    
+ 255:VS4210/SysTimer.c ****     // When get counter,timer interrupt maybe change counter.
+ 256:VS4210/SysTimer.c ****     // Get twice to avoid it.
+ 257:VS4210/SysTimer.c ****     if(abs(g_usTimerCounter - usPresentTime) > 0x7F)
+ 204              		.loc 1 257 0
+ 205 0004 1B68     		ldr	r3, [r3]
+ 206 0006 1B1A     		subs	r3, r3, r0
+ 207 0008 002B     		cmp	r3, #0
+ 208 000a B8BF     		it	lt
+ 209 000c 5B42     		rsblt	r3, r3, #0
+ 210 000e 7F2B     		cmp	r3, #127
+ARM GAS  /tmp/cc0fBAHR.s 			page 9
+
+
+ 211 0010 01DD     		ble	.L19
+ 258:VS4210/SysTimer.c ****     {
+ 259:VS4210/SysTimer.c ****         usPresentTime = g_usTimerCounter;
+ 212              		.loc 1 259 0
+ 213 0012 014B     		ldr	r3, .L21
+ 214 0014 1868     		ldr	r0, [r3]
+ 215              	.LVL12:
+ 216              	.L19:
+ 260:VS4210/SysTimer.c ****     } 
+ 261:VS4210/SysTimer.c **** 
+ 262:VS4210/SysTimer.c ****     return usPresentTime;
+ 263:VS4210/SysTimer.c **** }
+ 217              		.loc 1 263 0
+ 218 0016 7047     		bx	lr
+ 219              	.L22:
+ 220              		.align	2
+ 221              	.L21:
+ 222 0018 00000000 		.word	.LANCHOR1
+ 223              		.cfi_endproc
+ 224              	.LFE73:
+ 226              		.section	.text.MCUTimerCheckTimerEvent,"ax",%progbits
+ 227              		.align	1
+ 228              		.global	MCUTimerCheckTimerEvent
+ 229              		.syntax unified
+ 230              		.thumb
+ 231              		.thumb_func
+ 232              		.fpu softvfp
+ 234              	MCUTimerCheckTimerEvent:
+ 235              	.LFB74:
+ 264:VS4210/SysTimer.c **** //--------------------------------------------------
+ 265:VS4210/SysTimer.c **** // Description  : Check timer and events. We have to run this function when setting up a timer for 
+ 266:VS4210/SysTimer.c **** // Input Value  : usTime    --> Unit in 1ms, range in 0.001 ~ 61sec
+ 267:VS4210/SysTimer.c **** // Output Value : Return usPresentTime
+ 268:VS4210/SysTimer.c **** //--------------------------------------------------
+ 269:VS4210/SysTimer.c **** WORD MCUTimerCheckTimerEvent(WORD usTime)
+ 270:VS4210/SysTimer.c **** {
+ 236              		.loc 1 270 0
+ 237              		.cfi_startproc
+ 238              		@ args = 0, pretend = 0, frame = 0
+ 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 240              	.LVL13:
+ 241 0000 10B5     		push	{r4, lr}
+ 242              	.LCFI0:
+ 243              		.cfi_def_cfa_offset 8
+ 244              		.cfi_offset 4, -8
+ 245              		.cfi_offset 14, -4
+ 246 0002 0446     		mov	r4, r0
+ 247              	.LVL14:
+ 271:VS4210/SysTimer.c ****     BYTE ucTimerEventCnt = 0;
+ 272:VS4210/SysTimer.c ****     WORD usPresentTime = 0;
+ 273:VS4210/SysTimer.c **** 
+ 274:VS4210/SysTimer.c ****     usPresentTime = MCUTimerGetTimerCounter();
+ 248              		.loc 1 274 0
+ 249 0004 FFF7FEFF 		bl	MCUTimerGetTimerCounter
+ 250              	.LVL15:
+ 275:VS4210/SysTimer.c ****     
+ 276:VS4210/SysTimer.c ****     if(usTime > _EVENT_TIME_MAX) 
+ARM GAS  /tmp/cc0fBAHR.s 			page 10
+
+
+ 251              		.loc 1 276 0
+ 252 0008 4EF64863 		movw	r3, #61000
+ 253 000c 9C42     		cmp	r4, r3
+ 254 000e 00D9     		bls	.L24
+ 277:VS4210/SysTimer.c ****     {
+ 278:VS4210/SysTimer.c ****         usTime = _EVENT_TIME_MAX;
+ 255              		.loc 1 278 0
+ 256 0010 1C46     		mov	r4, r3
+ 257              	.LVL16:
+ 258              	.L24:
+ 279:VS4210/SysTimer.c ****     }
+ 280:VS4210/SysTimer.c ****    
+ 281:VS4210/SysTimer.c ****     if(((usPresentTime + usTime) > _EVENT_TIME_MAX) || // Size Limit of Timer Counter             
+ 259              		.loc 1 281 0
+ 260 0012 0444     		add	r4, r4, r0
+ 261              	.LVL17:
+ 262 0014 4EF64863 		movw	r3, #61000
+ 263 0018 9C42     		cmp	r4, r3
+ 264 001a 01D8     		bhi	.L25
+ 265              		.loc 1 281 0 is_stmt 0 discriminator 1
+ 266 001c 8442     		cmp	r4, r0
+ 267 001e 1FD2     		bcs	.L23
+ 268              	.L25:
+ 282:VS4210/SysTimer.c ****        ((usPresentTime + usTime) < usPresentTime)) // Timer Counter Overflow
+ 283:VS4210/SysTimer.c ****     { 
+ 284:VS4210/SysTimer.c ****         g_usTimerCounter = 0;
+ 269              		.loc 1 284 0 is_stmt 1
+ 270 0020 0023     		movs	r3, #0
+ 271 0022 104A     		ldr	r2, .L34
+ 272 0024 1360     		str	r3, [r2]
+ 285:VS4210/SysTimer.c ****     
+ 286:VS4210/SysTimer.c ****         // Reset Timer Event Counter
+ 287:VS4210/SysTimer.c ****         for(ucTimerEventCnt = 0; ucTimerEventCnt < _TIMER_EVENT_COUNT; ucTimerEventCnt++)
+ 273              		.loc 1 287 0
+ 274 0026 06E0     		b	.L27
+ 275              	.LVL18:
+ 276              	.L29:
+ 288:VS4210/SysTimer.c ****         {
+ 289:VS4210/SysTimer.c ****             if(GET_EVENT_VALID(ucTimerEventCnt) == _TRUE)
+ 290:VS4210/SysTimer.c ****             {
+ 291:VS4210/SysTimer.c ****                 if(GET_EVENT_TIME(ucTimerEventCnt) > usPresentTime)
+ 292:VS4210/SysTimer.c ****                 {
+ 293:VS4210/SysTimer.c ****                     SET_EVENT_TIME(ucTimerEventCnt, (GET_EVENT_TIME(ucTimerEventCnt) - usPresentTim
+ 294:VS4210/SysTimer.c ****                 }
+ 295:VS4210/SysTimer.c ****                 else
+ 296:VS4210/SysTimer.c ****                 {
+ 297:VS4210/SysTimer.c ****                     SET_EVENT_TIME(ucTimerEventCnt, 0);
+ 277              		.loc 1 297 0
+ 278 0028 0F4A     		ldr	r2, .L34+4
+ 279 002a 02EBC301 		add	r1, r2, r3, lsl #3
+ 280 002e 0022     		movs	r2, #0
+ 281 0030 4A60     		str	r2, [r1, #4]
+ 282              	.L28:
+ 287:VS4210/SysTimer.c ****         {
+ 283              		.loc 1 287 0 discriminator 2
+ 284 0032 0133     		adds	r3, r3, #1
+ 285              	.LVL19:
+ARM GAS  /tmp/cc0fBAHR.s 			page 11
+
+
+ 286 0034 DBB2     		uxtb	r3, r3
+ 287              	.LVL20:
+ 288              	.L27:
+ 287:VS4210/SysTimer.c ****         {
+ 289              		.loc 1 287 0 is_stmt 0 discriminator 1
+ 290 0036 092B     		cmp	r3, #9
+ 291 0038 11D8     		bhi	.L33
+ 289:VS4210/SysTimer.c ****             {
+ 292              		.loc 1 289 0 is_stmt 1
+ 293 003a 0B4A     		ldr	r2, .L34+4
+ 294 003c 12F83320 		ldrb	r2, [r2, r3, lsl #3]	@ zero_extendqisi2
+ 295 0040 12F0010F 		tst	r2, #1
+ 296 0044 F5D0     		beq	.L28
+ 291:VS4210/SysTimer.c ****                 {
+ 297              		.loc 1 291 0
+ 298 0046 084A     		ldr	r2, .L34+4
+ 299 0048 02EBC302 		add	r2, r2, r3, lsl #3
+ 300 004c 5268     		ldr	r2, [r2, #4]
+ 301 004e 8242     		cmp	r2, r0
+ 302 0050 EAD9     		bls	.L29
+ 293:VS4210/SysTimer.c ****                 }
+ 303              		.loc 1 293 0
+ 304 0052 121A     		subs	r2, r2, r0
+ 305 0054 044C     		ldr	r4, .L34+4
+ 306 0056 04EBC301 		add	r1, r4, r3, lsl #3
+ 307 005a 4A60     		str	r2, [r1, #4]
+ 308 005c E9E7     		b	.L28
+ 309              	.L33:
+ 298:VS4210/SysTimer.c ****                 }
+ 299:VS4210/SysTimer.c ****             }
+ 300:VS4210/SysTimer.c ****         }
+ 301:VS4210/SysTimer.c ****         
+ 302:VS4210/SysTimer.c ****         usPresentTime = 0;
+ 310              		.loc 1 302 0
+ 311 005e 0020     		movs	r0, #0
+ 312              	.LVL21:
+ 313              	.L23:
+ 303:VS4210/SysTimer.c ****     }    
+ 304:VS4210/SysTimer.c **** 
+ 305:VS4210/SysTimer.c ****     return usPresentTime;
+ 306:VS4210/SysTimer.c **** }
+ 314              		.loc 1 306 0
+ 315 0060 10BD     		pop	{r4, pc}
+ 316              	.L35:
+ 317 0062 00BF     		.align	2
+ 318              	.L34:
+ 319 0064 00000000 		.word	.LANCHOR1
+ 320 0068 00000000 		.word	g_stTimerEvent
+ 321              		.cfi_endproc
+ 322              	.LFE74:
+ 324              		.section	.text.MCUTimerInitialTimerEvent,"ax",%progbits
+ 325              		.align	1
+ 326              		.global	MCUTimerInitialTimerEvent
+ 327              		.syntax unified
+ 328              		.thumb
+ 329              		.thumb_func
+ 330              		.fpu softvfp
+ARM GAS  /tmp/cc0fBAHR.s 			page 12
+
+
+ 332              	MCUTimerInitialTimerEvent:
+ 333              	.LFB75:
+ 307:VS4210/SysTimer.c **** 
+ 308:VS4210/SysTimer.c **** //--------------------------------------------------
+ 309:VS4210/SysTimer.c **** // Description  : Initial timer and events. We have to run this function at firmware startup
+ 310:VS4210/SysTimer.c **** // Input Value  : None
+ 311:VS4210/SysTimer.c **** // Output Value : None
+ 312:VS4210/SysTimer.c **** //--------------------------------------------------
+ 313:VS4210/SysTimer.c **** void MCUTimerInitialTimerEvent(void)
+ 314:VS4210/SysTimer.c **** {
+ 334              		.loc 1 314 0
+ 335              		.cfi_startproc
+ 336              		@ args = 0, pretend = 0, frame = 0
+ 337              		@ frame_needed = 0, uses_anonymous_args = 0
+ 338              		@ link register save eliminated.
+ 339              	.LVL22:
+ 315:VS4210/SysTimer.c ****     BYTE ucTimerEventCnt = 0;
+ 316:VS4210/SysTimer.c **** 
+ 317:VS4210/SysTimer.c ****     for(ucTimerEventCnt = 0; ucTimerEventCnt < _TIMER_EVENT_COUNT; ucTimerEventCnt++)
+ 340              		.loc 1 317 0
+ 341 0000 0023     		movs	r3, #0
+ 342 0002 08E0     		b	.L37
+ 343              	.LVL23:
+ 344              	.L38:
+ 318:VS4210/SysTimer.c ****     {
+ 319:VS4210/SysTimer.c ****         CLR_EVENT_VALID(ucTimerEventCnt);
+ 345              		.loc 1 319 0 discriminator 3
+ 346 0004 054A     		ldr	r2, .L39
+ 347 0006 12F83310 		ldrb	r1, [r2, r3, lsl #3]	@ zero_extendqisi2
+ 348 000a 6FF30001 		bfc	r1, #0, #1
+ 349 000e 02F83310 		strb	r1, [r2, r3, lsl #3]
+ 317:VS4210/SysTimer.c ****     {
+ 350              		.loc 1 317 0 discriminator 3
+ 351 0012 0133     		adds	r3, r3, #1
+ 352              	.LVL24:
+ 353 0014 DBB2     		uxtb	r3, r3
+ 354              	.LVL25:
+ 355              	.L37:
+ 317:VS4210/SysTimer.c ****     {
+ 356              		.loc 1 317 0 is_stmt 0 discriminator 1
+ 357 0016 092B     		cmp	r3, #9
+ 358 0018 F4D9     		bls	.L38
+ 320:VS4210/SysTimer.c ****     }
+ 321:VS4210/SysTimer.c **** 
+ 322:VS4210/SysTimer.c ****    // TR2 = 1;
+ 323:VS4210/SysTimer.c **** }
+ 359              		.loc 1 323 0 is_stmt 1
+ 360 001a 7047     		bx	lr
+ 361              	.L40:
+ 362              		.align	2
+ 363              	.L39:
+ 364 001c 00000000 		.word	g_stTimerEvent
+ 365              		.cfi_endproc
+ 366              	.LFE75:
+ 368              		.section	.text.MCUTimerActiveTimerEvent,"ax",%progbits
+ 369              		.align	1
+ 370              		.global	MCUTimerActiveTimerEvent
+ARM GAS  /tmp/cc0fBAHR.s 			page 13
+
+
+ 371              		.syntax unified
+ 372              		.thumb
+ 373              		.thumb_func
+ 374              		.fpu softvfp
+ 376              	MCUTimerActiveTimerEvent:
+ 377              	.LFB76:
+ 324:VS4210/SysTimer.c **** 
+ 325:VS4210/SysTimer.c **** //--------------------------------------------------
+ 326:VS4210/SysTimer.c **** // Description  : Active Timer Event
+ 327:VS4210/SysTimer.c **** // Input Value  : usTime --> Time to active Timer Event
+ 328:VS4210/SysTimer.c **** //				  ucEventID --> Event to be actived
+ 329:VS4210/SysTimer.c **** // Output Value : None
+ 330:VS4210/SysTimer.c **** //--------------------------------------------------
+ 331:VS4210/SysTimer.c **** void MCUTimerActiveTimerEvent(WORD usTime, BYTE ucEventID)
+ 332:VS4210/SysTimer.c **** {
+ 378              		.loc 1 332 0
+ 379              		.cfi_startproc
+ 380              		@ args = 0, pretend = 0, frame = 0
+ 381              		@ frame_needed = 0, uses_anonymous_args = 0
+ 382              	.LVL26:
+ 333:VS4210/SysTimer.c ****     BYTE ucEventIndex = 0;
+ 334:VS4210/SysTimer.c **** 
+ 335:VS4210/SysTimer.c ****     // Search for Existing Event with the same Event ID
+ 336:VS4210/SysTimer.c ****     for(ucEventIndex = 0; ucEventIndex < _TIMER_EVENT_COUNT; ucEventIndex++)
+ 383              		.loc 1 336 0
+ 384 0000 0023     		movs	r3, #0
+ 385 0002 01E0     		b	.L42
+ 386              	.LVL27:
+ 387              	.L43:
+ 388              		.loc 1 336 0 is_stmt 0 discriminator 2
+ 389 0004 0133     		adds	r3, r3, #1
+ 390              	.LVL28:
+ 391 0006 DBB2     		uxtb	r3, r3
+ 392              	.LVL29:
+ 393              	.L42:
+ 394              		.loc 1 336 0 discriminator 1
+ 395 0008 092B     		cmp	r3, #9
+ 396 000a 0CD8     		bhi	.L53
+ 337:VS4210/SysTimer.c ****     {
+ 338:VS4210/SysTimer.c ****         if(GET_EVENT_VALID(ucEventIndex) == _TRUE)
+ 397              		.loc 1 338 0 is_stmt 1
+ 398 000c 174A     		ldr	r2, .L56
+ 399 000e 12F83320 		ldrb	r2, [r2, r3, lsl #3]	@ zero_extendqisi2
+ 400 0012 12F0010F 		tst	r2, #1
+ 401 0016 F5D0     		beq	.L43
+ 339:VS4210/SysTimer.c ****         {
+ 340:VS4210/SysTimer.c ****             if(GET_EVENT_ID(ucEventIndex) == ucEventID)
+ 402              		.loc 1 340 0
+ 403 0018 144A     		ldr	r2, .L56
+ 404 001a 12F83320 		ldrb	r2, [r2, r3, lsl #3]	@ zero_extendqisi2
+ 405 001e B1EB520F 		cmp	r1, r2, lsr #1
+ 406 0022 EFD1     		bne	.L43
+ 407 0024 7047     		bx	lr
+ 408              	.L53:
+ 332:VS4210/SysTimer.c ****     BYTE ucEventIndex = 0;
+ 409              		.loc 1 332 0
+ 410 0026 70B5     		push	{r4, r5, r6, lr}
+ARM GAS  /tmp/cc0fBAHR.s 			page 14
+
+
+ 411              	.LCFI1:
+ 412              		.cfi_def_cfa_offset 16
+ 413              		.cfi_offset 4, -16
+ 414              		.cfi_offset 5, -12
+ 415              		.cfi_offset 6, -8
+ 416              		.cfi_offset 14, -4
+ 417 0028 0646     		mov	r6, r0
+ 341:VS4210/SysTimer.c ****             {
+ 342:VS4210/SysTimer.c ****                 return;
+ 343:VS4210/SysTimer.c ****             }
+ 344:VS4210/SysTimer.c ****         }
+ 345:VS4210/SysTimer.c ****     }
+ 346:VS4210/SysTimer.c **** 
+ 347:VS4210/SysTimer.c ****     // Choose any Vacant Storage for Event
+ 348:VS4210/SysTimer.c ****     for(ucEventIndex = 0; ucEventIndex < _TIMER_EVENT_COUNT; ucEventIndex++)
+ 418              		.loc 1 348 0
+ 419 002a 0023     		movs	r3, #0
+ 420              	.LVL30:
+ 421              	.L46:
+ 422              		.loc 1 348 0 is_stmt 0 discriminator 1
+ 423 002c 092B     		cmp	r3, #9
+ 424 002e 18D8     		bhi	.L54
+ 349:VS4210/SysTimer.c ****     {
+ 350:VS4210/SysTimer.c ****         if(GET_EVENT_VALID(ucEventIndex) == _FALSE)
+ 425              		.loc 1 350 0 is_stmt 1
+ 426 0030 1C46     		mov	r4, r3
+ 427 0032 0E4A     		ldr	r2, .L56
+ 428 0034 12F83320 		ldrb	r2, [r2, r3, lsl #3]	@ zero_extendqisi2
+ 429 0038 12F0010F 		tst	r2, #1
+ 430 003c 02D0     		beq	.L55
+ 348:VS4210/SysTimer.c ****     {
+ 431              		.loc 1 348 0 discriminator 2
+ 432 003e 0133     		adds	r3, r3, #1
+ 433              	.LVL31:
+ 434 0040 DBB2     		uxtb	r3, r3
+ 435              	.LVL32:
+ 436 0042 F3E7     		b	.L46
+ 437              	.L55:
+ 351:VS4210/SysTimer.c ****         {
+ 352:VS4210/SysTimer.c ****             SET_EVENT_VALID(ucEventIndex);
+ 438              		.loc 1 352 0
+ 439 0044 094D     		ldr	r5, .L56
+ 353:VS4210/SysTimer.c ****             SET_EVENT_ID(ucEventIndex, ucEventID);
+ 440              		.loc 1 353 0
+ 441 0046 42F00103 		orr	r3, r2, #1
+ 442              	.LVL33:
+ 443 004a 61F34703 		bfi	r3, r1, #1, #7
+ 444 004e 05F83430 		strb	r3, [r5, r4, lsl #3]
+ 354:VS4210/SysTimer.c ****             SET_EVENT_TIME(ucEventIndex, (WORD)((DWORD)(MCUTimerCheckTimerEvent(usTime)) + usTime))
+ 445              		.loc 1 354 0
+ 446 0052 3046     		mov	r0, r6
+ 447              	.LVL34:
+ 448 0054 FFF7FEFF 		bl	MCUTimerCheckTimerEvent
+ 449              	.LVL35:
+ 450 0058 3044     		add	r0, r0, r6
+ 451 005a 05EBC404 		add	r4, r5, r4, lsl #3
+ 452 005e 6060     		str	r0, [r4, #4]
+ARM GAS  /tmp/cc0fBAHR.s 			page 15
+
+
+ 355:VS4210/SysTimer.c ****             return;
+ 453              		.loc 1 355 0
+ 454 0060 02E0     		b	.L41
+ 455              	.LVL36:
+ 456              	.L54:
+ 356:VS4210/SysTimer.c ****         }
+ 357:VS4210/SysTimer.c ****     }
+ 358:VS4210/SysTimer.c **** 
+ 359:VS4210/SysTimer.c ****     Printf("No More Available Storage for Simultaneous Event!!!!!!");
+ 457              		.loc 1 359 0
+ 458 0062 0348     		ldr	r0, .L56+4
+ 459              	.LVL37:
+ 460 0064 FFF7FEFF 		bl	Printf
+ 461              	.LVL38:
+ 462              	.L41:
+ 360:VS4210/SysTimer.c **** }
+ 463              		.loc 1 360 0
+ 464 0068 70BD     		pop	{r4, r5, r6, pc}
+ 465              	.LVL39:
+ 466              	.L57:
+ 467 006a 00BF     		.align	2
+ 468              	.L56:
+ 469 006c 00000000 		.word	g_stTimerEvent
+ 470 0070 00000000 		.word	.LC0
+ 471              		.cfi_endproc
+ 472              	.LFE76:
+ 474              		.section	.text.MCUTimerCancelTimerEvent,"ax",%progbits
+ 475              		.align	1
+ 476              		.global	MCUTimerCancelTimerEvent
+ 477              		.syntax unified
+ 478              		.thumb
+ 479              		.thumb_func
+ 480              		.fpu softvfp
+ 482              	MCUTimerCancelTimerEvent:
+ 483              	.LFB77:
+ 361:VS4210/SysTimer.c **** 
+ 362:VS4210/SysTimer.c **** //--------------------------------------------------
+ 363:VS4210/SysTimer.c **** // Description  : Cancel an event
+ 364:VS4210/SysTimer.c **** // Input Value  : Event     --> Event which we want to cancel
+ 365:VS4210/SysTimer.c **** // Output Value : None
+ 366:VS4210/SysTimer.c **** //--------------------------------------------------
+ 367:VS4210/SysTimer.c **** void MCUTimerCancelTimerEvent(BYTE ucEventID)
+ 368:VS4210/SysTimer.c **** {
+ 484              		.loc 1 368 0
+ 485              		.cfi_startproc
+ 486              		@ args = 0, pretend = 0, frame = 0
+ 487              		@ frame_needed = 0, uses_anonymous_args = 0
+ 488              		@ link register save eliminated.
+ 489              	.LVL40:
+ 369:VS4210/SysTimer.c ****     BYTE ucEventIndex = 0;
+ 370:VS4210/SysTimer.c ****     
+ 371:VS4210/SysTimer.c ****     // Search for Existing Event with the same Event ID
+ 372:VS4210/SysTimer.c ****     for(ucEventIndex = 0; ucEventIndex < _TIMER_EVENT_COUNT; ucEventIndex++)
+ 490              		.loc 1 372 0
+ 491 0000 0023     		movs	r3, #0
+ 492 0002 01E0     		b	.L59
+ 493              	.LVL41:
+ARM GAS  /tmp/cc0fBAHR.s 			page 16
+
+
+ 494              	.L60:
+ 495              		.loc 1 372 0 is_stmt 0 discriminator 2
+ 496 0004 0133     		adds	r3, r3, #1
+ 497              	.LVL42:
+ 498 0006 DBB2     		uxtb	r3, r3
+ 499              	.LVL43:
+ 500              	.L59:
+ 501              		.loc 1 372 0 discriminator 1
+ 502 0008 092B     		cmp	r3, #9
+ 503 000a 14D8     		bhi	.L63
+ 373:VS4210/SysTimer.c ****     {
+ 374:VS4210/SysTimer.c ****         if(GET_EVENT_VALID(ucEventIndex) == _TRUE)
+ 504              		.loc 1 374 0 is_stmt 1
+ 505 000c 1946     		mov	r1, r3
+ 506 000e 0A4A     		ldr	r2, .L64
+ 507 0010 12F83320 		ldrb	r2, [r2, r3, lsl #3]	@ zero_extendqisi2
+ 508 0014 12F0010F 		tst	r2, #1
+ 509 0018 F4D0     		beq	.L60
+ 375:VS4210/SysTimer.c ****         {
+ 376:VS4210/SysTimer.c ****             if(GET_EVENT_ID(ucEventIndex) == ucEventID)
+ 510              		.loc 1 376 0
+ 511 001a 074A     		ldr	r2, .L64
+ 512 001c 12F83320 		ldrb	r2, [r2, r3, lsl #3]	@ zero_extendqisi2
+ 513 0020 B0EB520F 		cmp	r0, r2, lsr #1
+ 514 0024 EED1     		bne	.L60
+ 377:VS4210/SysTimer.c ****             {
+ 378:VS4210/SysTimer.c ****                 CLR_EVENT_VALID(ucEventIndex);
+ 515              		.loc 1 378 0
+ 516 0026 044B     		ldr	r3, .L64
+ 517              	.LVL44:
+ 518 0028 13F83120 		ldrb	r2, [r3, r1, lsl #3]	@ zero_extendqisi2
+ 519 002c 6FF30002 		bfc	r2, #0, #1
+ 520 0030 03F83120 		strb	r2, [r3, r1, lsl #3]
+ 379:VS4210/SysTimer.c ****                 return;
+ 521              		.loc 1 379 0
+ 522 0034 7047     		bx	lr
+ 523              	.LVL45:
+ 524              	.L63:
+ 380:VS4210/SysTimer.c ****             }
+ 381:VS4210/SysTimer.c ****         }
+ 382:VS4210/SysTimer.c ****     }      
+ 383:VS4210/SysTimer.c **** }
+ 525              		.loc 1 383 0
+ 526 0036 7047     		bx	lr
+ 527              	.L65:
+ 528              		.align	2
+ 529              	.L64:
+ 530 0038 00000000 		.word	g_stTimerEvent
+ 531              		.cfi_endproc
+ 532              	.LFE77:
+ 534              		.section	.text.MCUTimerReactiveTimerEvent,"ax",%progbits
+ 535              		.align	1
+ 536              		.global	MCUTimerReactiveTimerEvent
+ 537              		.syntax unified
+ 538              		.thumb
+ 539              		.thumb_func
+ 540              		.fpu softvfp
+ARM GAS  /tmp/cc0fBAHR.s 			page 17
+
+
+ 542              	MCUTimerReactiveTimerEvent:
+ 543              	.LFB78:
+ 384:VS4210/SysTimer.c **** 
+ 385:VS4210/SysTimer.c **** //--------------------------------------------------
+ 386:VS4210/SysTimer.c **** // Description  : Reactive a timer for an event. If the event is exist,
+ 387:VS4210/SysTimer.c **** //                this function will reset the executing time and restart.
+ 388:VS4210/SysTimer.c **** // Input Value  : usTime    --> Unit in 1ms, range in 0.01 ~ 61 sec
+ 389:VS4210/SysTimer.c **** //                Event     --> Execute Event while timeup
+ 390:VS4210/SysTimer.c **** // Output Value : None
+ 391:VS4210/SysTimer.c **** //--------------------------------------------------
+ 392:VS4210/SysTimer.c **** void MCUTimerReactiveTimerEvent(WORD usTime, BYTE ucEventID)
+ 393:VS4210/SysTimer.c **** {
+ 544              		.loc 1 393 0
+ 545              		.cfi_startproc
+ 546              		@ args = 0, pretend = 0, frame = 0
+ 547              		@ frame_needed = 0, uses_anonymous_args = 0
+ 548              	.LVL46:
+ 549 0000 70B5     		push	{r4, r5, r6, lr}
+ 550              	.LCFI2:
+ 551              		.cfi_def_cfa_offset 16
+ 552              		.cfi_offset 4, -16
+ 553              		.cfi_offset 5, -12
+ 554              		.cfi_offset 6, -8
+ 555              		.cfi_offset 14, -4
+ 556 0002 0446     		mov	r4, r0
+ 557              	.LVL47:
+ 394:VS4210/SysTimer.c ****     BYTE ucEventIndex = 0;
+ 395:VS4210/SysTimer.c **** 
+ 396:VS4210/SysTimer.c ****     // Search for Existing Event with the same Event ID
+ 397:VS4210/SysTimer.c ****     for(ucEventIndex = 0; ucEventIndex < _TIMER_EVENT_COUNT; ucEventIndex++)
+ 558              		.loc 1 397 0
+ 559 0004 0023     		movs	r3, #0
+ 560 0006 01E0     		b	.L67
+ 561              	.LVL48:
+ 562              	.L68:
+ 563              		.loc 1 397 0 is_stmt 0 discriminator 2
+ 564 0008 0133     		adds	r3, r3, #1
+ 565              	.LVL49:
+ 566 000a DBB2     		uxtb	r3, r3
+ 567              	.LVL50:
+ 568              	.L67:
+ 569              		.loc 1 397 0 discriminator 1
+ 570 000c 092B     		cmp	r3, #9
+ 571 000e 15D8     		bhi	.L75
+ 398:VS4210/SysTimer.c ****     {
+ 399:VS4210/SysTimer.c ****         if(GET_EVENT_VALID(ucEventIndex) == _TRUE)
+ 572              		.loc 1 399 0 is_stmt 1
+ 573 0010 1D46     		mov	r5, r3
+ 574 0012 184A     		ldr	r2, .L77
+ 575 0014 12F83320 		ldrb	r2, [r2, r3, lsl #3]	@ zero_extendqisi2
+ 576 0018 12F0010F 		tst	r2, #1
+ 577 001c F4D0     		beq	.L68
+ 400:VS4210/SysTimer.c ****         {
+ 401:VS4210/SysTimer.c ****             if(GET_EVENT_ID(ucEventIndex) == ucEventID)
+ 578              		.loc 1 401 0
+ 579 001e 154A     		ldr	r2, .L77
+ 580 0020 12F83320 		ldrb	r2, [r2, r3, lsl #3]	@ zero_extendqisi2
+ARM GAS  /tmp/cc0fBAHR.s 			page 18
+
+
+ 581 0024 B1EB520F 		cmp	r1, r2, lsr #1
+ 582 0028 EED1     		bne	.L68
+ 402:VS4210/SysTimer.c ****             {
+ 403:VS4210/SysTimer.c ****                 SET_EVENT_TIME(ucEventIndex, (WORD)((DWORD)(MCUTimerCheckTimerEvent(usTime)) + usTi
+ 583              		.loc 1 403 0
+ 584 002a 2046     		mov	r0, r4
+ 585              	.LVL51:
+ 586 002c FFF7FEFF 		bl	MCUTimerCheckTimerEvent
+ 587              	.LVL52:
+ 588 0030 2044     		add	r0, r0, r4
+ 589 0032 104B     		ldr	r3, .L77
+ 590 0034 03EBC505 		add	r5, r3, r5, lsl #3
+ 591 0038 6860     		str	r0, [r5, #4]
+ 404:VS4210/SysTimer.c ****                 return;
+ 592              		.loc 1 404 0
+ 593 003a 1AE0     		b	.L66
+ 594              	.LVL53:
+ 595              	.L75:
+ 405:VS4210/SysTimer.c ****             }
+ 406:VS4210/SysTimer.c ****         }
+ 407:VS4210/SysTimer.c ****     }    
+ 408:VS4210/SysTimer.c **** 
+ 409:VS4210/SysTimer.c ****     // Choose any Vacant Storage for Event
+ 410:VS4210/SysTimer.c ****     for(ucEventIndex = 0; ucEventIndex < _TIMER_EVENT_COUNT; ucEventIndex++)
+ 596              		.loc 1 410 0
+ 597 003c 0023     		movs	r3, #0
+ 598              	.LVL54:
+ 599              	.L71:
+ 600              		.loc 1 410 0 is_stmt 0 discriminator 1
+ 601 003e 092B     		cmp	r3, #9
+ 602 0040 17D8     		bhi	.L66
+ 411:VS4210/SysTimer.c ****     {
+ 412:VS4210/SysTimer.c ****         if(GET_EVENT_VALID(ucEventIndex) == _FALSE)
+ 603              		.loc 1 412 0 is_stmt 1
+ 604 0042 1D46     		mov	r5, r3
+ 605 0044 0B4A     		ldr	r2, .L77
+ 606 0046 12F83320 		ldrb	r2, [r2, r3, lsl #3]	@ zero_extendqisi2
+ 607 004a 12F0010F 		tst	r2, #1
+ 608 004e 02D0     		beq	.L76
+ 410:VS4210/SysTimer.c ****     {
+ 609              		.loc 1 410 0 discriminator 2
+ 610 0050 0133     		adds	r3, r3, #1
+ 611              	.LVL55:
+ 612 0052 DBB2     		uxtb	r3, r3
+ 613              	.LVL56:
+ 614 0054 F3E7     		b	.L71
+ 615              	.L76:
+ 413:VS4210/SysTimer.c ****         {
+ 414:VS4210/SysTimer.c ****             SET_EVENT_VALID(ucEventIndex);
+ 616              		.loc 1 414 0
+ 617 0056 074E     		ldr	r6, .L77
+ 415:VS4210/SysTimer.c ****             SET_EVENT_ID(ucEventIndex, ucEventID);
+ 618              		.loc 1 415 0
+ 619 0058 42F00103 		orr	r3, r2, #1
+ 620              	.LVL57:
+ 621 005c 61F34703 		bfi	r3, r1, #1, #7
+ 622 0060 06F83530 		strb	r3, [r6, r5, lsl #3]
+ARM GAS  /tmp/cc0fBAHR.s 			page 19
+
+
+ 416:VS4210/SysTimer.c ****             SET_EVENT_TIME(ucEventIndex, (WORD)((DWORD)(MCUTimerCheckTimerEvent(usTime)) + usTime))
+ 623              		.loc 1 416 0
+ 624 0064 2046     		mov	r0, r4
+ 625              	.LVL58:
+ 626 0066 FFF7FEFF 		bl	MCUTimerCheckTimerEvent
+ 627              	.LVL59:
+ 628 006a 2044     		add	r0, r0, r4
+ 629 006c 06EBC505 		add	r5, r6, r5, lsl #3
+ 630 0070 6860     		str	r0, [r5, #4]
+ 631              	.L66:
+ 417:VS4210/SysTimer.c ****             return;
+ 418:VS4210/SysTimer.c ****         }
+ 419:VS4210/SysTimer.c ****     }   
+ 420:VS4210/SysTimer.c **** }
+ 632              		.loc 1 420 0
+ 633 0072 70BD     		pop	{r4, r5, r6, pc}
+ 634              	.LVL60:
+ 635              	.L78:
+ 636              		.align	2
+ 637              	.L77:
+ 638 0074 00000000 		.word	g_stTimerEvent
+ 639              		.cfi_endproc
+ 640              	.LFE78:
+ 642              		.section	.text.PowerLED,"ax",%progbits
+ 643              		.align	1
+ 644              		.global	PowerLED
+ 645              		.syntax unified
+ 646              		.thumb
+ 647              		.thumb_func
+ 648              		.fpu softvfp
+ 650              	PowerLED:
+ 651              	.LFB79:
+ 421:VS4210/SysTimer.c **** 
+ 422:VS4210/SysTimer.c **** 
+ 423:VS4210/SysTimer.c **** //=============================================================================
+ 424:VS4210/SysTimer.c **** //                            Power LED ON / OFF                                                   
+ 425:VS4210/SysTimer.c **** //=============================================================================
+ 426:VS4210/SysTimer.c **** void PowerLED(EnumSystemTimerEventID flag)
+ 427:VS4210/SysTimer.c **** {
+ 652              		.loc 1 427 0
+ 653              		.cfi_startproc
+ 654              		@ args = 0, pretend = 0, frame = 0
+ 655              		@ frame_needed = 0, uses_anonymous_args = 0
+ 656              	.LVL61:
+ 657 0000 10B5     		push	{r4, lr}
+ 658              	.LCFI3:
+ 659              		.cfi_def_cfa_offset 8
+ 660              		.cfi_offset 4, -8
+ 661              		.cfi_offset 14, -4
+ 428:VS4210/SysTimer.c **** 
+ 429:VS4210/SysTimer.c **** //SET_LED_STATUS(flag);
+ 430:VS4210/SysTimer.c **** 
+ 431:VS4210/SysTimer.c ****  switch(flag)
+ 662              		.loc 1 431 0
+ 663 0002 2C28     		cmp	r0, #44
+ 664 0004 12D0     		beq	.L81
+ 665 0006 3228     		cmp	r0, #50
+ARM GAS  /tmp/cc0fBAHR.s 			page 20
+
+
+ 666 0008 1ED0     		beq	.L82
+ 667 000a 2A28     		cmp	r0, #42
+ 668 000c 00D0     		beq	.L85
+ 669              	.LVL62:
+ 670              	.L79:
+ 432:VS4210/SysTimer.c ****    { 
+ 433:VS4210/SysTimer.c **** 	 case _SYSTEM_TIMER_EVENT_GRN_ON:
+ 434:VS4210/SysTimer.c **** 		HAL_GPIO_WritePin(GREEN_LED_GPIO_Port, GREEN_LED_Pin , GPIO_PIN_RESET);
+ 435:VS4210/SysTimer.c **** 		HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin , GPIO_PIN_SET);	   
+ 436:VS4210/SysTimer.c **** 	 	break;
+ 437:VS4210/SysTimer.c **** 	  case _SYSTEM_TIMER_EVENT_RED_ON:
+ 438:VS4210/SysTimer.c **** 		 HAL_GPIO_WritePin(GREEN_LED_GPIO_Port, GREEN_LED_Pin , GPIO_PIN_SET);
+ 439:VS4210/SysTimer.c **** 		 HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin , GPIO_PIN_RESET);		
+ 440:VS4210/SysTimer.c **** 	   	break;
+ 441:VS4210/SysTimer.c **** 	  case _SYSTEM_TIMER_EVENT_GRN_RED_OFF:
+ 442:VS4210/SysTimer.c **** 		  HAL_GPIO_WritePin(GREEN_LED_GPIO_Port, GREEN_LED_Pin , GPIO_PIN_SET);
+ 443:VS4210/SysTimer.c **** 		  HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin , GPIO_PIN_SET);		 
+ 444:VS4210/SysTimer.c **** 		break;
+ 445:VS4210/SysTimer.c **** 
+ 446:VS4210/SysTimer.c **** //    HAL_GPIO_WritePin(GPIOA, TX_RST_Pin|TP2824_RST_Pin|VS_RST_Pin, GPIO_PIN_SET);
+ 447:VS4210/SysTimer.c ****    /*
+ 448:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_GRN_ON:
+ 449:VS4210/SysTimer.c ****    if((P4&0x01))
+ 450:VS4210/SysTimer.c **** 	 P4=P4&0xFE;	   //GREEN_LED = 0; 	   // ON GREEN
+ 451:VS4210/SysTimer.c **** 	break;
+ 452:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_GRN_OFF:
+ 453:VS4210/SysTimer.c ****    	 if((P4&0x01)==0) 	
+ 454:VS4210/SysTimer.c **** 	P4=P4|0x01;		//GREEN_LED = 1;		// OFF GREEN
+ 455:VS4210/SysTimer.c **** 	break;
+ 456:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_RED_ON:
+ 457:VS4210/SysTimer.c ****   if((P4&0x02))  	
+ 458:VS4210/SysTimer.c **** 	P4=P4&0xFD;		//RED_LED = 0;		// ON RED   	
+ 459:VS4210/SysTimer.c **** 	break;
+ 460:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_RED_OFF:
+ 461:VS4210/SysTimer.c ****    if((P4&0x02)==0)	 	
+ 462:VS4210/SysTimer.c ****    	P4=P4|0x02;		//RED_LED = 1;		// OFF RED
+ 463:VS4210/SysTimer.c ****    	break;
+ 464:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_GRN_RED_ON:
+ 465:VS4210/SysTimer.c **** 	   if((P4&0x01))
+ 466:VS4210/SysTimer.c **** 		 P4=P4&0xFE;	   //GREEN_LED = 0; 	   // ON GREEN
+ 467:VS4210/SysTimer.c **** 	   if((P4&0x02))	
+ 468:VS4210/SysTimer.c **** 		P4=P4&0xFC; 	//RED_LED = 0;		// ON RED	
+ 469:VS4210/SysTimer.c ****    	break;
+ 470:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_GRN_BLINK:
+ 471:VS4210/SysTimer.c ****    	     if((P4&0x01))
+ 472:VS4210/SysTimer.c ****    		{
+ 473:VS4210/SysTimer.c **** 		 P4=P4&0xFE;	   //GREEN_LED = 0; 	   // ON GREEN  		
+ 474:VS4210/SysTimer.c ****    		}
+ 475:VS4210/SysTimer.c **** 		else
+ 476:VS4210/SysTimer.c **** 		{
+ 477:VS4210/SysTimer.c **** 		P4=P4|0x01; 	//GREEN_LED = 1;		// OFF GREEN
+ 478:VS4210/SysTimer.c **** 		}
+ 479:VS4210/SysTimer.c ****    	break;
+ 480:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_RED_BLINK:
+ 481:VS4210/SysTimer.c ****    	 	 if((P4&0x02))
+ 482:VS4210/SysTimer.c ****    		{
+ 483:VS4210/SysTimer.c **** 		 P4=P4&0xFD;		//RED_LED = 0;		// ON RED    		
+ARM GAS  /tmp/cc0fBAHR.s 			page 21
+
+
+ 484:VS4210/SysTimer.c ****    		}
+ 485:VS4210/SysTimer.c **** 		else
+ 486:VS4210/SysTimer.c **** 		{
+ 487:VS4210/SysTimer.c **** 		P4=P4|0x02;		//RED_LED = 1;		// OFF RED
+ 488:VS4210/SysTimer.c **** 		}
+ 489:VS4210/SysTimer.c ****    	break;	
+ 490:VS4210/SysTimer.c ****   case _SYSTEM_TIMER_EVENT_GRN_RED_BLINK:
+ 491:VS4210/SysTimer.c ****   		 if((P4&0x01))
+ 492:VS4210/SysTimer.c ****    		{
+ 493:VS4210/SysTimer.c **** 		 P4=P4&0xFC;	   //GREEN_LED = 0; 	   // ON RED& GREEN  
+ 494:VS4210/SysTimer.c ****    		}
+ 495:VS4210/SysTimer.c **** 		else
+ 496:VS4210/SysTimer.c **** 		{
+ 497:VS4210/SysTimer.c **** 		P4=P4|0x03; 	//GREEN_LED = 1;		// OFF GREEN&RED
+ 498:VS4210/SysTimer.c **** 		}
+ 499:VS4210/SysTimer.c **** 	 break;  
+ 500:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_GRN_ON_RED_BLINK:
+ 501:VS4210/SysTimer.c ****   		 if((P4&0x02))
+ 502:VS4210/SysTimer.c ****    		{
+ 503:VS4210/SysTimer.c **** 		 P4=P4&0xFC;	   //GREEN_LED = 0; 	   // ON RED
+ 504:VS4210/SysTimer.c ****    		}
+ 505:VS4210/SysTimer.c **** 		else
+ 506:VS4210/SysTimer.c **** 		{
+ 507:VS4210/SysTimer.c **** 		P4=P4|0x02; 	//GREEN_LED = 1;		// OFF RED
+ 508:VS4210/SysTimer.c **** 		}
+ 509:VS4210/SysTimer.c **** 	 break;   
+ 510:VS4210/SysTimer.c **** 	 */
+ 511:VS4210/SysTimer.c ****    default:
+ 512:VS4210/SysTimer.c ****             break;
+ 513:VS4210/SysTimer.c ****  }	
+ 514:VS4210/SysTimer.c **** }
+ 671              		.loc 1 514 0
+ 672 000e 10BD     		pop	{r4, pc}
+ 673              	.LVL63:
+ 674              	.L85:
+ 434:VS4210/SysTimer.c **** 		HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin , GPIO_PIN_SET);	   
+ 675              		.loc 1 434 0
+ 676 0010 144C     		ldr	r4, .L86
+ 677 0012 0022     		movs	r2, #0
+ 678 0014 4FF40071 		mov	r1, #512
+ 679 0018 2046     		mov	r0, r4
+ 680              	.LVL64:
+ 681 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 682              	.LVL65:
+ 435:VS4210/SysTimer.c **** 	 	break;
+ 683              		.loc 1 435 0
+ 684 001e 0122     		movs	r2, #1
+ 685 0020 4FF48071 		mov	r1, #256
+ 686 0024 2046     		mov	r0, r4
+ 687 0026 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 688              	.LVL66:
+ 436:VS4210/SysTimer.c **** 	  case _SYSTEM_TIMER_EVENT_RED_ON:
+ 689              		.loc 1 436 0
+ 690 002a F0E7     		b	.L79
+ 691              	.LVL67:
+ 692              	.L81:
+ 438:VS4210/SysTimer.c **** 		 HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin , GPIO_PIN_RESET);		
+ARM GAS  /tmp/cc0fBAHR.s 			page 22
+
+
+ 693              		.loc 1 438 0
+ 694 002c 0D4C     		ldr	r4, .L86
+ 695 002e 0122     		movs	r2, #1
+ 696 0030 4FF40071 		mov	r1, #512
+ 697 0034 2046     		mov	r0, r4
+ 698              	.LVL68:
+ 699 0036 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 700              	.LVL69:
+ 439:VS4210/SysTimer.c **** 	   	break;
+ 701              		.loc 1 439 0
+ 702 003a 0022     		movs	r2, #0
+ 703 003c 4FF48071 		mov	r1, #256
+ 704 0040 2046     		mov	r0, r4
+ 705 0042 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 706              	.LVL70:
+ 440:VS4210/SysTimer.c **** 	  case _SYSTEM_TIMER_EVENT_GRN_RED_OFF:
+ 707              		.loc 1 440 0
+ 708 0046 E2E7     		b	.L79
+ 709              	.LVL71:
+ 710              	.L82:
+ 442:VS4210/SysTimer.c **** 		  HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin , GPIO_PIN_SET);		 
+ 711              		.loc 1 442 0
+ 712 0048 064C     		ldr	r4, .L86
+ 713 004a 0122     		movs	r2, #1
+ 714 004c 4FF40071 		mov	r1, #512
+ 715 0050 2046     		mov	r0, r4
+ 716              	.LVL72:
+ 717 0052 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 718              	.LVL73:
+ 443:VS4210/SysTimer.c **** 		break;
+ 719              		.loc 1 443 0
+ 720 0056 0122     		movs	r2, #1
+ 721 0058 4FF48071 		mov	r1, #256
+ 722 005c 2046     		mov	r0, r4
+ 723 005e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 724              	.LVL74:
+ 725              		.loc 1 514 0
+ 726 0062 D4E7     		b	.L79
+ 727              	.L87:
+ 728              		.align	2
+ 729              	.L86:
+ 730 0064 00100140 		.word	1073811456
+ 731              		.cfi_endproc
+ 732              	.LFE79:
+ 734              		.section	.text.UserInterfaceTimerEventProc,"ax",%progbits
+ 735              		.align	1
+ 736              		.global	UserInterfaceTimerEventProc
+ 737              		.syntax unified
+ 738              		.thumb
+ 739              		.thumb_func
+ 740              		.fpu softvfp
+ 742              	UserInterfaceTimerEventProc:
+ 743              	.LFB80:
+ 515:VS4210/SysTimer.c **** 
+ 516:VS4210/SysTimer.c **** void UserInterfaceTimerEventProc(BYTE ucEventID)
+ 517:VS4210/SysTimer.c **** {
+ 744              		.loc 1 517 0
+ARM GAS  /tmp/cc0fBAHR.s 			page 23
+
+
+ 745              		.cfi_startproc
+ 746              		@ args = 0, pretend = 0, frame = 0
+ 747              		@ frame_needed = 0, uses_anonymous_args = 0
+ 748              		@ link register save eliminated.
+ 749              	.LVL75:
+ 518:VS4210/SysTimer.c **** 
+ 519:VS4210/SysTimer.c **** switch(ucEventID)
+ 520:VS4210/SysTimer.c **** {
+ 521:VS4210/SysTimer.c **** #if 0
+ 522:VS4210/SysTimer.c **** 	case _USER_TIMER_EVENT_KEY_REPEAT_ENABLE:
+ 523:VS4210/SysTimer.c **** 		  // SET_KEYREPEATSTART();
+ 524:VS4210/SysTimer.c **** 		  DEBUG_MESSAGE(">");
+ 525:VS4210/SysTimer.c **** 		     MCUTimerActiveTimerEvent(SEC(10), _USER_TIMER_EVENT_KEY_REPEAT_ENABLE);
+ 526:VS4210/SysTimer.c **** 		   	break;
+ 527:VS4210/SysTimer.c **** 	case _USER_TIMER_EVENT_OSD_CAMERA_VOLTAGE_INC:
+ 528:VS4210/SysTimer.c **** 			if(CameraVolt<100)
+ 529:VS4210/SysTimer.c **** 			{
+ 530:VS4210/SysTimer.c **** 			CameraVolt++;
+ 531:VS4210/SysTimer.c **** 			}
+ 532:VS4210/SysTimer.c **** 			else
+ 533:VS4210/SysTimer.c **** 			{
+ 534:VS4210/SysTimer.c **** 			CameraVolt=100;
+ 535:VS4210/SysTimer.c **** 			}
+ 536:VS4210/SysTimer.c **** 			//SetAD5110Step(CameraVolt);
+ 537:VS4210/SysTimer.c **** 			//WriteEEP(EEP_CameraVolt, CameraVolt);  
+ 538:VS4210/SysTimer.c **** 			Printf("(CAM_INC %02x)",(WORD)CameraVolt);	
+ 539:VS4210/SysTimer.c ****    			break;
+ 540:VS4210/SysTimer.c **** 	case _USER_TIMER_EVENT_OSD_CAMERA_VOLTAGE_DEC:
+ 541:VS4210/SysTimer.c **** 		
+ 542:VS4210/SysTimer.c **** 			if(CameraVolt)
+ 543:VS4210/SysTimer.c **** 			{
+ 544:VS4210/SysTimer.c **** 			CameraVolt--;
+ 545:VS4210/SysTimer.c **** 			}
+ 546:VS4210/SysTimer.c **** 			else
+ 547:VS4210/SysTimer.c **** 			{
+ 548:VS4210/SysTimer.c **** 			CameraVolt=0;
+ 549:VS4210/SysTimer.c **** 			}
+ 550:VS4210/SysTimer.c **** 			//SetAD5110Step(CameraVolt);	
+ 551:VS4210/SysTimer.c **** 			//WriteEEP(EEP_CameraVolt, CameraVolt);  
+ 552:VS4210/SysTimer.c **** 			Printf("(CAM_DEC %02x)",(WORD)CameraVolt);	
+ 553:VS4210/SysTimer.c **** 			break;
+ 554:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_OSD_GET_MCU_VERSION:
+ 555:VS4210/SysTimer.c **** 			//MCU_SendCmdToDVR(MCU_PROTOCOL_CMD_REPLY_MCU_FW);	
+ 556:VS4210/SysTimer.c **** 			Printf("(GET_MCU_VERSION)");	
+ 557:VS4210/SysTimer.c **** 			break;
+ 558:VS4210/SysTimer.c ****        case _USER_TIMER_EVENT_OSD_MCU_ENTRY_SLEEP_MODE:
+ 559:VS4210/SysTimer.c **** 		   	Printf("(MCU_ENTRY_SLEEP_MODE)");    
+ 560:VS4210/SysTimer.c **** 			PSW_Flag=1;
+ 561:VS4210/SysTimer.c **** 	   		break;
+ 562:VS4210/SysTimer.c **** 	case _USER_TIMER_EVENT_OSD_DISTANCE_RESET:
+ 563:VS4210/SysTimer.c **** 		/*
+ 564:VS4210/SysTimer.c **** 		EncorderCount=0;
+ 565:VS4210/SysTimer.c **** 		EncorderLenint=0;
+ 566:VS4210/SysTimer.c **** 		EncorderLenfloaat=0;
+ 567:VS4210/SysTimer.c **** 		EncorderCountPN=0;
+ 568:VS4210/SysTimer.c **** 		*/
+ 569:VS4210/SysTimer.c **** 		//MCU_SendCmdToDVR(MCU_PROTOCOL_CMD_REGULAR_DATA);	
+ARM GAS  /tmp/cc0fBAHR.s 			page 24
+
+
+ 570:VS4210/SysTimer.c **** 		//param[0]=EncorderLenint;
+ 571:VS4210/SysTimer.c **** 		//param[1]=EncorderLenfloaat;
+ 572:VS4210/SysTimer.c **** 		//param[2]=EncorderCountPN;
+ 573:VS4210/SysTimer.c **** 		//protocol_send_cmd_with_param_num(0x0a, (BYTE *)param, 3);
+ 574:VS4210/SysTimer.c **** 		Printf("\r\n ClearEncorder ",0);
+ 575:VS4210/SysTimer.c **** 		
+ 576:VS4210/SysTimer.c **** 			 //Printf("(DISTANCE_RESET)");	 
+ 577:VS4210/SysTimer.c **** 			 break;
+ 578:VS4210/SysTimer.c **** 	 case _USER_TIMER_EVENT_OSD_DVR_REBOOT:
+ 579:VS4210/SysTimer.c **** 			 Printf("(DVR_REBOOT)");  
+ 580:VS4210/SysTimer.c **** 			  break;
+ 581:VS4210/SysTimer.c **** 	  case _USER_TIMER_EVENT_OSD_DVR_SHUTDOWN:
+ 582:VS4210/SysTimer.c **** 			 Printf("(DVR_SHUTDOWN)");  
+ 583:VS4210/SysTimer.c **** 			 break;
+ 584:VS4210/SysTimer.c **** 	case _USER_TIMER_EVENT_OSD_ENCODER_DEVIATION_SETTING:
+ 585:VS4210/SysTimer.c **** 			Printf("(ENCODER_SET)");  
+ 586:VS4210/SysTimer.c **** 			break;
+ 587:VS4210/SysTimer.c **** 	#if (_DEBUG_MESSAGE_Monitor==ON)
+ 588:VS4210/SysTimer.c **** 	case _USER_TIMER_EVENT_Monitor_ON:
+ 589:VS4210/SysTimer.c **** 	 Monitor_flag=_FALSE;
+ 590:VS4210/SysTimer.c **** 		break;
+ 591:VS4210/SysTimer.c **** 	#endif
+ 592:VS4210/SysTimer.c **** 	case _USER_TIMER_EVENT_PANEL_BACKLIGHT_ON:
+ 593:VS4210/SysTimer.c **** 		 LCDPowerON();
+ 594:VS4210/SysTimer.c **** 		break;
+ 595:VS4210/SysTimer.c **** 		
+ 596:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_OSD_DISABLE:
+ 597:VS4210/SysTimer.c **** 			CloseOSDMenu();
+ 598:VS4210/SysTimer.c **** 			break;
+ 599:VS4210/SysTimer.c **** 	case _USER_TIMER_EVENT_DISPLAY_DISABLE:
+ 600:VS4210/SysTimer.c **** 
+ 601:VS4210/SysTimer.c **** 		if((GetItemValue(0xb9)==_FALSE)&&(TriggerStatus==OFF)&&((GetDisplayedOSD() & (MENU|TVVOL))==0))
+ 602:VS4210/SysTimer.c ****    		CloseOSDINFO();
+ 603:VS4210/SysTimer.c **** 		
+ 604:VS4210/SysTimer.c **** 		break;
+ 605:VS4210/SysTimer.c **** 	case _USER_TIMER_EVENT_Encoder_Loop:
+ 606:VS4210/SysTimer.c **** 		Encoder_flag=ON;
+ 607:VS4210/SysTimer.c **** 
+ 608:VS4210/SysTimer.c **** 		break;
+ 609:VS4210/SysTimer.c **** 		case _USER_TIMER_EVENT_SEQ_CHECK:
+ 610:VS4210/SysTimer.c **** 			if((SEQFlag==ON)&&(TriggerFlag==0)&&(PowerFlag==ON)&&((GetDisplayedOSD() & (MENU|TVVOL))==0))
+ 611:VS4210/SysTimer.c **** 			{
+ 612:VS4210/SysTimer.c **** 			SEQMode();
+ 613:VS4210/SysTimer.c **** 		  	 MCUTimerActiveTimerEvent(SEC(TimeStep), _USER_TIMER_EVENT_SEQ_CHECK);
+ 614:VS4210/SysTimer.c **** 			}
+ 615:VS4210/SysTimer.c **** 			break;
+ 616:VS4210/SysTimer.c **** 			#endif
+ 617:VS4210/SysTimer.c **** 	 default: 	break;
+ 618:VS4210/SysTimer.c **** 	 
+ 619:VS4210/SysTimer.c **** 
+ 620:VS4210/SysTimer.c **** }
+ 621:VS4210/SysTimer.c **** #if 0
+ 622:VS4210/SysTimer.c ****     switch(ucEventID)
+ 623:VS4210/SysTimer.c ****     {
+ 624:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_KEY_REPEAT_ENABLE:
+ 625:VS4210/SysTimer.c ****             SET_KEYREPEATSTART();
+ 626:VS4210/SysTimer.c ****             break;
+ARM GAS  /tmp/cc0fBAHR.s 			page 25
+
+
+ 627:VS4210/SysTimer.c **** 
+ 628:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_KEY_SCAN_READY:
+ 629:VS4210/SysTimer.c ****             SET_KEYSCANREADY();
+ 630:VS4210/SysTimer.c ****             break;
+ 631:VS4210/SysTimer.c **** 
+ 632:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_OSD_DISABLE_OSD_LOGO:
+ 633:VS4210/SysTimer.c ****             RTDOsdDisplayDisableOsd();
+ 634:VS4210/SysTimer.c ****             SET_OSD_LOGO_ON(_OFF);
+ 635:VS4210/SysTimer.c **** 		
+ 636:VS4210/SysTimer.c **** 			
+ 637:VS4210/SysTimer.c **** #if(_INSTANT_TIMER_EVENT_0 == _ON)
+ 638:VS4210/SysTimer.c ****             MCUTimer0SetTimerCount(_TIMER_OFF);
+ 639:VS4210/SysTimer.c **** #endif
+ 640:VS4210/SysTimer.c **** 
+ 641:VS4210/SysTimer.c **** #if(_PANEL_POW_SEQ_FAST_MODE == _ON)
+ 642:VS4210/SysTimer.c ****             UserInterfacePanelPowerAction(_BACKLIGHT_OFF);
+ 643:VS4210/SysTimer.c **** #else
+ 644:VS4210/SysTimer.c ****             UserInterfacePanelPowerAction(_PANEL_OFF);
+ 645:VS4210/SysTimer.c **** #endif
+ 646:VS4210/SysTimer.c ****             ScalerDDomainBackgroundEnable(_ENABLE);
+ 647:VS4210/SysTimer.c ****             ScalerDDomainPatternGenEnable(_DISABLE);
+ 648:VS4210/SysTimer.c ****             break;
+ 649:VS4210/SysTimer.c **** 
+ 650:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_OSD_SHOW_NO_CABLE:
+ 651:VS4210/SysTimer.c ****       SET_OSD_EVENT_MESSAGE(_OSDEVENT_SHOW_NOCABLE_MSG);
+ 652:VS4210/SysTimer.c ****             break;
+ 653:VS4210/SysTimer.c **** 
+ 654:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_OSD_SHOW_NO_SIGNAL:
+ 655:VS4210/SysTimer.c ****        SET_OSD_EVENT_MESSAGE(_OSDEVENT_SHOW_NOSIGNAL_MSG);
+ 656:VS4210/SysTimer.c ****             break;
+ 657:VS4210/SysTimer.c **** 
+ 658:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_OSD_SHOW_POWER_SAVING:
+ 659:VS4210/SysTimer.c **** 
+ 660:VS4210/SysTimer.c **** 					#ifdef debug_mode1
+ 661:VS4210/SysTimer.c **** 					DebugMessageOsd("p6",0);
+ 662:VS4210/SysTimer.c **** 					#endif
+ 663:VS4210/SysTimer.c ****        SET_OSD_EVENT_MESSAGE(_OSDEVENT_SHOW_POWER_SAVING_EVENT_MSG);
+ 664:VS4210/SysTimer.c ****             break;
+ 665:VS4210/SysTimer.c **** 
+ 666:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_GO_TO_POWER_SAVING:
+ 667:VS4210/SysTimer.c ****           SET_OSD_EVENT_MESSAGE(_OSDEVENT_GO_TO_POWER_SAVING_EVENT_MSG);
+ 668:VS4210/SysTimer.c ****             break;
+ 669:VS4210/SysTimer.c **** 
+ 670:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_OSD_DISABLE:
+ 671:VS4210/SysTimer.c **** 					
+ 672:VS4210/SysTimer.c ****         	
+ 673:VS4210/SysTimer.c **** 						RTDOsdDisplayDisableOsd();
+ 674:VS4210/SysTimer.c **** 				  if(GET_CHANNEL_INFO_STATUS()==_TRUE) MCUTimerReactiveTimerEvent(SEC(3),_USER_TIMER_EVENT_DISP
+ 675:VS4210/SysTimer.c ****             break;
+ 676:VS4210/SysTimer.c **** 
+ 677:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_PANEL_BACKLIGHT_ON:
+ 678:VS4210/SysTimer.c ****             SET_PANELPOWERSTATUS(_READY_FOR_BACKLIGHT);
+ 679:VS4210/SysTimer.c ****             break;
+ 680:VS4210/SysTimer.c **** 		 case _USER_TIMER_EVENT_LIGHT_SENSER_ON	:
+ 681:VS4210/SysTimer.c **** 		 	if(GET_OSD_LIGHTSENSER()<=0x30) 
+ 682:VS4210/SysTimer.c **** 		 		{
+ 683:VS4210/SysTimer.c **** 				 UserInterfacePanelPowerAction(_BACKLIGHT_OFF);
+ARM GAS  /tmp/cc0fBAHR.s 			page 26
+
+
+ 684:VS4210/SysTimer.c **** 				DebugMessageOsd("LIGHT_SENSER BACKLIGHT_OFF==",1);
+ 685:VS4210/SysTimer.c **** 		 		}
+ 686:VS4210/SysTimer.c **** 			  break;
+ 687:VS4210/SysTimer.c **** 				 case _USER_TIMER_EVENT_SHOW_BURN_IN://ryan@20141230		
+ 688:VS4210/SysTimer.c **** 				 	SET_OSD_EVENT_MESSAGE(_OSDEVENT_SHOW_BURNIN_MSG);	
+ 689:VS4210/SysTimer.c **** 				 //SET_OSD_EVENT_MESSAGE(_OSDEVENT_FACTORY_BURNIN_MODE_MSG);
+ 690:VS4210/SysTimer.c **** 				break;
+ 691:VS4210/SysTimer.c **** 				
+ 692:VS4210/SysTimer.c **** 	  case _USER_TIMER_EVENT_BURN_IN_ON://ryan@20141230		
+ 693:VS4210/SysTimer.c **** 		 		 SET_OSD_EVENT_MESSAGE(_OSDEVENT_FACTORY_BURNIN_MODE_MSG);	
+ 694:VS4210/SysTimer.c **** 				 //SET_OSD_EVENT_MESSAGE(_OSDEVENT_FACTORY_BURNIN_MODE_MSG);
+ 695:VS4210/SysTimer.c **** 				break;
+ 696:VS4210/SysTimer.c **** 	  case _USER_TIMER_EVENT_CHECK://ryan@20141230		
+ 697:VS4210/SysTimer.c **** 			 SET_OSD_EVENT_MESSAGE(_OSDEVENT_CHECK_MSG);
+ 698:VS4210/SysTimer.c **** 				break;
+ 699:VS4210/SysTimer.c **** 	
+ 700:VS4210/SysTimer.c **** 		 case _USER_TIMER_EVENT_DISPLAY_INFO://ryan@20141230		
+ 701:VS4210/SysTimer.c **** 			 SET_OSD_EVENT_MESSAGE(_OSDEVENT_DISPLAY_INFO_MSG);
+ 702:VS4210/SysTimer.c **** 				break;	
+ 703:VS4210/SysTimer.c **** 	  case _USER_TIMER_EVENT_STANDBY_MODE:
+ 704:VS4210/SysTimer.c **** 	 SET_OSD_EVENT_MESSAGE(_OSDEVENT_STANDBY_MODE_MSG);
+ 705:VS4210/SysTimer.c **** 			break;
+ 706:VS4210/SysTimer.c **** 		  case _USER_TIMER_EVENT_FACTORY_MODE:
+ 707:VS4210/SysTimer.c **** 	 SET_OSD_EVENT_MESSAGE(_OSDEVENT_FACTORY_MODE_MSG);
+ 708:VS4210/SysTimer.c **** 			break;		
+ 709:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_PANEL_POWER_OFF:
+ 710:VS4210/SysTimer.c ****             SET_PANELPOWERSTATUS(_PANEL_POWER_OFF_STATE);
+ 711:VS4210/SysTimer.c ****             break;
+ 712:VS4210/SysTimer.c **** 
+ 713:VS4210/SysTimer.c **** 	case _USER_TIMER_EVENT_LED_POWER_SAVING:
+ 714:VS4210/SysTimer.c **** 		
+ 715:VS4210/SysTimer.c **** 		PCB_LED_IDLE();
+ 716:VS4210/SysTimer.c **** 		break;
+ 717:VS4210/SysTimer.c **** 
+ 718:VS4210/SysTimer.c **** #if(_VGA_SUPPORT == _ON)
+ 719:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_DO_AUTO_COLOR:
+ 720:VS4210/SysTimer.c ****             RTDOsdDisplayAutoBalanceProc();
+ 721:VS4210/SysTimer.c ****             break;
+ 722:VS4210/SysTimer.c **** #endif
+ 723:VS4210/SysTimer.c **** 
+ 724:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_PANEL_USED_TIMER:
+ 725:VS4210/SysTimer.c ****             RTDFactoryPanelUsedTimer();
+ 726:VS4210/SysTimer.c ****             break;
+ 727:VS4210/SysTimer.c **** 
+ 728:VS4210/SysTimer.c **** #if(_HIGHLIGHT_WINDOW_SUPPORT == _ON)
+ 729:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_HLWIN_TYPE5_MOVE:
+ 730:VS4210/SysTimer.c ****             UserAdjustHLWinType5Move();
+ 731:VS4210/SysTimer.c ****             break;
+ 732:VS4210/SysTimer.c **** #endif
+ 733:VS4210/SysTimer.c **** 
+ 734:VS4210/SysTimer.c **** #if(_ENERGY_STAR_SUPPORT == _ON)
+ 735:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_ES_ADJUST:
+ 736:VS4210/SysTimer.c ****             UserCommonAdjustESDcrAdjustPWM();
+ 737:VS4210/SysTimer.c ****             break;
+ 738:VS4210/SysTimer.c **** #endif
+ 739:VS4210/SysTimer.c **** 
+ 740:VS4210/SysTimer.c **** #if defined(_UART_ENABLE) // uart [micon.sam.0524.2013]
+ARM GAS  /tmp/cc0fBAHR.s 			page 27
+
+
+ 741:VS4210/SysTimer.c ****         case _USER_TIMER_EVENT_UART_RESET:          //for uart timeout  //walter.hsiao 20121108
+ 742:VS4210/SysTimer.c ****             g_bUartCommandStart = _FALSE;
+ 743:VS4210/SysTimer.c ****             g_ucUartCommandNum = 1;
+ 744:VS4210/SysTimer.c ****             break;
+ 745:VS4210/SysTimer.c **** #endif
+ 746:VS4210/SysTimer.c **** 
+ 747:VS4210/SysTimer.c ****         default:
+ 748:VS4210/SysTimer.c ****             break;
+ 749:VS4210/SysTimer.c ****     }
+ 750:VS4210/SysTimer.c **** #endif
+ 751:VS4210/SysTimer.c **** 	
+ 752:VS4210/SysTimer.c **** }
+ 750              		.loc 1 752 0
+ 751 0000 7047     		bx	lr
+ 752              		.cfi_endproc
+ 753              	.LFE80:
+ 755              		.section	.text.ShowWorkingTimer,"ax",%progbits
+ 756              		.align	1
+ 757              		.global	ShowWorkingTimer
+ 758              		.syntax unified
+ 759              		.thumb
+ 760              		.thumb_func
+ 761              		.fpu softvfp
+ 763              	ShowWorkingTimer:
+ 764              	.LFB81:
+ 753:VS4210/SysTimer.c **** 
+ 754:VS4210/SysTimer.c **** //=============================================================================//
+ 755:VS4210/SysTimer.c **** //                     ShowWorkTimer                                                 										//
+ 756:VS4210/SysTimer.c **** //=============================================================================//
+ 757:VS4210/SysTimer.c **** void ShowWorkingTimer(void)
+ 758:VS4210/SysTimer.c **** {
+ 765              		.loc 1 758 0
+ 766              		.cfi_startproc
+ 767              		@ args = 0, pretend = 0, frame = 0
+ 768              		@ frame_needed = 0, uses_anonymous_args = 0
+ 769 0000 00B5     		push	{lr}
+ 770              	.LCFI4:
+ 771              		.cfi_def_cfa_offset 4
+ 772              		.cfi_offset 14, -4
+ 773 0002 83B0     		sub	sp, sp, #12
+ 774              	.LCFI5:
+ 775              		.cfi_def_cfa_offset 16
+ 759:VS4210/SysTimer.c **** 	if(day)
+ 776              		.loc 1 759 0
+ 777 0004 174B     		ldr	r3, .L98
+ 778 0006 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 779 0008 62B9     		cbnz	r2, .L95
+ 760:VS4210/SysTimer.c **** 	{
+ 761:VS4210/SysTimer.c **** 	GraphicsPrint(YELLOW,"\r\nSystem has been working for %d days, %d hours, %d minutes and %d seconds
+ 762:VS4210/SysTimer.c **** 	}
+ 763:VS4210/SysTimer.c **** 	else if(hour)
+ 780              		.loc 1 763 0
+ 781 000a 174B     		ldr	r3, .L98+4
+ 782 000c 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 783 000e C2B9     		cbnz	r2, .L96
+ 764:VS4210/SysTimer.c **** 	{
+ 765:VS4210/SysTimer.c **** 	GraphicsPrint(YELLOW,"\r\nSystem has been working for %d hours, %d minutes and %d seconds",(WORD)h
+ARM GAS  /tmp/cc0fBAHR.s 			page 28
+
+
+ 766:VS4210/SysTimer.c **** 	}
+ 767:VS4210/SysTimer.c **** 	else if(minute)
+ 784              		.loc 1 767 0
+ 785 0010 164B     		ldr	r3, .L98+8
+ 786 0012 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 787 0014 FAB9     		cbnz	r2, .L97
+ 768:VS4210/SysTimer.c **** 		{
+ 769:VS4210/SysTimer.c **** 		GraphicsPrint(YELLOW,"\r\nSystem has been working for %d minutes and %d seconds",(WORD)minute,(WO
+ 770:VS4210/SysTimer.c **** 		}
+ 771:VS4210/SysTimer.c **** 	else
+ 772:VS4210/SysTimer.c **** 		{
+ 773:VS4210/SysTimer.c **** 		GraphicsPrint(YELLOW,"\r\nSystem has been working for %d seconds",(WORD)second);
+ 788              		.loc 1 773 0
+ 789 0016 164B     		ldr	r3, .L98+12
+ 790 0018 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 791 001a 1649     		ldr	r1, .L98+16
+ 792 001c 0320     		movs	r0, #3
+ 793 001e FFF7FEFF 		bl	GraphicsPrint
+ 794              	.LVL76:
+ 774:VS4210/SysTimer.c **** 		}
+ 775:VS4210/SysTimer.c **** 
+ 776:VS4210/SysTimer.c **** 	
+ 777:VS4210/SysTimer.c **** /*
+ 778:VS4210/SysTimer.c **** 	GraphicsPrint(GREEN,"\r\n(BatteryBTH=%d(%d.%dV))",(WORD)BatteryBTH\
+ 779:VS4210/SysTimer.c **** 			,(WORD)((BatteryBTH*32)/10000)\
+ 780:VS4210/SysTimer.c **** 		,(WORD)((BatteryBTH*32)%10000));
+ 781:VS4210/SysTimer.c **** 
+ 782:VS4210/SysTimer.c **** 	if(GET_BTH_STATE()==_BATT_STATUS_TEMP_NORMAL)
+ 783:VS4210/SysTimer.c **** 		GraphicsPrint(GREEN,"(TEMP_NORMAL)");
+ 784:VS4210/SysTimer.c **** 	else if(GET_BTH_STATE()==_BATT_STATUS_TEMP_HIGH)
+ 785:VS4210/SysTimer.c **** 		GraphicsPrint(RED,"(TEMP_HIGH)");
+ 786:VS4210/SysTimer.c **** 	else
+ 787:VS4210/SysTimer.c **** 		GraphicsPrint(BLUE,"(TEMP_LOW)");
+ 788:VS4210/SysTimer.c **** 		
+ 789:VS4210/SysTimer.c **** GraphicsPrint(MAGENTA,"\r\n(BatteryCAP=%d(%d.%dV))",(WORD)GET_BATTERY_CAPACITY()\
+ 790:VS4210/SysTimer.c **** 		,(WORD)((GET_BATTERY_CAPACITY()*32)/10000)\
+ 791:VS4210/SysTimer.c **** 		,(WORD)((GET_BATTERY_CAPACITY()*32)%10000));
+ 792:VS4210/SysTimer.c **** 
+ 793:VS4210/SysTimer.c **** 	if(GET_BATTERY_CHARGE_STATE()==_BATT_STATUS_HIGH_CHARGE)
+ 794:VS4210/SysTimer.c **** 		GraphicsPrint(GREEN,"(HIGH_CHARGE)");	
+ 795:VS4210/SysTimer.c **** 	else if(GET_BATTERY_CHARGE_STATE()==_BATT_STATUS_LOW_CHARGE)	
+ 796:VS4210/SysTimer.c **** 		GraphicsPrint(YELLOW,"(LOW_CHARGE)"); 
+ 797:VS4210/SysTimer.c **** 	else if(GET_BATTERY_CHARGE_STATE()==_BATT_STATUS_STOP_CHARGE)	
+ 798:VS4210/SysTimer.c **** 		GraphicsPrint(RED,"(STOP_CHARGE)"); 
+ 799:VS4210/SysTimer.c **** 	else if(GET_BATTERY_CHARGE_STATE()==_BATT_STATUS_NO_BATT)	
+ 800:VS4210/SysTimer.c **** 		GraphicsPrint(RED,"(NO_BATT)"); 
+ 801:VS4210/SysTimer.c **** 
+ 802:VS4210/SysTimer.c ****    if(GET_BATTERY_STATE()==4)
+ 803:VS4210/SysTimer.c **** 	GraphicsPrint(GREEN,"(BATT_STATUS_AC_MODE)");	
+ 804:VS4210/SysTimer.c **** else if(GET_BATTERY_STATE()==3)
+ 805:VS4210/SysTimer.c **** 	GraphicsPrint(GREEN,"(_BATT_STATUS_CAPACITY_LEVEL1)");	
+ 806:VS4210/SysTimer.c **** else if(GET_BATTERY_STATE()==2)
+ 807:VS4210/SysTimer.c **** 	GraphicsPrint(GREEN,"(_BATT_STATUS_CAPACITY_LEVEL2)");	
+ 808:VS4210/SysTimer.c **** else if(GET_BATTERY_STATE()==1)
+ 809:VS4210/SysTimer.c **** 	GraphicsPrint(GREEN,"(_BATT_STATUS_CAPACITY_LEVEL3)");	
+ 810:VS4210/SysTimer.c **** else	 if(GET_BATTERY_STATE()==0)	
+ 811:VS4210/SysTimer.c **** 	GraphicsPrint(GREEN,"(_BATT_STATUS_CAPACITY_LEVEL4)");	
+ARM GAS  /tmp/cc0fBAHR.s 			page 29
+
+
+ 812:VS4210/SysTimer.c **** else	 if(GET_BATTERY_STATE()==9)	
+ 813:VS4210/SysTimer.c **** 	GraphicsPrint(RED,"(_BATT_STATUS_NO_BATT)");	
+ 814:VS4210/SysTimer.c **** 
+ 815:VS4210/SysTimer.c **** GraphicsPrint(CYAN,"\r\n(POWER_STATUS=%d)",(WORD)GET_POWER_STATUS());
+ 816:VS4210/SysTimer.c **** */
+ 817:VS4210/SysTimer.c **** }
+ 795              		.loc 1 817 0
+ 796 0022 0BE0     		b	.L89
+ 797              	.L95:
+ 761:VS4210/SysTimer.c **** 	}
+ 798              		.loc 1 761 0
+ 799 0024 104B     		ldr	r3, .L98+4
+ 800 0026 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 801 0028 1149     		ldr	r1, .L98+12
+ 802 002a 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+ 803 002c 0191     		str	r1, [sp, #4]
+ 804 002e 0F49     		ldr	r1, .L98+8
+ 805 0030 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+ 806 0032 0091     		str	r1, [sp]
+ 807 0034 1049     		ldr	r1, .L98+20
+ 808 0036 0320     		movs	r0, #3
+ 809 0038 FFF7FEFF 		bl	GraphicsPrint
+ 810              	.LVL77:
+ 811              	.L89:
+ 812              		.loc 1 817 0
+ 813 003c 03B0     		add	sp, sp, #12
+ 814              	.LCFI6:
+ 815              		.cfi_remember_state
+ 816              		.cfi_def_cfa_offset 4
+ 817              		@ sp needed
+ 818 003e 5DF804FB 		ldr	pc, [sp], #4
+ 819              	.L96:
+ 820              	.LCFI7:
+ 821              		.cfi_restore_state
+ 765:VS4210/SysTimer.c **** 	}
+ 822              		.loc 1 765 0
+ 823 0042 0A4B     		ldr	r3, .L98+8
+ 824 0044 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 825 0046 0A49     		ldr	r1, .L98+12
+ 826 0048 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+ 827 004a 0091     		str	r1, [sp]
+ 828 004c 0B49     		ldr	r1, .L98+24
+ 829 004e 0320     		movs	r0, #3
+ 830 0050 FFF7FEFF 		bl	GraphicsPrint
+ 831              	.LVL78:
+ 832 0054 F2E7     		b	.L89
+ 833              	.L97:
+ 769:VS4210/SysTimer.c **** 		}
+ 834              		.loc 1 769 0
+ 835 0056 064B     		ldr	r3, .L98+12
+ 836 0058 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 837 005a 0949     		ldr	r1, .L98+28
+ 838 005c 0320     		movs	r0, #3
+ 839 005e FFF7FEFF 		bl	GraphicsPrint
+ 840              	.LVL79:
+ 841 0062 EBE7     		b	.L89
+ 842              	.L99:
+ARM GAS  /tmp/cc0fBAHR.s 			page 30
+
+
+ 843              		.align	2
+ 844              	.L98:
+ 845 0064 00000000 		.word	.LANCHOR2
+ 846 0068 00000000 		.word	.LANCHOR3
+ 847 006c 00000000 		.word	.LANCHOR5
+ 848 0070 00000000 		.word	.LANCHOR4
+ 849 0074 C8000000 		.word	.LC4
+ 850 0078 00000000 		.word	.LC1
+ 851 007c 4C000000 		.word	.LC2
+ 852 0080 90000000 		.word	.LC3
+ 853              		.cfi_endproc
+ 854              	.LFE81:
+ 856              		.section	.text.MCUTimerEventProc,"ax",%progbits
+ 857              		.align	1
+ 858              		.global	MCUTimerEventProc
+ 859              		.syntax unified
+ 860              		.thumb
+ 861              		.thumb_func
+ 862              		.fpu softvfp
+ 864              	MCUTimerEventProc:
+ 865              	.LFB82:
+ 818:VS4210/SysTimer.c **** 
+ 819:VS4210/SysTimer.c **** void MCUTimerEventProc(EnumMCUTimerEventID enumEventID)
+ 820:VS4210/SysTimer.c **** {
+ 866              		.loc 1 820 0
+ 867              		.cfi_startproc
+ 868              		@ args = 0, pretend = 0, frame = 0
+ 869              		@ frame_needed = 0, uses_anonymous_args = 0
+ 870              		@ link register save eliminated.
+ 871              	.LVL80:
+ 821:VS4210/SysTimer.c **** 
+ 822:VS4210/SysTimer.c **** switch(enumEventID)
+ 823:VS4210/SysTimer.c ****    {
+ 824:VS4210/SysTimer.c **** 
+ 825:VS4210/SysTimer.c **** default: 
+ 826:VS4210/SysTimer.c **** 		break;
+ 827:VS4210/SysTimer.c **** }
+ 828:VS4210/SysTimer.c **** 
+ 829:VS4210/SysTimer.c **** #if 0
+ 830:VS4210/SysTimer.c ****     switch(enumEventID)
+ 831:VS4210/SysTimer.c ****     {
+ 832:VS4210/SysTimer.c **** #if((_DVI_SUPPORT == _ON) || (_HDMI_SUPPORT == _ON))
+ 833:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_TMDS_VIDEO_DETECT:
+ 834:VS4210/SysTimer.c ****         
+ 835:VS4210/SysTimer.c ****             ScalerSyncTmdsVideoDetectEvent();
+ 836:VS4210/SysTimer.c ****             break;
+ 837:VS4210/SysTimer.c **** 
+ 838:VS4210/SysTimer.c **** #if(_HDMI_SUPPORT == _ON)
+ 839:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_TMDS_HDMI_PACKET_DETECT:
+ 840:VS4210/SysTimer.c ****         
+ 841:VS4210/SysTimer.c ****             ScalerTmdsHdmiPacketDetectEvent();
+ 842:VS4210/SysTimer.c ****             break;            
+ 843:VS4210/SysTimer.c **** #endif // End of #if(_HDMI_SUPPORT == _ON) 
+ 844:VS4210/SysTimer.c **** 
+ 845:VS4210/SysTimer.c **** #endif // End of #if((_DVI_SUPPORT == _ON) || (_HDMI_SUPPORT == _ON))       
+ 846:VS4210/SysTimer.c **** 
+ 847:VS4210/SysTimer.c **** #if(_AUDIO_SUPPORT == _ON)
+ARM GAS  /tmp/cc0fBAHR.s 			page 31
+
+
+ 848:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_AUDIO_LOAD_STABLE_I_CODE:
+ 849:VS4210/SysTimer.c **** 
+ 850:VS4210/SysTimer.c ****             ScalerAudioLoadStableICodeEvent();
+ 851:VS4210/SysTimer.c ****             break;            
+ 852:VS4210/SysTimer.c **** #endif // End of #if(_AUDIO_SUPPORT == _ON)
+ 853:VS4210/SysTimer.c **** 
+ 854:VS4210/SysTimer.c **** #if(_DP_SUPPORT == _ON)
+ 855:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_DP_HOTPLUG_ASSERTED:
+ 856:VS4210/SysTimer.c ****             ScalerDpHotPlugEvent(_DP_HPD_ASSERTED);
+ 857:VS4210/SysTimer.c ****             break;
+ 858:VS4210/SysTimer.c **** 
+ 859:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_DP_HDCP_LONG_HOTPLUG_EVENT:
+ 860:VS4210/SysTimer.c ****             ScalerDpHotPlugEvent(_DP_HDCP_LONG_HPD_EVENT);
+ 861:VS4210/SysTimer.c ****             break;
+ 862:VS4210/SysTimer.c **** 
+ 863:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_DP_LINK_STATUS_IRQ:
+ 864:VS4210/SysTimer.c ****             ScalerDpLinkStatusIRQ();
+ 865:VS4210/SysTimer.c ****             break;            
+ 866:VS4210/SysTimer.c **** #endif  
+ 867:VS4210/SysTimer.c **** 
+ 868:VS4210/SysTimer.c **** #if((_D2_INPUT_PORT_SWITCH_FROM == _SWITCH_FROM_D0) || (_D3_INPUT_PORT_SWITCH_FROM == _SWITCH_FROM_
+ 869:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_D0_PORT_DIGITAL_SWITCH:
+ 870:VS4210/SysTimer.c ****             SET_D0_PORT_DIGITAL_SWITCH();
+ 871:VS4210/SysTimer.c ****             break;    
+ 872:VS4210/SysTimer.c **** #endif
+ 873:VS4210/SysTimer.c **** 
+ 874:VS4210/SysTimer.c **** #if((_D2_INPUT_PORT_SWITCH_FROM == _SWITCH_FROM_D1) || (_D3_INPUT_PORT_SWITCH_FROM == _SWITCH_FROM_
+ 875:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_D1_PORT_DIGITAL_SWITCH:
+ 876:VS4210/SysTimer.c ****             SET_D1_PORT_DIGITAL_SWITCH();
+ 877:VS4210/SysTimer.c ****             break;
+ 878:VS4210/SysTimer.c **** #endif   
+ 879:VS4210/SysTimer.c **** 
+ 880:VS4210/SysTimer.c **** #if((_VGA_SUPPORT == _ON) && (_ADCNR_BY_HISTOGRAM_SUPPORT == _ON))
+ 881:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_NR_DETECTION_FINISHED:
+ 882:VS4210/SysTimer.c ****             ScalerNrTimerEvent();
+ 883:VS4210/SysTimer.c ****             break;
+ 884:VS4210/SysTimer.c **** #endif
+ 885:VS4210/SysTimer.c **** 
+ 886:VS4210/SysTimer.c **** #if(_SDRAM_PHASE_CALIBRATION == _ON)
+ 887:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_PHASE_CALIBRATION: 
+ 888:VS4210/SysTimer.c ****             ScalerSDRAMPhaseOnLineTimer();
+ 889:VS4210/SysTimer.c ****             break;
+ 890:VS4210/SysTimer.c **** 
+ 891:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_PHASE_CNT_CHECK:
+ 892:VS4210/SysTimer.c **** 
+ 893:VS4210/SysTimer.c ****             // Check phase count every 60 minute
+ 894:VS4210/SysTimer.c ****             ScalerSDRAMPhaseCntCheck(60);
+ 895:VS4210/SysTimer.c ****             break;
+ 896:VS4210/SysTimer.c **** #endif
+ 897:VS4210/SysTimer.c **** 
+ 898:VS4210/SysTimer.c **** #if(_D0_INPUT_PORT_TYPE == _D0_MHL_PORT)
+ 899:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_MHL_D0_READY_TO_TRANSMIT:
+ 900:VS4210/SysTimer.c **** 
+ 901:VS4210/SysTimer.c ****             SET_MHL_READY_TO_TRANSMIT(0, _TRUE);
+ 902:VS4210/SysTimer.c ****             break;
+ 903:VS4210/SysTimer.c **** 
+ 904:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_MHL_D0_READY_TO_RESEND:
+ARM GAS  /tmp/cc0fBAHR.s 			page 32
+
+
+ 905:VS4210/SysTimer.c **** 
+ 906:VS4210/SysTimer.c ****             SET_MHL_READY_TO_RESEND(0, _TRUE);
+ 907:VS4210/SysTimer.c ****             break;
+ 908:VS4210/SysTimer.c **** 
+ 909:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_MHL_D0_RECONNECT_1K:
+ 910:VS4210/SysTimer.c **** 
+ 911:VS4210/SysTimer.c **** #if(_D0_CBUS_CHANNEL_SEL == _CBUS0)
+ 912:VS4210/SysTimer.c ****             if(((ScalerGetByte(P28_A7_CBUS0_CTRL_07) & 0x38) >> 3) == 0x02)
+ 913:VS4210/SysTimer.c ****             {
+ 914:VS4210/SysTimer.c ****                 ScalerSetBit(P28_A8_CBUS0_CTRL_08, ~_BIT5, 0x00);
+ 915:VS4210/SysTimer.c ****                 MCUTimerDelayXms(52);
+ 916:VS4210/SysTimer.c ****                 ScalerSetBit(P28_A8_CBUS0_CTRL_08, ~_BIT5, _BIT5);
+ 917:VS4210/SysTimer.c ****             }
+ 918:VS4210/SysTimer.c **** #elif(_D0_CBUS_CHANNEL_SEL == _CBUS1)
+ 919:VS4210/SysTimer.c ****             if(((ScalerGetByte(P29_A7_CBUS1_CTRL_07) & 0x38) >> 3) == 0x02)
+ 920:VS4210/SysTimer.c ****             {
+ 921:VS4210/SysTimer.c ****                 ScalerSetBit(P29_A8_CBUS1_CTRL_08, ~_BIT5, 0x00);
+ 922:VS4210/SysTimer.c ****                 MCUTimerDelayXms(52);
+ 923:VS4210/SysTimer.c ****                 ScalerSetBit(P29_A8_CBUS1_CTRL_08, ~_BIT5, _BIT5);
+ 924:VS4210/SysTimer.c ****             }
+ 925:VS4210/SysTimer.c **** #endif
+ 926:VS4210/SysTimer.c **** 
+ 927:VS4210/SysTimer.c ****             break;
+ 928:VS4210/SysTimer.c **** 
+ 929:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_MHL_D0_ACTIVE_VBUS:
+ 930:VS4210/SysTimer.c **** 
+ 931:VS4210/SysTimer.c ****             if(GET_D0_TMDS_MODE() == _TMDS_MHL_MODE)
+ 932:VS4210/SysTimer.c ****             {
+ 933:VS4210/SysTimer.c ****                 // GPIO Select to Hot Plug
+ 934:VS4210/SysTimer.c **** #if(_D0_CBUS_CHANNEL_SEL == _CBUS0)
+ 935:VS4210/SysTimer.c ****                 ScalerSetBit(P27_A0_CBUS_EN, ~_BIT4, 0x00);
+ 936:VS4210/SysTimer.c **** #elif(_D0_CBUS_CHANNEL_SEL == _CBUS1)
+ 937:VS4210/SysTimer.c ****                 ScalerSetBit(P27_A0_CBUS_EN, ~_BIT5, 0x00);
+ 938:VS4210/SysTimer.c **** #endif
+ 939:VS4210/SysTimer.c ****                 SET_D0_MHL_VBUS_SWITCH(_MHL_VBUS_ON);
+ 940:VS4210/SysTimer.c ****             }
+ 941:VS4210/SysTimer.c ****             
+ 942:VS4210/SysTimer.c ****             break;
+ 943:VS4210/SysTimer.c **** #endif // End of #if(_D0_INPUT_PORT_TYPE == _D0_MHL_PORT)
+ 944:VS4210/SysTimer.c **** 
+ 945:VS4210/SysTimer.c **** #if(_D1_INPUT_PORT_TYPE == _D1_MHL_PORT)
+ 946:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_MHL_D1_READY_TO_TRANSMIT:
+ 947:VS4210/SysTimer.c **** 
+ 948:VS4210/SysTimer.c **** #if(_D0_INPUT_PORT_TYPE == _D0_MHL_PORT)
+ 949:VS4210/SysTimer.c ****             SET_MHL_READY_TO_TRANSMIT(1, _TRUE);
+ 950:VS4210/SysTimer.c **** #else
+ 951:VS4210/SysTimer.c ****             SET_MHL_READY_TO_TRANSMIT(0, _TRUE);
+ 952:VS4210/SysTimer.c **** #endif
+ 953:VS4210/SysTimer.c **** 
+ 954:VS4210/SysTimer.c ****             break;
+ 955:VS4210/SysTimer.c **** 
+ 956:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_MHL_D1_READY_TO_RESEND:
+ 957:VS4210/SysTimer.c ****             
+ 958:VS4210/SysTimer.c **** #if(_D0_INPUT_PORT_TYPE == _D0_MHL_PORT)
+ 959:VS4210/SysTimer.c ****             SET_MHL_READY_TO_RESEND(1, _TRUE);
+ 960:VS4210/SysTimer.c **** #else
+ 961:VS4210/SysTimer.c ****             SET_MHL_READY_TO_RESEND(0, _TRUE);
+ARM GAS  /tmp/cc0fBAHR.s 			page 33
+
+
+ 962:VS4210/SysTimer.c **** #endif
+ 963:VS4210/SysTimer.c **** 
+ 964:VS4210/SysTimer.c ****             break;
+ 965:VS4210/SysTimer.c ****      
+ 966:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_MHL_D1_RECONNECT_1K:
+ 967:VS4210/SysTimer.c **** 
+ 968:VS4210/SysTimer.c **** #if(_D1_CBUS_CHANNEL_SEL == _CBUS0)
+ 969:VS4210/SysTimer.c ****             if(((ScalerGetByte(P28_A7_CBUS0_CTRL_07) & 0x38) >> 3) == 0x02)
+ 970:VS4210/SysTimer.c ****             {
+ 971:VS4210/SysTimer.c ****                 ScalerSetBit(P28_A8_CBUS0_CTRL_08, ~_BIT5, 0x00);
+ 972:VS4210/SysTimer.c ****                 MCUTimerDelayXms(52);
+ 973:VS4210/SysTimer.c ****                 ScalerSetBit(P28_A8_CBUS0_CTRL_08, ~_BIT5, _BIT5);
+ 974:VS4210/SysTimer.c ****             }
+ 975:VS4210/SysTimer.c **** #elif(_D1_CBUS_CHANNEL_SEL == _CBUS1)
+ 976:VS4210/SysTimer.c ****             if(((ScalerGetByte(P29_A7_CBUS1_CTRL_07) & 0x38) >> 3) == 0x02)
+ 977:VS4210/SysTimer.c ****             {
+ 978:VS4210/SysTimer.c ****                 ScalerSetBit(P29_A8_CBUS1_CTRL_08, ~_BIT5, 0x00);
+ 979:VS4210/SysTimer.c ****                 MCUTimerDelayXms(52);
+ 980:VS4210/SysTimer.c ****                 ScalerSetBit(P29_A8_CBUS1_CTRL_08, ~_BIT5, _BIT5);
+ 981:VS4210/SysTimer.c ****             }
+ 982:VS4210/SysTimer.c **** #endif
+ 983:VS4210/SysTimer.c **** 
+ 984:VS4210/SysTimer.c ****             break;
+ 985:VS4210/SysTimer.c **** 
+ 986:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_MHL_D1_ACTIVE_VBUS:
+ 987:VS4210/SysTimer.c **** 
+ 988:VS4210/SysTimer.c ****             if(GET_D1_TMDS_MODE() == _TMDS_MHL_MODE)
+ 989:VS4210/SysTimer.c ****             {
+ 990:VS4210/SysTimer.c ****                 // GPIO Select to Hot Plug
+ 991:VS4210/SysTimer.c **** #if(_D1_CBUS_CHANNEL_SEL == _CBUS0)
+ 992:VS4210/SysTimer.c ****                 ScalerSetBit(P27_A0_CBUS_EN, ~_BIT4, 0x00);
+ 993:VS4210/SysTimer.c **** #elif(_D1_CBUS_CHANNEL_SEL == _CBUS1)
+ 994:VS4210/SysTimer.c ****                 ScalerSetBit(P27_A0_CBUS_EN, ~_BIT5, 0x00);
+ 995:VS4210/SysTimer.c **** #endif
+ 996:VS4210/SysTimer.c ****  
+ 997:VS4210/SysTimer.c ****                 SET_D1_MHL_VBUS_SWITCH(_MHL_VBUS_ON);
+ 998:VS4210/SysTimer.c ****             }
+ 999:VS4210/SysTimer.c ****             
+1000:VS4210/SysTimer.c ****             break;
+1001:VS4210/SysTimer.c **** #endif // End of #if(_D1_INPUT_PORT_TYPE == _D1_MHL_PORT)
+1002:VS4210/SysTimer.c **** 
+1003:VS4210/SysTimer.c **** #if((_DCC_HISTOGRM_INFO == _ON) && (_DCC_HISTOGRAM_THD_CHANGE == _ON))
+1004:VS4210/SysTimer.c ****         case _SCALER_TIMER_EVENT_DCC_HISTOGRAM_THD_CHANGE:
+1005:VS4210/SysTimer.c ****             ScalerColorDCCChangeHistogramThd();            
+1006:VS4210/SysTimer.c ****             MCUTimerReactiveTimerEvent((WORD)(((DWORD)_PANEL_DH_TOTAL * _PANEL_DV_TOTAL * 2) / GET_
+1007:VS4210/SysTimer.c **** 
+1008:VS4210/SysTimer.c ****             break;
+1009:VS4210/SysTimer.c **** #endif
+1010:VS4210/SysTimer.c **** 
+1011:VS4210/SysTimer.c ****         default:
+1012:VS4210/SysTimer.c ****             break;
+1013:VS4210/SysTimer.c ****     }    
+1014:VS4210/SysTimer.c **** 	#endif
+1015:VS4210/SysTimer.c **** }
+ 872              		.loc 1 1015 0
+ 873 0000 7047     		bx	lr
+ 874              		.cfi_endproc
+ARM GAS  /tmp/cc0fBAHR.s 			page 34
+
+
+ 875              	.LFE82:
+ 877              		.section	.text.SysTimerEventProc,"ax",%progbits
+ 878              		.align	1
+ 879              		.global	SysTimerEventProc
+ 880              		.syntax unified
+ 881              		.thumb
+ 882              		.thumb_func
+ 883              		.fpu softvfp
+ 885              	SysTimerEventProc:
+ 886              	.LFB84:
+1016:VS4210/SysTimer.c **** 
+1017:VS4210/SysTimer.c **** 
+1018:VS4210/SysTimer.c **** //--------------------------------------------------
+1019:VS4210/SysTimer.c **** // Description  : Timer Handler
+1020:VS4210/SysTimer.c **** // Input Value  : None
+1021:VS4210/SysTimer.c **** // Output Value : None
+1022:VS4210/SysTimer.c **** //--------------------------------------------------
+1023:VS4210/SysTimer.c **** void SysTimerHandler(void)
+1024:VS4210/SysTimer.c **** {
+1025:VS4210/SysTimer.c ****     BYTE ucTimerEventIndex = 0;
+1026:VS4210/SysTimer.c ****     BYTE ucTimerEventID = 0;    
+1027:VS4210/SysTimer.c ****     WORD usPresentTime = 0;
+1028:VS4210/SysTimer.c **** 
+1029:VS4210/SysTimer.c ****     for(ucTimerEventIndex = 0; ucTimerEventIndex < _TIMER_EVENT_COUNT; ucTimerEventIndex++)
+1030:VS4210/SysTimer.c ****     {
+1031:VS4210/SysTimer.c ****         usPresentTime = MCUTimerGetTimerCounter();
+1032:VS4210/SysTimer.c **** 
+1033:VS4210/SysTimer.c ****         if(MCUTimerCheckEventValid(ucTimerEventIndex) == _FALSE)
+1034:VS4210/SysTimer.c ****         {
+1035:VS4210/SysTimer.c ****             continue;
+1036:VS4210/SysTimer.c ****         }         
+1037:VS4210/SysTimer.c ****         
+1038:VS4210/SysTimer.c ****         if(usPresentTime > MCUTimerGetEventTime(ucTimerEventIndex))
+1039:VS4210/SysTimer.c ****         {
+1040:VS4210/SysTimer.c ****             MCUTimerClrEventValid(ucTimerEventIndex);
+1041:VS4210/SysTimer.c **** 
+1042:VS4210/SysTimer.c ****             // Get Event ID From Event Index
+1043:VS4210/SysTimer.c ****             ucTimerEventID = MCUTimerGetEventID(ucTimerEventIndex);
+1044:VS4210/SysTimer.c ****             
+1045:VS4210/SysTimer.c ****             if(ucTimerEventID < _USER_TIMER_EVENT_END)
+1046:VS4210/SysTimer.c ****             {
+1047:VS4210/SysTimer.c ****                 UserInterfaceTimerEventProc(ucTimerEventID);
+1048:VS4210/SysTimer.c ****                 
+1049:VS4210/SysTimer.c ****                 continue;
+1050:VS4210/SysTimer.c ****             }
+1051:VS4210/SysTimer.c **** 
+1052:VS4210/SysTimer.c ****             if(ucTimerEventID < _SYSTEM_TIMER_EVENT_END)
+1053:VS4210/SysTimer.c ****             {
+1054:VS4210/SysTimer.c ****                 SysTimerEventProc(ucTimerEventID);
+1055:VS4210/SysTimer.c ****                 
+1056:VS4210/SysTimer.c ****                 continue;
+1057:VS4210/SysTimer.c ****             }
+1058:VS4210/SysTimer.c ****             
+1059:VS4210/SysTimer.c ****          //   MCUTimerEventProc(ucTimerEventID);
+1060:VS4210/SysTimer.c ****         }
+1061:VS4210/SysTimer.c ****     }
+1062:VS4210/SysTimer.c **** 
+ARM GAS  /tmp/cc0fBAHR.s 			page 35
+
+
+1063:VS4210/SysTimer.c **** }
+1064:VS4210/SysTimer.c **** 
+1065:VS4210/SysTimer.c **** //--------------------------------------------------
+1066:VS4210/SysTimer.c **** // Description  : Timer Event Process
+1067:VS4210/SysTimer.c **** // Input Value  : enumEventID --> Event to be processed
+1068:VS4210/SysTimer.c **** // Output Value : None
+1069:VS4210/SysTimer.c **** //--------------------------------------------------
+1070:VS4210/SysTimer.c **** BYTE led_Flag=0;
+1071:VS4210/SysTimer.c **** void SysTimerEventProc(EnumSystemTimerEventID enumEventID)
+1072:VS4210/SysTimer.c **** {
+ 887              		.loc 1 1072 0
+ 888              		.cfi_startproc
+ 889              		@ args = 0, pretend = 0, frame = 0
+ 890              		@ frame_needed = 0, uses_anonymous_args = 0
+ 891              	.LVL81:
+ 892 0000 08B5     		push	{r3, lr}
+ 893              	.LCFI8:
+ 894              		.cfi_def_cfa_offset 8
+ 895              		.cfi_offset 3, -8
+ 896              		.cfi_offset 14, -4
+1073:VS4210/SysTimer.c **** 
+1074:VS4210/SysTimer.c **** switch(enumEventID)
+ 897              		.loc 1 1074 0
+ 898 0002 3A38     		subs	r0, r0, #58
+ 899              	.LVL82:
+ 900 0004 0828     		cmp	r0, #8
+ 901 0006 0DD8     		bhi	.L101
+ 902 0008 DFE800F0 		tbb	[pc, r0]
+ 903              	.L104:
+ 904 000c CA       		.byte	(.L103-.L104)/2
+ 905 000d 0C       		.byte	(.L101-.L104)/2
+ 906 000e 05       		.byte	(.L105-.L104)/2
+ 907 000f 0C       		.byte	(.L101-.L104)/2
+ 908 0010 0C       		.byte	(.L101-.L104)/2
+ 909 0011 0D       		.byte	(.L106-.L104)/2
+ 910 0012 3F       		.byte	(.L107-.L104)/2
+ 911 0013 78       		.byte	(.L108-.L104)/2
+ 912 0014 C0       		.byte	(.L109-.L104)/2
+ 913 0015 00       		.p2align 1
+ 914              	.L105:
+1075:VS4210/SysTimer.c ****    { 
+1076:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_UART2_CHECK:
+1077:VS4210/SysTimer.c **** 	  // DEBUG_MESSAGE(">");  
+1078:VS4210/SysTimer.c **** 	  // RS2_tx(0x55);
+1079:VS4210/SysTimer.c **** 	  COC_test();
+ 915              		.loc 1 1079 0
+ 916 0016 FFF7FEFF 		bl	COC_test
+ 917              	.LVL83:
+1080:VS4210/SysTimer.c **** 	   MCUTimerActiveTimerEvent(SEC(2), _SYSTEM_TIMER_EVENT_UART2_CHECK);//for test
+ 918              		.loc 1 1080 0
+ 919 001a 3C21     		movs	r1, #60
+ 920 001c 4FF4FA60 		mov	r0, #2000
+ 921 0020 FFF7FEFF 		bl	MCUTimerActiveTimerEvent
+ 922              	.LVL84:
+ 923              	.L101:
+1081:VS4210/SysTimer.c **** 	     break;
+1082:VS4210/SysTimer.c **** 		 #if 0
+ARM GAS  /tmp/cc0fBAHR.s 			page 36
+
+
+1083:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_GRN_ON:
+1084:VS4210/SysTimer.c **** 	 PowerLED(_SYSTEM_TIMER_EVENT_GRN_ON);
+1085:VS4210/SysTimer.c **** 	break;
+1086:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_GRN_OFF:
+1087:VS4210/SysTimer.c **** 	   PowerLED(_SYSTEM_TIMER_EVENT_GRN_OFF);
+1088:VS4210/SysTimer.c **** 	break;
+1089:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_RED_ON:	
+1090:VS4210/SysTimer.c ****    	PowerLED(_SYSTEM_TIMER_EVENT_RED_ON);
+1091:VS4210/SysTimer.c **** 	break;
+1092:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_RED_OFF:
+1093:VS4210/SysTimer.c ****    		PowerLED(_SYSTEM_TIMER_EVENT_RED_OFF);
+1094:VS4210/SysTimer.c ****    	break;
+1095:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_GRN_RED_ON:
+1096:VS4210/SysTimer.c ****    		PowerLED(_SYSTEM_TIMER_EVENT_GRN_RED_ON);
+1097:VS4210/SysTimer.c ****    	break;
+1098:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_GRN_BLINK:
+1099:VS4210/SysTimer.c **** 	   PowerLED(_SYSTEM_TIMER_EVENT_GRN_BLINK);
+1100:VS4210/SysTimer.c ****      MCUTimerActiveTimerEvent(SEC(1), _SYSTEM_TIMER_EVENT_GRN_BLINK);
+1101:VS4210/SysTimer.c **** 
+1102:VS4210/SysTimer.c ****    	break;
+1103:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_RED_BLINK:
+1104:VS4210/SysTimer.c **** 	   PowerLED(_SYSTEM_TIMER_EVENT_RED_BLINK);
+1105:VS4210/SysTimer.c ****      MCUTimerActiveTimerEvent(SEC(1), _SYSTEM_TIMER_EVENT_RED_BLINK);
+1106:VS4210/SysTimer.c **** 
+1107:VS4210/SysTimer.c ****    	break;	
+1108:VS4210/SysTimer.c ****   case _SYSTEM_TIMER_EVENT_GRN_RED_BLINK:
+1109:VS4210/SysTimer.c ****   	 PowerLED(_SYSTEM_TIMER_EVENT_GRN_RED_BLINK);
+1110:VS4210/SysTimer.c ****      MCUTimerActiveTimerEvent(SEC(1), _SYSTEM_TIMER_EVENT_GRN_RED_BLINK);
+1111:VS4210/SysTimer.c **** 
+1112:VS4210/SysTimer.c **** 	 break; 
+1113:VS4210/SysTimer.c ****    case _SYSTEM_TIMER_EVENT_GRN_ON_RED_BLINK:
+1114:VS4210/SysTimer.c **** 	  PowerLED(_SYSTEM_TIMER_EVENT_GRN_ON_RED_BLINK);
+1115:VS4210/SysTimer.c **** 	  MCUTimerActiveTimerEvent(SEC(1), _SYSTEM_TIMER_EVENT_GRN_ON_RED_BLINK);
+1116:VS4210/SysTimer.c **** 
+1117:VS4210/SysTimer.c **** 	  break; 
+1118:VS4210/SysTimer.c ****     case _SYSTEM_TIMER_EVENT_JUDGE_BATT_STATE:	
+1119:VS4210/SysTimer.c **** 		/*
+1120:VS4210/SysTimer.c **** 	SET_BATTERY_CAPACITY(GetBatteryVoltage());
+1121:VS4210/SysTimer.c **** 	       if(GET_BATTERY_CAPACITY()<10)
+1122:VS4210/SysTimer.c **** 		   	SET_BATTERY_STATE(_BATT_STATUS_AC_MODE);
+1123:VS4210/SysTimer.c **** 		else if(GET_BATTERY_CAPACITY()<256)
+1124:VS4210/SysTimer.c **** 			SET_BATTERY_STATE(_BATT_STATUS_CAPACITY_LEVEL1);
+1125:VS4210/SysTimer.c **** 		else if((GET_BATTERY_CAPACITY()>256)&&(GET_BATTERY_CAPACITY()<512))
+1126:VS4210/SysTimer.c **** 			SET_BATTERY_STATE(_BATT_STATUS_CAPACITY_LEVEL2);
+1127:VS4210/SysTimer.c **** 		else if((GET_BATTERY_CAPACITY()>512)&&(GET_BATTERY_CAPACITY()<768))
+1128:VS4210/SysTimer.c **** 			SET_BATTERY_STATE(_BATT_STATUS_CAPACITY_LEVEL3);	
+1129:VS4210/SysTimer.c **** 		else 		
+1130:VS4210/SysTimer.c **** 			SET_BATTERY_STATE(_BATT_STATUS_CAPACITY_LEVEL4);
+1131:VS4210/SysTimer.c **** 					
+1132:VS4210/SysTimer.c **** 		//BATERY_STAT=GET_BATTERY_STATE();
+1133:VS4210/SysTimer.c **** 		MCU_SendCmdToDVR(MCU_PROTOCOL_CMD_REGULAR_DATA);
+1134:VS4210/SysTimer.c **** 		*/
+1135:VS4210/SysTimer.c **** 		MCUTimerActiveTimerEvent(SEC(5), _SYSTEM_TIMER_EVENT_JUDGE_BATT_STATE);
+1136:VS4210/SysTimer.c **** 		break;
+1137:VS4210/SysTimer.c ****     case _SYSTEM_TIMER_EVENT_JUDGE_PSW_STATE:
+1138:VS4210/SysTimer.c **** 		DEBUG_MESSAGE("\r\nPOWER key pressed");
+1139:VS4210/SysTimer.c **** 		  break;
+ARM GAS  /tmp/cc0fBAHR.s 			page 37
+
+
+1140:VS4210/SysTimer.c ****     case _SYSTEM_TIMER_EVENT_JUDGE_BTH_STATE:
+1141:VS4210/SysTimer.c **** 		//Printf("(BTH)");
+1142:VS4210/SysTimer.c **** 		/*
+1143:VS4210/SysTimer.c **** 		BatteryBTH=GetBatteryBTH();
+1144:VS4210/SysTimer.c **** 
+1145:VS4210/SysTimer.c **** 			if(BatteryBTH<50) 
+1146:VS4210/SysTimer.c **** 			{
+1147:VS4210/SysTimer.c **** 			SET_BTH_STATE(_BATT_STATUS_TEMP_HIGH);  
+1148:VS4210/SysTimer.c **** 
+1149:VS4210/SysTimer.c **** 			if(GET_BATTERY_CHARGE_STATE()!=_BATT_STATUS_STOP_CHARGE)
+1150:VS4210/SysTimer.c **** 			MCUTimerActiveTimerEvent(SEC(1), _SYSTEM_TIMER_EVENT_BATT_NO_CHARGE);	
+1151:VS4210/SysTimer.c **** 			
+1152:VS4210/SysTimer.c **** 			}
+1153:VS4210/SysTimer.c **** 		else if(BatteryBTH>768)
+1154:VS4210/SysTimer.c **** 			SET_BTH_STATE(_BATT_STATUS_TEMP_LOW);				
+1155:VS4210/SysTimer.c **** 		else
+1156:VS4210/SysTimer.c **** 			{
+1157:VS4210/SysTimer.c **** 			SET_BTH_STATE(_BATT_STATUS_TEMP_NORMAL);				
+1158:VS4210/SysTimer.c **** 			}
+1159:VS4210/SysTimer.c **** 
+1160:VS4210/SysTimer.c **** 			if(GET_BTH_STATE()!=_BATT_STATUS_TEMP_NORMAL)
+1161:VS4210/SysTimer.c **** 			SET_BTH_STATE(_BATT_STATUS_TEMP_NORMAL);//for test		
+1162:VS4210/SysTimer.c **** 	*/
+1163:VS4210/SysTimer.c **** 		MCUTimerActiveTimerEvent(SEC(10), _SYSTEM_TIMER_EVENT_JUDGE_BTH_STATE);
+1164:VS4210/SysTimer.c **** 		break;
+1165:VS4210/SysTimer.c ****     case _SYSTEM_TIMER_EVENT_JUDGE_WDT_ECHO:
+1166:VS4210/SysTimer.c **** 		DEBUG_MESSAGE("\r\n(WDT kick over 10Second, Reboot DVR)");	
+1167:VS4210/SysTimer.c **** 		MCUTimerActiveTimerEvent(SEC(10), _SYSTEM_TIMER_EVENT_JUDGE_WDT_ECHO);	
+1168:VS4210/SysTimer.c **** 		break;
+1169:VS4210/SysTimer.c ****     case _SYSTEM_TIMER_EVENT_JUDGE_AC_MODE:
+1170:VS4210/SysTimer.c **** 			{
+1171:VS4210/SysTimer.c **** /*
+1172:VS4210/SysTimer.c **** 				DEBUG_MESSAGE("(AC_MODE)");
+1173:VS4210/SysTimer.c **** 				if((GET_ADAP_12())&&(GET_AC_PLUG()==0))
+1174:VS4210/SysTimer.c **** 			     	{			     	
+1175:VS4210/SysTimer.c **** 						SET_AC_PLUG(); 
+1176:VS4210/SysTimer.c **** 
+1177:VS4210/SysTimer.c **** 						if(GET_POWER_STATUS()==_POWER_STATUS_NORMAL)
+1178:VS4210/SysTimer.c **** 						{
+1179:VS4210/SysTimer.c **** 							if(GET_BTH_STATE()!=_BATT_STATUS_TEMP_HIGH)
+1180:VS4210/SysTimer.c **** 					   		MCUTimerActiveTimerEvent(SEC(1), _SYSTEM_TIMER_EVENT_BATT_LOW_CHARGE);	
+1181:VS4210/SysTimer.c **** 							else
+1182:VS4210/SysTimer.c **** 							MCUTimerActiveTimerEvent(SEC(1), _SYSTEM_TIMER_EVENT_BATT_NO_CHARGE);		
+1183:VS4210/SysTimer.c **** 						}
+1184:VS4210/SysTimer.c **** 						else if(GET_POWER_STATUS()==_POWER_STATUS_SAVING)
+1185:VS4210/SysTimer.c **** 							{
+1186:VS4210/SysTimer.c **** 								if(GET_BTH_STATE()!=_BATT_STATUS_TEMP_HIGH)
+1187:VS4210/SysTimer.c **** 								MCUTimerActiveTimerEvent(SEC(1), _SYSTEM_TIMER_EVENT_BATT_HIGH_CHARGE);	
+1188:VS4210/SysTimer.c **** 								else
+1189:VS4210/SysTimer.c **** 								MCUTimerActiveTimerEvent(SEC(1), _SYSTEM_TIMER_EVENT_BATT_NO_CHARGE);	
+1190:VS4210/SysTimer.c **** 							}
+1191:VS4210/SysTimer.c **** 				MCUTimerActiveTimerEvent(SEC(1), _SYSTEM_TIMER_EVENT_JUDGE_AC_MODE);	
+1192:VS4210/SysTimer.c **** 			     	}
+1193:VS4210/SysTimer.c **** 				else if((GET_ADAP_12()==0)&&(GET_AC_PLUG()))
+1194:VS4210/SysTimer.c **** 					{
+1195:VS4210/SysTimer.c **** 					CLR_AC_PLUG();			
+1196:VS4210/SysTimer.c **** 					MCUTimerActiveTimerEvent(SEC(1), _SYSTEM_TIMER_EVENT_BATT_NO_CHARGE);	
+ARM GAS  /tmp/cc0fBAHR.s 			page 38
+
+
+1197:VS4210/SysTimer.c **** 					MCUTimerActiveTimerEvent(SEC(1), _SYSTEM_TIMER_EVENT_JUDGE_BATT_MODE);
+1198:VS4210/SysTimer.c **** 					}
+1199:VS4210/SysTimer.c **** 
+1200:VS4210/SysTimer.c **** */
+1201:VS4210/SysTimer.c **** 				//if(GET_AC_PLUG())
+1202:VS4210/SysTimer.c **** 				//DEBUG_MESSAGE("(AON)");
+1203:VS4210/SysTimer.c **** 				//else				
+1204:VS4210/SysTimer.c **** 				//DEBUG_MESSAGE("(AOFF)");
+1205:VS4210/SysTimer.c **** 				
+1206:VS4210/SysTimer.c ****     			}
+1207:VS4210/SysTimer.c **** 		break;
+1208:VS4210/SysTimer.c **** 		case     _SYSTEM_TIMER_EVENT_JUDGE_BATT_MODE:
+1209:VS4210/SysTimer.c **** 			
+1210:VS4210/SysTimer.c **** 			DEBUG_MESSAGE("(BATT_MODE)");
+1211:VS4210/SysTimer.c **** 			/*
+1212:VS4210/SysTimer.c **** 			if((GET_ADAP_12())&&(GET_AC_PLUG()==0))
+1213:VS4210/SysTimer.c **** 			     	{
+1214:VS4210/SysTimer.c **** 			     	SET_AC_PLUG(); 
+1215:VS4210/SysTimer.c **** 				MCUTimerActiveTimerEvent(SEC(1), _SYSTEM_TIMER_EVENT_JUDGE_AC_MODE);
+1216:VS4210/SysTimer.c **** 				}
+1217:VS4210/SysTimer.c **** 				else 
+1218:VS4210/SysTimer.c **** 					{
+1219:VS4210/SysTimer.c **** 				      MCUTimerActiveTimerEvent(SEC(5), _SYSTEM_TIMER_EVENT_JUDGE_BATT_MODE);
+1220:VS4210/SysTimer.c **** 					}
+1221:VS4210/SysTimer.c **** 				*/
+1222:VS4210/SysTimer.c **** 			break;
+1223:VS4210/SysTimer.c **** 			#endif
+1224:VS4210/SysTimer.c **** 			/*
+1225:VS4210/SysTimer.c ****      	case _SYSTEM_TIMER_EVENT_BATT_LOW_CHARGE:	
+1226:VS4210/SysTimer.c **** 			//	if(GET_BATTERY_CHARGE_STATE()!=_BATT_STATUS_LOW_CHARGE)
+1227:VS4210/SysTimer.c **** 			//	UserInterfacePowerSwitch(_POWER_ACTION_BATT_TO_LOW_CURRENT_CHARGE);
+1228:VS4210/SysTimer.c **** 		break;
+1229:VS4210/SysTimer.c **** 	case  _SYSTEM_TIMER_EVENT_BATT_HIGH_CHARGE:  	
+1230:VS4210/SysTimer.c **** 			//	if(GET_BATTERY_CHARGE_STATE()!=_BATT_STATUS_HIGH_CHARGE)
+1231:VS4210/SysTimer.c **** 			//	UserInterfacePowerSwitch(_POWER_ACTION_BATT_TO_HIGH_CURRENT_CHARGE);
+1232:VS4210/SysTimer.c **** 		break;
+1233:VS4210/SysTimer.c **** 	case  _SYSTEM_TIMER_EVENT_BATT_NO_CHARGE: 	
+1234:VS4210/SysTimer.c **** 			//	if(GET_BATTERY_CHARGE_STATE()!=_BATT_STATUS_STOP_CHARGE)
+1235:VS4210/SysTimer.c **** 			//	UserInterfacePowerSwitch(_POWER_ACTION_BATT_TO_NO_CHARGE);
+1236:VS4210/SysTimer.c **** 			break;
+1237:VS4210/SysTimer.c **** 			*/
+1238:VS4210/SysTimer.c **** 			case _SYSTEM_TIMER_EVENT_SHOW_WORKING_TIMER:
+1239:VS4210/SysTimer.c **** 			
+1240:VS4210/SysTimer.c **** 				second+=10;
+1241:VS4210/SysTimer.c **** 			
+1242:VS4210/SysTimer.c **** 				if(second==60)
+1243:VS4210/SysTimer.c **** 				{
+1244:VS4210/SysTimer.c **** 					second=0;
+1245:VS4210/SysTimer.c **** 					minute++;
+1246:VS4210/SysTimer.c **** 				}
+1247:VS4210/SysTimer.c **** 			
+1248:VS4210/SysTimer.c **** 				if(minute==60)
+1249:VS4210/SysTimer.c **** 				{
+1250:VS4210/SysTimer.c **** 					minute=0;
+1251:VS4210/SysTimer.c **** 					hour++;
+1252:VS4210/SysTimer.c **** 				}
+1253:VS4210/SysTimer.c **** 			
+ARM GAS  /tmp/cc0fBAHR.s 			page 39
+
+
+1254:VS4210/SysTimer.c **** 				if(hour==24)
+1255:VS4210/SysTimer.c **** 				{
+1256:VS4210/SysTimer.c **** 					hour=0;
+1257:VS4210/SysTimer.c **** 					day++;
+1258:VS4210/SysTimer.c **** 				}	
+1259:VS4210/SysTimer.c **** 			BOOT_ISSUE=0;
+1260:VS4210/SysTimer.c **** 			ShowWorkingTimer();
+1261:VS4210/SysTimer.c **** 			MCUTimerActiveTimerEvent(SEC(10), _SYSTEM_TIMER_EVENT_SHOW_WORKING_TIMER);
+1262:VS4210/SysTimer.c **** 			 break;
+1263:VS4210/SysTimer.c **** 		case _SYSTEM_TIMER_EVENT_VIDEO_RESET:
+1264:VS4210/SysTimer.c **** 			
+1265:VS4210/SysTimer.c **** 			#if(_DEBUG_MESSAGE_UserInterfaceTimerEvent==ON)
+1266:VS4210/SysTimer.c **** 			   	GraphicsPrint(GREEN,"(_TP_RESET)");
+1267:VS4210/SysTimer.c **** 					GraphicsPrint(RED,"(mode[0]=%d)",(WORD)mode[0]);
+1268:VS4210/SysTimer.c **** 				#endif
+1269:VS4210/SysTimer.c **** 
+1270:VS4210/SysTimer.c **** 		if(SelectInputMode==1)
+1271:VS4210/SysTimer.c **** 		{
+1272:VS4210/SysTimer.c **** 			if(  mode[0]==7 )
+1273:VS4210/SysTimer.c **** 				{
+1274:VS4210/SysTimer.c **** 				//VXISI2CWrite(0x10,0x01);
+1275:VS4210/SysTimer.c **** 				//VXISI2CWrite(0x9c,0x0A);	
+1276:VS4210/SysTimer.c **** 				Set_Video_Loss_OSD(1,ON);
+1277:VS4210/SysTimer.c **** 				}
+1278:VS4210/SysTimer.c **** 			else
+1279:VS4210/SysTimer.c **** 				{
+1280:VS4210/SysTimer.c **** 							
+1281:VS4210/SysTimer.c **** 								if(TP_InputMode==5)
+1282:VS4210/SysTimer.c **** 									{
+1283:VS4210/SysTimer.c **** 									TP_bt1120_720P_1080P_mode0_w0();
+1284:VS4210/SysTimer.c **** 									}
+1285:VS4210/SysTimer.c **** 								else if(TP_InputMode==6)
+1286:VS4210/SysTimer.c **** 									{
+1287:VS4210/SysTimer.c **** 									TP_bt1120_1080P_1080P_mode0_w0();
+1288:VS4210/SysTimer.c **** 									}
+1289:VS4210/SysTimer.c **** 								else if(TP_InputMode==0)
+1290:VS4210/SysTimer.c **** 									{
+1291:VS4210/SysTimer.c **** 									TP_bt1120_NTSC_1080P_mode0_w0();
+1292:VS4210/SysTimer.c **** 									}
+1293:VS4210/SysTimer.c **** 								else if(TP_InputMode==1)
+1294:VS4210/SysTimer.c **** 									{
+1295:VS4210/SysTimer.c **** 									TP_bt1120_PAL_1080P_mode0_w0();
+1296:VS4210/SysTimer.c **** 									}
+1297:VS4210/SysTimer.c **** 								else
+1298:VS4210/SysTimer.c **** 									VXISI2CWrite(0x10,0x01);
+1299:VS4210/SysTimer.c **** 
+1300:VS4210/SysTimer.c **** 								
+1301:VS4210/SysTimer.c **** 								//VXISI2CWrite(0x32,0x80);
+1302:VS4210/SysTimer.c **** 
+1303:VS4210/SysTimer.c **** 				Set_Video_Loss_OSD(1,OFF);
+1304:VS4210/SysTimer.c **** 				#if (_External_Sync==OFF)
+1305:VS4210/SysTimer.c **** 				//SET_AHD_SYNC_PARA();	
+1306:VS4210/SysTimer.c **** 				#endif
+1307:VS4210/SysTimer.c **** 				}
+1308:VS4210/SysTimer.c **** 		}	
+1309:VS4210/SysTimer.c **** 
+1310:VS4210/SysTimer.c **** 			BOOT_ISSUE=0;
+ARM GAS  /tmp/cc0fBAHR.s 			page 40
+
+
+1311:VS4210/SysTimer.c **** 		
+1312:VS4210/SysTimer.c **** 			//MCUTimerCancelTimerEvent( _SYSTEM_TIMER_EVENT_VIDEO_RESET);	
+1313:VS4210/SysTimer.c **** 			break;
+1314:VS4210/SysTimer.c **** 		case _SYSTEM_TIMER_EVENT_SET_VIDEO_LOSS:
+1315:VS4210/SysTimer.c **** 			//	if((SelectInputMode==_HDMI_Input)&&(gHDMI_Index==0))
+1316:VS4210/SysTimer.c **** 			//Set_Video_Loss_OSD(1,OFF);	
+1317:VS4210/SysTimer.c **** 			#if 1
+1318:VS4210/SysTimer.c **** switch(bVloss_Flag)
+1319:VS4210/SysTimer.c **** {
+1320:VS4210/SysTimer.c **** 	case ON:
+1321:VS4210/SysTimer.c **** 			if(SelectInputMode==_HDMI_Input)
+1322:VS4210/SysTimer.c **** 				{
+1323:VS4210/SysTimer.c **** 				VXISI2CWrite(0x10,(VXISI2CRead(0x10)&0x7F));
+1324:VS4210/SysTimer.c **** 				VXISI2CWrite(0x9C,0x0A);	
+1325:VS4210/SysTimer.c **** 				}		
+1326:VS4210/SysTimer.c **** 			else 
+1327:VS4210/SysTimer.c **** 				{
+1328:VS4210/SysTimer.c **** 				VXISI2CWrite(0x10,(VXISI2CRead(0x10)&0xFE));
+1329:VS4210/SysTimer.c **** 				VXISI2CWrite(0x9C,0x0A);	
+1330:VS4210/SysTimer.c **** 				}
+1331:VS4210/SysTimer.c **** 			break;
+1332:VS4210/SysTimer.c **** 
+1333:VS4210/SysTimer.c **** 	case OFF:
+1334:VS4210/SysTimer.c **** 				if(SelectInputMode==_HDMI_Input)
+1335:VS4210/SysTimer.c **** 				{
+1336:VS4210/SysTimer.c **** 				VXISI2CWrite(0x10,(VXISI2CRead(0x10)|0x80));
+1337:VS4210/SysTimer.c **** 				VXISI2CWrite(0x9C,0x00);
+1338:VS4210/SysTimer.c **** 				//SET_HDMI_SYNC_PARA();
+1339:VS4210/SysTimer.c **** 				}		
+1340:VS4210/SysTimer.c **** 			else
+1341:VS4210/SysTimer.c **** 				{
+1342:VS4210/SysTimer.c **** 				VXISI2CWrite(0x10,(VXISI2CRead(0x10)|0x81));
+1343:VS4210/SysTimer.c **** 				VXISI2CWrite(0x9C,0x00);
+1344:VS4210/SysTimer.c **** 				}
+1345:VS4210/SysTimer.c **** 	
+1346:VS4210/SysTimer.c **** 			break;
+1347:VS4210/SysTimer.c **** 	
+1348:VS4210/SysTimer.c **** 
+1349:VS4210/SysTimer.c **** }
+1350:VS4210/SysTimer.c **** #endif
+1351:VS4210/SysTimer.c **** 
+1352:VS4210/SysTimer.c **** 				BOOT_ISSUE=0;
+1353:VS4210/SysTimer.c **** 				VXISI2CWrite(0x32,0x80);
+1354:VS4210/SysTimer.c **** 			break;
+1355:VS4210/SysTimer.c **** 		case _SYSTEM_TIMER_EVENT_SET_EMBEDDED_SYNC:
+1356:VS4210/SysTimer.c **** 			//HS_Select_Win(1);
+1357:VS4210/SysTimer.c **** 			
+1358:VS4210/SysTimer.c **** 			if(SelectInputMode==1)
+1359:VS4210/SysTimer.c **** 				{			
+1360:VS4210/SysTimer.c **** 				SET_AHD_SYNC_PARA();
+1361:VS4210/SysTimer.c **** 				}
+1362:VS4210/SysTimer.c **** 			else{	
+1363:VS4210/SysTimer.c **** 				//HS_Select_Win(0);
+1364:VS4210/SysTimer.c **** 				SET_HDMI_SYNC_PARA();
+1365:VS4210/SysTimer.c **** 				}
+1366:VS4210/SysTimer.c **** 			//MCUTimerActiveTimerEvent( SEC(2),_SYSTEM_TIMER_EVENT_SET_EMBEDDED_SYNC);	
+1367:VS4210/SysTimer.c **** 			break;
+ARM GAS  /tmp/cc0fBAHR.s 			page 41
+
+
+1368:VS4210/SysTimer.c **** 			case _SYSTEM_TIMER_EVENT_BOOT_VIDEO_DETECT:
+1369:VS4210/SysTimer.c **** 				BOOT_ISSUE=0;			
+1370:VS4210/SysTimer.c **** 				break;
+1371:VS4210/SysTimer.c **** 
+1372:VS4210/SysTimer.c **** 		#if 0 		
+1373:VS4210/SysTimer.c **** 		case _SYSTEM_TIMER_EVENT_RESET_TOUCH_PANEL:
+1374:VS4210/SysTimer.c **** 		
+1375:VS4210/SysTimer.c **** 			//	TP_ACTION=ON;
+1376:VS4210/SysTimer.c **** 				#if(_DEBUG_MESSAGE_UserInterfaceTimerEvent==ON)
+1377:VS4210/SysTimer.c **** 			   	GraphicsPrint(YELLOW,"(_SYSTEM_TIMER_EVENT_RESET_TOUCH_PANEL)");			
+1378:VS4210/SysTimer.c **** 				#endif
+1379:VS4210/SysTimer.c **** 			break;
+1380:VS4210/SysTimer.c **** 		case _SYSTEM_TIMER_EVENT_TP_PRES_DOWN:
+1381:VS4210/SysTimer.c **** 			MCUTimerActiveTimerEvent(SEC(3), _SYSTEM_TIMER_EVENT_SHOW_WORKING_TIMER);
+1382:VS4210/SysTimer.c **** 			break;
+1383:VS4210/SysTimer.c **** 			
+1384:VS4210/SysTimer.c **** 
+1385:VS4210/SysTimer.c **** 		case _SYSTEM_TIMER_EVENT_LIGHT_SENSOR_CHECK:
+1386:VS4210/SysTimer.c **** 
+1387:VS4210/SysTimer.c **** 			#if(_DEBUG_MESSAGE_UserInterfaceTimerEvent==ON)
+1388:VS4210/SysTimer.c **** 		   	GraphicsPrint(GREEN,"(Trig=%02x)(OSD=%02x)",(WORD)GET_PCA9554PW(PCA9554PW_reg0),(WORD)Display
+1389:VS4210/SysTimer.c **** //			GET_PCA9554PW(PCA9554PW_reg1);
+1390:VS4210/SysTimer.c **** 
+1391:VS4210/SysTimer.c **** 		   	//GraphicsPrint(GREEN,"(LSR=)");			
+1392:VS4210/SysTimer.c **** 			#endif
+1393:VS4210/SysTimer.c **** /*
+1394:VS4210/SysTimer.c **** 			  if (ReadEEP(0xa0)==ON)  //ON=Auto
+1395:VS4210/SysTimer.c **** 			  {
+1396:VS4210/SysTimer.c **** 			 	//val = ReadDecoder(LADC0);
+1397:VS4210/SysTimer.c **** 				AdjustAutoDayNight(LightSensor_ADC);
+1398:VS4210/SysTimer.c **** 			  }
+1399:VS4210/SysTimer.c **** 			  else	//OFF=Day
+1400:VS4210/SysTimer.c **** 			  {
+1401:VS4210/SysTimer.c **** 			  AdjustAutoDayNight(0x80);
+1402:VS4210/SysTimer.c **** 			  }
+1403:VS4210/SysTimer.c **** */
+1404:VS4210/SysTimer.c **** 			//	HDMITX_DevLoopProc() ;
+1405:VS4210/SysTimer.c **** 
+1406:VS4210/SysTimer.c **** 		 MCUTimerActiveTimerEvent(SEC(2), _SYSTEM_TIMER_EVENT_LIGHT_SENSOR_CHECK);
+1407:VS4210/SysTimer.c **** 
+1408:VS4210/SysTimer.c **** 			break;
+1409:VS4210/SysTimer.c **** 		case _SYSTEM_TIMER_EVENT_KEY_CHECK:
+1410:VS4210/SysTimer.c **** 
+1411:VS4210/SysTimer.c **** 			#if(_DEBUG_MESSAGE_SysTimerEvent==ON)
+1412:VS4210/SysTimer.c **** 			GraphicsPrint(CYAN,"(KEYC)");			
+1413:VS4210/SysTimer.c **** 			#endif
+1414:VS4210/SysTimer.c **** 			CheckKeyIn();
+1415:VS4210/SysTimer.c **** 			MCUTimerActiveTimerEvent(SEC(1), _SYSTEM_TIMER_EVENT_KEY_CHECK);
+1416:VS4210/SysTimer.c **** 			break;
+1417:VS4210/SysTimer.c **** 			#if 0
+1418:VS4210/SysTimer.c **** 		case _SYSTEM_TIMER_EVENT_EQ_DETECT:
+1419:VS4210/SysTimer.c **** 			EQ_Detect();
+1420:VS4210/SysTimer.c **** 			//Encoder_flag=ON;
+1421:VS4210/SysTimer.c **** 			#if(_DEBUG_MESSAGE_SysTimerEvent==ON)
+1422:VS4210/SysTimer.c **** 			GraphicsPrint(YELLOW,"(EQ)");			
+1423:VS4210/SysTimer.c **** 			#endif
+1424:VS4210/SysTimer.c **** 			MCUTimerActiveTimerEvent(SEC(0.5), _SYSTEM_TIMER_EVENT_EQ_DETECT);
+ARM GAS  /tmp/cc0fBAHR.s 			page 42
+
+
+1425:VS4210/SysTimer.c **** 			break;
+1426:VS4210/SysTimer.c **** 			#endif
+1427:VS4210/SysTimer.c **** 			case _SYSTEM_TIMER_EVENT_ADC_CHECK:
+1428:VS4210/SysTimer.c **** 			HAL_ADC_Start(&hadc1);
+1429:VS4210/SysTimer.c **** 
+1430:VS4210/SysTimer.c **** 			HAL_ADC_PollForConversion(&hadc1, 50);
+1431:VS4210/SysTimer.c **** 
+1432:VS4210/SysTimer.c **** 				
+1433:VS4210/SysTimer.c **** 			if(HAL_IS_BIT_SET(HAL_ADC_GetState(&hadc1), HAL_ADC_STATE_REG_EOC))
+1434:VS4210/SysTimer.c **** 				{
+1435:VS4210/SysTimer.c **** 			LightSensor_ADC = HAL_ADC_GetValue(&hadc1);
+1436:VS4210/SysTimer.c **** 
+1437:VS4210/SysTimer.c **** 			#if 0///(_DEBUG_MESSAGE_SysTimerEvent==ON)
+1438:VS4210/SysTimer.c **** 		GraphicsPrint(CYAN,"(ADC=%02x)",(WORD)LightSensor_ADC);			
+1439:VS4210/SysTimer.c **** 
+1440:VS4210/SysTimer.c **** 			GraphicsPrint(CYAN,"(PWMLevel=%02x)",(WORD)PWMLevel); 		
+1441:VS4210/SysTimer.c **** 			#endif
+1442:VS4210/SysTimer.c **** 
+1443:VS4210/SysTimer.c **** 				}
+1444:VS4210/SysTimer.c **** 
+1445:VS4210/SysTimer.c **** 				if (ReadEEP(0xa0)==ON)	//ON=Auto
+1446:VS4210/SysTimer.c **** 					{
+1447:VS4210/SysTimer.c **** 					  //val = ReadDecoder(LADC0);
+1448:VS4210/SysTimer.c **** 					  AdjustAutoDayNight(LightSensor_ADC);
+1449:VS4210/SysTimer.c **** 					}
+1450:VS4210/SysTimer.c **** 					else  //OFF=Day
+1451:VS4210/SysTimer.c **** 					{
+1452:VS4210/SysTimer.c **** 					AdjustAutoDayNight(0x80);
+1453:VS4210/SysTimer.c **** 					}
+1454:VS4210/SysTimer.c **** 
+1455:VS4210/SysTimer.c **** 				MCUTimerActiveTimerEvent(SEC(0.2), _SYSTEM_TIMER_EVENT_ADC_CHECK);
+1456:VS4210/SysTimer.c **** 
+1457:VS4210/SysTimer.c **** 				break;
+1458:VS4210/SysTimer.c **** 		case _SYSTEM_TIMER_EVENT_TRIGGER_DELAY_RELEASE:
+1459:VS4210/SysTimer.c **** 
+1460:VS4210/SysTimer.c **** 			if(PowerFlag==OFF)LCDPowerOFF();
+1461:VS4210/SysTimer.c **** 			
+1462:VS4210/SysTimer.c **** 			ShowTRIGOSD();		
+1463:VS4210/SysTimer.c **** 			if( GetDisplayedOSD() & _GAUGE_OSD) CloseOSDMenu();
+1464:VS4210/SysTimer.c **** 
+1465:VS4210/SysTimer.c **** 
+1466:VS4210/SysTimer.c **** 				if(PowerFlag==ON)
+1467:VS4210/SysTimer.c **** 				{				
+1468:VS4210/SysTimer.c **** 				//AudioMute(ON);	
+1469:VS4210/SysTimer.c **** 					if(BOOT_ISSUE==ON)
+1470:VS4210/SysTimer.c **** 					MCUTimerActiveTimerEvent(SEC(0.1),  _USER_TIMER_EVENT_PANEL_BACKLIGHT_ON);
+1471:VS4210/SysTimer.c **** 					else					
+1472:VS4210/SysTimer.c **** 					MCUTimerActiveTimerEvent(SEC(1),  _USER_TIMER_EVENT_PANEL_BACKLIGHT_ON);
+1473:VS4210/SysTimer.c **** 				}
+1474:VS4210/SysTimer.c **** 				else
+1475:VS4210/SysTimer.c **** 				{
+1476:VS4210/SysTimer.c **** 				AudioMute(ON);		
+1477:VS4210/SysTimer.c **** 				PowerLED(_SYSTEM_TIMER_EVENT_RED_ON);
+1478:VS4210/SysTimer.c **** 				}
+1479:VS4210/SysTimer.c **** 				
+1480:VS4210/SysTimer.c **** 			if(TriggerStatus)
+1481:VS4210/SysTimer.c **** 				{
+ARM GAS  /tmp/cc0fBAHR.s 			page 43
+
+
+1482:VS4210/SysTimer.c **** 				SetNowMode();
+1483:VS4210/SysTimer.c **** 				TriggerStatus=0;
+1484:VS4210/SysTimer.c **** 				}
+1485:VS4210/SysTimer.c **** 		//MCUTimerActiveTimerEvent(SEC(5),  _SYSTEM_TIMER_EVENT_NOW_DISPLAY);
+1486:VS4210/SysTimer.c **** 		
+1487:VS4210/SysTimer.c **** 	
+1488:VS4210/SysTimer.c **** 			break;
+1489:VS4210/SysTimer.c **** 			case _SYSTEM_TIMER_EVENT_BOOT_SETUP:
+1490:VS4210/SysTimer.c **** 				//SetNowMode(); 
+1491:VS4210/SysTimer.c **** 			//	VS4210_SwitchChannel(gaHDMI_MapWindowIndex[0],0);
+1492:VS4210/SysTimer.c **** 			//	VS4210_SwitchChannel(gaHDMI_MapWindowIndex[1],1);
+1493:VS4210/SysTimer.c **** 			//	VS4210_SwitchChannel(gaHDMI_MapWindowIndex[2],2);
+1494:VS4210/SysTimer.c **** 			//	VS4210_SwitchChannel(gaHDMI_MapWindowIndex[3],3);
+1495:VS4210/SysTimer.c **** /*
+1496:VS4210/SysTimer.c **** 				gaHDMI_MapWindowIndex[i]
+1497:VS4210/SysTimer.c **** 
+1498:VS4210/SysTimer.c **** 				switch(MainSetSelectMode[SelectModeType])
+1499:VS4210/SysTimer.c **** 					{
+1500:VS4210/SysTimer.c **** 					case VS4210_LOOP_MODE8_412 :
+1501:VS4210/SysTimer.c **** 					VS4210_SwitchChannel(3,0);
+1502:VS4210/SysTimer.c **** 					 printf("\r\n*VS4210_SwitchChannel(3,0)");
+1503:VS4210/SysTimer.c **** 					break;
+1504:VS4210/SysTimer.c **** 					}
+1505:VS4210/SysTimer.c **** 				*/
+1506:VS4210/SysTimer.c **** 				if((NowModeState==JumpMode)&&(TriggerFlag==0))
+1507:VS4210/SysTimer.c **** 								 ShowJUMPOSD();
+1508:VS4210/SysTimer.c **** 
+1509:VS4210/SysTimer.c **** 				//if((TriggerStatus==4)&& (TriggerFlag&REVERSE_T==REVERSE_T))
+1510:VS4210/SysTimer.c **** 				//{
+1511:VS4210/SysTimer.c **** 				//ShowGaugeOSD();
+1512:VS4210/SysTimer.c **** 				//}
+1513:VS4210/SysTimer.c **** 
+1514:VS4210/SysTimer.c **** 				break;
+1515:VS4210/SysTimer.c **** 				case _SYSTEM_TIMER_EVENT_AUDIO_CHANNEL_SELECT:
+1516:VS4210/SysTimer.c **** 					Printf("\r\n(AudioMute(OFF)");
+1517:VS4210/SysTimer.c **** 					AudioMute(OFF);
+1518:VS4210/SysTimer.c **** 					break;
+1519:VS4210/SysTimer.c **** 					#endif
+1520:VS4210/SysTimer.c ****    default:
+1521:VS4210/SysTimer.c ****             break;
+1522:VS4210/SysTimer.c ****  }
+1523:VS4210/SysTimer.c **** #if 0
+1524:VS4210/SysTimer.c ****     switch(enumEventID)
+1525:VS4210/SysTimer.c ****     {
+1526:VS4210/SysTimer.c ****         case _SYSTEM_TIMER_EVENT_SOURCE_CLEAR_DETECTING:            
+1527:VS4210/SysTimer.c ****             SysSourceClearDetectingEvent();            
+1528:VS4210/SysTimer.c ****             break;
+1529:VS4210/SysTimer.c **** 
+1530:VS4210/SysTimer.c ****         case _SYSTEM_TIMER_EVENT_JUDGE_ACTIVE_STATE:
+1531:VS4210/SysTimer.c ****             SET_MODE_ACTIVE_READY();
+1532:VS4210/SysTimer.c ****             break;
+1533:VS4210/SysTimer.c **** 
+1534:VS4210/SysTimer.c ****         case _SYSTEM_TIMER_EVENT_JUDGE_NOSUPPORT_STATE:
+1535:VS4210/SysTimer.c ****             SET_MODE_RESET_TARGET(_MODE_ACTION_RESET_TO_NOSUPPORT);
+1536:VS4210/SysTimer.c ****             break;
+1537:VS4210/SysTimer.c **** 
+1538:VS4210/SysTimer.c ****         case _SYSTEM_TIMER_EVENT_JUDGE_NOSIGNAL_STATE:
+ARM GAS  /tmp/cc0fBAHR.s 			page 44
+
+
+1539:VS4210/SysTimer.c **** 					
+1540:VS4210/SysTimer.c ****             SET_MODE_RESET_TARGET(_MODE_ACTION_RESET_TO_NOSIGNAL);      
+1541:VS4210/SysTimer.c ****             break;
+1542:VS4210/SysTimer.c **** 
+1543:VS4210/SysTimer.c **** #if(_EMBEDDED_DAC_SUPPORT == _ON)
+1544:VS4210/SysTimer.c ****         case _SYSTEM_TIMER_EVENT_AUDIO_DAC_WAIT_VCM_INITIAL:
+1545:VS4210/SysTimer.c ****             ScalerAudioDACSetState(_AUDIO_DAC_CHARGE);
+1546:VS4210/SysTimer.c ****             break;
+1547:VS4210/SysTimer.c ****             
+1548:VS4210/SysTimer.c ****         case _SYSTEM_TIMER_EVENT_AUDIO_DAC_WAIT_VCM_CHARGE:
+1549:VS4210/SysTimer.c ****             ScalerAudioDACSetState(_AUDIO_DAC_DEPOP);
+1550:VS4210/SysTimer.c ****             break;
+1551:VS4210/SysTimer.c **** 
+1552:VS4210/SysTimer.c ****         case _SYSTEM_TIMER_EVENT_AUDIO_DAC_WAIT_DEPOP_TO_NORMAL:
+1553:VS4210/SysTimer.c ****             ScalerAudioDACDepopToNormal();
+1554:VS4210/SysTimer.c ****             break;
+1555:VS4210/SysTimer.c **** #endif // End of #if(_EMBEDDED_DAC_SUPPORT == _ON)
+1556:VS4210/SysTimer.c ****             
+1557:VS4210/SysTimer.c **** #if(_HP_SOURCE_SCAN_SUPPORT == _ON)
+1558:VS4210/SysTimer.c ****         case _SYSTEM_TIMER_EVENT_SOURCE_HP_CANCEL_MANUAL_SWITCH_PORT:
+1559:VS4210/SysTimer.c ****             SET_SOURCE_HP_PORT_SWITCH_TARGET((_INPUT_PORT_VALID + 1));
+1560:VS4210/SysTimer.c ****             break;
+1561:VS4210/SysTimer.c **** #endif                        
+1562:VS4210/SysTimer.c ****         default:
+1563:VS4210/SysTimer.c ****             break;
+1564:VS4210/SysTimer.c ****     }
+1565:VS4210/SysTimer.c **** 	#endif
+1566:VS4210/SysTimer.c **** }
+ 924              		.loc 1 1566 0
+ 925 0024 08BD     		pop	{r3, pc}
+ 926              	.L106:
+1240:VS4210/SysTimer.c **** 				second+=10;
+ 927              		.loc 1 1240 0
+ 928 0026 604A     		ldr	r2, .L137
+ 929 0028 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 930 002a 0A33     		adds	r3, r3, #10
+ 931 002c DBB2     		uxtb	r3, r3
+ 932 002e 1370     		strb	r3, [r2]
+1242:VS4210/SysTimer.c **** 				if(second==60)
+ 933              		.loc 1 1242 0
+ 934 0030 3C2B     		cmp	r3, #60
+ 935 0032 12D0     		beq	.L127
+ 936              	.L110:
+1248:VS4210/SysTimer.c **** 				if(minute==60)
+ 937              		.loc 1 1248 0
+ 938 0034 5D4B     		ldr	r3, .L137+4
+ 939 0036 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 940 0038 3C2B     		cmp	r3, #60
+ 941 003a 16D0     		beq	.L128
+ 942              	.L111:
+1254:VS4210/SysTimer.c **** 				if(hour==24)
+ 943              		.loc 1 1254 0
+ 944 003c 5C4B     		ldr	r3, .L137+8
+ 945 003e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 946 0040 182B     		cmp	r3, #24
+ 947 0042 1AD0     		beq	.L129
+ 948              	.L112:
+ARM GAS  /tmp/cc0fBAHR.s 			page 45
+
+
+1259:VS4210/SysTimer.c **** 			BOOT_ISSUE=0;
+ 949              		.loc 1 1259 0
+ 950 0044 5B4B     		ldr	r3, .L137+12
+ 951 0046 0022     		movs	r2, #0
+ 952 0048 1A70     		strb	r2, [r3]
+1260:VS4210/SysTimer.c **** 			ShowWorkingTimer();
+ 953              		.loc 1 1260 0
+ 954 004a FFF7FEFF 		bl	ShowWorkingTimer
+ 955              	.LVL85:
+1261:VS4210/SysTimer.c **** 			MCUTimerActiveTimerEvent(SEC(10), _SYSTEM_TIMER_EVENT_SHOW_WORKING_TIMER);
+ 956              		.loc 1 1261 0
+ 957 004e 3F21     		movs	r1, #63
+ 958 0050 42F21070 		movw	r0, #10000
+ 959 0054 FFF7FEFF 		bl	MCUTimerActiveTimerEvent
+ 960              	.LVL86:
+1262:VS4210/SysTimer.c **** 			 break;
+ 961              		.loc 1 1262 0
+ 962 0058 E4E7     		b	.L101
+ 963              	.L127:
+1244:VS4210/SysTimer.c **** 					second=0;
+ 964              		.loc 1 1244 0
+ 965 005a 1346     		mov	r3, r2
+ 966 005c 0022     		movs	r2, #0
+ 967 005e 1A70     		strb	r2, [r3]
+1245:VS4210/SysTimer.c **** 					minute++;
+ 968              		.loc 1 1245 0
+ 969 0060 524A     		ldr	r2, .L137+4
+ 970 0062 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 971 0064 0133     		adds	r3, r3, #1
+ 972 0066 1370     		strb	r3, [r2]
+ 973 0068 E4E7     		b	.L110
+ 974              	.L128:
+1250:VS4210/SysTimer.c **** 					minute=0;
+ 975              		.loc 1 1250 0
+ 976 006a 504B     		ldr	r3, .L137+4
+ 977 006c 0022     		movs	r2, #0
+ 978 006e 1A70     		strb	r2, [r3]
+1251:VS4210/SysTimer.c **** 					hour++;
+ 979              		.loc 1 1251 0
+ 980 0070 4F4A     		ldr	r2, .L137+8
+ 981 0072 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 982 0074 0133     		adds	r3, r3, #1
+ 983 0076 1370     		strb	r3, [r2]
+ 984 0078 E0E7     		b	.L111
+ 985              	.L129:
+1256:VS4210/SysTimer.c **** 					hour=0;
+ 986              		.loc 1 1256 0
+ 987 007a 4D4B     		ldr	r3, .L137+8
+ 988 007c 0022     		movs	r2, #0
+ 989 007e 1A70     		strb	r2, [r3]
+1257:VS4210/SysTimer.c **** 					day++;
+ 990              		.loc 1 1257 0
+ 991 0080 4D4A     		ldr	r2, .L137+16
+ 992 0082 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 993 0084 0133     		adds	r3, r3, #1
+ 994 0086 1370     		strb	r3, [r2]
+ 995 0088 DCE7     		b	.L112
+ARM GAS  /tmp/cc0fBAHR.s 			page 46
+
+
+ 996              	.L107:
+1266:VS4210/SysTimer.c **** 			   	GraphicsPrint(GREEN,"(_TP_RESET)");
+ 997              		.loc 1 1266 0
+ 998 008a 4C49     		ldr	r1, .L137+20
+ 999 008c 0220     		movs	r0, #2
+ 1000 008e FFF7FEFF 		bl	GraphicsPrint
+ 1001              	.LVL87:
+1267:VS4210/SysTimer.c **** 					GraphicsPrint(RED,"(mode[0]=%d)",(WORD)mode[0]);
+ 1002              		.loc 1 1267 0
+ 1003 0092 4B4B     		ldr	r3, .L137+24
+ 1004 0094 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1005 0096 4B49     		ldr	r1, .L137+28
+ 1006 0098 0120     		movs	r0, #1
+ 1007 009a FFF7FEFF 		bl	GraphicsPrint
+ 1008              	.LVL88:
+1270:VS4210/SysTimer.c **** 		if(SelectInputMode==1)
+ 1009              		.loc 1 1270 0
+ 1010 009e 4A4B     		ldr	r3, .L137+32
+ 1011 00a0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1012 00a2 012B     		cmp	r3, #1
+ 1013 00a4 03D0     		beq	.L130
+ 1014              	.L113:
+1310:VS4210/SysTimer.c **** 			BOOT_ISSUE=0;
+ 1015              		.loc 1 1310 0
+ 1016 00a6 434B     		ldr	r3, .L137+12
+ 1017 00a8 0022     		movs	r2, #0
+ 1018 00aa 1A70     		strb	r2, [r3]
+1313:VS4210/SysTimer.c **** 			break;
+ 1019              		.loc 1 1313 0
+ 1020 00ac BAE7     		b	.L101
+ 1021              	.L130:
+1272:VS4210/SysTimer.c **** 			if(  mode[0]==7 )
+ 1022              		.loc 1 1272 0
+ 1023 00ae 444B     		ldr	r3, .L137+24
+ 1024 00b0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1025 00b2 072B     		cmp	r3, #7
+ 1026 00b4 11D0     		beq	.L131
+1281:VS4210/SysTimer.c **** 								if(TP_InputMode==5)
+ 1027              		.loc 1 1281 0
+ 1028 00b6 454B     		ldr	r3, .L137+36
+ 1029 00b8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1030 00ba 052B     		cmp	r3, #5
+ 1031 00bc 12D0     		beq	.L132
+1285:VS4210/SysTimer.c **** 								else if(TP_InputMode==6)
+ 1032              		.loc 1 1285 0
+ 1033 00be 062B     		cmp	r3, #6
+ 1034 00c0 13D0     		beq	.L133
+1289:VS4210/SysTimer.c **** 								else if(TP_InputMode==0)
+ 1035              		.loc 1 1289 0
+ 1036 00c2 ABB1     		cbz	r3, .L134
+1293:VS4210/SysTimer.c **** 								else if(TP_InputMode==1)
+ 1037              		.loc 1 1293 0
+ 1038 00c4 012B     		cmp	r3, #1
+ 1039 00c6 16D0     		beq	.L135
+1298:VS4210/SysTimer.c **** 									VXISI2CWrite(0x10,0x01);
+ 1040              		.loc 1 1298 0
+ 1041 00c8 0121     		movs	r1, #1
+ARM GAS  /tmp/cc0fBAHR.s 			page 47
+
+
+ 1042 00ca 1020     		movs	r0, #16
+ 1043 00cc FFF7FEFF 		bl	VXISI2CWrite
+ 1044              	.LVL89:
+ 1045              	.L116:
+1303:VS4210/SysTimer.c **** 				Set_Video_Loss_OSD(1,OFF);
+ 1046              		.loc 1 1303 0
+ 1047 00d0 0021     		movs	r1, #0
+ 1048 00d2 0120     		movs	r0, #1
+ 1049 00d4 FFF7FEFF 		bl	Set_Video_Loss_OSD
+ 1050              	.LVL90:
+ 1051 00d8 E5E7     		b	.L113
+ 1052              	.L131:
+1276:VS4210/SysTimer.c **** 				Set_Video_Loss_OSD(1,ON);
+ 1053              		.loc 1 1276 0
+ 1054 00da 0121     		movs	r1, #1
+ 1055 00dc 0846     		mov	r0, r1
+ 1056 00de FFF7FEFF 		bl	Set_Video_Loss_OSD
+ 1057              	.LVL91:
+ 1058 00e2 E0E7     		b	.L113
+ 1059              	.L132:
+1283:VS4210/SysTimer.c **** 									TP_bt1120_720P_1080P_mode0_w0();
+ 1060              		.loc 1 1283 0
+ 1061 00e4 FFF7FEFF 		bl	TP_bt1120_720P_1080P_mode0_w0
+ 1062              	.LVL92:
+ 1063 00e8 F2E7     		b	.L116
+ 1064              	.L133:
+1287:VS4210/SysTimer.c **** 									TP_bt1120_1080P_1080P_mode0_w0();
+ 1065              		.loc 1 1287 0
+ 1066 00ea FFF7FEFF 		bl	TP_bt1120_1080P_1080P_mode0_w0
+ 1067              	.LVL93:
+ 1068 00ee EFE7     		b	.L116
+ 1069              	.L134:
+1291:VS4210/SysTimer.c **** 									TP_bt1120_NTSC_1080P_mode0_w0();
+ 1070              		.loc 1 1291 0
+ 1071 00f0 FFF7FEFF 		bl	TP_bt1120_NTSC_1080P_mode0_w0
+ 1072              	.LVL94:
+ 1073 00f4 ECE7     		b	.L116
+ 1074              	.L135:
+1295:VS4210/SysTimer.c **** 									TP_bt1120_PAL_1080P_mode0_w0();
+ 1075              		.loc 1 1295 0
+ 1076 00f6 FFF7FEFF 		bl	TP_bt1120_PAL_1080P_mode0_w0
+ 1077              	.LVL95:
+ 1078 00fa E9E7     		b	.L116
+ 1079              	.L108:
+1318:VS4210/SysTimer.c **** switch(bVloss_Flag)
+ 1080              		.loc 1 1318 0
+ 1081 00fc 344B     		ldr	r3, .L137+40
+ 1082 00fe 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1083 0100 2BB3     		cbz	r3, .L121
+ 1084 0102 012B     		cmp	r3, #1
+ 1085 0104 0ED1     		bne	.L120
+1321:VS4210/SysTimer.c **** 			if(SelectInputMode==_HDMI_Input)
+ 1086              		.loc 1 1321 0
+ 1087 0106 304B     		ldr	r3, .L137+32
+ 1088 0108 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1089 010a 9BB9     		cbnz	r3, .L123
+1323:VS4210/SysTimer.c **** 				VXISI2CWrite(0x10,(VXISI2CRead(0x10)&0x7F));
+ARM GAS  /tmp/cc0fBAHR.s 			page 48
+
+
+ 1090              		.loc 1 1323 0
+ 1091 010c 1020     		movs	r0, #16
+ 1092 010e FFF7FEFF 		bl	VXISI2CRead
+ 1093              	.LVL96:
+ 1094 0112 00F07F01 		and	r1, r0, #127
+ 1095 0116 1020     		movs	r0, #16
+ 1096 0118 FFF7FEFF 		bl	VXISI2CWrite
+ 1097              	.LVL97:
+1324:VS4210/SysTimer.c **** 				VXISI2CWrite(0x9C,0x0A);	
+ 1098              		.loc 1 1324 0
+ 1099 011c 0A21     		movs	r1, #10
+ 1100 011e 9C20     		movs	r0, #156
+ 1101 0120 FFF7FEFF 		bl	VXISI2CWrite
+ 1102              	.LVL98:
+ 1103              	.L120:
+1352:VS4210/SysTimer.c **** 				VXISI2CWrite(0x32,0x80);
+ 1104              		.loc 1 1352 0
+ 1105 0124 234B     		ldr	r3, .L137+12
+ 1106 0126 0022     		movs	r2, #0
+ 1107 0128 1A70     		strb	r2, [r3]
+1353:VS4210/SysTimer.c **** 			break;
+ 1108              		.loc 1 1353 0
+ 1109 012a 8021     		movs	r1, #128
+ 1110 012c 3220     		movs	r0, #50
+ 1111 012e FFF7FEFF 		bl	VXISI2CWrite
+ 1112              	.LVL99:
+1354:VS4210/SysTimer.c **** 		case _SYSTEM_TIMER_EVENT_SET_EMBEDDED_SYNC:
+ 1113              		.loc 1 1354 0
+ 1114 0132 77E7     		b	.L101
+ 1115              	.L123:
+1328:VS4210/SysTimer.c **** 				VXISI2CWrite(0x10,(VXISI2CRead(0x10)&0xFE));
+ 1116              		.loc 1 1328 0
+ 1117 0134 1020     		movs	r0, #16
+ 1118 0136 FFF7FEFF 		bl	VXISI2CRead
+ 1119              	.LVL100:
+ 1120 013a 00F0FE01 		and	r1, r0, #254
+ 1121 013e 1020     		movs	r0, #16
+ 1122 0140 FFF7FEFF 		bl	VXISI2CWrite
+ 1123              	.LVL101:
+1329:VS4210/SysTimer.c **** 				VXISI2CWrite(0x9C,0x0A);	
+ 1124              		.loc 1 1329 0
+ 1125 0144 0A21     		movs	r1, #10
+ 1126 0146 9C20     		movs	r0, #156
+ 1127 0148 FFF7FEFF 		bl	VXISI2CWrite
+ 1128              	.LVL102:
+ 1129 014c EAE7     		b	.L120
+ 1130              	.L121:
+1334:VS4210/SysTimer.c **** 				if(SelectInputMode==_HDMI_Input)
+ 1131              		.loc 1 1334 0
+ 1132 014e 1E4B     		ldr	r3, .L137+32
+ 1133 0150 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1134 0152 6BB9     		cbnz	r3, .L124
+1336:VS4210/SysTimer.c **** 				VXISI2CWrite(0x10,(VXISI2CRead(0x10)|0x80));
+ 1135              		.loc 1 1336 0
+ 1136 0154 1020     		movs	r0, #16
+ 1137 0156 FFF7FEFF 		bl	VXISI2CRead
+ 1138              	.LVL103:
+ARM GAS  /tmp/cc0fBAHR.s 			page 49
+
+
+ 1139 015a 60F07F01 		orn	r1, r0, #127
+ 1140 015e C9B2     		uxtb	r1, r1
+ 1141 0160 1020     		movs	r0, #16
+ 1142 0162 FFF7FEFF 		bl	VXISI2CWrite
+ 1143              	.LVL104:
+1337:VS4210/SysTimer.c **** 				VXISI2CWrite(0x9C,0x00);
+ 1144              		.loc 1 1337 0
+ 1145 0166 0021     		movs	r1, #0
+ 1146 0168 9C20     		movs	r0, #156
+ 1147 016a FFF7FEFF 		bl	VXISI2CWrite
+ 1148              	.LVL105:
+ 1149 016e D9E7     		b	.L120
+ 1150              	.L124:
+1342:VS4210/SysTimer.c **** 				VXISI2CWrite(0x10,(VXISI2CRead(0x10)|0x81));
+ 1151              		.loc 1 1342 0
+ 1152 0170 1020     		movs	r0, #16
+ 1153 0172 FFF7FEFF 		bl	VXISI2CRead
+ 1154              	.LVL106:
+ 1155 0176 60F07E01 		orn	r1, r0, #126
+ 1156 017a C9B2     		uxtb	r1, r1
+ 1157 017c 1020     		movs	r0, #16
+ 1158 017e FFF7FEFF 		bl	VXISI2CWrite
+ 1159              	.LVL107:
+1343:VS4210/SysTimer.c **** 				VXISI2CWrite(0x9C,0x00);
+ 1160              		.loc 1 1343 0
+ 1161 0182 0021     		movs	r1, #0
+ 1162 0184 9C20     		movs	r0, #156
+ 1163 0186 FFF7FEFF 		bl	VXISI2CWrite
+ 1164              	.LVL108:
+ 1165 018a CBE7     		b	.L120
+ 1166              	.L109:
+1358:VS4210/SysTimer.c **** 				{			
+ 1167              		.loc 1 1358 0
+ 1168 018c 0E4B     		ldr	r3, .L137+32
+ 1169 018e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1170 0190 012B     		cmp	r3, #1
+ 1171 0192 02D0     		beq	.L136
+1364:VS4210/SysTimer.c **** 				}
+ 1172              		.loc 1 1364 0
+ 1173 0194 FFF7FEFF 		bl	SET_HDMI_SYNC_PARA
+ 1174              	.LVL109:
+ 1175 0198 44E7     		b	.L101
+ 1176              	.L136:
+1360:VS4210/SysTimer.c **** 				}
+ 1177              		.loc 1 1360 0
+ 1178 019a FFF7FEFF 		bl	SET_AHD_SYNC_PARA
+ 1179              	.LVL110:
+ 1180 019e 41E7     		b	.L101
+ 1181              	.L103:
+1369:VS4210/SysTimer.c **** 				break;
+ 1182              		.loc 1 1369 0
+ 1183 01a0 044B     		ldr	r3, .L137+12
+ 1184 01a2 0022     		movs	r2, #0
+ 1185 01a4 1A70     		strb	r2, [r3]
+ 1186              		.loc 1 1566 0
+ 1187 01a6 3DE7     		b	.L101
+ 1188              	.L138:
+ARM GAS  /tmp/cc0fBAHR.s 			page 50
+
+
+ 1189              		.align	2
+ 1190              	.L137:
+ 1191 01a8 00000000 		.word	.LANCHOR4
+ 1192 01ac 00000000 		.word	.LANCHOR5
+ 1193 01b0 00000000 		.word	.LANCHOR3
+ 1194 01b4 00000000 		.word	BOOT_ISSUE
+ 1195 01b8 00000000 		.word	.LANCHOR2
+ 1196 01bc 00000000 		.word	.LC5
+ 1197 01c0 00000000 		.word	mode
+ 1198 01c4 0C000000 		.word	.LC6
+ 1199 01c8 00000000 		.word	SelectInputMode
+ 1200 01cc 00000000 		.word	TP_InputMode
+ 1201 01d0 00000000 		.word	bVloss_Flag
+ 1202              		.cfi_endproc
+ 1203              	.LFE84:
+ 1205              		.section	.text.SysTimerHandler,"ax",%progbits
+ 1206              		.align	1
+ 1207              		.global	SysTimerHandler
+ 1208              		.syntax unified
+ 1209              		.thumb
+ 1210              		.thumb_func
+ 1211              		.fpu softvfp
+ 1213              	SysTimerHandler:
+ 1214              	.LFB83:
+1024:VS4210/SysTimer.c **** {
+ 1215              		.loc 1 1024 0
+ 1216              		.cfi_startproc
+ 1217              		@ args = 0, pretend = 0, frame = 0
+ 1218              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1219 0000 38B5     		push	{r3, r4, r5, lr}
+ 1220              	.LCFI9:
+ 1221              		.cfi_def_cfa_offset 16
+ 1222              		.cfi_offset 3, -16
+ 1223              		.cfi_offset 4, -12
+ 1224              		.cfi_offset 5, -8
+ 1225              		.cfi_offset 14, -4
+ 1226              	.LVL111:
+1029:VS4210/SysTimer.c ****     for(ucTimerEventIndex = 0; ucTimerEventIndex < _TIMER_EVENT_COUNT; ucTimerEventIndex++)
+ 1227              		.loc 1 1029 0
+ 1228 0002 0024     		movs	r4, #0
+ 1229 0004 01E0     		b	.L140
+ 1230              	.LVL112:
+ 1231              	.L141:
+1029:VS4210/SysTimer.c ****     for(ucTimerEventIndex = 0; ucTimerEventIndex < _TIMER_EVENT_COUNT; ucTimerEventIndex++)
+ 1232              		.loc 1 1029 0 is_stmt 0 discriminator 2
+ 1233 0006 0134     		adds	r4, r4, #1
+ 1234              	.LVL113:
+ 1235 0008 E4B2     		uxtb	r4, r4
+ 1236              	.LVL114:
+ 1237              	.L140:
+1029:VS4210/SysTimer.c ****     for(ucTimerEventIndex = 0; ucTimerEventIndex < _TIMER_EVENT_COUNT; ucTimerEventIndex++)
+ 1238              		.loc 1 1029 0 discriminator 1
+ 1239 000a 092C     		cmp	r4, #9
+ 1240 000c 19D8     		bhi	.L144
+1031:VS4210/SysTimer.c ****         usPresentTime = MCUTimerGetTimerCounter();
+ 1241              		.loc 1 1031 0 is_stmt 1
+ 1242 000e FFF7FEFF 		bl	MCUTimerGetTimerCounter
+ARM GAS  /tmp/cc0fBAHR.s 			page 51
+
+
+ 1243              	.LVL115:
+ 1244 0012 0546     		mov	r5, r0
+ 1245              	.LVL116:
+1033:VS4210/SysTimer.c ****         if(MCUTimerCheckEventValid(ucTimerEventIndex) == _FALSE)
+ 1246              		.loc 1 1033 0
+ 1247 0014 2046     		mov	r0, r4
+ 1248              	.LVL117:
+ 1249 0016 FFF7FEFF 		bl	MCUTimerCheckEventValid
+ 1250              	.LVL118:
+ 1251 001a 0028     		cmp	r0, #0
+ 1252 001c F3D0     		beq	.L141
+1038:VS4210/SysTimer.c ****         if(usPresentTime > MCUTimerGetEventTime(ucTimerEventIndex))
+ 1253              		.loc 1 1038 0
+ 1254 001e 2046     		mov	r0, r4
+ 1255 0020 FFF7FEFF 		bl	MCUTimerGetEventTime
+ 1256              	.LVL119:
+ 1257 0024 A842     		cmp	r0, r5
+ 1258 0026 EED2     		bcs	.L141
+1040:VS4210/SysTimer.c ****             MCUTimerClrEventValid(ucTimerEventIndex);
+ 1259              		.loc 1 1040 0
+ 1260 0028 2046     		mov	r0, r4
+ 1261 002a FFF7FEFF 		bl	MCUTimerClrEventValid
+ 1262              	.LVL120:
+1043:VS4210/SysTimer.c ****             ucTimerEventID = MCUTimerGetEventID(ucTimerEventIndex);
+ 1263              		.loc 1 1043 0
+ 1264 002e 2046     		mov	r0, r4
+ 1265 0030 FFF7FEFF 		bl	MCUTimerGetEventID
+ 1266              	.LVL121:
+1045:VS4210/SysTimer.c ****             if(ucTimerEventID < _USER_TIMER_EVENT_END)
+ 1267              		.loc 1 1045 0
+ 1268 0034 1F28     		cmp	r0, #31
+ 1269 0036 E6D9     		bls	.L141
+1052:VS4210/SysTimer.c ****             if(ucTimerEventID < _SYSTEM_TIMER_EVENT_END)
+ 1270              		.loc 1 1052 0
+ 1271 0038 4228     		cmp	r0, #66
+ 1272 003a E4D8     		bhi	.L141
+1054:VS4210/SysTimer.c ****                 SysTimerEventProc(ucTimerEventID);
+ 1273              		.loc 1 1054 0
+ 1274 003c FFF7FEFF 		bl	SysTimerEventProc
+ 1275              	.LVL122:
+1056:VS4210/SysTimer.c ****                 continue;
+ 1276              		.loc 1 1056 0
+ 1277 0040 E1E7     		b	.L141
+ 1278              	.LVL123:
+ 1279              	.L144:
+1063:VS4210/SysTimer.c **** }
+ 1280              		.loc 1 1063 0
+ 1281 0042 38BD     		pop	{r3, r4, r5, pc}
+ 1282              		.cfi_endproc
+ 1283              	.LFE83:
+ 1285              		.global	led_Flag
+ 1286              		.comm	g_stPowerInfo,2,4
+ 1287              		.global	second
+ 1288              		.global	minute
+ 1289              		.global	hour
+ 1290              		.global	day
+ 1291              		.global	month
+ARM GAS  /tmp/cc0fBAHR.s 			page 52
+
+
+ 1292              		.global	year2
+ 1293              		.global	year1
+ 1294              		.comm	CameraVolt,1,1
+ 1295              		.global	WDT_Echo_Count
+ 1296              		.global	PSW_Flag
+ 1297              		.comm	BatteryVoltage,4,4
+ 1298              		.comm	BatteryBTH,4,4
+ 1299              		.comm	g_stTimerEvent,80,4
+ 1300              		.global	g_usTimerCounter
+ 1301              		.global	tic05
+ 1302              		.global	tic04
+ 1303              		.global	tic03
+ 1304              		.global	tic02
+ 1305              		.global	g_bNotifyTimer0Int
+ 1306              		.comm	newInRes,4,4
+ 1307              		.section	.bss.PSW_Flag,"aw",%nobits
+ 1310              	PSW_Flag:
+ 1311 0000 00       		.space	1
+ 1312              		.section	.bss.WDT_Echo_Count,"aw",%nobits
+ 1315              	WDT_Echo_Count:
+ 1316 0000 00       		.space	1
+ 1317              		.section	.bss.day,"aw",%nobits
+ 1318              		.set	.LANCHOR2,. + 0
+ 1321              	day:
+ 1322 0000 00       		.space	1
+ 1323              		.section	.bss.g_bNotifyTimer0Int,"aw",%nobits
+ 1324              		.align	2
+ 1325              		.set	.LANCHOR0,. + 0
+ 1328              	g_bNotifyTimer0Int:
+ 1329 0000 00000000 		.space	4
+ 1330              		.section	.bss.g_usTimerCounter,"aw",%nobits
+ 1331              		.align	2
+ 1332              		.set	.LANCHOR1,. + 0
+ 1335              	g_usTimerCounter:
+ 1336 0000 00000000 		.space	4
+ 1337              		.section	.bss.hour,"aw",%nobits
+ 1338              		.set	.LANCHOR3,. + 0
+ 1341              	hour:
+ 1342 0000 00       		.space	1
+ 1343              		.section	.bss.led_Flag,"aw",%nobits
+ 1346              	led_Flag:
+ 1347 0000 00       		.space	1
+ 1348              		.section	.bss.minute,"aw",%nobits
+ 1349              		.set	.LANCHOR5,. + 0
+ 1352              	minute:
+ 1353 0000 00       		.space	1
+ 1354              		.section	.bss.month,"aw",%nobits
+ 1357              	month:
+ 1358 0000 00       		.space	1
+ 1359              		.section	.bss.second,"aw",%nobits
+ 1360              		.set	.LANCHOR4,. + 0
+ 1363              	second:
+ 1364 0000 00       		.space	1
+ 1365              		.section	.bss.tic02,"aw",%nobits
+ 1368              	tic02:
+ 1369 0000 00       		.space	1
+ 1370              		.section	.bss.tic03,"aw",%nobits
+ARM GAS  /tmp/cc0fBAHR.s 			page 53
+
+
+ 1371              		.align	2
+ 1374              	tic03:
+ 1375 0000 00000000 		.space	4
+ 1376              		.section	.bss.tic04,"aw",%nobits
+ 1377              		.align	2
+ 1380              	tic04:
+ 1381 0000 00000000 		.space	4
+ 1382              		.section	.bss.tic05,"aw",%nobits
+ 1383              		.align	2
+ 1386              	tic05:
+ 1387 0000 00000000 		.space	4
+ 1388              		.section	.bss.year1,"aw",%nobits
+ 1391              	year1:
+ 1392 0000 00       		.space	1
+ 1393              		.section	.bss.year2,"aw",%nobits
+ 1396              	year2:
+ 1397 0000 00       		.space	1
+ 1398              		.section	.rodata.MCUTimerActiveTimerEvent.str1.4,"aMS",%progbits,1
+ 1399              		.align	2
+ 1400              	.LC0:
+ 1401 0000 4E6F204D 		.ascii	"No More Available Storage for Simultaneous Event!!!"
+ 1401      6F726520 
+ 1401      41766169 
+ 1401      6C61626C 
+ 1401      65205374 
+ 1402 0033 21212100 		.ascii	"!!!\000"
+ 1403              		.section	.rodata.ShowWorkingTimer.str1.4,"aMS",%progbits,1
+ 1404              		.align	2
+ 1405              	.LC1:
+ 1406 0000 0D0A5379 		.ascii	"\015\012System has been working for %d days, %d hou"
+ 1406      7374656D 
+ 1406      20686173 
+ 1406      20626565 
+ 1406      6E20776F 
+ 1407 002d 72732C20 		.ascii	"rs, %d minutes and %d seconds\000"
+ 1407      2564206D 
+ 1407      696E7574 
+ 1407      65732061 
+ 1407      6E642025 
+ 1408 004b 00       		.space	1
+ 1409              	.LC2:
+ 1410 004c 0D0A5379 		.ascii	"\015\012System has been working for %d hours, %d mi"
+ 1410      7374656D 
+ 1410      20686173 
+ 1410      20626565 
+ 1410      6E20776F 
+ 1411 0079 6E757465 		.ascii	"nutes and %d seconds\000"
+ 1411      7320616E 
+ 1411      64202564 
+ 1411      20736563 
+ 1411      6F6E6473 
+ 1412 008e 0000     		.space	2
+ 1413              	.LC3:
+ 1414 0090 0D0A5379 		.ascii	"\015\012System has been working for %d minutes and "
+ 1414      7374656D 
+ 1414      20686173 
+ 1414      20626565 
+ARM GAS  /tmp/cc0fBAHR.s 			page 54
+
+
+ 1414      6E20776F 
+ 1415 00bd 25642073 		.ascii	"%d seconds\000"
+ 1415      65636F6E 
+ 1415      647300
+ 1416              	.LC4:
+ 1417 00c8 0D0A5379 		.ascii	"\015\012System has been working for %d seconds\000"
+ 1417      7374656D 
+ 1417      20686173 
+ 1417      20626565 
+ 1417      6E20776F 
+ 1418              		.section	.rodata.SysTimerEventProc.str1.4,"aMS",%progbits,1
+ 1419              		.align	2
+ 1420              	.LC5:
+ 1421 0000 285F5450 		.ascii	"(_TP_RESET)\000"
+ 1421      5F524553 
+ 1421      45542900 
+ 1422              	.LC6:
+ 1423 000c 286D6F64 		.ascii	"(mode[0]=%d)\000"
+ 1423      655B305D 
+ 1423      3D256429 
+ 1423      00
+ 1424              		.text
+ 1425              	.Letext0:
+ 1426              		.file 2 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/machine/_default_
+ 1427              		.file 3 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/lock.h"
+ 1428              		.file 4 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_types.h"
+ 1429              		.file 5 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/lib/gcc/arm-none-eabi/7.3.1/include/std
+ 1430              		.file 6 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/reent.h"
+ 1431              		.file 7 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_stdint.h"
+ 1432              		.file 8 "VS4210/VXIS_Extern_Define.h"
+ 1433              		.file 9 "TP2824/tpinc/TP2802.h"
+ 1434              		.file 10 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/stdlib.h"
+ 1435              		.file 11 "sw_i2c/VX_swi2c.h"
+ 1436              		.file 12 "VS4210/VS4210.h"
+ 1437              		.file 13 "Drivers/CMSIS/Include/core_cm3.h"
+ 1438              		.file 14 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 1439              		.file 15 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 1440              		.file 16 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
+ 1441              		.file 17 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 1442              		.file 18 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ 1443              		.file 19 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 1444              		.file 20 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h"
+ 1445              		.file 21 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 1446              		.file 22 "VS4210/printf.h"
+ 1447              		.file 23 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/math.h"
+ 1448              		.file 24 "VS4210/VX_OSD_Simple.h"
+ 1449              		.file 25 "VS4210/monitor.h"
+ 1450              		.file 26 "Inc/main.h"
+ARM GAS  /tmp/cc0fBAHR.s 			page 55
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 SysTimer.c
+     /tmp/cc0fBAHR.s:16     .text.MCUTimerDelayXms:0000000000000000 $t
+     /tmp/cc0fBAHR.s:23     .text.MCUTimerDelayXms:0000000000000000 MCUTimerDelayXms
+     /tmp/cc0fBAHR.s:61     .text.MCUTimerDelayXms:0000000000000020 $d
+     /tmp/cc0fBAHR.s:66     .text.MCUTimerGetEventTime:0000000000000000 $t
+     /tmp/cc0fBAHR.s:73     .text.MCUTimerGetEventTime:0000000000000000 MCUTimerGetEventTime
+     /tmp/cc0fBAHR.s:91     .text.MCUTimerGetEventTime:000000000000000c $d
+                            *COM*:0000000000000050 g_stTimerEvent
+     /tmp/cc0fBAHR.s:96     .text.MCUTimerGetEventID:0000000000000000 $t
+     /tmp/cc0fBAHR.s:103    .text.MCUTimerGetEventID:0000000000000000 MCUTimerGetEventID
+     /tmp/cc0fBAHR.s:121    .text.MCUTimerGetEventID:000000000000000c $d
+     /tmp/cc0fBAHR.s:126    .text.MCUTimerClrEventValid:0000000000000000 $t
+     /tmp/cc0fBAHR.s:133    .text.MCUTimerClrEventValid:0000000000000000 MCUTimerClrEventValid
+     /tmp/cc0fBAHR.s:151    .text.MCUTimerClrEventValid:0000000000000010 $d
+     /tmp/cc0fBAHR.s:156    .text.MCUTimerCheckEventValid:0000000000000000 $t
+     /tmp/cc0fBAHR.s:163    .text.MCUTimerCheckEventValid:0000000000000000 MCUTimerCheckEventValid
+     /tmp/cc0fBAHR.s:181    .text.MCUTimerCheckEventValid:000000000000000c $d
+     /tmp/cc0fBAHR.s:186    .text.MCUTimerGetTimerCounter:0000000000000000 $t
+     /tmp/cc0fBAHR.s:193    .text.MCUTimerGetTimerCounter:0000000000000000 MCUTimerGetTimerCounter
+     /tmp/cc0fBAHR.s:222    .text.MCUTimerGetTimerCounter:0000000000000018 $d
+     /tmp/cc0fBAHR.s:227    .text.MCUTimerCheckTimerEvent:0000000000000000 $t
+     /tmp/cc0fBAHR.s:234    .text.MCUTimerCheckTimerEvent:0000000000000000 MCUTimerCheckTimerEvent
+     /tmp/cc0fBAHR.s:319    .text.MCUTimerCheckTimerEvent:0000000000000064 $d
+     /tmp/cc0fBAHR.s:325    .text.MCUTimerInitialTimerEvent:0000000000000000 $t
+     /tmp/cc0fBAHR.s:332    .text.MCUTimerInitialTimerEvent:0000000000000000 MCUTimerInitialTimerEvent
+     /tmp/cc0fBAHR.s:364    .text.MCUTimerInitialTimerEvent:000000000000001c $d
+     /tmp/cc0fBAHR.s:369    .text.MCUTimerActiveTimerEvent:0000000000000000 $t
+     /tmp/cc0fBAHR.s:376    .text.MCUTimerActiveTimerEvent:0000000000000000 MCUTimerActiveTimerEvent
+     /tmp/cc0fBAHR.s:469    .text.MCUTimerActiveTimerEvent:000000000000006c $d
+     /tmp/cc0fBAHR.s:475    .text.MCUTimerCancelTimerEvent:0000000000000000 $t
+     /tmp/cc0fBAHR.s:482    .text.MCUTimerCancelTimerEvent:0000000000000000 MCUTimerCancelTimerEvent
+     /tmp/cc0fBAHR.s:530    .text.MCUTimerCancelTimerEvent:0000000000000038 $d
+     /tmp/cc0fBAHR.s:535    .text.MCUTimerReactiveTimerEvent:0000000000000000 $t
+     /tmp/cc0fBAHR.s:542    .text.MCUTimerReactiveTimerEvent:0000000000000000 MCUTimerReactiveTimerEvent
+     /tmp/cc0fBAHR.s:638    .text.MCUTimerReactiveTimerEvent:0000000000000074 $d
+     /tmp/cc0fBAHR.s:643    .text.PowerLED:0000000000000000 $t
+     /tmp/cc0fBAHR.s:650    .text.PowerLED:0000000000000000 PowerLED
+     /tmp/cc0fBAHR.s:730    .text.PowerLED:0000000000000064 $d
+     /tmp/cc0fBAHR.s:735    .text.UserInterfaceTimerEventProc:0000000000000000 $t
+     /tmp/cc0fBAHR.s:742    .text.UserInterfaceTimerEventProc:0000000000000000 UserInterfaceTimerEventProc
+     /tmp/cc0fBAHR.s:756    .text.ShowWorkingTimer:0000000000000000 $t
+     /tmp/cc0fBAHR.s:763    .text.ShowWorkingTimer:0000000000000000 ShowWorkingTimer
+     /tmp/cc0fBAHR.s:845    .text.ShowWorkingTimer:0000000000000064 $d
+     /tmp/cc0fBAHR.s:857    .text.MCUTimerEventProc:0000000000000000 $t
+     /tmp/cc0fBAHR.s:864    .text.MCUTimerEventProc:0000000000000000 MCUTimerEventProc
+     /tmp/cc0fBAHR.s:878    .text.SysTimerEventProc:0000000000000000 $t
+     /tmp/cc0fBAHR.s:885    .text.SysTimerEventProc:0000000000000000 SysTimerEventProc
+     /tmp/cc0fBAHR.s:904    .text.SysTimerEventProc:000000000000000c $d
+     /tmp/cc0fBAHR.s:1191   .text.SysTimerEventProc:00000000000001a8 $d
+     /tmp/cc0fBAHR.s:1206   .text.SysTimerHandler:0000000000000000 $t
+     /tmp/cc0fBAHR.s:1213   .text.SysTimerHandler:0000000000000000 SysTimerHandler
+     /tmp/cc0fBAHR.s:1346   .bss.led_Flag:0000000000000000 led_Flag
+                            *COM*:0000000000000002 g_stPowerInfo
+     /tmp/cc0fBAHR.s:1363   .bss.second:0000000000000000 second
+     /tmp/cc0fBAHR.s:1352   .bss.minute:0000000000000000 minute
+     /tmp/cc0fBAHR.s:1341   .bss.hour:0000000000000000 hour
+ARM GAS  /tmp/cc0fBAHR.s 			page 56
+
+
+     /tmp/cc0fBAHR.s:1321   .bss.day:0000000000000000 day
+     /tmp/cc0fBAHR.s:1357   .bss.month:0000000000000000 month
+     /tmp/cc0fBAHR.s:1396   .bss.year2:0000000000000000 year2
+     /tmp/cc0fBAHR.s:1391   .bss.year1:0000000000000000 year1
+                            *COM*:0000000000000001 CameraVolt
+     /tmp/cc0fBAHR.s:1315   .bss.WDT_Echo_Count:0000000000000000 WDT_Echo_Count
+     /tmp/cc0fBAHR.s:1310   .bss.PSW_Flag:0000000000000000 PSW_Flag
+                            *COM*:0000000000000004 BatteryVoltage
+                            *COM*:0000000000000004 BatteryBTH
+     /tmp/cc0fBAHR.s:1335   .bss.g_usTimerCounter:0000000000000000 g_usTimerCounter
+     /tmp/cc0fBAHR.s:1386   .bss.tic05:0000000000000000 tic05
+     /tmp/cc0fBAHR.s:1380   .bss.tic04:0000000000000000 tic04
+     /tmp/cc0fBAHR.s:1374   .bss.tic03:0000000000000000 tic03
+     /tmp/cc0fBAHR.s:1368   .bss.tic02:0000000000000000 tic02
+     /tmp/cc0fBAHR.s:1328   .bss.g_bNotifyTimer0Int:0000000000000000 g_bNotifyTimer0Int
+                            *COM*:0000000000000004 newInRes
+     /tmp/cc0fBAHR.s:1311   .bss.PSW_Flag:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1316   .bss.WDT_Echo_Count:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1322   .bss.day:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1324   .bss.g_bNotifyTimer0Int:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1331   .bss.g_usTimerCounter:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1342   .bss.hour:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1347   .bss.led_Flag:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1353   .bss.minute:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1358   .bss.month:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1364   .bss.second:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1369   .bss.tic02:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1371   .bss.tic03:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1377   .bss.tic04:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1383   .bss.tic05:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1392   .bss.year1:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1397   .bss.year2:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1399   .rodata.MCUTimerActiveTimerEvent.str1.4:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1404   .rodata.ShowWorkingTimer.str1.4:0000000000000000 $d
+     /tmp/cc0fBAHR.s:1419   .rodata.SysTimerEventProc.str1.4:0000000000000000 $d
+     /tmp/cc0fBAHR.s:913    .text.SysTimerEventProc:0000000000000015 $d
+     /tmp/cc0fBAHR.s:913    .text.SysTimerEventProc:0000000000000016 $t
+
+UNDEFINED SYMBOLS
+Printf
+HAL_GPIO_WritePin
+GraphicsPrint
+COC_test
+VXISI2CWrite
+Set_Video_Loss_OSD
+TP_bt1120_720P_1080P_mode0_w0
+TP_bt1120_1080P_1080P_mode0_w0
+TP_bt1120_NTSC_1080P_mode0_w0
+TP_bt1120_PAL_1080P_mode0_w0
+VXISI2CRead
+SET_HDMI_SYNC_PARA
+SET_AHD_SYNC_PARA
+BOOT_ISSUE
+mode
+SelectInputMode
+TP_InputMode
+bVloss_Flag
+ARM GAS  /tmp/cc0fBAHR.s 			page 57
+
+

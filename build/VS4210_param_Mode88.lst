@@ -1,0 +1,4484 @@
+ARM GAS  /tmp/ccvs8hRA.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"VS4210_param_Mode88.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.global	VS4210_TP_bt1120_PAL_1080P_mode0_w0_88param
+  16              		.global	VS4210_TP_bt1120_NTSC_1080P_mode0_w0_88param
+  17              		.global	VS4210_TP_bt1120_720P_1080P_mode0_w0_88param
+  18              		.global	VS4210_TP_bt1120_1080P_1080P_mode0_w0_88param
+  19              		.global	VS4210_hdmi800x600_720P_mode0_w0_88param
+  20              		.global	VS4210_hdmi800x600_1080P_mode0_w0_88param
+  21              		.global	VS4210_hdmi720P_720P_mode0_w0_88param
+  22              		.global	VS4210_hdmi720P_1080P_mode0_w0_88param
+  23              		.global	VS4210_hdmi640x480_720P_mode0_w0_88param
+  24              		.global	VS4210_hdmi640x480_1080P_mode0_w0_88param
+  25              		.global	VS4210_hdmi576P_720P_mode0_w0_88param
+  26              		.global	VS4210_hdmi576P_1080P_mode0_w0_88param
+  27              		.global	VS4210_hdmi576i_720P_mode0_w0_88param
+  28              		.global	VS4210_hdmi576i_1080P_mode0_w0_88param
+  29              		.global	VS4210_hdmi480P_720P_mode0_w0_88param
+  30              		.global	VS4210_hdmi480P_1080P_mode0_w0_88param
+  31              		.global	VS4210_hdmi480i_720P_mode0_w0_88param
+  32              		.global	VS4210_hdmi480i_1080P_mode0_w0_88param
+  33              		.global	VS4210_hdmi1920x1200_720P_mode0_w0_88param
+  34              		.global	VS4210_hdmi1920x1200_1080P_mode0_w0_88param
+  35              		.global	VS4210_hdmi1680x1050_720P_mode0_w0_88param
+  36              		.global	VS4210_hdmi1680x1050_1080P_mode0_w0_88param
+  37              		.global	VS4210_hdmi1600x1200_720P_mode0_w0_88param
+  38              		.global	VS4210_hdmi1600x1200_1080P_mode0_w0_88param
+  39              		.global	VS4210_hdmi1440x900_720P_mode0_w0_88param
+  40              		.global	VS4210_hdmi1440x900_1080P_mode0_w0_88param
+  41              		.global	VS4210_hdmi1400x1050_720P_mode0_w0_88param
+  42              		.global	VS4210_hdmi1400x1050_1080P_mode0_w0_88param
+  43              		.global	VS4210_hdmi1366x768_720P_mode0_w0_88param
+  44              		.global	VS4210_hdmi1366x768_1080P_mode0_w0_88param
+  45              		.global	VS4210_hdmi1360x768_720P_mode0_w0_88param
+  46              		.global	VS4210_hdmi1360x768_1080P_mode0_w0_88param
+  47              		.global	VS4210_hdmi1280x800_720P_mode0_w0_88param
+  48              		.global	VS4210_hdmi1280x800_1080P_mode0_w0_88param
+  49              		.global	VS4210_hdmi1280x768_720P_mode0_w0_88param
+  50              		.global	VS4210_hdmi1280x768_1080P_mode0_w0_88param
+  51              		.global	VS4210_hdmi1280x1024_720P_mode0_w0_88param
+  52              		.global	VS4210_hdmi1280x1024_1080P_mode0_w0_88param
+  53              		.global	VS4210_hdmi1080P_720P_mode0_w0_88param
+  54              		.global	VS4210_hdmi1080P_1080P_mode0_w0_88param
+  55              		.global	VS4210_hdmi1080i_720P_mode0_w0_88param
+  56              		.global	VS4210_hdmi1080i_1080P_mode0_w0_88param
+  57              		.global	VS4210_hdmi1024x768_720P_mode0_w0_88param
+ARM GAS  /tmp/ccvs8hRA.s 			page 2
+
+
+  58              		.global	VS4210_hdmi1024x768_1080P_mode0_w0_88param
+  59              		.global	VS4210_Addr_88param
+  60              		.section	.rodata.VS4210_Addr_88param,"a",%progbits
+  61              		.align	2
+  64              	VS4210_Addr_88param:
+  65 0000 02       		.byte	2
+  66 0001 03       		.byte	3
+  67 0002 04       		.byte	4
+  68 0003 05       		.byte	5
+  69 0004 06       		.byte	6
+  70 0005 07       		.byte	7
+  71 0006 08       		.byte	8
+  72 0007 09       		.byte	9
+  73 0008 0A       		.byte	10
+  74 0009 0B       		.byte	11
+  75 000a 0C       		.byte	12
+  76 000b 0D       		.byte	13
+  77 000c 10       		.byte	16
+  78 000d 11       		.byte	17
+  79 000e 15       		.byte	21
+  80 000f 16       		.byte	22
+  81 0010 17       		.byte	23
+  82 0011 18       		.byte	24
+  83 0012 19       		.byte	25
+  84 0013 1A       		.byte	26
+  85 0014 1C       		.byte	28
+  86 0015 1D       		.byte	29
+  87 0016 1E       		.byte	30
+  88 0017 28       		.byte	40
+  89 0018 29       		.byte	41
+  90 0019 2A       		.byte	42
+  91 001a 2B       		.byte	43
+  92 001b 2C       		.byte	44
+  93 001c 2D       		.byte	45
+  94 001d 74       		.byte	116
+  95 001e 7E       		.byte	126
+  96 001f 7F       		.byte	127
+  97 0020 80       		.byte	-128
+  98 0021 81       		.byte	-127
+  99 0022 82       		.byte	-126
+ 100 0023 83       		.byte	-125
+ 101 0024 84       		.byte	-124
+ 102 0025 85       		.byte	-123
+ 103 0026 86       		.byte	-122
+ 104 0027 87       		.byte	-121
+ 105 0028 88       		.byte	-120
+ 106 0029 89       		.byte	-119
+ 107 002a 8A       		.byte	-118
+ 108 002b 8B       		.byte	-117
+ 109 002c 8C       		.byte	-116
+ 110 002d 8D       		.byte	-115
+ 111 002e 8E       		.byte	-114
+ 112 002f 8F       		.byte	-113
+ 113 0030 90       		.byte	-112
+ 114 0031 91       		.byte	-111
+ 115 0032 92       		.byte	-110
+ 116 0033 93       		.byte	-109
+ARM GAS  /tmp/ccvs8hRA.s 			page 3
+
+
+ 117 0034 94       		.byte	-108
+ 118 0035 95       		.byte	-107
+ 119 0036 97       		.byte	-105
+ 120 0037 98       		.byte	-104
+ 121 0038 99       		.byte	-103
+ 122 0039 9B       		.byte	-101
+ 123 003a 9C       		.byte	-100
+ 124 003b 9D       		.byte	-99
+ 125 003c 9E       		.byte	-98
+ 126 003d 9F       		.byte	-97
+ 127 003e A0       		.byte	-96
+ 128 003f A1       		.byte	-95
+ 129 0040 A2       		.byte	-94
+ 130 0041 A3       		.byte	-93
+ 131 0042 A4       		.byte	-92
+ 132 0043 A5       		.byte	-91
+ 133 0044 A6       		.byte	-90
+ 134 0045 A7       		.byte	-89
+ 135 0046 A8       		.byte	-88
+ 136 0047 A9       		.byte	-87
+ 137 0048 AA       		.byte	-86
+ 138 0049 AB       		.byte	-85
+ 139 004a AF       		.byte	-81
+ 140 004b C0       		.byte	-64
+ 141 004c D6       		.byte	-42
+ 142 004d D7       		.byte	-41
+ 143 004e D8       		.byte	-40
+ 144 004f E6       		.byte	-26
+ 145 0050 E7       		.byte	-25
+ 146 0051 E8       		.byte	-24
+ 147 0052 E9       		.byte	-23
+ 148 0053 EA       		.byte	-22
+ 149 0054 EB       		.byte	-21
+ 150 0055 EC       		.byte	-20
+ 151 0056 ED       		.byte	-19
+ 152 0057 EE       		.byte	-18
+ 153              		.section	.rodata.VS4210_TP_bt1120_1080P_1080P_mode0_w0_88param,"a",%progbits
+ 154              		.align	2
+ 157              	VS4210_TP_bt1120_1080P_1080P_mode0_w0_88param:
+ 158 0000 00       		.byte	0
+ 159 0001 75       		.byte	117
+ 160 0002 18       		.byte	24
+ 161 0003 80       		.byte	-128
+ 162 0004 20       		.byte	32
+ 163 0005 0C       		.byte	12
+ 164 0006 40       		.byte	64
+ 165 0007 0A       		.byte	10
+ 166 0008 40       		.byte	64
+ 167 0009 0A       		.byte	10
+ 168 000a 00       		.byte	0
+ 169 000b 20       		.byte	32
+ 170 000c 81       		.byte	-127
+ 171 000d 82       		.byte	-126
+ 172 000e 78       		.byte	120
+ 173 000f FE       		.byte	-2
+ 174 0010 00       		.byte	0
+ 175 0011 C0       		.byte	-64
+ARM GAS  /tmp/ccvs8hRA.s 			page 4
+
+
+ 176 0012 01       		.byte	1
+ 177 0013 36       		.byte	54
+ 178 0014 00       		.byte	0
+ 179 0015 00       		.byte	0
+ 180 0016 20       		.byte	32
+ 181 0017 F0       		.byte	-16
+ 182 0018 00       		.byte	0
+ 183 0019 00       		.byte	0
+ 184 001a 11       		.byte	17
+ 185 001b 00       		.byte	0
+ 186 001c 00       		.byte	0
+ 187 001d 06       		.byte	6
+ 188 001e 80       		.byte	-128
+ 189 001f 00       		.byte	0
+ 190 0020 01       		.byte	1
+ 191 0021 34       		.byte	52
+ 192 0022 40       		.byte	64
+ 193 0023 2D       		.byte	45
+ 194 0024 58       		.byte	88
+ 195 0025 00       		.byte	0
+ 196 0026 00       		.byte	0
+ 197 0027 00       		.byte	0
+ 198 0028 00       		.byte	0
+ 199 0029 00       		.byte	0
+ 200 002a 00       		.byte	0
+ 201 002b 7E       		.byte	126
+ 202 002c 03       		.byte	3
+ 203 002d 17       		.byte	23
+ 204 002e 90       		.byte	-112
+ 205 002f 00       		.byte	0
+ 206 0030 CC       		.byte	-52
+ 207 0031 41       		.byte	65
+ 208 0032 C4       		.byte	-60
+ 209 0033 84       		.byte	-124
+ 210 0034 98       		.byte	-104
+ 211 0035 80       		.byte	-128
+ 212 0036 70       		.byte	112
+ 213 0037 29       		.byte	41
+ 214 0038 90       		.byte	-112
+ 215 0039 04       		.byte	4
+ 216 003a 00       		.byte	0
+ 217 003b 00       		.byte	0
+ 218 003c 04       		.byte	4
+ 219 003d 65       		.byte	101
+ 220 003e 7F       		.byte	127
+ 221 003f D8       		.byte	-40
+ 222 0040 98       		.byte	-104
+ 223 0041 87       		.byte	-121
+ 224 0042 DC       		.byte	-36
+ 225 0043 80       		.byte	-128
+ 226 0044 00       		.byte	0
+ 227 0045 70       		.byte	112
+ 228 0046 40       		.byte	64
+ 229 0047 1E       		.byte	30
+ 230 0048 2C       		.byte	44
+ 231 0049 00       		.byte	0
+ 232 004a 99       		.byte	-103
+ARM GAS  /tmp/ccvs8hRA.s 			page 5
+
+
+ 233 004b 00       		.byte	0
+ 234 004c 00       		.byte	0
+ 235 004d 00       		.byte	0
+ 236 004e 00       		.byte	0
+ 237 004f 00       		.byte	0
+ 238 0050 00       		.byte	0
+ 239 0051 00       		.byte	0
+ 240 0052 00       		.byte	0
+ 241 0053 00       		.byte	0
+ 242 0054 00       		.byte	0
+ 243 0055 88       		.byte	-120
+ 244 0056 00       		.byte	0
+ 245 0057 00       		.byte	0
+ 246              		.section	.rodata.VS4210_TP_bt1120_720P_1080P_mode0_w0_88param,"a",%progbits
+ 247              		.align	2
+ 250              	VS4210_TP_bt1120_720P_1080P_mode0_w0_88param:
+ 251 0000 00       		.byte	0
+ 252 0001 75       		.byte	117
+ 253 0002 18       		.byte	24
+ 254 0003 80       		.byte	-128
+ 255 0004 20       		.byte	32
+ 256 0005 08       		.byte	8
+ 257 0006 40       		.byte	64
+ 258 0007 0A       		.byte	10
+ 259 0008 40       		.byte	64
+ 260 0009 0A       		.byte	10
+ 261 000a 00       		.byte	0
+ 262 000b 20       		.byte	32
+ 263 000c 81       		.byte	-127
+ 264 000d 82       		.byte	-126
+ 265 000e 78       		.byte	120
+ 266 000f FE       		.byte	-2
+ 267 0010 00       		.byte	0
+ 268 0011 C0       		.byte	-64
+ 269 0012 01       		.byte	1
+ 270 0013 36       		.byte	54
+ 271 0014 00       		.byte	0
+ 272 0015 00       		.byte	0
+ 273 0016 20       		.byte	32
+ 274 0017 F0       		.byte	-16
+ 275 0018 00       		.byte	0
+ 276 0019 00       		.byte	0
+ 277 001a 00       		.byte	0
+ 278 001b 00       		.byte	0
+ 279 001c 00       		.byte	0
+ 280 001d 06       		.byte	6
+ 281 001e 80       		.byte	-128
+ 282 001f 00       		.byte	0
+ 283 0020 01       		.byte	1
+ 284 0021 34       		.byte	52
+ 285 0022 40       		.byte	64
+ 286 0023 2D       		.byte	45
+ 287 0024 58       		.byte	88
+ 288 0025 00       		.byte	0
+ 289 0026 00       		.byte	0
+ 290 0027 00       		.byte	0
+ 291 0028 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 6
+
+
+ 292 0029 00       		.byte	0
+ 293 002a 00       		.byte	0
+ 294 002b 7E       		.byte	126
+ 295 002c 03       		.byte	3
+ 296 002d 17       		.byte	23
+ 297 002e 90       		.byte	-112
+ 298 002f 00       		.byte	0
+ 299 0030 CC       		.byte	-52
+ 300 0031 41       		.byte	65
+ 301 0032 C4       		.byte	-60
+ 302 0033 62       		.byte	98
+ 303 0034 78       		.byte	120
+ 304 0035 00       		.byte	0
+ 305 0036 50       		.byte	80
+ 306 0037 1A       		.byte	26
+ 307 0038 90       		.byte	-112
+ 308 0039 04       		.byte	4
+ 309 003a 00       		.byte	0
+ 310 003b 00       		.byte	0
+ 311 003c 04       		.byte	4
+ 312 003d 65       		.byte	101
+ 313 003e 55       		.byte	85
+ 314 003f D8       		.byte	-40
+ 315 0040 98       		.byte	-104
+ 316 0041 87       		.byte	-121
+ 317 0042 05       		.byte	5
+ 318 0043 55       		.byte	85
+ 319 0044 19       		.byte	25
+ 320 0045 70       		.byte	112
+ 321 0046 40       		.byte	64
+ 322 0047 1E       		.byte	30
+ 323 0048 2E       		.byte	46
+ 324 0049 00       		.byte	0
+ 325 004a 99       		.byte	-103
+ 326 004b 00       		.byte	0
+ 327 004c 00       		.byte	0
+ 328 004d 10       		.byte	16
+ 329 004e 00       		.byte	0
+ 330 004f 00       		.byte	0
+ 331 0050 00       		.byte	0
+ 332 0051 00       		.byte	0
+ 333 0052 00       		.byte	0
+ 334 0053 00       		.byte	0
+ 335 0054 00       		.byte	0
+ 336 0055 88       		.byte	-120
+ 337 0056 00       		.byte	0
+ 338 0057 00       		.byte	0
+ 339              		.section	.rodata.VS4210_TP_bt1120_NTSC_1080P_mode0_w0_88param,"a",%progbits
+ 340              		.align	2
+ 343              	VS4210_TP_bt1120_NTSC_1080P_mode0_w0_88param:
+ 344 0000 00       		.byte	0
+ 345 0001 75       		.byte	117
+ 346 0002 18       		.byte	24
+ 347 0003 80       		.byte	-128
+ 348 0004 20       		.byte	32
+ 349 0005 08       		.byte	8
+ 350 0006 40       		.byte	64
+ARM GAS  /tmp/ccvs8hRA.s 			page 7
+
+
+ 351 0007 0A       		.byte	10
+ 352 0008 40       		.byte	64
+ 353 0009 0A       		.byte	10
+ 354 000a 00       		.byte	0
+ 355 000b 20       		.byte	32
+ 356 000c A1       		.byte	-95
+ 357 000d 82       		.byte	-126
+ 358 000e 78       		.byte	120
+ 359 000f FE       		.byte	-2
+ 360 0010 00       		.byte	0
+ 361 0011 C0       		.byte	-64
+ 362 0012 01       		.byte	1
+ 363 0013 36       		.byte	54
+ 364 0014 00       		.byte	0
+ 365 0015 00       		.byte	0
+ 366 0016 20       		.byte	32
+ 367 0017 F0       		.byte	-16
+ 368 0018 00       		.byte	0
+ 369 0019 00       		.byte	0
+ 370 001a 00       		.byte	0
+ 371 001b FF       		.byte	-1
+ 372 001c 00       		.byte	0
+ 373 001d 06       		.byte	6
+ 374 001e 80       		.byte	-128
+ 375 001f 00       		.byte	0
+ 376 0020 01       		.byte	1
+ 377 0021 34       		.byte	52
+ 378 0022 40       		.byte	64
+ 379 0023 2D       		.byte	45
+ 380 0024 50       		.byte	80
+ 381 0025 00       		.byte	0
+ 382 0026 00       		.byte	0
+ 383 0027 00       		.byte	0
+ 384 0028 38       		.byte	56
+ 385 0029 FF       		.byte	-1
+ 386 002a 00       		.byte	0
+ 387 002b 7E       		.byte	126
+ 388 002c 03       		.byte	3
+ 389 002d 17       		.byte	23
+ 390 002e B0       		.byte	-80
+ 391 002f 00       		.byte	0
+ 392 0030 CC       		.byte	-52
+ 393 0031 41       		.byte	65
+ 394 0032 C4       		.byte	-60
+ 395 0033 91       		.byte	-111
+ 396 0034 DA       		.byte	-38
+ 397 0035 BC       		.byte	-68
+ 398 0036 70       		.byte	112
+ 399 0037 10       		.byte	16
+ 400 0038 90       		.byte	-112
+ 401 0039 04       		.byte	4
+ 402 003a 00       		.byte	0
+ 403 003b 00       		.byte	0
+ 404 003c 04       		.byte	4
+ 405 003d 65       		.byte	101
+ 406 003e 30       		.byte	48
+ 407 003f D6       		.byte	-42
+ARM GAS  /tmp/ccvs8hRA.s 			page 8
+
+
+ 408 0040 98       		.byte	-104
+ 409 0041 87       		.byte	-121
+ 410 0042 D4       		.byte	-44
+ 411 0043 37       		.byte	55
+ 412 0044 ED       		.byte	-19
+ 413 0045 54       		.byte	84
+ 414 0046 40       		.byte	64
+ 415 0047 1E       		.byte	30
+ 416 0048 2E       		.byte	46
+ 417 0049 00       		.byte	0
+ 418 004a 99       		.byte	-103
+ 419 004b 00       		.byte	0
+ 420 004c 00       		.byte	0
+ 421 004d 10       		.byte	16
+ 422 004e 00       		.byte	0
+ 423 004f 00       		.byte	0
+ 424 0050 00       		.byte	0
+ 425 0051 00       		.byte	0
+ 426 0052 00       		.byte	0
+ 427 0053 00       		.byte	0
+ 428 0054 00       		.byte	0
+ 429 0055 88       		.byte	-120
+ 430 0056 00       		.byte	0
+ 431 0057 00       		.byte	0
+ 432              		.section	.rodata.VS4210_TP_bt1120_PAL_1080P_mode0_w0_88param,"a",%progbits
+ 433              		.align	2
+ 436              	VS4210_TP_bt1120_PAL_1080P_mode0_w0_88param:
+ 437 0000 00       		.byte	0
+ 438 0001 75       		.byte	117
+ 439 0002 18       		.byte	24
+ 440 0003 80       		.byte	-128
+ 441 0004 20       		.byte	32
+ 442 0005 08       		.byte	8
+ 443 0006 40       		.byte	64
+ 444 0007 0A       		.byte	10
+ 445 0008 40       		.byte	64
+ 446 0009 09       		.byte	9
+ 447 000a 00       		.byte	0
+ 448 000b 20       		.byte	32
+ 449 000c A1       		.byte	-95
+ 450 000d 82       		.byte	-126
+ 451 000e 78       		.byte	120
+ 452 000f FF       		.byte	-1
+ 453 0010 17       		.byte	23
+ 454 0011 C0       		.byte	-64
+ 455 0012 01       		.byte	1
+ 456 0013 26       		.byte	38
+ 457 0014 00       		.byte	0
+ 458 0015 00       		.byte	0
+ 459 0016 20       		.byte	32
+ 460 0017 F0       		.byte	-16
+ 461 0018 40       		.byte	64
+ 462 0019 00       		.byte	0
+ 463 001a 00       		.byte	0
+ 464 001b FF       		.byte	-1
+ 465 001c 00       		.byte	0
+ 466 001d 06       		.byte	6
+ARM GAS  /tmp/ccvs8hRA.s 			page 9
+
+
+ 467 001e 80       		.byte	-128
+ 468 001f 00       		.byte	0
+ 469 0020 01       		.byte	1
+ 470 0021 34       		.byte	52
+ 471 0022 40       		.byte	64
+ 472 0023 2D       		.byte	45
+ 473 0024 6F       		.byte	111
+ 474 0025 00       		.byte	0
+ 475 0026 00       		.byte	0
+ 476 0027 00       		.byte	0
+ 477 0028 13       		.byte	19
+ 478 0029 1B       		.byte	27
+ 479 002a 00       		.byte	0
+ 480 002b 7E       		.byte	126
+ 481 002c 03       		.byte	3
+ 482 002d 17       		.byte	23
+ 483 002e B0       		.byte	-80
+ 484 002f 14       		.byte	20
+ 485 0030 CC       		.byte	-52
+ 486 0031 41       		.byte	65
+ 487 0032 C4       		.byte	-60
+ 488 0033 81       		.byte	-127
+ 489 0034 C9       		.byte	-55
+ 490 0035 BC       		.byte	-68
+ 491 0036 70       		.byte	112
+ 492 0037 15       		.byte	21
+ 493 0038 90       		.byte	-112
+ 494 0039 04       		.byte	4
+ 495 003a 00       		.byte	0
+ 496 003b 00       		.byte	0
+ 497 003c 04       		.byte	4
+ 498 003d 65       		.byte	101
+ 499 003e 3B       		.byte	59
+ 500 003f D0       		.byte	-48
+ 501 0040 98       		.byte	-104
+ 502 0041 87       		.byte	-121
+ 503 0042 20       		.byte	32
+ 504 0043 38       		.byte	56
+ 505 0044 FD       		.byte	-3
+ 506 0045 50       		.byte	80
+ 507 0046 40       		.byte	64
+ 508 0047 1E       		.byte	30
+ 509 0048 2E       		.byte	46
+ 510 0049 00       		.byte	0
+ 511 004a 9B       		.byte	-101
+ 512 004b 00       		.byte	0
+ 513 004c 00       		.byte	0
+ 514 004d 10       		.byte	16
+ 515 004e 00       		.byte	0
+ 516 004f 00       		.byte	0
+ 517 0050 00       		.byte	0
+ 518 0051 00       		.byte	0
+ 519 0052 00       		.byte	0
+ 520 0053 00       		.byte	0
+ 521 0054 00       		.byte	0
+ 522 0055 88       		.byte	-120
+ 523 0056 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 10
+
+
+ 524 0057 00       		.byte	0
+ 525              		.section	.rodata.VS4210_hdmi1024x768_1080P_mode0_w0_88param,"a",%progbits
+ 526              		.align	2
+ 529              	VS4210_hdmi1024x768_1080P_mode0_w0_88param:
+ 530 0000 00       		.byte	0
+ 531 0001 75       		.byte	117
+ 532 0002 18       		.byte	24
+ 533 0003 80       		.byte	-128
+ 534 0004 20       		.byte	32
+ 535 0005 08       		.byte	8
+ 536 0006 40       		.byte	64
+ 537 0007 0A       		.byte	10
+ 538 0008 40       		.byte	64
+ 539 0009 08       		.byte	8
+ 540 000a 00       		.byte	0
+ 541 000b 20       		.byte	32
+ 542 000c 80       		.byte	-128
+ 543 000d 82       		.byte	-126
+ 544 000e 78       		.byte	120
+ 545 000f FE       		.byte	-2
+ 546 0010 00       		.byte	0
+ 547 0011 C0       		.byte	-64
+ 548 0012 00       		.byte	0
+ 549 0013 26       		.byte	38
+ 550 0014 00       		.byte	0
+ 551 0015 00       		.byte	0
+ 552 0016 20       		.byte	32
+ 553 0017 F0       		.byte	-16
+ 554 0018 00       		.byte	0
+ 555 0019 00       		.byte	0
+ 556 001a 11       		.byte	17
+ 557 001b 00       		.byte	0
+ 558 001c 00       		.byte	0
+ 559 001d 02       		.byte	2
+ 560 001e 80       		.byte	-128
+ 561 001f 00       		.byte	0
+ 562 0020 00       		.byte	0
+ 563 0021 35       		.byte	53
+ 564 0022 C0       		.byte	-64
+ 565 0023 05       		.byte	5
+ 566 0024 00       		.byte	0
+ 567 0025 FD       		.byte	-3
+ 568 0026 00       		.byte	0
+ 569 0027 00       		.byte	0
+ 570 0028 00       		.byte	0
+ 571 0029 00       		.byte	0
+ 572 002a 00       		.byte	0
+ 573 002b 7E       		.byte	126
+ 574 002c 03       		.byte	3
+ 575 002d 2C       		.byte	44
+ 576 002e 8C       		.byte	-116
+ 577 002f 00       		.byte	0
+ 578 0030 CC       		.byte	-52
+ 579 0031 41       		.byte	65
+ 580 0032 C4       		.byte	-60
+ 581 0033 43       		.byte	67
+ 582 0034 F6       		.byte	-10
+ARM GAS  /tmp/ccvs8hRA.s 			page 11
+
+
+ 583 0035 00       		.byte	0
+ 584 0036 40       		.byte	64
+ 585 0037 1B       		.byte	27
+ 586 0038 90       		.byte	-112
+ 587 0039 04       		.byte	4
+ 588 003a 0A       		.byte	10
+ 589 003b 00       		.byte	0
+ 590 003c 04       		.byte	4
+ 591 003d 65       		.byte	101
+ 592 003e 44       		.byte	68
+ 593 003f D8       		.byte	-40
+ 594 0040 98       		.byte	-104
+ 595 0041 87       		.byte	-121
+ 596 0042 32       		.byte	50
+ 597 0043 5A       		.byte	90
+ 598 0044 C4       		.byte	-60
+ 599 0045 70       		.byte	112
+ 600 0046 40       		.byte	64
+ 601 0047 1E       		.byte	30
+ 602 0048 2E       		.byte	46
+ 603 0049 00       		.byte	0
+ 604 004a 99       		.byte	-103
+ 605 004b 00       		.byte	0
+ 606 004c 00       		.byte	0
+ 607 004d 10       		.byte	16
+ 608 004e 00       		.byte	0
+ 609 004f 00       		.byte	0
+ 610 0050 00       		.byte	0
+ 611 0051 00       		.byte	0
+ 612 0052 00       		.byte	0
+ 613 0053 00       		.byte	0
+ 614 0054 00       		.byte	0
+ 615 0055 88       		.byte	-120
+ 616 0056 00       		.byte	0
+ 617 0057 00       		.byte	0
+ 618              		.section	.rodata.VS4210_hdmi1024x768_720P_mode0_w0_88param,"a",%progbits
+ 619              		.align	2
+ 622              	VS4210_hdmi1024x768_720P_mode0_w0_88param:
+ 623 0000 00       		.byte	0
+ 624 0001 75       		.byte	117
+ 625 0002 18       		.byte	24
+ 626 0003 80       		.byte	-128
+ 627 0004 20       		.byte	32
+ 628 0005 0C       		.byte	12
+ 629 0006 40       		.byte	64
+ 630 0007 0A       		.byte	10
+ 631 0008 40       		.byte	64
+ 632 0009 09       		.byte	9
+ 633 000a 00       		.byte	0
+ 634 000b 20       		.byte	32
+ 635 000c 80       		.byte	-128
+ 636 000d 82       		.byte	-126
+ 637 000e 78       		.byte	120
+ 638 000f FE       		.byte	-2
+ 639 0010 00       		.byte	0
+ 640 0011 C0       		.byte	-64
+ 641 0012 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 12
+
+
+ 642 0013 24       		.byte	36
+ 643 0014 00       		.byte	0
+ 644 0015 00       		.byte	0
+ 645 0016 20       		.byte	32
+ 646 0017 F0       		.byte	-16
+ 647 0018 00       		.byte	0
+ 648 0019 00       		.byte	0
+ 649 001a 00       		.byte	0
+ 650 001b 7F       		.byte	127
+ 651 001c 40       		.byte	64
+ 652 001d 00       		.byte	0
+ 653 001e 80       		.byte	-128
+ 654 001f 00       		.byte	0
+ 655 0020 00       		.byte	0
+ 656 0021 34       		.byte	52
+ 657 0022 00       		.byte	0
+ 658 0023 05       		.byte	5
+ 659 0024 00       		.byte	0
+ 660 0025 FC       		.byte	-4
+ 661 0026 05       		.byte	5
+ 662 0027 14       		.byte	20
+ 663 0028 DC       		.byte	-36
+ 664 0029 6E       		.byte	110
+ 665 002a 00       		.byte	0
+ 666 002b 7E       		.byte	126
+ 667 002c 03       		.byte	3
+ 668 002d 28       		.byte	40
+ 669 002e 8C       		.byte	-116
+ 670 002f 00       		.byte	0
+ 671 0030 CC       		.byte	-52
+ 672 0031 41       		.byte	65
+ 673 0032 C4       		.byte	-60
+ 674 0033 53       		.byte	83
+ 675 0034 81       		.byte	-127
+ 676 0035 00       		.byte	0
+ 677 0036 40       		.byte	64
+ 678 0037 1A       		.byte	26
+ 679 0038 90       		.byte	-112
+ 680 0039 04       		.byte	4
+ 681 003a 00       		.byte	0
+ 682 003b 00       		.byte	0
+ 683 003c 02       		.byte	2
+ 684 003d EE       		.byte	-18
+ 685 003e 66       		.byte	102
+ 686 003f 6E       		.byte	110
+ 687 0040 72       		.byte	114
+ 688 0041 65       		.byte	101
+ 689 0042 54       		.byte	84
+ 690 0043 08       		.byte	8
+ 691 0044 58       		.byte	88
+ 692 0045 30       		.byte	48
+ 693 0046 40       		.byte	64
+ 694 0047 1E       		.byte	30
+ 695 0048 2E       		.byte	46
+ 696 0049 00       		.byte	0
+ 697 004a 99       		.byte	-103
+ 698 004b 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 13
+
+
+ 699 004c 01       		.byte	1
+ 700 004d 10       		.byte	16
+ 701 004e 00       		.byte	0
+ 702 004f 00       		.byte	0
+ 703 0050 00       		.byte	0
+ 704 0051 00       		.byte	0
+ 705 0052 00       		.byte	0
+ 706 0053 00       		.byte	0
+ 707 0054 00       		.byte	0
+ 708 0055 88       		.byte	-120
+ 709 0056 00       		.byte	0
+ 710 0057 00       		.byte	0
+ 711              		.section	.rodata.VS4210_hdmi1080P_1080P_mode0_w0_88param,"a",%progbits
+ 712              		.align	2
+ 715              	VS4210_hdmi1080P_1080P_mode0_w0_88param:
+ 716 0000 00       		.byte	0
+ 717 0001 75       		.byte	117
+ 718 0002 18       		.byte	24
+ 719 0003 80       		.byte	-128
+ 720 0004 20       		.byte	32
+ 721 0005 0C       		.byte	12
+ 722 0006 40       		.byte	64
+ 723 0007 0A       		.byte	10
+ 724 0008 40       		.byte	64
+ 725 0009 0A       		.byte	10
+ 726 000a 00       		.byte	0
+ 727 000b 20       		.byte	32
+ 728 000c 80       		.byte	-128
+ 729 000d 82       		.byte	-126
+ 730 000e 78       		.byte	120
+ 731 000f FE       		.byte	-2
+ 732 0010 00       		.byte	0
+ 733 0011 C0       		.byte	-64
+ 734 0012 00       		.byte	0
+ 735 0013 26       		.byte	38
+ 736 0014 00       		.byte	0
+ 737 0015 00       		.byte	0
+ 738 0016 20       		.byte	32
+ 739 0017 F0       		.byte	-16
+ 740 0018 00       		.byte	0
+ 741 0019 00       		.byte	0
+ 742 001a 11       		.byte	17
+ 743 001b 00       		.byte	0
+ 744 001c 00       		.byte	0
+ 745 001d 06       		.byte	6
+ 746 001e 80       		.byte	-128
+ 747 001f 00       		.byte	0
+ 748 0020 01       		.byte	1
+ 749 0021 34       		.byte	52
+ 750 0022 40       		.byte	64
+ 751 0023 2D       		.byte	45
+ 752 0024 59       		.byte	89
+ 753 0025 00       		.byte	0
+ 754 0026 00       		.byte	0
+ 755 0027 00       		.byte	0
+ 756 0028 00       		.byte	0
+ 757 0029 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 14
+
+
+ 758 002a 00       		.byte	0
+ 759 002b 7E       		.byte	126
+ 760 002c 03       		.byte	3
+ 761 002d 17       		.byte	23
+ 762 002e 90       		.byte	-112
+ 763 002f 00       		.byte	0
+ 764 0030 CC       		.byte	-52
+ 765 0031 41       		.byte	65
+ 766 0032 C4       		.byte	-60
+ 767 0033 84       		.byte	-124
+ 768 0034 98       		.byte	-104
+ 769 0035 80       		.byte	-128
+ 770 0036 70       		.byte	112
+ 771 0037 29       		.byte	41
+ 772 0038 90       		.byte	-112
+ 773 0039 04       		.byte	4
+ 774 003a 0A       		.byte	10
+ 775 003b 00       		.byte	0
+ 776 003c 04       		.byte	4
+ 777 003d 65       		.byte	101
+ 778 003e 80       		.byte	-128
+ 779 003f D8       		.byte	-40
+ 780 0040 98       		.byte	-104
+ 781 0041 87       		.byte	-121
+ 782 0042 00       		.byte	0
+ 783 0043 80       		.byte	-128
+ 784 0044 00       		.byte	0
+ 785 0045 70       		.byte	112
+ 786 0046 40       		.byte	64
+ 787 0047 1E       		.byte	30
+ 788 0048 2E       		.byte	46
+ 789 0049 00       		.byte	0
+ 790 004a 99       		.byte	-103
+ 791 004b 00       		.byte	0
+ 792 004c 00       		.byte	0
+ 793 004d 00       		.byte	0
+ 794 004e 00       		.byte	0
+ 795 004f 00       		.byte	0
+ 796 0050 00       		.byte	0
+ 797 0051 00       		.byte	0
+ 798 0052 00       		.byte	0
+ 799 0053 00       		.byte	0
+ 800 0054 00       		.byte	0
+ 801 0055 88       		.byte	-120
+ 802 0056 00       		.byte	0
+ 803 0057 00       		.byte	0
+ 804              		.section	.rodata.VS4210_hdmi1080P_720P_mode0_w0_88param,"a",%progbits
+ 805              		.align	2
+ 808              	VS4210_hdmi1080P_720P_mode0_w0_88param:
+ 809 0000 00       		.byte	0
+ 810 0001 75       		.byte	117
+ 811 0002 18       		.byte	24
+ 812 0003 80       		.byte	-128
+ 813 0004 20       		.byte	32
+ 814 0005 0C       		.byte	12
+ 815 0006 40       		.byte	64
+ 816 0007 0A       		.byte	10
+ARM GAS  /tmp/ccvs8hRA.s 			page 15
+
+
+ 817 0008 40       		.byte	64
+ 818 0009 0A       		.byte	10
+ 819 000a 00       		.byte	0
+ 820 000b 20       		.byte	32
+ 821 000c 80       		.byte	-128
+ 822 000d 82       		.byte	-126
+ 823 000e 78       		.byte	120
+ 824 000f FE       		.byte	-2
+ 825 0010 00       		.byte	0
+ 826 0011 C0       		.byte	-64
+ 827 0012 00       		.byte	0
+ 828 0013 24       		.byte	36
+ 829 0014 00       		.byte	0
+ 830 0015 00       		.byte	0
+ 831 0016 20       		.byte	32
+ 832 0017 F0       		.byte	-16
+ 833 0018 00       		.byte	0
+ 834 0019 80       		.byte	-128
+ 835 001a 00       		.byte	0
+ 836 001b 7F       		.byte	127
+ 837 001c 40       		.byte	64
+ 838 001d 00       		.byte	0
+ 839 001e 80       		.byte	-128
+ 840 001f 00       		.byte	0
+ 841 0020 00       		.byte	0
+ 842 0021 34       		.byte	52
+ 843 0022 00       		.byte	0
+ 844 0023 05       		.byte	5
+ 845 0024 00       		.byte	0
+ 846 0025 FC       		.byte	-4
+ 847 0026 05       		.byte	5
+ 848 0027 14       		.byte	20
+ 849 0028 DC       		.byte	-36
+ 850 0029 6E       		.byte	110
+ 851 002a 00       		.byte	0
+ 852 002b 7E       		.byte	126
+ 853 002c 03       		.byte	3
+ 854 002d 28       		.byte	40
+ 855 002e 8C       		.byte	-116
+ 856 002f 00       		.byte	0
+ 857 0030 CC       		.byte	-52
+ 858 0031 41       		.byte	65
+ 859 0032 C4       		.byte	-60
+ 860 0033 62       		.byte	98
+ 861 0034 72       		.byte	114
+ 862 0035 00       		.byte	0
+ 863 0036 50       		.byte	80
+ 864 0037 1A       		.byte	26
+ 865 0038 90       		.byte	-112
+ 866 0039 04       		.byte	4
+ 867 003a 00       		.byte	0
+ 868 003b 00       		.byte	0
+ 869 003c 02       		.byte	2
+ 870 003d EE       		.byte	-18
+ 871 003e 80       		.byte	-128
+ 872 003f 6E       		.byte	110
+ 873 0040 72       		.byte	114
+ARM GAS  /tmp/ccvs8hRA.s 			page 16
+
+
+ 874 0041 65       		.byte	101
+ 875 0042 00       		.byte	0
+ 876 0043 80       		.byte	-128
+ 877 0044 00       		.byte	0
+ 878 0045 70       		.byte	112
+ 879 0046 40       		.byte	64
+ 880 0047 1E       		.byte	30
+ 881 0048 2E       		.byte	46
+ 882 0049 00       		.byte	0
+ 883 004a 99       		.byte	-103
+ 884 004b 00       		.byte	0
+ 885 004c 01       		.byte	1
+ 886 004d 10       		.byte	16
+ 887 004e 00       		.byte	0
+ 888 004f 00       		.byte	0
+ 889 0050 00       		.byte	0
+ 890 0051 00       		.byte	0
+ 891 0052 00       		.byte	0
+ 892 0053 00       		.byte	0
+ 893 0054 00       		.byte	0
+ 894 0055 88       		.byte	-120
+ 895 0056 00       		.byte	0
+ 896 0057 00       		.byte	0
+ 897              		.section	.rodata.VS4210_hdmi1080i_1080P_mode0_w0_88param,"a",%progbits
+ 898              		.align	2
+ 901              	VS4210_hdmi1080i_1080P_mode0_w0_88param:
+ 902 0000 00       		.byte	0
+ 903 0001 75       		.byte	117
+ 904 0002 18       		.byte	24
+ 905 0003 80       		.byte	-128
+ 906 0004 20       		.byte	32
+ 907 0005 0C       		.byte	12
+ 908 0006 40       		.byte	64
+ 909 0007 0A       		.byte	10
+ 910 0008 40       		.byte	64
+ 911 0009 0A       		.byte	10
+ 912 000a 00       		.byte	0
+ 913 000b 20       		.byte	32
+ 914 000c C0       		.byte	-64
+ 915 000d 82       		.byte	-126
+ 916 000e 78       		.byte	120
+ 917 000f FE       		.byte	-2
+ 918 0010 00       		.byte	0
+ 919 0011 C0       		.byte	-64
+ 920 0012 00       		.byte	0
+ 921 0013 26       		.byte	38
+ 922 0014 00       		.byte	0
+ 923 0015 00       		.byte	0
+ 924 0016 20       		.byte	32
+ 925 0017 F0       		.byte	-16
+ 926 0018 00       		.byte	0
+ 927 0019 00       		.byte	0
+ 928 001a 11       		.byte	17
+ 929 001b 00       		.byte	0
+ 930 001c 00       		.byte	0
+ 931 001d 06       		.byte	6
+ 932 001e 80       		.byte	-128
+ARM GAS  /tmp/ccvs8hRA.s 			page 17
+
+
+ 933 001f 00       		.byte	0
+ 934 0020 01       		.byte	1
+ 935 0021 14       		.byte	20
+ 936 0022 40       		.byte	64
+ 937 0023 2D       		.byte	45
+ 938 0024 59       		.byte	89
+ 939 0025 00       		.byte	0
+ 940 0026 00       		.byte	0
+ 941 0027 00       		.byte	0
+ 942 0028 00       		.byte	0
+ 943 0029 00       		.byte	0
+ 944 002a 00       		.byte	0
+ 945 002b 7E       		.byte	126
+ 946 002c 03       		.byte	3
+ 947 002d 17       		.byte	23
+ 948 002e 90       		.byte	-112
+ 949 002f 00       		.byte	0
+ 950 0030 CC       		.byte	-52
+ 951 0031 41       		.byte	65
+ 952 0032 C4       		.byte	-60
+ 953 0033 84       		.byte	-124
+ 954 0034 98       		.byte	-104
+ 955 0035 80       		.byte	-128
+ 956 0036 70       		.byte	112
+ 957 0037 29       		.byte	41
+ 958 0038 90       		.byte	-112
+ 959 0039 04       		.byte	4
+ 960 003a 0A       		.byte	10
+ 961 003b 00       		.byte	0
+ 962 003c 04       		.byte	4
+ 963 003d 65       		.byte	101
+ 964 003e 80       		.byte	-128
+ 965 003f D8       		.byte	-40
+ 966 0040 98       		.byte	-104
+ 967 0041 87       		.byte	-121
+ 968 0042 00       		.byte	0
+ 969 0043 80       		.byte	-128
+ 970 0044 00       		.byte	0
+ 971 0045 70       		.byte	112
+ 972 0046 40       		.byte	64
+ 973 0047 1E       		.byte	30
+ 974 0048 2E       		.byte	46
+ 975 0049 00       		.byte	0
+ 976 004a 99       		.byte	-103
+ 977 004b 00       		.byte	0
+ 978 004c 00       		.byte	0
+ 979 004d 07       		.byte	7
+ 980 004e 00       		.byte	0
+ 981 004f 00       		.byte	0
+ 982 0050 00       		.byte	0
+ 983 0051 00       		.byte	0
+ 984 0052 00       		.byte	0
+ 985 0053 00       		.byte	0
+ 986 0054 00       		.byte	0
+ 987 0055 88       		.byte	-120
+ 988 0056 00       		.byte	0
+ 989 0057 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 18
+
+
+ 990              		.section	.rodata.VS4210_hdmi1080i_720P_mode0_w0_88param,"a",%progbits
+ 991              		.align	2
+ 994              	VS4210_hdmi1080i_720P_mode0_w0_88param:
+ 995 0000 00       		.byte	0
+ 996 0001 75       		.byte	117
+ 997 0002 18       		.byte	24
+ 998 0003 80       		.byte	-128
+ 999 0004 20       		.byte	32
+ 1000 0005 0B       		.byte	11
+ 1001 0006 40       		.byte	64
+ 1002 0007 0A       		.byte	10
+ 1003 0008 40       		.byte	64
+ 1004 0009 0A       		.byte	10
+ 1005 000a 00       		.byte	0
+ 1006 000b 20       		.byte	32
+ 1007 000c A0       		.byte	-96
+ 1008 000d 82       		.byte	-126
+ 1009 000e 78       		.byte	120
+ 1010 000f FE       		.byte	-2
+ 1011 0010 00       		.byte	0
+ 1012 0011 C0       		.byte	-64
+ 1013 0012 00       		.byte	0
+ 1014 0013 21       		.byte	33
+ 1015 0014 00       		.byte	0
+ 1016 0015 00       		.byte	0
+ 1017 0016 20       		.byte	32
+ 1018 0017 F0       		.byte	-16
+ 1019 0018 40       		.byte	64
+ 1020 0019 80       		.byte	-128
+ 1021 001a 00       		.byte	0
+ 1022 001b 00       		.byte	0
+ 1023 001c 00       		.byte	0
+ 1024 001d 00       		.byte	0
+ 1025 001e 80       		.byte	-128
+ 1026 001f 00       		.byte	0
+ 1027 0020 00       		.byte	0
+ 1028 0021 34       		.byte	52
+ 1029 0022 00       		.byte	0
+ 1030 0023 05       		.byte	5
+ 1031 0024 00       		.byte	0
+ 1032 0025 FC       		.byte	-4
+ 1033 0026 05       		.byte	5
+ 1034 0027 14       		.byte	20
+ 1035 0028 DC       		.byte	-36
+ 1036 0029 6E       		.byte	110
+ 1037 002a 00       		.byte	0
+ 1038 002b 7E       		.byte	126
+ 1039 002c 03       		.byte	3
+ 1040 002d 28       		.byte	40
+ 1041 002e 8C       		.byte	-116
+ 1042 002f 00       		.byte	0
+ 1043 0030 CC       		.byte	-52
+ 1044 0031 41       		.byte	65
+ 1045 0032 C4       		.byte	-60
+ 1046 0033 84       		.byte	-124
+ 1047 0034 9C       		.byte	-100
+ 1048 0035 80       		.byte	-128
+ARM GAS  /tmp/ccvs8hRA.s 			page 19
+
+
+ 1049 0036 70       		.byte	112
+ 1050 0037 26       		.byte	38
+ 1051 0038 90       		.byte	-112
+ 1052 0039 04       		.byte	4
+ 1053 003a 00       		.byte	0
+ 1054 003b 00       		.byte	0
+ 1055 003c 02       		.byte	2
+ 1056 003d EE       		.byte	-18
+ 1057 003e 40       		.byte	64
+ 1058 003f 6E       		.byte	110
+ 1059 0040 72       		.byte	114
+ 1060 0041 65       		.byte	101
+ 1061 0042 00       		.byte	0
+ 1062 0043 3F       		.byte	63
+ 1063 0044 C0       		.byte	-64
+ 1064 0045 10       		.byte	16
+ 1065 0046 40       		.byte	64
+ 1066 0047 1E       		.byte	30
+ 1067 0048 2E       		.byte	46
+ 1068 0049 00       		.byte	0
+ 1069 004a 9A       		.byte	-102
+ 1070 004b 00       		.byte	0
+ 1071 004c 01       		.byte	1
+ 1072 004d 00       		.byte	0
+ 1073 004e 00       		.byte	0
+ 1074 004f 00       		.byte	0
+ 1075 0050 00       		.byte	0
+ 1076 0051 00       		.byte	0
+ 1077 0052 00       		.byte	0
+ 1078 0053 00       		.byte	0
+ 1079 0054 00       		.byte	0
+ 1080 0055 88       		.byte	-120
+ 1081 0056 00       		.byte	0
+ 1082 0057 00       		.byte	0
+ 1083              		.section	.rodata.VS4210_hdmi1280x1024_1080P_mode0_w0_88param,"a",%progbits
+ 1084              		.align	2
+ 1087              	VS4210_hdmi1280x1024_1080P_mode0_w0_88param:
+ 1088 0000 00       		.byte	0
+ 1089 0001 75       		.byte	117
+ 1090 0002 18       		.byte	24
+ 1091 0003 80       		.byte	-128
+ 1092 0004 20       		.byte	32
+ 1093 0005 08       		.byte	8
+ 1094 0006 40       		.byte	64
+ 1095 0007 0A       		.byte	10
+ 1096 0008 40       		.byte	64
+ 1097 0009 06       		.byte	6
+ 1098 000a 00       		.byte	0
+ 1099 000b 20       		.byte	32
+ 1100 000c 80       		.byte	-128
+ 1101 000d 82       		.byte	-126
+ 1102 000e 78       		.byte	120
+ 1103 000f FE       		.byte	-2
+ 1104 0010 00       		.byte	0
+ 1105 0011 C0       		.byte	-64
+ 1106 0012 00       		.byte	0
+ 1107 0013 26       		.byte	38
+ARM GAS  /tmp/ccvs8hRA.s 			page 20
+
+
+ 1108 0014 00       		.byte	0
+ 1109 0015 00       		.byte	0
+ 1110 0016 20       		.byte	32
+ 1111 0017 F0       		.byte	-16
+ 1112 0018 00       		.byte	0
+ 1113 0019 00       		.byte	0
+ 1114 001a 11       		.byte	17
+ 1115 001b 00       		.byte	0
+ 1116 001c 00       		.byte	0
+ 1117 001d 02       		.byte	2
+ 1118 001e 80       		.byte	-128
+ 1119 001f 00       		.byte	0
+ 1120 0020 00       		.byte	0
+ 1121 0021 35       		.byte	53
+ 1122 0022 C0       		.byte	-64
+ 1123 0023 05       		.byte	5
+ 1124 0024 00       		.byte	0
+ 1125 0025 FD       		.byte	-3
+ 1126 0026 00       		.byte	0
+ 1127 0027 00       		.byte	0
+ 1128 0028 00       		.byte	0
+ 1129 0029 00       		.byte	0
+ 1130 002a 00       		.byte	0
+ 1131 002b 7E       		.byte	126
+ 1132 002c 03       		.byte	3
+ 1133 002d 2C       		.byte	44
+ 1134 002e 8C       		.byte	-116
+ 1135 002f 00       		.byte	0
+ 1136 0030 CC       		.byte	-52
+ 1137 0031 41       		.byte	65
+ 1138 0032 C4       		.byte	-60
+ 1139 0033 54       		.byte	84
+ 1140 0034 C8       		.byte	-56
+ 1141 0035 00       		.byte	0
+ 1142 0036 50       		.byte	80
+ 1143 0037 26       		.byte	38
+ 1144 0038 90       		.byte	-112
+ 1145 0039 04       		.byte	4
+ 1146 003a 0A       		.byte	10
+ 1147 003b 00       		.byte	0
+ 1148 003c 04       		.byte	4
+ 1149 003d 65       		.byte	101
+ 1150 003e 55       		.byte	85
+ 1151 003f D8       		.byte	-40
+ 1152 0040 98       		.byte	-104
+ 1153 0041 87       		.byte	-121
+ 1154 0042 44       		.byte	68
+ 1155 0043 79       		.byte	121
+ 1156 0044 22       		.byte	34
+ 1157 0045 70       		.byte	112
+ 1158 0046 40       		.byte	64
+ 1159 0047 1E       		.byte	30
+ 1160 0048 2E       		.byte	46
+ 1161 0049 00       		.byte	0
+ 1162 004a 99       		.byte	-103
+ 1163 004b 00       		.byte	0
+ 1164 004c 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 21
+
+
+ 1165 004d 00       		.byte	0
+ 1166 004e 00       		.byte	0
+ 1167 004f 00       		.byte	0
+ 1168 0050 00       		.byte	0
+ 1169 0051 00       		.byte	0
+ 1170 0052 00       		.byte	0
+ 1171 0053 00       		.byte	0
+ 1172 0054 00       		.byte	0
+ 1173 0055 88       		.byte	-120
+ 1174 0056 00       		.byte	0
+ 1175 0057 00       		.byte	0
+ 1176              		.section	.rodata.VS4210_hdmi1280x1024_720P_mode0_w0_88param,"a",%progbits
+ 1177              		.align	2
+ 1180              	VS4210_hdmi1280x1024_720P_mode0_w0_88param:
+ 1181 0000 00       		.byte	0
+ 1182 0001 75       		.byte	117
+ 1183 0002 18       		.byte	24
+ 1184 0003 80       		.byte	-128
+ 1185 0004 20       		.byte	32
+ 1186 0005 0C       		.byte	12
+ 1187 0006 40       		.byte	64
+ 1188 0007 0A       		.byte	10
+ 1189 0008 40       		.byte	64
+ 1190 0009 0A       		.byte	10
+ 1191 000a 00       		.byte	0
+ 1192 000b 20       		.byte	32
+ 1193 000c 80       		.byte	-128
+ 1194 000d 82       		.byte	-126
+ 1195 000e 78       		.byte	120
+ 1196 000f FE       		.byte	-2
+ 1197 0010 00       		.byte	0
+ 1198 0011 C0       		.byte	-64
+ 1199 0012 00       		.byte	0
+ 1200 0013 24       		.byte	36
+ 1201 0014 00       		.byte	0
+ 1202 0015 00       		.byte	0
+ 1203 0016 20       		.byte	32
+ 1204 0017 F0       		.byte	-16
+ 1205 0018 00       		.byte	0
+ 1206 0019 80       		.byte	-128
+ 1207 001a 00       		.byte	0
+ 1208 001b 6C       		.byte	108
+ 1209 001c 00       		.byte	0
+ 1210 001d 00       		.byte	0
+ 1211 001e 80       		.byte	-128
+ 1212 001f 00       		.byte	0
+ 1213 0020 00       		.byte	0
+ 1214 0021 34       		.byte	52
+ 1215 0022 00       		.byte	0
+ 1216 0023 05       		.byte	5
+ 1217 0024 00       		.byte	0
+ 1218 0025 FC       		.byte	-4
+ 1219 0026 05       		.byte	5
+ 1220 0027 14       		.byte	20
+ 1221 0028 DC       		.byte	-36
+ 1222 0029 6E       		.byte	110
+ 1223 002a 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 22
+
+
+ 1224 002b 7E       		.byte	126
+ 1225 002c 03       		.byte	3
+ 1226 002d 28       		.byte	40
+ 1227 002e 8C       		.byte	-116
+ 1228 002f 00       		.byte	0
+ 1229 0030 CC       		.byte	-52
+ 1230 0031 41       		.byte	65
+ 1231 0032 C4       		.byte	-60
+ 1232 0033 62       		.byte	98
+ 1233 0034 72       		.byte	114
+ 1234 0035 00       		.byte	0
+ 1235 0036 50       		.byte	80
+ 1236 0037 1A       		.byte	26
+ 1237 0038 90       		.byte	-112
+ 1238 0039 04       		.byte	4
+ 1239 003a 00       		.byte	0
+ 1240 003b 00       		.byte	0
+ 1241 003c 02       		.byte	2
+ 1242 003d EE       		.byte	-18
+ 1243 003e 80       		.byte	-128
+ 1244 003f 6E       		.byte	110
+ 1245 0040 72       		.byte	114
+ 1246 0041 65       		.byte	101
+ 1247 0042 00       		.byte	0
+ 1248 0043 80       		.byte	-128
+ 1249 0044 00       		.byte	0
+ 1250 0045 70       		.byte	112
+ 1251 0046 40       		.byte	64
+ 1252 0047 1E       		.byte	30
+ 1253 0048 2E       		.byte	46
+ 1254 0049 00       		.byte	0
+ 1255 004a 99       		.byte	-103
+ 1256 004b 00       		.byte	0
+ 1257 004c 01       		.byte	1
+ 1258 004d 10       		.byte	16
+ 1259 004e 00       		.byte	0
+ 1260 004f 00       		.byte	0
+ 1261 0050 00       		.byte	0
+ 1262 0051 00       		.byte	0
+ 1263 0052 00       		.byte	0
+ 1264 0053 00       		.byte	0
+ 1265 0054 00       		.byte	0
+ 1266 0055 88       		.byte	-120
+ 1267 0056 00       		.byte	0
+ 1268 0057 00       		.byte	0
+ 1269              		.section	.rodata.VS4210_hdmi1280x768_1080P_mode0_w0_88param,"a",%progbits
+ 1270              		.align	2
+ 1273              	VS4210_hdmi1280x768_1080P_mode0_w0_88param:
+ 1274 0000 00       		.byte	0
+ 1275 0001 75       		.byte	117
+ 1276 0002 18       		.byte	24
+ 1277 0003 80       		.byte	-128
+ 1278 0004 20       		.byte	32
+ 1279 0005 08       		.byte	8
+ 1280 0006 40       		.byte	64
+ 1281 0007 0A       		.byte	10
+ 1282 0008 40       		.byte	64
+ARM GAS  /tmp/ccvs8hRA.s 			page 23
+
+
+ 1283 0009 0B       		.byte	11
+ 1284 000a 00       		.byte	0
+ 1285 000b 20       		.byte	32
+ 1286 000c 80       		.byte	-128
+ 1287 000d 82       		.byte	-126
+ 1288 000e 78       		.byte	120
+ 1289 000f FE       		.byte	-2
+ 1290 0010 00       		.byte	0
+ 1291 0011 C0       		.byte	-64
+ 1292 0012 00       		.byte	0
+ 1293 0013 26       		.byte	38
+ 1294 0014 00       		.byte	0
+ 1295 0015 00       		.byte	0
+ 1296 0016 20       		.byte	32
+ 1297 0017 F0       		.byte	-16
+ 1298 0018 00       		.byte	0
+ 1299 0019 00       		.byte	0
+ 1300 001a 11       		.byte	17
+ 1301 001b 00       		.byte	0
+ 1302 001c 00       		.byte	0
+ 1303 001d 02       		.byte	2
+ 1304 001e 80       		.byte	-128
+ 1305 001f 00       		.byte	0
+ 1306 0020 00       		.byte	0
+ 1307 0021 35       		.byte	53
+ 1308 0022 C0       		.byte	-64
+ 1309 0023 05       		.byte	5
+ 1310 0024 00       		.byte	0
+ 1311 0025 FD       		.byte	-3
+ 1312 0026 00       		.byte	0
+ 1313 0027 00       		.byte	0
+ 1314 0028 00       		.byte	0
+ 1315 0029 00       		.byte	0
+ 1316 002a 00       		.byte	0
+ 1317 002b 7E       		.byte	126
+ 1318 002c 03       		.byte	3
+ 1319 002d 2C       		.byte	44
+ 1320 002e 8C       		.byte	-116
+ 1321 002f 00       		.byte	0
+ 1322 0030 CC       		.byte	-52
+ 1323 0031 41       		.byte	65
+ 1324 0032 C4       		.byte	-60
+ 1325 0033 63       		.byte	99
+ 1326 0034 9C       		.byte	-100
+ 1327 0035 00       		.byte	0
+ 1328 0036 50       		.byte	80
+ 1329 0037 1C       		.byte	28
+ 1330 0038 90       		.byte	-112
+ 1331 0039 04       		.byte	4
+ 1332 003a 0A       		.byte	10
+ 1333 003b 00       		.byte	0
+ 1334 003c 04       		.byte	4
+ 1335 003d 65       		.byte	101
+ 1336 003e 55       		.byte	85
+ 1337 003f D8       		.byte	-40
+ 1338 0040 98       		.byte	-104
+ 1339 0041 87       		.byte	-121
+ARM GAS  /tmp/ccvs8hRA.s 			page 24
+
+
+ 1340 0042 48       		.byte	72
+ 1341 0043 5A       		.byte	90
+ 1342 0044 D8       		.byte	-40
+ 1343 0045 70       		.byte	112
+ 1344 0046 40       		.byte	64
+ 1345 0047 1E       		.byte	30
+ 1346 0048 2E       		.byte	46
+ 1347 0049 00       		.byte	0
+ 1348 004a 99       		.byte	-103
+ 1349 004b 00       		.byte	0
+ 1350 004c 00       		.byte	0
+ 1351 004d 10       		.byte	16
+ 1352 004e 00       		.byte	0
+ 1353 004f 00       		.byte	0
+ 1354 0050 00       		.byte	0
+ 1355 0051 00       		.byte	0
+ 1356 0052 00       		.byte	0
+ 1357 0053 00       		.byte	0
+ 1358 0054 00       		.byte	0
+ 1359 0055 88       		.byte	-120
+ 1360 0056 00       		.byte	0
+ 1361 0057 00       		.byte	0
+ 1362              		.section	.rodata.VS4210_hdmi1280x768_720P_mode0_w0_88param,"a",%progbits
+ 1363              		.align	2
+ 1366              	VS4210_hdmi1280x768_720P_mode0_w0_88param:
+ 1367 0000 00       		.byte	0
+ 1368 0001 75       		.byte	117
+ 1369 0002 18       		.byte	24
+ 1370 0003 80       		.byte	-128
+ 1371 0004 20       		.byte	32
+ 1372 0005 0C       		.byte	12
+ 1373 0006 40       		.byte	64
+ 1374 0007 0A       		.byte	10
+ 1375 0008 40       		.byte	64
+ 1376 0009 09       		.byte	9
+ 1377 000a 00       		.byte	0
+ 1378 000b 20       		.byte	32
+ 1379 000c 80       		.byte	-128
+ 1380 000d 82       		.byte	-126
+ 1381 000e 78       		.byte	120
+ 1382 000f FE       		.byte	-2
+ 1383 0010 00       		.byte	0
+ 1384 0011 C0       		.byte	-64
+ 1385 0012 00       		.byte	0
+ 1386 0013 24       		.byte	36
+ 1387 0014 00       		.byte	0
+ 1388 0015 00       		.byte	0
+ 1389 0016 20       		.byte	32
+ 1390 0017 F0       		.byte	-16
+ 1391 0018 00       		.byte	0
+ 1392 0019 00       		.byte	0
+ 1393 001a 00       		.byte	0
+ 1394 001b 7F       		.byte	127
+ 1395 001c 41       		.byte	65
+ 1396 001d 00       		.byte	0
+ 1397 001e 80       		.byte	-128
+ 1398 001f 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 25
+
+
+ 1399 0020 00       		.byte	0
+ 1400 0021 34       		.byte	52
+ 1401 0022 00       		.byte	0
+ 1402 0023 05       		.byte	5
+ 1403 0024 00       		.byte	0
+ 1404 0025 FC       		.byte	-4
+ 1405 0026 05       		.byte	5
+ 1406 0027 14       		.byte	20
+ 1407 0028 DC       		.byte	-36
+ 1408 0029 6E       		.byte	110
+ 1409 002a 00       		.byte	0
+ 1410 002b 7E       		.byte	126
+ 1411 002c 03       		.byte	3
+ 1412 002d 28       		.byte	40
+ 1413 002e 8C       		.byte	-116
+ 1414 002f 00       		.byte	0
+ 1415 0030 CC       		.byte	-52
+ 1416 0031 41       		.byte	65
+ 1417 0032 C4       		.byte	-60
+ 1418 0033 53       		.byte	83
+ 1419 0034 81       		.byte	-127
+ 1420 0035 00       		.byte	0
+ 1421 0036 50       		.byte	80
+ 1422 0037 1A       		.byte	26
+ 1423 0038 90       		.byte	-112
+ 1424 0039 04       		.byte	4
+ 1425 003a 00       		.byte	0
+ 1426 003b 00       		.byte	0
+ 1427 003c 02       		.byte	2
+ 1428 003d EE       		.byte	-18
+ 1429 003e 80       		.byte	-128
+ 1430 003f 6E       		.byte	110
+ 1431 0040 72       		.byte	114
+ 1432 0041 65       		.byte	101
+ 1433 0042 00       		.byte	0
+ 1434 0043 08       		.byte	8
+ 1435 0044 58       		.byte	88
+ 1436 0045 30       		.byte	48
+ 1437 0046 40       		.byte	64
+ 1438 0047 1E       		.byte	30
+ 1439 0048 2E       		.byte	46
+ 1440 0049 00       		.byte	0
+ 1441 004a 99       		.byte	-103
+ 1442 004b 00       		.byte	0
+ 1443 004c 01       		.byte	1
+ 1444 004d 10       		.byte	16
+ 1445 004e 00       		.byte	0
+ 1446 004f 00       		.byte	0
+ 1447 0050 00       		.byte	0
+ 1448 0051 00       		.byte	0
+ 1449 0052 00       		.byte	0
+ 1450 0053 00       		.byte	0
+ 1451 0054 00       		.byte	0
+ 1452 0055 88       		.byte	-120
+ 1453 0056 00       		.byte	0
+ 1454 0057 00       		.byte	0
+ 1455              		.section	.rodata.VS4210_hdmi1280x800_1080P_mode0_w0_88param,"a",%progbits
+ARM GAS  /tmp/ccvs8hRA.s 			page 26
+
+
+ 1456              		.align	2
+ 1459              	VS4210_hdmi1280x800_1080P_mode0_w0_88param:
+ 1460 0000 00       		.byte	0
+ 1461 0001 75       		.byte	117
+ 1462 0002 18       		.byte	24
+ 1463 0003 80       		.byte	-128
+ 1464 0004 20       		.byte	32
+ 1465 0005 08       		.byte	8
+ 1466 0006 40       		.byte	64
+ 1467 0007 0A       		.byte	10
+ 1468 0008 40       		.byte	64
+ 1469 0009 0B       		.byte	11
+ 1470 000a 00       		.byte	0
+ 1471 000b 20       		.byte	32
+ 1472 000c 80       		.byte	-128
+ 1473 000d 82       		.byte	-126
+ 1474 000e 78       		.byte	120
+ 1475 000f FE       		.byte	-2
+ 1476 0010 00       		.byte	0
+ 1477 0011 C0       		.byte	-64
+ 1478 0012 00       		.byte	0
+ 1479 0013 26       		.byte	38
+ 1480 0014 00       		.byte	0
+ 1481 0015 00       		.byte	0
+ 1482 0016 20       		.byte	32
+ 1483 0017 F0       		.byte	-16
+ 1484 0018 00       		.byte	0
+ 1485 0019 00       		.byte	0
+ 1486 001a 11       		.byte	17
+ 1487 001b 00       		.byte	0
+ 1488 001c 00       		.byte	0
+ 1489 001d 02       		.byte	2
+ 1490 001e 80       		.byte	-128
+ 1491 001f 00       		.byte	0
+ 1492 0020 00       		.byte	0
+ 1493 0021 35       		.byte	53
+ 1494 0022 C0       		.byte	-64
+ 1495 0023 05       		.byte	5
+ 1496 0024 00       		.byte	0
+ 1497 0025 FD       		.byte	-3
+ 1498 0026 00       		.byte	0
+ 1499 0027 00       		.byte	0
+ 1500 0028 00       		.byte	0
+ 1501 0029 00       		.byte	0
+ 1502 002a 00       		.byte	0
+ 1503 002b 7E       		.byte	126
+ 1504 002c 03       		.byte	3
+ 1505 002d 2C       		.byte	44
+ 1506 002e 8C       		.byte	-116
+ 1507 002f 00       		.byte	0
+ 1508 0030 CC       		.byte	-52
+ 1509 0031 41       		.byte	65
+ 1510 0032 C4       		.byte	-60
+ 1511 0033 63       		.byte	99
+ 1512 0034 56       		.byte	86
+ 1513 0035 00       		.byte	0
+ 1514 0036 50       		.byte	80
+ARM GAS  /tmp/ccvs8hRA.s 			page 27
+
+
+ 1515 0037 1E       		.byte	30
+ 1516 0038 90       		.byte	-112
+ 1517 0039 04       		.byte	4
+ 1518 003a 0A       		.byte	10
+ 1519 003b 00       		.byte	0
+ 1520 003c 04       		.byte	4
+ 1521 003d 65       		.byte	101
+ 1522 003e 55       		.byte	85
+ 1523 003f D8       		.byte	-40
+ 1524 0040 98       		.byte	-104
+ 1525 0041 87       		.byte	-121
+ 1526 0042 44       		.byte	68
+ 1527 0043 5E       		.byte	94
+ 1528 0044 C2       		.byte	-62
+ 1529 0045 70       		.byte	112
+ 1530 0046 40       		.byte	64
+ 1531 0047 1E       		.byte	30
+ 1532 0048 2E       		.byte	46
+ 1533 0049 00       		.byte	0
+ 1534 004a 99       		.byte	-103
+ 1535 004b 00       		.byte	0
+ 1536 004c 00       		.byte	0
+ 1537 004d 10       		.byte	16
+ 1538 004e 00       		.byte	0
+ 1539 004f 00       		.byte	0
+ 1540 0050 00       		.byte	0
+ 1541 0051 00       		.byte	0
+ 1542 0052 00       		.byte	0
+ 1543 0053 00       		.byte	0
+ 1544 0054 00       		.byte	0
+ 1545 0055 88       		.byte	-120
+ 1546 0056 00       		.byte	0
+ 1547 0057 00       		.byte	0
+ 1548              		.section	.rodata.VS4210_hdmi1280x800_720P_mode0_w0_88param,"a",%progbits
+ 1549              		.align	2
+ 1552              	VS4210_hdmi1280x800_720P_mode0_w0_88param:
+ 1553 0000 00       		.byte	0
+ 1554 0001 75       		.byte	117
+ 1555 0002 18       		.byte	24
+ 1556 0003 80       		.byte	-128
+ 1557 0004 20       		.byte	32
+ 1558 0005 0C       		.byte	12
+ 1559 0006 40       		.byte	64
+ 1560 0007 0A       		.byte	10
+ 1561 0008 40       		.byte	64
+ 1562 0009 0A       		.byte	10
+ 1563 000a 00       		.byte	0
+ 1564 000b 20       		.byte	32
+ 1565 000c 80       		.byte	-128
+ 1566 000d 82       		.byte	-126
+ 1567 000e 78       		.byte	120
+ 1568 000f FE       		.byte	-2
+ 1569 0010 00       		.byte	0
+ 1570 0011 C0       		.byte	-64
+ 1571 0012 00       		.byte	0
+ 1572 0013 24       		.byte	36
+ 1573 0014 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 28
+
+
+ 1574 0015 00       		.byte	0
+ 1575 0016 20       		.byte	32
+ 1576 0017 F0       		.byte	-16
+ 1577 0018 00       		.byte	0
+ 1578 0019 80       		.byte	-128
+ 1579 001a 00       		.byte	0
+ 1580 001b 1C       		.byte	28
+ 1581 001c 00       		.byte	0
+ 1582 001d 00       		.byte	0
+ 1583 001e 80       		.byte	-128
+ 1584 001f 00       		.byte	0
+ 1585 0020 00       		.byte	0
+ 1586 0021 34       		.byte	52
+ 1587 0022 00       		.byte	0
+ 1588 0023 05       		.byte	5
+ 1589 0024 00       		.byte	0
+ 1590 0025 FC       		.byte	-4
+ 1591 0026 05       		.byte	5
+ 1592 0027 14       		.byte	20
+ 1593 0028 DC       		.byte	-36
+ 1594 0029 6E       		.byte	110
+ 1595 002a 00       		.byte	0
+ 1596 002b 7E       		.byte	126
+ 1597 002c 03       		.byte	3
+ 1598 002d 28       		.byte	40
+ 1599 002e 8C       		.byte	-116
+ 1600 002f 00       		.byte	0
+ 1601 0030 CC       		.byte	-52
+ 1602 0031 41       		.byte	65
+ 1603 0032 C4       		.byte	-60
+ 1604 0033 62       		.byte	98
+ 1605 0034 72       		.byte	114
+ 1606 0035 00       		.byte	0
+ 1607 0036 50       		.byte	80
+ 1608 0037 1A       		.byte	26
+ 1609 0038 90       		.byte	-112
+ 1610 0039 04       		.byte	4
+ 1611 003a 00       		.byte	0
+ 1612 003b 00       		.byte	0
+ 1613 003c 02       		.byte	2
+ 1614 003d EE       		.byte	-18
+ 1615 003e 80       		.byte	-128
+ 1616 003f 6E       		.byte	110
+ 1617 0040 72       		.byte	114
+ 1618 0041 65       		.byte	101
+ 1619 0042 00       		.byte	0
+ 1620 0043 80       		.byte	-128
+ 1621 0044 00       		.byte	0
+ 1622 0045 70       		.byte	112
+ 1623 0046 40       		.byte	64
+ 1624 0047 1E       		.byte	30
+ 1625 0048 2E       		.byte	46
+ 1626 0049 00       		.byte	0
+ 1627 004a 99       		.byte	-103
+ 1628 004b 00       		.byte	0
+ 1629 004c 01       		.byte	1
+ 1630 004d 10       		.byte	16
+ARM GAS  /tmp/ccvs8hRA.s 			page 29
+
+
+ 1631 004e 00       		.byte	0
+ 1632 004f 00       		.byte	0
+ 1633 0050 00       		.byte	0
+ 1634 0051 00       		.byte	0
+ 1635 0052 00       		.byte	0
+ 1636 0053 00       		.byte	0
+ 1637 0054 00       		.byte	0
+ 1638 0055 88       		.byte	-120
+ 1639 0056 00       		.byte	0
+ 1640 0057 00       		.byte	0
+ 1641              		.section	.rodata.VS4210_hdmi1360x768_1080P_mode0_w0_88param,"a",%progbits
+ 1642              		.align	2
+ 1645              	VS4210_hdmi1360x768_1080P_mode0_w0_88param:
+ 1646 0000 00       		.byte	0
+ 1647 0001 75       		.byte	117
+ 1648 0002 18       		.byte	24
+ 1649 0003 80       		.byte	-128
+ 1650 0004 20       		.byte	32
+ 1651 0005 08       		.byte	8
+ 1652 0006 40       		.byte	64
+ 1653 0007 0A       		.byte	10
+ 1654 0008 40       		.byte	64
+ 1655 0009 0B       		.byte	11
+ 1656 000a 00       		.byte	0
+ 1657 000b 20       		.byte	32
+ 1658 000c 80       		.byte	-128
+ 1659 000d 82       		.byte	-126
+ 1660 000e 78       		.byte	120
+ 1661 000f FE       		.byte	-2
+ 1662 0010 00       		.byte	0
+ 1663 0011 C0       		.byte	-64
+ 1664 0012 00       		.byte	0
+ 1665 0013 26       		.byte	38
+ 1666 0014 00       		.byte	0
+ 1667 0015 00       		.byte	0
+ 1668 0016 20       		.byte	32
+ 1669 0017 F0       		.byte	-16
+ 1670 0018 00       		.byte	0
+ 1671 0019 00       		.byte	0
+ 1672 001a 11       		.byte	17
+ 1673 001b 00       		.byte	0
+ 1674 001c 00       		.byte	0
+ 1675 001d 02       		.byte	2
+ 1676 001e 80       		.byte	-128
+ 1677 001f 00       		.byte	0
+ 1678 0020 00       		.byte	0
+ 1679 0021 35       		.byte	53
+ 1680 0022 C0       		.byte	-64
+ 1681 0023 05       		.byte	5
+ 1682 0024 00       		.byte	0
+ 1683 0025 FD       		.byte	-3
+ 1684 0026 00       		.byte	0
+ 1685 0027 00       		.byte	0
+ 1686 0028 00       		.byte	0
+ 1687 0029 00       		.byte	0
+ 1688 002a 00       		.byte	0
+ 1689 002b 7E       		.byte	126
+ARM GAS  /tmp/ccvs8hRA.s 			page 30
+
+
+ 1690 002c 03       		.byte	3
+ 1691 002d 2C       		.byte	44
+ 1692 002e 8C       		.byte	-116
+ 1693 002f 00       		.byte	0
+ 1694 0030 CC       		.byte	-52
+ 1695 0031 41       		.byte	65
+ 1696 0032 C4       		.byte	-60
+ 1697 0033 63       		.byte	99
+ 1698 0034 9C       		.byte	-100
+ 1699 0035 50       		.byte	80
+ 1700 0036 50       		.byte	80
+ 1701 0037 1C       		.byte	28
+ 1702 0038 90       		.byte	-112
+ 1703 0039 04       		.byte	4
+ 1704 003a 0A       		.byte	10
+ 1705 003b 00       		.byte	0
+ 1706 003c 04       		.byte	4
+ 1707 003d 65       		.byte	101
+ 1708 003e 5A       		.byte	90
+ 1709 003f D8       		.byte	-40
+ 1710 0040 98       		.byte	-104
+ 1711 0041 87       		.byte	-121
+ 1712 0042 9E       		.byte	-98
+ 1713 0043 5A       		.byte	90
+ 1714 0044 D8       		.byte	-40
+ 1715 0045 70       		.byte	112
+ 1716 0046 40       		.byte	64
+ 1717 0047 1E       		.byte	30
+ 1718 0048 2E       		.byte	46
+ 1719 0049 00       		.byte	0
+ 1720 004a 99       		.byte	-103
+ 1721 004b 00       		.byte	0
+ 1722 004c 00       		.byte	0
+ 1723 004d 10       		.byte	16
+ 1724 004e 00       		.byte	0
+ 1725 004f 00       		.byte	0
+ 1726 0050 00       		.byte	0
+ 1727 0051 00       		.byte	0
+ 1728 0052 00       		.byte	0
+ 1729 0053 00       		.byte	0
+ 1730 0054 00       		.byte	0
+ 1731 0055 88       		.byte	-120
+ 1732 0056 00       		.byte	0
+ 1733 0057 00       		.byte	0
+ 1734              		.section	.rodata.VS4210_hdmi1360x768_720P_mode0_w0_88param,"a",%progbits
+ 1735              		.align	2
+ 1738              	VS4210_hdmi1360x768_720P_mode0_w0_88param:
+ 1739 0000 00       		.byte	0
+ 1740 0001 75       		.byte	117
+ 1741 0002 18       		.byte	24
+ 1742 0003 80       		.byte	-128
+ 1743 0004 20       		.byte	32
+ 1744 0005 0C       		.byte	12
+ 1745 0006 40       		.byte	64
+ 1746 0007 0A       		.byte	10
+ 1747 0008 40       		.byte	64
+ 1748 0009 0A       		.byte	10
+ARM GAS  /tmp/ccvs8hRA.s 			page 31
+
+
+ 1749 000a 00       		.byte	0
+ 1750 000b 20       		.byte	32
+ 1751 000c 80       		.byte	-128
+ 1752 000d 82       		.byte	-126
+ 1753 000e 78       		.byte	120
+ 1754 000f FE       		.byte	-2
+ 1755 0010 00       		.byte	0
+ 1756 0011 C0       		.byte	-64
+ 1757 0012 00       		.byte	0
+ 1758 0013 24       		.byte	36
+ 1759 0014 00       		.byte	0
+ 1760 0015 00       		.byte	0
+ 1761 0016 20       		.byte	32
+ 1762 0017 F0       		.byte	-16
+ 1763 0018 00       		.byte	0
+ 1764 0019 80       		.byte	-128
+ 1765 001a 00       		.byte	0
+ 1766 001b 11       		.byte	17
+ 1767 001c 08       		.byte	8
+ 1768 001d 00       		.byte	0
+ 1769 001e 80       		.byte	-128
+ 1770 001f 00       		.byte	0
+ 1771 0020 00       		.byte	0
+ 1772 0021 34       		.byte	52
+ 1773 0022 00       		.byte	0
+ 1774 0023 05       		.byte	5
+ 1775 0024 00       		.byte	0
+ 1776 0025 FC       		.byte	-4
+ 1777 0026 05       		.byte	5
+ 1778 0027 14       		.byte	20
+ 1779 0028 DC       		.byte	-36
+ 1780 0029 6E       		.byte	110
+ 1781 002a 00       		.byte	0
+ 1782 002b 7E       		.byte	126
+ 1783 002c 03       		.byte	3
+ 1784 002d 28       		.byte	40
+ 1785 002e 8C       		.byte	-116
+ 1786 002f 00       		.byte	0
+ 1787 0030 CC       		.byte	-52
+ 1788 0031 41       		.byte	65
+ 1789 0032 C4       		.byte	-60
+ 1790 0033 62       		.byte	98
+ 1791 0034 72       		.byte	114
+ 1792 0035 00       		.byte	0
+ 1793 0036 50       		.byte	80
+ 1794 0037 1A       		.byte	26
+ 1795 0038 90       		.byte	-112
+ 1796 0039 04       		.byte	4
+ 1797 003a 00       		.byte	0
+ 1798 003b 00       		.byte	0
+ 1799 003c 02       		.byte	2
+ 1800 003d EE       		.byte	-18
+ 1801 003e 80       		.byte	-128
+ 1802 003f 6E       		.byte	110
+ 1803 0040 72       		.byte	114
+ 1804 0041 65       		.byte	101
+ 1805 0042 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 32
+
+
+ 1806 0043 80       		.byte	-128
+ 1807 0044 00       		.byte	0
+ 1808 0045 70       		.byte	112
+ 1809 0046 40       		.byte	64
+ 1810 0047 1E       		.byte	30
+ 1811 0048 2E       		.byte	46
+ 1812 0049 00       		.byte	0
+ 1813 004a 99       		.byte	-103
+ 1814 004b 00       		.byte	0
+ 1815 004c 01       		.byte	1
+ 1816 004d 10       		.byte	16
+ 1817 004e 00       		.byte	0
+ 1818 004f 00       		.byte	0
+ 1819 0050 00       		.byte	0
+ 1820 0051 00       		.byte	0
+ 1821 0052 00       		.byte	0
+ 1822 0053 00       		.byte	0
+ 1823 0054 00       		.byte	0
+ 1824 0055 88       		.byte	-120
+ 1825 0056 00       		.byte	0
+ 1826 0057 00       		.byte	0
+ 1827              		.section	.rodata.VS4210_hdmi1366x768_1080P_mode0_w0_88param,"a",%progbits
+ 1828              		.align	2
+ 1831              	VS4210_hdmi1366x768_1080P_mode0_w0_88param:
+ 1832 0000 00       		.byte	0
+ 1833 0001 75       		.byte	117
+ 1834 0002 18       		.byte	24
+ 1835 0003 80       		.byte	-128
+ 1836 0004 20       		.byte	32
+ 1837 0005 08       		.byte	8
+ 1838 0006 40       		.byte	64
+ 1839 0007 0A       		.byte	10
+ 1840 0008 40       		.byte	64
+ 1841 0009 0B       		.byte	11
+ 1842 000a 00       		.byte	0
+ 1843 000b 20       		.byte	32
+ 1844 000c 80       		.byte	-128
+ 1845 000d 82       		.byte	-126
+ 1846 000e 78       		.byte	120
+ 1847 000f FE       		.byte	-2
+ 1848 0010 00       		.byte	0
+ 1849 0011 C0       		.byte	-64
+ 1850 0012 00       		.byte	0
+ 1851 0013 26       		.byte	38
+ 1852 0014 00       		.byte	0
+ 1853 0015 00       		.byte	0
+ 1854 0016 20       		.byte	32
+ 1855 0017 F0       		.byte	-16
+ 1856 0018 00       		.byte	0
+ 1857 0019 00       		.byte	0
+ 1858 001a 11       		.byte	17
+ 1859 001b 00       		.byte	0
+ 1860 001c 00       		.byte	0
+ 1861 001d 02       		.byte	2
+ 1862 001e 80       		.byte	-128
+ 1863 001f 00       		.byte	0
+ 1864 0020 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 33
+
+
+ 1865 0021 35       		.byte	53
+ 1866 0022 C0       		.byte	-64
+ 1867 0023 05       		.byte	5
+ 1868 0024 00       		.byte	0
+ 1869 0025 FD       		.byte	-3
+ 1870 0026 00       		.byte	0
+ 1871 0027 00       		.byte	0
+ 1872 0028 00       		.byte	0
+ 1873 0029 00       		.byte	0
+ 1874 002a 00       		.byte	0
+ 1875 002b 7E       		.byte	126
+ 1876 002c 03       		.byte	3
+ 1877 002d 2C       		.byte	44
+ 1878 002e 8C       		.byte	-116
+ 1879 002f 00       		.byte	0
+ 1880 0030 CC       		.byte	-52
+ 1881 0031 41       		.byte	65
+ 1882 0032 C4       		.byte	-60
+ 1883 0033 63       		.byte	99
+ 1884 0034 9C       		.byte	-100
+ 1885 0035 56       		.byte	86
+ 1886 0036 50       		.byte	80
+ 1887 0037 1C       		.byte	28
+ 1888 0038 90       		.byte	-112
+ 1889 0039 04       		.byte	4
+ 1890 003a 0A       		.byte	10
+ 1891 003b 00       		.byte	0
+ 1892 003c 04       		.byte	4
+ 1893 003d 65       		.byte	101
+ 1894 003e 5B       		.byte	91
+ 1895 003f D8       		.byte	-40
+ 1896 0040 98       		.byte	-104
+ 1897 0041 87       		.byte	-121
+ 1898 0042 00       		.byte	0
+ 1899 0043 5A       		.byte	90
+ 1900 0044 D8       		.byte	-40
+ 1901 0045 70       		.byte	112
+ 1902 0046 40       		.byte	64
+ 1903 0047 1E       		.byte	30
+ 1904 0048 2E       		.byte	46
+ 1905 0049 00       		.byte	0
+ 1906 004a 99       		.byte	-103
+ 1907 004b 00       		.byte	0
+ 1908 004c 00       		.byte	0
+ 1909 004d 10       		.byte	16
+ 1910 004e 00       		.byte	0
+ 1911 004f 00       		.byte	0
+ 1912 0050 00       		.byte	0
+ 1913 0051 00       		.byte	0
+ 1914 0052 00       		.byte	0
+ 1915 0053 00       		.byte	0
+ 1916 0054 00       		.byte	0
+ 1917 0055 88       		.byte	-120
+ 1918 0056 00       		.byte	0
+ 1919 0057 00       		.byte	0
+ 1920              		.section	.rodata.VS4210_hdmi1366x768_720P_mode0_w0_88param,"a",%progbits
+ 1921              		.align	2
+ARM GAS  /tmp/ccvs8hRA.s 			page 34
+
+
+ 1924              	VS4210_hdmi1366x768_720P_mode0_w0_88param:
+ 1925 0000 00       		.byte	0
+ 1926 0001 75       		.byte	117
+ 1927 0002 18       		.byte	24
+ 1928 0003 80       		.byte	-128
+ 1929 0004 20       		.byte	32
+ 1930 0005 0C       		.byte	12
+ 1931 0006 40       		.byte	64
+ 1932 0007 0A       		.byte	10
+ 1933 0008 40       		.byte	64
+ 1934 0009 0A       		.byte	10
+ 1935 000a 00       		.byte	0
+ 1936 000b 20       		.byte	32
+ 1937 000c 82       		.byte	-126
+ 1938 000d 82       		.byte	-126
+ 1939 000e 78       		.byte	120
+ 1940 000f FF       		.byte	-1
+ 1941 0010 00       		.byte	0
+ 1942 0011 C0       		.byte	-64
+ 1943 0012 00       		.byte	0
+ 1944 0013 24       		.byte	36
+ 1945 0014 00       		.byte	0
+ 1946 0015 00       		.byte	0
+ 1947 0016 00       		.byte	0
+ 1948 0017 F0       		.byte	-16
+ 1949 0018 00       		.byte	0
+ 1950 0019 80       		.byte	-128
+ 1951 001a 00       		.byte	0
+ 1952 001b 11       		.byte	17
+ 1953 001c 09       		.byte	9
+ 1954 001d 00       		.byte	0
+ 1955 001e 80       		.byte	-128
+ 1956 001f 00       		.byte	0
+ 1957 0020 00       		.byte	0
+ 1958 0021 34       		.byte	52
+ 1959 0022 00       		.byte	0
+ 1960 0023 05       		.byte	5
+ 1961 0024 00       		.byte	0
+ 1962 0025 FC       		.byte	-4
+ 1963 0026 05       		.byte	5
+ 1964 0027 14       		.byte	20
+ 1965 0028 DC       		.byte	-36
+ 1966 0029 6E       		.byte	110
+ 1967 002a 00       		.byte	0
+ 1968 002b 7E       		.byte	126
+ 1969 002c 03       		.byte	3
+ 1970 002d 28       		.byte	40
+ 1971 002e 8C       		.byte	-116
+ 1972 002f 00       		.byte	0
+ 1973 0030 CC       		.byte	-52
+ 1974 0031 41       		.byte	65
+ 1975 0032 C4       		.byte	-60
+ 1976 0033 62       		.byte	98
+ 1977 0034 72       		.byte	114
+ 1978 0035 00       		.byte	0
+ 1979 0036 50       		.byte	80
+ 1980 0037 1A       		.byte	26
+ARM GAS  /tmp/ccvs8hRA.s 			page 35
+
+
+ 1981 0038 90       		.byte	-112
+ 1982 0039 04       		.byte	4
+ 1983 003a 00       		.byte	0
+ 1984 003b 00       		.byte	0
+ 1985 003c 02       		.byte	2
+ 1986 003d EE       		.byte	-18
+ 1987 003e 7F       		.byte	127
+ 1988 003f 6E       		.byte	110
+ 1989 0040 72       		.byte	114
+ 1990 0041 65       		.byte	101
+ 1991 0042 00       		.byte	0
+ 1992 0043 80       		.byte	-128
+ 1993 0044 00       		.byte	0
+ 1994 0045 70       		.byte	112
+ 1995 0046 40       		.byte	64
+ 1996 0047 1E       		.byte	30
+ 1997 0048 2C       		.byte	44
+ 1998 0049 00       		.byte	0
+ 1999 004a 99       		.byte	-103
+ 2000 004b 00       		.byte	0
+ 2001 004c 01       		.byte	1
+ 2002 004d 10       		.byte	16
+ 2003 004e 00       		.byte	0
+ 2004 004f 00       		.byte	0
+ 2005 0050 00       		.byte	0
+ 2006 0051 00       		.byte	0
+ 2007 0052 00       		.byte	0
+ 2008 0053 00       		.byte	0
+ 2009 0054 00       		.byte	0
+ 2010 0055 88       		.byte	-120
+ 2011 0056 00       		.byte	0
+ 2012 0057 00       		.byte	0
+ 2013              		.section	.rodata.VS4210_hdmi1400x1050_1080P_mode0_w0_88param,"a",%progbits
+ 2014              		.align	2
+ 2017              	VS4210_hdmi1400x1050_1080P_mode0_w0_88param:
+ 2018 0000 00       		.byte	0
+ 2019 0001 75       		.byte	117
+ 2020 0002 18       		.byte	24
+ 2021 0003 80       		.byte	-128
+ 2022 0004 20       		.byte	32
+ 2023 0005 0C       		.byte	12
+ 2024 0006 40       		.byte	64
+ 2025 0007 0A       		.byte	10
+ 2026 0008 40       		.byte	64
+ 2027 0009 08       		.byte	8
+ 2028 000a 00       		.byte	0
+ 2029 000b 20       		.byte	32
+ 2030 000c 80       		.byte	-128
+ 2031 000d 82       		.byte	-126
+ 2032 000e 78       		.byte	120
+ 2033 000f FE       		.byte	-2
+ 2034 0010 00       		.byte	0
+ 2035 0011 C0       		.byte	-64
+ 2036 0012 00       		.byte	0
+ 2037 0013 26       		.byte	38
+ 2038 0014 00       		.byte	0
+ 2039 0015 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 36
+
+
+ 2040 0016 20       		.byte	32
+ 2041 0017 F0       		.byte	-16
+ 2042 0018 00       		.byte	0
+ 2043 0019 00       		.byte	0
+ 2044 001a 11       		.byte	17
+ 2045 001b 00       		.byte	0
+ 2046 001c 00       		.byte	0
+ 2047 001d 02       		.byte	2
+ 2048 001e 80       		.byte	-128
+ 2049 001f 00       		.byte	0
+ 2050 0020 00       		.byte	0
+ 2051 0021 35       		.byte	53
+ 2052 0022 C0       		.byte	-64
+ 2053 0023 05       		.byte	5
+ 2054 0024 00       		.byte	0
+ 2055 0025 FD       		.byte	-3
+ 2056 0026 00       		.byte	0
+ 2057 0027 00       		.byte	0
+ 2058 0028 00       		.byte	0
+ 2059 0029 00       		.byte	0
+ 2060 002a 00       		.byte	0
+ 2061 002b 7E       		.byte	126
+ 2062 002c 03       		.byte	3
+ 2063 002d 2C       		.byte	44
+ 2064 002e 8C       		.byte	-116
+ 2065 002f 00       		.byte	0
+ 2066 0030 CC       		.byte	-52
+ 2067 0031 41       		.byte	65
+ 2068 0032 C4       		.byte	-60
+ 2069 0033 74       		.byte	116
+ 2070 0034 3A       		.byte	58
+ 2071 0035 78       		.byte	120
+ 2072 0036 50       		.byte	80
+ 2073 0037 29       		.byte	41
+ 2074 0038 90       		.byte	-112
+ 2075 0039 04       		.byte	4
+ 2076 003a 0A       		.byte	10
+ 2077 003b 00       		.byte	0
+ 2078 003c 04       		.byte	4
+ 2079 003d 65       		.byte	101
+ 2080 003e 5D       		.byte	93
+ 2081 003f D8       		.byte	-40
+ 2082 0040 98       		.byte	-104
+ 2083 0041 87       		.byte	-121
+ 2084 0042 4A       		.byte	74
+ 2085 0043 7C       		.byte	124
+ 2086 0044 9C       		.byte	-100
+ 2087 0045 70       		.byte	112
+ 2088 0046 40       		.byte	64
+ 2089 0047 1E       		.byte	30
+ 2090 0048 2E       		.byte	46
+ 2091 0049 00       		.byte	0
+ 2092 004a 99       		.byte	-103
+ 2093 004b 00       		.byte	0
+ 2094 004c 00       		.byte	0
+ 2095 004d 00       		.byte	0
+ 2096 004e 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 37
+
+
+ 2097 004f 00       		.byte	0
+ 2098 0050 00       		.byte	0
+ 2099 0051 00       		.byte	0
+ 2100 0052 00       		.byte	0
+ 2101 0053 00       		.byte	0
+ 2102 0054 00       		.byte	0
+ 2103 0055 88       		.byte	-120
+ 2104 0056 00       		.byte	0
+ 2105 0057 00       		.byte	0
+ 2106              		.section	.rodata.VS4210_hdmi1400x1050_720P_mode0_w0_88param,"a",%progbits
+ 2107              		.align	2
+ 2110              	VS4210_hdmi1400x1050_720P_mode0_w0_88param:
+ 2111 0000 00       		.byte	0
+ 2112 0001 75       		.byte	117
+ 2113 0002 18       		.byte	24
+ 2114 0003 80       		.byte	-128
+ 2115 0004 20       		.byte	32
+ 2116 0005 0C       		.byte	12
+ 2117 0006 40       		.byte	64
+ 2118 0007 0A       		.byte	10
+ 2119 0008 40       		.byte	64
+ 2120 0009 0A       		.byte	10
+ 2121 000a 00       		.byte	0
+ 2122 000b 20       		.byte	32
+ 2123 000c 80       		.byte	-128
+ 2124 000d 82       		.byte	-126
+ 2125 000e 78       		.byte	120
+ 2126 000f FE       		.byte	-2
+ 2127 0010 00       		.byte	0
+ 2128 0011 C0       		.byte	-64
+ 2129 0012 00       		.byte	0
+ 2130 0013 26       		.byte	38
+ 2131 0014 00       		.byte	0
+ 2132 0015 00       		.byte	0
+ 2133 0016 20       		.byte	32
+ 2134 0017 F0       		.byte	-16
+ 2135 0018 00       		.byte	0
+ 2136 0019 80       		.byte	-128
+ 2137 001a 00       		.byte	0
+ 2138 001b 75       		.byte	117
+ 2139 001c 0C       		.byte	12
+ 2140 001d 00       		.byte	0
+ 2141 001e 80       		.byte	-128
+ 2142 001f 00       		.byte	0
+ 2143 0020 00       		.byte	0
+ 2144 0021 34       		.byte	52
+ 2145 0022 00       		.byte	0
+ 2146 0023 05       		.byte	5
+ 2147 0024 00       		.byte	0
+ 2148 0025 FC       		.byte	-4
+ 2149 0026 05       		.byte	5
+ 2150 0027 14       		.byte	20
+ 2151 0028 DC       		.byte	-36
+ 2152 0029 6E       		.byte	110
+ 2153 002a 00       		.byte	0
+ 2154 002b 7E       		.byte	126
+ 2155 002c 03       		.byte	3
+ARM GAS  /tmp/ccvs8hRA.s 			page 38
+
+
+ 2156 002d 28       		.byte	40
+ 2157 002e 8C       		.byte	-116
+ 2158 002f 00       		.byte	0
+ 2159 0030 CC       		.byte	-52
+ 2160 0031 41       		.byte	65
+ 2161 0032 C4       		.byte	-60
+ 2162 0033 62       		.byte	98
+ 2163 0034 72       		.byte	114
+ 2164 0035 00       		.byte	0
+ 2165 0036 50       		.byte	80
+ 2166 0037 1A       		.byte	26
+ 2167 0038 90       		.byte	-112
+ 2168 0039 04       		.byte	4
+ 2169 003a 00       		.byte	0
+ 2170 003b 00       		.byte	0
+ 2171 003c 02       		.byte	2
+ 2172 003d EE       		.byte	-18
+ 2173 003e 80       		.byte	-128
+ 2174 003f 6E       		.byte	110
+ 2175 0040 72       		.byte	114
+ 2176 0041 65       		.byte	101
+ 2177 0042 00       		.byte	0
+ 2178 0043 80       		.byte	-128
+ 2179 0044 00       		.byte	0
+ 2180 0045 70       		.byte	112
+ 2181 0046 40       		.byte	64
+ 2182 0047 1E       		.byte	30
+ 2183 0048 2E       		.byte	46
+ 2184 0049 00       		.byte	0
+ 2185 004a 99       		.byte	-103
+ 2186 004b 00       		.byte	0
+ 2187 004c 01       		.byte	1
+ 2188 004d 10       		.byte	16
+ 2189 004e 00       		.byte	0
+ 2190 004f 00       		.byte	0
+ 2191 0050 00       		.byte	0
+ 2192 0051 00       		.byte	0
+ 2193 0052 00       		.byte	0
+ 2194 0053 00       		.byte	0
+ 2195 0054 00       		.byte	0
+ 2196 0055 88       		.byte	-120
+ 2197 0056 00       		.byte	0
+ 2198 0057 00       		.byte	0
+ 2199              		.section	.rodata.VS4210_hdmi1440x900_1080P_mode0_w0_88param,"a",%progbits
+ 2200              		.align	2
+ 2203              	VS4210_hdmi1440x900_1080P_mode0_w0_88param:
+ 2204 0000 00       		.byte	0
+ 2205 0001 75       		.byte	117
+ 2206 0002 18       		.byte	24
+ 2207 0003 80       		.byte	-128
+ 2208 0004 20       		.byte	32
+ 2209 0005 08       		.byte	8
+ 2210 0006 40       		.byte	64
+ 2211 0007 0A       		.byte	10
+ 2212 0008 40       		.byte	64
+ 2213 0009 06       		.byte	6
+ 2214 000a 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 39
+
+
+ 2215 000b 20       		.byte	32
+ 2216 000c 80       		.byte	-128
+ 2217 000d 82       		.byte	-126
+ 2218 000e 78       		.byte	120
+ 2219 000f FE       		.byte	-2
+ 2220 0010 00       		.byte	0
+ 2221 0011 C0       		.byte	-64
+ 2222 0012 00       		.byte	0
+ 2223 0013 26       		.byte	38
+ 2224 0014 00       		.byte	0
+ 2225 0015 00       		.byte	0
+ 2226 0016 20       		.byte	32
+ 2227 0017 F0       		.byte	-16
+ 2228 0018 00       		.byte	0
+ 2229 0019 00       		.byte	0
+ 2230 001a 11       		.byte	17
+ 2231 001b 00       		.byte	0
+ 2232 001c 00       		.byte	0
+ 2233 001d 02       		.byte	2
+ 2234 001e 80       		.byte	-128
+ 2235 001f 00       		.byte	0
+ 2236 0020 00       		.byte	0
+ 2237 0021 35       		.byte	53
+ 2238 0022 C0       		.byte	-64
+ 2239 0023 05       		.byte	5
+ 2240 0024 00       		.byte	0
+ 2241 0025 FD       		.byte	-3
+ 2242 0026 00       		.byte	0
+ 2243 0027 00       		.byte	0
+ 2244 0028 00       		.byte	0
+ 2245 0029 00       		.byte	0
+ 2246 002a 00       		.byte	0
+ 2247 002b 7E       		.byte	126
+ 2248 002c 03       		.byte	3
+ 2249 002d 2C       		.byte	44
+ 2250 002e 8C       		.byte	-116
+ 2251 002f 00       		.byte	0
+ 2252 0030 CC       		.byte	-52
+ 2253 0031 41       		.byte	65
+ 2254 0032 C4       		.byte	-60
+ 2255 0033 63       		.byte	99
+ 2256 0034 92       		.byte	-110
+ 2257 0035 A0       		.byte	-96
+ 2258 0036 50       		.byte	80
+ 2259 0037 22       		.byte	34
+ 2260 0038 90       		.byte	-112
+ 2261 0039 04       		.byte	4
+ 2262 003a 0A       		.byte	10
+ 2263 003b 00       		.byte	0
+ 2264 003c 04       		.byte	4
+ 2265 003d 65       		.byte	101
+ 2266 003e 60       		.byte	96
+ 2267 003f D8       		.byte	-40
+ 2268 0040 98       		.byte	-104
+ 2269 0041 87       		.byte	-121
+ 2270 0042 00       		.byte	0
+ 2271 0043 6A       		.byte	106
+ARM GAS  /tmp/ccvs8hRA.s 			page 40
+
+
+ 2272 0044 9A       		.byte	-102
+ 2273 0045 70       		.byte	112
+ 2274 0046 40       		.byte	64
+ 2275 0047 1E       		.byte	30
+ 2276 0048 2E       		.byte	46
+ 2277 0049 00       		.byte	0
+ 2278 004a 99       		.byte	-103
+ 2279 004b 00       		.byte	0
+ 2280 004c 00       		.byte	0
+ 2281 004d 00       		.byte	0
+ 2282 004e 00       		.byte	0
+ 2283 004f 00       		.byte	0
+ 2284 0050 00       		.byte	0
+ 2285 0051 00       		.byte	0
+ 2286 0052 00       		.byte	0
+ 2287 0053 00       		.byte	0
+ 2288 0054 00       		.byte	0
+ 2289 0055 88       		.byte	-120
+ 2290 0056 00       		.byte	0
+ 2291 0057 00       		.byte	0
+ 2292              		.section	.rodata.VS4210_hdmi1440x900_720P_mode0_w0_88param,"a",%progbits
+ 2293              		.align	2
+ 2296              	VS4210_hdmi1440x900_720P_mode0_w0_88param:
+ 2297 0000 00       		.byte	0
+ 2298 0001 75       		.byte	117
+ 2299 0002 18       		.byte	24
+ 2300 0003 80       		.byte	-128
+ 2301 0004 20       		.byte	32
+ 2302 0005 0C       		.byte	12
+ 2303 0006 40       		.byte	64
+ 2304 0007 0A       		.byte	10
+ 2305 0008 40       		.byte	64
+ 2306 0009 0A       		.byte	10
+ 2307 000a 00       		.byte	0
+ 2308 000b 20       		.byte	32
+ 2309 000c 80       		.byte	-128
+ 2310 000d 82       		.byte	-126
+ 2311 000e 78       		.byte	120
+ 2312 000f FE       		.byte	-2
+ 2313 0010 00       		.byte	0
+ 2314 0011 C0       		.byte	-64
+ 2315 0012 00       		.byte	0
+ 2316 0013 26       		.byte	38
+ 2317 0014 00       		.byte	0
+ 2318 0015 00       		.byte	0
+ 2319 0016 20       		.byte	32
+ 2320 0017 F0       		.byte	-16
+ 2321 0018 00       		.byte	0
+ 2322 0019 80       		.byte	-128
+ 2323 001a 00       		.byte	0
+ 2324 001b 40       		.byte	64
+ 2325 001c 10       		.byte	16
+ 2326 001d 00       		.byte	0
+ 2327 001e 80       		.byte	-128
+ 2328 001f 00       		.byte	0
+ 2329 0020 00       		.byte	0
+ 2330 0021 34       		.byte	52
+ARM GAS  /tmp/ccvs8hRA.s 			page 41
+
+
+ 2331 0022 00       		.byte	0
+ 2332 0023 05       		.byte	5
+ 2333 0024 00       		.byte	0
+ 2334 0025 FC       		.byte	-4
+ 2335 0026 05       		.byte	5
+ 2336 0027 14       		.byte	20
+ 2337 0028 DC       		.byte	-36
+ 2338 0029 6E       		.byte	110
+ 2339 002a 00       		.byte	0
+ 2340 002b 7E       		.byte	126
+ 2341 002c 03       		.byte	3
+ 2342 002d 28       		.byte	40
+ 2343 002e 8C       		.byte	-116
+ 2344 002f 00       		.byte	0
+ 2345 0030 CC       		.byte	-52
+ 2346 0031 41       		.byte	65
+ 2347 0032 C4       		.byte	-60
+ 2348 0033 62       		.byte	98
+ 2349 0034 72       		.byte	114
+ 2350 0035 00       		.byte	0
+ 2351 0036 50       		.byte	80
+ 2352 0037 1A       		.byte	26
+ 2353 0038 90       		.byte	-112
+ 2354 0039 04       		.byte	4
+ 2355 003a 00       		.byte	0
+ 2356 003b 00       		.byte	0
+ 2357 003c 02       		.byte	2
+ 2358 003d EE       		.byte	-18
+ 2359 003e 80       		.byte	-128
+ 2360 003f 6E       		.byte	110
+ 2361 0040 72       		.byte	114
+ 2362 0041 65       		.byte	101
+ 2363 0042 00       		.byte	0
+ 2364 0043 80       		.byte	-128
+ 2365 0044 00       		.byte	0
+ 2366 0045 70       		.byte	112
+ 2367 0046 40       		.byte	64
+ 2368 0047 1E       		.byte	30
+ 2369 0048 2E       		.byte	46
+ 2370 0049 00       		.byte	0
+ 2371 004a 99       		.byte	-103
+ 2372 004b 00       		.byte	0
+ 2373 004c 01       		.byte	1
+ 2374 004d 10       		.byte	16
+ 2375 004e 00       		.byte	0
+ 2376 004f 00       		.byte	0
+ 2377 0050 00       		.byte	0
+ 2378 0051 00       		.byte	0
+ 2379 0052 00       		.byte	0
+ 2380 0053 00       		.byte	0
+ 2381 0054 00       		.byte	0
+ 2382 0055 88       		.byte	-120
+ 2383 0056 00       		.byte	0
+ 2384 0057 00       		.byte	0
+ 2385              		.section	.rodata.VS4210_hdmi1600x1200_1080P_mode0_w0_88param,"a",%progbits
+ 2386              		.align	2
+ 2389              	VS4210_hdmi1600x1200_1080P_mode0_w0_88param:
+ARM GAS  /tmp/ccvs8hRA.s 			page 42
+
+
+ 2390 0000 00       		.byte	0
+ 2391 0001 75       		.byte	117
+ 2392 0002 18       		.byte	24
+ 2393 0003 80       		.byte	-128
+ 2394 0004 20       		.byte	32
+ 2395 0005 0C       		.byte	12
+ 2396 0006 40       		.byte	64
+ 2397 0007 0A       		.byte	10
+ 2398 0008 40       		.byte	64
+ 2399 0009 0A       		.byte	10
+ 2400 000a 00       		.byte	0
+ 2401 000b 20       		.byte	32
+ 2402 000c 80       		.byte	-128
+ 2403 000d 82       		.byte	-126
+ 2404 000e 78       		.byte	120
+ 2405 000f FE       		.byte	-2
+ 2406 0010 00       		.byte	0
+ 2407 0011 C0       		.byte	-64
+ 2408 0012 00       		.byte	0
+ 2409 0013 26       		.byte	38
+ 2410 0014 00       		.byte	0
+ 2411 0015 00       		.byte	0
+ 2412 0016 20       		.byte	32
+ 2413 0017 F0       		.byte	-16
+ 2414 0018 00       		.byte	0
+ 2415 0019 80       		.byte	-128
+ 2416 001a 00       		.byte	0
+ 2417 001b 1C       		.byte	28
+ 2418 001c 00       		.byte	0
+ 2419 001d 02       		.byte	2
+ 2420 001e 80       		.byte	-128
+ 2421 001f 00       		.byte	0
+ 2422 0020 00       		.byte	0
+ 2423 0021 35       		.byte	53
+ 2424 0022 C0       		.byte	-64
+ 2425 0023 05       		.byte	5
+ 2426 0024 00       		.byte	0
+ 2427 0025 FD       		.byte	-3
+ 2428 0026 00       		.byte	0
+ 2429 0027 00       		.byte	0
+ 2430 0028 00       		.byte	0
+ 2431 0029 00       		.byte	0
+ 2432 002a 00       		.byte	0
+ 2433 002b 7E       		.byte	126
+ 2434 002c 03       		.byte	3
+ 2435 002d 2C       		.byte	44
+ 2436 002e 8C       		.byte	-116
+ 2437 002f 00       		.byte	0
+ 2438 0030 CC       		.byte	-52
+ 2439 0031 41       		.byte	65
+ 2440 0032 C4       		.byte	-60
+ 2441 0033 84       		.byte	-124
+ 2442 0034 98       		.byte	-104
+ 2443 0035 80       		.byte	-128
+ 2444 0036 70       		.byte	112
+ 2445 0037 28       		.byte	40
+ 2446 0038 90       		.byte	-112
+ARM GAS  /tmp/ccvs8hRA.s 			page 43
+
+
+ 2447 0039 04       		.byte	4
+ 2448 003a 0A       		.byte	10
+ 2449 003b 00       		.byte	0
+ 2450 003c 04       		.byte	4
+ 2451 003d 65       		.byte	101
+ 2452 003e 6A       		.byte	106
+ 2453 003f D8       		.byte	-40
+ 2454 0040 98       		.byte	-104
+ 2455 0041 87       		.byte	-121
+ 2456 0042 9B       		.byte	-101
+ 2457 0043 80       		.byte	-128
+ 2458 0044 00       		.byte	0
+ 2459 0045 70       		.byte	112
+ 2460 0046 40       		.byte	64
+ 2461 0047 1E       		.byte	30
+ 2462 0048 2E       		.byte	46
+ 2463 0049 00       		.byte	0
+ 2464 004a 99       		.byte	-103
+ 2465 004b 00       		.byte	0
+ 2466 004c 00       		.byte	0
+ 2467 004d 00       		.byte	0
+ 2468 004e 00       		.byte	0
+ 2469 004f 00       		.byte	0
+ 2470 0050 00       		.byte	0
+ 2471 0051 00       		.byte	0
+ 2472 0052 00       		.byte	0
+ 2473 0053 00       		.byte	0
+ 2474 0054 00       		.byte	0
+ 2475 0055 88       		.byte	-120
+ 2476 0056 00       		.byte	0
+ 2477 0057 00       		.byte	0
+ 2478              		.section	.rodata.VS4210_hdmi1600x1200_720P_mode0_w0_88param,"a",%progbits
+ 2479              		.align	2
+ 2482              	VS4210_hdmi1600x1200_720P_mode0_w0_88param:
+ 2483 0000 00       		.byte	0
+ 2484 0001 75       		.byte	117
+ 2485 0002 18       		.byte	24
+ 2486 0003 80       		.byte	-128
+ 2487 0004 20       		.byte	32
+ 2488 0005 0C       		.byte	12
+ 2489 0006 40       		.byte	64
+ 2490 0007 0A       		.byte	10
+ 2491 0008 40       		.byte	64
+ 2492 0009 0A       		.byte	10
+ 2493 000a 00       		.byte	0
+ 2494 000b 20       		.byte	32
+ 2495 000c 80       		.byte	-128
+ 2496 000d 82       		.byte	-126
+ 2497 000e 78       		.byte	120
+ 2498 000f FE       		.byte	-2
+ 2499 0010 00       		.byte	0
+ 2500 0011 C0       		.byte	-64
+ 2501 0012 00       		.byte	0
+ 2502 0013 24       		.byte	36
+ 2503 0014 00       		.byte	0
+ 2504 0015 00       		.byte	0
+ 2505 0016 20       		.byte	32
+ARM GAS  /tmp/ccvs8hRA.s 			page 44
+
+
+ 2506 0017 F0       		.byte	-16
+ 2507 0018 00       		.byte	0
+ 2508 0019 80       		.byte	-128
+ 2509 001a 00       		.byte	0
+ 2510 001b AA       		.byte	-86
+ 2511 001c 20       		.byte	32
+ 2512 001d 00       		.byte	0
+ 2513 001e 80       		.byte	-128
+ 2514 001f 00       		.byte	0
+ 2515 0020 00       		.byte	0
+ 2516 0021 34       		.byte	52
+ 2517 0022 00       		.byte	0
+ 2518 0023 05       		.byte	5
+ 2519 0024 00       		.byte	0
+ 2520 0025 FC       		.byte	-4
+ 2521 0026 05       		.byte	5
+ 2522 0027 14       		.byte	20
+ 2523 0028 DC       		.byte	-36
+ 2524 0029 6E       		.byte	110
+ 2525 002a 00       		.byte	0
+ 2526 002b 7E       		.byte	126
+ 2527 002c 03       		.byte	3
+ 2528 002d 28       		.byte	40
+ 2529 002e 8C       		.byte	-116
+ 2530 002f 00       		.byte	0
+ 2531 0030 CC       		.byte	-52
+ 2532 0031 41       		.byte	65
+ 2533 0032 C4       		.byte	-60
+ 2534 0033 62       		.byte	98
+ 2535 0034 72       		.byte	114
+ 2536 0035 00       		.byte	0
+ 2537 0036 50       		.byte	80
+ 2538 0037 1A       		.byte	26
+ 2539 0038 90       		.byte	-112
+ 2540 0039 04       		.byte	4
+ 2541 003a 00       		.byte	0
+ 2542 003b 00       		.byte	0
+ 2543 003c 02       		.byte	2
+ 2544 003d EE       		.byte	-18
+ 2545 003e 80       		.byte	-128
+ 2546 003f 6E       		.byte	110
+ 2547 0040 72       		.byte	114
+ 2548 0041 65       		.byte	101
+ 2549 0042 00       		.byte	0
+ 2550 0043 80       		.byte	-128
+ 2551 0044 00       		.byte	0
+ 2552 0045 70       		.byte	112
+ 2553 0046 40       		.byte	64
+ 2554 0047 1E       		.byte	30
+ 2555 0048 2E       		.byte	46
+ 2556 0049 00       		.byte	0
+ 2557 004a 99       		.byte	-103
+ 2558 004b 00       		.byte	0
+ 2559 004c 01       		.byte	1
+ 2560 004d 10       		.byte	16
+ 2561 004e 00       		.byte	0
+ 2562 004f 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 45
+
+
+ 2563 0050 00       		.byte	0
+ 2564 0051 00       		.byte	0
+ 2565 0052 00       		.byte	0
+ 2566 0053 00       		.byte	0
+ 2567 0054 00       		.byte	0
+ 2568 0055 88       		.byte	-120
+ 2569 0056 00       		.byte	0
+ 2570 0057 00       		.byte	0
+ 2571              		.section	.rodata.VS4210_hdmi1680x1050_1080P_mode0_w0_88param,"a",%progbits
+ 2572              		.align	2
+ 2575              	VS4210_hdmi1680x1050_1080P_mode0_w0_88param:
+ 2576 0000 00       		.byte	0
+ 2577 0001 75       		.byte	117
+ 2578 0002 18       		.byte	24
+ 2579 0003 80       		.byte	-128
+ 2580 0004 20       		.byte	32
+ 2581 0005 0C       		.byte	12
+ 2582 0006 40       		.byte	64
+ 2583 0007 0A       		.byte	10
+ 2584 0008 40       		.byte	64
+ 2585 0009 08       		.byte	8
+ 2586 000a 00       		.byte	0
+ 2587 000b 20       		.byte	32
+ 2588 000c 80       		.byte	-128
+ 2589 000d 82       		.byte	-126
+ 2590 000e 78       		.byte	120
+ 2591 000f FE       		.byte	-2
+ 2592 0010 00       		.byte	0
+ 2593 0011 C0       		.byte	-64
+ 2594 0012 00       		.byte	0
+ 2595 0013 26       		.byte	38
+ 2596 0014 00       		.byte	0
+ 2597 0015 00       		.byte	0
+ 2598 0016 20       		.byte	32
+ 2599 0017 F0       		.byte	-16
+ 2600 0018 00       		.byte	0
+ 2601 0019 00       		.byte	0
+ 2602 001a 11       		.byte	17
+ 2603 001b 00       		.byte	0
+ 2604 001c 00       		.byte	0
+ 2605 001d 02       		.byte	2
+ 2606 001e 80       		.byte	-128
+ 2607 001f 00       		.byte	0
+ 2608 0020 00       		.byte	0
+ 2609 0021 35       		.byte	53
+ 2610 0022 C0       		.byte	-64
+ 2611 0023 05       		.byte	5
+ 2612 0024 00       		.byte	0
+ 2613 0025 FD       		.byte	-3
+ 2614 0026 00       		.byte	0
+ 2615 0027 00       		.byte	0
+ 2616 0028 00       		.byte	0
+ 2617 0029 00       		.byte	0
+ 2618 002a 00       		.byte	0
+ 2619 002b 7E       		.byte	126
+ 2620 002c 03       		.byte	3
+ 2621 002d 2C       		.byte	44
+ARM GAS  /tmp/ccvs8hRA.s 			page 46
+
+
+ 2622 002e 8C       		.byte	-116
+ 2623 002f 00       		.byte	0
+ 2624 0030 CC       		.byte	-52
+ 2625 0031 41       		.byte	65
+ 2626 0032 C4       		.byte	-60
+ 2627 0033 74       		.byte	116
+ 2628 0034 3E       		.byte	62
+ 2629 0035 90       		.byte	-112
+ 2630 0036 60       		.byte	96
+ 2631 0037 28       		.byte	40
+ 2632 0038 90       		.byte	-112
+ 2633 0039 04       		.byte	4
+ 2634 003a 0A       		.byte	10
+ 2635 003b 00       		.byte	0
+ 2636 003c 04       		.byte	4
+ 2637 003d 65       		.byte	101
+ 2638 003e 70       		.byte	112
+ 2639 003f D8       		.byte	-40
+ 2640 0040 98       		.byte	-104
+ 2641 0041 87       		.byte	-121
+ 2642 0042 00       		.byte	0
+ 2643 0043 7C       		.byte	124
+ 2644 0044 56       		.byte	86
+ 2645 0045 70       		.byte	112
+ 2646 0046 40       		.byte	64
+ 2647 0047 1E       		.byte	30
+ 2648 0048 2E       		.byte	46
+ 2649 0049 00       		.byte	0
+ 2650 004a 99       		.byte	-103
+ 2651 004b 00       		.byte	0
+ 2652 004c 00       		.byte	0
+ 2653 004d 00       		.byte	0
+ 2654 004e 00       		.byte	0
+ 2655 004f 00       		.byte	0
+ 2656 0050 00       		.byte	0
+ 2657 0051 00       		.byte	0
+ 2658 0052 00       		.byte	0
+ 2659 0053 00       		.byte	0
+ 2660 0054 00       		.byte	0
+ 2661 0055 88       		.byte	-120
+ 2662 0056 00       		.byte	0
+ 2663 0057 00       		.byte	0
+ 2664              		.section	.rodata.VS4210_hdmi1680x1050_720P_mode0_w0_88param,"a",%progbits
+ 2665              		.align	2
+ 2668              	VS4210_hdmi1680x1050_720P_mode0_w0_88param:
+ 2669 0000 00       		.byte	0
+ 2670 0001 75       		.byte	117
+ 2671 0002 18       		.byte	24
+ 2672 0003 80       		.byte	-128
+ 2673 0004 20       		.byte	32
+ 2674 0005 0C       		.byte	12
+ 2675 0006 40       		.byte	64
+ 2676 0007 0A       		.byte	10
+ 2677 0008 40       		.byte	64
+ 2678 0009 0A       		.byte	10
+ 2679 000a 00       		.byte	0
+ 2680 000b 20       		.byte	32
+ARM GAS  /tmp/ccvs8hRA.s 			page 47
+
+
+ 2681 000c 80       		.byte	-128
+ 2682 000d 82       		.byte	-126
+ 2683 000e 78       		.byte	120
+ 2684 000f FE       		.byte	-2
+ 2685 0010 00       		.byte	0
+ 2686 0011 C0       		.byte	-64
+ 2687 0012 00       		.byte	0
+ 2688 0013 24       		.byte	36
+ 2689 0014 00       		.byte	0
+ 2690 0015 00       		.byte	0
+ 2691 0016 20       		.byte	32
+ 2692 0017 F0       		.byte	-16
+ 2693 0018 00       		.byte	0
+ 2694 0019 80       		.byte	-128
+ 2695 001a 00       		.byte	0
+ 2696 001b 75       		.byte	117
+ 2697 001c 28       		.byte	40
+ 2698 001d 00       		.byte	0
+ 2699 001e 80       		.byte	-128
+ 2700 001f 00       		.byte	0
+ 2701 0020 00       		.byte	0
+ 2702 0021 34       		.byte	52
+ 2703 0022 00       		.byte	0
+ 2704 0023 05       		.byte	5
+ 2705 0024 00       		.byte	0
+ 2706 0025 FC       		.byte	-4
+ 2707 0026 05       		.byte	5
+ 2708 0027 14       		.byte	20
+ 2709 0028 DC       		.byte	-36
+ 2710 0029 6E       		.byte	110
+ 2711 002a 00       		.byte	0
+ 2712 002b 7E       		.byte	126
+ 2713 002c 03       		.byte	3
+ 2714 002d 28       		.byte	40
+ 2715 002e 8C       		.byte	-116
+ 2716 002f 00       		.byte	0
+ 2717 0030 CC       		.byte	-52
+ 2718 0031 41       		.byte	65
+ 2719 0032 C4       		.byte	-60
+ 2720 0033 62       		.byte	98
+ 2721 0034 72       		.byte	114
+ 2722 0035 00       		.byte	0
+ 2723 0036 50       		.byte	80
+ 2724 0037 1A       		.byte	26
+ 2725 0038 90       		.byte	-112
+ 2726 0039 04       		.byte	4
+ 2727 003a 00       		.byte	0
+ 2728 003b 00       		.byte	0
+ 2729 003c 02       		.byte	2
+ 2730 003d EE       		.byte	-18
+ 2731 003e 80       		.byte	-128
+ 2732 003f 6E       		.byte	110
+ 2733 0040 72       		.byte	114
+ 2734 0041 65       		.byte	101
+ 2735 0042 00       		.byte	0
+ 2736 0043 80       		.byte	-128
+ 2737 0044 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 48
+
+
+ 2738 0045 70       		.byte	112
+ 2739 0046 40       		.byte	64
+ 2740 0047 1E       		.byte	30
+ 2741 0048 2E       		.byte	46
+ 2742 0049 00       		.byte	0
+ 2743 004a 99       		.byte	-103
+ 2744 004b 00       		.byte	0
+ 2745 004c 01       		.byte	1
+ 2746 004d 10       		.byte	16
+ 2747 004e 00       		.byte	0
+ 2748 004f 00       		.byte	0
+ 2749 0050 00       		.byte	0
+ 2750 0051 00       		.byte	0
+ 2751 0052 00       		.byte	0
+ 2752 0053 00       		.byte	0
+ 2753 0054 00       		.byte	0
+ 2754 0055 88       		.byte	-120
+ 2755 0056 00       		.byte	0
+ 2756 0057 00       		.byte	0
+ 2757              		.section	.rodata.VS4210_hdmi1920x1200_1080P_mode0_w0_88param,"a",%progbits
+ 2758              		.align	2
+ 2761              	VS4210_hdmi1920x1200_1080P_mode0_w0_88param:
+ 2762 0000 00       		.byte	0
+ 2763 0001 75       		.byte	117
+ 2764 0002 18       		.byte	24
+ 2765 0003 80       		.byte	-128
+ 2766 0004 20       		.byte	32
+ 2767 0005 0C       		.byte	12
+ 2768 0006 40       		.byte	64
+ 2769 0007 0A       		.byte	10
+ 2770 0008 40       		.byte	64
+ 2771 0009 0A       		.byte	10
+ 2772 000a 00       		.byte	0
+ 2773 000b 20       		.byte	32
+ 2774 000c 80       		.byte	-128
+ 2775 000d 82       		.byte	-126
+ 2776 000e 78       		.byte	120
+ 2777 000f FE       		.byte	-2
+ 2778 0010 00       		.byte	0
+ 2779 0011 C0       		.byte	-64
+ 2780 0012 00       		.byte	0
+ 2781 0013 26       		.byte	38
+ 2782 0014 00       		.byte	0
+ 2783 0015 00       		.byte	0
+ 2784 0016 20       		.byte	32
+ 2785 0017 F0       		.byte	-16
+ 2786 0018 00       		.byte	0
+ 2787 0019 80       		.byte	-128
+ 2788 001a 00       		.byte	0
+ 2789 001b 1C       		.byte	28
+ 2790 001c 00       		.byte	0
+ 2791 001d 02       		.byte	2
+ 2792 001e 80       		.byte	-128
+ 2793 001f 00       		.byte	0
+ 2794 0020 00       		.byte	0
+ 2795 0021 35       		.byte	53
+ 2796 0022 C0       		.byte	-64
+ARM GAS  /tmp/ccvs8hRA.s 			page 49
+
+
+ 2797 0023 05       		.byte	5
+ 2798 0024 00       		.byte	0
+ 2799 0025 FD       		.byte	-3
+ 2800 0026 00       		.byte	0
+ 2801 0027 00       		.byte	0
+ 2802 0028 00       		.byte	0
+ 2803 0029 00       		.byte	0
+ 2804 002a 00       		.byte	0
+ 2805 002b 7E       		.byte	126
+ 2806 002c 03       		.byte	3
+ 2807 002d 2C       		.byte	44
+ 2808 002e 8C       		.byte	-116
+ 2809 002f 00       		.byte	0
+ 2810 0030 CC       		.byte	-52
+ 2811 0031 41       		.byte	65
+ 2812 0032 C4       		.byte	-60
+ 2813 0033 84       		.byte	-124
+ 2814 0034 98       		.byte	-104
+ 2815 0035 80       		.byte	-128
+ 2816 0036 70       		.byte	112
+ 2817 0037 29       		.byte	41
+ 2818 0038 90       		.byte	-112
+ 2819 0039 04       		.byte	4
+ 2820 003a 0A       		.byte	10
+ 2821 003b 00       		.byte	0
+ 2822 003c 04       		.byte	4
+ 2823 003d 65       		.byte	101
+ 2824 003e 80       		.byte	-128
+ 2825 003f D8       		.byte	-40
+ 2826 0040 98       		.byte	-104
+ 2827 0041 87       		.byte	-121
+ 2828 0042 00       		.byte	0
+ 2829 0043 80       		.byte	-128
+ 2830 0044 00       		.byte	0
+ 2831 0045 70       		.byte	112
+ 2832 0046 40       		.byte	64
+ 2833 0047 1E       		.byte	30
+ 2834 0048 2E       		.byte	46
+ 2835 0049 00       		.byte	0
+ 2836 004a 99       		.byte	-103
+ 2837 004b 00       		.byte	0
+ 2838 004c 00       		.byte	0
+ 2839 004d 00       		.byte	0
+ 2840 004e 00       		.byte	0
+ 2841 004f 00       		.byte	0
+ 2842 0050 00       		.byte	0
+ 2843 0051 00       		.byte	0
+ 2844 0052 00       		.byte	0
+ 2845 0053 00       		.byte	0
+ 2846 0054 00       		.byte	0
+ 2847 0055 88       		.byte	-120
+ 2848 0056 00       		.byte	0
+ 2849 0057 00       		.byte	0
+ 2850              		.section	.rodata.VS4210_hdmi1920x1200_720P_mode0_w0_88param,"a",%progbits
+ 2851              		.align	2
+ 2854              	VS4210_hdmi1920x1200_720P_mode0_w0_88param:
+ 2855 0000 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 50
+
+
+ 2856 0001 75       		.byte	117
+ 2857 0002 18       		.byte	24
+ 2858 0003 80       		.byte	-128
+ 2859 0004 20       		.byte	32
+ 2860 0005 0C       		.byte	12
+ 2861 0006 40       		.byte	64
+ 2862 0007 0A       		.byte	10
+ 2863 0008 40       		.byte	64
+ 2864 0009 0A       		.byte	10
+ 2865 000a 00       		.byte	0
+ 2866 000b 20       		.byte	32
+ 2867 000c 80       		.byte	-128
+ 2868 000d 82       		.byte	-126
+ 2869 000e 78       		.byte	120
+ 2870 000f FE       		.byte	-2
+ 2871 0010 00       		.byte	0
+ 2872 0011 C0       		.byte	-64
+ 2873 0012 00       		.byte	0
+ 2874 0013 24       		.byte	36
+ 2875 0014 00       		.byte	0
+ 2876 0015 00       		.byte	0
+ 2877 0016 20       		.byte	32
+ 2878 0017 F0       		.byte	-16
+ 2879 0018 00       		.byte	0
+ 2880 0019 80       		.byte	-128
+ 2881 001a 00       		.byte	0
+ 2882 001b AA       		.byte	-86
+ 2883 001c 40       		.byte	64
+ 2884 001d 00       		.byte	0
+ 2885 001e 80       		.byte	-128
+ 2886 001f 00       		.byte	0
+ 2887 0020 00       		.byte	0
+ 2888 0021 34       		.byte	52
+ 2889 0022 00       		.byte	0
+ 2890 0023 05       		.byte	5
+ 2891 0024 00       		.byte	0
+ 2892 0025 FC       		.byte	-4
+ 2893 0026 05       		.byte	5
+ 2894 0027 14       		.byte	20
+ 2895 0028 DC       		.byte	-36
+ 2896 0029 6E       		.byte	110
+ 2897 002a 00       		.byte	0
+ 2898 002b 7E       		.byte	126
+ 2899 002c 03       		.byte	3
+ 2900 002d 28       		.byte	40
+ 2901 002e 8C       		.byte	-116
+ 2902 002f 00       		.byte	0
+ 2903 0030 CC       		.byte	-52
+ 2904 0031 41       		.byte	65
+ 2905 0032 C4       		.byte	-60
+ 2906 0033 62       		.byte	98
+ 2907 0034 72       		.byte	114
+ 2908 0035 00       		.byte	0
+ 2909 0036 50       		.byte	80
+ 2910 0037 1A       		.byte	26
+ 2911 0038 90       		.byte	-112
+ 2912 0039 04       		.byte	4
+ARM GAS  /tmp/ccvs8hRA.s 			page 51
+
+
+ 2913 003a 00       		.byte	0
+ 2914 003b 00       		.byte	0
+ 2915 003c 02       		.byte	2
+ 2916 003d EE       		.byte	-18
+ 2917 003e 80       		.byte	-128
+ 2918 003f 6E       		.byte	110
+ 2919 0040 72       		.byte	114
+ 2920 0041 65       		.byte	101
+ 2921 0042 00       		.byte	0
+ 2922 0043 80       		.byte	-128
+ 2923 0044 00       		.byte	0
+ 2924 0045 70       		.byte	112
+ 2925 0046 40       		.byte	64
+ 2926 0047 1E       		.byte	30
+ 2927 0048 2E       		.byte	46
+ 2928 0049 00       		.byte	0
+ 2929 004a 99       		.byte	-103
+ 2930 004b 01       		.byte	1
+ 2931 004c 01       		.byte	1
+ 2932 004d 10       		.byte	16
+ 2933 004e 00       		.byte	0
+ 2934 004f 00       		.byte	0
+ 2935 0050 00       		.byte	0
+ 2936 0051 00       		.byte	0
+ 2937 0052 00       		.byte	0
+ 2938 0053 00       		.byte	0
+ 2939 0054 00       		.byte	0
+ 2940 0055 88       		.byte	-120
+ 2941 0056 00       		.byte	0
+ 2942 0057 00       		.byte	0
+ 2943              		.section	.rodata.VS4210_hdmi480P_1080P_mode0_w0_88param,"a",%progbits
+ 2944              		.align	2
+ 2947              	VS4210_hdmi480P_1080P_mode0_w0_88param:
+ 2948 0000 00       		.byte	0
+ 2949 0001 75       		.byte	117
+ 2950 0002 18       		.byte	24
+ 2951 0003 80       		.byte	-128
+ 2952 0004 20       		.byte	32
+ 2953 0005 08       		.byte	8
+ 2954 0006 40       		.byte	64
+ 2955 0007 0A       		.byte	10
+ 2956 0008 41       		.byte	65
+ 2957 0009 07       		.byte	7
+ 2958 000a 00       		.byte	0
+ 2959 000b 20       		.byte	32
+ 2960 000c 80       		.byte	-128
+ 2961 000d 82       		.byte	-126
+ 2962 000e 78       		.byte	120
+ 2963 000f FE       		.byte	-2
+ 2964 0010 00       		.byte	0
+ 2965 0011 C8       		.byte	-56
+ 2966 0012 00       		.byte	0
+ 2967 0013 23       		.byte	35
+ 2968 0014 00       		.byte	0
+ 2969 0015 00       		.byte	0
+ 2970 0016 20       		.byte	32
+ 2971 0017 F0       		.byte	-16
+ARM GAS  /tmp/ccvs8hRA.s 			page 52
+
+
+ 2972 0018 00       		.byte	0
+ 2973 0019 00       		.byte	0
+ 2974 001a 01       		.byte	1
+ 2975 001b FF       		.byte	-1
+ 2976 001c 00       		.byte	0
+ 2977 001d 06       		.byte	6
+ 2978 001e 80       		.byte	-128
+ 2979 001f 00       		.byte	0
+ 2980 0020 01       		.byte	1
+ 2981 0021 34       		.byte	52
+ 2982 0022 40       		.byte	64
+ 2983 0023 2D       		.byte	45
+ 2984 0024 EF       		.byte	-17
+ 2985 0025 00       		.byte	0
+ 2986 0026 00       		.byte	0
+ 2987 0027 00       		.byte	0
+ 2988 0028 00       		.byte	0
+ 2989 0029 00       		.byte	0
+ 2990 002a 00       		.byte	0
+ 2991 002b 7E       		.byte	126
+ 2992 002c 03       		.byte	3
+ 2993 002d 17       		.byte	23
+ 2994 002e 90       		.byte	-112
+ 2995 002f 00       		.byte	0
+ 2996 0030 CC       		.byte	-52
+ 2997 0031 41       		.byte	65
+ 2998 0032 C4       		.byte	-60
+ 2999 0033 31       		.byte	49
+ 3000 0034 87       		.byte	-121
+ 3001 0035 D0       		.byte	-48
+ 3002 0036 20       		.byte	32
+ 3003 0037 11       		.byte	17
+ 3004 0038 90       		.byte	-112
+ 3005 0039 04       		.byte	4
+ 3006 003a 0A       		.byte	10
+ 3007 003b 00       		.byte	0
+ 3008 003c 04       		.byte	4
+ 3009 003d 65       		.byte	101
+ 3010 003e 38       		.byte	56
+ 3011 003f D9       		.byte	-39
+ 3012 0040 98       		.byte	-104
+ 3013 0041 87       		.byte	-121
+ 3014 0042 E1       		.byte	-31
+ 3015 0043 38       		.byte	56
+ 3016 0044 C2       		.byte	-62
+ 3017 0045 70       		.byte	112
+ 3018 0046 00       		.byte	0
+ 3019 0047 1E       		.byte	30
+ 3020 0048 2E       		.byte	46
+ 3021 0049 00       		.byte	0
+ 3022 004a 99       		.byte	-103
+ 3023 004b 00       		.byte	0
+ 3024 004c 00       		.byte	0
+ 3025 004d 10       		.byte	16
+ 3026 004e 00       		.byte	0
+ 3027 004f 00       		.byte	0
+ 3028 0050 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 53
+
+
+ 3029 0051 0F       		.byte	15
+ 3030 0052 00       		.byte	0
+ 3031 0053 00       		.byte	0
+ 3032 0054 00       		.byte	0
+ 3033 0055 88       		.byte	-120
+ 3034 0056 00       		.byte	0
+ 3035 0057 00       		.byte	0
+ 3036              		.section	.rodata.VS4210_hdmi480P_720P_mode0_w0_88param,"a",%progbits
+ 3037              		.align	2
+ 3040              	VS4210_hdmi480P_720P_mode0_w0_88param:
+ 3041 0000 00       		.byte	0
+ 3042 0001 75       		.byte	117
+ 3043 0002 18       		.byte	24
+ 3044 0003 80       		.byte	-128
+ 3045 0004 20       		.byte	32
+ 3046 0005 0C       		.byte	12
+ 3047 0006 40       		.byte	64
+ 3048 0007 0A       		.byte	10
+ 3049 0008 40       		.byte	64
+ 3050 0009 07       		.byte	7
+ 3051 000a 00       		.byte	0
+ 3052 000b 20       		.byte	32
+ 3053 000c 81       		.byte	-127
+ 3054 000d 82       		.byte	-126
+ 3055 000e 78       		.byte	120
+ 3056 000f FE       		.byte	-2
+ 3057 0010 00       		.byte	0
+ 3058 0011 C0       		.byte	-64
+ 3059 0012 00       		.byte	0
+ 3060 0013 25       		.byte	37
+ 3061 0014 00       		.byte	0
+ 3062 0015 00       		.byte	0
+ 3063 0016 20       		.byte	32
+ 3064 0017 F0       		.byte	-16
+ 3065 0018 00       		.byte	0
+ 3066 0019 00       		.byte	0
+ 3067 001a 00       		.byte	0
+ 3068 001b 00       		.byte	0
+ 3069 001c 00       		.byte	0
+ 3070 001d 00       		.byte	0
+ 3071 001e 80       		.byte	-128
+ 3072 001f 00       		.byte	0
+ 3073 0020 00       		.byte	0
+ 3074 0021 34       		.byte	52
+ 3075 0022 00       		.byte	0
+ 3076 0023 05       		.byte	5
+ 3077 0024 00       		.byte	0
+ 3078 0025 FC       		.byte	-4
+ 3079 0026 05       		.byte	5
+ 3080 0027 14       		.byte	20
+ 3081 0028 DC       		.byte	-36
+ 3082 0029 6E       		.byte	110
+ 3083 002a 00       		.byte	0
+ 3084 002b 7E       		.byte	126
+ 3085 002c 03       		.byte	3
+ 3086 002d 28       		.byte	40
+ 3087 002e 8C       		.byte	-116
+ARM GAS  /tmp/ccvs8hRA.s 			page 54
+
+
+ 3088 002f 00       		.byte	0
+ 3089 0030 CC       		.byte	-52
+ 3090 0031 41       		.byte	65
+ 3091 0032 C4       		.byte	-60
+ 3092 0033 31       		.byte	49
+ 3093 0034 88       		.byte	-120
+ 3094 0035 D0       		.byte	-48
+ 3095 0036 20       		.byte	32
+ 3096 0037 10       		.byte	16
+ 3097 0038 90       		.byte	-112
+ 3098 0039 04       		.byte	4
+ 3099 003a 00       		.byte	0
+ 3100 003b 00       		.byte	0
+ 3101 003c 02       		.byte	2
+ 3102 003d EE       		.byte	-18
+ 3103 003e 47       		.byte	71
+ 3104 003f 6F       		.byte	111
+ 3105 0040 72       		.byte	114
+ 3106 0041 65       		.byte	101
+ 3107 0042 C4       		.byte	-60
+ 3108 0043 55       		.byte	85
+ 3109 0044 06       		.byte	6
+ 3110 0045 70       		.byte	112
+ 3111 0046 40       		.byte	64
+ 3112 0047 1E       		.byte	30
+ 3113 0048 2E       		.byte	46
+ 3114 0049 00       		.byte	0
+ 3115 004a 99       		.byte	-103
+ 3116 004b 00       		.byte	0
+ 3117 004c 01       		.byte	1
+ 3118 004d 30       		.byte	48
+ 3119 004e 00       		.byte	0
+ 3120 004f 00       		.byte	0
+ 3121 0050 00       		.byte	0
+ 3122 0051 10       		.byte	16
+ 3123 0052 00       		.byte	0
+ 3124 0053 00       		.byte	0
+ 3125 0054 00       		.byte	0
+ 3126 0055 88       		.byte	-120
+ 3127 0056 00       		.byte	0
+ 3128 0057 00       		.byte	0
+ 3129              		.section	.rodata.VS4210_hdmi480i_1080P_mode0_w0_88param,"a",%progbits
+ 3130              		.align	2
+ 3133              	VS4210_hdmi480i_1080P_mode0_w0_88param:
+ 3134 0000 00       		.byte	0
+ 3135 0001 75       		.byte	117
+ 3136 0002 18       		.byte	24
+ 3137 0003 80       		.byte	-128
+ 3138 0004 20       		.byte	32
+ 3139 0005 08       		.byte	8
+ 3140 0006 40       		.byte	64
+ 3141 0007 0A       		.byte	10
+ 3142 0008 41       		.byte	65
+ 3143 0009 06       		.byte	6
+ 3144 000a 00       		.byte	0
+ 3145 000b 20       		.byte	32
+ 3146 000c C0       		.byte	-64
+ARM GAS  /tmp/ccvs8hRA.s 			page 55
+
+
+ 3147 000d 82       		.byte	-126
+ 3148 000e 78       		.byte	120
+ 3149 000f FE       		.byte	-2
+ 3150 0010 00       		.byte	0
+ 3151 0011 C0       		.byte	-64
+ 3152 0012 00       		.byte	0
+ 3153 0013 26       		.byte	38
+ 3154 0014 00       		.byte	0
+ 3155 0015 00       		.byte	0
+ 3156 0016 20       		.byte	32
+ 3157 0017 F0       		.byte	-16
+ 3158 0018 00       		.byte	0
+ 3159 0019 00       		.byte	0
+ 3160 001a 00       		.byte	0
+ 3161 001b 00       		.byte	0
+ 3162 001c 00       		.byte	0
+ 3163 001d 02       		.byte	2
+ 3164 001e 80       		.byte	-128
+ 3165 001f 00       		.byte	0
+ 3166 0020 00       		.byte	0
+ 3167 0021 35       		.byte	53
+ 3168 0022 C0       		.byte	-64
+ 3169 0023 05       		.byte	5
+ 3170 0024 00       		.byte	0
+ 3171 0025 FD       		.byte	-3
+ 3172 0026 00       		.byte	0
+ 3173 0027 00       		.byte	0
+ 3174 0028 00       		.byte	0
+ 3175 0029 00       		.byte	0
+ 3176 002a 00       		.byte	0
+ 3177 002b 7E       		.byte	126
+ 3178 002c 03       		.byte	3
+ 3179 002d 2C       		.byte	44
+ 3180 002e 8C       		.byte	-116
+ 3181 002f 00       		.byte	0
+ 3182 0030 CC       		.byte	-52
+ 3183 0031 41       		.byte	65
+ 3184 0032 C4       		.byte	-60
+ 3185 0033 31       		.byte	49
+ 3186 0034 17       		.byte	23
+ 3187 0035 D0       		.byte	-48
+ 3188 0036 20       		.byte	32
+ 3189 0037 11       		.byte	17
+ 3190 0038 90       		.byte	-112
+ 3191 0039 04       		.byte	4
+ 3192 003a 0A       		.byte	10
+ 3193 003b 00       		.byte	0
+ 3194 003c 04       		.byte	4
+ 3195 003d 65       		.byte	101
+ 3196 003e 2F       		.byte	47
+ 3197 003f D8       		.byte	-40
+ 3198 0040 98       		.byte	-104
+ 3199 0041 87       		.byte	-121
+ 3200 0042 CE       		.byte	-50
+ 3201 0043 38       		.byte	56
+ 3202 0044 B0       		.byte	-80
+ 3203 0045 70       		.byte	112
+ARM GAS  /tmp/ccvs8hRA.s 			page 56
+
+
+ 3204 0046 40       		.byte	64
+ 3205 0047 1E       		.byte	30
+ 3206 0048 2E       		.byte	46
+ 3207 0049 00       		.byte	0
+ 3208 004a 99       		.byte	-103
+ 3209 004b 00       		.byte	0
+ 3210 004c 00       		.byte	0
+ 3211 004d 10       		.byte	16
+ 3212 004e 00       		.byte	0
+ 3213 004f 00       		.byte	0
+ 3214 0050 00       		.byte	0
+ 3215 0051 00       		.byte	0
+ 3216 0052 00       		.byte	0
+ 3217 0053 00       		.byte	0
+ 3218 0054 00       		.byte	0
+ 3219 0055 88       		.byte	-120
+ 3220 0056 00       		.byte	0
+ 3221 0057 00       		.byte	0
+ 3222              		.section	.rodata.VS4210_hdmi480i_720P_mode0_w0_88param,"a",%progbits
+ 3223              		.align	2
+ 3226              	VS4210_hdmi480i_720P_mode0_w0_88param:
+ 3227 0000 00       		.byte	0
+ 3228 0001 75       		.byte	117
+ 3229 0002 18       		.byte	24
+ 3230 0003 80       		.byte	-128
+ 3231 0004 20       		.byte	32
+ 3232 0005 08       		.byte	8
+ 3233 0006 40       		.byte	64
+ 3234 0007 0A       		.byte	10
+ 3235 0008 40       		.byte	64
+ 3236 0009 07       		.byte	7
+ 3237 000a 00       		.byte	0
+ 3238 000b 20       		.byte	32
+ 3239 000c C0       		.byte	-64
+ 3240 000d 82       		.byte	-126
+ 3241 000e 78       		.byte	120
+ 3242 000f FE       		.byte	-2
+ 3243 0010 00       		.byte	0
+ 3244 0011 C0       		.byte	-64
+ 3245 0012 00       		.byte	0
+ 3246 0013 24       		.byte	36
+ 3247 0014 00       		.byte	0
+ 3248 0015 00       		.byte	0
+ 3249 0016 20       		.byte	32
+ 3250 0017 F0       		.byte	-16
+ 3251 0018 00       		.byte	0
+ 3252 0019 00       		.byte	0
+ 3253 001a 00       		.byte	0
+ 3254 001b 00       		.byte	0
+ 3255 001c 00       		.byte	0
+ 3256 001d 00       		.byte	0
+ 3257 001e 80       		.byte	-128
+ 3258 001f 00       		.byte	0
+ 3259 0020 00       		.byte	0
+ 3260 0021 34       		.byte	52
+ 3261 0022 00       		.byte	0
+ 3262 0023 05       		.byte	5
+ARM GAS  /tmp/ccvs8hRA.s 			page 57
+
+
+ 3263 0024 00       		.byte	0
+ 3264 0025 FC       		.byte	-4
+ 3265 0026 05       		.byte	5
+ 3266 0027 14       		.byte	20
+ 3267 0028 DC       		.byte	-36
+ 3268 0029 6E       		.byte	110
+ 3269 002a 00       		.byte	0
+ 3270 002b 7E       		.byte	126
+ 3271 002c 03       		.byte	3
+ 3272 002d 28       		.byte	40
+ 3273 002e 8C       		.byte	-116
+ 3274 002f 00       		.byte	0
+ 3275 0030 CC       		.byte	-52
+ 3276 0031 41       		.byte	65
+ 3277 0032 C4       		.byte	-60
+ 3278 0033 31       		.byte	49
+ 3279 0034 8C       		.byte	-116
+ 3280 0035 D0       		.byte	-48
+ 3281 0036 20       		.byte	32
+ 3282 0037 10       		.byte	16
+ 3283 0038 90       		.byte	-112
+ 3284 0039 04       		.byte	4
+ 3285 003a 00       		.byte	0
+ 3286 003b 00       		.byte	0
+ 3287 003c 02       		.byte	2
+ 3288 003d EE       		.byte	-18
+ 3289 003e 48       		.byte	72
+ 3290 003f 6E       		.byte	110
+ 3291 0040 72       		.byte	114
+ 3292 0041 65       		.byte	101
+ 3293 0042 00       		.byte	0
+ 3294 0043 54       		.byte	84
+ 3295 0044 A6       		.byte	-90
+ 3296 0045 70       		.byte	112
+ 3297 0046 00       		.byte	0
+ 3298 0047 1E       		.byte	30
+ 3299 0048 2E       		.byte	46
+ 3300 0049 00       		.byte	0
+ 3301 004a 99       		.byte	-103
+ 3302 004b 00       		.byte	0
+ 3303 004c 01       		.byte	1
+ 3304 004d 30       		.byte	48
+ 3305 004e 00       		.byte	0
+ 3306 004f 00       		.byte	0
+ 3307 0050 00       		.byte	0
+ 3308 0051 00       		.byte	0
+ 3309 0052 00       		.byte	0
+ 3310 0053 00       		.byte	0
+ 3311 0054 00       		.byte	0
+ 3312 0055 88       		.byte	-120
+ 3313 0056 00       		.byte	0
+ 3314 0057 00       		.byte	0
+ 3315              		.section	.rodata.VS4210_hdmi576P_1080P_mode0_w0_88param,"a",%progbits
+ 3316              		.align	2
+ 3319              	VS4210_hdmi576P_1080P_mode0_w0_88param:
+ 3320 0000 00       		.byte	0
+ 3321 0001 75       		.byte	117
+ARM GAS  /tmp/ccvs8hRA.s 			page 58
+
+
+ 3322 0002 18       		.byte	24
+ 3323 0003 80       		.byte	-128
+ 3324 0004 20       		.byte	32
+ 3325 0005 07       		.byte	7
+ 3326 0006 40       		.byte	64
+ 3327 0007 0A       		.byte	10
+ 3328 0008 41       		.byte	65
+ 3329 0009 07       		.byte	7
+ 3330 000a 00       		.byte	0
+ 3331 000b 20       		.byte	32
+ 3332 000c 80       		.byte	-128
+ 3333 000d 82       		.byte	-126
+ 3334 000e 78       		.byte	120
+ 3335 000f FE       		.byte	-2
+ 3336 0010 00       		.byte	0
+ 3337 0011 C0       		.byte	-64
+ 3338 0012 00       		.byte	0
+ 3339 0013 26       		.byte	38
+ 3340 0014 00       		.byte	0
+ 3341 0015 00       		.byte	0
+ 3342 0016 20       		.byte	32
+ 3343 0017 F0       		.byte	-16
+ 3344 0018 00       		.byte	0
+ 3345 0019 00       		.byte	0
+ 3346 001a 00       		.byte	0
+ 3347 001b 00       		.byte	0
+ 3348 001c 00       		.byte	0
+ 3349 001d 02       		.byte	2
+ 3350 001e 80       		.byte	-128
+ 3351 001f 00       		.byte	0
+ 3352 0020 00       		.byte	0
+ 3353 0021 35       		.byte	53
+ 3354 0022 C0       		.byte	-64
+ 3355 0023 05       		.byte	5
+ 3356 0024 00       		.byte	0
+ 3357 0025 FD       		.byte	-3
+ 3358 0026 00       		.byte	0
+ 3359 0027 00       		.byte	0
+ 3360 0028 00       		.byte	0
+ 3361 0029 00       		.byte	0
+ 3362 002a 00       		.byte	0
+ 3363 002b 7E       		.byte	126
+ 3364 002c 03       		.byte	3
+ 3365 002d 2C       		.byte	44
+ 3366 002e 8C       		.byte	-116
+ 3367 002f 00       		.byte	0
+ 3368 0030 CC       		.byte	-52
+ 3369 0031 41       		.byte	65
+ 3370 0032 C4       		.byte	-60
+ 3371 0033 22       		.byte	34
+ 3372 0034 F1       		.byte	-15
+ 3373 0035 D0       		.byte	-48
+ 3374 0036 20       		.byte	32
+ 3375 0037 15       		.byte	21
+ 3376 0038 90       		.byte	-112
+ 3377 0039 04       		.byte	4
+ 3378 003a 0A       		.byte	10
+ARM GAS  /tmp/ccvs8hRA.s 			page 59
+
+
+ 3379 003b 00       		.byte	0
+ 3380 003c 04       		.byte	4
+ 3381 003d 65       		.byte	101
+ 3382 003e 30       		.byte	48
+ 3383 003f D8       		.byte	-40
+ 3384 0040 98       		.byte	-104
+ 3385 0041 87       		.byte	-121
+ 3386 0042 00       		.byte	0
+ 3387 0043 44       		.byte	68
+ 3388 0044 0E       		.byte	14
+ 3389 0045 70       		.byte	112
+ 3390 0046 40       		.byte	64
+ 3391 0047 1E       		.byte	30
+ 3392 0048 2E       		.byte	46
+ 3393 0049 00       		.byte	0
+ 3394 004a 99       		.byte	-103
+ 3395 004b 00       		.byte	0
+ 3396 004c 00       		.byte	0
+ 3397 004d 10       		.byte	16
+ 3398 004e 00       		.byte	0
+ 3399 004f 00       		.byte	0
+ 3400 0050 00       		.byte	0
+ 3401 0051 0F       		.byte	15
+ 3402 0052 00       		.byte	0
+ 3403 0053 00       		.byte	0
+ 3404 0054 00       		.byte	0
+ 3405 0055 88       		.byte	-120
+ 3406 0056 00       		.byte	0
+ 3407 0057 00       		.byte	0
+ 3408              		.section	.rodata.VS4210_hdmi576P_720P_mode0_w0_88param,"a",%progbits
+ 3409              		.align	2
+ 3412              	VS4210_hdmi576P_720P_mode0_w0_88param:
+ 3413 0000 00       		.byte	0
+ 3414 0001 75       		.byte	117
+ 3415 0002 18       		.byte	24
+ 3416 0003 80       		.byte	-128
+ 3417 0004 20       		.byte	32
+ 3418 0005 08       		.byte	8
+ 3419 0006 40       		.byte	64
+ 3420 0007 0A       		.byte	10
+ 3421 0008 40       		.byte	64
+ 3422 0009 07       		.byte	7
+ 3423 000a 00       		.byte	0
+ 3424 000b 20       		.byte	32
+ 3425 000c 80       		.byte	-128
+ 3426 000d 82       		.byte	-126
+ 3427 000e 78       		.byte	120
+ 3428 000f FE       		.byte	-2
+ 3429 0010 00       		.byte	0
+ 3430 0011 C0       		.byte	-64
+ 3431 0012 00       		.byte	0
+ 3432 0013 24       		.byte	36
+ 3433 0014 00       		.byte	0
+ 3434 0015 00       		.byte	0
+ 3435 0016 20       		.byte	32
+ 3436 0017 F0       		.byte	-16
+ 3437 0018 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 60
+
+
+ 3438 0019 00       		.byte	0
+ 3439 001a 00       		.byte	0
+ 3440 001b 96       		.byte	-106
+ 3441 001c 0F       		.byte	15
+ 3442 001d 00       		.byte	0
+ 3443 001e 80       		.byte	-128
+ 3444 001f 00       		.byte	0
+ 3445 0020 00       		.byte	0
+ 3446 0021 34       		.byte	52
+ 3447 0022 00       		.byte	0
+ 3448 0023 05       		.byte	5
+ 3449 0024 00       		.byte	0
+ 3450 0025 FC       		.byte	-4
+ 3451 0026 05       		.byte	5
+ 3452 0027 14       		.byte	20
+ 3453 0028 DC       		.byte	-36
+ 3454 0029 6E       		.byte	110
+ 3455 002a 00       		.byte	0
+ 3456 002b 7E       		.byte	126
+ 3457 002c 03       		.byte	3
+ 3458 002d 28       		.byte	40
+ 3459 002e 8C       		.byte	-116
+ 3460 002f 00       		.byte	0
+ 3461 0030 CC       		.byte	-52
+ 3462 0031 41       		.byte	65
+ 3463 0032 C4       		.byte	-60
+ 3464 0033 22       		.byte	34
+ 3465 0034 F1       		.byte	-15
+ 3466 0035 D0       		.byte	-48
+ 3467 0036 20       		.byte	32
+ 3468 0037 14       		.byte	20
+ 3469 0038 90       		.byte	-112
+ 3470 0039 04       		.byte	4
+ 3471 003a 00       		.byte	0
+ 3472 003b 00       		.byte	0
+ 3473 003c 02       		.byte	2
+ 3474 003d EE       		.byte	-18
+ 3475 003e 48       		.byte	72
+ 3476 003f 6E       		.byte	110
+ 3477 0040 72       		.byte	114
+ 3478 0041 65       		.byte	101
+ 3479 0042 00       		.byte	0
+ 3480 0043 66       		.byte	102
+ 3481 0044 10       		.byte	16
+ 3482 0045 70       		.byte	112
+ 3483 0046 40       		.byte	64
+ 3484 0047 1E       		.byte	30
+ 3485 0048 2E       		.byte	46
+ 3486 0049 00       		.byte	0
+ 3487 004a 99       		.byte	-103
+ 3488 004b 00       		.byte	0
+ 3489 004c 01       		.byte	1
+ 3490 004d 30       		.byte	48
+ 3491 004e 00       		.byte	0
+ 3492 004f 00       		.byte	0
+ 3493 0050 00       		.byte	0
+ 3494 0051 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 61
+
+
+ 3495 0052 00       		.byte	0
+ 3496 0053 00       		.byte	0
+ 3497 0054 00       		.byte	0
+ 3498 0055 88       		.byte	-120
+ 3499 0056 00       		.byte	0
+ 3500 0057 00       		.byte	0
+ 3501              		.section	.rodata.VS4210_hdmi576i_1080P_mode0_w0_88param,"a",%progbits
+ 3502              		.align	2
+ 3505              	VS4210_hdmi576i_1080P_mode0_w0_88param:
+ 3506 0000 00       		.byte	0
+ 3507 0001 75       		.byte	117
+ 3508 0002 18       		.byte	24
+ 3509 0003 80       		.byte	-128
+ 3510 0004 20       		.byte	32
+ 3511 0005 08       		.byte	8
+ 3512 0006 40       		.byte	64
+ 3513 0007 0A       		.byte	10
+ 3514 0008 41       		.byte	65
+ 3515 0009 08       		.byte	8
+ 3516 000a 00       		.byte	0
+ 3517 000b 20       		.byte	32
+ 3518 000c C0       		.byte	-64
+ 3519 000d 82       		.byte	-126
+ 3520 000e 78       		.byte	120
+ 3521 000f FE       		.byte	-2
+ 3522 0010 00       		.byte	0
+ 3523 0011 C0       		.byte	-64
+ 3524 0012 00       		.byte	0
+ 3525 0013 26       		.byte	38
+ 3526 0014 00       		.byte	0
+ 3527 0015 00       		.byte	0
+ 3528 0016 20       		.byte	32
+ 3529 0017 F0       		.byte	-16
+ 3530 0018 00       		.byte	0
+ 3531 0019 00       		.byte	0
+ 3532 001a 01       		.byte	1
+ 3533 001b FF       		.byte	-1
+ 3534 001c 00       		.byte	0
+ 3535 001d 02       		.byte	2
+ 3536 001e 80       		.byte	-128
+ 3537 001f 00       		.byte	0
+ 3538 0020 00       		.byte	0
+ 3539 0021 35       		.byte	53
+ 3540 0022 C0       		.byte	-64
+ 3541 0023 05       		.byte	5
+ 3542 0024 00       		.byte	0
+ 3543 0025 FD       		.byte	-3
+ 3544 0026 00       		.byte	0
+ 3545 0027 00       		.byte	0
+ 3546 0028 00       		.byte	0
+ 3547 0029 00       		.byte	0
+ 3548 002a 00       		.byte	0
+ 3549 002b 7E       		.byte	126
+ 3550 002c 03       		.byte	3
+ 3551 002d 2C       		.byte	44
+ 3552 002e 8C       		.byte	-116
+ 3553 002f 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 62
+
+
+ 3554 0030 CC       		.byte	-52
+ 3555 0031 41       		.byte	65
+ 3556 0032 C4       		.byte	-60
+ 3557 0033 32       		.byte	50
+ 3558 0034 56       		.byte	86
+ 3559 0035 D0       		.byte	-48
+ 3560 0036 20       		.byte	32
+ 3561 0037 15       		.byte	21
+ 3562 0038 90       		.byte	-112
+ 3563 0039 04       		.byte	4
+ 3564 003a 0A       		.byte	10
+ 3565 003b 00       		.byte	0
+ 3566 003c 04       		.byte	4
+ 3567 003d 65       		.byte	101
+ 3568 003e 2F       		.byte	47
+ 3569 003f D8       		.byte	-40
+ 3570 0040 98       		.byte	-104
+ 3571 0041 87       		.byte	-121
+ 3572 0042 D4       		.byte	-44
+ 3573 0043 43       		.byte	67
+ 3574 0044 7D       		.byte	125
+ 3575 0045 70       		.byte	112
+ 3576 0046 40       		.byte	64
+ 3577 0047 1E       		.byte	30
+ 3578 0048 2E       		.byte	46
+ 3579 0049 00       		.byte	0
+ 3580 004a 99       		.byte	-103
+ 3581 004b 00       		.byte	0
+ 3582 004c 00       		.byte	0
+ 3583 004d 10       		.byte	16
+ 3584 004e 00       		.byte	0
+ 3585 004f 00       		.byte	0
+ 3586 0050 00       		.byte	0
+ 3587 0051 00       		.byte	0
+ 3588 0052 00       		.byte	0
+ 3589 0053 00       		.byte	0
+ 3590 0054 00       		.byte	0
+ 3591 0055 88       		.byte	-120
+ 3592 0056 00       		.byte	0
+ 3593 0057 00       		.byte	0
+ 3594              		.section	.rodata.VS4210_hdmi576i_720P_mode0_w0_88param,"a",%progbits
+ 3595              		.align	2
+ 3598              	VS4210_hdmi576i_720P_mode0_w0_88param:
+ 3599 0000 00       		.byte	0
+ 3600 0001 75       		.byte	117
+ 3601 0002 18       		.byte	24
+ 3602 0003 80       		.byte	-128
+ 3603 0004 20       		.byte	32
+ 3604 0005 09       		.byte	9
+ 3605 0006 40       		.byte	64
+ 3606 0007 0A       		.byte	10
+ 3607 0008 40       		.byte	64
+ 3608 0009 07       		.byte	7
+ 3609 000a 00       		.byte	0
+ 3610 000b 20       		.byte	32
+ 3611 000c C0       		.byte	-64
+ 3612 000d 82       		.byte	-126
+ARM GAS  /tmp/ccvs8hRA.s 			page 63
+
+
+ 3613 000e 78       		.byte	120
+ 3614 000f FE       		.byte	-2
+ 3615 0010 00       		.byte	0
+ 3616 0011 C0       		.byte	-64
+ 3617 0012 00       		.byte	0
+ 3618 0013 24       		.byte	36
+ 3619 0014 00       		.byte	0
+ 3620 0015 00       		.byte	0
+ 3621 0016 20       		.byte	32
+ 3622 0017 F0       		.byte	-16
+ 3623 0018 00       		.byte	0
+ 3624 0019 80       		.byte	-128
+ 3625 001a 00       		.byte	0
+ 3626 001b 00       		.byte	0
+ 3627 001c 00       		.byte	0
+ 3628 001d 00       		.byte	0
+ 3629 001e 80       		.byte	-128
+ 3630 001f 00       		.byte	0
+ 3631 0020 00       		.byte	0
+ 3632 0021 34       		.byte	52
+ 3633 0022 00       		.byte	0
+ 3634 0023 05       		.byte	5
+ 3635 0024 00       		.byte	0
+ 3636 0025 FC       		.byte	-4
+ 3637 0026 05       		.byte	5
+ 3638 0027 14       		.byte	20
+ 3639 0028 DC       		.byte	-36
+ 3640 0029 6E       		.byte	110
+ 3641 002a 00       		.byte	0
+ 3642 002b 7E       		.byte	126
+ 3643 002c 03       		.byte	3
+ 3644 002d 28       		.byte	40
+ 3645 002e 8C       		.byte	-116
+ 3646 002f 00       		.byte	0
+ 3647 0030 CC       		.byte	-52
+ 3648 0031 41       		.byte	65
+ 3649 0032 C4       		.byte	-60
+ 3650 0033 22       		.byte	34
+ 3651 0034 FE       		.byte	-2
+ 3652 0035 D0       		.byte	-48
+ 3653 0036 20       		.byte	32
+ 3654 0037 11       		.byte	17
+ 3655 0038 90       		.byte	-112
+ 3656 0039 04       		.byte	4
+ 3657 003a 00       		.byte	0
+ 3658 003b 00       		.byte	0
+ 3659 003c 02       		.byte	2
+ 3660 003d EE       		.byte	-18
+ 3661 003e 48       		.byte	72
+ 3662 003f 6E       		.byte	110
+ 3663 0040 72       		.byte	114
+ 3664 0041 65       		.byte	101
+ 3665 0042 00       		.byte	0
+ 3666 0043 64       		.byte	100
+ 3667 0044 54       		.byte	84
+ 3668 0045 70       		.byte	112
+ 3669 0046 40       		.byte	64
+ARM GAS  /tmp/ccvs8hRA.s 			page 64
+
+
+ 3670 0047 1E       		.byte	30
+ 3671 0048 2E       		.byte	46
+ 3672 0049 00       		.byte	0
+ 3673 004a 99       		.byte	-103
+ 3674 004b 00       		.byte	0
+ 3675 004c 01       		.byte	1
+ 3676 004d 30       		.byte	48
+ 3677 004e 00       		.byte	0
+ 3678 004f 00       		.byte	0
+ 3679 0050 00       		.byte	0
+ 3680 0051 00       		.byte	0
+ 3681 0052 00       		.byte	0
+ 3682 0053 00       		.byte	0
+ 3683 0054 00       		.byte	0
+ 3684 0055 88       		.byte	-120
+ 3685 0056 00       		.byte	0
+ 3686 0057 00       		.byte	0
+ 3687              		.section	.rodata.VS4210_hdmi640x480_1080P_mode0_w0_88param,"a",%progbits
+ 3688              		.align	2
+ 3691              	VS4210_hdmi640x480_1080P_mode0_w0_88param:
+ 3692 0000 00       		.byte	0
+ 3693 0001 75       		.byte	117
+ 3694 0002 18       		.byte	24
+ 3695 0003 80       		.byte	-128
+ 3696 0004 20       		.byte	32
+ 3697 0005 08       		.byte	8
+ 3698 0006 40       		.byte	64
+ 3699 0007 0A       		.byte	10
+ 3700 0008 40       		.byte	64
+ 3701 0009 03       		.byte	3
+ 3702 000a 00       		.byte	0
+ 3703 000b 20       		.byte	32
+ 3704 000c 00       		.byte	0
+ 3705 000d 82       		.byte	-126
+ 3706 000e 77       		.byte	119
+ 3707 000f FE       		.byte	-2
+ 3708 0010 FF       		.byte	-1
+ 3709 0011 C0       		.byte	-64
+ 3710 0012 00       		.byte	0
+ 3711 0013 20       		.byte	32
+ 3712 0014 00       		.byte	0
+ 3713 0015 00       		.byte	0
+ 3714 0016 20       		.byte	32
+ 3715 0017 F0       		.byte	-16
+ 3716 0018 00       		.byte	0
+ 3717 0019 00       		.byte	0
+ 3718 001a 11       		.byte	17
+ 3719 001b 00       		.byte	0
+ 3720 001c 00       		.byte	0
+ 3721 001d 06       		.byte	6
+ 3722 001e 80       		.byte	-128
+ 3723 001f 00       		.byte	0
+ 3724 0020 01       		.byte	1
+ 3725 0021 34       		.byte	52
+ 3726 0022 40       		.byte	64
+ 3727 0023 2D       		.byte	45
+ 3728 0024 46       		.byte	70
+ARM GAS  /tmp/ccvs8hRA.s 			page 65
+
+
+ 3729 0025 00       		.byte	0
+ 3730 0026 00       		.byte	0
+ 3731 0027 00       		.byte	0
+ 3732 0028 00       		.byte	0
+ 3733 0029 00       		.byte	0
+ 3734 002a 00       		.byte	0
+ 3735 002b 7E       		.byte	126
+ 3736 002c 03       		.byte	3
+ 3737 002d 17       		.byte	23
+ 3738 002e B0       		.byte	-80
+ 3739 002f 00       		.byte	0
+ 3740 0030 CC       		.byte	-52
+ 3741 0031 41       		.byte	65
+ 3742 0032 C4       		.byte	-60
+ 3743 0033 31       		.byte	49
+ 3744 0034 88       		.byte	-120
+ 3745 0035 80       		.byte	-128
+ 3746 0036 20       		.byte	32
+ 3747 0037 10       		.byte	16
+ 3748 0038 90       		.byte	-112
+ 3749 0039 04       		.byte	4
+ 3750 003a 0A       		.byte	10
+ 3751 003b 00       		.byte	0
+ 3752 003c 04       		.byte	4
+ 3753 003d 65       		.byte	101
+ 3754 003e 38       		.byte	56
+ 3755 003f D8       		.byte	-40
+ 3756 0040 98       		.byte	-104
+ 3757 0041 87       		.byte	-121
+ 3758 0042 D9       		.byte	-39
+ 3759 0043 38       		.byte	56
+ 3760 0044 BA       		.byte	-70
+ 3761 0045 70       		.byte	112
+ 3762 0046 40       		.byte	64
+ 3763 0047 1E       		.byte	30
+ 3764 0048 2E       		.byte	46
+ 3765 0049 00       		.byte	0
+ 3766 004a 99       		.byte	-103
+ 3767 004b 00       		.byte	0
+ 3768 004c 00       		.byte	0
+ 3769 004d 10       		.byte	16
+ 3770 004e 00       		.byte	0
+ 3771 004f 00       		.byte	0
+ 3772 0050 00       		.byte	0
+ 3773 0051 00       		.byte	0
+ 3774 0052 00       		.byte	0
+ 3775 0053 00       		.byte	0
+ 3776 0054 00       		.byte	0
+ 3777 0055 88       		.byte	-120
+ 3778 0056 00       		.byte	0
+ 3779 0057 00       		.byte	0
+ 3780              		.section	.rodata.VS4210_hdmi640x480_720P_mode0_w0_88param,"a",%progbits
+ 3781              		.align	2
+ 3784              	VS4210_hdmi640x480_720P_mode0_w0_88param:
+ 3785 0000 00       		.byte	0
+ 3786 0001 75       		.byte	117
+ 3787 0002 18       		.byte	24
+ARM GAS  /tmp/ccvs8hRA.s 			page 66
+
+
+ 3788 0003 80       		.byte	-128
+ 3789 0004 20       		.byte	32
+ 3790 0005 0C       		.byte	12
+ 3791 0006 40       		.byte	64
+ 3792 0007 0A       		.byte	10
+ 3793 0008 40       		.byte	64
+ 3794 0009 03       		.byte	3
+ 3795 000a 00       		.byte	0
+ 3796 000b 20       		.byte	32
+ 3797 000c 80       		.byte	-128
+ 3798 000d 82       		.byte	-126
+ 3799 000e 78       		.byte	120
+ 3800 000f FE       		.byte	-2
+ 3801 0010 00       		.byte	0
+ 3802 0011 C0       		.byte	-64
+ 3803 0012 00       		.byte	0
+ 3804 0013 24       		.byte	36
+ 3805 0014 00       		.byte	0
+ 3806 0015 00       		.byte	0
+ 3807 0016 20       		.byte	32
+ 3808 0017 F0       		.byte	-16
+ 3809 0018 00       		.byte	0
+ 3810 0019 00       		.byte	0
+ 3811 001a 00       		.byte	0
+ 3812 001b 7F       		.byte	127
+ 3813 001c 40       		.byte	64
+ 3814 001d 00       		.byte	0
+ 3815 001e 80       		.byte	-128
+ 3816 001f 00       		.byte	0
+ 3817 0020 00       		.byte	0
+ 3818 0021 34       		.byte	52
+ 3819 0022 00       		.byte	0
+ 3820 0023 05       		.byte	5
+ 3821 0024 00       		.byte	0
+ 3822 0025 FC       		.byte	-4
+ 3823 0026 05       		.byte	5
+ 3824 0027 14       		.byte	20
+ 3825 0028 DC       		.byte	-36
+ 3826 0029 6E       		.byte	110
+ 3827 002a 00       		.byte	0
+ 3828 002b 7E       		.byte	126
+ 3829 002c 03       		.byte	3
+ 3830 002d 28       		.byte	40
+ 3831 002e 8C       		.byte	-116
+ 3832 002f 00       		.byte	0
+ 3833 0030 CC       		.byte	-52
+ 3834 0031 41       		.byte	65
+ 3835 0032 C4       		.byte	-60
+ 3836 0033 31       		.byte	49
+ 3837 0034 86       		.byte	-122
+ 3838 0035 80       		.byte	-128
+ 3839 0036 20       		.byte	32
+ 3840 0037 11       		.byte	17
+ 3841 0038 90       		.byte	-112
+ 3842 0039 04       		.byte	4
+ 3843 003a 00       		.byte	0
+ 3844 003b 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 67
+
+
+ 3845 003c 02       		.byte	2
+ 3846 003d EE       		.byte	-18
+ 3847 003e 40       		.byte	64
+ 3848 003f 6E       		.byte	110
+ 3849 0040 72       		.byte	114
+ 3850 0041 65       		.byte	101
+ 3851 0042 00       		.byte	0
+ 3852 0043 55       		.byte	85
+ 3853 0044 3C       		.byte	60
+ 3854 0045 70       		.byte	112
+ 3855 0046 40       		.byte	64
+ 3856 0047 1E       		.byte	30
+ 3857 0048 2E       		.byte	46
+ 3858 0049 00       		.byte	0
+ 3859 004a 99       		.byte	-103
+ 3860 004b 00       		.byte	0
+ 3861 004c 01       		.byte	1
+ 3862 004d 10       		.byte	16
+ 3863 004e 00       		.byte	0
+ 3864 004f 00       		.byte	0
+ 3865 0050 00       		.byte	0
+ 3866 0051 00       		.byte	0
+ 3867 0052 00       		.byte	0
+ 3868 0053 00       		.byte	0
+ 3869 0054 00       		.byte	0
+ 3870 0055 88       		.byte	-120
+ 3871 0056 00       		.byte	0
+ 3872 0057 00       		.byte	0
+ 3873              		.section	.rodata.VS4210_hdmi720P_1080P_mode0_w0_88param,"a",%progbits
+ 3874              		.align	2
+ 3877              	VS4210_hdmi720P_1080P_mode0_w0_88param:
+ 3878 0000 00       		.byte	0
+ 3879 0001 75       		.byte	117
+ 3880 0002 18       		.byte	24
+ 3881 0003 80       		.byte	-128
+ 3882 0004 20       		.byte	32
+ 3883 0005 08       		.byte	8
+ 3884 0006 40       		.byte	64
+ 3885 0007 0A       		.byte	10
+ 3886 0008 40       		.byte	64
+ 3887 0009 0A       		.byte	10
+ 3888 000a 00       		.byte	0
+ 3889 000b 20       		.byte	32
+ 3890 000c 80       		.byte	-128
+ 3891 000d 82       		.byte	-126
+ 3892 000e 78       		.byte	120
+ 3893 000f FE       		.byte	-2
+ 3894 0010 00       		.byte	0
+ 3895 0011 C0       		.byte	-64
+ 3896 0012 00       		.byte	0
+ 3897 0013 27       		.byte	39
+ 3898 0014 00       		.byte	0
+ 3899 0015 00       		.byte	0
+ 3900 0016 20       		.byte	32
+ 3901 0017 F0       		.byte	-16
+ 3902 0018 00       		.byte	0
+ 3903 0019 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 68
+
+
+ 3904 001a 00       		.byte	0
+ 3905 001b 00       		.byte	0
+ 3906 001c 00       		.byte	0
+ 3907 001d 06       		.byte	6
+ 3908 001e 80       		.byte	-128
+ 3909 001f 00       		.byte	0
+ 3910 0020 01       		.byte	1
+ 3911 0021 34       		.byte	52
+ 3912 0022 40       		.byte	64
+ 3913 0023 2D       		.byte	45
+ 3914 0024 59       		.byte	89
+ 3915 0025 00       		.byte	0
+ 3916 0026 00       		.byte	0
+ 3917 0027 00       		.byte	0
+ 3918 0028 00       		.byte	0
+ 3919 0029 00       		.byte	0
+ 3920 002a 00       		.byte	0
+ 3921 002b 7E       		.byte	126
+ 3922 002c 03       		.byte	3
+ 3923 002d 17       		.byte	23
+ 3924 002e 90       		.byte	-112
+ 3925 002f 00       		.byte	0
+ 3926 0030 CC       		.byte	-52
+ 3927 0031 41       		.byte	65
+ 3928 0032 C4       		.byte	-60
+ 3929 0033 62       		.byte	98
+ 3930 0034 74       		.byte	116
+ 3931 0035 00       		.byte	0
+ 3932 0036 50       		.byte	80
+ 3933 0037 1A       		.byte	26
+ 3934 0038 90       		.byte	-112
+ 3935 0039 04       		.byte	4
+ 3936 003a 0A       		.byte	10
+ 3937 003b 00       		.byte	0
+ 3938 003c 04       		.byte	4
+ 3939 003d 65       		.byte	101
+ 3940 003e 55       		.byte	85
+ 3941 003f D8       		.byte	-40
+ 3942 0040 98       		.byte	-104
+ 3943 0041 87       		.byte	-121
+ 3944 0042 6E       		.byte	110
+ 3945 0043 55       		.byte	85
+ 3946 0044 33       		.byte	51
+ 3947 0045 70       		.byte	112
+ 3948 0046 40       		.byte	64
+ 3949 0047 1E       		.byte	30
+ 3950 0048 2E       		.byte	46
+ 3951 0049 00       		.byte	0
+ 3952 004a 99       		.byte	-103
+ 3953 004b 00       		.byte	0
+ 3954 004c 00       		.byte	0
+ 3955 004d 10       		.byte	16
+ 3956 004e 00       		.byte	0
+ 3957 004f 00       		.byte	0
+ 3958 0050 00       		.byte	0
+ 3959 0051 00       		.byte	0
+ 3960 0052 00       		.byte	0
+ARM GAS  /tmp/ccvs8hRA.s 			page 69
+
+
+ 3961 0053 00       		.byte	0
+ 3962 0054 00       		.byte	0
+ 3963 0055 88       		.byte	-120
+ 3964 0056 00       		.byte	0
+ 3965 0057 00       		.byte	0
+ 3966              		.section	.rodata.VS4210_hdmi720P_720P_mode0_w0_88param,"a",%progbits
+ 3967              		.align	2
+ 3970              	VS4210_hdmi720P_720P_mode0_w0_88param:
+ 3971 0000 00       		.byte	0
+ 3972 0001 75       		.byte	117
+ 3973 0002 18       		.byte	24
+ 3974 0003 80       		.byte	-128
+ 3975 0004 20       		.byte	32
+ 3976 0005 09       		.byte	9
+ 3977 0006 40       		.byte	64
+ 3978 0007 0A       		.byte	10
+ 3979 0008 40       		.byte	64
+ 3980 0009 0A       		.byte	10
+ 3981 000a 00       		.byte	0
+ 3982 000b 20       		.byte	32
+ 3983 000c 80       		.byte	-128
+ 3984 000d 82       		.byte	-126
+ 3985 000e 78       		.byte	120
+ 3986 000f FE       		.byte	-2
+ 3987 0010 00       		.byte	0
+ 3988 0011 C0       		.byte	-64
+ 3989 0012 00       		.byte	0
+ 3990 0013 24       		.byte	36
+ 3991 0014 00       		.byte	0
+ 3992 0015 00       		.byte	0
+ 3993 0016 20       		.byte	32
+ 3994 0017 F0       		.byte	-16
+ 3995 0018 00       		.byte	0
+ 3996 0019 00       		.byte	0
+ 3997 001a 00       		.byte	0
+ 3998 001b 00       		.byte	0
+ 3999 001c 00       		.byte	0
+ 4000 001d 00       		.byte	0
+ 4001 001e 80       		.byte	-128
+ 4002 001f 00       		.byte	0
+ 4003 0020 00       		.byte	0
+ 4004 0021 34       		.byte	52
+ 4005 0022 00       		.byte	0
+ 4006 0023 05       		.byte	5
+ 4007 0024 00       		.byte	0
+ 4008 0025 FC       		.byte	-4
+ 4009 0026 05       		.byte	5
+ 4010 0027 14       		.byte	20
+ 4011 0028 DC       		.byte	-36
+ 4012 0029 6E       		.byte	110
+ 4013 002a 00       		.byte	0
+ 4014 002b 7E       		.byte	126
+ 4015 002c 03       		.byte	3
+ 4016 002d 28       		.byte	40
+ 4017 002e 8C       		.byte	-116
+ 4018 002f 00       		.byte	0
+ 4019 0030 CC       		.byte	-52
+ARM GAS  /tmp/ccvs8hRA.s 			page 70
+
+
+ 4020 0031 41       		.byte	65
+ 4021 0032 C4       		.byte	-60
+ 4022 0033 62       		.byte	98
+ 4023 0034 72       		.byte	114
+ 4024 0035 00       		.byte	0
+ 4025 0036 50       		.byte	80
+ 4026 0037 1A       		.byte	26
+ 4027 0038 90       		.byte	-112
+ 4028 0039 04       		.byte	4
+ 4029 003a 00       		.byte	0
+ 4030 003b 00       		.byte	0
+ 4031 003c 02       		.byte	2
+ 4032 003d EE       		.byte	-18
+ 4033 003e 80       		.byte	-128
+ 4034 003f 6E       		.byte	110
+ 4035 0040 72       		.byte	114
+ 4036 0041 65       		.byte	101
+ 4037 0042 00       		.byte	0
+ 4038 0043 80       		.byte	-128
+ 4039 0044 00       		.byte	0
+ 4040 0045 70       		.byte	112
+ 4041 0046 40       		.byte	64
+ 4042 0047 1E       		.byte	30
+ 4043 0048 2E       		.byte	46
+ 4044 0049 00       		.byte	0
+ 4045 004a 99       		.byte	-103
+ 4046 004b 00       		.byte	0
+ 4047 004c 01       		.byte	1
+ 4048 004d 10       		.byte	16
+ 4049 004e 00       		.byte	0
+ 4050 004f 00       		.byte	0
+ 4051 0050 00       		.byte	0
+ 4052 0051 00       		.byte	0
+ 4053 0052 00       		.byte	0
+ 4054 0053 00       		.byte	0
+ 4055 0054 00       		.byte	0
+ 4056 0055 88       		.byte	-120
+ 4057 0056 00       		.byte	0
+ 4058 0057 00       		.byte	0
+ 4059              		.section	.rodata.VS4210_hdmi800x600_1080P_mode0_w0_88param,"a",%progbits
+ 4060              		.align	2
+ 4063              	VS4210_hdmi800x600_1080P_mode0_w0_88param:
+ 4064 0000 00       		.byte	0
+ 4065 0001 75       		.byte	117
+ 4066 0002 18       		.byte	24
+ 4067 0003 80       		.byte	-128
+ 4068 0004 20       		.byte	32
+ 4069 0005 08       		.byte	8
+ 4070 0006 40       		.byte	64
+ 4071 0007 0A       		.byte	10
+ 4072 0008 40       		.byte	64
+ 4073 0009 05       		.byte	5
+ 4074 000a 00       		.byte	0
+ 4075 000b 20       		.byte	32
+ 4076 000c 80       		.byte	-128
+ 4077 000d 82       		.byte	-126
+ 4078 000e 78       		.byte	120
+ARM GAS  /tmp/ccvs8hRA.s 			page 71
+
+
+ 4079 000f FE       		.byte	-2
+ 4080 0010 00       		.byte	0
+ 4081 0011 C0       		.byte	-64
+ 4082 0012 00       		.byte	0
+ 4083 0013 26       		.byte	38
+ 4084 0014 00       		.byte	0
+ 4085 0015 00       		.byte	0
+ 4086 0016 20       		.byte	32
+ 4087 0017 F0       		.byte	-16
+ 4088 0018 00       		.byte	0
+ 4089 0019 80       		.byte	-128
+ 4090 001a 00       		.byte	0
+ 4091 001b 00       		.byte	0
+ 4092 001c 00       		.byte	0
+ 4093 001d 02       		.byte	2
+ 4094 001e 80       		.byte	-128
+ 4095 001f 00       		.byte	0
+ 4096 0020 00       		.byte	0
+ 4097 0021 35       		.byte	53
+ 4098 0022 C0       		.byte	-64
+ 4099 0023 05       		.byte	5
+ 4100 0024 00       		.byte	0
+ 4101 0025 FD       		.byte	-3
+ 4102 0026 00       		.byte	0
+ 4103 0027 00       		.byte	0
+ 4104 0028 00       		.byte	0
+ 4105 0029 00       		.byte	0
+ 4106 002a 00       		.byte	0
+ 4107 002b 7E       		.byte	126
+ 4108 002c 03       		.byte	3
+ 4109 002d 2C       		.byte	44
+ 4110 002e 8C       		.byte	-116
+ 4111 002f 00       		.byte	0
+ 4112 0030 CC       		.byte	-52
+ 4113 0031 41       		.byte	65
+ 4114 0032 C4       		.byte	-60
+ 4115 0033 42       		.byte	66
+ 4116 0034 3A       		.byte	58
+ 4117 0035 20       		.byte	32
+ 4118 0036 30       		.byte	48
+ 4119 0037 16       		.byte	22
+ 4120 0038 90       		.byte	-112
+ 4121 0039 04       		.byte	4
+ 4122 003a 0A       		.byte	10
+ 4123 003b 00       		.byte	0
+ 4124 003c 04       		.byte	4
+ 4125 003d 65       		.byte	101
+ 4126 003e 35       		.byte	53
+ 4127 003f D8       		.byte	-40
+ 4128 0040 98       		.byte	-104
+ 4129 0041 87       		.byte	-121
+ 4130 0042 44       		.byte	68
+ 4131 0043 47       		.byte	71
+ 4132 0044 0C       		.byte	12
+ 4133 0045 70       		.byte	112
+ 4134 0046 40       		.byte	64
+ 4135 0047 1E       		.byte	30
+ARM GAS  /tmp/ccvs8hRA.s 			page 72
+
+
+ 4136 0048 2E       		.byte	46
+ 4137 0049 00       		.byte	0
+ 4138 004a 99       		.byte	-103
+ 4139 004b 00       		.byte	0
+ 4140 004c 00       		.byte	0
+ 4141 004d 10       		.byte	16
+ 4142 004e 00       		.byte	0
+ 4143 004f 00       		.byte	0
+ 4144 0050 00       		.byte	0
+ 4145 0051 00       		.byte	0
+ 4146 0052 00       		.byte	0
+ 4147 0053 00       		.byte	0
+ 4148 0054 00       		.byte	0
+ 4149 0055 88       		.byte	-120
+ 4150 0056 00       		.byte	0
+ 4151 0057 00       		.byte	0
+ 4152              		.section	.rodata.VS4210_hdmi800x600_720P_mode0_w0_88param,"a",%progbits
+ 4153              		.align	2
+ 4156              	VS4210_hdmi800x600_720P_mode0_w0_88param:
+ 4157 0000 00       		.byte	0
+ 4158 0001 75       		.byte	117
+ 4159 0002 18       		.byte	24
+ 4160 0003 80       		.byte	-128
+ 4161 0004 20       		.byte	32
+ 4162 0005 0C       		.byte	12
+ 4163 0006 40       		.byte	64
+ 4164 0007 0A       		.byte	10
+ 4165 0008 40       		.byte	64
+ 4166 0009 05       		.byte	5
+ 4167 000a 00       		.byte	0
+ 4168 000b 20       		.byte	32
+ 4169 000c 80       		.byte	-128
+ 4170 000d 82       		.byte	-126
+ 4171 000e 78       		.byte	120
+ 4172 000f FE       		.byte	-2
+ 4173 0010 00       		.byte	0
+ 4174 0011 C0       		.byte	-64
+ 4175 0012 00       		.byte	0
+ 4176 0013 24       		.byte	36
+ 4177 0014 00       		.byte	0
+ 4178 0015 00       		.byte	0
+ 4179 0016 20       		.byte	32
+ 4180 0017 F0       		.byte	-16
+ 4181 0018 00       		.byte	0
+ 4182 0019 00       		.byte	0
+ 4183 001a 00       		.byte	0
+ 4184 001b 7F       		.byte	127
+ 4185 001c 40       		.byte	64
+ 4186 001d 00       		.byte	0
+ 4187 001e 80       		.byte	-128
+ 4188 001f 00       		.byte	0
+ 4189 0020 00       		.byte	0
+ 4190 0021 34       		.byte	52
+ 4191 0022 00       		.byte	0
+ 4192 0023 05       		.byte	5
+ 4193 0024 00       		.byte	0
+ 4194 0025 FC       		.byte	-4
+ARM GAS  /tmp/ccvs8hRA.s 			page 73
+
+
+ 4195 0026 05       		.byte	5
+ 4196 0027 14       		.byte	20
+ 4197 0028 DC       		.byte	-36
+ 4198 0029 6E       		.byte	110
+ 4199 002a 00       		.byte	0
+ 4200 002b 7E       		.byte	126
+ 4201 002c 03       		.byte	3
+ 4202 002d 28       		.byte	40
+ 4203 002e 8C       		.byte	-116
+ 4204 002f 00       		.byte	0
+ 4205 0030 CC       		.byte	-52
+ 4206 0031 41       		.byte	65
+ 4207 0032 C4       		.byte	-60
+ 4208 0033 42       		.byte	66
+ 4209 0034 3C       		.byte	60
+ 4210 0035 20       		.byte	32
+ 4211 0036 30       		.byte	48
+ 4212 0037 15       		.byte	21
+ 4213 0038 90       		.byte	-112
+ 4214 0039 04       		.byte	4
+ 4215 003a 00       		.byte	0
+ 4216 003b 00       		.byte	0
+ 4217 003c 02       		.byte	2
+ 4218 003d EE       		.byte	-18
+ 4219 003e 50       		.byte	80
+ 4220 003f 6E       		.byte	110
+ 4221 0040 72       		.byte	114
+ 4222 0041 65       		.byte	101
+ 4223 0042 00       		.byte	0
+ 4224 0043 6A       		.byte	106
+ 4225 0044 56       		.byte	86
+ 4226 0045 70       		.byte	112
+ 4227 0046 40       		.byte	64
+ 4228 0047 1E       		.byte	30
+ 4229 0048 2E       		.byte	46
+ 4230 0049 00       		.byte	0
+ 4231 004a 99       		.byte	-103
+ 4232 004b 00       		.byte	0
+ 4233 004c 01       		.byte	1
+ 4234 004d 10       		.byte	16
+ 4235 004e 00       		.byte	0
+ 4236 004f 00       		.byte	0
+ 4237 0050 00       		.byte	0
+ 4238 0051 00       		.byte	0
+ 4239 0052 00       		.byte	0
+ 4240 0053 00       		.byte	0
+ 4241 0054 00       		.byte	0
+ 4242 0055 88       		.byte	-120
+ 4243 0056 00       		.byte	0
+ 4244 0057 00       		.byte	0
+ 4245              		.text
+ 4246              	.Letext0:
+ 4247              		.file 1 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/lock.h"
+ 4248              		.file 2 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_types.h"
+ 4249              		.file 3 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/lib/gcc/arm-none-eabi/7.3.1/include/std
+ 4250              		.file 4 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/reent.h"
+ 4251              		.file 5 "VS4210/VXIS_Extern_Define.h"
+ARM GAS  /tmp/ccvs8hRA.s 			page 74
+
+
+ 4252              		.file 6 "VS4210/VS4210_param_Mode88.c"
+ARM GAS  /tmp/ccvs8hRA.s 			page 75
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 VS4210_param_Mode88.c
+     /tmp/ccvs8hRA.s:436    .rodata.VS4210_TP_bt1120_PAL_1080P_mode0_w0_88param:0000000000000000 VS4210_TP_bt1120_PAL_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:343    .rodata.VS4210_TP_bt1120_NTSC_1080P_mode0_w0_88param:0000000000000000 VS4210_TP_bt1120_NTSC_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:250    .rodata.VS4210_TP_bt1120_720P_1080P_mode0_w0_88param:0000000000000000 VS4210_TP_bt1120_720P_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:157    .rodata.VS4210_TP_bt1120_1080P_1080P_mode0_w0_88param:0000000000000000 VS4210_TP_bt1120_1080P_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:4156   .rodata.VS4210_hdmi800x600_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi800x600_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:4063   .rodata.VS4210_hdmi800x600_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi800x600_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:3970   .rodata.VS4210_hdmi720P_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi720P_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:3877   .rodata.VS4210_hdmi720P_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi720P_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:3784   .rodata.VS4210_hdmi640x480_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi640x480_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:3691   .rodata.VS4210_hdmi640x480_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi640x480_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:3412   .rodata.VS4210_hdmi576P_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi576P_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:3319   .rodata.VS4210_hdmi576P_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi576P_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:3598   .rodata.VS4210_hdmi576i_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi576i_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:3505   .rodata.VS4210_hdmi576i_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi576i_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:3040   .rodata.VS4210_hdmi480P_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi480P_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:2947   .rodata.VS4210_hdmi480P_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi480P_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:3226   .rodata.VS4210_hdmi480i_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi480i_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:3133   .rodata.VS4210_hdmi480i_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi480i_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:2854   .rodata.VS4210_hdmi1920x1200_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi1920x1200_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:2761   .rodata.VS4210_hdmi1920x1200_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi1920x1200_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:2668   .rodata.VS4210_hdmi1680x1050_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi1680x1050_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:2575   .rodata.VS4210_hdmi1680x1050_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi1680x1050_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:2482   .rodata.VS4210_hdmi1600x1200_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi1600x1200_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:2389   .rodata.VS4210_hdmi1600x1200_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi1600x1200_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:2296   .rodata.VS4210_hdmi1440x900_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi1440x900_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:2203   .rodata.VS4210_hdmi1440x900_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi1440x900_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:2110   .rodata.VS4210_hdmi1400x1050_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi1400x1050_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:2017   .rodata.VS4210_hdmi1400x1050_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi1400x1050_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:1924   .rodata.VS4210_hdmi1366x768_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi1366x768_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:1831   .rodata.VS4210_hdmi1366x768_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi1366x768_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:1738   .rodata.VS4210_hdmi1360x768_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi1360x768_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:1645   .rodata.VS4210_hdmi1360x768_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi1360x768_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:1552   .rodata.VS4210_hdmi1280x800_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi1280x800_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:1459   .rodata.VS4210_hdmi1280x800_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi1280x800_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:1366   .rodata.VS4210_hdmi1280x768_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi1280x768_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:1273   .rodata.VS4210_hdmi1280x768_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi1280x768_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:1180   .rodata.VS4210_hdmi1280x1024_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi1280x1024_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:1087   .rodata.VS4210_hdmi1280x1024_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi1280x1024_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:808    .rodata.VS4210_hdmi1080P_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi1080P_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:715    .rodata.VS4210_hdmi1080P_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi1080P_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:994    .rodata.VS4210_hdmi1080i_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi1080i_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:901    .rodata.VS4210_hdmi1080i_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi1080i_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:622    .rodata.VS4210_hdmi1024x768_720P_mode0_w0_88param:0000000000000000 VS4210_hdmi1024x768_720P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:529    .rodata.VS4210_hdmi1024x768_1080P_mode0_w0_88param:0000000000000000 VS4210_hdmi1024x768_1080P_mode0_w0_88param
+     /tmp/ccvs8hRA.s:64     .rodata.VS4210_Addr_88param:0000000000000000 VS4210_Addr_88param
+     /tmp/ccvs8hRA.s:61     .rodata.VS4210_Addr_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:154    .rodata.VS4210_TP_bt1120_1080P_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:247    .rodata.VS4210_TP_bt1120_720P_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:340    .rodata.VS4210_TP_bt1120_NTSC_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:433    .rodata.VS4210_TP_bt1120_PAL_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:526    .rodata.VS4210_hdmi1024x768_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:619    .rodata.VS4210_hdmi1024x768_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:712    .rodata.VS4210_hdmi1080P_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:805    .rodata.VS4210_hdmi1080P_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:898    .rodata.VS4210_hdmi1080i_1080P_mode0_w0_88param:0000000000000000 $d
+ARM GAS  /tmp/ccvs8hRA.s 			page 76
+
+
+     /tmp/ccvs8hRA.s:991    .rodata.VS4210_hdmi1080i_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:1084   .rodata.VS4210_hdmi1280x1024_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:1177   .rodata.VS4210_hdmi1280x1024_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:1270   .rodata.VS4210_hdmi1280x768_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:1363   .rodata.VS4210_hdmi1280x768_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:1456   .rodata.VS4210_hdmi1280x800_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:1549   .rodata.VS4210_hdmi1280x800_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:1642   .rodata.VS4210_hdmi1360x768_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:1735   .rodata.VS4210_hdmi1360x768_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:1828   .rodata.VS4210_hdmi1366x768_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:1921   .rodata.VS4210_hdmi1366x768_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:2014   .rodata.VS4210_hdmi1400x1050_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:2107   .rodata.VS4210_hdmi1400x1050_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:2200   .rodata.VS4210_hdmi1440x900_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:2293   .rodata.VS4210_hdmi1440x900_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:2386   .rodata.VS4210_hdmi1600x1200_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:2479   .rodata.VS4210_hdmi1600x1200_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:2572   .rodata.VS4210_hdmi1680x1050_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:2665   .rodata.VS4210_hdmi1680x1050_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:2758   .rodata.VS4210_hdmi1920x1200_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:2851   .rodata.VS4210_hdmi1920x1200_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:2944   .rodata.VS4210_hdmi480P_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:3037   .rodata.VS4210_hdmi480P_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:3130   .rodata.VS4210_hdmi480i_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:3223   .rodata.VS4210_hdmi480i_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:3316   .rodata.VS4210_hdmi576P_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:3409   .rodata.VS4210_hdmi576P_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:3502   .rodata.VS4210_hdmi576i_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:3595   .rodata.VS4210_hdmi576i_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:3688   .rodata.VS4210_hdmi640x480_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:3781   .rodata.VS4210_hdmi640x480_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:3874   .rodata.VS4210_hdmi720P_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:3967   .rodata.VS4210_hdmi720P_720P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:4060   .rodata.VS4210_hdmi800x600_1080P_mode0_w0_88param:0000000000000000 $d
+     /tmp/ccvs8hRA.s:4153   .rodata.VS4210_hdmi800x600_720P_mode0_w0_88param:0000000000000000 $d
+
+NO UNDEFINED SYMBOLS

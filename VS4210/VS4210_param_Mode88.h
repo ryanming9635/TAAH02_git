@@ -1,0 +1,59 @@
+#ifndef _VS4210_PARAM_Mode88_H_
+#define _VS4210_PARAM_Mode88_H_
+
+#include <stdio.h>
+#include <VXIS_Extern_Define.h>
+//#define  VS4210_INIT_NUMBER 88
+
+#ifdef _EN_VS4210_Mode88
+extern tcByte VS4210_Addr_88param[VS4210_INIT_NUMBER];
+extern tcByte VS4210_hdmi1024x768_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1024x768_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1080i_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1080i_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1080P_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1080P_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1280x1024_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1280x1024_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1280x768_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1280x768_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1280x800_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1280x800_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1360x768_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1360x768_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1366x768_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1366x768_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1400x1050_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1400x1050_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1440x900_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1440x900_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1600x1200_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1600x1200_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1680x1050_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1680x1050_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1920x1200_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi1920x1200_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi480i_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi480i_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi480P_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi480P_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi576i_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi576i_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi576P_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi576P_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi640x480_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi640x480_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi720P_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi720P_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi800x600_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_hdmi800x600_720P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+
+extern tcByte VS4210_TP_bt1120_1080P_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_TP_bt1120_720P_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_TP_bt1120_NTSC_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+extern tcByte VS4210_TP_bt1120_PAL_1080P_mode0_w0_88param[VS4210_INIT_NUMBER] ;
+
+#endif
+
+#endif
+
