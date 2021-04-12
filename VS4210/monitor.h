@@ -24,6 +24,7 @@
 
 #define BUF_MAX 	30
 #define DVR_BUF_MAX 	30
+#define TOA_BUF_MAX 200
 
 
 void Mon_tx(tByte ch);

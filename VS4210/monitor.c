@@ -45,7 +45,7 @@ BYTE Monitor_flag=OFF;
 BYTE Monitor_I2C=0x40;//0x88;//0x40;///0x90;//0x40;//0x28;//0x12;//EEPROM_24C02_addr;
 
 		DATA BYTE	RS_buf[BUF_MAX];
-        	DATA BYTE   	RS2_buf[BUF_MAX];
+        	DATA BYTE   	RS2_buf[TOA_BUF_MAX];
 		DATA BYTE	DVR_buf[DVR_BUF_MAX];
 
 		
@@ -128,7 +128,7 @@ BYTE RS2_rx(void)
 	ret = RS2_buf[RS2_out];
 //	ret = DVR_buf[RS_out];
 	RS2_out++;
-	if(RS2_out >= BUF_MAX) 
+	if(RS2_out >= TOA_BUF_MAX) 
 		RS2_out = 0;
 //	ES = 1;
 
@@ -1469,7 +1469,14 @@ else if( !stricmp( argv[0], (BYTE *) "Win" ) ) {	//20201214-02
 		ptztxflag=1;
 		
 	}
-
+		else if( !stricmp( argv[0],(BYTE *) "op" ) ) {    //COC stop
+			Monitor_flag=_FALSE;
+		TVI_Command=0x14;
+			presetNum=0;
+			TVI_speed=0;
+			TVI_Chksum=0;
+				ptztxflag=1;	
+			}
 	#if 0
 	else if( !stricmp( argv[0], (BYTE *)"sw" ) ) {
 		BYTE ch,win;

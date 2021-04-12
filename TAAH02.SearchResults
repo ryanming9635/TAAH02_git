@@ -1,2 +1,2 @@
----- (SET_VIDEO_VLOSS Matches (1 in 1 files) ----
-VX_OSD_Simple.c (vs4210):1052:	GraphicsPrint(RED,"(SET_VIDEO_VLOSS ch=%d set=%d)",(WORD)ch,(WORD)set);	
+---- protocol_data_count Matches (1 in 1 files) ----
+TOA_Protocol.c (vs4210):40:BYTE protocol_data_count;

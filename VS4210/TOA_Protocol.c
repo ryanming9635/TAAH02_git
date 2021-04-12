@@ -37,10 +37,12 @@ BYTE protocol_type;
 BYTE protocol_len;
 BYTE protocol_param;
 BYTE protocol_chksum;
-BYTE protocol_data_count;
+BYTE protocol_data_count=0;
 //BYTE protocol_data[PROTOCOL_DATA_LENGTH];
 WORD protocol_cmd=0;
 WORD protocol_data=0;
+
+BYTE CMDCount=0;
 
 extern DATA  BYTE RS2_out;
 extern bit ptztxflag;
@@ -74,8 +76,17 @@ if ( RS2_ready())
 			//protocol_escape_flag = 0;
 			protocol_state = PROTOCOL_STATE_Sync;
 			protocol_chksum = 0;
+			protocol_data_count=1;
 			return;	
-		}
+		}else if(protocol_data_count>8)//reset command error
+			{
+					#if(_DEBUG_MESSAGE_UART_Protocol==ON)
+					GraphicsPrint(RED,"\r\n(protocol_data_count>8)");
+					#endif
+					protocol_state=PROTOCOL_STATE_NONE; 
+
+			}
+	
 		
 		/*
 		if (c == 0x7D)
@@ -103,56 +114,58 @@ if ( RS2_ready())
 				case PROTOCOL_STATE_Sync:
 
 					#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-						//GraphicsPrint(YELLOW,"(1)");
+						//GraphicsPrint(YELLOW,"(1=%02x)",(WORD)c);
 						#endif
 					if(c==MCU_PROTOCOL_CMD_ADDR)
 						protocol_state=PROTOCOL_STATE_COM1;
 					else
 						protocol_state=PROTOCOL_STATE_NONE;	
+
+					protocol_data_count++;
 					break;
 					
 				case PROTOCOL_STATE_COM1:
 
                                                #if(_DEBUG_MESSAGE_UART_Protocol==ON)
-						//GraphicsPrint(YELLOW,"(2)");
+						//GraphicsPrint(YELLOW,"(2=%02x)",(WORD)c);
 	                                        #endif
 											
 						protocol_cmd=c;
 						protocol_state=PROTOCOL_STATE_COM2;
-
+						protocol_data_count++;
 					break;
 
 				case PROTOCOL_STATE_COM2:
 					
                                                #if(_DEBUG_MESSAGE_UART_Protocol==ON)
-						//GraphicsPrint(YELLOW,"(3)");
+						//GraphicsPrint(YELLOW,"(3=%02x)",(WORD)c);
 	                                        #endif
 				
 						protocol_cmd=((protocol_cmd<<8)|c);
 						protocol_state=PROTOCOL_STATE_DATA1;				
-					
+					protocol_data_count++;
 					break;
 				case PROTOCOL_STATE_DATA1:	
 					#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-						//GraphicsPrint(YELLOW,"(4)");
+						//GraphicsPrint(YELLOW,"(4=%02x)",(WORD)c);
 						#endif
 				
 						protocol_data=c;
 						protocol_state=PROTOCOL_STATE_DATA2;				
-								
+						protocol_data_count++;		
 					break;
 				case PROTOCOL_STATE_DATA2:	
 						#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-						//GraphicsPrint(YELLOW,"(5)");
+						//GraphicsPrint(YELLOW,"(5=%02x)",(WORD)c);
 						#endif
 						protocol_data=((protocol_data<<8)|c);
 						protocol_state=PROTOCOL_STATE_CHECKSUM;	
-						
+						protocol_data_count++;
 					break;
 				case PROTOCOL_STATE_CHECKSUM:		
 						if(c==protocol_chksum)
 						{
-
+							protocol_data_count++;
 							switch(protocol_cmd)
 							{
 							case MCU_PROTOCOL_CMD_VERSION:
@@ -190,6 +203,7 @@ if ( RS2_ready())
 							TVI_speed=0;
 							TVI_Chksum=0xC5;
 							ptztxflag=1;	
+							CMDCount=3;
 						}
 					else if(protocol_data==0x42)
 						{
@@ -201,6 +215,7 @@ if ( RS2_ready())
 							TVI_speed=0;
 							TVI_Chksum=00;
 							ptztxflag=1;
+							CMDCount=3;
 						}
 					else if(((protocol_data>=0x47)&&(protocol_data<=0x4E)))				
 						{
@@ -212,6 +227,7 @@ if ( RS2_ready())
 							TVI_speed=0;
 							TVI_Chksum=00;
 							ptztxflag=1;	
+							CMDCount=3;
                             			}				
 					else if(protocol_data==0x5F)
 						{
@@ -222,7 +238,8 @@ if ( RS2_ready())
 							presetNum=protocol_data;
 							TVI_speed=0;
 							TVI_Chksum=00;
-							ptztxflag=1;							
+							ptztxflag=1;	
+							CMDCount=3;
 						}
 					else if(protocol_data==0x60)
 						{
@@ -233,7 +250,8 @@ if ( RS2_ready())
 							presetNum=protocol_data;
 							TVI_speed=0;
 							TVI_Chksum=00;
-							ptztxflag=1;							
+							ptztxflag=1;	
+							CMDCount=3;
 						}
 					else{
 
@@ -245,14 +263,28 @@ if ( RS2_ready())
 case MCU_PROTOCOL_CMD_STOP:		
 							if(protocol_data==0x00)
 								{
+								if(CMDCount>0)
+									{
+									CMDCount--;
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
 								GraphicsPrint(YELLOW,"\r\n(CMD:STOP)");
-								#endif									
+								#endif		
+								
 								TVI_Command=0x14;
 								presetNum=0;
 								TVI_speed=0;
 								TVI_Chksum=0;
-								ptztxflag=1;								
+								ptztxflag=1;	
+								
+									}
+								else
+									{
+									#if(_DEBUG_MESSAGE_UART_Protocol==ON)
+									GraphicsPrint(YELLOW,"(CMD:STOP no work)");
+									#endif		
+									CMDCount=0;
+
+									}
 								}
                              				 break;
 case MCU_PROTOCOL_CMD_UP:
@@ -263,18 +295,19 @@ case MCU_PROTOCOL_CMD_UP:
 								presetNum=protocol_data;
 								TVI_speed=(protocol_data>>8);
 								TVI_Chksum=0xDB;
-								ptztxflag=1;										
+								ptztxflag=1;
+								CMDCount=3;
                             					break;
 case MCU_PROTOCOL_CMD_RIGHT:
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
 								GraphicsPrint(GREEN,"\r\n(CMD:RIGHT)");
 								#endif
 								TVI_Command=0x08;
-								presetNum=0;
-								TVI_speed=0x1F;
+								presetNum=protocol_data;
+								TVI_speed=(protocol_data>>8);
 								TVI_Chksum=0xDD;
 								ptztxflag=1;
-								
+								CMDCount=3;
                         				break;
 case MCU_PROTOCOL_CMD_LEFT:	
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
@@ -284,7 +317,8 @@ case MCU_PROTOCOL_CMD_LEFT:
 								presetNum=protocol_data;
 								TVI_speed=(protocol_data>>8);
 								TVI_Chksum=0xDE;
-								ptztxflag=1;								
+								ptztxflag=1;	
+								CMDCount=3;
                         				break;
 case MCU_PROTOCOL_CMD_DOWN:	
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
@@ -294,7 +328,8 @@ case MCU_PROTOCOL_CMD_DOWN:
 								presetNum=protocol_data;
 								TVI_speed=(protocol_data>>8);
 								TVI_Chksum=0xDC;
-								ptztxflag=1;								
+								ptztxflag=1;	
+								CMDCount=3;
                           						break;
 case MCU_PROTOCOL_CMD_UP_RIGHT:	
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
@@ -305,7 +340,7 @@ case MCU_PROTOCOL_CMD_UP_RIGHT:
 								TVI_speed=(protocol_data>>8);
 								TVI_Chksum=0x20;
 								ptztxflag=1;	
-
+								CMDCount=3;
                           						break;
 case MCU_PROTOCOL_CMD_DOWN_RIGHT:
 									#if(_DEBUG_MESSAGE_UART_Protocol==ON)
@@ -316,6 +351,7 @@ case MCU_PROTOCOL_CMD_DOWN_RIGHT:
 								TVI_speed=(protocol_data>>8);
 								TVI_Chksum=0x21;
 								ptztxflag=1;
+								CMDCount=3;
                               					break;
 case MCU_PROTOCOL_CMD_UP_LEFT:
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
@@ -326,6 +362,7 @@ case MCU_PROTOCOL_CMD_UP_LEFT:
 								TVI_speed=(protocol_data>>8);
 								TVI_Chksum=0x1E;
 								ptztxflag=1;
+								CMDCount=3;
 	                          				break;
 case MCU_PROTOCOL_CMD_DOWN_LEFT:	
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
@@ -336,6 +373,7 @@ case MCU_PROTOCOL_CMD_DOWN_LEFT:
 								TVI_speed=(protocol_data>>8);
 								TVI_Chksum=0x1F;
 								ptztxflag=1;
+								CMDCount=3;
                               					break;
 case MCU_PROTOCOL_CMD_ZOOM_IN:
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
@@ -346,6 +384,7 @@ case MCU_PROTOCOL_CMD_ZOOM_IN:
 								TVI_speed=0x00;
 								TVI_Chksum=0xC9;
 								ptztxflag=1;
+								CMDCount=3;
                           					break;
 case MCU_PROTOCOL_CMD_ZOOM_OUT:
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
@@ -356,6 +395,7 @@ case MCU_PROTOCOL_CMD_ZOOM_OUT:
 								TVI_speed=0x00;
 								TVI_Chksum=0xC8;
 								ptztxflag=1;
+								CMDCount=3;
                           			  		break;
 case MCU_PROTOCOL_CMD_FOCUS_NEAR:	
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
@@ -366,6 +406,7 @@ case MCU_PROTOCOL_CMD_FOCUS_NEAR:
 								TVI_speed=0x00;
 								TVI_Chksum=0xC7;
 								ptztxflag=1;
+								CMDCount=3;
                                 				break;
 case MCU_PROTOCOL_CMD_FOCUS_FAR:
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
@@ -376,6 +417,7 @@ case MCU_PROTOCOL_CMD_FOCUS_FAR:
 								TVI_speed=0x00;
 								TVI_Chksum=0xC6;
 								ptztxflag=1;
+								CMDCount=3;
                                 				break;
 case MCU_PROTOCOL_CMD_PRESET_SAVE:	
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
@@ -385,7 +427,8 @@ case MCU_PROTOCOL_CMD_PRESET_SAVE:
 							presetNum=protocol_data;
 							TVI_speed=0;
 							TVI_Chksum=00;
-							ptztxflag=1;									
+							ptztxflag=1;	
+							CMDCount=3;
                                     				break;	
 case MCU_PROTOCOL_CMD_VS4210_W:
 	
@@ -448,6 +491,7 @@ case MCU_PROTOCOL_CMD_VS4210_R:
 						#if(_DEBUG_MESSAGE_UART_Protocol==ON)
 						GraphicsPrint(RED,"\r\n(2CMD: ERROR)");
 						#endif
+						protocol_state=PROTOCOL_STATE_NONE;	
 							break;
 			}
 

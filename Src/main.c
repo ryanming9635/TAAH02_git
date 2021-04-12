@@ -155,7 +155,8 @@ extern 	bit KeyReady, RepeatKey;
 extern BYTE  updn_reg[4];
 extern BYTE Time5ms;
 extern bit ChangeKey;
-extern tByte RS_buf[BUF_MAX],RS2_buf[BUF_MAX];
+extern tByte RS_buf[BUF_MAX];
+extern  tByte RS2_buf[TOA_BUF_MAX];
 extern  tByte	 RS_in, RS2_in;
 extern BYTE tic02;
 extern WORD tic03,tic04,tic05;
@@ -4441,7 +4442,7 @@ if (huart->Instance == USART2)	//current UART2
     {
 
        RS2_buf [RS2_in++] = Rx2_data[0];//USART_ReceiveData(USART1);	
-    if( RS2_in >= BUF_MAX)  RS2_in = 0;
+    if( RS2_in >= TOA_BUF_MAX)  RS2_in = 0;
 	HAL_UART_Receive_IT(&huart2,(uint8_t*)Rx2_data, 1);	 //activate UART receive interrupt every time
     }	
 #endif
