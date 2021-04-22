@@ -50,6 +50,7 @@ extern BYTE TVI_Command;
 extern BYTE presetNum;
 extern BYTE TVI_speed;
 extern BYTE TVI_Chksum;
+extern BYTE PtzTxChNum;
 
 /*
 extern float Encorder1,Encorder2,Encorder3,Encorder4;
@@ -71,7 +72,7 @@ if ( RS2_ready())
 		if ((c == MCU_PROTOCOL_CMD_Sync)&&(protocol_state==PROTOCOL_STATE_NONE))
 		{	
 			#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-			GraphicsPrint(CYAN,"\r\n(GOT UART DATA)");
+			GraphicsPrint(CYAN,"\r\n(GOT)");
 			#endif
 			//protocol_escape_flag = 0;
 			protocol_state = PROTOCOL_STATE_Sync;
@@ -195,7 +196,7 @@ if ( RS2_ready())
 						else	if(((protocol_data>=0x00)&&(protocol_data<=0x40))||((protocol_data>=0x64)&&(protocol_data<=0xC8)))
 						{
 							#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-							GraphicsPrint(MAGENTA,"\r\n(CMD:PRESET_LOAD)");
+							GraphicsPrint(MAGENTA,"(CMD:PRESET_LOAD)");
 							#endif
 
 							TVI_Command=0x22;
@@ -204,11 +205,12 @@ if ( RS2_ready())
 							TVI_Chksum=0xC5;
 							ptztxflag=1;	
 							CMDCount=3;
+
 						}
 					else if(protocol_data==0x42)
 						{
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(MAGENTA,"\r\n(CMD:AUTO_SCAN)");
+								GraphicsPrint(MAGENTA,"(CMD:AUTO_SCAN)");
 								#endif
 							TVI_Command=0x23;
 							presetNum=protocol_data;
@@ -216,11 +218,12 @@ if ( RS2_ready())
 							TVI_Chksum=00;
 							ptztxflag=1;
 							CMDCount=3;
+							
 						}
 					else if(((protocol_data>=0x47)&&(protocol_data<=0x4E)))				
 						{
 							#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-							GraphicsPrint(MAGENTA,"\r\n(CMD:GROUP_TOUR)");
+							GraphicsPrint(MAGENTA,"(CMD:GROUP_TOUR)");
 							#endif
 							TVI_Command=0x24;
 							presetNum=protocol_data;
@@ -232,7 +235,7 @@ if ( RS2_ready())
 					else if(protocol_data==0x5F)
 						{
 							#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-							GraphicsPrint(YELLOW,"\r\n(CMD:OSD_MENU)");
+							GraphicsPrint(YELLOW,"(CMD:OSD_MENU)");
 							#endif
 							TVI_Command=0x25;
 							presetNum=protocol_data;
@@ -244,7 +247,7 @@ if ( RS2_ready())
 					else if(protocol_data==0x60)
 						{
 							#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-							GraphicsPrint(CYAN,"\r\n(CMD:FOCUS_ADJUST)");
+							GraphicsPrint(CYAN,"(CMD:FOCUS_ADJUST)");
 							#endif	
 							TVI_Command=0x26;
 							presetNum=protocol_data;
@@ -256,7 +259,7 @@ if ( RS2_ready())
 					else{
 
 						#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-						GraphicsPrint(RED,"\r\n(1CMD: ERROR)");
+						GraphicsPrint(RED,"(1CMD: ERROR)");
 						#endif	
 						}				
 						break;
@@ -267,7 +270,7 @@ case MCU_PROTOCOL_CMD_STOP:
 									{
 									CMDCount--;
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(YELLOW,"\r\n(CMD:STOP)");
+								GraphicsPrint(YELLOW,"(CMD:STOP)");
 								#endif		
 								
 								TVI_Command=0x14;
@@ -289,7 +292,7 @@ case MCU_PROTOCOL_CMD_STOP:
                              				 break;
 case MCU_PROTOCOL_CMD_UP:
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(GREEN,"\r\n(CMD:UP)");
+								GraphicsPrint(GREEN,"(CMD:UP)");
 								#endif
 								TVI_Command=0x06;
 								presetNum=protocol_data;
@@ -300,7 +303,7 @@ case MCU_PROTOCOL_CMD_UP:
                             					break;
 case MCU_PROTOCOL_CMD_RIGHT:
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(GREEN,"\r\n(CMD:RIGHT)");
+								GraphicsPrint(GREEN,"(CMD:RIGHT)");
 								#endif
 								TVI_Command=0x08;
 								presetNum=protocol_data;
@@ -311,7 +314,7 @@ case MCU_PROTOCOL_CMD_RIGHT:
                         				break;
 case MCU_PROTOCOL_CMD_LEFT:	
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(GREEN,"\r\n(CMD:LEFT)");
+								GraphicsPrint(GREEN,"(CMD:LEFT)");
 								#endif
 								TVI_Command=0x09;
 								presetNum=protocol_data;
@@ -322,7 +325,7 @@ case MCU_PROTOCOL_CMD_LEFT:
                         				break;
 case MCU_PROTOCOL_CMD_DOWN:	
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(GREEN,"\r\n(CMD:DOWN)");
+								GraphicsPrint(GREEN,"(CMD:DOWN)");
 								#endif
 								TVI_Command=0x07;
 								presetNum=protocol_data;
@@ -333,7 +336,7 @@ case MCU_PROTOCOL_CMD_DOWN:
                           						break;
 case MCU_PROTOCOL_CMD_UP_RIGHT:	
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(GREEN,"\r\n(CMD:UP_RIGHT)");
+								GraphicsPrint(GREEN,"(CMD:UP_RIGHT)");
 								#endif
 								TVI_Command=0x0C;
 								presetNum=protocol_data;
@@ -344,7 +347,7 @@ case MCU_PROTOCOL_CMD_UP_RIGHT:
                           						break;
 case MCU_PROTOCOL_CMD_DOWN_RIGHT:
 									#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(GREEN,"\r\n(CMD:DOWN_RIGHT)");
+								GraphicsPrint(GREEN,"(CMD:DOWN_RIGHT)");
 								#endif
 								TVI_Command=0x0D;
 								presetNum=protocol_data;
@@ -355,7 +358,7 @@ case MCU_PROTOCOL_CMD_DOWN_RIGHT:
                               					break;
 case MCU_PROTOCOL_CMD_UP_LEFT:
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(GREEN,"\r\n(UP_LEFT)");
+								GraphicsPrint(GREEN,"(UP_LEFT)");
 								#endif
 								TVI_Command=0x0A;
 								presetNum=protocol_data;
@@ -366,7 +369,7 @@ case MCU_PROTOCOL_CMD_UP_LEFT:
 	                          				break;
 case MCU_PROTOCOL_CMD_DOWN_LEFT:	
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(GREEN,"\r\n(CMD:DOWN_LEFT)");
+								GraphicsPrint(GREEN,"(CMD:DOWN_LEFT)");
 								#endif
 								TVI_Command=0x0B;
 								presetNum=protocol_data;
@@ -377,7 +380,7 @@ case MCU_PROTOCOL_CMD_DOWN_LEFT:
                               					break;
 case MCU_PROTOCOL_CMD_ZOOM_IN:
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(GREEN,"\r\n(CMD:ZOOM_IN)");
+								GraphicsPrint(GREEN,"(CMD:ZOOM_IN)");
 								#endif
 								TVI_Command=0x13;
 								presetNum=0x00;
@@ -388,7 +391,7 @@ case MCU_PROTOCOL_CMD_ZOOM_IN:
                           					break;
 case MCU_PROTOCOL_CMD_ZOOM_OUT:
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(GREEN,"\r\n(CMD:ZOOM_OUT)");
+								GraphicsPrint(GREEN,"(CMD:ZOOM_OUT)");
 								#endif
 								TVI_Command=0x12;
 								presetNum=0x00;
@@ -399,7 +402,7 @@ case MCU_PROTOCOL_CMD_ZOOM_OUT:
                           			  		break;
 case MCU_PROTOCOL_CMD_FOCUS_NEAR:	
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(GREEN,"\r\n(CMD:FOCUS_NEAR)");
+								GraphicsPrint(GREEN,"(CMD:FOCUS_NEAR)");
 								#endif
 								TVI_Command=0x11;
 								presetNum=0x00;
@@ -410,7 +413,7 @@ case MCU_PROTOCOL_CMD_FOCUS_NEAR:
                                 				break;
 case MCU_PROTOCOL_CMD_FOCUS_FAR:
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(GREEN,"\r\n(CMD:FOCUS_FAR)");
+								GraphicsPrint(GREEN,"(CMD:FOCUS_FAR)");
 								#endif
 								TVI_Command=0x10;
 								presetNum=0x00;
@@ -421,7 +424,7 @@ case MCU_PROTOCOL_CMD_FOCUS_FAR:
                                 				break;
 case MCU_PROTOCOL_CMD_PRESET_SAVE:	
 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-								GraphicsPrint(MAGENTA,"\r\n(CMD:PRESET_SAVE)");
+								GraphicsPrint(MAGENTA,"(CMD:PRESET_SAVE)");
 								#endif
 							TVI_Command=0x21;
 							presetNum=protocol_data;
@@ -465,7 +468,7 @@ case MCU_PROTOCOL_CMD_VS4210_R:
 					else
 						{
 						#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-						GraphicsPrint(RED,"\r\n(CHECKUSM ERROR)");
+						GraphicsPrint(RED,"(CHECKUSM ERROR)");
 						#endif
 						protocol_state=PROTOCOL_STATE_NONE;									
 						} 
@@ -495,6 +498,15 @@ case MCU_PROTOCOL_CMD_VS4210_R:
 							break;
 			}
 
+
+			if(ptztxflag==1)
+				{
+				Get_2824cIrq();//check tp2824 COC
+				#if(_DEBUG_MESSAGE_UART_Protocol==ON)
+				//GraphicsPrint(GREEN,"(CMD:ACTION)");
+				GraphicsPrint(GREEN,"(A=%d)",(WORD)PtzTxChNum);
+				#endif
+				}
 	}
 
 }

@@ -3468,7 +3468,6 @@ void Get_2824cIrq(void)//cocrx
 	    (count[3] > (EQ_COUNT+2) && state[3] == VIDEO_LOCKED))
 	*/
 		if((count[0] > (EQ_COUNT+2) && state[0] == VIDEO_LOCKED))
-
        {       
       			 
 		SetRegPage(0x04);
@@ -3867,8 +3866,8 @@ void Get_2824cIrq(void)//cocrx
 					ptztxflag=0;
 				//printf("~AHD %x,%x,%x,%x\n",AHDBitsReverse(AHDcmd1),AHDBitsReverse(0xF1),AHDBitsReverse(0x02),AHDBitsReverse(0x80));
 			
-				printf("AHD %x,%x,%x to ",TVI_Command,presetNum,TVI_speed);
-				printf("Tx %x,%x,%x,%x\n",AHDcmd1,AHDcmd2,AHDcmd3,AHDcmd4);
+				Printf("AHD %02x,%02x,%02x to ",(WORD)TVI_Command,(WORD)presetNum,(WORD)TVI_speed);
+				Printf("Tx %02x,%02x,%02x,%02x",(WORD)AHDcmd1,(WORD)AHDcmd2,(WORD)AHDcmd3,(WORD)AHDcmd4);
 				}
 				ptztxflag=0;
 			}

@@ -1,2 +1,17 @@
----- protocol_data_count Matches (1 in 1 files) ----
-TOA_Protocol.c (vs4210):40:BYTE protocol_data_count;
+---- PtzTxChNum Matches (17 in 1 files) ----
+TP2802.c (tp2824):106://extern BYTE PtzTxChNum;//0:ch1 / 1:ch2 / 2:ch3 / 3:ch4
+TP2802.c (tp2824):108:BYTE PtzTxChNum=0;//0:ch1 / 1:ch2 / 2:ch3 / 3:ch4
+TP2802.c (tp2824):2381:						PtzTxChNum=i;
+TP2802.c (tp2824):2382:						printf("EQdet %d\r\n",  PtzTxChNum);
+TP2802.c (tp2824):2419:					printf("\r\nAHD COC Ready CH=%d\r\n",  PtzTxChNum);
+TP2802.c (tp2824):3202:							   PtzTxChNum=i;
+TP2802.c (tp2824):3203:							   printf("EQdet %d\r\n",  PtzTxChNum);
+TP2802.c (tp2824):3682:			if( TVI == std[PtzTxChNum] )
+TP2802.c (tp2824):3684:				if(mode[PtzTxChNum]==NTSC || mode[PtzTxChNum]==PAL)
+TP2802.c (tp2824):3731:						SetRegPage(PtzTxChNum);		                    
+TP2802.c (tp2824):3746:						SetRegPage(PtzTxChNum);		                    
+TP2802.c (tp2824):3760:			if( HDC == std[PtzTxChNum] )//1080P / 720P
+TP2802.c (tp2824):3762:					SetRegPage(PtzTxChNum);	
+TP2802.c (tp2824):3818:			if( HDA == std[PtzTxChNum] )//1080P / 720P
+TP2802.c (tp2824):3823:				  	SetRegPage(PtzTxChNum);		
+TP2802.c (tp2824):4304:			PtzTxChNum=param;

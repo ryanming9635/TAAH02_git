@@ -401,8 +401,11 @@ void InitialTimerEvent(void)
 	MCUTimerInitialTimerEvent();  //clear all of timer event	
 
 		#if (_DEBUG_MESSAGE_SysTimerEvent==ON)
-  		MCUTimerActiveTimerEvent(SEC(10), _SYSTEM_TIMER_EVENT_SHOW_WORKING_TIMER);//for timer
-  		   //	MCUTimerActiveTimerEvent(SEC(6), _SYSTEM_TIMER_EVENT_BOOT_VIDEO_DETECT);//for timer
+  		//MCUTimerActiveTimerEvent(SEC(10), _SYSTEM_TIMER_EVENT_SHOW_WORKING_TIMER);//for timer
+
+
+
+		   //	MCUTimerActiveTimerEvent(SEC(6), _SYSTEM_TIMER_EVENT_BOOT_VIDEO_DETECT);//for timer
   		//MCUTimerActiveTimerEvent(SEC(5), _SYSTEM_TIMER_EVENT_SET_VIDEO_LOSS);//for timer
 
 //	MCUTimerActiveTimerEvent(SEC(2), _SYSTEM_TIMER_EVENT_UART2_CHECK);//for test
@@ -2176,7 +2179,7 @@ while(1)
 	}while(AccessEnable == 0);
 	#endif
 
-	     TOAReceivePaser();
+while( RS2_ready())     TOAReceivePaser();
 		
 	      SysTimerHandler();
 
