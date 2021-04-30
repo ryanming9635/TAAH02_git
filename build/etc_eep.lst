@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc1CVHrG.s 			page 1
+ARM GAS  /tmp/ccjtaNQi.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc1CVHrG.s 			page 1
   31:VS4210/etc_eep.c **** extern BYTE SEQFlag;	
   32:VS4210/etc_eep.c **** extern BYTE NowModeState;
   33:VS4210/etc_eep.c **** extern BYTE	SelectModeType;
-ARM GAS  /tmp/cc1CVHrG.s 			page 2
+ARM GAS  /tmp/ccjtaNQi.s 			page 2
 
 
   34:VS4210/etc_eep.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc1CVHrG.s 			page 1
   37 0002 0020     		movs	r0, #0
   38 0004 FFF7FEFF 		bl	ReadEEP
   39              	.LVL1:
-ARM GAS  /tmp/cc1CVHrG.s 			page 3
+ARM GAS  /tmp/ccjtaNQi.s 			page 3
 
 
   40 0008 5428     		cmp	r0, #84
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc1CVHrG.s 			page 1
   80 0040 0402     		lsls	r4, r0, #8
   81              	.LVL8:
   82:VS4210/etc_eep.c **** 
-ARM GAS  /tmp/cc1CVHrG.s 			page 4
+ARM GAS  /tmp/ccjtaNQi.s 			page 4
 
 
   82              		.loc 1 82 0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc1CVHrG.s 			page 1
  130              		.loc 1 93 0
  131 001c 3021     		movs	r1, #48
  132 001e 0320     		movs	r0, #3
-ARM GAS  /tmp/cc1CVHrG.s 			page 5
+ARM GAS  /tmp/ccjtaNQi.s 			page 5
 
 
  133 0020 FFF7FEFF 		bl	WriteEEP
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc1CVHrG.s 			page 1
  110:VS4210/etc_eep.c **** }
  173              		.loc 1 110 0
  174 0008 08BD     		pop	{r3, pc}
-ARM GAS  /tmp/cc1CVHrG.s 			page 6
+ARM GAS  /tmp/ccjtaNQi.s 			page 6
 
 
  175              		.cfi_endproc
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc1CVHrG.s 			page 1
  141:VS4210/etc_eep.c **** 
  142:VS4210/etc_eep.c **** 	   AudioVol=50;
  143:VS4210/etc_eep.c **** 	 //  ChangeVol(0);
-ARM GAS  /tmp/cc1CVHrG.s 			page 7
+ARM GAS  /tmp/ccjtaNQi.s 			page 7
 
 
  144:VS4210/etc_eep.c **** 	   WriteEEP(EEP_PCAUDIOPVOL,50);
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc1CVHrG.s 			page 1
  198:VS4210/etc_eep.c **** 	   WriteEEP(EEP_NowModeState,SelectMode);
  199:VS4210/etc_eep.c **** 			
  200:VS4210/etc_eep.c **** 		WriteEEP(EEP_SelectMode,SelectModeType);
-ARM GAS  /tmp/cc1CVHrG.s 			page 8
+ARM GAS  /tmp/ccjtaNQi.s 			page 8
 
 
  201:VS4210/etc_eep.c **** 		 setloopoutmode(SelectModeType) ;
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc1CVHrG.s 			page 1
  241 0014 1A70     		strb	r2, [r3]
  217:VS4210/etc_eep.c **** 
  218:VS4210/etc_eep.c **** //	SaveVInputStdDetectModeEE(0);	// AUTO
-ARM GAS  /tmp/cc1CVHrG.s 			page 9
+ARM GAS  /tmp/ccjtaNQi.s 			page 9
 
 
  219:VS4210/etc_eep.c **** //	WriteEEP(EEP_CCD, 0);	// CC = OFF
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc1CVHrG.s 			page 1
  273              		.cfi_offset 14, -4
  244:VS4210/etc_eep.c **** 	return ReadEEP( EEP_AUDIOPVOL );
  274              		.loc 1 244 0
-ARM GAS  /tmp/cc1CVHrG.s 			page 10
+ARM GAS  /tmp/ccjtaNQi.s 			page 10
 
 
  275 0002 3820     		movs	r0, #56
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc1CVHrG.s 			page 1
  324              		.loc 1 253 0
  325              		.cfi_startproc
  326              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/cc1CVHrG.s 			page 11
+ARM GAS  /tmp/ccjtaNQi.s 			page 11
 
 
  327              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc1CVHrG.s 			page 1
  377      65617242 
  377      61736963 
  377      45452E2E 
-ARM GAS  /tmp/cc1CVHrG.s 			page 12
+ARM GAS  /tmp/ccjtaNQi.s 			page 12
 
 
  377      2E00
@@ -688,34 +688,34 @@ ARM GAS  /tmp/cc1CVHrG.s 			page 1
  397              		.file 15 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
  398              		.file 16 "VS4210/etc_eep.h"
  399              		.file 17 "VS4210/printf.h"
-ARM GAS  /tmp/cc1CVHrG.s 			page 13
+ARM GAS  /tmp/ccjtaNQi.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 etc_eep.c
-     /tmp/cc1CVHrG.s:16     .text.GetFWRevEE:0000000000000000 $t
-     /tmp/cc1CVHrG.s:23     .text.GetFWRevEE:0000000000000000 GetFWRevEE
-     /tmp/cc1CVHrG.s:94     .text.SaveFWRevEE:0000000000000000 $t
-     /tmp/cc1CVHrG.s:101    .text.SaveFWRevEE:0000000000000000 SaveFWRevEE
-     /tmp/cc1CVHrG.s:151    .text.GetDebugLevelEE:0000000000000000 $t
-     /tmp/cc1CVHrG.s:158    .text.GetDebugLevelEE:0000000000000000 GetDebugLevelEE
-     /tmp/cc1CVHrG.s:179    .text.ResetOSDValue:0000000000000000 $t
-     /tmp/cc1CVHrG.s:186    .text.ResetOSDValue:0000000000000000 ResetOSDValue
-     /tmp/cc1CVHrG.s:206    .text.ResetOSDValue:000000000000000c $d
-     /tmp/cc1CVHrG.s:211    .text.ClearBasicEE:0000000000000000 $t
-     /tmp/cc1CVHrG.s:218    .text.ClearBasicEE:0000000000000000 ClearBasicEE
-     /tmp/cc1CVHrG.s:250    .text.ClearBasicEE:000000000000001c $d
-     /tmp/cc1CVHrG.s:256    .text.GetAudioVolEE:0000000000000000 $t
-     /tmp/cc1CVHrG.s:263    .text.GetAudioVolEE:0000000000000000 GetAudioVolEE
-     /tmp/cc1CVHrG.s:284    .text.SetAudioVolEE:0000000000000000 $t
-     /tmp/cc1CVHrG.s:291    .text.SetAudioVolEE:0000000000000000 SetAudioVolEE
-     /tmp/cc1CVHrG.s:315    .text.GetPCAudioVolEE:0000000000000000 $t
-     /tmp/cc1CVHrG.s:322    .text.GetPCAudioVolEE:0000000000000000 GetPCAudioVolEE
-     /tmp/cc1CVHrG.s:343    .text.SetPCAudioVolEE:0000000000000000 $t
-     /tmp/cc1CVHrG.s:350    .text.SetPCAudioVolEE:0000000000000000 SetPCAudioVolEE
+     /tmp/ccjtaNQi.s:16     .text.GetFWRevEE:0000000000000000 $t
+     /tmp/ccjtaNQi.s:23     .text.GetFWRevEE:0000000000000000 GetFWRevEE
+     /tmp/ccjtaNQi.s:94     .text.SaveFWRevEE:0000000000000000 $t
+     /tmp/ccjtaNQi.s:101    .text.SaveFWRevEE:0000000000000000 SaveFWRevEE
+     /tmp/ccjtaNQi.s:151    .text.GetDebugLevelEE:0000000000000000 $t
+     /tmp/ccjtaNQi.s:158    .text.GetDebugLevelEE:0000000000000000 GetDebugLevelEE
+     /tmp/ccjtaNQi.s:179    .text.ResetOSDValue:0000000000000000 $t
+     /tmp/ccjtaNQi.s:186    .text.ResetOSDValue:0000000000000000 ResetOSDValue
+     /tmp/ccjtaNQi.s:206    .text.ResetOSDValue:000000000000000c $d
+     /tmp/ccjtaNQi.s:211    .text.ClearBasicEE:0000000000000000 $t
+     /tmp/ccjtaNQi.s:218    .text.ClearBasicEE:0000000000000000 ClearBasicEE
+     /tmp/ccjtaNQi.s:250    .text.ClearBasicEE:000000000000001c $d
+     /tmp/ccjtaNQi.s:256    .text.GetAudioVolEE:0000000000000000 $t
+     /tmp/ccjtaNQi.s:263    .text.GetAudioVolEE:0000000000000000 GetAudioVolEE
+     /tmp/ccjtaNQi.s:284    .text.SetAudioVolEE:0000000000000000 $t
+     /tmp/ccjtaNQi.s:291    .text.SetAudioVolEE:0000000000000000 SetAudioVolEE
+     /tmp/ccjtaNQi.s:315    .text.GetPCAudioVolEE:0000000000000000 $t
+     /tmp/ccjtaNQi.s:322    .text.GetPCAudioVolEE:0000000000000000 GetPCAudioVolEE
+     /tmp/ccjtaNQi.s:343    .text.SetPCAudioVolEE:0000000000000000 $t
+     /tmp/ccjtaNQi.s:350    .text.SetPCAudioVolEE:0000000000000000 SetPCAudioVolEE
                             *COM*:0000000000000004 newInRes
-     /tmp/cc1CVHrG.s:375    .rodata.ClearBasicEE.str1.4:0000000000000000 $d
-     /tmp/cc1CVHrG.s:379    .rodata.ResetOSDValue.str1.4:0000000000000000 $d
+     /tmp/ccjtaNQi.s:375    .rodata.ClearBasicEE.str1.4:0000000000000000 $d
+     /tmp/ccjtaNQi.s:379    .rodata.ResetOSDValue.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 ReadEEP

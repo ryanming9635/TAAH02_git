@@ -1,35 +1,3 @@
----- bSignal Matches (41 in 5 files) ----
-Main.c (src):137:tByte bSignal[4]= {0,0,0,0} ;
-Main.c (src):1175:					bSignal[gHDMI_Index] = 0;
-Main.c (src):1177:					bSignal[gHDMI_Index] = 1;
-Main.c (src):1181:			bSignal[gHDMI_Index] = CheckHDMIRX();
-Main.c (src):1183:			//if( (i == 1 )&&(bSignal[1]==1))
-Main.c (src):1193:			if(bSignal[gHDMI_Index] != bOldSignal[gHDMI_Index] )
-Main.c (src):1195:				bOldSignal[gHDMI_Index] = bSignal[gHDMI_Index] ;
-Main.c (src):1197:				if(bSignal[gHDMI_Index] == 0 )
-Main.c (src):1219:			if( bSignal[gHDMI_Index] == 1  )
-Main.c (src):4488:			if(bSignal[0]==1)
-Main.c (src):4558:			if(bSignal[1]==1)
-Monitor.c (vs4210):79:extern tByte bSignal[4] ;
-Monitor.c (vs4210):1386:		extern tByte bSignal[4] ;
-Monitor.c (vs4210):1387:		Printf("\r\nbSignal[0] = %d", (WORD) bSignal[0]);
-Monitor.c (vs4210):1388:		Printf("\r\nbSignal[1] = %d", (WORD) bSignal[1]);
-Monitor.c (vs4210):1389:		Printf("\r\nbSignal[2] = %d", (WORD) bSignal[2]);
-Monitor.c (vs4210):1390:		Printf("\r\nbSignal[3] = %d", (WORD) bSignal[3]);
-VS4210.c (vs4210):32:static tByte bSignal[4] ;
-VS4210.c (vs4210):3551:        if (bSignal[0] == 0)
-VS4210.c (vs4210):3575:        if (bSignal[1] == 0)
-VS4210.c (vs4210):3601:        if (bSignal[2] == 0)
-VS4210.c (vs4210):3630:        if (bSignal[3] == 0)
-VS4210.c (vs4210):3891:        bSignal[ch] = 1 ;
-VS4210.c (vs4210):3895:        bSignal[ch] = 0 ;
-VS4210.c (vs4210):3975:        if ( bSignal[gaHDMI_MapWindowIndex[0] ] == 0  )
-VS4210.c (vs4210):4039:        if (bSignal[i] ==0 )
-VS4210.c (vs4210):4048:        if (bSignal[i] ==0 )
-VS4210.c (vs4210):4110:    bSignal[ch] = 0 ;
-VS4210.c (vs4210):4146:        if ( bSignal[gaHDMI_MapWindowIndex[0]] == 0  )
-VS4210.c (vs4210):4304:            if ( (bSignal[0] == 0 ) && (bSignal[1] == 0 ) && (bSignal[2] == 0 ) && (bSignal[3] == 0 ) )
-VS4210.c (vs4210):4488:                                if (bSignal[i] == 1 )
-VS4210.c (vs4210):4507:            if ( bSignal[gaHDMI_MapWindowIndex[0] ] == 0  )
-VS4210.h (vs4210):7://extern tByte bSignal[4] ;
-VX_OSD_Simple.c (vs4210):28:extern tByte bSignal[4];
+---- Selected window Matches (2 in 1 files) ----
+Main.c (src):4477:			printf("Selected window 0\r\n");
+Main.c (src):4505:			printf("Selected window 1\r\n");

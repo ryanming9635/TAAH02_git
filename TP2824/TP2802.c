@@ -1760,11 +1760,22 @@ void EQ_Detect()
             else
             {
 
-				 if(SelectInputMode==_AHD_Input)
-					 Set_Video_Loss_OSD(1,ON);	 
 
+				 if(SelectInputMode==_AHD_Input)
+				 	{
+					 Set_Video_Loss_OSD(1,ON);	 
+					VXISI2CWrite( 0x32, 0x00 );
+				 	}
+
+				
+				 
 				 Init_TP280x_RegSet();
 
+				 if(SelectInputMode==_AHD_Input)
+				 	{
+
+				  HS_Select_Win(1);
+				 	}
 			#if 0
                  state[i] = VIDEO_UNPLUG;
                 count[i] = 0;

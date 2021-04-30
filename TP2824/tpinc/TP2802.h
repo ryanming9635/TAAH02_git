@@ -135,6 +135,7 @@ tByte newInRes[4];	//20201214-01
 
 extern void MCUTimerActiveTimerEvent(WORD usTime, BYTE ucEventID);
 extern void Set_Video_Loss_OSD(BYTE ch, BYTE set);	
+extern void HS_Select_Win(unsigned char WinNum);	//20201214-02
 
 
 #endif
