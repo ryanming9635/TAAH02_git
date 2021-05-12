@@ -1,3 +1,132 @@
----- Selected window Matches (2 in 1 files) ----
-Main.c (src):4477:			printf("Selected window 0\r\n");
-Main.c (src):4505:			printf("Selected window 1\r\n");
+---- B6 Matches (139 in 15 files) ----
+Etc_eep.h (vs4210):73:#define  EEP_FourthNumber		0xb6
+Hdmitx_drv.c (hdmi_dvi_txsrc):2458:    HDMITX_WriteI2C_Byte(REG_TX_AVIINFO_DB6,pAVIInfoFrame->pktbyte.AVI_DB[5]);
+Hdmitx_drv.c (hdmi_dvi_txsrc):2477:    HDMITX_DEBUG_PRINTF(("%02X ",(int)HDMITX_ReadI2C_Byte(REG_TX_AVIINFO_DB6)));
+Hdmitx_drv.h (hdmi_dvi_txsrc):631:#define REG_TX_AVIINFO_DB6 0x5E
+Hdmitx_drv.h (hdmi_dvi_txsrc):655:#define REG_TX_PKT_SPDINFO_PB6 0x76
+IT660x_reg.h (vs4210):205:#define REG_RX_0B6 0xB6 // REG_RX_0B6
+IT660x_reg.h (vs4210):501:#define REG_RX_1B6 0xB6 // REG_RX_1B6
+IT660x_reg.h (vs4210):794:#define REG_RX_2B6 0xB6 // REG_RX_2B6
+IT660x_reg.h (vs4210):957:#define REG_P0_RX_M0_B6 0xAA // REG_RX_2AA
+IT660x_reg.h (vs4210):960:#define REG_P1_RX_M0_B0 0xB6 // REG_RX_2B6
+IT660x_reg.h (vs4210):966:#define REG_P1_RX_M0_B6 0xBC // REG_RX_2BC
+IT660x_reg.h (vs4210):1348:#define REG_RX_AVI_DB6 0x1A // REG_RX_21A
+Main.c (src):2429:VXISI2CWrite(0xB6,0x00); 
+Main.c (src):2686:VXISI2CWrite(0xB6,0x00);
+Main.c (src):2949:	VXISI2CWrite(0xB6,0x00);	
+Main.c (src):3195:	VXISI2CWrite(0xB6,0x00);
+Main.c (src):3443:	VXISI2CWrite(0xB6,0x00);
+Main.c (src):3691:	VXISI2CWrite(0xB6,0x00);
+Monitor.c (vs4210):2205:	VXISI2CWrite(0xB6,0x00);
+Monitor.c (vs4210):2457:VXISI2CWrite(0xB6,0x00);
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6347:#define CAN_F0R1_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6348:#define CAN_F0R1_FB6_Msk                     (0x1UL << CAN_F0R1_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6349:#define CAN_F0R1_FB6                         CAN_F0R1_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6445:#define CAN_F1R1_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6446:#define CAN_F1R1_FB6_Msk                     (0x1UL << CAN_F1R1_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6447:#define CAN_F1R1_FB6                         CAN_F1R1_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6543:#define CAN_F2R1_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6544:#define CAN_F2R1_FB6_Msk                     (0x1UL << CAN_F2R1_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6545:#define CAN_F2R1_FB6                         CAN_F2R1_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6641:#define CAN_F3R1_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6642:#define CAN_F3R1_FB6_Msk                     (0x1UL << CAN_F3R1_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6643:#define CAN_F3R1_FB6                         CAN_F3R1_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6739:#define CAN_F4R1_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6740:#define CAN_F4R1_FB6_Msk                     (0x1UL << CAN_F4R1_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6741:#define CAN_F4R1_FB6                         CAN_F4R1_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6837:#define CAN_F5R1_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6838:#define CAN_F5R1_FB6_Msk                     (0x1UL << CAN_F5R1_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6839:#define CAN_F5R1_FB6                         CAN_F5R1_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6935:#define CAN_F6R1_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6936:#define CAN_F6R1_FB6_Msk                     (0x1UL << CAN_F6R1_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):6937:#define CAN_F6R1_FB6                         CAN_F6R1_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7033:#define CAN_F7R1_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7034:#define CAN_F7R1_FB6_Msk                     (0x1UL << CAN_F7R1_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7035:#define CAN_F7R1_FB6                         CAN_F7R1_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7131:#define CAN_F8R1_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7132:#define CAN_F8R1_FB6_Msk                     (0x1UL << CAN_F8R1_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7133:#define CAN_F8R1_FB6                         CAN_F8R1_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7229:#define CAN_F9R1_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7230:#define CAN_F9R1_FB6_Msk                     (0x1UL << CAN_F9R1_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7231:#define CAN_F9R1_FB6                         CAN_F9R1_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7327:#define CAN_F10R1_FB6_Pos                    (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7328:#define CAN_F10R1_FB6_Msk                    (0x1UL << CAN_F10R1_FB6_Pos)       /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7329:#define CAN_F10R1_FB6                        CAN_F10R1_FB6_Msk                 /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7425:#define CAN_F11R1_FB6_Pos                    (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7426:#define CAN_F11R1_FB6_Msk                    (0x1UL << CAN_F11R1_FB6_Pos)       /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7427:#define CAN_F11R1_FB6                        CAN_F11R1_FB6_Msk                 /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7523:#define CAN_F12R1_FB6_Pos                    (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7524:#define CAN_F12R1_FB6_Msk                    (0x1UL << CAN_F12R1_FB6_Pos)       /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7525:#define CAN_F12R1_FB6                        CAN_F12R1_FB6_Msk                 /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7621:#define CAN_F13R1_FB6_Pos                    (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7622:#define CAN_F13R1_FB6_Msk                    (0x1UL << CAN_F13R1_FB6_Pos)       /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7623:#define CAN_F13R1_FB6                        CAN_F13R1_FB6_Msk                 /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7719:#define CAN_F0R2_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7720:#define CAN_F0R2_FB6_Msk                     (0x1UL << CAN_F0R2_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7721:#define CAN_F0R2_FB6                         CAN_F0R2_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7817:#define CAN_F1R2_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7818:#define CAN_F1R2_FB6_Msk                     (0x1UL << CAN_F1R2_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7819:#define CAN_F1R2_FB6                         CAN_F1R2_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7915:#define CAN_F2R2_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7916:#define CAN_F2R2_FB6_Msk                     (0x1UL << CAN_F2R2_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):7917:#define CAN_F2R2_FB6                         CAN_F2R2_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8013:#define CAN_F3R2_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8014:#define CAN_F3R2_FB6_Msk                     (0x1UL << CAN_F3R2_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8015:#define CAN_F3R2_FB6                         CAN_F3R2_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8111:#define CAN_F4R2_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8112:#define CAN_F4R2_FB6_Msk                     (0x1UL << CAN_F4R2_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8113:#define CAN_F4R2_FB6                         CAN_F4R2_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8209:#define CAN_F5R2_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8210:#define CAN_F5R2_FB6_Msk                     (0x1UL << CAN_F5R2_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8211:#define CAN_F5R2_FB6                         CAN_F5R2_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8307:#define CAN_F6R2_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8308:#define CAN_F6R2_FB6_Msk                     (0x1UL << CAN_F6R2_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8309:#define CAN_F6R2_FB6                         CAN_F6R2_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8405:#define CAN_F7R2_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8406:#define CAN_F7R2_FB6_Msk                     (0x1UL << CAN_F7R2_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8407:#define CAN_F7R2_FB6                         CAN_F7R2_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8503:#define CAN_F8R2_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8504:#define CAN_F8R2_FB6_Msk                     (0x1UL << CAN_F8R2_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8505:#define CAN_F8R2_FB6                         CAN_F8R2_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8601:#define CAN_F9R2_FB6_Pos                     (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8602:#define CAN_F9R2_FB6_Msk                     (0x1UL << CAN_F9R2_FB6_Pos)        /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8603:#define CAN_F9R2_FB6                         CAN_F9R2_FB6_Msk                  /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8699:#define CAN_F10R2_FB6_Pos                    (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8700:#define CAN_F10R2_FB6_Msk                    (0x1UL << CAN_F10R2_FB6_Pos)       /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8701:#define CAN_F10R2_FB6                        CAN_F10R2_FB6_Msk                 /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8797:#define CAN_F11R2_FB6_Pos                    (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8798:#define CAN_F11R2_FB6_Msk                    (0x1UL << CAN_F11R2_FB6_Pos)       /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8799:#define CAN_F11R2_FB6                        CAN_F11R2_FB6_Msk                 /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8895:#define CAN_F12R2_FB6_Pos                    (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8896:#define CAN_F12R2_FB6_Msk                    (0x1UL << CAN_F12R2_FB6_Pos)       /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8897:#define CAN_F12R2_FB6                        CAN_F12R2_FB6_Msk                 /*!< Filter bit 6 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8993:#define CAN_F13R2_FB6_Pos                    (6U)                              
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8994:#define CAN_F13R2_FB6_Msk                    (0x1UL << CAN_F13R2_FB6_Pos)       /*!< 0x00000040 */
+Stm32f103xb.h (drivers\cmsis\device\st\stm32f1xx\include):8995:#define CAN_F13R2_FB6                        CAN_F13R2_FB6_Msk                 /*!< Filter bit 6 */
+Stm32f1xx_hal_gpio_ex.h (drivers\stm32f1xx_hal_driver\inc):142:  * @note  DISABLE: No remap (SCL/PB6, SDA/PB7)
+Stm32f1xx_hal_gpio_ex.h (drivers\stm32f1xx_hal_driver\inc):149:  * @note  ENABLE: Remap     (TX/PB6, RX/PB7)
+Stm32f1xx_hal_gpio_ex.h (drivers\stm32f1xx_hal_driver\inc):279:  * @note  DISABLE: No remap  (TIM4_CH1/PB6,  TIM4_CH2/PB7,  TIM4_CH3/PB8,  TIM4_CH4/PB9)
+Stm32f1xx_hal_gpio_ex.h (drivers\stm32f1xx_hal_driver\inc):370:  * @note  ENABLE: Remap     (CAN2_RX/PB5,  CAN2_TX/PB6)
+Stm32f1xx_hal_uart.h (drivers\stm32f1xx_hal_driver\inc):84:  *          b7-b6  Error information
+Stm32f1xx_hal_uart.h (drivers\stm32f1xx_hal_driver\inc):104:  *          b7-b6  (not used)
+Stm32_hal_legacy.h (drivers\stm32f1xx_hal_driver\inc\legacy):492:#define HAL_SYSCFG_FASTMODEPLUS_I2C_PB6    I2C_FASTMODEPLUS_PB6
+testVideo.c (hdmi_dvi_txsrc):189:0xB6,
+Toa_edid.c (vs4210):241:    unsigned char PB6;
+TP2802.c (tp2824):2381:					tp28xx_byte_read(0xB6);
+TP2802.c (tp2824):2410:						tp28xx_byte_read(0xB6);
+TP2802.c (tp2824):2440:					tp28xx_byte_read(0xB6);
+TP2802.c (tp2824):3202:						   tp28xx_byte_read(0xB6);
+TP2802.c (tp2824):3226:						   tp28xx_byte_read(0xB6);
+TP2802.c (tp2824):3243:						   tp28xx_byte_read(0xB6);
+TP2802.c (tp2824):3473:	tByte addr,pcnt,RegB6;
+TP2802.c (tp2824):3487:			RegB6=tp28xx_byte_read(0xB6);
+TP2802.c (tp2824):3493:		if((RegB6&0xF0) != 0)//VnRXIRQ
+TP2802.c (tp2824):3496:			if((RegB6&0x80) != 0  && count[3] > (EQ_COUNT+2)/*&&(state[3] == VIDEO_LOCKED)&&std[3]==TVI && mode[3]!=NTSC && mode[3]!=PAL*/ )
+TP2802.c (tp2824):3543:			if((RegB6&0x40) != 0  && count[2] > (EQ_COUNT+2)/*&&(state[2] == VIDEO_LOCKED)&&std[2]==TVI && mode[2]!=NTSC && mode[2]!=PAL*/)
+TP2802.c (tp2824):3591:			if((RegB6&0x20) != 0  && count[1] > (EQ_COUNT+2)/*&&(state[1] == VIDEO_LOCKED) &&std[1]==TVI && mode[1]!=NTSC && mode[1]!=PAL*/)
+TP2802.c (tp2824):3639:			if((RegB6&0x10) != 0  && count[0] > (EQ_COUNT+2)/*&&(state[0] == VIDEO_LOCKED) &&std[0]==TVI && mode[0]!=NTSC && mode[0]!=PAL*/)
+TP2802.c (tp2824):4138:	tp28xx_byte_write( 0xB6, (0x01<<(ch))); //clear flag
+TP2802.c (tp2824):4149:        if( (0x01<<(ch)) & tp28xx_byte_read( 0xb6)) break;
+Tx_typedef.h (hdmi_dvi_txsrc):153:        BYTE Reserved_PB6:4 ;//PB6
+VX8812.c (vs4210):478:		VS8812Write(0xB6,0x00);
+VX8812.c (vs4210):702:		VS8812Write(0xB6,0x00);
