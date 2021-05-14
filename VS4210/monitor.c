@@ -319,7 +319,8 @@ void MonWriteI2C(void)
 void MonIncDecI2C(BYTE inc)
 {
 
-/*
+BYTE ret;
+
 	switch(inc){
 	case 0:  MonWdata--;	break;
 	case 1:  MonWdata++;	break;
@@ -327,6 +328,7 @@ void MonIncDecI2C(BYTE inc)
 	case 11: MonWdata+=0x10;	break;
 	}
 
+	/*
 
 	if ( MonAddress == TW88I2CAddress ) {
 		WriteTW88(MonIndex, MonWdata);
@@ -343,6 +345,39 @@ void MonIncDecI2C(BYTE inc)
 	}
 
 */
+	if(Monitor_I2C==0xA0)
+		{
+		WriteEEP( MonIndex, MonWdata );
+		 ret= ReadEEP(MonIndex);	
+		  Printf("\r\nEEPROM Write addr=%02x  data=%02x",(WORD)MonIndex,(WORD)ret);
+		}
+	else if(Monitor_I2C==0x40)
+	{
+		VXISI2CWrite( MonIndex, MonWdata );
+		 ret= VXISI2CRead(MonIndex);	
+		   Printf("\r\nVS4210 Write addr=%02x  data=%02x",(WORD)MonIndex,(WORD)ret);
+	}
+	else if(Monitor_I2C==0x12)
+	{
+		VS8812Write( MonIndex ,MonWdata);
+		ret= VS8812Read(MonIndex);	
+		   Printf("\r\nVS8812 Write addr=%02x  data=%02x",(WORD)MonIndex,(WORD)ret);
+	}
+	else if( Monitor_I2C==0x88)
+		{
+		tp28xx_byte_write( MonIndex, MonWdata);	
+		ret= tp28xx_byte_read(MonIndex);			
+		 Printf("\r\nTP2824  Read addr=%02x  data=%02x",(WORD)MonIndex,(WORD)ret);
+		}
+	
+	else if( Monitor_I2C==0x90)
+		{
+		gHDMI_Index=0;	
+		HDMIRX_WriteI2C_Byte( MonIndex, MonWdata ); 
+		ret= HDMIRX_ReadI2C_Byte(MonIndex); 	
+		 Printf("\r\nIT66021  Read addr=%02x  data=%02x",(WORD)Asc2Bin(argv[1]),(WORD)ret);
+		}
+
 	Prompt();
 
 }
@@ -586,6 +621,22 @@ void MonTxDump(void)
 //=============================================================================
 void MonHelp(void)
 {
+	#if 1
+	  Printf("\r\n=======================================================");
+	  Printf("\r\n>>>   Welcome to TOA TAAH02 console	 Rev 1.00   <<<");
+	  Printf("\r\n=======================================================");
+	  Printf("\r\n R [ii] 		   ; Read Register data");
+	  Printf("\r\n W [ii] [dd]		   ; Write Register data");
+	  Printf("\r\n Dump [ii] [cc] 	   ; Dump [first][end] Reg.") ;
+	  Printf("\r\n I2C [aa]		   ; Change I2C address");
+	  Printf("\r\n < VS4210:40 TP2824:88 EEPROM:0xA0 HDMI:90 >");
+	  Printf("\r\n WIN [ii] 	           ; Change Input Source");
+	  Printf("\r\n Access [0,1]		   ; TP2824 Access OFF/ON");
+	  Printf("\r\n");
+	  Printf("\r\n=======================================================");
+	  Printf("\r\n");
+
+	#else
 	Printf("\r\n=======================================================");
 	Printf("\r\n>>>     Welcome to ML076HQ     Rev 1.00     <<<");
 	Printf("\r\n=======================================================");
@@ -607,6 +658,7 @@ void MonHelp(void)
 	Printf("\r\n");
 	Printf("\r\n=======================================================");
 	Printf("\r\n");
+	#endif
 }
 
 //=============================================================================
@@ -802,18 +854,24 @@ if(Monitor_I2C==0xA0)
 	WriteEEP( Asc2Bin(argv[1]), Asc2Bin(argv[2]) );
 	   //tp28xx_byte_write(Asc2Bin(argv[1]), Asc2Bin(argv[2])); 	
 	 ret= ReadEEP(Asc2Bin(argv[1]));	
+		MonIndex=Asc2Bin(argv[1]);
+		MonWdata=Asc2Bin(argv[2]);
 	  Printf("\r\nEEPROM Write addr=%02x  data=%02x",(WORD)Asc2Bin(argv[1]),(WORD)ret);
 	}
 else if(Monitor_I2C==0x40)
 {
 	VXISI2CWrite( Asc2Bin(argv[1]), Asc2Bin(argv[2]) );
 	 ret= VXISI2CRead(Asc2Bin(argv[1]));	
+	 MonIndex=Asc2Bin(argv[1]);
+	 MonWdata=Asc2Bin(argv[2]); 
 	   Printf("\r\nVS4210 Write addr=%02x  data=%02x",(WORD)Asc2Bin(argv[1]),(WORD)ret);
 }
 else if(Monitor_I2C==0x12)
 {
 	VS8812Write( Asc2Bin(argv[1]), Asc2Bin(argv[2]) );
 	 ret= VS8812Read(Asc2Bin(argv[1]));	
+	 MonIndex=Asc2Bin(argv[1]);
+	 MonWdata=Asc2Bin(argv[2]); 
 	   Printf("\r\nVS8812 Write addr=%02x  data=%02x",(WORD)Asc2Bin(argv[1]),(WORD)ret);
 }
 /*
@@ -838,7 +896,9 @@ Printf("\r\nGT911  Read addr=%02x%02x data=%02x",(WORD)Asc2Bin(argv[1]),(WORD)As
 else if( Monitor_I2C==0x88)
 	{
 	tp28xx_byte_write( Asc2Bin(argv[1]), Asc2Bin(argv[2]) );	
-	ret= tp28xx_byte_read(Asc2Bin(argv[1]));		  
+	ret= tp28xx_byte_read(Asc2Bin(argv[1]));	
+	MonIndex=Asc2Bin(argv[1]);
+	MonWdata=Asc2Bin(argv[2]);
 	 Printf("\r\nTP2824  Read addr=%02x  data=%02x",(WORD)Asc2Bin(argv[1]),(WORD)ret);
 	}
 
@@ -846,7 +906,9 @@ else if( Monitor_I2C==0x90)
 	{
 	gHDMI_Index=0;	
 	HDMIRX_WriteI2C_Byte( Asc2Bin(argv[1]), Asc2Bin(argv[2]) );	
-	ret= HDMIRX_ReadI2C_Byte(Asc2Bin(argv[1]));		  
+	ret= HDMIRX_ReadI2C_Byte(Asc2Bin(argv[1]));		
+	MonIndex=Asc2Bin(argv[1]);
+	MonWdata=Asc2Bin(argv[2]);
 	 Printf("\r\nIT66021  Read addr=%02x  data=%02x",(WORD)Asc2Bin(argv[1]),(WORD)ret);
 	}
 else
@@ -899,17 +961,23 @@ else
 		#else
 	if(Monitor_I2C==0xA0)
 		{
-		   ret= ReadEEP(Asc2Bin(argv[1])); 			 
+		   ret= ReadEEP(Asc2Bin(argv[1])); 
+		   MonIndex=Asc2Bin(argv[1]);
+		   MonWdata=ret;
 		Printf("\r\nEEPROM  Read addr=%02x  data=%02x",(WORD)Asc2Bin(argv[1]),(WORD)ret);
 		}
 	else if(Monitor_I2C==0x40)
 		{
-		ret= VXISI2CRead(Asc2Bin(argv[1])); 		  
+		ret= VXISI2CRead(Asc2Bin(argv[1])); 	
+		 MonIndex=Asc2Bin(argv[1]);
+		 MonWdata=ret;
 		 Printf("\r\nVS4210  Read addr=%02x  data=%02x",(WORD)Asc2Bin(argv[1]),(WORD)ret);
 		}
 	else if(Monitor_I2C==0x12)
 		{
-		ret= VS8812Read(Asc2Bin(argv[1])); 		  
+		ret= VS8812Read(Asc2Bin(argv[1])); 	
+		 MonIndex=Asc2Bin(argv[1]);
+		 MonWdata=ret;
 		 Printf("\r\nVS8812  Read addr=%02x  data=%02x",(WORD)Asc2Bin(argv[1]),(WORD)ret);
 		}
 	/*
@@ -926,13 +994,17 @@ else
 	*/
 	else if( Monitor_I2C==0x88)
 		{	
-		ret= tp28xx_byte_read(Asc2Bin(argv[1])); 		  
+		ret= tp28xx_byte_read(Asc2Bin(argv[1])); 	
+		MonIndex=Asc2Bin(argv[1]);
+		MonWdata=ret;
 		 Printf("\r\nTP2824  Read addr=%02x  data=%02x",(WORD)Asc2Bin(argv[1]),(WORD)ret);
 		}
 	else if( Monitor_I2C==0x90)
 			{
 			gHDMI_Index=0;
 			ret= HDMIRX_ReadI2C_Byte(Asc2Bin(argv[1]));	  
+			 MonIndex=Asc2Bin(argv[1]);
+			 MonWdata=ret;
 			 Printf("\r\nIT66021  Read addr=%02x  data=%02x",(WORD)Asc2Bin(argv[1]),(WORD)ret);
 			}
 	else

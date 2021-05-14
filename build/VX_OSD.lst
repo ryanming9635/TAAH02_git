@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccwpi4vX.s 			page 1
+ARM GAS  /tmp/ccDGawEn.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
   19:VS4210/VX_OSD.c **** }
   38              		.loc 1 19 0
   39 000a 7047     		bx	lr
-ARM GAS  /tmp/ccwpi4vX.s 			page 2
+ARM GAS  /tmp/ccDGawEn.s 			page 2
 
 
   40              	.L3:
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
   89              		.cfi_startproc
   90              		@ args = 0, pretend = 0, frame = 0
   91              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccwpi4vX.s 			page 3
+ARM GAS  /tmp/ccDGawEn.s 			page 3
 
 
   92              		@ link register save eliminated.
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
   37:VS4210/VX_OSD.c ****     case(_Title1):
   38:VS4210/VX_OSD.c ****     case(_Title2):
   39:VS4210/VX_OSD.c ****     case(_Title3):
-ARM GAS  /tmp/ccwpi4vX.s 			page 4
+ARM GAS  /tmp/ccDGawEn.s 			page 4
 
 
   40:VS4210/VX_OSD.c ****         VXISI2CWrite(0x52,addr);
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  174              		.thumb_func
  175              		.fpu softvfp
  177              	SetOsdSize:
-ARM GAS  /tmp/ccwpi4vX.s 			page 5
+ARM GAS  /tmp/ccDGawEn.s 			page 5
 
 
  178              	.LFB7:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  219 002a 19       		.byte	(.L22-.L20)/2
  220 002b 24       		.byte	(.L23-.L20)/2
  221 002c 2F       		.byte	(.L24-.L20)/2
-ARM GAS  /tmp/ccwpi4vX.s 			page 6
+ARM GAS  /tmp/ccDGawEn.s 			page 6
 
 
  222 002d 37       		.byte	(.L25-.L20)/2
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  106:VS4210/VX_OSD.c ****         break;
  107:VS4210/VX_OSD.c **** 
  108:VS4210/VX_OSD.c ****     case _Content:
-ARM GAS  /tmp/ccwpi4vX.s 			page 7
+ARM GAS  /tmp/ccDGawEn.s 			page 7
 
 
  109:VS4210/VX_OSD.c ****         VXISI2CWrite(0x58,sizeX3f);
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  283              	.LVL37:
   88:VS4210/VX_OSD.c ****         break;
  284              		.loc 1 88 0
-ARM GAS  /tmp/ccwpi4vX.s 			page 8
+ARM GAS  /tmp/ccDGawEn.s 			page 8
 
 
  285 007a 44F0C001 		orr	r1, r4, #192
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  330 00b6 44F08001 		orr	r1, r4, #128
  331 00ba 5E20     		movs	r0, #94
  332 00bc FFF7FEFF 		bl	VXISI2CWrite
-ARM GAS  /tmp/ccwpi4vX.s 			page 9
+ARM GAS  /tmp/ccDGawEn.s 			page 9
 
 
  333              	.LVL51:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  116:VS4210/VX_OSD.c **** void SetOsdPosition(tByte block,tWord X_Pos,tWord Y_Pos)
  117:VS4210/VX_OSD.c **** {
  381              		.loc 1 117 0
-ARM GAS  /tmp/ccwpi4vX.s 			page 10
+ARM GAS  /tmp/ccDGawEn.s 			page 10
 
 
  382              		.cfi_startproc
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  130:VS4210/VX_OSD.c ****     {
  131:VS4210/VX_OSD.c ****     case(_Title0):
  132:VS4210/VX_OSD.c ****     case(_Title1):
-ARM GAS  /tmp/ccwpi4vX.s 			page 11
+ARM GAS  /tmp/ccDGawEn.s 			page 11
 
 
  133:VS4210/VX_OSD.c ****     case(_Title2):
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  455 0048 5B20     		movs	r0, #91
  456 004a FFF7FEFF 		bl	VXISI2CWrite
  457              	.LVL77:
-ARM GAS  /tmp/ccwpi4vX.s 			page 12
+ARM GAS  /tmp/ccDGawEn.s 			page 12
 
 
  142:VS4210/VX_OSD.c ****         break;
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  505              	.LCFI3:
  506              		.cfi_def_cfa_offset 16
  507              		.cfi_offset 4, -16
-ARM GAS  /tmp/ccwpi4vX.s 			page 13
+ARM GAS  /tmp/ccDGawEn.s 			page 13
 
 
  508              		.cfi_offset 5, -12
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  166:VS4210/VX_OSD.c **** //---------------------------------------------------------------------------
  167:VS4210/VX_OSD.c **** void OsdDumpAttribute(tByte OSDaddr,tByte *Strdata,tByte index)
  168:VS4210/VX_OSD.c **** {
-ARM GAS  /tmp/ccwpi4vX.s 			page 14
+ARM GAS  /tmp/ccDGawEn.s 			page 14
 
 
  556              		.loc 1 168 0
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  604              	.L44:
  605              		.align	2
  606              	.L43:
-ARM GAS  /tmp/ccwpi4vX.s 			page 15
+ARM GAS  /tmp/ccDGawEn.s 			page 15
 
 
  607 0030 00000000 		.word	VS4210_ADDR
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  653 0020 FFF7FEFF 		bl	VXISI2CRead
  654              	.LVL106:
  185:VS4210/VX_OSD.c ****     temp=(temp&0x3F) | (ch << 6) ;
-ARM GAS  /tmp/ccwpi4vX.s 			page 16
+ARM GAS  /tmp/ccDGawEn.s 			page 16
 
 
  655              		.loc 1 185 0
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  701              	.LFB12:
  196:VS4210/VX_OSD.c **** 
  197:VS4210/VX_OSD.c **** 
-ARM GAS  /tmp/ccwpi4vX.s 			page 17
+ARM GAS  /tmp/ccDGawEn.s 			page 17
 
 
  198:VS4210/VX_OSD.c **** //---------------------------------------------------------------------------
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  744              		.syntax unified
  745              		.thumb
  746              		.thumb_func
-ARM GAS  /tmp/ccwpi4vX.s 			page 18
+ARM GAS  /tmp/ccDGawEn.s 			page 18
 
 
  747              		.fpu softvfp
@@ -1078,55 +1078,55 @@ ARM GAS  /tmp/ccwpi4vX.s 			page 1
  795              		.file 2 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/lock.h"
  796              		.file 3 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_types.h"
  797              		.file 4 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/lib/gcc/arm-none-eabi/7.3.1/include/std
-ARM GAS  /tmp/ccwpi4vX.s 			page 19
+ARM GAS  /tmp/ccDGawEn.s 			page 19
 
 
  798              		.file 5 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/reent.h"
  799              		.file 6 "VS4210/VXIS_Extern_Define.h"
  800              		.file 7 "sw_i2c/VX_swi2c.h"
-ARM GAS  /tmp/ccwpi4vX.s 			page 20
+ARM GAS  /tmp/ccDGawEn.s 			page 20
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 VX_OSD.c
-     /tmp/ccwpi4vX.s:16     .text.ClearDisplayedOSD:0000000000000000 $t
-     /tmp/ccwpi4vX.s:23     .text.ClearDisplayedOSD:0000000000000000 ClearDisplayedOSD
-     /tmp/ccwpi4vX.s:43     .text.ClearDisplayedOSD:000000000000000c $d
-     /tmp/ccwpi4vX.s:48     .text.SetDisplayedOSD:0000000000000000 $t
-     /tmp/ccwpi4vX.s:55     .text.SetDisplayedOSD:0000000000000000 SetDisplayedOSD
-     /tmp/ccwpi4vX.s:74     .text.SetDisplayedOSD:000000000000000c $d
-     /tmp/ccwpi4vX.s:79     .text.GetDisplayedOSD:0000000000000000 $t
-     /tmp/ccwpi4vX.s:86     .text.GetDisplayedOSD:0000000000000000 GetDisplayedOSD
-     /tmp/ccwpi4vX.s:100    .text.GetDisplayedOSD:0000000000000008 $d
-     /tmp/ccwpi4vX.s:105    .text.SetOsdStartAddress:0000000000000000 $t
-     /tmp/ccwpi4vX.s:112    .text.SetOsdStartAddress:0000000000000000 SetOsdStartAddress
-     /tmp/ccwpi4vX.s:129    .text.SetOsdStartAddress:000000000000000a $d
-     /tmp/ccwpi4vX.s:170    .text.SetOsdSize:0000000000000000 $t
-     /tmp/ccwpi4vX.s:177    .text.SetOsdSize:0000000000000000 SetOsdSize
-     /tmp/ccwpi4vX.s:217    .text.SetOsdSize:0000000000000028 $d
-     /tmp/ccwpi4vX.s:372    .text.SetOsdPosition:0000000000000000 $t
-     /tmp/ccwpi4vX.s:379    .text.SetOsdPosition:0000000000000000 SetOsdPosition
-     /tmp/ccwpi4vX.s:413    .text.SetOsdPosition:000000000000001a $d
-     /tmp/ccwpi4vX.s:490    .text.OsdDumpString:0000000000000000 $t
-     /tmp/ccwpi4vX.s:497    .text.OsdDumpString:0000000000000000 OsdDumpString
-     /tmp/ccwpi4vX.s:542    .text.OsdDumpString:000000000000002c $d
-     /tmp/ccwpi4vX.s:547    .text.OsdDumpAttribute:0000000000000000 $t
-     /tmp/ccwpi4vX.s:554    .text.OsdDumpAttribute:0000000000000000 OsdDumpAttribute
-     /tmp/ccwpi4vX.s:607    .text.OsdDumpAttribute:0000000000000030 $d
-     /tmp/ccwpi4vX.s:612    .text.VXIS_fSetOsdOnOff:0000000000000000 $t
-     /tmp/ccwpi4vX.s:619    .text.VXIS_fSetOsdOnOff:0000000000000000 VXIS_fSetOsdOnOff
-     /tmp/ccwpi4vX.s:693    .text.VXIS_fSetOsdx2:0000000000000000 $t
-     /tmp/ccwpi4vX.s:700    .text.VXIS_fSetOsdx2:0000000000000000 VXIS_fSetOsdx2
-     /tmp/ccwpi4vX.s:742    .text.setTransParentIndex:0000000000000000 $t
-     /tmp/ccwpi4vX.s:749    .text.setTransParentIndex:0000000000000000 setTransParentIndex
-     /tmp/ccwpi4vX.s:791    .bss.DisplayedOSD:0000000000000000 DisplayedOSD
-     /tmp/ccwpi4vX.s:792    .bss.DisplayedOSD:0000000000000000 $d
-     /tmp/ccwpi4vX.s:138    .text.SetOsdStartAddress:0000000000000013 $d
-     /tmp/ccwpi4vX.s:138    .text.SetOsdStartAddress:0000000000000014 $t
-     /tmp/ccwpi4vX.s:226    .text.SetOsdSize:0000000000000031 $d
-     /tmp/ccwpi4vX.s:226    .text.SetOsdSize:0000000000000032 $t
-     /tmp/ccwpi4vX.s:422    .text.SetOsdPosition:0000000000000023 $d
-     /tmp/ccwpi4vX.s:422    .text.SetOsdPosition:0000000000000024 $t
+     /tmp/ccDGawEn.s:16     .text.ClearDisplayedOSD:0000000000000000 $t
+     /tmp/ccDGawEn.s:23     .text.ClearDisplayedOSD:0000000000000000 ClearDisplayedOSD
+     /tmp/ccDGawEn.s:43     .text.ClearDisplayedOSD:000000000000000c $d
+     /tmp/ccDGawEn.s:48     .text.SetDisplayedOSD:0000000000000000 $t
+     /tmp/ccDGawEn.s:55     .text.SetDisplayedOSD:0000000000000000 SetDisplayedOSD
+     /tmp/ccDGawEn.s:74     .text.SetDisplayedOSD:000000000000000c $d
+     /tmp/ccDGawEn.s:79     .text.GetDisplayedOSD:0000000000000000 $t
+     /tmp/ccDGawEn.s:86     .text.GetDisplayedOSD:0000000000000000 GetDisplayedOSD
+     /tmp/ccDGawEn.s:100    .text.GetDisplayedOSD:0000000000000008 $d
+     /tmp/ccDGawEn.s:105    .text.SetOsdStartAddress:0000000000000000 $t
+     /tmp/ccDGawEn.s:112    .text.SetOsdStartAddress:0000000000000000 SetOsdStartAddress
+     /tmp/ccDGawEn.s:129    .text.SetOsdStartAddress:000000000000000a $d
+     /tmp/ccDGawEn.s:170    .text.SetOsdSize:0000000000000000 $t
+     /tmp/ccDGawEn.s:177    .text.SetOsdSize:0000000000000000 SetOsdSize
+     /tmp/ccDGawEn.s:217    .text.SetOsdSize:0000000000000028 $d
+     /tmp/ccDGawEn.s:372    .text.SetOsdPosition:0000000000000000 $t
+     /tmp/ccDGawEn.s:379    .text.SetOsdPosition:0000000000000000 SetOsdPosition
+     /tmp/ccDGawEn.s:413    .text.SetOsdPosition:000000000000001a $d
+     /tmp/ccDGawEn.s:490    .text.OsdDumpString:0000000000000000 $t
+     /tmp/ccDGawEn.s:497    .text.OsdDumpString:0000000000000000 OsdDumpString
+     /tmp/ccDGawEn.s:542    .text.OsdDumpString:000000000000002c $d
+     /tmp/ccDGawEn.s:547    .text.OsdDumpAttribute:0000000000000000 $t
+     /tmp/ccDGawEn.s:554    .text.OsdDumpAttribute:0000000000000000 OsdDumpAttribute
+     /tmp/ccDGawEn.s:607    .text.OsdDumpAttribute:0000000000000030 $d
+     /tmp/ccDGawEn.s:612    .text.VXIS_fSetOsdOnOff:0000000000000000 $t
+     /tmp/ccDGawEn.s:619    .text.VXIS_fSetOsdOnOff:0000000000000000 VXIS_fSetOsdOnOff
+     /tmp/ccDGawEn.s:693    .text.VXIS_fSetOsdx2:0000000000000000 $t
+     /tmp/ccDGawEn.s:700    .text.VXIS_fSetOsdx2:0000000000000000 VXIS_fSetOsdx2
+     /tmp/ccDGawEn.s:742    .text.setTransParentIndex:0000000000000000 $t
+     /tmp/ccDGawEn.s:749    .text.setTransParentIndex:0000000000000000 setTransParentIndex
+     /tmp/ccDGawEn.s:791    .bss.DisplayedOSD:0000000000000000 DisplayedOSD
+     /tmp/ccDGawEn.s:792    .bss.DisplayedOSD:0000000000000000 $d
+     /tmp/ccDGawEn.s:138    .text.SetOsdStartAddress:0000000000000013 $d
+     /tmp/ccDGawEn.s:138    .text.SetOsdStartAddress:0000000000000014 $t
+     /tmp/ccDGawEn.s:226    .text.SetOsdSize:0000000000000031 $d
+     /tmp/ccDGawEn.s:226    .text.SetOsdSize:0000000000000032 $t
+     /tmp/ccDGawEn.s:422    .text.SetOsdPosition:0000000000000023 $d
+     /tmp/ccDGawEn.s:422    .text.SetOsdPosition:0000000000000024 $t
 
 UNDEFINED SYMBOLS
 VXISI2CWrite

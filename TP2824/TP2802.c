@@ -3834,6 +3834,7 @@ void Get_2824cIrq(void)//cocrx
 				  	SetRegPage(PtzTxChNum);		
 					//SetRegPage(0x04);	
 					//stop command
+#if 0				
 					#if 0
 					tp28xx_byte_write(0x5a, 0xFF);
 					tp28xx_byte_write(0x60, 0xFF);
@@ -3854,6 +3855,7 @@ void Get_2824cIrq(void)//cocrx
 					Set_Mirror_COC();	
 					#endif
 
+#endif				
 					//command data
 					#if 0
 					tp28xx_byte_write(0x5a,(AHDBitsReverse (AHDcmd1)));
