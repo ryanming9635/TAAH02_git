@@ -3468,7 +3468,36 @@ void TVICommandToAHData(void)
 	}
 
 }
+void ACPSTOPCOMMAND(void)
+{
+	//stop command
+	tp28xx_byte_write(0x5a, 0x00);
+	tp28xx_byte_write(0x60, 0x00);
+	tp28xx_byte_write(0x66, 0x00);
+	tp28xx_byte_write(0x6c, 0x00);
+	
+	
+	tp28xx_byte_write(0x6f, 0x45);
+	//delay(5);//50ms	//20210514
+	tp28xx_byte_write(0x6f, 0x44);
+	
+	HAL_Delay(35);		 //Delay 1Vsync(~33.3msec)//20210514
 
+	//stop command
+	tp28xx_byte_write(0x5a, 0x00);
+	tp28xx_byte_write(0x60, 0x00);
+	tp28xx_byte_write(0x66, 0x00);
+	tp28xx_byte_write(0x6c, 0x00);
+
+
+	tp28xx_byte_write(0x6f, 0x45);
+	//delay(5);//50ms	//20210514
+	tp28xx_byte_write(0x6f, 0x44);
+
+	HAL_Delay(35);		 //Delay 1Vsync(~33.3msec)//20210514
+
+}
+	
 void Get_2824cIrq(void)//cocrx
 {
 	tByte addr,pcnt,RegB6;
@@ -3836,7 +3865,9 @@ void Get_2824cIrq(void)//cocrx
 					//SetRegPage(0x04);	
 				
 #if 1
-			
+					if(TVI_Command==0x22)//TOA  PRESET LOAD
+					ACPSTOPCOMMAND();
+
 					//stop command
 					tp28xx_byte_write(0x5a, 0x00);
 					tp28xx_byte_write(0x60, 0x00);
