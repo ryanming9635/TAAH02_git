@@ -13,6 +13,7 @@
 #include "etc_eep.h"
 #include "keyremo.h"
 #include "Printf.h"
+#include "stm32f1xx_hal.h"
 
 //extern tByte ManVidResRx;
 
@@ -3833,7 +3834,38 @@ void Get_2824cIrq(void)//cocrx
 				
 				  	SetRegPage(PtzTxChNum);		
 					//SetRegPage(0x04);	
+				
+#if 1
+			
 					//stop command
+					tp28xx_byte_write(0x5a, 0x00);
+					tp28xx_byte_write(0x60, 0x00);
+					tp28xx_byte_write(0x66, 0x00);
+					tp28xx_byte_write(0x6c, 0x00);
+					
+					
+					tp28xx_byte_write(0x6f, 0x45);
+					//delay(5);//50ms	//20210514
+					tp28xx_byte_write(0x6f, 0x44);
+					
+					HAL_Delay(35);       //Delay 1Vsync(~33.3msec)//20210514
+			
+					//command data
+					tp28xx_byte_write(0x5a, AHDBitsReverse(AHDcmd1));
+					tp28xx_byte_write(0x60, AHDBitsReverse(AHDcmd2));
+					tp28xx_byte_write(0x66, AHDBitsReverse(AHDcmd3));
+					tp28xx_byte_write(0x6c, AHDBitsReverse(AHDcmd4));
+				
+
+					
+					tp28xx_byte_write(0x6f, 0x45);
+					//delay(5);//50ms	//20210514
+					tp28xx_byte_write(0x6f, 0x44);
+				
+					HAL_Delay(35);	 //Delay 1Vsync(~33.3msec)//20210514
+
+
+#else
 #if 0				
 					#if 0
 					tp28xx_byte_write(0x5a, 0xFF);
@@ -3876,6 +3908,7 @@ void Get_2824cIrq(void)//cocrx
 					#else
 					Set_Mirror_COC();	
 					#endif
+#endif					
 					ptztxflag=0;
 				//printf("~AHD %x,%x,%x,%x\n",AHDBitsReverse(AHDcmd1),AHDBitsReverse(0xF1),AHDBitsReverse(0x02),AHDBitsReverse(0x80));
 			

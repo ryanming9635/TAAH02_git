@@ -1,104 +1,226 @@
----- MonIndex Matches (111 in 1 files) ----
-Monitor.c (vs4210):31:BYTE MonIndex;
-Monitor.c (vs4210):265:	if( argc>=2 ) MonIndex = Asc2Bin( argv[1] );
-Monitor.c (vs4210):272:		MonRdata = ReadTW88(MonIndex);
-Monitor.c (vs4210):274:		MonRdata = ReadI2C(MonAddress, MonIndex);
-Monitor.c (vs4210):277:		Printf("\r\nRead %2xh:%2xh", (tWord)MonIndex, (tWord)MonRdata);	
-Monitor.c (vs4210):292:	MonIndex = Asc2Bin( argv[1] );
-Monitor.c (vs4210):296:		Printf("\r\nWrite %2xh:%2xh ", (tWord)MonIndex, (tWord)MonWdata);
-Monitor.c (vs4210):298:			WriteTW88(MonIndex, MonWdata);
-Monitor.c (vs4210):299:			MonRdata = ReadTW88(MonIndex);
-Monitor.c (vs4210):302:			WriteI2C(MonAddress, MonIndex, MonWdata);
-Monitor.c (vs4210):303:			MonRdata = ReadI2C(MonAddress, MonIndex);
-Monitor.c (vs4210):305:   		Printf("==> Read %2xh:%2xh", (tWord)MonIndex, (tWord)MonRdata);
-Monitor.c (vs4210):309:			WriteTW88(MonIndex, MonWdata);
-Monitor.c (vs4210):312:			WriteI2C(MonAddress, MonIndex, MonWdata);
-Monitor.c (vs4210):334:		WriteTW88(MonIndex, MonWdata);
-Monitor.c (vs4210):335:		MonRdata = ReadTW88(MonIndex);
-Monitor.c (vs4210):338:		WriteI2C(MonAddress, MonIndex, MonWdata);
-Monitor.c (vs4210):339:		MonRdata = ReadI2C(MonAddress, MonIndex);
-Monitor.c (vs4210):343:		Printf("Write %2xh:%2xh ", (tWord)MonIndex, (tWord)MonWdata);
-Monitor.c (vs4210):344:		Printf("==> Read %2xh:%2xh", (tWord)MonIndex, (tWord)MonRdata);
-Monitor.c (vs4210):350:		WriteEEP( MonIndex, MonWdata );
-Monitor.c (vs4210):351:		 ret= ReadEEP(MonIndex);	
-Monitor.c (vs4210):352:		  Printf("\r\nEEPROM Write addr=%02x  data=%02x",(WORD)MonIndex,(WORD)ret);
-Monitor.c (vs4210):356:		VXISI2CWrite( MonIndex, MonWdata );
-Monitor.c (vs4210):357:		 ret= VXISI2CRead(MonIndex);	
-Monitor.c (vs4210):358:		   Printf("\r\nVS4210 Write addr=%02x  data=%02x",(WORD)MonIndex,(WORD)ret);
-Monitor.c (vs4210):362:		VS8812Write( MonIndex ,MonWdata);
-Monitor.c (vs4210):363:		ret= VS8812Read(MonIndex);	
-Monitor.c (vs4210):364:		   Printf("\r\nVS8812 Write addr=%02x  data=%02x",(WORD)MonIndex,(WORD)ret);
-Monitor.c (vs4210):368:		tp28xx_byte_write( MonIndex, MonWdata);	
-Monitor.c (vs4210):369:		ret= tp28xx_byte_read(MonIndex);			
-Monitor.c (vs4210):370:		 Printf("\r\nTP2824  Read addr=%02x  data=%02x",(WORD)MonIndex,(WORD)ret);
-Monitor.c (vs4210):376:		HDMIRX_WriteI2C_Byte( MonIndex, MonWdata ); 
-Monitor.c (vs4210):377:		ret= HDMIRX_ReadI2C_Byte(MonIndex); 	
-Monitor.c (vs4210):388:	BYTE ToMonIndex;
-Monitor.c (vs4210):391:	if( argc>=2 ) MonIndex = Asc2Bin(argv[1]);
-Monitor.c (vs4210):392:	if( argc>=3 ) ToMonIndex = Asc2Bin(argv[2]);
-Monitor.c (vs4210):393:	else ToMonIndex = MonIndex+cnt;
-Monitor.c (vs4210):394:	if ( ToMonIndex < MonIndex ) ToMonIndex = 0xFF;
-Monitor.c (vs4210):395:	cnt = ToMonIndex - MonIndex + 1;
-Monitor.c (vs4210):400:				MonRdata = ReadTW88(MonIndex);
-Monitor.c (vs4210):401:				Printf("\r\n==> Read %2xh:%2xh", (tWord)MonIndex, (tWord)MonRdata);
-Monitor.c (vs4210):402:				MonIndex++;
-Monitor.c (vs4210):407:				MonRdata = ReadI2C(MonAddress, MonIndex);
-Monitor.c (vs4210):408:				Printf("\r\n==> Read %2xh:%2xh", (tWord)MonIndex, (tWord)MonRdata);
-Monitor.c (vs4210):409:				MonIndex++;
-Monitor.c (vs4210):416:				MonRdata = ReadTW88(MonIndex);
-Monitor.c (vs4210):417:				MonIndex++;
-Monitor.c (vs4210):422:				MonRdata = ReadI2C(MonAddress, MonIndex);
-Monitor.c (vs4210):423:				MonIndex++;
-Monitor.c (vs4210):437:	if( argc>=3 ) MonIndex = Asc2Bin( argv[2] );
-Monitor.c (vs4210):445:		MonRdata = ReadTW88(MonIndex);
-Monitor.c (vs4210):447:		MonRdata = ReadI2C(Slave, MonIndex);
-Monitor.c (vs4210):450:		Printf("\r\n<R>%2x[%2x]=%2x", (tWord)Slave, (tWord)MonIndex, (tWord)MonRdata);
-Monitor.c (vs4210):466:	MonIndex = Asc2Bin( argv[2] );
-Monitor.c (vs4210):471:		WriteTW88(MonIndex, MonWdata);
-Monitor.c (vs4210):472:		MonRdata = ReadTW88(MonIndex);
-Monitor.c (vs4210):475:		WriteI2C(Slave, MonIndex, MonWdata);
-Monitor.c (vs4210):476:		MonRdata = ReadI2C(Slave, MonIndex);
-Monitor.c (vs4210):480:		Printf("\r\n<R>%2x[%2x]=%2x", (tWord)Slave, (tWord)MonIndex, (tWord)MonRdata);
-Monitor.c (vs4210):487:	BYTE 	ToMonIndex, Slave;
-Monitor.c (vs4210):490:	if( argc>=2 ) MonIndex = Asc2Bin(argv[2]);
-Monitor.c (vs4210):491:	if( argc>=3 ) ToMonIndex = Asc2Bin(argv[3]);
-Monitor.c (vs4210):496:			for(i=MonIndex; i<=ToMonIndex; i++) {
-Monitor.c (vs4210):502:			for(i=MonIndex; i<=ToMonIndex; i++) {
-Monitor.c (vs4210):510:			for(i=MonIndex; i<=ToMonIndex; i++) {
-Monitor.c (vs4210):515:			for(i=MonIndex; i<=ToMonIndex; i++) {
-Monitor.c (vs4210):537:	MonIndex = Asc2Bin( argv[2] );
-Monitor.c (vs4210):561:		MonRdata = ReadTW88(MonIndex);
-Monitor.c (vs4210):564:		WriteTW88(MonIndex, MonWdata);
-Monitor.c (vs4210):565:		MonRdata = ReadTW88(MonIndex);
-Monitor.c (vs4210):568:		MonRdata = ReadI2C(Slave, MonIndex);
-Monitor.c (vs4210):571:		WriteI2C(Slave, MonIndex, MonWdata);
-Monitor.c (vs4210):572:		MonRdata = ReadI2C(Slave, MonIndex);
-Monitor.c (vs4210):576:		Printf("\r\n<R>%2x[%2x]=%2x", (tWord)Slave, (tWord)MonIndex, (tWord)MonRdata);
-Monitor.c (vs4210):840:		MonIndex=Asc2Bin(argv[1]);
-Monitor.c (vs4210):848:	 MonIndex=Asc2Bin(argv[1]);
-Monitor.c (vs4210):856:	 MonIndex=Asc2Bin(argv[1]);
-Monitor.c (vs4210):883:	MonIndex=Asc2Bin(argv[1]);
-Monitor.c (vs4210):893:	MonIndex=Asc2Bin(argv[1]);
-Monitor.c (vs4210):928:		MonIndex = Asc2Bin( argv[1] );
-Monitor.c (vs4210):930:		WriteI2C(MonAddress, 0xc5, MonIndex);
-Monitor.c (vs4210):933:		Printf("\r\n==> Read %2xh:%2xh", (WORD)MonIndex, (WORD)MonRdata);
-Monitor.c (vs4210):948:		   MonIndex=Asc2Bin(argv[1]);
-Monitor.c (vs4210):955:		 MonIndex=Asc2Bin(argv[1]);
-Monitor.c (vs4210):962:		 MonIndex=Asc2Bin(argv[1]);
-Monitor.c (vs4210):981:		MonIndex=Asc2Bin(argv[1]);
-Monitor.c (vs4210):989:			 MonIndex=Asc2Bin(argv[1]);
-Monitor.c (vs4210):1208:		MonIndex = Asc2Bin( argv[1] );
-Monitor.c (vs4210):1209:		WriteI2C(MonAddress, 0xc5, MonIndex);
-Monitor.c (vs4210):1211:		Printf("\r\n==> Read %2xh:%2xh", (WORD)MonIndex, (WORD)MonRdata);
-Monitor.c (vs4210):1286:					MonIndex = Asc2Bin(argv[2]);
-Monitor.c (vs4210):1288:					WriteI2C( Slave, MonIndex, MonWdata);
-Monitor.c (vs4210):1292:					MonIndex = Asc2Bin(argv[3]);
-Monitor.c (vs4210):1293:					WriteI2C(Slave, MonIndex, MonWdata);
-Monitor.c (vs4210):1295:					MonRdata = ReadI2C(Slave, MonIndex);
-Monitor.c (vs4210):1297:					Printf("\r\n<R>%2x[%2x]=%2x", (WORD)Slave, (WORD)MonIndex, (WORD)MonRdata);
-Monitor.c (vs4210):1312:					MonIndex = Asc2Bin(argv[2]);
-Monitor.c (vs4210):1314:					WriteI2C(Slave, MonIndex, MonWdata);
-Monitor.c (vs4210):1316:					MonIndex = Asc2Bin(argv[3]);
-Monitor.c (vs4210):1318:					WriteI2C(Slave, MonIndex, MonWdata);
-Monitor.c (vs4210):1320:					MonRdata = ReadI2C(Slave, MonIndex);
-Monitor.c (vs4210):1322:					Printf("\r\n<R>%2x[%2x]=%2x", (WORD)Slave, (WORD)MonIndex, (WORD)MonRdata);
+---- stm32f1xx_hal Matches (226 in 43 files) ----
+Main.h (inc):31:#include "stm32f1xx_hal.h"
+Stm32f1xx.h (drivers\cmsis\device\st\stm32f1xx\include):200: #include "stm32f1xx_hal.h"
+Stm32f1xx_hal.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal.c
+Stm32f1xx_hal.c (drivers\stm32f1xx_hal_driver\src):36:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal.c (drivers\stm32f1xx_hal_driver\src):38:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal.c (drivers\stm32f1xx_hal_driver\src):58:#define __STM32F1xx_HAL_VERSION_MAIN   (0x01U) /*!< [31:24] main version */
+Stm32f1xx_hal.c (drivers\stm32f1xx_hal_driver\src):59:#define __STM32F1xx_HAL_VERSION_SUB1   (0x01U) /*!< [23:16] sub1 version */
+Stm32f1xx_hal.c (drivers\stm32f1xx_hal_driver\src):60:#define __STM32F1xx_HAL_VERSION_SUB2   (0x04U) /*!< [15:8]  sub2 version */
+Stm32f1xx_hal.c (drivers\stm32f1xx_hal_driver\src):61:#define __STM32F1xx_HAL_VERSION_RC     (0x00U) /*!< [7:0]  release candidate */
+Stm32f1xx_hal.c (drivers\stm32f1xx_hal_driver\src):62:#define __STM32F1xx_HAL_VERSION         ((__STM32F1xx_HAL_VERSION_MAIN << 24)\
+Stm32f1xx_hal.c (drivers\stm32f1xx_hal_driver\src):63:                                        |(__STM32F1xx_HAL_VERSION_SUB1 << 16)\
+Stm32f1xx_hal.c (drivers\stm32f1xx_hal_driver\src):64:                                        |(__STM32F1xx_HAL_VERSION_SUB2 << 8 )\
+Stm32f1xx_hal.c (drivers\stm32f1xx_hal_driver\src):65:                                        |(__STM32F1xx_HAL_VERSION_RC))
+Stm32f1xx_hal.c (drivers\stm32f1xx_hal_driver\src):135:  *           "stm32f1xx_hal_msp.c" to do the global low level hardware initialization
+Stm32f1xx_hal.c (drivers\stm32f1xx_hal_driver\src):414:  return __STM32F1xx_HAL_VERSION;
+Stm32f1xx_hal.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal.h
+Stm32f1xx_hal.h (drivers\stm32f1xx_hal_driver\inc):22:#ifndef __STM32F1xx_HAL_H
+Stm32f1xx_hal.h (drivers\stm32f1xx_hal_driver\inc):23:#define __STM32F1xx_HAL_H
+Stm32f1xx_hal.h (drivers\stm32f1xx_hal_driver\inc):30:#include "stm32f1xx_hal_conf.h"
+Stm32f1xx_hal.h (drivers\stm32f1xx_hal_driver\inc):32:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal.h (drivers\stm32f1xx_hal_driver\inc):355:#endif /* __STM32F1xx_HAL_H */
+Stm32f1xx_hal_adc.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_adc.c
+Stm32f1xx_hal_adc.c (drivers\stm32f1xx_hal_driver\src):21:  *          "stm32f1xx_hal_adc_ex.c".
+Stm32f1xx_hal_adc.c (drivers\stm32f1xx_hal_driver\src):325:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_adc.c (drivers\stm32f1xx_hal_driver\src):327:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_adc.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_adc.h
+Stm32f1xx_hal_adc.h (drivers\stm32f1xx_hal_driver\inc):22:#ifndef __STM32F1xx_HAL_ADC_H
+Stm32f1xx_hal_adc.h (drivers\stm32f1xx_hal_driver\inc):23:#define __STM32F1xx_HAL_ADC_H
+Stm32f1xx_hal_adc.h (drivers\stm32f1xx_hal_driver\inc):30:#include "stm32f1xx_hal_def.h"  
+Stm32f1xx_hal_adc.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_adc.h (drivers\stm32f1xx_hal_driver\inc):883:#include "stm32f1xx_hal_adc_ex.h"
+Stm32f1xx_hal_adc.h (drivers\stm32f1xx_hal_driver\inc):1001:#endif /* __STM32F1xx_HAL_ADC_H */
+Stm32f1xx_hal_adc_ex.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_adc_ex.c
+Stm32f1xx_hal_adc_ex.c (drivers\stm32f1xx_hal_driver\src):16:  *          "stm32f1xx_hal_adc.c".
+Stm32f1xx_hal_adc_ex.c (drivers\stm32f1xx_hal_driver\src):21:      available in file of generic functions "stm32f1xx_hal_adc.c".
+Stm32f1xx_hal_adc_ex.c (drivers\stm32f1xx_hal_driver\src):39:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_adc_ex.c (drivers\stm32f1xx_hal_driver\src):41:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_adc_ex.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_adc_ex.h
+Stm32f1xx_hal_adc_ex.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef __STM32F1xx_HAL_ADC_EX_H
+Stm32f1xx_hal_adc_ex.h (drivers\stm32f1xx_hal_driver\inc):22:#define __STM32F1xx_HAL_ADC_EX_H
+Stm32f1xx_hal_adc_ex.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"  
+Stm32f1xx_hal_adc_ex.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_adc_ex.h (drivers\stm32f1xx_hal_driver\inc):707:#endif /* __STM32F1xx_HAL_ADC_EX_H */
+Stm32f1xx_hal_conf.h (inc):3:  * @file    stm32f1xx_hal_conf.h
+Stm32f1xx_hal_conf.h (inc):20:#ifndef __STM32F1xx_HAL_CONF_H
+Stm32f1xx_hal_conf.h (inc):21:#define __STM32F1xx_HAL_CONF_H
+Stm32f1xx_hal_conf.h (inc):238:#include "stm32f1xx_hal_rcc.h"
+Stm32f1xx_hal_conf.h (inc):242:#include "stm32f1xx_hal_gpio.h"
+Stm32f1xx_hal_conf.h (inc):246:#include "stm32f1xx_hal_exti.h"
+Stm32f1xx_hal_conf.h (inc):250:#include "stm32f1xx_hal_dma.h"
+Stm32f1xx_hal_conf.h (inc):254:#include "stm32f1xx_hal_eth.h"
+Stm32f1xx_hal_conf.h (inc):258:#include "stm32f1xx_hal_can.h"
+Stm32f1xx_hal_conf.h (inc):262:  #include "Legacy/stm32f1xx_hal_can_legacy.h"
+Stm32f1xx_hal_conf.h (inc):266:#include "stm32f1xx_hal_cec.h"
+Stm32f1xx_hal_conf.h (inc):270:#include "stm32f1xx_hal_cortex.h"
+Stm32f1xx_hal_conf.h (inc):274:#include "stm32f1xx_hal_adc.h"
+Stm32f1xx_hal_conf.h (inc):278:#include "stm32f1xx_hal_crc.h"
+Stm32f1xx_hal_conf.h (inc):282:#include "stm32f1xx_hal_dac.h"
+Stm32f1xx_hal_conf.h (inc):286:#include "stm32f1xx_hal_flash.h"
+Stm32f1xx_hal_conf.h (inc):290:#include "stm32f1xx_hal_sram.h"
+Stm32f1xx_hal_conf.h (inc):294:#include "stm32f1xx_hal_nor.h"
+Stm32f1xx_hal_conf.h (inc):298:#include "stm32f1xx_hal_i2c.h"
+Stm32f1xx_hal_conf.h (inc):302:#include "stm32f1xx_hal_i2s.h"
+Stm32f1xx_hal_conf.h (inc):306:#include "stm32f1xx_hal_iwdg.h"
+Stm32f1xx_hal_conf.h (inc):310:#include "stm32f1xx_hal_pwr.h"
+Stm32f1xx_hal_conf.h (inc):314:#include "stm32f1xx_hal_rtc.h"
+Stm32f1xx_hal_conf.h (inc):318:#include "stm32f1xx_hal_pccard.h"
+Stm32f1xx_hal_conf.h (inc):322:#include "stm32f1xx_hal_sd.h"
+Stm32f1xx_hal_conf.h (inc):326:#include "stm32f1xx_hal_nand.h"
+Stm32f1xx_hal_conf.h (inc):330:#include "stm32f1xx_hal_spi.h"
+Stm32f1xx_hal_conf.h (inc):334:#include "stm32f1xx_hal_tim.h"
+Stm32f1xx_hal_conf.h (inc):338:#include "stm32f1xx_hal_uart.h"
+Stm32f1xx_hal_conf.h (inc):342:#include "stm32f1xx_hal_usart.h"
+Stm32f1xx_hal_conf.h (inc):346:#include "stm32f1xx_hal_irda.h"
+Stm32f1xx_hal_conf.h (inc):350:#include "stm32f1xx_hal_smartcard.h"
+Stm32f1xx_hal_conf.h (inc):354:#include "stm32f1xx_hal_wwdg.h"
+Stm32f1xx_hal_conf.h (inc):358:#include "stm32f1xx_hal_pcd.h"
+Stm32f1xx_hal_conf.h (inc):362:#include "stm32f1xx_hal_hcd.h"
+Stm32f1xx_hal_conf.h (inc):366:#include "stm32f1xx_hal_mmc.h"
+Stm32f1xx_hal_conf.h (inc):390:#endif /* __STM32F1xx_HAL_CONF_H */
+Stm32f1xx_hal_cortex.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_cortex.c
+Stm32f1xx_hal_cortex.c (drivers\stm32f1xx_hal_driver\src):55:       inside the stm32f1xx_hal_cortex.h file.
+Stm32f1xx_hal_cortex.c (drivers\stm32f1xx_hal_driver\src):83:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_cortex.c (drivers\stm32f1xx_hal_driver\src):85:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_cortex.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_cortex.h
+Stm32f1xx_hal_cortex.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef __STM32F1xx_HAL_CORTEX_H
+Stm32f1xx_hal_cortex.h (drivers\stm32f1xx_hal_driver\inc):22:#define __STM32F1xx_HAL_CORTEX_H
+Stm32f1xx_hal_cortex.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"
+Stm32f1xx_hal_cortex.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_cortex.h (drivers\stm32f1xx_hal_driver\inc):407:#endif /* __STM32F1xx_HAL_CORTEX_H */
+Stm32f1xx_hal_def.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_def.h
+Stm32f1xx_hal_def.h (drivers\stm32f1xx_hal_driver\inc):22:#ifndef __STM32F1xx_HAL_DEF
+Stm32f1xx_hal_def.h (drivers\stm32f1xx_hal_driver\inc):23:#define __STM32F1xx_HAL_DEF
+Stm32f1xx_hal_def.h (drivers\stm32f1xx_hal_driver\inc):196:#endif /* ___STM32F1xx_HAL_DEF */
+Stm32f1xx_hal_dma.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_dma.c
+Stm32f1xx_hal_dma.c (drivers\stm32f1xx_hal_driver\src):85:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_dma.c (drivers\stm32f1xx_hal_driver\src):87:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_dma.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_dma.h
+Stm32f1xx_hal_dma.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef __STM32F1xx_HAL_DMA_H
+Stm32f1xx_hal_dma.h (drivers\stm32f1xx_hal_driver\inc):22:#define __STM32F1xx_HAL_DMA_H
+Stm32f1xx_hal_dma.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"
+Stm32f1xx_hal_dma.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_dma.h (drivers\stm32f1xx_hal_driver\inc):356:#include "stm32f1xx_hal_dma_ex.h"   
+Stm32f1xx_hal_dma.h (drivers\stm32f1xx_hal_driver\inc):455:#endif /* __STM32F1xx_HAL_DMA_H */
+Stm32f1xx_hal_dma_ex.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_dma_ex.h
+Stm32f1xx_hal_dma_ex.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef __STM32F1xx_HAL_DMA_EX_H
+Stm32f1xx_hal_dma_ex.h (drivers\stm32f1xx_hal_driver\inc):22:#define __STM32F1xx_HAL_DMA_EX_H
+Stm32f1xx_hal_dma_ex.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"
+Stm32f1xx_hal_dma_ex.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_dma_ex.h (drivers\stm32f1xx_hal_driver\inc):275:#endif /* __STM32F1xx_HAL_DMA_H */
+Stm32f1xx_hal_exti.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_exti.c
+Stm32f1xx_hal_exti.c (drivers\stm32f1xx_hal_driver\src):87:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_exti.c (drivers\stm32f1xx_hal_driver\src):89:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_exti.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_exti.h
+Stm32f1xx_hal_exti.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef STM32F1xx_HAL_EXTI_H
+Stm32f1xx_hal_exti.h (drivers\stm32f1xx_hal_driver\inc):22:#define STM32F1xx_HAL_EXTI_H
+Stm32f1xx_hal_exti.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"
+Stm32f1xx_hal_exti.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_exti.h (drivers\stm32f1xx_hal_driver\inc):318:#endif /* STM32F1xx_HAL_EXTI_H */
+Stm32f1xx_hal_flash.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_flash.c
+Stm32f1xx_hal_flash.c (drivers\stm32f1xx_hal_driver\src):85:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_flash.c (drivers\stm32f1xx_hal_driver\src):87:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_flash.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_flash.h
+Stm32f1xx_hal_flash.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef __STM32F1xx_HAL_FLASH_H
+Stm32f1xx_hal_flash.h (drivers\stm32f1xx_hal_driver\inc):22:#define __STM32F1xx_HAL_FLASH_H
+Stm32f1xx_hal_flash.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"
+Stm32f1xx_hal_flash.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_flash.h (drivers\stm32f1xx_hal_driver\inc):248:#include "stm32f1xx_hal_flash_ex.h"  
+Stm32f1xx_hal_flash.h (drivers\stm32f1xx_hal_driver\inc):325:#endif /* __STM32F1xx_HAL_FLASH_H */
+Stm32f1xx_hal_flash_ex.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_flash_ex.c
+Stm32f1xx_hal_flash_ex.c (drivers\stm32f1xx_hal_driver\src):43:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_flash_ex.c (drivers\stm32f1xx_hal_driver\src):45:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_flash_ex.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_flash_ex.h
+Stm32f1xx_hal_flash_ex.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef __STM32F1xx_HAL_FLASH_EX_H
+Stm32f1xx_hal_flash_ex.h (drivers\stm32f1xx_hal_driver\inc):22:#define __STM32F1xx_HAL_FLASH_EX_H
+Stm32f1xx_hal_flash_ex.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"
+Stm32f1xx_hal_flash_ex.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_flash_ex.h (drivers\stm32f1xx_hal_driver\inc):784:#endif /* __STM32F1xx_HAL_FLASH_EX_H */
+Stm32f1xx_hal_gpio.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_gpio.c
+Stm32f1xx_hal_gpio.c (drivers\stm32f1xx_hal_driver\src):105:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_gpio.c (drivers\stm32f1xx_hal_driver\src):107:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_gpio.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_gpio.h
+Stm32f1xx_hal_gpio.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef STM32F1xx_HAL_GPIO_H
+Stm32f1xx_hal_gpio.h (drivers\stm32f1xx_hal_driver\inc):22:#define STM32F1xx_HAL_GPIO_H
+Stm32f1xx_hal_gpio.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"
+Stm32f1xx_hal_gpio.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_gpio.h (drivers\stm32f1xx_hal_driver\inc):213:#include "stm32f1xx_hal_gpio_ex.h"
+Stm32f1xx_hal_gpio.h (drivers\stm32f1xx_hal_driver\inc):306:#endif /* STM32F1xx_HAL_GPIO_H */
+Stm32f1xx_hal_gpio_ex.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_gpio_ex.c
+Stm32f1xx_hal_gpio_ex.c (drivers\stm32f1xx_hal_driver\src):40:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_gpio_ex.c (drivers\stm32f1xx_hal_driver\src):42:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_gpio_ex.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_gpio_ex.h
+Stm32f1xx_hal_gpio_ex.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef STM32F1xx_HAL_GPIO_EX_H
+Stm32f1xx_hal_gpio_ex.h (drivers\stm32f1xx_hal_driver\inc):22:#define STM32F1xx_HAL_GPIO_EX_H
+Stm32f1xx_hal_gpio_ex.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"
+Stm32f1xx_hal_gpio_ex.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_gpio_ex.h (drivers\stm32f1xx_hal_driver\inc):892:#endif /* STM32F1xx_HAL_GPIO_EX_H */
+Stm32f1xx_hal_msp.c (src):4:  * File Name          : stm32f1xx_hal_msp.c
+Stm32f1xx_hal_pwr.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_pwr.c
+Stm32f1xx_hal_pwr.c (drivers\stm32f1xx_hal_driver\src):27:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_pwr.c (drivers\stm32f1xx_hal_driver\src):29:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_pwr.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_pwr.h
+Stm32f1xx_hal_pwr.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef __STM32F1xx_HAL_PWR_H
+Stm32f1xx_hal_pwr.h (drivers\stm32f1xx_hal_driver\inc):22:#define __STM32F1xx_HAL_PWR_H
+Stm32f1xx_hal_pwr.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"
+Stm32f1xx_hal_pwr.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_pwr.h (drivers\stm32f1xx_hal_driver\inc):386:#endif /* __STM32F1xx_HAL_PWR_H */
+Stm32f1xx_hal_rcc.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_rcc.c
+Stm32f1xx_hal_rcc.c (drivers\stm32f1xx_hal_driver\src):63:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_rcc.c (drivers\stm32f1xx_hal_driver\src):65:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_rcc.c (drivers\stm32f1xx_hal_driver\src):1063:  * @note     (*) HSI_VALUE is a constant defined in stm32f1xx_hal_conf.h file (default value
+Stm32f1xx_hal_rcc.c (drivers\stm32f1xx_hal_driver\src):1066:  * @note     (**) HSE_VALUE is a constant defined in stm32f1xx_hal_conf.h file (default value
+Stm32f1xx_hal_rcc.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_rcc.h
+Stm32f1xx_hal_rcc.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef __STM32F1xx_HAL_RCC_H
+Stm32f1xx_hal_rcc.h (drivers\stm32f1xx_hal_driver\inc):22:#define __STM32F1xx_HAL_RCC_H
+Stm32f1xx_hal_rcc.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"
+Stm32f1xx_hal_rcc.h (drivers\stm32f1xx_hal_driver\inc):32:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_rcc.h (drivers\stm32f1xx_hal_driver\inc):1144:#include "stm32f1xx_hal_rcc_ex.h"
+Stm32f1xx_hal_rcc.h (drivers\stm32f1xx_hal_driver\inc):1375:#endif /* __STM32F1xx_HAL_RCC_H */
+Stm32f1xx_hal_rcc_ex.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_rcc_ex.c
+Stm32f1xx_hal_rcc_ex.c (drivers\stm32f1xx_hal_driver\src):25:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_rcc_ex.c (drivers\stm32f1xx_hal_driver\src):27:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_rcc_ex.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_rcc_ex.h
+Stm32f1xx_hal_rcc_ex.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef __STM32F1xx_HAL_RCC_EX_H
+Stm32f1xx_hal_rcc_ex.h (drivers\stm32f1xx_hal_driver\inc):22:#define __STM32F1xx_HAL_RCC_EX_H
+Stm32f1xx_hal_rcc_ex.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"
+Stm32f1xx_hal_rcc_ex.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_rcc_ex.h (drivers\stm32f1xx_hal_driver\inc):1905:#endif /* __STM32F1xx_HAL_RCC_EX_H */
+Stm32f1xx_hal_tim.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_tim.c
+Stm32f1xx_hal_tim.c (drivers\stm32f1xx_hal_driver\src):186:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_tim.c (drivers\stm32f1xx_hal_driver\src):188:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_tim.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_tim.h
+Stm32f1xx_hal_tim.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef STM32F1xx_HAL_TIM_H
+Stm32f1xx_hal_tim.h (drivers\stm32f1xx_hal_driver\inc):22:#define STM32F1xx_HAL_TIM_H
+Stm32f1xx_hal_tim.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"
+Stm32f1xx_hal_tim.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_tim.h (drivers\stm32f1xx_hal_driver\inc):1756:#include "stm32f1xx_hal_tim_ex.h"
+Stm32f1xx_hal_tim.h (drivers\stm32f1xx_hal_driver\inc):2016:#endif /* STM32F1xx_HAL_TIM_H */
+Stm32f1xx_hal_tim_ex.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_tim_ex.c
+Stm32f1xx_hal_tim_ex.c (drivers\stm32f1xx_hal_driver\src):78:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_tim_ex.c (drivers\stm32f1xx_hal_driver\src):80:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_tim_ex.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_tim_ex.h
+Stm32f1xx_hal_tim_ex.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef STM32F1xx_HAL_TIM_EX_H
+Stm32f1xx_hal_tim_ex.h (drivers\stm32f1xx_hal_driver\inc):22:#define STM32F1xx_HAL_TIM_EX_H
+Stm32f1xx_hal_tim_ex.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"
+Stm32f1xx_hal_tim_ex.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_tim_ex.h (drivers\stm32f1xx_hal_driver\inc):259:#endif /* STM32F1xx_HAL_TIM_EX_H */
+Stm32f1xx_hal_uart.c (drivers\stm32f1xx_hal_driver\src):3:  * @file    stm32f1xx_hal_uart.c
+Stm32f1xx_hal_uart.c (drivers\stm32f1xx_hal_driver\src):219:#include "stm32f1xx_hal.h"
+Stm32f1xx_hal_uart.c (drivers\stm32f1xx_hal_driver\src):221:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_uart.h (drivers\stm32f1xx_hal_driver\inc):3:  * @file    stm32f1xx_hal_uart.h
+Stm32f1xx_hal_uart.h (drivers\stm32f1xx_hal_driver\inc):21:#ifndef __STM32F1xx_HAL_UART_H
+Stm32f1xx_hal_uart.h (drivers\stm32f1xx_hal_driver\inc):22:#define __STM32F1xx_HAL_UART_H
+Stm32f1xx_hal_uart.h (drivers\stm32f1xx_hal_driver\inc):29:#include "stm32f1xx_hal_def.h"
+Stm32f1xx_hal_uart.h (drivers\stm32f1xx_hal_driver\inc):31:/** @addtogroup STM32F1xx_HAL_Driver
+Stm32f1xx_hal_uart.h (drivers\stm32f1xx_hal_driver\inc):850:#endif /* __STM32F1xx_HAL_UART_H */
+Sw_i2c0.c (sw_i2c):2:#include "stm32f1xx_hal.h"
+Sw_i2c0.c (sw_i2c):3:#include "stm32f1xx_hal_gpio.h"
+Sw_i2c1.c (sw_i2c):2:#include "stm32f1xx_hal.h"
+Sw_i2c1.c (sw_i2c):3:#include "stm32f1xx_hal_gpio.h"
+Sw_i2c2.c (sw_i2c):2:#include "stm32f1xx_hal.h"
+Sw_i2c2.c (sw_i2c):3:#include "stm32f1xx_hal_gpio.h"
+Sw_i2c3.c (sw_i2c):2:#include "stm32f1xx_hal.h"
+Sw_i2c3.c (sw_i2c):3:#include "stm32f1xx_hal_gpio.h"
+VX_swi2c.c (sw_i2c):1:#include "stm32f1xx_hal.h"
