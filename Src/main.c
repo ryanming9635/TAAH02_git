@@ -1161,6 +1161,30 @@ static int GetKet_State(void)
     return re ;
 }
 */
+
+BYTE CHECK_HDMI720P50(void)
+{
+	tByte REG9C,REG9D,REGA1,REGA2 ;
+	tByte ret=0,i=0;
+	gHDMI_Index=0;	
+				REG9C=HDMIRX_ReadI2C_Byte(0x9c);			
+				REG9D=HDMIRX_ReadI2C_Byte(0x9d);
+				REGA1=HDMIRX_ReadI2C_Byte(0xa1);
+				REGA2=HDMIRX_ReadI2C_Byte(0xa2);
+				
+				if((REG9C==0xbc)&&(REG9D==0x07)&&(REGA1==0x10)&&(REGA2==0xB8))
+					{
+					dbg_Printf("ch%d, InputMode=%d \r\n", (int)(i+1),(int) gbVXIS_InputMode[i] ) ;
+					//dbg_Printf("ch%d, REG 0xA2=%x \r\n", (int)(i+1),(int) HDMIRX_ReadI2C_Byte(0xa2) ) ;
+					//dbg_Printf("ch%d, REG 0x9C=%x \r\n", (int)(i+1),(int) HDMIRX_ReadI2C_Byte(0x9c) ) ;
+					//dbg_Printf("ch%d, REG 0x9D=%x \r\n", (int)(i+1),(int) HDMIRX_ReadI2C_Byte(0x9d) ) ;
+					//dbg_Printf("ch%d, REG 0xA1=%x \r\n", (int)(i+1),(int) HDMIRX_ReadI2C_Byte(0xa1) ) ;
+					//dbg_Printf("ch%d, InputMode=720P50\r\n",(int)(i+1)) ;
+					ret=1;
+					}
+
+return ret;
+}
 	static void HDMI_VideoModeDetect(void)
 	{
 		tByte i  ;
@@ -1230,8 +1254,12 @@ static int GetKet_State(void)
 			if (gbVXIS_InputMode[gHDMI_Index] != PrebVXIS_InputMode[gHDMI_Index] )
 			{
 				PrebVXIS_InputMode[gHDMI_Index] = gbVXIS_InputMode[gHDMI_Index] ;
-	
-				if (gbVXIS_InputMode[gHDMI_Index] != _OSD_No_Signal)
+
+					if(CHECK_HDMI720P50())
+					{
+					dbg_Printf("ch%d, HDMI=720P50 no support\r\n",(int)(i+1)) ;
+					}
+				else if (gbVXIS_InputMode[gHDMI_Index] != _OSD_No_Signal)
 				{
 					VS4210_SetInModeOutMode(i , gbVXIS_InputMode[i] , pVS4210_MutiWindows1.OutputMode );
 
@@ -1240,7 +1268,6 @@ static int GetKet_State(void)
 							
 							
 					VS4210_SetInputSizeHV(i ,gHActive[i], gVActive[i], gHTotal[i] ,gVTotal[i] ) ;
-
 
 					dbg_Printf("ch%d, InputMode=%d \r\n", (int)(i+1),(int) gbVXIS_InputMode[i] ) ;
 
@@ -4484,16 +4511,22 @@ void HS_Select_Win(unsigned char WinNum)	//20201214-02
 			//#endif
 			//msleep(100) ;
 		//	VXISI2CWrite( 0x32, 0x80 );
-
-			if(bSignal[0]==1)
+			if(CHECK_HDMI720P50())
+			{
+				dbg_Printf("ch1, HDMI=720P50  no support\r\n") ;
+				Set_Video_Loss_OSD(0,ON);
+			}
+			else
+			{
+				if(bSignal[0]==1)
 				{
 				Set_Video_Loss_OSD(0,OFF);
 				}
-			else
+				else
 				{
 				Set_Video_Loss_OSD(0,ON);
 				}
-
+			}
 			#if (_External_Sync==OFF)
 				//SET_HDMI_SYNC_PARA();			
 			#endif

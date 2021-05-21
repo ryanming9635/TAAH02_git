@@ -1157,6 +1157,10 @@ else
 			 {
 			 Printf("\r\nDUMP VS8812 Reg..");
 			 }
+		 else if(Monitor_I2C==0x90)
+			 {
+			 Printf("\r\nDUMP IT66021 Reg..");
+			 }		 
 
 for(;s<=e;s++)
 {
@@ -1182,6 +1186,13 @@ for(;s<=e;s++)
 					  ret= tp28xx_byte_read(s);		
 					   Printf("\r\ntp28xx,%02x,%02x",(WORD)s,(WORD)ret);
 					  } 
+		  else if(Monitor_I2C==0x90)
+								{
+								gHDMI_Index=0;
+							ret= HDMIRX_ReadI2C_Byte(s);	  
+								 Printf("\r\nIT66021,%02x,%02x",(WORD)s,(WORD)ret);
+								} 
+
 		 /*
 		 else if(Monitor_I2C==0x28)
 		 {

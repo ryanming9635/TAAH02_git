@@ -55,7 +55,7 @@ extern "C" {
 #define	MCU_FW_Sub0			0		
 #define	MCU_FW_Sub1			6	
 */
-#define	FWVER				0x1004
+#define	FWVER				0x1005
 
 #define	_NTSC			1
 #define	_PAL			2
@@ -118,6 +118,7 @@ void TP_bt1120_PAL_1080P_mode0_w0(void);
 void SET_VS4210_720_480_out(void);
 void SET_VS4210_1280_720_out(void);
 void SET_AHD_MDOE(void);
+BYTE CHECK_HDMI720P50(void);
 
 //extern uint8_t ReadEEP( uint16_t reg);
 //extern void WriteEEP (uint16_t reg, uint8_t val);
