@@ -3865,8 +3865,8 @@ void Get_2824cIrq(void)//cocrx
 					//SetRegPage(0x04);	
 				
 #if 1
-					if(TVI_Command==0x22)//TOA  PRESET LOAD
-					ACPSTOPCOMMAND();
+				//	if(TVI_Command==0x22)//TOA  PRESET LOAD
+				//	ACPSTOPCOMMAND();
 
 					//stop command
 					tp28xx_byte_write(0x5a, 0x00);
