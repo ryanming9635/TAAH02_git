@@ -1,30 +1,31 @@
-ARM GAS  /tmp/ccWKpJKf.s 			page 1
+ARM GAS  /tmp/ccx3CEVm.s 			page 1
 
 
-   1              		.cpu cortex-m3
-   2              		.eabi_attribute 20, 1
-   3              		.eabi_attribute 21, 1
-   4              		.eabi_attribute 23, 3
-   5              		.eabi_attribute 24, 1
-   6              		.eabi_attribute 25, 1
-   7              		.eabi_attribute 26, 1
-   8              		.eabi_attribute 30, 1
-   9              		.eabi_attribute 34, 1
-  10              		.eabi_attribute 18, 4
-  11              		.file	"VX_swi2c.c"
-  12              		.text
-  13              	.Ltext0:
-  14              		.cfi_sections	.debug_frame
-  15              		.section	.text.msleep,"ax",%progbits
-  16              		.align	1
-  17              		.global	msleep
-  18              		.syntax unified
-  19              		.thumb
-  20              		.thumb_func
-  21              		.fpu softvfp
-  23              	msleep:
-  24              	.LFB68:
-  25              		.file 1 "sw_i2c/VX_swi2c.c"
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"VX_swi2c.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.msleep,"ax",%progbits
+  19              		.align	2
+  20              		.global	msleep
+  21              		.thumb
+  22              		.thumb_func
+  24              	msleep:
+  25              	.LFB65:
+  26              		.file 1 "sw_i2c/VX_swi2c.c"
    1:sw_i2c/VX_swi2c.c **** #include "stm32f1xx_hal.h"
    2:sw_i2c/VX_swi2c.c **** #include <stdio.h>
    3:sw_i2c/VX_swi2c.c **** #include <unistd.h>
@@ -45,442 +46,405 @@ ARM GAS  /tmp/ccWKpJKf.s 			page 1
   18:sw_i2c/VX_swi2c.c **** //Sleep
   19:sw_i2c/VX_swi2c.c **** void msleep(unsigned int i )
   20:sw_i2c/VX_swi2c.c **** {
-  26              		.loc 1 20 0
-  27              		.cfi_startproc
-  28              		@ args = 0, pretend = 0, frame = 0
-  29              		@ frame_needed = 0, uses_anonymous_args = 0
-  30              	.LVL0:
-  31 0000 08B5     		push	{r3, lr}
-  32              	.LCFI0:
-  33              		.cfi_def_cfa_offset 8
-  34              		.cfi_offset 3, -8
-  35              		.cfi_offset 14, -4
+  27              		.loc 1 20 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 08B5     		push	{r3, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
   21:sw_i2c/VX_swi2c.c ****     if (gskipsleepflg ==0 )
-  36              		.loc 1 21 0
-  37 0002 034B     		ldr	r3, .L5
-ARM GAS  /tmp/ccWKpJKf.s 			page 2
+  37              		.loc 1 21 0
+ARM GAS  /tmp/ccx3CEVm.s 			page 2
 
 
-  38 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  39 0006 03B1     		cbz	r3, .L4
-  40              	.LVL1:
-  41              	.L1:
+  38 0002 034B     		ldr	r3, .L4
+  39 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  40 0006 0BB9     		cbnz	r3, .L1
   22:sw_i2c/VX_swi2c.c ****     {
   23:sw_i2c/VX_swi2c.c ****         HAL_Delay(i);
+  41              		.loc 1 23 0
+  42 0008 FFF7FEFF 		bl	HAL_Delay
+  43              	.LVL1:
+  44              	.L1:
+  45 000c 08BD     		pop	{r3, pc}
+  46              	.L5:
+  47 000e 00BF     		.align	2
+  48              	.L4:
+  49 0010 00000000 		.word	gskipsleepflg
+  50              		.cfi_endproc
+  51              	.LFE65:
+  53              		.section	.text.delayTX1ms,"ax",%progbits
+  54              		.align	2
+  55              		.global	delayTX1ms
+  56              		.thumb
+  57              		.thumb_func
+  59              	delayTX1ms:
+  60              	.LFB66:
   24:sw_i2c/VX_swi2c.c ****         //printf("VS4210_ADDR=0x%02x, msleep=%d\r\n",(int)VS4210_ADDR , i) ;
   25:sw_i2c/VX_swi2c.c ****         //usleep(i*1000);
   26:sw_i2c/VX_swi2c.c ****     }
   27:sw_i2c/VX_swi2c.c **** }
-  42              		.loc 1 27 0
-  43 0008 08BD     		pop	{r3, pc}
-  44              	.LVL2:
-  45              	.L4:
-  23:sw_i2c/VX_swi2c.c ****         //printf("VS4210_ADDR=0x%02x, msleep=%d\r\n",(int)VS4210_ADDR , i) ;
-  46              		.loc 1 23 0
-  47 000a FFF7FEFF 		bl	HAL_Delay
-  48              	.LVL3:
-  49              		.loc 1 27 0
-  50 000e FBE7     		b	.L1
-  51              	.L6:
-  52              		.align	2
-  53              	.L5:
-  54 0010 00000000 		.word	gskipsleepflg
-  55              		.cfi_endproc
-  56              	.LFE68:
-  58              		.section	.text.delayTX1ms,"ax",%progbits
-  59              		.align	1
-  60              		.global	delayTX1ms
-  61              		.syntax unified
-  62              		.thumb
-  63              		.thumb_func
-  64              		.fpu softvfp
-  66              	delayTX1ms:
-  67              	.LFB69:
   28:sw_i2c/VX_swi2c.c **** 
   29:sw_i2c/VX_swi2c.c **** void delayTX1ms(unsigned int i )
   30:sw_i2c/VX_swi2c.c **** {
-  68              		.loc 1 30 0
-  69              		.cfi_startproc
-  70              		@ args = 0, pretend = 0, frame = 0
-  71              		@ frame_needed = 0, uses_anonymous_args = 0
-  72              	.LVL4:
-  73 0000 08B5     		push	{r3, lr}
-  74              	.LCFI1:
-  75              		.cfi_def_cfa_offset 8
-  76              		.cfi_offset 3, -8
-  77              		.cfi_offset 14, -4
+  61              		.loc 1 30 0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65              	.LVL2:
+  66 0000 08B5     		push	{r3, lr}
+  67              	.LCFI1:
+  68              		.cfi_def_cfa_offset 8
+  69              		.cfi_offset 3, -8
+  70              		.cfi_offset 14, -4
   31:sw_i2c/VX_swi2c.c ****     HAL_Delay(i);
-  78              		.loc 1 31 0
-  79 0002 FFF7FEFF 		bl	HAL_Delay
-  80              	.LVL5:
+  71              		.loc 1 31 0
+  72 0002 FFF7FEFF 		bl	HAL_Delay
+  73              	.LVL3:
+  74 0006 08BD     		pop	{r3, pc}
+  75              		.cfi_endproc
+  76              	.LFE66:
+  78              		.section	.text.VXISI2CRead,"ax",%progbits
+  79              		.align	2
+  80              		.global	VXISI2CRead
+  81              		.thumb
+  82              		.thumb_func
+  84              	VXISI2CRead:
+  85              	.LFB67:
   32:sw_i2c/VX_swi2c.c **** }
-  81              		.loc 1 32 0
-  82 0006 08BD     		pop	{r3, pc}
-  83              		.cfi_endproc
-  84              	.LFE69:
-ARM GAS  /tmp/ccWKpJKf.s 			page 3
-
-
-  86              		.section	.text.VXISI2CRead,"ax",%progbits
-  87              		.align	1
-  88              		.global	VXISI2CRead
-  89              		.syntax unified
-  90              		.thumb
-  91              		.thumb_func
-  92              		.fpu softvfp
-  94              	VXISI2CRead:
-  95              	.LFB70:
   33:sw_i2c/VX_swi2c.c **** 
   34:sw_i2c/VX_swi2c.c **** uint8_t VXISI2CRead( uint8_t reg)
+ARM GAS  /tmp/ccx3CEVm.s 			page 3
+
+
   35:sw_i2c/VX_swi2c.c **** {
-  96              		.loc 1 35 0
-  97              		.cfi_startproc
-  98              		@ args = 0, pretend = 0, frame = 0
-  99              		@ frame_needed = 0, uses_anonymous_args = 0
- 100              	.LVL6:
- 101 0000 08B5     		push	{r3, lr}
- 102              	.LCFI2:
- 103              		.cfi_def_cfa_offset 8
- 104              		.cfi_offset 3, -8
- 105              		.cfi_offset 14, -4
- 106              	.LVL7:
+  86              		.loc 1 35 0
+  87              		.cfi_startproc
+  88              		@ args = 0, pretend = 0, frame = 0
+  89              		@ frame_needed = 0, uses_anonymous_args = 0
+  90              	.LVL4:
+  91 0000 08B5     		push	{r3, lr}
+  92              	.LCFI2:
+  93              		.cfi_def_cfa_offset 8
+  94              		.cfi_offset 3, -8
+  95              		.cfi_offset 14, -4
+  96 0002 0146     		mov	r1, r0
+  97              	.LVL5:
   36:sw_i2c/VX_swi2c.c ****     uint8_t val =0; 
   37:sw_i2c/VX_swi2c.c ****     val = SW_I2C1Read(VS4210_ADDR, reg ) ;
- 107              		.loc 1 37 0
- 108 0002 034B     		ldr	r3, .L11
- 109 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 110 0006 0146     		mov	r1, r0
- 111 0008 1846     		mov	r0, r3
- 112              	.LVL8:
- 113 000a FFF7FEFF 		bl	SW_I2C1Read
- 114              	.LVL9:
+  98              		.loc 1 37 0
+  99 0004 024B     		ldr	r3, .L10
+ 100 0006 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 101              	.LVL6:
+ 102 0008 FFF7FEFF 		bl	SW_I2C1Read
+ 103              	.LVL7:
   38:sw_i2c/VX_swi2c.c **** //    printf("R 0x%02x,0x%02x,0x%02x\r\n",(int)VS4210_ADDR, (int)reg,(int)val) ;
   39:sw_i2c/VX_swi2c.c ****     return val ;
   40:sw_i2c/VX_swi2c.c **** }
- 115              		.loc 1 40 0
- 116 000e 08BD     		pop	{r3, pc}
- 117              	.L12:
- 118              		.align	2
- 119              	.L11:
- 120 0010 00000000 		.word	VS4210_ADDR
- 121              		.cfi_endproc
- 122              	.LFE70:
- 124              		.section	.text.VXISI2CWrite,"ax",%progbits
- 125              		.align	1
- 126              		.global	VXISI2CWrite
- 127              		.syntax unified
- 128              		.thumb
- 129              		.thumb_func
- 130              		.fpu softvfp
- 132              	VXISI2CWrite:
- 133              	.LFB71:
+ 104              		.loc 1 40 0
+ 105 000c 08BD     		pop	{r3, pc}
+ 106              	.L11:
+ 107 000e 00BF     		.align	2
+ 108              	.L10:
+ 109 0010 00000000 		.word	VS4210_ADDR
+ 110              		.cfi_endproc
+ 111              	.LFE67:
+ 113              		.section	.text.VXISI2CWrite,"ax",%progbits
+ 114              		.align	2
+ 115              		.global	VXISI2CWrite
+ 116              		.thumb
+ 117              		.thumb_func
+ 119              	VXISI2CWrite:
+ 120              	.LFB68:
   41:sw_i2c/VX_swi2c.c **** 
   42:sw_i2c/VX_swi2c.c **** void VXISI2CWrite (uint8_t reg, uint8_t val)
   43:sw_i2c/VX_swi2c.c **** {   
- 134              		.loc 1 43 0
-ARM GAS  /tmp/ccWKpJKf.s 			page 4
-
-
- 135              		.cfi_startproc
- 136              		@ args = 0, pretend = 0, frame = 0
- 137              		@ frame_needed = 0, uses_anonymous_args = 0
- 138              	.LVL10:
- 139 0000 08B5     		push	{r3, lr}
- 140              	.LCFI3:
- 141              		.cfi_def_cfa_offset 8
- 142              		.cfi_offset 3, -8
- 143              		.cfi_offset 14, -4
+ 121              		.loc 1 43 0
+ 122              		.cfi_startproc
+ 123              		@ args = 0, pretend = 0, frame = 0
+ 124              		@ frame_needed = 0, uses_anonymous_args = 0
+ 125              	.LVL8:
+ 126 0000 08B5     		push	{r3, lr}
+ 127              	.LCFI3:
+ 128              		.cfi_def_cfa_offset 8
+ 129              		.cfi_offset 3, -8
+ 130              		.cfi_offset 14, -4
+ 131 0002 0346     		mov	r3, r0
+ 132 0004 0A46     		mov	r2, r1
   44:sw_i2c/VX_swi2c.c ****     SW_I2C1Write( VS4210_ADDR , reg, val ) ;
- 144              		.loc 1 44 0
- 145 0002 044B     		ldr	r3, .L15
- 146 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 147 0006 0A46     		mov	r2, r1
- 148 0008 0146     		mov	r1, r0
- 149              	.LVL11:
- 150 000a 1846     		mov	r0, r3
- 151              	.LVL12:
- 152 000c FFF7FEFF 		bl	SW_I2C1Write
- 153              	.LVL13:
+ 133              		.loc 1 44 0
+ 134 0006 0349     		ldr	r1, .L14
+ARM GAS  /tmp/ccx3CEVm.s 			page 4
+
+
+ 135              	.LVL9:
+ 136 0008 0878     		ldrb	r0, [r1]	@ zero_extendqisi2
+ 137              	.LVL10:
+ 138 000a 1946     		mov	r1, r3
+ 139 000c FFF7FEFF 		bl	SW_I2C1Write
+ 140              	.LVL11:
+ 141 0010 08BD     		pop	{r3, pc}
+ 142              	.L15:
+ 143 0012 00BF     		.align	2
+ 144              	.L14:
+ 145 0014 00000000 		.word	VS4210_ADDR
+ 146              		.cfi_endproc
+ 147              	.LFE68:
+ 149              		.section	.text.VS8812Read,"ax",%progbits
+ 150              		.align	2
+ 151              		.global	VS8812Read
+ 152              		.thumb
+ 153              		.thumb_func
+ 155              	VS8812Read:
+ 156              	.LFB69:
   45:sw_i2c/VX_swi2c.c **** }
- 154              		.loc 1 45 0
- 155 0010 08BD     		pop	{r3, pc}
- 156              	.L16:
- 157 0012 00BF     		.align	2
- 158              	.L15:
- 159 0014 00000000 		.word	VS4210_ADDR
- 160              		.cfi_endproc
- 161              	.LFE71:
- 163              		.section	.text.VS8812Read,"ax",%progbits
- 164              		.align	1
- 165              		.global	VS8812Read
- 166              		.syntax unified
- 167              		.thumb
- 168              		.thumb_func
- 169              		.fpu softvfp
- 171              	VS8812Read:
- 172              	.LFB72:
   46:sw_i2c/VX_swi2c.c **** 
   47:sw_i2c/VX_swi2c.c **** uint8_t VS8812Read( uint8_t reg)
   48:sw_i2c/VX_swi2c.c **** {
- 173              		.loc 1 48 0
- 174              		.cfi_startproc
- 175              		@ args = 0, pretend = 0, frame = 0
- 176              		@ frame_needed = 0, uses_anonymous_args = 0
- 177              	.LVL14:
- 178 0000 08B5     		push	{r3, lr}
- 179              	.LCFI4:
- 180              		.cfi_def_cfa_offset 8
- 181              		.cfi_offset 3, -8
- 182              		.cfi_offset 14, -4
- 183              	.LVL15:
+ 157              		.loc 1 48 0
+ 158              		.cfi_startproc
+ 159              		@ args = 0, pretend = 0, frame = 0
+ 160              		@ frame_needed = 0, uses_anonymous_args = 0
+ 161              	.LVL12:
+ 162 0000 08B5     		push	{r3, lr}
+ 163              	.LCFI4:
+ 164              		.cfi_def_cfa_offset 8
+ 165              		.cfi_offset 3, -8
+ 166              		.cfi_offset 14, -4
+ 167 0002 0146     		mov	r1, r0
+ 168              	.LVL13:
   49:sw_i2c/VX_swi2c.c ****     uint8_t val =0; 
   50:sw_i2c/VX_swi2c.c ****     val = SW_I2C1Read(VS8812_ADDR, reg ) ;
- 184              		.loc 1 50 0
- 185 0002 034B     		ldr	r3, .L19
- 186 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  /tmp/ccWKpJKf.s 			page 5
-
-
- 187 0006 0146     		mov	r1, r0
- 188 0008 1846     		mov	r0, r3
- 189              	.LVL16:
- 190 000a FFF7FEFF 		bl	SW_I2C1Read
- 191              	.LVL17:
+ 169              		.loc 1 50 0
+ 170 0004 024B     		ldr	r3, .L18
+ 171 0006 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 172              	.LVL14:
+ 173 0008 FFF7FEFF 		bl	SW_I2C1Read
+ 174              	.LVL15:
   51:sw_i2c/VX_swi2c.c **** //    printf("R 0x%02x,0x%02x,0x%02x\r\n",(int)VS4210_ADDR, (int)reg,(int)val) ;
   52:sw_i2c/VX_swi2c.c ****     return val ;
   53:sw_i2c/VX_swi2c.c **** }
- 192              		.loc 1 53 0
- 193 000e 08BD     		pop	{r3, pc}
- 194              	.L20:
- 195              		.align	2
- 196              	.L19:
- 197 0010 00000000 		.word	VS8812_ADDR
- 198              		.cfi_endproc
- 199              	.LFE72:
- 201              		.section	.text.VS8812Write,"ax",%progbits
- 202              		.align	1
- 203              		.global	VS8812Write
- 204              		.syntax unified
- 205              		.thumb
- 206              		.thumb_func
- 207              		.fpu softvfp
- 209              	VS8812Write:
- 210              	.LFB73:
+ 175              		.loc 1 53 0
+ 176 000c 08BD     		pop	{r3, pc}
+ 177              	.L19:
+ 178 000e 00BF     		.align	2
+ 179              	.L18:
+ 180 0010 00000000 		.word	VS8812_ADDR
+ 181              		.cfi_endproc
+ 182              	.LFE69:
+ 184              		.section	.text.VS8812Write,"ax",%progbits
+ 185              		.align	2
+ARM GAS  /tmp/ccx3CEVm.s 			page 5
+
+
+ 186              		.global	VS8812Write
+ 187              		.thumb
+ 188              		.thumb_func
+ 190              	VS8812Write:
+ 191              	.LFB70:
   54:sw_i2c/VX_swi2c.c **** 
   55:sw_i2c/VX_swi2c.c **** void VS8812Write (uint8_t reg, uint8_t val)
   56:sw_i2c/VX_swi2c.c **** {   
- 211              		.loc 1 56 0
- 212              		.cfi_startproc
- 213              		@ args = 0, pretend = 0, frame = 0
- 214              		@ frame_needed = 0, uses_anonymous_args = 0
- 215              	.LVL18:
- 216 0000 08B5     		push	{r3, lr}
- 217              	.LCFI5:
- 218              		.cfi_def_cfa_offset 8
- 219              		.cfi_offset 3, -8
- 220              		.cfi_offset 14, -4
+ 192              		.loc 1 56 0
+ 193              		.cfi_startproc
+ 194              		@ args = 0, pretend = 0, frame = 0
+ 195              		@ frame_needed = 0, uses_anonymous_args = 0
+ 196              	.LVL16:
+ 197 0000 08B5     		push	{r3, lr}
+ 198              	.LCFI5:
+ 199              		.cfi_def_cfa_offset 8
+ 200              		.cfi_offset 3, -8
+ 201              		.cfi_offset 14, -4
+ 202 0002 0346     		mov	r3, r0
+ 203 0004 0A46     		mov	r2, r1
   57:sw_i2c/VX_swi2c.c ****     SW_I2C1Write( VS8812_ADDR , reg, val ) ;
- 221              		.loc 1 57 0
- 222 0002 044B     		ldr	r3, .L23
- 223 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 224 0006 0A46     		mov	r2, r1
- 225 0008 0146     		mov	r1, r0
- 226              	.LVL19:
- 227 000a 1846     		mov	r0, r3
- 228              	.LVL20:
- 229 000c FFF7FEFF 		bl	SW_I2C1Write
- 230              	.LVL21:
+ 204              		.loc 1 57 0
+ 205 0006 0349     		ldr	r1, .L22
+ 206              	.LVL17:
+ 207 0008 0878     		ldrb	r0, [r1]	@ zero_extendqisi2
+ 208              	.LVL18:
+ 209 000a 1946     		mov	r1, r3
+ 210 000c FFF7FEFF 		bl	SW_I2C1Write
+ 211              	.LVL19:
+ 212 0010 08BD     		pop	{r3, pc}
+ 213              	.L23:
+ 214 0012 00BF     		.align	2
+ 215              	.L22:
+ 216 0014 00000000 		.word	VS8812_ADDR
+ 217              		.cfi_endproc
+ 218              	.LFE70:
+ 220              		.section	.text.ReadEEP,"ax",%progbits
+ 221              		.align	2
+ 222              		.global	ReadEEP
+ 223              		.thumb
+ 224              		.thumb_func
+ 226              	ReadEEP:
+ 227              	.LFB71:
   58:sw_i2c/VX_swi2c.c **** }
- 231              		.loc 1 58 0
- 232 0010 08BD     		pop	{r3, pc}
- 233              	.L24:
- 234 0012 00BF     		.align	2
- 235              	.L23:
- 236 0014 00000000 		.word	VS8812_ADDR
- 237              		.cfi_endproc
-ARM GAS  /tmp/ccWKpJKf.s 			page 6
-
-
- 238              	.LFE73:
- 240              		.section	.text.ReadEEP,"ax",%progbits
- 241              		.align	1
- 242              		.global	ReadEEP
- 243              		.syntax unified
- 244              		.thumb
- 245              		.thumb_func
- 246              		.fpu softvfp
- 248              	ReadEEP:
- 249              	.LFB74:
   59:sw_i2c/VX_swi2c.c **** 
   60:sw_i2c/VX_swi2c.c **** unsigned char ReadEEP( unsigned int reg)
   61:sw_i2c/VX_swi2c.c **** {
- 250              		.loc 1 61 0
- 251              		.cfi_startproc
- 252              		@ args = 0, pretend = 0, frame = 0
- 253              		@ frame_needed = 0, uses_anonymous_args = 0
- 254              	.LVL22:
- 255 0000 08B5     		push	{r3, lr}
- 256              	.LCFI6:
- 257              		.cfi_def_cfa_offset 8
- 258              		.cfi_offset 3, -8
- 259              		.cfi_offset 14, -4
- 260              	.LVL23:
+ 228              		.loc 1 61 0
+ 229              		.cfi_startproc
+ 230              		@ args = 0, pretend = 0, frame = 0
+ 231              		@ frame_needed = 0, uses_anonymous_args = 0
+ 232              	.LVL20:
+ 233 0000 08B5     		push	{r3, lr}
+ 234              	.LCFI6:
+ 235              		.cfi_def_cfa_offset 8
+ 236              		.cfi_offset 3, -8
+ 237              		.cfi_offset 14, -4
+ARM GAS  /tmp/ccx3CEVm.s 			page 6
+
+
+ 238              	.LVL21:
   62:sw_i2c/VX_swi2c.c ****     unsigned char  val =0; 
   63:sw_i2c/VX_swi2c.c ****     val = EEPRead(reg ) ;
- 261              		.loc 1 63 0
- 262 0002 FFF7FEFF 		bl	EEPRead
- 263              	.LVL24:
+ 239              		.loc 1 63 0
+ 240 0002 FFF7FEFF 		bl	EEPRead
+ 241              	.LVL22:
   64:sw_i2c/VX_swi2c.c **** //    printf("R 0x%02x,0x%02x,0x%02x\r\n",(int)VS4210_ADDR, (int)reg,(int)val) ;
   65:sw_i2c/VX_swi2c.c ****     return val ;
   66:sw_i2c/VX_swi2c.c **** }
- 264              		.loc 1 66 0
- 265 0006 08BD     		pop	{r3, pc}
- 266              		.cfi_endproc
- 267              	.LFE74:
- 269              		.section	.text.WriteEEP,"ax",%progbits
- 270              		.align	1
- 271              		.global	WriteEEP
- 272              		.syntax unified
- 273              		.thumb
- 274              		.thumb_func
- 275              		.fpu softvfp
- 277              	WriteEEP:
- 278              	.LFB75:
+ 242              		.loc 1 66 0
+ 243 0006 08BD     		pop	{r3, pc}
+ 244              		.cfi_endproc
+ 245              	.LFE71:
+ 247              		.section	.text.WriteEEP,"ax",%progbits
+ 248              		.align	2
+ 249              		.global	WriteEEP
+ 250              		.thumb
+ 251              		.thumb_func
+ 253              	WriteEEP:
+ 254              	.LFB72:
   67:sw_i2c/VX_swi2c.c **** 
   68:sw_i2c/VX_swi2c.c **** void WriteEEP (unsigned int reg, unsigned char val)
   69:sw_i2c/VX_swi2c.c **** {   
- 279              		.loc 1 69 0
- 280              		.cfi_startproc
- 281              		@ args = 0, pretend = 0, frame = 0
- 282              		@ frame_needed = 0, uses_anonymous_args = 0
- 283              	.LVL25:
- 284 0000 08B5     		push	{r3, lr}
- 285              	.LCFI7:
- 286              		.cfi_def_cfa_offset 8
- 287              		.cfi_offset 3, -8
-ARM GAS  /tmp/ccWKpJKf.s 			page 7
-
-
- 288              		.cfi_offset 14, -4
+ 255              		.loc 1 69 0
+ 256              		.cfi_startproc
+ 257              		@ args = 0, pretend = 0, frame = 0
+ 258              		@ frame_needed = 0, uses_anonymous_args = 0
+ 259              	.LVL23:
+ 260 0000 08B5     		push	{r3, lr}
+ 261              	.LCFI7:
+ 262              		.cfi_def_cfa_offset 8
+ 263              		.cfi_offset 3, -8
+ 264              		.cfi_offset 14, -4
   70:sw_i2c/VX_swi2c.c **** 	EEPWrite( reg, val);
- 289              		.loc 1 70 0
- 290 0002 FFF7FEFF 		bl	EEPWrite
- 291              	.LVL26:
+ 265              		.loc 1 70 0
+ 266 0002 FFF7FEFF 		bl	EEPWrite
+ 267              	.LVL24:
+ 268 0006 08BD     		pop	{r3, pc}
+ 269              		.cfi_endproc
+ 270              	.LFE72:
+ 272              		.section	.text.I2CMultiWrite,"ax",%progbits
+ 273              		.align	2
+ 274              		.global	I2CMultiWrite
+ 275              		.thumb
+ 276              		.thumb_func
+ 278              	I2CMultiWrite:
+ 279              	.LFB73:
   71:sw_i2c/VX_swi2c.c **** }
- 292              		.loc 1 71 0
- 293 0006 08BD     		pop	{r3, pc}
- 294              		.cfi_endproc
- 295              	.LFE75:
- 297              		.section	.text.I2CMultiWrite,"ax",%progbits
- 298              		.align	1
- 299              		.global	I2CMultiWrite
- 300              		.syntax unified
- 301              		.thumb
- 302              		.thumb_func
- 303              		.fpu softvfp
- 305              	I2CMultiWrite:
- 306              	.LFB76:
   72:sw_i2c/VX_swi2c.c **** 
   73:sw_i2c/VX_swi2c.c **** void I2CMultiWrite(unsigned char maddr,unsigned char saddr, unsigned char number , const unsigned c
   74:sw_i2c/VX_swi2c.c **** {
- 307              		.loc 1 74 0
- 308              		.cfi_startproc
- 309              		@ args = 0, pretend = 0, frame = 0
- 310              		@ frame_needed = 0, uses_anonymous_args = 0
- 311              	.LVL27:
- 312 0000 10B5     		push	{r4, lr}
- 313              	.LCFI8:
- 314              		.cfi_def_cfa_offset 8
- 315              		.cfi_offset 4, -8
- 316              		.cfi_offset 14, -4
- 317 0002 1C46     		mov	r4, r3
+ 280              		.loc 1 74 0
+ 281              		.cfi_startproc
+ 282              		@ args = 0, pretend = 0, frame = 0
+ 283              		@ frame_needed = 0, uses_anonymous_args = 0
+ 284              	.LVL25:
+ 285 0000 10B5     		push	{r4, lr}
+ARM GAS  /tmp/ccx3CEVm.s 			page 7
+
+
+ 286              	.LCFI8:
+ 287              		.cfi_def_cfa_offset 8
+ 288              		.cfi_offset 4, -8
+ 289              		.cfi_offset 14, -4
+ 290 0002 1446     		mov	r4, r2
   75:sw_i2c/VX_swi2c.c ****     SW_I2C1WriteNByte(maddr , saddr, value ,  number ) ;
- 318              		.loc 1 75 0
- 319 0004 1346     		mov	r3, r2
- 320              	.LVL28:
- 321 0006 2246     		mov	r2, r4
- 322              	.LVL29:
- 323 0008 FFF7FEFF 		bl	SW_I2C1WriteNByte
- 324              	.LVL30:
+ 291              		.loc 1 75 0
+ 292 0004 1A46     		mov	r2, r3
+ 293              	.LVL26:
+ 294 0006 2346     		mov	r3, r4
+ 295              	.LVL27:
+ 296 0008 FFF7FEFF 		bl	SW_I2C1WriteNByte
+ 297              	.LVL28:
+ 298 000c 10BD     		pop	{r4, pc}
+ 299              		.cfi_endproc
+ 300              	.LFE73:
+ 302 000e 00BF     		.section	.text.I2CMultiAttribute,"ax",%progbits
+ 303              		.align	2
+ 304              		.global	I2CMultiAttribute
+ 305              		.thumb
+ 306              		.thumb_func
+ 308              	I2CMultiAttribute:
+ 309              	.LFB74:
   76:sw_i2c/VX_swi2c.c **** }
- 325              		.loc 1 76 0
- 326 000c 10BD     		pop	{r4, pc}
- 327              		.cfi_endproc
- 328              	.LFE76:
- 330              		.section	.text.I2CMultiAttribute,"ax",%progbits
- 331              		.align	1
- 332              		.global	I2CMultiAttribute
- 333              		.syntax unified
- 334              		.thumb
- 335              		.thumb_func
- 336              		.fpu softvfp
- 338              	I2CMultiAttribute:
- 339              	.LFB77:
   77:sw_i2c/VX_swi2c.c **** 
   78:sw_i2c/VX_swi2c.c **** void I2CMultiAttribute(unsigned char maddr,unsigned char saddr,unsigned char number,unsigned char *
-ARM GAS  /tmp/ccWKpJKf.s 			page 8
-
-
   79:sw_i2c/VX_swi2c.c **** {
- 340              		.loc 1 79 0
- 341              		.cfi_startproc
- 342              		@ args = 0, pretend = 0, frame = 32
- 343              		@ frame_needed = 0, uses_anonymous_args = 0
- 344              	.LVL31:
- 345 0000 70B5     		push	{r4, r5, r6, lr}
- 346              	.LCFI9:
- 347              		.cfi_def_cfa_offset 16
- 348              		.cfi_offset 4, -16
- 349              		.cfi_offset 5, -12
- 350              		.cfi_offset 6, -8
- 351              		.cfi_offset 14, -4
- 352 0002 88B0     		sub	sp, sp, #32
- 353              	.LCFI10:
- 354              		.cfi_def_cfa_offset 48
- 355 0004 0446     		mov	r4, r0
- 356 0006 0D46     		mov	r5, r1
- 357 0008 1646     		mov	r6, r2
+ 310              		.loc 1 79 0
+ 311              		.cfi_startproc
+ 312              		@ args = 0, pretend = 0, frame = 32
+ 313              		@ frame_needed = 0, uses_anonymous_args = 0
+ 314              	.LVL29:
+ 315 0000 70B5     		push	{r4, r5, r6, lr}
+ 316              	.LCFI9:
+ 317              		.cfi_def_cfa_offset 16
+ 318              		.cfi_offset 4, -16
+ 319              		.cfi_offset 5, -12
+ 320              		.cfi_offset 6, -8
+ 321              		.cfi_offset 14, -4
+ 322 0002 88B0     		sub	sp, sp, #32
+ 323              	.LCFI10:
+ 324              		.cfi_def_cfa_offset 48
+ 325 0004 0646     		mov	r6, r0
+ 326 0006 0D46     		mov	r5, r1
+ 327 0008 1446     		mov	r4, r2
   80:sw_i2c/VX_swi2c.c ****     uint8_t aAttribute[32] ;
   81:sw_i2c/VX_swi2c.c ****     memset(aAttribute , value[0] , number ) ; 
- 358              		.loc 1 81 0
- 359 000a 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
- 360              	.LVL32:
- 361 000c 6846     		mov	r0, sp
- 362              	.LVL33:
- 363 000e FFF7FEFF 		bl	memset
- 364              	.LVL34:
+ 328              		.loc 1 81 0
+ 329 000a 6846     		mov	r0, sp
+ 330              	.LVL30:
+ 331 000c 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 332              	.LVL31:
+ 333 000e FFF7FEFF 		bl	memset
+ 334              	.LVL32:
   82:sw_i2c/VX_swi2c.c ****     SW_I2C1WriteNByte(maddr , saddr, &aAttribute[0] , number ) ;
- 365              		.loc 1 82 0
- 366 0012 3346     		mov	r3, r6
- 367 0014 6A46     		mov	r2, sp
- 368 0016 2946     		mov	r1, r5
- 369 0018 2046     		mov	r0, r4
- 370 001a FFF7FEFF 		bl	SW_I2C1WriteNByte
- 371              	.LVL35:
+ 335              		.loc 1 82 0
+ 336 0012 3046     		mov	r0, r6
+ARM GAS  /tmp/ccx3CEVm.s 			page 8
+
+
+ 337 0014 2946     		mov	r1, r5
+ 338 0016 6A46     		mov	r2, sp
+ 339 0018 2346     		mov	r3, r4
+ 340 001a FFF7FEFF 		bl	SW_I2C1WriteNByte
+ 341              	.LVL33:
   83:sw_i2c/VX_swi2c.c **** }
- 372              		.loc 1 83 0
- 373 001e 08B0     		add	sp, sp, #32
- 374              	.LCFI11:
- 375              		.cfi_def_cfa_offset 16
- 376              		@ sp needed
- 377 0020 70BD     		pop	{r4, r5, r6, pc}
- 378              		.cfi_endproc
- 379              	.LFE77:
- 381              		.section	.text.delay,"ax",%progbits
- 382              		.align	1
- 383              		.global	delay
- 384              		.syntax unified
- 385              		.thumb
- 386              		.thumb_func
- 387              		.fpu softvfp
- 389              	delay:
- 390              	.LFB78:
+ 342              		.loc 1 83 0
+ 343 001e 08B0     		add	sp, sp, #32
+ 344              	.LCFI11:
+ 345              		.cfi_def_cfa_offset 16
+ 346              		@ sp needed
+ 347 0020 70BD     		pop	{r4, r5, r6, pc}
+ 348              		.cfi_endproc
+ 349              	.LFE74:
+ 351 0022 00BF     		.section	.text.delay,"ax",%progbits
+ 352              		.align	2
+ 353              		.global	delay
+ 354              		.thumb
+ 355              		.thumb_func
+ 357              	delay:
+ 358              	.LFB75:
   84:sw_i2c/VX_swi2c.c **** #if 0
   85:sw_i2c/VX_swi2c.c **** void osd_cont_write(unsigned char cw_dest, unsigned char init_addr, unsigned short num_of_data, con
   86:sw_i2c/VX_swi2c.c **** {////Extern OSD
-ARM GAS  /tmp/ccWKpJKf.s 			page 9
-
-
   87:sw_i2c/VX_swi2c.c ****     unsigned char wbuf[255] ;
   88:sw_i2c/VX_swi2c.c ****     wbuf[0] = cw_dest ;
   89:sw_i2c/VX_swi2c.c ****     wbuf[1] = init_addr ;
@@ -492,184 +456,175 @@ ARM GAS  /tmp/ccWKpJKf.s 			page 1
   95:sw_i2c/VX_swi2c.c **** //RX
   96:sw_i2c/VX_swi2c.c **** void delay(unsigned int i )
   97:sw_i2c/VX_swi2c.c **** {  //5ms
- 391              		.loc 1 97 0
- 392              		.cfi_startproc
- 393              		@ args = 0, pretend = 0, frame = 0
- 394              		@ frame_needed = 0, uses_anonymous_args = 0
- 395              	.LVL36:
- 396 0000 38B5     		push	{r3, r4, r5, lr}
- 397              	.LCFI12:
- 398              		.cfi_def_cfa_offset 16
- 399              		.cfi_offset 3, -16
- 400              		.cfi_offset 4, -12
- 401              		.cfi_offset 5, -8
- 402              		.cfi_offset 14, -4
- 403 0002 0546     		mov	r5, r0
- 404              	.LVL37:
+ 359              		.loc 1 97 0
+ 360              		.cfi_startproc
+ 361              		@ args = 0, pretend = 0, frame = 0
+ 362              		@ frame_needed = 0, uses_anonymous_args = 0
+ 363              	.LVL34:
+ 364 0000 38B5     		push	{r3, r4, r5, lr}
+ 365              	.LCFI12:
+ 366              		.cfi_def_cfa_offset 16
+ 367              		.cfi_offset 3, -16
+ 368              		.cfi_offset 4, -12
+ 369              		.cfi_offset 5, -8
+ 370              		.cfi_offset 14, -4
+ 371 0002 0546     		mov	r5, r0
+ 372              	.LVL35:
   98:sw_i2c/VX_swi2c.c ****     tWord j ;
   99:sw_i2c/VX_swi2c.c ****     for (j = 0 ; j<i ; j++)
- 405              		.loc 1 99 0
- 406 0004 0024     		movs	r4, #0
- 407 0006 04E0     		b	.L34
- 408              	.LVL38:
- 409              	.L35:
+ 373              		.loc 1 99 0
+ 374 0004 0024     		movs	r4, #0
+ 375 0006 04E0     		b	.L33
+ 376              	.LVL36:
+ 377              	.L34:
  100:sw_i2c/VX_swi2c.c ****     {
+ARM GAS  /tmp/ccx3CEVm.s 			page 9
+
+
  101:sw_i2c/VX_swi2c.c ****         HAL_Delay(5);
- 410              		.loc 1 101 0 discriminator 3
- 411 0008 0520     		movs	r0, #5
- 412 000a FFF7FEFF 		bl	HAL_Delay
- 413              	.LVL39:
+ 378              		.loc 1 101 0 discriminator 3
+ 379 0008 0520     		movs	r0, #5
+ 380 000a FFF7FEFF 		bl	HAL_Delay
+ 381              	.LVL37:
   99:sw_i2c/VX_swi2c.c ****     {
- 414              		.loc 1 99 0 discriminator 3
- 415 000e 0134     		adds	r4, r4, #1
- 416              	.LVL40:
- 417 0010 A4B2     		uxth	r4, r4
- 418              	.LVL41:
- 419              	.L34:
+ 382              		.loc 1 99 0 discriminator 3
+ 383 000e 0134     		adds	r4, r4, #1
+ 384              	.LVL38:
+ 385 0010 A4B2     		uxth	r4, r4
+ 386              	.LVL39:
+ 387              	.L33:
   99:sw_i2c/VX_swi2c.c ****     {
- 420              		.loc 1 99 0 is_stmt 0 discriminator 1
- 421 0012 AC42     		cmp	r4, r5
- 422 0014 F8D3     		bcc	.L35
+ 388              		.loc 1 99 0 is_stmt 0 discriminator 1
+ 389 0012 AC42     		cmp	r4, r5
+ 390 0014 F8D3     		bcc	.L34
  102:sw_i2c/VX_swi2c.c ****     }
  103:sw_i2c/VX_swi2c.c **** }
- 423              		.loc 1 103 0 is_stmt 1
- 424 0016 38BD     		pop	{r3, r4, r5, pc}
- 425              		.cfi_endproc
- 426              	.LFE78:
- 428              		.section	.text.tp28xx_byte_read,"ax",%progbits
- 429              		.align	1
-ARM GAS  /tmp/ccWKpJKf.s 			page 10
-
-
- 430              		.global	tp28xx_byte_read
- 431              		.syntax unified
- 432              		.thumb
- 433              		.thumb_func
- 434              		.fpu softvfp
- 436              	tp28xx_byte_read:
- 437              	.LFB79:
+ 391              		.loc 1 103 0 is_stmt 1
+ 392 0016 38BD     		pop	{r3, r4, r5, pc}
+ 393              		.cfi_endproc
+ 394              	.LFE75:
+ 396              		.section	.text.tp28xx_byte_read,"ax",%progbits
+ 397              		.align	2
+ 398              		.global	tp28xx_byte_read
+ 399              		.thumb
+ 400              		.thumb_func
+ 402              	tp28xx_byte_read:
+ 403              	.LFB76:
  104:sw_i2c/VX_swi2c.c **** 
  105:sw_i2c/VX_swi2c.c **** tByte tp28xx_byte_read (tByte index)
  106:sw_i2c/VX_swi2c.c **** {
- 438              		.loc 1 106 0
- 439              		.cfi_startproc
- 440              		@ args = 0, pretend = 0, frame = 0
- 441              		@ frame_needed = 0, uses_anonymous_args = 0
- 442              	.LVL42:
- 443 0000 08B5     		push	{r3, lr}
- 444              	.LCFI13:
- 445              		.cfi_def_cfa_offset 8
- 446              		.cfi_offset 3, -8
- 447              		.cfi_offset 14, -4
+ 404              		.loc 1 106 0
+ 405              		.cfi_startproc
+ 406              		@ args = 0, pretend = 0, frame = 0
+ 407              		@ frame_needed = 0, uses_anonymous_args = 0
+ 408              	.LVL40:
+ 409 0000 08B5     		push	{r3, lr}
+ 410              	.LCFI13:
+ 411              		.cfi_def_cfa_offset 8
+ 412              		.cfi_offset 3, -8
+ 413              		.cfi_offset 14, -4
+ 414 0002 0146     		mov	r1, r0
  107:sw_i2c/VX_swi2c.c ****     tByte val ;
  108:sw_i2c/VX_swi2c.c ****     val = SW_I2C2Read(TVII2CAddress , index ) ;
- 448              		.loc 1 108 0
- 449 0002 0146     		mov	r1, r0
- 450 0004 024B     		ldr	r3, .L39
- 451 0006 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
- 452              	.LVL43:
- 453 0008 FFF7FEFF 		bl	SW_I2C2Read
- 454              	.LVL44:
+ 415              		.loc 1 108 0
+ 416 0004 024B     		ldr	r3, .L38
+ 417 0006 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 418              	.LVL41:
+ 419 0008 FFF7FEFF 		bl	SW_I2C2Read
+ 420              	.LVL42:
  109:sw_i2c/VX_swi2c.c **** 
  110:sw_i2c/VX_swi2c.c ****     return val ;
  111:sw_i2c/VX_swi2c.c **** }
- 455              		.loc 1 111 0
- 456 000c 08BD     		pop	{r3, pc}
- 457              	.L40:
- 458 000e 00BF     		.align	2
- 459              	.L39:
- 460 0010 00000000 		.word	TVII2CAddress
- 461              		.cfi_endproc
- 462              	.LFE79:
- 464              		.section	.text.tp28xx_byte_write,"ax",%progbits
- 465              		.align	1
- 466              		.global	tp28xx_byte_write
- 467              		.syntax unified
- 468              		.thumb
- 469              		.thumb_func
- 470              		.fpu softvfp
- 472              	tp28xx_byte_write:
- 473              	.LFB80:
+ 421              		.loc 1 111 0
+ 422 000c 08BD     		pop	{r3, pc}
+ 423              	.L39:
+ARM GAS  /tmp/ccx3CEVm.s 			page 10
+
+
+ 424 000e 00BF     		.align	2
+ 425              	.L38:
+ 426 0010 00000000 		.word	TVII2CAddress
+ 427              		.cfi_endproc
+ 428              	.LFE76:
+ 430              		.section	.text.tp28xx_byte_write,"ax",%progbits
+ 431              		.align	2
+ 432              		.global	tp28xx_byte_write
+ 433              		.thumb
+ 434              		.thumb_func
+ 436              	tp28xx_byte_write:
+ 437              	.LFB77:
  112:sw_i2c/VX_swi2c.c **** 
  113:sw_i2c/VX_swi2c.c **** void tp28xx_byte_write (tByte index, tByte val)
  114:sw_i2c/VX_swi2c.c **** {
- 474              		.loc 1 114 0
- 475              		.cfi_startproc
- 476              		@ args = 0, pretend = 0, frame = 0
- 477              		@ frame_needed = 0, uses_anonymous_args = 0
- 478              	.LVL45:
-ARM GAS  /tmp/ccWKpJKf.s 			page 11
-
-
- 479 0000 08B5     		push	{r3, lr}
- 480              	.LCFI14:
- 481              		.cfi_def_cfa_offset 8
- 482              		.cfi_offset 3, -8
- 483              		.cfi_offset 14, -4
+ 438              		.loc 1 114 0
+ 439              		.cfi_startproc
+ 440              		@ args = 0, pretend = 0, frame = 0
+ 441              		@ frame_needed = 0, uses_anonymous_args = 0
+ 442              	.LVL43:
+ 443 0000 08B5     		push	{r3, lr}
+ 444              	.LCFI14:
+ 445              		.cfi_def_cfa_offset 8
+ 446              		.cfi_offset 3, -8
+ 447              		.cfi_offset 14, -4
+ 448 0002 0346     		mov	r3, r0
+ 449 0004 0A46     		mov	r2, r1
  115:sw_i2c/VX_swi2c.c ****     SW_I2C2Write(TVII2CAddress ,index, val) ;
- 484              		.loc 1 115 0
- 485 0002 0A46     		mov	r2, r1
- 486 0004 0146     		mov	r1, r0
- 487              	.LVL46:
- 488 0006 024B     		ldr	r3, .L43
- 489 0008 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
- 490              	.LVL47:
- 491 000a FFF7FEFF 		bl	SW_I2C2Write
- 492              	.LVL48:
+ 450              		.loc 1 115 0
+ 451 0006 0349     		ldr	r1, .L42
+ 452              	.LVL44:
+ 453 0008 0878     		ldrb	r0, [r1]	@ zero_extendqisi2
+ 454              	.LVL45:
+ 455 000a 1946     		mov	r1, r3
+ 456 000c FFF7FEFF 		bl	SW_I2C2Write
+ 457              	.LVL46:
+ 458 0010 08BD     		pop	{r3, pc}
+ 459              	.L43:
+ 460 0012 00BF     		.align	2
+ 461              	.L42:
+ 462 0014 00000000 		.word	TVII2CAddress
+ 463              		.cfi_endproc
+ 464              	.LFE77:
+ 466              		.section	.text.delay1ms,"ax",%progbits
+ 467              		.align	2
+ 468              		.global	delay1ms
+ 469              		.thumb
+ 470              		.thumb_func
+ 472              	delay1ms:
+ 473              	.LFB78:
  116:sw_i2c/VX_swi2c.c **** }
- 493              		.loc 1 116 0
- 494 000e 08BD     		pop	{r3, pc}
- 495              	.L44:
- 496              		.align	2
- 497              	.L43:
- 498 0010 00000000 		.word	TVII2CAddress
- 499              		.cfi_endproc
- 500              	.LFE80:
- 502              		.section	.text.delay1ms,"ax",%progbits
- 503              		.align	1
- 504              		.global	delay1ms
- 505              		.syntax unified
- 506              		.thumb
- 507              		.thumb_func
- 508              		.fpu softvfp
- 510              	delay1ms:
- 511              	.LFB81:
  117:sw_i2c/VX_swi2c.c **** 
  118:sw_i2c/VX_swi2c.c **** //HDMI_TX
  119:sw_i2c/VX_swi2c.c **** 
  120:sw_i2c/VX_swi2c.c **** void delay1ms(unsigned int i )
  121:sw_i2c/VX_swi2c.c **** {
- 512              		.loc 1 121 0
- 513              		.cfi_startproc
- 514              		@ args = 0, pretend = 0, frame = 0
- 515              		@ frame_needed = 0, uses_anonymous_args = 0
- 516              	.LVL49:
- 517 0000 08B5     		push	{r3, lr}
- 518              	.LCFI15:
- 519              		.cfi_def_cfa_offset 8
- 520              		.cfi_offset 3, -8
- 521              		.cfi_offset 14, -4
+ 474              		.loc 1 121 0
+ARM GAS  /tmp/ccx3CEVm.s 			page 11
+
+
+ 475              		.cfi_startproc
+ 476              		@ args = 0, pretend = 0, frame = 0
+ 477              		@ frame_needed = 0, uses_anonymous_args = 0
+ 478              	.LVL47:
+ 479 0000 08B5     		push	{r3, lr}
+ 480              	.LCFI15:
+ 481              		.cfi_def_cfa_offset 8
+ 482              		.cfi_offset 3, -8
+ 483              		.cfi_offset 14, -4
  122:sw_i2c/VX_swi2c.c ****     HAL_Delay(i);
- 522              		.loc 1 122 0
- 523 0002 FFF7FEFF 		bl	HAL_Delay
- 524              	.LVL50:
+ 484              		.loc 1 122 0
+ 485 0002 FFF7FEFF 		bl	HAL_Delay
+ 486              	.LVL48:
+ 487 0006 08BD     		pop	{r3, pc}
+ 488              		.cfi_endproc
+ 489              	.LFE78:
+ 491              		.section	.text.GET_PCA9554PW,"ax",%progbits
+ 492              		.align	2
+ 493              		.global	GET_PCA9554PW
+ 494              		.thumb
+ 495              		.thumb_func
+ 497              	GET_PCA9554PW:
+ 498              	.LFB79:
  123:sw_i2c/VX_swi2c.c **** }
- 525              		.loc 1 123 0
- 526 0006 08BD     		pop	{r3, pc}
- 527              		.cfi_endproc
- 528              	.LFE81:
-ARM GAS  /tmp/ccWKpJKf.s 			page 12
-
-
- 530              		.section	.text.GET_PCA9554PW,"ax",%progbits
- 531              		.align	1
- 532              		.global	GET_PCA9554PW
- 533              		.syntax unified
- 534              		.thumb
- 535              		.thumb_func
- 536              		.fpu softvfp
- 538              	GET_PCA9554PW:
- 539              	.LFB82:
  124:sw_i2c/VX_swi2c.c **** 
  125:sw_i2c/VX_swi2c.c **** /*
  126:sw_i2c/VX_swi2c.c **** tByte HDMITX_ReadI2C_Byte(tByte RegAddr)
@@ -703,6 +658,9 @@ ARM GAS  /tmp/ccWKpJKf.s 			page 1
  154:sw_i2c/VX_swi2c.c **** //#endif
  155:sw_i2c/VX_swi2c.c **** 
  156:sw_i2c/VX_swi2c.c **** 
+ARM GAS  /tmp/ccx3CEVm.s 			page 12
+
+
  157:sw_i2c/VX_swi2c.c **** int HDMITX_SetI2C_Byte(tByte Reg,tByte Mask,tByte Value)
  158:sw_i2c/VX_swi2c.c **** {
  159:sw_i2c/VX_swi2c.c ****     tByte Temp;
@@ -718,316 +676,298 @@ ARM GAS  /tmp/ccWKpJKf.s 			page 1
  169:sw_i2c/VX_swi2c.c ****     }
  170:sw_i2c/VX_swi2c.c ****     HDMITX_WriteI2C_Byte(Reg,Temp);
  171:sw_i2c/VX_swi2c.c ****     return 0 ;
-ARM GAS  /tmp/ccWKpJKf.s 			page 13
-
-
  172:sw_i2c/VX_swi2c.c **** }
  173:sw_i2c/VX_swi2c.c **** */
  174:sw_i2c/VX_swi2c.c **** 	
  175:sw_i2c/VX_swi2c.c **** BYTE GET_PCA9554PW(BYTE reg)
  176:sw_i2c/VX_swi2c.c **** {	
- 540              		.loc 1 176 0
- 541              		.cfi_startproc
- 542              		@ args = 0, pretend = 0, frame = 0
- 543              		@ frame_needed = 0, uses_anonymous_args = 0
- 544              	.LVL51:
- 545 0000 08B5     		push	{r3, lr}
- 546              	.LCFI16:
- 547              		.cfi_def_cfa_offset 8
- 548              		.cfi_offset 3, -8
- 549              		.cfi_offset 14, -4
- 550              	.LVL52:
+ 499              		.loc 1 176 0
+ 500              		.cfi_startproc
+ 501              		@ args = 0, pretend = 0, frame = 0
+ 502              		@ frame_needed = 0, uses_anonymous_args = 0
+ 503              	.LVL49:
+ 504 0000 08B5     		push	{r3, lr}
+ 505              	.LCFI16:
+ 506              		.cfi_def_cfa_offset 8
+ 507              		.cfi_offset 3, -8
+ 508              		.cfi_offset 14, -4
+ 509 0002 0146     		mov	r1, r0
+ 510              	.LVL50:
  177:sw_i2c/VX_swi2c.c **** 	BYTE ret=0;
  178:sw_i2c/VX_swi2c.c **** 
  179:sw_i2c/VX_swi2c.c **** 
  180:sw_i2c/VX_swi2c.c **** 		ret=ReadI2C(PCA9554PW_addr, reg);	//Modified. David. 20180130
- 551              		.loc 1 180 0
- 552 0002 0146     		mov	r1, r0
- 553 0004 4020     		movs	r0, #64
- 554              	.LVL53:
- 555 0006 FFF7FEFF 		bl	ReadI2C
- 556              	.LVL54:
+ 511              		.loc 1 180 0
+ 512 0004 4020     		movs	r0, #64
+ 513              	.LVL51:
+ 514 0006 FFF7FEFF 		bl	ReadI2C
+ 515              	.LVL52:
  181:sw_i2c/VX_swi2c.c **** 
  182:sw_i2c/VX_swi2c.c **** 
  183:sw_i2c/VX_swi2c.c **** 	return ret;
  184:sw_i2c/VX_swi2c.c **** }
- 557              		.loc 1 184 0
- 558 000a 08BD     		pop	{r3, pc}
- 559              		.cfi_endproc
- 560              	.LFE82:
- 562              		.section	.text.SET_PCA9554PW,"ax",%progbits
- 563              		.align	1
- 564              		.global	SET_PCA9554PW
- 565              		.syntax unified
- 566              		.thumb
- 567              		.thumb_func
- 568              		.fpu softvfp
- 570              	SET_PCA9554PW:
- 571              	.LFB83:
+ 516              		.loc 1 184 0
+ 517 000a 08BD     		pop	{r3, pc}
+ 518              		.cfi_endproc
+ 519              	.LFE79:
+ 521              		.section	.text.SET_PCA9554PW,"ax",%progbits
+ 522              		.align	2
+ 523              		.global	SET_PCA9554PW
+ 524              		.thumb
+ 525              		.thumb_func
+ 527              	SET_PCA9554PW:
+ 528              	.LFB80:
  185:sw_i2c/VX_swi2c.c **** 
+ARM GAS  /tmp/ccx3CEVm.s 			page 13
+
+
  186:sw_i2c/VX_swi2c.c **** void  SET_PCA9554PW(BYTE addr, BYTE val)
  187:sw_i2c/VX_swi2c.c **** {	
- 572              		.loc 1 187 0
- 573              		.cfi_startproc
- 574              		@ args = 0, pretend = 0, frame = 0
- 575              		@ frame_needed = 0, uses_anonymous_args = 0
- 576              	.LVL55:
- 577 0000 38B5     		push	{r3, r4, r5, lr}
- 578              	.LCFI17:
- 579              		.cfi_def_cfa_offset 16
- 580              		.cfi_offset 3, -16
- 581              		.cfi_offset 4, -12
- 582              		.cfi_offset 5, -8
-ARM GAS  /tmp/ccWKpJKf.s 			page 14
-
-
- 583              		.cfi_offset 14, -4
- 584 0002 0446     		mov	r4, r0
- 585 0004 0D46     		mov	r5, r1
- 586              	.LVL56:
+ 529              		.loc 1 187 0
+ 530              		.cfi_startproc
+ 531              		@ args = 0, pretend = 0, frame = 0
+ 532              		@ frame_needed = 0, uses_anonymous_args = 0
+ 533              	.LVL53:
+ 534 0000 38B5     		push	{r3, r4, r5, lr}
+ 535              	.LCFI17:
+ 536              		.cfi_def_cfa_offset 16
+ 537              		.cfi_offset 3, -16
+ 538              		.cfi_offset 4, -12
+ 539              		.cfi_offset 5, -8
+ 540              		.cfi_offset 14, -4
+ 541 0002 0446     		mov	r4, r0
+ 542 0004 0D46     		mov	r5, r1
+ 543              	.LVL54:
  188:sw_i2c/VX_swi2c.c **** 		BYTE ret=0;		
  189:sw_i2c/VX_swi2c.c **** 		ret=ReadI2C(PCA9554PW_addr, PCA9554PW_reg1);	
- 587              		.loc 1 189 0
- 588 0006 0121     		movs	r1, #1
- 589              	.LVL57:
- 590 0008 4020     		movs	r0, #64
- 591              	.LVL58:
- 592 000a FFF7FEFF 		bl	ReadI2C
- 593              	.LVL59:
+ 544              		.loc 1 189 0
+ 545 0006 4020     		movs	r0, #64
+ 546              	.LVL55:
+ 547 0008 0121     		movs	r1, #1
+ 548              	.LVL56:
+ 549 000a FFF7FEFF 		bl	ReadI2C
+ 550              	.LVL57:
  190:sw_i2c/VX_swi2c.c **** 
  191:sw_i2c/VX_swi2c.c **** 		switch(addr)
- 594              		.loc 1 191 0
- 595 000e 202C     		cmp	r4, #32
- 596 0010 1CD0     		beq	.L51
- 597 0012 0DD9     		bls	.L57
- 598 0014 402C     		cmp	r4, #64
- 599 0016 23D0     		beq	.L54
- 600 0018 802C     		cmp	r4, #128
- 601 001a 16D1     		bne	.L49
+ 551              		.loc 1 191 0
+ 552 000e 202C     		cmp	r4, #32
+ 553 0010 14D0     		beq	.L50
+ 554 0012 02D8     		bhi	.L51
+ 555 0014 102C     		cmp	r4, #16
+ 556 0016 05D0     		beq	.L52
+ 557 0018 38BD     		pop	{r3, r4, r5, pc}
+ 558              	.L51:
+ 559 001a 402C     		cmp	r4, #64
+ 560 001c 18D0     		beq	.L53
+ 561 001e 802C     		cmp	r4, #128
+ 562 0020 20D0     		beq	.L54
+ 563 0022 38BD     		pop	{r3, r4, r5, pc}
+ 564              	.L52:
  192:sw_i2c/VX_swi2c.c **** 			{
  193:sw_i2c/VX_swi2c.c **** 			 case _COL_PW_5V:   	ret&=~(_COL_PW_5V); 		WriteI2C( PCA9554PW_addr, PCA9554PW_reg1, (ret|((val^
+ 565              		.loc 1 193 0
+ 566 0024 00F0EF00 		and	r0, r0, #239
+ 567              	.LVL58:
+ 568 0028 85F00102 		eor	r2, r5, #1
+ 569 002c 40EA0212 		orr	r2, r0, r2, lsl #4
+ 570 0030 4020     		movs	r0, #64
+ 571              	.LVL59:
+ 572 0032 0121     		movs	r1, #1
+ 573 0034 D2B2     		uxtb	r2, r2
+ 574 0036 FFF7FEFF 		bl	WriteI2C
+ 575              	.LVL60:
+ 576 003a 38BD     		pop	{r3, r4, r5, pc}
+ 577              	.LVL61:
+ARM GAS  /tmp/ccx3CEVm.s 			page 14
+
+
+ 578              	.L50:
  194:sw_i2c/VX_swi2c.c **** 			 case _PCON5V_AUDIO:	ret&=~(_PCON5V_AUDIO); 	WriteI2C( PCA9554PW_addr, PCA9554PW_reg1, (ret|(val
+ 579              		.loc 1 194 0
+ 580 003c 00F0DF02 		and	r2, r0, #223
+ 581              	.LVL62:
+ 582 0040 42EA4512 		orr	r2, r2, r5, lsl #5
+ 583              	.LVL63:
+ 584 0044 4020     		movs	r0, #64
+ 585              	.LVL64:
+ 586 0046 0121     		movs	r1, #1
+ 587 0048 D2B2     		uxtb	r2, r2
+ 588 004a FFF7FEFF 		bl	WriteI2C
+ 589              	.LVL65:
+ 590 004e 38BD     		pop	{r3, r4, r5, pc}
+ 591              	.LVL66:
+ 592              	.L53:
  195:sw_i2c/VX_swi2c.c **** 			 case _CCD12_SW:		ret&=~(_CCD12_SW); 		WriteI2C( PCA9554PW_addr, PCA9554PW_reg1, (ret|(val<<6)))
+ 593              		.loc 1 195 0
+ 594 0050 00F0BF02 		and	r2, r0, #191
+ 595              	.LVL67:
+ 596 0054 42EA8512 		orr	r2, r2, r5, lsl #6
+ 597              	.LVL68:
+ 598 0058 4020     		movs	r0, #64
+ 599              	.LVL69:
+ 600 005a 0121     		movs	r1, #1
+ 601 005c D2B2     		uxtb	r2, r2
+ 602 005e FFF7FEFF 		bl	WriteI2C
+ 603              	.LVL70:
+ 604 0062 38BD     		pop	{r3, r4, r5, pc}
+ 605              	.LVL71:
+ 606              	.L54:
  196:sw_i2c/VX_swi2c.c **** 			 case _Shutter_SW:		ret&=~(_Shutter_SW); 		WriteI2C( PCA9554PW_addr, PCA9554PW_reg1, (ret|(val<<
- 602              		.loc 1 196 0
- 603 001c 00F07F02 		and	r2, r0, #127
- 604              	.LVL60:
- 605 0020 42EAC512 		orr	r2, r2, r5, lsl #7
- 606              	.LVL61:
- 607 0024 D2B2     		uxtb	r2, r2
- 608 0026 0121     		movs	r1, #1
- 609 0028 4020     		movs	r0, #64
- 610              	.LVL62:
- 611 002a FFF7FEFF 		bl	WriteI2C
- 612              	.LVL63:
+ 607              		.loc 1 196 0
+ 608 0064 00F07F02 		and	r2, r0, #127
+ 609              	.LVL72:
+ 610 0068 42EAC512 		orr	r2, r2, r5, lsl #7
+ 611              	.LVL73:
+ 612 006c 4020     		movs	r0, #64
+ 613              	.LVL74:
+ 614 006e 0121     		movs	r1, #1
+ 615 0070 D2B2     		uxtb	r2, r2
+ 616 0072 FFF7FEFF 		bl	WriteI2C
+ 617              	.LVL75:
+ 618 0076 38BD     		pop	{r3, r4, r5, pc}
+ 619              		.cfi_endproc
+ 620              	.LFE80:
+ 622              		.section	.text.GET_ALC122,"ax",%progbits
+ 623              		.align	2
+ 624              		.global	GET_ALC122
+ 625              		.thumb
+ 626              		.thumb_func
+ 628              	GET_ALC122:
+ 629              	.LFB81:
  197:sw_i2c/VX_swi2c.c **** 			}
  198:sw_i2c/VX_swi2c.c **** }
- 613              		.loc 1 198 0
- 614 002e 0CE0     		b	.L49
- 615              	.LVL64:
- 616              	.L57:
- 191:sw_i2c/VX_swi2c.c **** 			{
- 617              		.loc 1 191 0
- 618 0030 102C     		cmp	r4, #16
- 619 0032 0AD1     		bne	.L49
- 193:sw_i2c/VX_swi2c.c **** 			 case _PCON5V_AUDIO:	ret&=~(_PCON5V_AUDIO); 	WriteI2C( PCA9554PW_addr, PCA9554PW_reg1, (ret|(val
- 620              		.loc 1 193 0
- 621 0034 00F0EF00 		and	r0, r0, #239
- 622              	.LVL65:
- 623 0038 85F00102 		eor	r2, r5, #1
- 624 003c 40EA0212 		orr	r2, r0, r2, lsl #4
- 625 0040 D2B2     		uxtb	r2, r2
- 626 0042 0121     		movs	r1, #1
-ARM GAS  /tmp/ccWKpJKf.s 			page 15
-
-
- 627 0044 4020     		movs	r0, #64
- 628              	.LVL66:
- 629 0046 FFF7FEFF 		bl	WriteI2C
- 630              	.LVL67:
- 631              	.L49:
- 632              		.loc 1 198 0
- 633 004a 38BD     		pop	{r3, r4, r5, pc}
- 634              	.LVL68:
- 635              	.L51:
- 194:sw_i2c/VX_swi2c.c **** 			 case _CCD12_SW:		ret&=~(_CCD12_SW); 		WriteI2C( PCA9554PW_addr, PCA9554PW_reg1, (ret|(val<<6)))
- 636              		.loc 1 194 0
- 637 004c 00F0DF02 		and	r2, r0, #223
- 638              	.LVL69:
- 639 0050 42EA4512 		orr	r2, r2, r5, lsl #5
- 640              	.LVL70:
- 641 0054 D2B2     		uxtb	r2, r2
- 642 0056 0121     		movs	r1, #1
- 643 0058 4020     		movs	r0, #64
- 644              	.LVL71:
- 645 005a FFF7FEFF 		bl	WriteI2C
- 646              	.LVL72:
- 647 005e F4E7     		b	.L49
- 648              	.LVL73:
- 649              	.L54:
- 195:sw_i2c/VX_swi2c.c **** 			 case _Shutter_SW:		ret&=~(_Shutter_SW); 		WriteI2C( PCA9554PW_addr, PCA9554PW_reg1, (ret|(val<<
- 650              		.loc 1 195 0
- 651 0060 00F0BF02 		and	r2, r0, #191
- 652              	.LVL74:
- 653 0064 42EA8512 		orr	r2, r2, r5, lsl #6
- 654              	.LVL75:
- 655 0068 D2B2     		uxtb	r2, r2
- 656 006a 0121     		movs	r1, #1
- 657 006c 4020     		movs	r0, #64
- 658              	.LVL76:
- 659 006e FFF7FEFF 		bl	WriteI2C
- 660              	.LVL77:
- 661 0072 EAE7     		b	.L49
- 662              		.cfi_endproc
- 663              	.LFE83:
- 665              		.section	.text.GET_ALC122,"ax",%progbits
- 666              		.align	1
- 667              		.global	GET_ALC122
- 668              		.syntax unified
- 669              		.thumb
- 670              		.thumb_func
- 671              		.fpu softvfp
- 673              	GET_ALC122:
- 674              	.LFB84:
  199:sw_i2c/VX_swi2c.c **** 
  200:sw_i2c/VX_swi2c.c **** WORD GET_ALC122(BYTE reg)
+ARM GAS  /tmp/ccx3CEVm.s 			page 15
+
+
  201:sw_i2c/VX_swi2c.c **** {	
- 675              		.loc 1 201 0
- 676              		.cfi_startproc
- 677              		@ args = 0, pretend = 0, frame = 0
- 678              		@ frame_needed = 0, uses_anonymous_args = 0
- 679              	.LVL78:
- 680 0000 08B5     		push	{r3, lr}
-ARM GAS  /tmp/ccWKpJKf.s 			page 16
-
-
- 681              	.LCFI18:
- 682              		.cfi_def_cfa_offset 8
- 683              		.cfi_offset 3, -8
- 684              		.cfi_offset 14, -4
- 685              	.LVL79:
+ 630              		.loc 1 201 0
+ 631              		.cfi_startproc
+ 632              		@ args = 0, pretend = 0, frame = 0
+ 633              		@ frame_needed = 0, uses_anonymous_args = 0
+ 634              	.LVL76:
+ 635 0000 08B5     		push	{r3, lr}
+ 636              	.LCFI18:
+ 637              		.cfi_def_cfa_offset 8
+ 638              		.cfi_offset 3, -8
+ 639              		.cfi_offset 14, -4
+ 640 0002 0146     		mov	r1, r0
+ 641              	.LVL77:
  202:sw_i2c/VX_swi2c.c **** 	WORD ret=0;
  203:sw_i2c/VX_swi2c.c **** 
  204:sw_i2c/VX_swi2c.c **** 	ret=ReadI2C3(ALC122_addr, reg);	
- 686              		.loc 1 204 0
- 687 0002 0146     		mov	r1, r0
- 688 0004 4A20     		movs	r0, #74
- 689              	.LVL80:
- 690 0006 FFF7FEFF 		bl	ReadI2C3
- 691              	.LVL81:
+ 642              		.loc 1 204 0
+ 643 0004 4A20     		movs	r0, #74
+ 644              	.LVL78:
+ 645 0006 FFF7FEFF 		bl	ReadI2C3
+ 646              	.LVL79:
  205:sw_i2c/VX_swi2c.c **** 
  206:sw_i2c/VX_swi2c.c **** 	return ret;
  207:sw_i2c/VX_swi2c.c **** }
- 692              		.loc 1 207 0
- 693 000a 08BD     		pop	{r3, pc}
- 694              		.cfi_endproc
- 695              	.LFE84:
- 697              		.section	.text.SET_ALC122,"ax",%progbits
- 698              		.align	1
- 699              		.global	SET_ALC122
- 700              		.syntax unified
- 701              		.thumb
- 702              		.thumb_func
- 703              		.fpu softvfp
- 705              	SET_ALC122:
- 706              	.LFB85:
+ 647              		.loc 1 207 0
+ 648 000a 08BD     		pop	{r3, pc}
+ 649              		.cfi_endproc
+ 650              	.LFE81:
+ 652              		.section	.text.SET_ALC122,"ax",%progbits
+ 653              		.align	2
+ 654              		.global	SET_ALC122
+ 655              		.thumb
+ 656              		.thumb_func
+ 658              	SET_ALC122:
+ 659              	.LFB82:
  208:sw_i2c/VX_swi2c.c **** 
  209:sw_i2c/VX_swi2c.c **** void  SET_ALC122(BYTE addr, WORD val)
  210:sw_i2c/VX_swi2c.c **** {	
- 707              		.loc 1 210 0
- 708              		.cfi_startproc
- 709              		@ args = 0, pretend = 0, frame = 0
- 710              		@ frame_needed = 0, uses_anonymous_args = 0
- 711              	.LVL82:
- 712 0000 08B5     		push	{r3, lr}
- 713              	.LCFI19:
- 714              		.cfi_def_cfa_offset 8
- 715              		.cfi_offset 3, -8
- 716              		.cfi_offset 14, -4
+ 660              		.loc 1 210 0
+ 661              		.cfi_startproc
+ 662              		@ args = 0, pretend = 0, frame = 0
+ 663              		@ frame_needed = 0, uses_anonymous_args = 0
+ 664              	.LVL80:
+ 665 0000 08B5     		push	{r3, lr}
+ 666              	.LCFI19:
+ 667              		.cfi_def_cfa_offset 8
+ 668              		.cfi_offset 3, -8
+ 669              		.cfi_offset 14, -4
+ 670 0002 0346     		mov	r3, r0
+ 671 0004 0A46     		mov	r2, r1
  211:sw_i2c/VX_swi2c.c **** 	WriteI2C3( ALC122_addr,addr, val);
- 717              		.loc 1 211 0
- 718 0002 0A46     		mov	r2, r1
- 719 0004 0146     		mov	r1, r0
- 720              	.LVL83:
- 721 0006 4A20     		movs	r0, #74
- 722              	.LVL84:
- 723 0008 FFF7FEFF 		bl	WriteI2C3
- 724              	.LVL85:
- 212:sw_i2c/VX_swi2c.c **** }
- 725              		.loc 1 212 0
- 726 000c 08BD     		pop	{r3, pc}
- 727              		.cfi_endproc
- 728              	.LFE85:
-ARM GAS  /tmp/ccWKpJKf.s 			page 17
+ 672              		.loc 1 211 0
+ 673 0006 4A20     		movs	r0, #74
+ 674              	.LVL81:
+ 675 0008 1946     		mov	r1, r3
+ 676              	.LVL82:
+ 677 000a FFF7FEFF 		bl	WriteI2C3
+ARM GAS  /tmp/ccx3CEVm.s 			page 16
 
 
- 730              		.comm	gskipsleepflg,1,1
- 731              		.text
- 732              	.Letext0:
- 733              		.file 2 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/machine/_default_
- 734              		.file 3 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_stdint.h"
- 735              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
- 736              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
- 737              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
- 738              		.file 7 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/lock.h"
- 739              		.file 8 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_types.h"
- 740              		.file 9 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/lib/gcc/arm-none-eabi/7.3.1/include/std
- 741              		.file 10 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/reent.h"
- 742              		.file 11 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/unistd.h"
- 743              		.file 12 "VS4210/VXIS_Extern_Define.h"
- 744              		.file 13 "sw_i2c/VX_swi2c.h"
- 745              		.file 14 "sw_i2c/sw_i2c2.h"
- 746              		.file 15 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/string.h"
- 747              		.file 16 "sw_i2c/sw_i2c1.h"
-ARM GAS  /tmp/ccWKpJKf.s 			page 18
+ 678              	.LVL83:
+ 679 000e 08BD     		pop	{r3, pc}
+ 680              		.cfi_endproc
+ 681              	.LFE82:
+ 683              		.comm	gskipsleepflg,1,1
+ 684              		.text
+ 685              	.Letext0:
+ 686              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 687              		.file 3 "/usr/include/newlib/sys/_stdint.h"
+ 688              		.file 4 "/usr/lib/gcc/arm-none-eabi/4.9.3/include/stddef.h"
+ 689              		.file 5 "VS4210/VXIS_Extern_Define.h"
+ 690              		.file 6 "Drivers/CMSIS/Include/core_cm3.h"
+ 691              		.file 7 "sw_i2c/VX_swi2c.h"
+ 692              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 693              		.file 9 "sw_i2c/sw_i2c1.h"
+ 694              		.file 10 "sw_i2c/sw_i2c2.h"
+ 695              		.file 11 "/usr/include/newlib/string.h"
+ARM GAS  /tmp/ccx3CEVm.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 VX_swi2c.c
-     /tmp/ccWKpJKf.s:16     .text.msleep:0000000000000000 $t
-     /tmp/ccWKpJKf.s:23     .text.msleep:0000000000000000 msleep
-     /tmp/ccWKpJKf.s:54     .text.msleep:0000000000000010 $d
+     /tmp/ccx3CEVm.s:19     .text.msleep:0000000000000000 $t
+     /tmp/ccx3CEVm.s:24     .text.msleep:0000000000000000 msleep
+     /tmp/ccx3CEVm.s:49     .text.msleep:0000000000000010 $d
                             *COM*:0000000000000001 gskipsleepflg
-     /tmp/ccWKpJKf.s:59     .text.delayTX1ms:0000000000000000 $t
-     /tmp/ccWKpJKf.s:66     .text.delayTX1ms:0000000000000000 delayTX1ms
-     /tmp/ccWKpJKf.s:87     .text.VXISI2CRead:0000000000000000 $t
-     /tmp/ccWKpJKf.s:94     .text.VXISI2CRead:0000000000000000 VXISI2CRead
-     /tmp/ccWKpJKf.s:120    .text.VXISI2CRead:0000000000000010 $d
-     /tmp/ccWKpJKf.s:125    .text.VXISI2CWrite:0000000000000000 $t
-     /tmp/ccWKpJKf.s:132    .text.VXISI2CWrite:0000000000000000 VXISI2CWrite
-     /tmp/ccWKpJKf.s:159    .text.VXISI2CWrite:0000000000000014 $d
-     /tmp/ccWKpJKf.s:164    .text.VS8812Read:0000000000000000 $t
-     /tmp/ccWKpJKf.s:171    .text.VS8812Read:0000000000000000 VS8812Read
-     /tmp/ccWKpJKf.s:197    .text.VS8812Read:0000000000000010 $d
-     /tmp/ccWKpJKf.s:202    .text.VS8812Write:0000000000000000 $t
-     /tmp/ccWKpJKf.s:209    .text.VS8812Write:0000000000000000 VS8812Write
-     /tmp/ccWKpJKf.s:236    .text.VS8812Write:0000000000000014 $d
-     /tmp/ccWKpJKf.s:241    .text.ReadEEP:0000000000000000 $t
-     /tmp/ccWKpJKf.s:248    .text.ReadEEP:0000000000000000 ReadEEP
-     /tmp/ccWKpJKf.s:270    .text.WriteEEP:0000000000000000 $t
-     /tmp/ccWKpJKf.s:277    .text.WriteEEP:0000000000000000 WriteEEP
-     /tmp/ccWKpJKf.s:298    .text.I2CMultiWrite:0000000000000000 $t
-     /tmp/ccWKpJKf.s:305    .text.I2CMultiWrite:0000000000000000 I2CMultiWrite
-     /tmp/ccWKpJKf.s:331    .text.I2CMultiAttribute:0000000000000000 $t
-     /tmp/ccWKpJKf.s:338    .text.I2CMultiAttribute:0000000000000000 I2CMultiAttribute
-     /tmp/ccWKpJKf.s:382    .text.delay:0000000000000000 $t
-     /tmp/ccWKpJKf.s:389    .text.delay:0000000000000000 delay
-     /tmp/ccWKpJKf.s:429    .text.tp28xx_byte_read:0000000000000000 $t
-     /tmp/ccWKpJKf.s:436    .text.tp28xx_byte_read:0000000000000000 tp28xx_byte_read
-     /tmp/ccWKpJKf.s:460    .text.tp28xx_byte_read:0000000000000010 $d
-     /tmp/ccWKpJKf.s:465    .text.tp28xx_byte_write:0000000000000000 $t
-     /tmp/ccWKpJKf.s:472    .text.tp28xx_byte_write:0000000000000000 tp28xx_byte_write
-     /tmp/ccWKpJKf.s:498    .text.tp28xx_byte_write:0000000000000010 $d
-     /tmp/ccWKpJKf.s:503    .text.delay1ms:0000000000000000 $t
-     /tmp/ccWKpJKf.s:510    .text.delay1ms:0000000000000000 delay1ms
-     /tmp/ccWKpJKf.s:531    .text.GET_PCA9554PW:0000000000000000 $t
-     /tmp/ccWKpJKf.s:538    .text.GET_PCA9554PW:0000000000000000 GET_PCA9554PW
-     /tmp/ccWKpJKf.s:563    .text.SET_PCA9554PW:0000000000000000 $t
-     /tmp/ccWKpJKf.s:570    .text.SET_PCA9554PW:0000000000000000 SET_PCA9554PW
-     /tmp/ccWKpJKf.s:666    .text.GET_ALC122:0000000000000000 $t
-     /tmp/ccWKpJKf.s:673    .text.GET_ALC122:0000000000000000 GET_ALC122
-     /tmp/ccWKpJKf.s:698    .text.SET_ALC122:0000000000000000 $t
-     /tmp/ccWKpJKf.s:705    .text.SET_ALC122:0000000000000000 SET_ALC122
+     /tmp/ccx3CEVm.s:54     .text.delayTX1ms:0000000000000000 $t
+     /tmp/ccx3CEVm.s:59     .text.delayTX1ms:0000000000000000 delayTX1ms
+     /tmp/ccx3CEVm.s:79     .text.VXISI2CRead:0000000000000000 $t
+     /tmp/ccx3CEVm.s:84     .text.VXISI2CRead:0000000000000000 VXISI2CRead
+     /tmp/ccx3CEVm.s:109    .text.VXISI2CRead:0000000000000010 $d
+     /tmp/ccx3CEVm.s:114    .text.VXISI2CWrite:0000000000000000 $t
+     /tmp/ccx3CEVm.s:119    .text.VXISI2CWrite:0000000000000000 VXISI2CWrite
+     /tmp/ccx3CEVm.s:145    .text.VXISI2CWrite:0000000000000014 $d
+     /tmp/ccx3CEVm.s:150    .text.VS8812Read:0000000000000000 $t
+     /tmp/ccx3CEVm.s:155    .text.VS8812Read:0000000000000000 VS8812Read
+     /tmp/ccx3CEVm.s:180    .text.VS8812Read:0000000000000010 $d
+     /tmp/ccx3CEVm.s:185    .text.VS8812Write:0000000000000000 $t
+     /tmp/ccx3CEVm.s:190    .text.VS8812Write:0000000000000000 VS8812Write
+     /tmp/ccx3CEVm.s:216    .text.VS8812Write:0000000000000014 $d
+     /tmp/ccx3CEVm.s:221    .text.ReadEEP:0000000000000000 $t
+     /tmp/ccx3CEVm.s:226    .text.ReadEEP:0000000000000000 ReadEEP
+     /tmp/ccx3CEVm.s:248    .text.WriteEEP:0000000000000000 $t
+     /tmp/ccx3CEVm.s:253    .text.WriteEEP:0000000000000000 WriteEEP
+     /tmp/ccx3CEVm.s:273    .text.I2CMultiWrite:0000000000000000 $t
+     /tmp/ccx3CEVm.s:278    .text.I2CMultiWrite:0000000000000000 I2CMultiWrite
+     /tmp/ccx3CEVm.s:303    .text.I2CMultiAttribute:0000000000000000 $t
+     /tmp/ccx3CEVm.s:308    .text.I2CMultiAttribute:0000000000000000 I2CMultiAttribute
+     /tmp/ccx3CEVm.s:352    .text.delay:0000000000000000 $t
+     /tmp/ccx3CEVm.s:357    .text.delay:0000000000000000 delay
+     /tmp/ccx3CEVm.s:397    .text.tp28xx_byte_read:0000000000000000 $t
+     /tmp/ccx3CEVm.s:402    .text.tp28xx_byte_read:0000000000000000 tp28xx_byte_read
+     /tmp/ccx3CEVm.s:426    .text.tp28xx_byte_read:0000000000000010 $d
+     /tmp/ccx3CEVm.s:431    .text.tp28xx_byte_write:0000000000000000 $t
+     /tmp/ccx3CEVm.s:436    .text.tp28xx_byte_write:0000000000000000 tp28xx_byte_write
+     /tmp/ccx3CEVm.s:462    .text.tp28xx_byte_write:0000000000000014 $d
+     /tmp/ccx3CEVm.s:467    .text.delay1ms:0000000000000000 $t
+     /tmp/ccx3CEVm.s:472    .text.delay1ms:0000000000000000 delay1ms
+     /tmp/ccx3CEVm.s:492    .text.GET_PCA9554PW:0000000000000000 $t
+     /tmp/ccx3CEVm.s:497    .text.GET_PCA9554PW:0000000000000000 GET_PCA9554PW
+     /tmp/ccx3CEVm.s:522    .text.SET_PCA9554PW:0000000000000000 $t
+     /tmp/ccx3CEVm.s:527    .text.SET_PCA9554PW:0000000000000000 SET_PCA9554PW
+     /tmp/ccx3CEVm.s:623    .text.GET_ALC122:0000000000000000 $t
+     /tmp/ccx3CEVm.s:628    .text.GET_ALC122:0000000000000000 GET_ALC122
+     /tmp/ccx3CEVm.s:653    .text.SET_ALC122:0000000000000000 $t
+     /tmp/ccx3CEVm.s:658    .text.SET_ALC122:0000000000000000 SET_ALC122
+                     .debug_frame:0000000000000010 $d
 
 UNDEFINED SYMBOLS
 HAL_Delay
@@ -1038,10 +978,10 @@ VS8812_ADDR
 EEPRead
 EEPWrite
 SW_I2C1WriteNByte
+ARM GAS  /tmp/ccx3CEVm.s 			page 18
+
+
 memset
-ARM GAS  /tmp/ccWKpJKf.s 			page 19
-
-
 SW_I2C2Read
 TVII2CAddress
 SW_I2C2Write

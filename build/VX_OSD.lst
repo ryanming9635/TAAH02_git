@@ -1,30 +1,31 @@
-ARM GAS  /tmp/ccCBfhtP.s 			page 1
+ARM GAS  /tmp/ccKygfrs.s 			page 1
 
 
-   1              		.cpu cortex-m3
-   2              		.eabi_attribute 20, 1
-   3              		.eabi_attribute 21, 1
-   4              		.eabi_attribute 23, 3
-   5              		.eabi_attribute 24, 1
-   6              		.eabi_attribute 25, 1
-   7              		.eabi_attribute 26, 1
-   8              		.eabi_attribute 30, 1
-   9              		.eabi_attribute 34, 1
-  10              		.eabi_attribute 18, 4
-  11              		.file	"VX_OSD.c"
-  12              		.text
-  13              	.Ltext0:
-  14              		.cfi_sections	.debug_frame
-  15              		.section	.text.ClearDisplayedOSD,"ax",%progbits
-  16              		.align	1
-  17              		.global	ClearDisplayedOSD
-  18              		.syntax unified
-  19              		.thumb
-  20              		.thumb_func
-  21              		.fpu softvfp
-  23              	ClearDisplayedOSD:
-  24              	.LFB3:
-  25              		.file 1 "VS4210/VX_OSD.c"
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"VX_OSD.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.ClearDisplayedOSD,"ax",%progbits
+  19              		.align	2
+  20              		.global	ClearDisplayedOSD
+  21              		.thumb
+  22              		.thumb_func
+  24              	ClearDisplayedOSD:
+  25              	.LFB0:
+  26              		.file 1 "VS4210/VX_OSD.c"
    1:VS4210/VX_OSD.c **** /** @file VX_OSD.c
    2:VS4210/VX_OSD.c ****   * @brief OSD font utility
    3:VS4210/VX_OSD.c ****   *
@@ -42,1091 +43,1010 @@ ARM GAS  /tmp/ccCBfhtP.s 			page 1
   15:VS4210/VX_OSD.c **** 
   16:VS4210/VX_OSD.c **** void ClearDisplayedOSD( BYTE newd )
   17:VS4210/VX_OSD.c **** {
-  26              		.loc 1 17 0
-  27              		.cfi_startproc
-  28              		@ args = 0, pretend = 0, frame = 0
-  29              		@ frame_needed = 0, uses_anonymous_args = 0
-  30              		@ link register save eliminated.
-  31              	.LVL0:
+  27              		.loc 1 17 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
   18:VS4210/VX_OSD.c **** 	DisplayedOSD &= (~(newd));
-  32              		.loc 1 18 0
-  33 0000 024A     		ldr	r2, .L2
-  34 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  35 0004 23EA0000 		bic	r0, r3, r0
-  36              	.LVL1:
-  37 0008 1070     		strb	r0, [r2]
-  19:VS4210/VX_OSD.c **** }
-  38              		.loc 1 19 0
+  33              		.loc 1 18 0
+  34 0000 024A     		ldr	r2, .L2
+  35 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  36 0004 23EA0000 		bic	r0, r3, r0
+  37              	.LVL1:
+  38 0008 1070     		strb	r0, [r2]
   39 000a 7047     		bx	lr
-ARM GAS  /tmp/ccCBfhtP.s 			page 2
-
-
   40              	.L3:
+ARM GAS  /tmp/ccKygfrs.s 			page 2
+
+
   41              		.align	2
   42              	.L2:
   43 000c 00000000 		.word	.LANCHOR0
   44              		.cfi_endproc
-  45              	.LFE3:
+  45              	.LFE0:
   47              		.section	.text.SetDisplayedOSD,"ax",%progbits
-  48              		.align	1
+  48              		.align	2
   49              		.global	SetDisplayedOSD
-  50              		.syntax unified
-  51              		.thumb
-  52              		.thumb_func
-  53              		.fpu softvfp
-  55              	SetDisplayedOSD:
-  56              	.LFB4:
+  50              		.thumb
+  51              		.thumb_func
+  53              	SetDisplayedOSD:
+  54              	.LFB1:
+  19:VS4210/VX_OSD.c **** }
   20:VS4210/VX_OSD.c **** 
   21:VS4210/VX_OSD.c **** void SetDisplayedOSD( BYTE newd )
   22:VS4210/VX_OSD.c **** {
-  57              		.loc 1 22 0
-  58              		.cfi_startproc
-  59              		@ args = 0, pretend = 0, frame = 0
-  60              		@ frame_needed = 0, uses_anonymous_args = 0
-  61              		@ link register save eliminated.
-  62              	.LVL2:
+  55              		.loc 1 22 0
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  59              		@ link register save eliminated.
+  60              	.LVL2:
   23:VS4210/VX_OSD.c **** 	DisplayedOSD |= newd;
-  63              		.loc 1 23 0
-  64 0000 024A     		ldr	r2, .L5
-  65 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  66 0004 1843     		orrs	r0, r0, r3
-  67              	.LVL3:
-  68 0006 1070     		strb	r0, [r2]
+  61              		.loc 1 23 0
+  62 0000 024A     		ldr	r2, .L5
+  63 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  64 0004 1843     		orrs	r0, r0, r3
+  65              	.LVL3:
+  66 0006 1070     		strb	r0, [r2]
+  67 0008 7047     		bx	lr
+  68              	.L6:
+  69 000a 00BF     		.align	2
+  70              	.L5:
+  71 000c 00000000 		.word	.LANCHOR0
+  72              		.cfi_endproc
+  73              	.LFE1:
+  75              		.section	.text.GetDisplayedOSD,"ax",%progbits
+  76              		.align	2
+  77              		.global	GetDisplayedOSD
+  78              		.thumb
+  79              		.thumb_func
+  81              	GetDisplayedOSD:
+  82              	.LFB2:
   24:VS4210/VX_OSD.c **** }
-  69              		.loc 1 24 0
-  70 0008 7047     		bx	lr
-  71              	.L6:
-  72 000a 00BF     		.align	2
-  73              	.L5:
-  74 000c 00000000 		.word	.LANCHOR0
-  75              		.cfi_endproc
-  76              	.LFE4:
-  78              		.section	.text.GetDisplayedOSD,"ax",%progbits
-  79              		.align	1
-  80              		.global	GetDisplayedOSD
-  81              		.syntax unified
-  82              		.thumb
-  83              		.thumb_func
-  84              		.fpu softvfp
-  86              	GetDisplayedOSD:
-  87              	.LFB5:
   25:VS4210/VX_OSD.c **** 
   26:VS4210/VX_OSD.c **** 
   27:VS4210/VX_OSD.c **** BYTE GetDisplayedOSD(void)
   28:VS4210/VX_OSD.c **** {
-  88              		.loc 1 28 0
-  89              		.cfi_startproc
-  90              		@ args = 0, pretend = 0, frame = 0
-  91              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccCBfhtP.s 			page 3
-
-
-  92              		@ link register save eliminated.
+  83              		.loc 1 28 0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              		@ link register save eliminated.
   29:VS4210/VX_OSD.c **** 	return DisplayedOSD;
   30:VS4210/VX_OSD.c **** }
-  93              		.loc 1 30 0
-  94 0000 014B     		ldr	r3, .L8
-  95 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
-  96 0004 7047     		bx	lr
-  97              	.L9:
-  98 0006 00BF     		.align	2
-  99              	.L8:
- 100 0008 00000000 		.word	.LANCHOR0
- 101              		.cfi_endproc
- 102              	.LFE5:
- 104              		.section	.text.SetOsdStartAddress,"ax",%progbits
- 105              		.align	1
- 106              		.global	SetOsdStartAddress
- 107              		.syntax unified
- 108              		.thumb
- 109              		.thumb_func
- 110              		.fpu softvfp
- 112              	SetOsdStartAddress:
- 113              	.LFB6:
+  88              		.loc 1 30 0
+  89 0000 014B     		ldr	r3, .L8
+ARM GAS  /tmp/ccKygfrs.s 			page 3
+
+
+  90 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+  91 0004 7047     		bx	lr
+  92              	.L9:
+  93 0006 00BF     		.align	2
+  94              	.L8:
+  95 0008 00000000 		.word	.LANCHOR0
+  96              		.cfi_endproc
+  97              	.LFE2:
+  99              		.section	.text.SetOsdStartAddress,"ax",%progbits
+ 100              		.align	2
+ 101              		.global	SetOsdStartAddress
+ 102              		.thumb
+ 103              		.thumb_func
+ 105              	SetOsdStartAddress:
+ 106              	.LFB3:
   31:VS4210/VX_OSD.c **** 
   32:VS4210/VX_OSD.c **** void SetOsdStartAddress(tByte block,tByte addr)
   33:VS4210/VX_OSD.c **** {
- 114              		.loc 1 33 0
- 115              		.cfi_startproc
- 116              		@ args = 0, pretend = 0, frame = 0
- 117              		@ frame_needed = 0, uses_anonymous_args = 0
- 118              	.LVL4:
- 119 0000 08B5     		push	{r3, lr}
- 120              	.LCFI0:
- 121              		.cfi_def_cfa_offset 8
- 122              		.cfi_offset 3, -8
- 123              		.cfi_offset 14, -4
+ 107              		.loc 1 33 0
+ 108              		.cfi_startproc
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111              	.LVL4:
+ 112 0000 08B5     		push	{r3, lr}
+ 113              	.LCFI0:
+ 114              		.cfi_def_cfa_offset 8
+ 115              		.cfi_offset 3, -8
+ 116              		.cfi_offset 14, -4
   34:VS4210/VX_OSD.c ****     switch(block)
- 124              		.loc 1 34 0
- 125 0002 0828     		cmp	r0, #8
- 126 0004 09D8     		bhi	.L10
- 127 0006 DFE800F0 		tbb	[pc, r0]
- 128              	.L13:
- 129 000a 05       		.byte	(.L12-.L13)/2
- 130 000b 05       		.byte	(.L12-.L13)/2
- 131 000c 05       		.byte	(.L12-.L13)/2
- 132 000d 05       		.byte	(.L12-.L13)/2
- 133 000e 0D       		.byte	(.L14-.L13)/2
- 134 000f 0D       		.byte	(.L14-.L13)/2
- 135 0010 0D       		.byte	(.L14-.L13)/2
- 136 0011 0D       		.byte	(.L14-.L13)/2
- 137 0012 09       		.byte	(.L15-.L13)/2
- 138 0013 00       		.p2align 1
- 139              	.L12:
+ 117              		.loc 1 34 0
+ 118 0002 0828     		cmp	r0, #8
+ 119 0004 11D8     		bhi	.L10
+ 120 0006 DFE800F0 		tbb	[pc, r0]
+ 121              	.L13:
+ 122 000a 05       		.byte	(.L12-.L13)/2
+ 123 000b 05       		.byte	(.L12-.L13)/2
+ 124 000c 05       		.byte	(.L12-.L13)/2
+ 125 000d 05       		.byte	(.L12-.L13)/2
+ 126 000e 0D       		.byte	(.L14-.L13)/2
+ 127 000f 0D       		.byte	(.L14-.L13)/2
+ 128 0010 0D       		.byte	(.L14-.L13)/2
+ 129 0011 0D       		.byte	(.L14-.L13)/2
+ 130 0012 09       		.byte	(.L15-.L13)/2
+ 131 0013 00       		.p2align 1
+ 132              	.L12:
   35:VS4210/VX_OSD.c ****     {
   36:VS4210/VX_OSD.c ****     case(_Title0):
   37:VS4210/VX_OSD.c ****     case(_Title1):
   38:VS4210/VX_OSD.c ****     case(_Title2):
   39:VS4210/VX_OSD.c ****     case(_Title3):
-ARM GAS  /tmp/ccCBfhtP.s 			page 4
-
-
   40:VS4210/VX_OSD.c ****         VXISI2CWrite(0x52,addr);
- 140              		.loc 1 40 0
- 141 0014 5220     		movs	r0, #82
- 142              	.LVL5:
- 143 0016 FFF7FEFF 		bl	VXISI2CWrite
- 144              	.LVL6:
- 145              	.L10:
+ 133              		.loc 1 40 0
+ 134 0014 5220     		movs	r0, #82
+ 135              	.LVL5:
+ 136 0016 FFF7FEFF 		bl	VXISI2CWrite
+ 137              	.LVL6:
   41:VS4210/VX_OSD.c ****         break;
+ARM GAS  /tmp/ccKygfrs.s 			page 4
+
+
+ 138              		.loc 1 41 0
+ 139 001a 08BD     		pop	{r3, pc}
+ 140              	.LVL7:
+ 141              	.L15:
   42:VS4210/VX_OSD.c **** 
   43:VS4210/VX_OSD.c ****     case(_Content):
   44:VS4210/VX_OSD.c ****         VXISI2CWrite(0x57,addr);
+ 142              		.loc 1 44 0
+ 143 001c 5720     		movs	r0, #87
+ 144              	.LVL8:
+ 145 001e FFF7FEFF 		bl	VXISI2CWrite
+ 146              	.LVL9:
   45:VS4210/VX_OSD.c ****         break;
+ 147              		.loc 1 45 0
+ 148 0022 08BD     		pop	{r3, pc}
+ 149              	.LVL10:
+ 150              	.L14:
   46:VS4210/VX_OSD.c **** 
   47:VS4210/VX_OSD.c ****     case(_Bar0):
   48:VS4210/VX_OSD.c ****     case(_Bar1):
   49:VS4210/VX_OSD.c ****     case(_Bar2):
   50:VS4210/VX_OSD.c ****     case(_Bar3):
   51:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5D,addr);
+ 151              		.loc 1 51 0
+ 152 0024 5D20     		movs	r0, #93
+ 153              	.LVL11:
+ 154 0026 FFF7FEFF 		bl	VXISI2CWrite
+ 155              	.LVL12:
+ 156              	.L10:
+ 157 002a 08BD     		pop	{r3, pc}
+ 158              		.cfi_endproc
+ 159              	.LFE3:
+ 161              		.section	.text.SetOsdSize,"ax",%progbits
+ 162              		.align	2
+ 163              		.global	SetOsdSize
+ 164              		.thumb
+ 165              		.thumb_func
+ 167              	SetOsdSize:
+ 168              	.LFB4:
   52:VS4210/VX_OSD.c ****         break;
   53:VS4210/VX_OSD.c **** 
   54:VS4210/VX_OSD.c ****     default:
   55:VS4210/VX_OSD.c ****         break;
   56:VS4210/VX_OSD.c ****     }
   57:VS4210/VX_OSD.c **** }
- 146              		.loc 1 57 0
- 147 001a 08BD     		pop	{r3, pc}
- 148              	.LVL7:
- 149              	.L15:
-  44:VS4210/VX_OSD.c ****         break;
- 150              		.loc 1 44 0
- 151 001c 5720     		movs	r0, #87
- 152              	.LVL8:
- 153 001e FFF7FEFF 		bl	VXISI2CWrite
- 154              	.LVL9:
-  45:VS4210/VX_OSD.c **** 
- 155              		.loc 1 45 0
- 156 0022 FAE7     		b	.L10
- 157              	.LVL10:
- 158              	.L14:
-  51:VS4210/VX_OSD.c ****         break;
- 159              		.loc 1 51 0
- 160 0024 5D20     		movs	r0, #93
- 161              	.LVL11:
- 162 0026 FFF7FEFF 		bl	VXISI2CWrite
- 163              	.LVL12:
- 164              		.loc 1 57 0
- 165 002a F6E7     		b	.L10
- 166              		.cfi_endproc
- 167              	.LFE6:
- 169              		.section	.text.SetOsdSize,"ax",%progbits
- 170              		.align	1
- 171              		.global	SetOsdSize
- 172              		.syntax unified
- 173              		.thumb
- 174              		.thumb_func
- 175              		.fpu softvfp
- 177              	SetOsdSize:
-ARM GAS  /tmp/ccCBfhtP.s 			page 5
-
-
- 178              	.LFB7:
   58:VS4210/VX_OSD.c **** 
   59:VS4210/VX_OSD.c **** //---------------------------------------------------------------------------
   60:VS4210/VX_OSD.c **** void SetOsdSize(tByte block,tByte sizeX,tByte sizeY)
   61:VS4210/VX_OSD.c **** {
- 179              		.loc 1 61 0
- 180              		.cfi_startproc
- 181              		@ args = 0, pretend = 0, frame = 0
- 182              		@ frame_needed = 0, uses_anonymous_args = 0
- 183              	.LVL13:
- 184 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 185              	.LCFI1:
- 186              		.cfi_def_cfa_offset 24
- 187              		.cfi_offset 3, -24
- 188              		.cfi_offset 4, -20
- 189              		.cfi_offset 5, -16
- 190              		.cfi_offset 6, -12
- 191              		.cfi_offset 7, -8
- 192              		.cfi_offset 14, -4
- 193 0002 0546     		mov	r5, r0
- 194 0004 0C46     		mov	r4, r1
- 195 0006 1746     		mov	r7, r2
+ 169              		.loc 1 61 0
+ 170              		.cfi_startproc
+ 171              		@ args = 0, pretend = 0, frame = 0
+ 172              		@ frame_needed = 0, uses_anonymous_args = 0
+ 173              	.LVL13:
+ 174 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 175              	.LCFI1:
+ 176              		.cfi_def_cfa_offset 24
+ARM GAS  /tmp/ccKygfrs.s 			page 5
+
+
+ 177              		.cfi_offset 3, -24
+ 178              		.cfi_offset 4, -20
+ 179              		.cfi_offset 5, -16
+ 180              		.cfi_offset 6, -12
+ 181              		.cfi_offset 7, -8
+ 182              		.cfi_offset 14, -4
+ 183 0002 0546     		mov	r5, r0
+ 184 0004 0C46     		mov	r4, r1
+ 185 0006 1746     		mov	r7, r2
   62:VS4210/VX_OSD.c ****     tByte temp;
   63:VS4210/VX_OSD.c ****     tByte tempBar;
   64:VS4210/VX_OSD.c ****     tByte sizeX3f ;
   65:VS4210/VX_OSD.c **** 
   66:VS4210/VX_OSD.c ****     temp=VXISI2CRead(0x53) & 0x3f ;
- 196              		.loc 1 66 0
- 197 0008 5320     		movs	r0, #83
- 198              	.LVL14:
- 199 000a FFF7FEFF 		bl	VXISI2CRead
- 200              	.LVL15:
- 201 000e 00F03F06 		and	r6, r0, #63
- 202              	.LVL16:
+ 186              		.loc 1 66 0
+ 187 0008 5320     		movs	r0, #83
+ 188              	.LVL14:
+ 189 000a FFF7FEFF 		bl	VXISI2CRead
+ 190              	.LVL15:
+ 191 000e 00F03F06 		and	r6, r0, #63
+ 192              	.LVL16:
   67:VS4210/VX_OSD.c ****     tempBar=VXISI2CRead(0x5E) & 0x3f ;
- 203              		.loc 1 67 0
- 204 0012 5E20     		movs	r0, #94
- 205 0014 FFF7FEFF 		bl	VXISI2CRead
- 206              	.LVL17:
- 207 0018 00F03F01 		and	r1, r0, #63
- 208              	.LVL18:
+ 193              		.loc 1 67 0
+ 194 0012 5E20     		movs	r0, #94
+ 195 0014 FFF7FEFF 		bl	VXISI2CRead
+ 196              	.LVL17:
+ 197 0018 00F03F01 		and	r1, r0, #63
+ 198              	.LVL18:
   68:VS4210/VX_OSD.c ****     sizeX3f = sizeX & 0x3f ;
- 209              		.loc 1 68 0
- 210 001c 04F03F04 		and	r4, r4, #63
- 211              	.LVL19:
+ 199              		.loc 1 68 0
+ 200 001c 04F03F04 		and	r4, r4, #63
+ 201              	.LVL19:
   69:VS4210/VX_OSD.c **** 
   70:VS4210/VX_OSD.c ****     switch(block)
- 212              		.loc 1 70 0
- 213 0020 082D     		cmp	r5, #8
- 214 0022 0ED8     		bhi	.L17
- 215 0024 DFE805F0 		tbb	[pc, r5]
- 216              	.L20:
- 217 0028 05       		.byte	(.L19-.L20)/2
- 218 0029 0E       		.byte	(.L21-.L20)/2
- 219 002a 19       		.byte	(.L22-.L20)/2
- 220 002b 24       		.byte	(.L23-.L20)/2
- 221 002c 2F       		.byte	(.L24-.L20)/2
-ARM GAS  /tmp/ccCBfhtP.s 			page 6
-
-
- 222 002d 37       		.byte	(.L25-.L20)/2
- 223 002e 42       		.byte	(.L26-.L20)/2
- 224 002f 4D       		.byte	(.L27-.L20)/2
- 225 0030 58       		.byte	(.L28-.L20)/2
- 226 0031 00       		.p2align 1
- 227              	.L19:
+ 202              		.loc 1 70 0
+ 203 0020 082D     		cmp	r5, #8
+ 204 0022 62D8     		bhi	.L17
+ 205 0024 DFE805F0 		tbb	[pc, r5]
+ 206              	.L20:
+ 207 0028 05       		.byte	(.L19-.L20)/2
+ 208 0029 0E       		.byte	(.L21-.L20)/2
+ 209 002a 19       		.byte	(.L22-.L20)/2
+ 210 002b 24       		.byte	(.L23-.L20)/2
+ 211 002c 2F       		.byte	(.L24-.L20)/2
+ 212 002d 37       		.byte	(.L25-.L20)/2
+ 213 002e 42       		.byte	(.L26-.L20)/2
+ 214 002f 4D       		.byte	(.L27-.L20)/2
+ 215 0030 58       		.byte	(.L28-.L20)/2
+ 216 0031 00       		.p2align 1
+ 217              	.L19:
   71:VS4210/VX_OSD.c ****     {
   72:VS4210/VX_OSD.c ****     case _Title0 :        
   73:VS4210/VX_OSD.c ****         //VXISI2CWrite(0x53,temp&0x3f);
   74:VS4210/VX_OSD.c ****         //VXISI2CWrite(0x53,sizeX&0x3f);
   75:VS4210/VX_OSD.c ****         VXISI2CWrite(0x53,temp);
- 228              		.loc 1 75 0
- 229 0032 3146     		mov	r1, r6
- 230              	.LVL20:
- 231 0034 5320     		movs	r0, #83
- 232              	.LVL21:
- 233 0036 FFF7FEFF 		bl	VXISI2CWrite
- 234              	.LVL22:
+ 218              		.loc 1 75 0
+ 219 0032 5320     		movs	r0, #83
+ARM GAS  /tmp/ccKygfrs.s 			page 6
+
+
+ 220 0034 3146     		mov	r1, r6
+ 221              	.LVL20:
+ 222 0036 FFF7FEFF 		bl	VXISI2CWrite
+ 223              	.LVL21:
   76:VS4210/VX_OSD.c ****         VXISI2CWrite(0x53,sizeX3f);
- 235              		.loc 1 76 0
- 236 003a 2146     		mov	r1, r4
- 237 003c 5320     		movs	r0, #83
- 238 003e FFF7FEFF 		bl	VXISI2CWrite
- 239              	.LVL23:
- 240              	.L17:
+ 224              		.loc 1 76 0
+ 225 003a 5320     		movs	r0, #83
+ 226 003c 2146     		mov	r1, r4
+ 227 003e FFF7FEFF 		bl	VXISI2CWrite
+ 228              	.LVL22:
   77:VS4210/VX_OSD.c ****         break;
+ 229              		.loc 1 77 0
+ 230 0042 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 231              	.LVL23:
+ 232              	.L21:
   78:VS4210/VX_OSD.c ****     case _Title1 :
   79:VS4210/VX_OSD.c ****         VXISI2CWrite(0x53,temp | 0x40  ) ;
+ 233              		.loc 1 79 0
+ 234 0044 5320     		movs	r0, #83
+ 235 0046 46F04001 		orr	r1, r6, #64
+ 236              	.LVL24:
+ 237 004a FFF7FEFF 		bl	VXISI2CWrite
+ 238              	.LVL25:
   80:VS4210/VX_OSD.c ****         VXISI2CWrite(0x53,sizeX3f | 0x40  ) ;
+ 239              		.loc 1 80 0
+ 240 004e 5320     		movs	r0, #83
+ 241 0050 44F04001 		orr	r1, r4, #64
+ 242 0054 FFF7FEFF 		bl	VXISI2CWrite
+ 243              	.LVL26:
   81:VS4210/VX_OSD.c ****         break;
+ 244              		.loc 1 81 0
+ 245 0058 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 246              	.LVL27:
+ 247              	.L22:
   82:VS4210/VX_OSD.c ****     case _Title2 :
   83:VS4210/VX_OSD.c ****         VXISI2CWrite(0x53,temp | 0x80 )  ;
+ 248              		.loc 1 83 0
+ 249 005a 5320     		movs	r0, #83
+ 250 005c 46F08001 		orr	r1, r6, #128
+ 251              	.LVL28:
+ 252 0060 FFF7FEFF 		bl	VXISI2CWrite
+ 253              	.LVL29:
   84:VS4210/VX_OSD.c ****         VXISI2CWrite(0x53,sizeX3f | 0x80 )  ;
+ 254              		.loc 1 84 0
+ 255 0064 5320     		movs	r0, #83
+ 256 0066 44F08001 		orr	r1, r4, #128
+ 257 006a FFF7FEFF 		bl	VXISI2CWrite
+ 258              	.LVL30:
   85:VS4210/VX_OSD.c ****         break;
+ 259              		.loc 1 85 0
+ 260 006e F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 261              	.LVL31:
+ 262              	.L23:
   86:VS4210/VX_OSD.c ****     case _Title3 :
   87:VS4210/VX_OSD.c ****         VXISI2CWrite(0x53,temp | 0xC0 )  ;
+ 263              		.loc 1 87 0
+ 264 0070 5320     		movs	r0, #83
+ARM GAS  /tmp/ccKygfrs.s 			page 7
+
+
+ 265 0072 46F0C001 		orr	r1, r6, #192
+ 266              	.LVL32:
+ 267 0076 FFF7FEFF 		bl	VXISI2CWrite
+ 268              	.LVL33:
   88:VS4210/VX_OSD.c ****         VXISI2CWrite(0x53,sizeX3f | 0xC0 )  ;
+ 269              		.loc 1 88 0
+ 270 007a 5320     		movs	r0, #83
+ 271 007c 44F0C001 		orr	r1, r4, #192
+ 272 0080 FFF7FEFF 		bl	VXISI2CWrite
+ 273              	.LVL34:
   89:VS4210/VX_OSD.c ****         break;
+ 274              		.loc 1 89 0
+ 275 0084 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 276              	.LVL35:
+ 277              	.L24:
   90:VS4210/VX_OSD.c **** 
   91:VS4210/VX_OSD.c ****     case _Bar0:
   92:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5E,tempBar) ;
+ 278              		.loc 1 92 0
+ 279 0086 5E20     		movs	r0, #94
+ 280 0088 FFF7FEFF 		bl	VXISI2CWrite
+ 281              	.LVL36:
   93:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5E,sizeX3f) ;
+ 282              		.loc 1 93 0
+ 283 008c 5E20     		movs	r0, #94
+ 284 008e 2146     		mov	r1, r4
+ 285 0090 FFF7FEFF 		bl	VXISI2CWrite
+ 286              	.LVL37:
   94:VS4210/VX_OSD.c ****         break;
+ 287              		.loc 1 94 0
+ 288 0094 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 289              	.LVL38:
+ 290              	.L25:
   95:VS4210/VX_OSD.c ****     case _Bar1:
   96:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5E,tempBar | 0x40)  ;
+ 291              		.loc 1 96 0
+ 292 0096 5E20     		movs	r0, #94
+ 293 0098 41F04001 		orr	r1, r1, #64
+ 294              	.LVL39:
+ 295 009c FFF7FEFF 		bl	VXISI2CWrite
+ 296              	.LVL40:
   97:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5E,sizeX3f | 0x40)  ;
+ 297              		.loc 1 97 0
+ 298 00a0 5E20     		movs	r0, #94
+ 299 00a2 44F04001 		orr	r1, r4, #64
+ 300 00a6 FFF7FEFF 		bl	VXISI2CWrite
+ 301              	.LVL41:
   98:VS4210/VX_OSD.c ****         break;
+ 302              		.loc 1 98 0
+ 303 00aa F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 304              	.LVL42:
+ 305              	.L26:
   99:VS4210/VX_OSD.c ****     case _Bar2:
  100:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5E,tempBar | 0x80);
+ 306              		.loc 1 100 0
+ 307 00ac 5E20     		movs	r0, #94
+ 308 00ae 41F08001 		orr	r1, r1, #128
+ARM GAS  /tmp/ccKygfrs.s 			page 8
+
+
+ 309              	.LVL43:
+ 310 00b2 FFF7FEFF 		bl	VXISI2CWrite
+ 311              	.LVL44:
  101:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5E,sizeX3f | 0x80);
+ 312              		.loc 1 101 0
+ 313 00b6 5E20     		movs	r0, #94
+ 314 00b8 44F08001 		orr	r1, r4, #128
+ 315 00bc FFF7FEFF 		bl	VXISI2CWrite
+ 316              	.LVL45:
  102:VS4210/VX_OSD.c ****         break;
+ 317              		.loc 1 102 0
+ 318 00c0 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 319              	.LVL46:
+ 320              	.L27:
  103:VS4210/VX_OSD.c ****     case _Bar3:
  104:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5E,tempBar | 0xC0);
+ 321              		.loc 1 104 0
+ 322 00c2 5E20     		movs	r0, #94
+ 323 00c4 41F0C001 		orr	r1, r1, #192
+ 324              	.LVL47:
+ 325 00c8 FFF7FEFF 		bl	VXISI2CWrite
+ 326              	.LVL48:
  105:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5E,sizeX3f | 0xC0);
+ 327              		.loc 1 105 0
+ 328 00cc 5E20     		movs	r0, #94
+ 329 00ce 44F0C001 		orr	r1, r4, #192
+ 330 00d2 FFF7FEFF 		bl	VXISI2CWrite
+ 331              	.LVL49:
  106:VS4210/VX_OSD.c ****         break;
+ 332              		.loc 1 106 0
+ 333 00d6 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 334              	.LVL50:
+ 335              	.L28:
  107:VS4210/VX_OSD.c **** 
  108:VS4210/VX_OSD.c ****     case _Content:
-ARM GAS  /tmp/ccCBfhtP.s 			page 7
-
-
  109:VS4210/VX_OSD.c ****         VXISI2CWrite(0x58,sizeX3f);
+ 336              		.loc 1 109 0
+ 337 00d8 5820     		movs	r0, #88
+ 338 00da 2146     		mov	r1, r4
+ 339              	.LVL51:
+ 340 00dc FFF7FEFF 		bl	VXISI2CWrite
+ 341              	.LVL52:
  110:VS4210/VX_OSD.c ****         VXISI2CWrite(0x59,sizeY&0x1f);
+ 342              		.loc 1 110 0
+ 343 00e0 5920     		movs	r0, #89
+ 344 00e2 07F01F01 		and	r1, r7, #31
+ 345 00e6 FFF7FEFF 		bl	VXISI2CWrite
+ 346              	.LVL53:
+ 347              	.L17:
+ 348 00ea F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 349              		.cfi_endproc
+ 350              	.LFE4:
+ 352              		.section	.text.SetOsdPosition,"ax",%progbits
+ 353              		.align	2
+ 354              		.global	SetOsdPosition
+ 355              		.thumb
+ 356              		.thumb_func
+ARM GAS  /tmp/ccKygfrs.s 			page 9
+
+
+ 358              	SetOsdPosition:
+ 359              	.LFB5:
  111:VS4210/VX_OSD.c ****         break;
  112:VS4210/VX_OSD.c ****     }
  113:VS4210/VX_OSD.c **** }
- 241              		.loc 1 113 0
- 242 0042 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 243              	.LVL24:
- 244              	.L21:
-  79:VS4210/VX_OSD.c ****         VXISI2CWrite(0x53,sizeX3f | 0x40  ) ;
- 245              		.loc 1 79 0
- 246 0044 46F04001 		orr	r1, r6, #64
- 247              	.LVL25:
- 248 0048 5320     		movs	r0, #83
- 249              	.LVL26:
- 250 004a FFF7FEFF 		bl	VXISI2CWrite
- 251              	.LVL27:
-  80:VS4210/VX_OSD.c ****         break;
- 252              		.loc 1 80 0
- 253 004e 44F04001 		orr	r1, r4, #64
- 254 0052 5320     		movs	r0, #83
- 255 0054 FFF7FEFF 		bl	VXISI2CWrite
- 256              	.LVL28:
-  81:VS4210/VX_OSD.c ****     case _Title2 :
- 257              		.loc 1 81 0
- 258 0058 F3E7     		b	.L17
- 259              	.LVL29:
- 260              	.L22:
-  83:VS4210/VX_OSD.c ****         VXISI2CWrite(0x53,sizeX3f | 0x80 )  ;
- 261              		.loc 1 83 0
- 262 005a 46F08001 		orr	r1, r6, #128
- 263              	.LVL30:
- 264 005e 5320     		movs	r0, #83
- 265              	.LVL31:
- 266 0060 FFF7FEFF 		bl	VXISI2CWrite
- 267              	.LVL32:
-  84:VS4210/VX_OSD.c ****         break;
- 268              		.loc 1 84 0
- 269 0064 44F08001 		orr	r1, r4, #128
- 270 0068 5320     		movs	r0, #83
- 271 006a FFF7FEFF 		bl	VXISI2CWrite
- 272              	.LVL33:
-  85:VS4210/VX_OSD.c ****     case _Title3 :
- 273              		.loc 1 85 0
- 274 006e E8E7     		b	.L17
- 275              	.LVL34:
- 276              	.L23:
-  87:VS4210/VX_OSD.c ****         VXISI2CWrite(0x53,sizeX3f | 0xC0 )  ;
- 277              		.loc 1 87 0
- 278 0070 46F0C001 		orr	r1, r6, #192
- 279              	.LVL35:
- 280 0074 5320     		movs	r0, #83
- 281              	.LVL36:
- 282 0076 FFF7FEFF 		bl	VXISI2CWrite
- 283              	.LVL37:
-  88:VS4210/VX_OSD.c ****         break;
- 284              		.loc 1 88 0
-ARM GAS  /tmp/ccCBfhtP.s 			page 8
-
-
- 285 007a 44F0C001 		orr	r1, r4, #192
- 286 007e 5320     		movs	r0, #83
- 287 0080 FFF7FEFF 		bl	VXISI2CWrite
- 288              	.LVL38:
-  89:VS4210/VX_OSD.c **** 
- 289              		.loc 1 89 0
- 290 0084 DDE7     		b	.L17
- 291              	.LVL39:
- 292              	.L24:
-  92:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5E,sizeX3f) ;
- 293              		.loc 1 92 0
- 294 0086 5E20     		movs	r0, #94
- 295 0088 FFF7FEFF 		bl	VXISI2CWrite
- 296              	.LVL40:
-  93:VS4210/VX_OSD.c ****         break;
- 297              		.loc 1 93 0
- 298 008c 2146     		mov	r1, r4
- 299 008e 5E20     		movs	r0, #94
- 300 0090 FFF7FEFF 		bl	VXISI2CWrite
- 301              	.LVL41:
-  94:VS4210/VX_OSD.c ****     case _Bar1:
- 302              		.loc 1 94 0
- 303 0094 D5E7     		b	.L17
- 304              	.LVL42:
- 305              	.L25:
-  96:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5E,sizeX3f | 0x40)  ;
- 306              		.loc 1 96 0
- 307 0096 41F04001 		orr	r1, r1, #64
- 308              	.LVL43:
- 309 009a 5E20     		movs	r0, #94
- 310              	.LVL44:
- 311 009c FFF7FEFF 		bl	VXISI2CWrite
- 312              	.LVL45:
-  97:VS4210/VX_OSD.c ****         break;
- 313              		.loc 1 97 0
- 314 00a0 44F04001 		orr	r1, r4, #64
- 315 00a4 5E20     		movs	r0, #94
- 316 00a6 FFF7FEFF 		bl	VXISI2CWrite
- 317              	.LVL46:
-  98:VS4210/VX_OSD.c ****     case _Bar2:
- 318              		.loc 1 98 0
- 319 00aa CAE7     		b	.L17
- 320              	.LVL47:
- 321              	.L26:
- 100:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5E,sizeX3f | 0x80);
- 322              		.loc 1 100 0
- 323 00ac 41F08001 		orr	r1, r1, #128
- 324              	.LVL48:
- 325 00b0 5E20     		movs	r0, #94
- 326              	.LVL49:
- 327 00b2 FFF7FEFF 		bl	VXISI2CWrite
- 328              	.LVL50:
- 101:VS4210/VX_OSD.c ****         break;
- 329              		.loc 1 101 0
- 330 00b6 44F08001 		orr	r1, r4, #128
- 331 00ba 5E20     		movs	r0, #94
- 332 00bc FFF7FEFF 		bl	VXISI2CWrite
-ARM GAS  /tmp/ccCBfhtP.s 			page 9
-
-
- 333              	.LVL51:
- 102:VS4210/VX_OSD.c ****     case _Bar3:
- 334              		.loc 1 102 0
- 335 00c0 BFE7     		b	.L17
- 336              	.LVL52:
- 337              	.L27:
- 104:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5E,sizeX3f | 0xC0);
- 338              		.loc 1 104 0
- 339 00c2 41F0C001 		orr	r1, r1, #192
- 340              	.LVL53:
- 341 00c6 5E20     		movs	r0, #94
- 342              	.LVL54:
- 343 00c8 FFF7FEFF 		bl	VXISI2CWrite
- 344              	.LVL55:
- 105:VS4210/VX_OSD.c ****         break;
- 345              		.loc 1 105 0
- 346 00cc 44F0C001 		orr	r1, r4, #192
- 347 00d0 5E20     		movs	r0, #94
- 348 00d2 FFF7FEFF 		bl	VXISI2CWrite
- 349              	.LVL56:
- 106:VS4210/VX_OSD.c **** 
- 350              		.loc 1 106 0
- 351 00d6 B4E7     		b	.L17
- 352              	.LVL57:
- 353              	.L28:
- 109:VS4210/VX_OSD.c ****         VXISI2CWrite(0x59,sizeY&0x1f);
- 354              		.loc 1 109 0
- 355 00d8 2146     		mov	r1, r4
- 356              	.LVL58:
- 357 00da 5820     		movs	r0, #88
- 358              	.LVL59:
- 359 00dc FFF7FEFF 		bl	VXISI2CWrite
- 360              	.LVL60:
- 110:VS4210/VX_OSD.c ****         break;
- 361              		.loc 1 110 0
- 362 00e0 07F01F01 		and	r1, r7, #31
- 363 00e4 5920     		movs	r0, #89
- 364 00e6 FFF7FEFF 		bl	VXISI2CWrite
- 365              	.LVL61:
- 366              		.loc 1 113 0
- 367 00ea AAE7     		b	.L17
- 368              		.cfi_endproc
- 369              	.LFE7:
- 371              		.section	.text.SetOsdPosition,"ax",%progbits
- 372              		.align	1
- 373              		.global	SetOsdPosition
- 374              		.syntax unified
- 375              		.thumb
- 376              		.thumb_func
- 377              		.fpu softvfp
- 379              	SetOsdPosition:
- 380              	.LFB8:
  114:VS4210/VX_OSD.c **** 
  115:VS4210/VX_OSD.c **** //---------------------------------------------------------------------------
  116:VS4210/VX_OSD.c **** void SetOsdPosition(tByte block,tWord X_Pos,tWord Y_Pos)
  117:VS4210/VX_OSD.c **** {
- 381              		.loc 1 117 0
-ARM GAS  /tmp/ccCBfhtP.s 			page 10
-
-
- 382              		.cfi_startproc
- 383              		@ args = 0, pretend = 0, frame = 0
- 384              		@ frame_needed = 0, uses_anonymous_args = 0
- 385              	.LVL62:
- 386 0000 38B5     		push	{r3, r4, r5, lr}
- 387              	.LCFI2:
- 388              		.cfi_def_cfa_offset 16
- 389              		.cfi_offset 3, -16
- 390              		.cfi_offset 4, -12
- 391              		.cfi_offset 5, -8
- 392              		.cfi_offset 14, -4
+ 360              		.loc 1 117 0
+ 361              		.cfi_startproc
+ 362              		@ args = 0, pretend = 0, frame = 0
+ 363              		@ frame_needed = 0, uses_anonymous_args = 0
+ 364              	.LVL54:
+ 365 0000 38B5     		push	{r3, r4, r5, lr}
+ 366              	.LCFI2:
+ 367              		.cfi_def_cfa_offset 16
+ 368              		.cfi_offset 3, -16
+ 369              		.cfi_offset 4, -12
+ 370              		.cfi_offset 5, -8
+ 371              		.cfi_offset 14, -4
  118:VS4210/VX_OSD.c ****     tByte XHighByte;
  119:VS4210/VX_OSD.c ****     tByte XLowByte;
  120:VS4210/VX_OSD.c ****     tByte YHighByte;
  121:VS4210/VX_OSD.c ****     tByte YLowByte;
  122:VS4210/VX_OSD.c **** 
  123:VS4210/VX_OSD.c ****     XLowByte = (tByte)(X_Pos&0x00FF);
- 393              		.loc 1 123 0
- 394 0002 CDB2     		uxtb	r5, r1
- 395              	.LVL63:
+ 372              		.loc 1 123 0
+ 373 0002 CDB2     		uxtb	r5, r1
+ 374              	.LVL55:
  124:VS4210/VX_OSD.c ****     XHighByte = ((tByte)((X_Pos>>8)&0x07))<<4;
- 396              		.loc 1 124 0
- 397 0004 090A     		lsrs	r1, r1, #8
- 398              	.LVL64:
- 399 0006 0901     		lsls	r1, r1, #4
- 400 0008 01F07001 		and	r1, r1, #112
- 401              	.LVL65:
+ 375              		.loc 1 124 0
+ 376 0004 C1F30221 		ubfx	r1, r1, #8, #3
+ 377              	.LVL56:
+ 378 0008 0901     		lsls	r1, r1, #4
+ 379              	.LVL57:
  125:VS4210/VX_OSD.c **** 
  126:VS4210/VX_OSD.c ****     YLowByte = (tByte)(Y_Pos&0x00FF);
- 402              		.loc 1 126 0
- 403 000c D4B2     		uxtb	r4, r2
- 404              	.LVL66:
+ 380              		.loc 1 126 0
+ 381 000a D4B2     		uxtb	r4, r2
+ 382              	.LVL58:
  127:VS4210/VX_OSD.c ****     YHighByte = (tByte)((Y_Pos>>8)&0x07 );
- 405              		.loc 1 127 0
- 406 000e C2F30222 		ubfx	r2, r2, #8, #3
- 407              	.LVL67:
+ 383              		.loc 1 127 0
+ 384 000c C2F30222 		ubfx	r2, r2, #8, #3
+ 385              	.LVL59:
  128:VS4210/VX_OSD.c **** 
  129:VS4210/VX_OSD.c ****     switch(block)
- 408              		.loc 1 129 0
- 409 0012 0828     		cmp	r0, #8
- 410 0014 12D8     		bhi	.L30
- 411 0016 DFE800F0 		tbb	[pc, r0]
- 412              	.L33:
- 413 001a 05       		.byte	(.L32-.L33)/2
- 414 001b 05       		.byte	(.L32-.L33)/2
- 415 001c 05       		.byte	(.L32-.L33)/2
- 416 001d 05       		.byte	(.L32-.L33)/2
- 417 001e 1F       		.byte	(.L34-.L33)/2
- 418 001f 1F       		.byte	(.L34-.L33)/2
- 419 0020 1F       		.byte	(.L34-.L33)/2
- 420 0021 1F       		.byte	(.L34-.L33)/2
- 421 0022 12       		.byte	(.L35-.L33)/2
- 422 0023 00       		.p2align 1
- 423              	.L32:
+ 386              		.loc 1 129 0
+ 387 0010 0828     		cmp	r0, #8
+ 388 0012 2CD8     		bhi	.L30
+ 389 0014 DFE800F0 		tbb	[pc, r0]
+ 390              	.L33:
+ 391 0018 05       		.byte	(.L32-.L33)/2
+ 392 0019 05       		.byte	(.L32-.L33)/2
+ 393 001a 05       		.byte	(.L32-.L33)/2
+ 394 001b 05       		.byte	(.L32-.L33)/2
+ 395 001c 1F       		.byte	(.L34-.L33)/2
+ARM GAS  /tmp/ccKygfrs.s 			page 10
+
+
+ 396 001d 1F       		.byte	(.L34-.L33)/2
+ 397 001e 1F       		.byte	(.L34-.L33)/2
+ 398 001f 1F       		.byte	(.L34-.L33)/2
+ 399 0020 12       		.byte	(.L35-.L33)/2
+ 400 0021 00       		.p2align 1
+ 401              	.L32:
  130:VS4210/VX_OSD.c ****     {
  131:VS4210/VX_OSD.c ****     case(_Title0):
  132:VS4210/VX_OSD.c ****     case(_Title1):
-ARM GAS  /tmp/ccCBfhtP.s 			page 11
-
-
  133:VS4210/VX_OSD.c ****     case(_Title2):
  134:VS4210/VX_OSD.c ****     case(_Title3):
  135:VS4210/VX_OSD.c ****         VXISI2CWrite(0x54,XHighByte|YHighByte);
- 424              		.loc 1 135 0
- 425 0024 1143     		orrs	r1, r1, r2
- 426              	.LVL68:
- 427 0026 5420     		movs	r0, #84
- 428              	.LVL69:
- 429 0028 FFF7FEFF 		bl	VXISI2CWrite
- 430              	.LVL70:
+ 402              		.loc 1 135 0
+ 403 0022 5420     		movs	r0, #84
+ 404              	.LVL60:
+ 405 0024 1143     		orrs	r1, r1, r2
+ 406              	.LVL61:
+ 407 0026 FFF7FEFF 		bl	VXISI2CWrite
+ 408              	.LVL62:
  136:VS4210/VX_OSD.c ****         VXISI2CWrite(0x55,XLowByte);
- 431              		.loc 1 136 0
- 432 002c 2946     		mov	r1, r5
- 433 002e 5520     		movs	r0, #85
- 434 0030 FFF7FEFF 		bl	VXISI2CWrite
- 435              	.LVL71:
+ 409              		.loc 1 136 0
+ 410 002a 5520     		movs	r0, #85
+ 411 002c 2946     		mov	r1, r5
+ 412 002e FFF7FEFF 		bl	VXISI2CWrite
+ 413              	.LVL63:
  137:VS4210/VX_OSD.c ****         VXISI2CWrite(0x56,YLowByte);
- 436              		.loc 1 137 0
- 437 0034 2146     		mov	r1, r4
- 438 0036 5620     		movs	r0, #86
- 439 0038 FFF7FEFF 		bl	VXISI2CWrite
- 440              	.LVL72:
- 441              	.L30:
+ 414              		.loc 1 137 0
+ 415 0032 5620     		movs	r0, #86
+ 416 0034 2146     		mov	r1, r4
+ 417 0036 FFF7FEFF 		bl	VXISI2CWrite
+ 418              	.LVL64:
  138:VS4210/VX_OSD.c ****         break;
+ 419              		.loc 1 138 0
+ 420 003a 38BD     		pop	{r3, r4, r5, pc}
+ 421              	.LVL65:
+ 422              	.L35:
  139:VS4210/VX_OSD.c ****     case(_Content):
  140:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5A,XHighByte|YHighByte);
+ 423              		.loc 1 140 0
+ 424 003c 5A20     		movs	r0, #90
+ 425              	.LVL66:
+ 426 003e 1143     		orrs	r1, r1, r2
+ 427              	.LVL67:
+ 428 0040 FFF7FEFF 		bl	VXISI2CWrite
+ 429              	.LVL68:
  141:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5B,XLowByte);
+ 430              		.loc 1 141 0
+ 431 0044 5B20     		movs	r0, #91
+ 432 0046 2946     		mov	r1, r5
+ 433 0048 FFF7FEFF 		bl	VXISI2CWrite
+ 434              	.LVL69:
  142:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5C,YLowByte);
+ 435              		.loc 1 142 0
+ 436 004c 5C20     		movs	r0, #92
+ 437 004e 2146     		mov	r1, r4
+ 438 0050 FFF7FEFF 		bl	VXISI2CWrite
+ 439              	.LVL70:
+ARM GAS  /tmp/ccKygfrs.s 			page 11
+
+
  143:VS4210/VX_OSD.c ****         break;
+ 440              		.loc 1 143 0
+ 441 0054 38BD     		pop	{r3, r4, r5, pc}
+ 442              	.LVL71:
+ 443              	.L34:
  144:VS4210/VX_OSD.c ****     case(_Bar0):
  145:VS4210/VX_OSD.c ****     case(_Bar1):
  146:VS4210/VX_OSD.c ****     case(_Bar2):
  147:VS4210/VX_OSD.c ****     case(_Bar3):
  148:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5F,XHighByte|YHighByte);
+ 444              		.loc 1 148 0
+ 445 0056 5F20     		movs	r0, #95
+ 446              	.LVL72:
+ 447 0058 1143     		orrs	r1, r1, r2
+ 448              	.LVL73:
+ 449 005a FFF7FEFF 		bl	VXISI2CWrite
+ 450              	.LVL74:
  149:VS4210/VX_OSD.c ****         VXISI2CWrite(0x60,XLowByte);
+ 451              		.loc 1 149 0
+ 452 005e 6020     		movs	r0, #96
+ 453 0060 2946     		mov	r1, r5
+ 454 0062 FFF7FEFF 		bl	VXISI2CWrite
+ 455              	.LVL75:
  150:VS4210/VX_OSD.c ****         VXISI2CWrite(0x61,YLowByte);
+ 456              		.loc 1 150 0
+ 457 0066 6120     		movs	r0, #97
+ 458 0068 2146     		mov	r1, r4
+ 459 006a FFF7FEFF 		bl	VXISI2CWrite
+ 460              	.LVL76:
+ 461              	.L30:
+ 462 006e 38BD     		pop	{r3, r4, r5, pc}
+ 463              		.cfi_endproc
+ 464              	.LFE5:
+ 466              		.section	.text.OsdDumpString,"ax",%progbits
+ 467              		.align	2
+ 468              		.global	OsdDumpString
+ 469              		.thumb
+ 470              		.thumb_func
+ 472              	OsdDumpString:
+ 473              	.LFB6:
  151:VS4210/VX_OSD.c ****         break;
  152:VS4210/VX_OSD.c ****     }
  153:VS4210/VX_OSD.c **** }
- 442              		.loc 1 153 0
- 443 003c 38BD     		pop	{r3, r4, r5, pc}
- 444              	.LVL73:
- 445              	.L35:
- 140:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5B,XLowByte);
- 446              		.loc 1 140 0
- 447 003e 1143     		orrs	r1, r1, r2
- 448              	.LVL74:
- 449 0040 5A20     		movs	r0, #90
- 450              	.LVL75:
- 451 0042 FFF7FEFF 		bl	VXISI2CWrite
- 452              	.LVL76:
- 141:VS4210/VX_OSD.c ****         VXISI2CWrite(0x5C,YLowByte);
- 453              		.loc 1 141 0
- 454 0046 2946     		mov	r1, r5
- 455 0048 5B20     		movs	r0, #91
- 456 004a FFF7FEFF 		bl	VXISI2CWrite
- 457              	.LVL77:
-ARM GAS  /tmp/ccCBfhtP.s 			page 12
-
-
- 142:VS4210/VX_OSD.c ****         break;
- 458              		.loc 1 142 0
- 459 004e 2146     		mov	r1, r4
- 460 0050 5C20     		movs	r0, #92
- 461 0052 FFF7FEFF 		bl	VXISI2CWrite
- 462              	.LVL78:
- 143:VS4210/VX_OSD.c ****     case(_Bar0):
- 463              		.loc 1 143 0
- 464 0056 F1E7     		b	.L30
- 465              	.LVL79:
- 466              	.L34:
- 148:VS4210/VX_OSD.c ****         VXISI2CWrite(0x60,XLowByte);
- 467              		.loc 1 148 0
- 468 0058 1143     		orrs	r1, r1, r2
- 469              	.LVL80:
- 470 005a 5F20     		movs	r0, #95
- 471              	.LVL81:
- 472 005c FFF7FEFF 		bl	VXISI2CWrite
- 473              	.LVL82:
- 149:VS4210/VX_OSD.c ****         VXISI2CWrite(0x61,YLowByte);
- 474              		.loc 1 149 0
- 475 0060 2946     		mov	r1, r5
- 476 0062 6020     		movs	r0, #96
- 477 0064 FFF7FEFF 		bl	VXISI2CWrite
- 478              	.LVL83:
- 150:VS4210/VX_OSD.c ****         break;
- 479              		.loc 1 150 0
- 480 0068 2146     		mov	r1, r4
- 481 006a 6120     		movs	r0, #97
- 482 006c FFF7FEFF 		bl	VXISI2CWrite
- 483              	.LVL84:
- 484              		.loc 1 153 0
- 485 0070 E4E7     		b	.L30
- 486              		.cfi_endproc
- 487              	.LFE8:
- 489              		.section	.text.OsdDumpString,"ax",%progbits
- 490              		.align	1
- 491              		.global	OsdDumpString
- 492              		.syntax unified
- 493              		.thumb
- 494              		.thumb_func
- 495              		.fpu softvfp
- 497              	OsdDumpString:
- 498              	.LFB9:
  154:VS4210/VX_OSD.c **** 
  155:VS4210/VX_OSD.c **** //---------------------------------------------------------------------------
  156:VS4210/VX_OSD.c **** void OsdDumpString(tByte OSDaddr, tByte *Strdata)
  157:VS4210/VX_OSD.c **** {
- 499              		.loc 1 157 0
- 500              		.cfi_startproc
- 501              		@ args = 0, pretend = 0, frame = 0
- 502              		@ frame_needed = 0, uses_anonymous_args = 0
- 503              	.LVL85:
- 504 0000 70B5     		push	{r4, r5, r6, lr}
- 505              	.LCFI3:
- 506              		.cfi_def_cfa_offset 16
- 507              		.cfi_offset 4, -16
-ARM GAS  /tmp/ccCBfhtP.s 			page 13
+ 474              		.loc 1 157 0
+ 475              		.cfi_startproc
+ 476              		@ args = 0, pretend = 0, frame = 0
+ 477              		@ frame_needed = 0, uses_anonymous_args = 0
+ 478              	.LVL77:
+ 479 0000 70B5     		push	{r4, r5, r6, lr}
+ 480              	.LCFI3:
+ 481              		.cfi_def_cfa_offset 16
+ 482              		.cfi_offset 4, -16
+ 483              		.cfi_offset 5, -12
+ARM GAS  /tmp/ccKygfrs.s 			page 12
 
 
- 508              		.cfi_offset 5, -12
- 509              		.cfi_offset 6, -8
- 510              		.cfi_offset 14, -4
- 511 0002 0646     		mov	r6, r0
+ 484              		.cfi_offset 6, -8
+ 485              		.cfi_offset 14, -4
+ 486 0002 0646     		mov	r6, r0
  158:VS4210/VX_OSD.c ****     tByte Lan;
  159:VS4210/VX_OSD.c ****     Lan=Strdata[0];
- 512              		.loc 1 159 0
- 513 0004 0C46     		mov	r4, r1
- 514 0006 14F8015B 		ldrb	r5, [r4], #1	@ zero_extendqisi2
- 515              	.LVL86:
+ 487              		.loc 1 159 0
+ 488 0004 0C46     		mov	r4, r1
+ 489 0006 14F8015B 		ldrb	r5, [r4], #1	@ zero_extendqisi2
+ 490              	.LVL78:
  160:VS4210/VX_OSD.c ****     VXISI2CWrite(0xfd,0x10);
- 516              		.loc 1 160 0
- 517 000a 1021     		movs	r1, #16
- 518              	.LVL87:
- 519 000c FD20     		movs	r0, #253
- 520              	.LVL88:
- 521 000e FFF7FEFF 		bl	VXISI2CWrite
- 522              	.LVL89:
+ 491              		.loc 1 160 0
+ 492 000a FD20     		movs	r0, #253
+ 493              	.LVL79:
+ 494 000c 1021     		movs	r1, #16
+ 495              	.LVL80:
+ 496 000e FFF7FEFF 		bl	VXISI2CWrite
+ 497              	.LVL81:
  161:VS4210/VX_OSD.c ****     VXISI2CWrite(0xfe,OSDaddr);
- 523              		.loc 1 161 0
- 524 0012 3146     		mov	r1, r6
- 525 0014 FE20     		movs	r0, #254
- 526 0016 FFF7FEFF 		bl	VXISI2CWrite
- 527              	.LVL90:
+ 498              		.loc 1 161 0
+ 499 0012 FE20     		movs	r0, #254
+ 500 0014 3146     		mov	r1, r6
+ 501 0016 FFF7FEFF 		bl	VXISI2CWrite
+ 502              	.LVL82:
  162:VS4210/VX_OSD.c ****     Strdata++;
  163:VS4210/VX_OSD.c ****     I2CMultiWrite(VS4210_ADDR,0xff,Lan,Strdata);
- 528              		.loc 1 163 0
- 529 001a 044B     		ldr	r3, .L39
- 530 001c 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
- 531 001e 2346     		mov	r3, r4
- 532 0020 2A46     		mov	r2, r5
- 533 0022 FF21     		movs	r1, #255
- 534 0024 FFF7FEFF 		bl	I2CMultiWrite
- 535              	.LVL91:
+ 503              		.loc 1 163 0
+ 504 001a 044B     		ldr	r3, .L39
+ 505 001c 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 506 001e FF21     		movs	r1, #255
+ 507 0020 2A46     		mov	r2, r5
+ 508 0022 2346     		mov	r3, r4
+ 509 0024 FFF7FEFF 		bl	I2CMultiWrite
+ 510              	.LVL83:
+ 511 0028 70BD     		pop	{r4, r5, r6, pc}
+ 512              	.LVL84:
+ 513              	.L40:
+ 514 002a 00BF     		.align	2
+ 515              	.L39:
+ 516 002c 00000000 		.word	VS4210_ADDR
+ 517              		.cfi_endproc
+ 518              	.LFE6:
+ 520              		.section	.text.OsdDumpAttribute,"ax",%progbits
+ 521              		.align	2
+ 522              		.global	OsdDumpAttribute
+ 523              		.thumb
+ 524              		.thumb_func
+ 526              	OsdDumpAttribute:
+ 527              	.LFB7:
  164:VS4210/VX_OSD.c **** }
- 536              		.loc 1 164 0
- 537 0028 70BD     		pop	{r4, r5, r6, pc}
- 538              	.LVL92:
- 539              	.L40:
- 540 002a 00BF     		.align	2
- 541              	.L39:
- 542 002c 00000000 		.word	VS4210_ADDR
- 543              		.cfi_endproc
- 544              	.LFE9:
- 546              		.section	.text.OsdDumpAttribute,"ax",%progbits
- 547              		.align	1
- 548              		.global	OsdDumpAttribute
- 549              		.syntax unified
- 550              		.thumb
- 551              		.thumb_func
- 552              		.fpu softvfp
- 554              	OsdDumpAttribute:
- 555              	.LFB10:
  165:VS4210/VX_OSD.c **** 
  166:VS4210/VX_OSD.c **** //---------------------------------------------------------------------------
  167:VS4210/VX_OSD.c **** void OsdDumpAttribute(tByte OSDaddr,tByte *Strdata,tByte index)
  168:VS4210/VX_OSD.c **** {
-ARM GAS  /tmp/ccCBfhtP.s 			page 14
+ 528              		.loc 1 168 0
+ 529              		.cfi_startproc
+ 530              		@ args = 0, pretend = 0, frame = 8
+ 531              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccKygfrs.s 			page 13
 
 
- 556              		.loc 1 168 0
- 557              		.cfi_startproc
- 558              		@ args = 0, pretend = 0, frame = 8
- 559              		@ frame_needed = 0, uses_anonymous_args = 0
- 560              	.LVL93:
- 561 0000 70B5     		push	{r4, r5, r6, lr}
- 562              	.LCFI4:
- 563              		.cfi_def_cfa_offset 16
- 564              		.cfi_offset 4, -16
- 565              		.cfi_offset 5, -12
- 566              		.cfi_offset 6, -8
- 567              		.cfi_offset 14, -4
- 568 0002 82B0     		sub	sp, sp, #8
- 569              	.LCFI5:
- 570              		.cfi_def_cfa_offset 24
- 571 0004 0646     		mov	r6, r0
- 572 0006 02AC     		add	r4, sp, #8
- 573 0008 04F8012D 		strb	r2, [r4, #-1]!
+ 532              	.LVL85:
+ 533 0000 70B5     		push	{r4, r5, r6, lr}
+ 534              	.LCFI4:
+ 535              		.cfi_def_cfa_offset 16
+ 536              		.cfi_offset 4, -16
+ 537              		.cfi_offset 5, -12
+ 538              		.cfi_offset 6, -8
+ 539              		.cfi_offset 14, -4
+ 540 0002 82B0     		sub	sp, sp, #8
+ 541              	.LCFI5:
+ 542              		.cfi_def_cfa_offset 24
+ 543 0004 0646     		mov	r6, r0
+ 544 0006 02AC     		add	r4, sp, #8
+ 545 0008 04F8012D 		strb	r2, [r4, #-1]!
  169:VS4210/VX_OSD.c ****     tByte Lan;
  170:VS4210/VX_OSD.c ****     Lan=Strdata[0];
- 574              		.loc 1 170 0
- 575 000c 0D78     		ldrb	r5, [r1]	@ zero_extendqisi2
- 576              	.LVL94:
+ 546              		.loc 1 170 0
+ 547 000c 0D78     		ldrb	r5, [r1]	@ zero_extendqisi2
+ 548              	.LVL86:
  171:VS4210/VX_OSD.c ****     VXISI2CWrite(0xfd,0x70);
- 577              		.loc 1 171 0
- 578 000e 7021     		movs	r1, #112
- 579              	.LVL95:
- 580 0010 FD20     		movs	r0, #253
- 581              	.LVL96:
- 582 0012 FFF7FEFF 		bl	VXISI2CWrite
- 583              	.LVL97:
+ 549              		.loc 1 171 0
+ 550 000e FD20     		movs	r0, #253
+ 551              	.LVL87:
+ 552 0010 7021     		movs	r1, #112
+ 553              	.LVL88:
+ 554 0012 FFF7FEFF 		bl	VXISI2CWrite
+ 555              	.LVL89:
  172:VS4210/VX_OSD.c ****     VXISI2CWrite(0xfe,OSDaddr);	
- 584              		.loc 1 172 0
- 585 0016 3146     		mov	r1, r6
- 586 0018 FE20     		movs	r0, #254
- 587 001a FFF7FEFF 		bl	VXISI2CWrite
- 588              	.LVL98:
+ 556              		.loc 1 172 0
+ 557 0016 FE20     		movs	r0, #254
+ 558 0018 3146     		mov	r1, r6
+ 559 001a FFF7FEFF 		bl	VXISI2CWrite
+ 560              	.LVL90:
  173:VS4210/VX_OSD.c ****     I2CMultiAttribute(VS4210_ADDR,0xff,Lan,&index);
- 589              		.loc 1 173 0
- 590 001e 044B     		ldr	r3, .L43
- 591 0020 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
- 592 0022 2346     		mov	r3, r4
- 593 0024 2A46     		mov	r2, r5
- 594 0026 FF21     		movs	r1, #255
- 595 0028 FFF7FEFF 		bl	I2CMultiAttribute
- 596              	.LVL99:
+ 561              		.loc 1 173 0
+ 562 001e 044B     		ldr	r3, .L43
+ 563 0020 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 564 0022 FF21     		movs	r1, #255
+ 565 0024 2A46     		mov	r2, r5
+ 566 0026 2346     		mov	r3, r4
+ 567 0028 FFF7FEFF 		bl	I2CMultiAttribute
+ 568              	.LVL91:
  174:VS4210/VX_OSD.c **** }
- 597              		.loc 1 174 0
- 598 002c 02B0     		add	sp, sp, #8
- 599              	.LCFI6:
- 600              		.cfi_def_cfa_offset 16
- 601              		@ sp needed
- 602 002e 70BD     		pop	{r4, r5, r6, pc}
- 603              	.LVL100:
- 604              	.L44:
- 605              		.align	2
- 606              	.L43:
-ARM GAS  /tmp/ccCBfhtP.s 			page 15
+ 569              		.loc 1 174 0
+ 570 002c 02B0     		add	sp, sp, #8
+ 571              	.LCFI6:
+ 572              		.cfi_def_cfa_offset 16
+ 573              		@ sp needed
+ 574 002e 70BD     		pop	{r4, r5, r6, pc}
+ 575              	.LVL92:
+ 576              	.L44:
+ 577              		.align	2
+ 578              	.L43:
+ 579 0030 00000000 		.word	VS4210_ADDR
+ 580              		.cfi_endproc
+ 581              	.LFE7:
+ 583              		.section	.text.VXIS_fSetOsdOnOff,"ax",%progbits
+ARM GAS  /tmp/ccKygfrs.s 			page 14
 
 
- 607 0030 00000000 		.word	VS4210_ADDR
- 608              		.cfi_endproc
- 609              	.LFE10:
- 611              		.section	.text.VXIS_fSetOsdOnOff,"ax",%progbits
- 612              		.align	1
- 613              		.global	VXIS_fSetOsdOnOff
- 614              		.syntax unified
- 615              		.thumb
- 616              		.thumb_func
- 617              		.fpu softvfp
- 619              	VXIS_fSetOsdOnOff:
- 620              	.LFB11:
+ 584              		.align	2
+ 585              		.global	VXIS_fSetOsdOnOff
+ 586              		.thumb
+ 587              		.thumb_func
+ 589              	VXIS_fSetOsdOnOff:
+ 590              	.LFB8:
  175:VS4210/VX_OSD.c **** 
  176:VS4210/VX_OSD.c **** //---------------------------------------------------------------------------
  177:VS4210/VX_OSD.c **** void VXIS_fSetOsdOnOff(tByte ch, tByte block)
  178:VS4210/VX_OSD.c **** {
- 621              		.loc 1 178 0
- 622              		.cfi_startproc
- 623              		@ args = 0, pretend = 0, frame = 0
- 624              		@ frame_needed = 0, uses_anonymous_args = 0
- 625              	.LVL101:
- 626 0000 38B5     		push	{r3, r4, r5, lr}
- 627              	.LCFI7:
- 628              		.cfi_def_cfa_offset 16
- 629              		.cfi_offset 3, -16
- 630              		.cfi_offset 4, -12
- 631              		.cfi_offset 5, -8
- 632              		.cfi_offset 14, -4
- 633 0002 0446     		mov	r4, r0
- 634 0004 0D46     		mov	r5, r1
+ 591              		.loc 1 178 0
+ 592              		.cfi_startproc
+ 593              		@ args = 0, pretend = 0, frame = 0
+ 594              		@ frame_needed = 0, uses_anonymous_args = 0
+ 595              	.LVL93:
+ 596 0000 38B5     		push	{r3, r4, r5, lr}
+ 597              	.LCFI7:
+ 598              		.cfi_def_cfa_offset 16
+ 599              		.cfi_offset 3, -16
+ 600              		.cfi_offset 4, -12
+ 601              		.cfi_offset 5, -8
+ 602              		.cfi_offset 14, -4
+ 603 0002 0446     		mov	r4, r0
+ 604 0004 0D46     		mov	r5, r1
  179:VS4210/VX_OSD.c ****     tByte temp;
  180:VS4210/VX_OSD.c ****     temp=VXISI2CRead(0x53);
- 635              		.loc 1 180 0
- 636 0006 5320     		movs	r0, #83
- 637              	.LVL102:
- 638 0008 FFF7FEFF 		bl	VXISI2CRead
- 639              	.LVL103:
+ 605              		.loc 1 180 0
+ 606 0006 5320     		movs	r0, #83
+ 607              	.LVL94:
+ 608 0008 FFF7FEFF 		bl	VXISI2CRead
+ 609              	.LVL95:
  181:VS4210/VX_OSD.c ****     temp=(temp&0x3F) | (ch << 6) ;
- 640              		.loc 1 181 0
- 641 000c 00F03F01 		and	r1, r0, #63
- 642 0010 A401     		lsls	r4, r4, #6
- 643 0012 64B2     		sxtb	r4, r4
- 644 0014 2143     		orrs	r1, r1, r4
- 645              	.LVL104:
+ 610              		.loc 1 181 0
+ 611 000c A401     		lsls	r4, r4, #6
+ 612 000e E4B2     		uxtb	r4, r4
+ 613 0010 00F03F01 		and	r1, r0, #63
+ 614              	.LVL96:
  182:VS4210/VX_OSD.c ****     VXISI2CWrite(0x53,temp);
- 646              		.loc 1 182 0
- 647 0016 C9B2     		uxtb	r1, r1
- 648 0018 5320     		movs	r0, #83
- 649 001a FFF7FEFF 		bl	VXISI2CWrite
- 650              	.LVL105:
+ 615              		.loc 1 182 0
+ 616 0014 5320     		movs	r0, #83
+ 617 0016 2143     		orrs	r1, r1, r4
+ 618              	.LVL97:
+ 619 0018 FFF7FEFF 		bl	VXISI2CWrite
+ 620              	.LVL98:
  183:VS4210/VX_OSD.c **** 
  184:VS4210/VX_OSD.c ****     temp=VXISI2CRead(0x5E);
- 651              		.loc 1 184 0
- 652 001e 5E20     		movs	r0, #94
- 653 0020 FFF7FEFF 		bl	VXISI2CRead
- 654              	.LVL106:
+ 621              		.loc 1 184 0
+ 622 001c 5E20     		movs	r0, #94
+ 623 001e FFF7FEFF 		bl	VXISI2CRead
+ 624              	.LVL99:
  185:VS4210/VX_OSD.c ****     temp=(temp&0x3F) | (ch << 6) ;
-ARM GAS  /tmp/ccCBfhtP.s 			page 16
-
-
- 655              		.loc 1 185 0
- 656 0024 00F03F00 		and	r0, r0, #63
- 657              	.LVL107:
- 658 0028 44EA0001 		orr	r1, r4, r0
- 659              	.LVL108:
+ 625              		.loc 1 185 0
+ 626 0022 00F03F01 		and	r1, r0, #63
+ 627              	.LVL100:
  186:VS4210/VX_OSD.c ****     VXISI2CWrite(0x5E,temp);
- 660              		.loc 1 186 0
- 661 002c C9B2     		uxtb	r1, r1
- 662 002e 5E20     		movs	r0, #94
- 663 0030 FFF7FEFF 		bl	VXISI2CWrite
- 664              	.LVL109:
+ 628              		.loc 1 186 0
+ 629 0026 5E20     		movs	r0, #94
+ARM GAS  /tmp/ccKygfrs.s 			page 15
+
+
+ 630 0028 2143     		orrs	r1, r1, r4
+ 631              	.LVL101:
+ 632 002a FFF7FEFF 		bl	VXISI2CWrite
+ 633              	.LVL102:
  187:VS4210/VX_OSD.c **** 
  188:VS4210/VX_OSD.c ****     temp=VXISI2CRead(0x51);
- 665              		.loc 1 188 0
- 666 0034 5120     		movs	r0, #81
- 667 0036 FFF7FEFF 		bl	VXISI2CRead
- 668              	.LVL110:
+ 634              		.loc 1 188 0
+ 635 002e 5120     		movs	r0, #81
+ 636 0030 FFF7FEFF 		bl	VXISI2CRead
+ 637              	.LVL103:
  189:VS4210/VX_OSD.c **** 	if((block&WINZOOMx2)==0)
- 669              		.loc 1 189 0
- 670 003a 15F0080F 		tst	r5, #8
- 671 003e 01D1     		bne	.L46
+ 638              		.loc 1 189 0
+ 639 0034 15F0080F 		tst	r5, #8
+ 640 0038 01D1     		bne	.L46
  190:VS4210/VX_OSD.c **** 		temp&=0xf7;
- 672              		.loc 1 190 0
- 673 0040 00F0F700 		and	r0, r0, #247
- 674              	.LVL111:
- 675              	.L46:
+ 641              		.loc 1 190 0
+ 642 003a 00F0F700 		and	r0, r0, #247
+ 643              	.LVL104:
+ 644              	.L46:
  191:VS4210/VX_OSD.c **** //    temp=(temp&0xf8)|(block&0x07);//mask by ryan@20200523
  192:VS4210/VX_OSD.c **** 
  193:VS4210/VX_OSD.c ****     temp=(temp&0xf8)|(block&0x0F);
- 676              		.loc 1 193 0
- 677 0044 20F00701 		bic	r1, r0, #7
- 678 0048 49B2     		sxtb	r1, r1
- 679 004a 05F00F05 		and	r5, r5, #15
- 680 004e 2943     		orrs	r1, r1, r5
- 681              	.LVL112:
+ 645              		.loc 1 193 0
+ 646 003e 05F00F05 		and	r5, r5, #15
+ 647 0042 00F0F801 		and	r1, r0, #248
+ 648              	.LVL105:
  194:VS4210/VX_OSD.c ****     VXISI2CWrite(0x51,temp);
- 682              		.loc 1 194 0
- 683 0050 C9B2     		uxtb	r1, r1
- 684 0052 5120     		movs	r0, #81
- 685 0054 FFF7FEFF 		bl	VXISI2CWrite
- 686              	.LVL113:
+ 649              		.loc 1 194 0
+ 650 0046 5120     		movs	r0, #81
+ 651 0048 2943     		orrs	r1, r1, r5
+ 652              	.LVL106:
+ 653 004a FFF7FEFF 		bl	VXISI2CWrite
+ 654              	.LVL107:
+ 655 004e 38BD     		pop	{r3, r4, r5, pc}
+ 656              		.cfi_endproc
+ 657              	.LFE8:
+ 659              		.section	.text.VXIS_fSetOsdx2,"ax",%progbits
+ 660              		.align	2
+ 661              		.global	VXIS_fSetOsdx2
+ 662              		.thumb
+ 663              		.thumb_func
+ 665              	VXIS_fSetOsdx2:
+ 666              	.LFB9:
  195:VS4210/VX_OSD.c **** }
- 687              		.loc 1 195 0
- 688 0058 38BD     		pop	{r3, r4, r5, pc}
- 689              		.cfi_endproc
- 690              	.LFE11:
- 692              		.section	.text.VXIS_fSetOsdx2,"ax",%progbits
- 693              		.align	1
- 694              		.global	VXIS_fSetOsdx2
- 695              		.syntax unified
- 696              		.thumb
- 697              		.thumb_func
- 698              		.fpu softvfp
- 700              	VXIS_fSetOsdx2:
- 701              	.LFB12:
  196:VS4210/VX_OSD.c **** 
  197:VS4210/VX_OSD.c **** 
-ARM GAS  /tmp/ccCBfhtP.s 			page 17
-
-
  198:VS4210/VX_OSD.c **** //---------------------------------------------------------------------------
  199:VS4210/VX_OSD.c **** 
  200:VS4210/VX_OSD.c **** void VXIS_fSetOsdx2(bit OnOff)
  201:VS4210/VX_OSD.c **** {
- 702              		.loc 1 201 0
- 703              		.cfi_startproc
- 704              		@ args = 0, pretend = 0, frame = 0
- 705              		@ frame_needed = 0, uses_anonymous_args = 0
- 706              	.LVL114:
- 707 0000 10B5     		push	{r4, lr}
- 708              	.LCFI8:
- 709              		.cfi_def_cfa_offset 8
- 710              		.cfi_offset 4, -8
- 711              		.cfi_offset 14, -4
- 712 0002 0446     		mov	r4, r0
- 713              	.LVL115:
+ 667              		.loc 1 201 0
+ 668              		.cfi_startproc
+ 669              		@ args = 0, pretend = 0, frame = 0
+ 670              		@ frame_needed = 0, uses_anonymous_args = 0
+ 671              	.LVL108:
+ 672 0000 10B5     		push	{r4, lr}
+ 673              	.LCFI8:
+ARM GAS  /tmp/ccKygfrs.s 			page 16
+
+
+ 674              		.cfi_def_cfa_offset 8
+ 675              		.cfi_offset 4, -8
+ 676              		.cfi_offset 14, -4
+ 677 0002 0446     		mov	r4, r0
+ 678              	.LVL109:
  202:VS4210/VX_OSD.c **** 	tByte temp=0;
  203:VS4210/VX_OSD.c **** 	temp=VXISI2CRead(0x51);
- 714              		.loc 1 203 0
- 715 0004 5120     		movs	r0, #81
- 716              	.LVL116:
- 717 0006 FFF7FEFF 		bl	VXISI2CRead
- 718              	.LVL117:
+ 679              		.loc 1 203 0
+ 680 0004 5120     		movs	r0, #81
+ 681              	.LVL110:
+ 682 0006 FFF7FEFF 		bl	VXISI2CRead
+ 683              	.LVL111:
  204:VS4210/VX_OSD.c **** 	if (OnOff)
- 719              		.loc 1 204 0
- 720 000a 2CB9     		cbnz	r4, .L52
+ 684              		.loc 1 204 0
+ 685 000a 1CB1     		cbz	r4, .L49
  205:VS4210/VX_OSD.c **** 		temp=(temp&0xf7)|(0x08);
+ 686              		.loc 1 205 0
+ 687 000c 40F00801 		orr	r1, r0, #8
+ 688 0010 C9B2     		uxtb	r1, r1
+ 689              	.LVL112:
+ 690 0012 01E0     		b	.L50
+ 691              	.LVL113:
+ 692              	.L49:
  206:VS4210/VX_OSD.c **** 	else
  207:VS4210/VX_OSD.c **** 		temp=temp&0xf7;
- 721              		.loc 1 207 0
- 722 000c 00F0F701 		and	r1, r0, #247
- 723              	.LVL118:
- 724              	.L50:
+ 693              		.loc 1 207 0
+ 694 0014 00F0F701 		and	r1, r0, #247
+ 695              	.LVL114:
+ 696              	.L50:
  208:VS4210/VX_OSD.c **** 	VXISI2CWrite(0x51,temp);
- 725              		.loc 1 208 0
- 726 0010 5120     		movs	r0, #81
- 727 0012 FFF7FEFF 		bl	VXISI2CWrite
- 728              	.LVL119:
+ 697              		.loc 1 208 0
+ 698 0018 5120     		movs	r0, #81
+ 699 001a FFF7FEFF 		bl	VXISI2CWrite
+ 700              	.LVL115:
+ 701 001e 10BD     		pop	{r4, pc}
+ 702              		.cfi_endproc
+ 703              	.LFE9:
+ 705              		.section	.text.setTransParentIndex,"ax",%progbits
+ 706              		.align	2
+ 707              		.global	setTransParentIndex
+ 708              		.thumb
+ 709              		.thumb_func
+ 711              	setTransParentIndex:
+ 712              	.LFB10:
  209:VS4210/VX_OSD.c **** }
- 729              		.loc 1 209 0
- 730 0016 10BD     		pop	{r4, pc}
- 731              	.LVL120:
- 732              	.L52:
- 205:VS4210/VX_OSD.c **** 		temp=(temp&0xf7)|(0x08);
- 733              		.loc 1 205 0
- 734 0018 40F00801 		orr	r1, r0, #8
- 735 001c C9B2     		uxtb	r1, r1
- 736              	.LVL121:
- 737 001e F7E7     		b	.L50
- 738              		.cfi_endproc
- 739              	.LFE12:
- 741              		.section	.text.setTransParentIndex,"ax",%progbits
- 742              		.align	1
- 743              		.global	setTransParentIndex
- 744              		.syntax unified
- 745              		.thumb
- 746              		.thumb_func
-ARM GAS  /tmp/ccCBfhtP.s 			page 18
-
-
- 747              		.fpu softvfp
- 749              	setTransParentIndex:
- 750              	.LFB13:
  210:VS4210/VX_OSD.c **** 
  211:VS4210/VX_OSD.c **** //---------------------------------------------------------------------------
  212:VS4210/VX_OSD.c **** void setTransParentIndex(tByte index)
  213:VS4210/VX_OSD.c **** {
- 751              		.loc 1 213 0
- 752              		.cfi_startproc
- 753              		@ args = 0, pretend = 0, frame = 0
- 754              		@ frame_needed = 0, uses_anonymous_args = 0
- 755              	.LVL122:
- 756 0000 10B5     		push	{r4, lr}
- 757              	.LCFI9:
- 758              		.cfi_def_cfa_offset 8
- 759              		.cfi_offset 4, -8
- 760              		.cfi_offset 14, -4
- 761 0002 0446     		mov	r4, r0
+ 713              		.loc 1 213 0
+ 714              		.cfi_startproc
+ 715              		@ args = 0, pretend = 0, frame = 0
+ 716              		@ frame_needed = 0, uses_anonymous_args = 0
+ 717              	.LVL116:
+ 718 0000 10B5     		push	{r4, lr}
+ 719              	.LCFI9:
+ 720              		.cfi_def_cfa_offset 8
+ARM GAS  /tmp/ccKygfrs.s 			page 17
+
+
+ 721              		.cfi_offset 4, -8
+ 722              		.cfi_offset 14, -4
+ 723 0002 0446     		mov	r4, r0
  214:VS4210/VX_OSD.c ****     tByte temp;
  215:VS4210/VX_OSD.c ****     temp=VXISI2CRead(0x69);
- 762              		.loc 1 215 0
- 763 0004 6920     		movs	r0, #105
- 764              	.LVL123:
- 765 0006 FFF7FEFF 		bl	VXISI2CRead
- 766              	.LVL124:
+ 724              		.loc 1 215 0
+ 725 0004 6920     		movs	r0, #105
+ 726              	.LVL117:
+ 727 0006 FFF7FEFF 		bl	VXISI2CRead
+ 728              	.LVL118:
  216:VS4210/VX_OSD.c ****     temp=(temp&0x0f)|(index<<4);
- 767              		.loc 1 216 0
- 768 000a 00F00F01 		and	r1, r0, #15
- 769 000e 41EA0411 		orr	r1, r1, r4, lsl #4
- 770              	.LVL125:
+ 729              		.loc 1 216 0
+ 730 000a 00F00F00 		and	r0, r0, #15
+ 731              	.LVL119:
+ 732 000e 40EA0411 		orr	r1, r0, r4, lsl #4
+ 733              	.LVL120:
  217:VS4210/VX_OSD.c ****     VXISI2CWrite(0x69,temp);
- 771              		.loc 1 217 0
- 772 0012 C9B2     		uxtb	r1, r1
- 773 0014 6920     		movs	r0, #105
- 774 0016 FFF7FEFF 		bl	VXISI2CWrite
- 775              	.LVL126:
+ 734              		.loc 1 217 0
+ 735 0012 6920     		movs	r0, #105
+ 736 0014 C9B2     		uxtb	r1, r1
+ 737 0016 FFF7FEFF 		bl	VXISI2CWrite
+ 738              	.LVL121:
  218:VS4210/VX_OSD.c ****     VXISI2CWrite(0x58,0x0);  // VS4210 //black content ryan@20200523
- 776              		.loc 1 218 0
- 777 001a 0021     		movs	r1, #0
- 778 001c 5820     		movs	r0, #88
- 779 001e FFF7FEFF 		bl	VXISI2CWrite
- 780              	.LVL127:
- 219:VS4210/VX_OSD.c **** }
- 781              		.loc 1 219 0
- 782 0022 10BD     		pop	{r4, pc}
- 783              		.cfi_endproc
- 784              	.LFE13:
- 786              		.global	DisplayedOSD
- 787              		.section	.bss.DisplayedOSD,"aw",%nobits
- 788              		.set	.LANCHOR0,. + 0
- 791              	DisplayedOSD:
- 792 0000 00       		.space	1
- 793              		.text
- 794              	.Letext0:
- 795              		.file 2 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/lock.h"
- 796              		.file 3 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_types.h"
- 797              		.file 4 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/lib/gcc/arm-none-eabi/7.3.1/include/std
-ARM GAS  /tmp/ccCBfhtP.s 			page 19
-
-
- 798              		.file 5 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/reent.h"
- 799              		.file 6 "VS4210/VXIS_Extern_Define.h"
- 800              		.file 7 "sw_i2c/VX_swi2c.h"
-ARM GAS  /tmp/ccCBfhtP.s 			page 20
+ 739              		.loc 1 218 0
+ 740 001a 5820     		movs	r0, #88
+ 741 001c 0021     		movs	r1, #0
+ 742 001e FFF7FEFF 		bl	VXISI2CWrite
+ 743              	.LVL122:
+ 744 0022 10BD     		pop	{r4, pc}
+ 745              		.cfi_endproc
+ 746              	.LFE10:
+ 748              		.global	DisplayedOSD
+ 749              		.section	.bss.DisplayedOSD,"aw",%nobits
+ 750              		.set	.LANCHOR0,. + 0
+ 753              	DisplayedOSD:
+ 754 0000 00       		.space	1
+ 755              		.text
+ 756              	.Letext0:
+ 757              		.file 2 "/usr/include/newlib/machine/_default_types.h"
+ 758              		.file 3 "/usr/include/newlib/sys/_stdint.h"
+ 759              		.file 4 "VS4210/VXIS_Extern_Define.h"
+ 760              		.file 5 "sw_i2c/VX_swi2c.h"
+ARM GAS  /tmp/ccKygfrs.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 VX_OSD.c
-     /tmp/ccCBfhtP.s:16     .text.ClearDisplayedOSD:0000000000000000 $t
-     /tmp/ccCBfhtP.s:23     .text.ClearDisplayedOSD:0000000000000000 ClearDisplayedOSD
-     /tmp/ccCBfhtP.s:43     .text.ClearDisplayedOSD:000000000000000c $d
-     /tmp/ccCBfhtP.s:48     .text.SetDisplayedOSD:0000000000000000 $t
-     /tmp/ccCBfhtP.s:55     .text.SetDisplayedOSD:0000000000000000 SetDisplayedOSD
-     /tmp/ccCBfhtP.s:74     .text.SetDisplayedOSD:000000000000000c $d
-     /tmp/ccCBfhtP.s:79     .text.GetDisplayedOSD:0000000000000000 $t
-     /tmp/ccCBfhtP.s:86     .text.GetDisplayedOSD:0000000000000000 GetDisplayedOSD
-     /tmp/ccCBfhtP.s:100    .text.GetDisplayedOSD:0000000000000008 $d
-     /tmp/ccCBfhtP.s:105    .text.SetOsdStartAddress:0000000000000000 $t
-     /tmp/ccCBfhtP.s:112    .text.SetOsdStartAddress:0000000000000000 SetOsdStartAddress
-     /tmp/ccCBfhtP.s:129    .text.SetOsdStartAddress:000000000000000a $d
-     /tmp/ccCBfhtP.s:170    .text.SetOsdSize:0000000000000000 $t
-     /tmp/ccCBfhtP.s:177    .text.SetOsdSize:0000000000000000 SetOsdSize
-     /tmp/ccCBfhtP.s:217    .text.SetOsdSize:0000000000000028 $d
-     /tmp/ccCBfhtP.s:372    .text.SetOsdPosition:0000000000000000 $t
-     /tmp/ccCBfhtP.s:379    .text.SetOsdPosition:0000000000000000 SetOsdPosition
-     /tmp/ccCBfhtP.s:413    .text.SetOsdPosition:000000000000001a $d
-     /tmp/ccCBfhtP.s:490    .text.OsdDumpString:0000000000000000 $t
-     /tmp/ccCBfhtP.s:497    .text.OsdDumpString:0000000000000000 OsdDumpString
-     /tmp/ccCBfhtP.s:542    .text.OsdDumpString:000000000000002c $d
-     /tmp/ccCBfhtP.s:547    .text.OsdDumpAttribute:0000000000000000 $t
-     /tmp/ccCBfhtP.s:554    .text.OsdDumpAttribute:0000000000000000 OsdDumpAttribute
-     /tmp/ccCBfhtP.s:607    .text.OsdDumpAttribute:0000000000000030 $d
-     /tmp/ccCBfhtP.s:612    .text.VXIS_fSetOsdOnOff:0000000000000000 $t
-     /tmp/ccCBfhtP.s:619    .text.VXIS_fSetOsdOnOff:0000000000000000 VXIS_fSetOsdOnOff
-     /tmp/ccCBfhtP.s:693    .text.VXIS_fSetOsdx2:0000000000000000 $t
-     /tmp/ccCBfhtP.s:700    .text.VXIS_fSetOsdx2:0000000000000000 VXIS_fSetOsdx2
-     /tmp/ccCBfhtP.s:742    .text.setTransParentIndex:0000000000000000 $t
-     /tmp/ccCBfhtP.s:749    .text.setTransParentIndex:0000000000000000 setTransParentIndex
-     /tmp/ccCBfhtP.s:791    .bss.DisplayedOSD:0000000000000000 DisplayedOSD
-     /tmp/ccCBfhtP.s:792    .bss.DisplayedOSD:0000000000000000 $d
-     /tmp/ccCBfhtP.s:138    .text.SetOsdStartAddress:0000000000000013 $d
-     /tmp/ccCBfhtP.s:138    .text.SetOsdStartAddress:0000000000000014 $t
-     /tmp/ccCBfhtP.s:226    .text.SetOsdSize:0000000000000031 $d
-     /tmp/ccCBfhtP.s:226    .text.SetOsdSize:0000000000000032 $t
-     /tmp/ccCBfhtP.s:422    .text.SetOsdPosition:0000000000000023 $d
-     /tmp/ccCBfhtP.s:422    .text.SetOsdPosition:0000000000000024 $t
+     /tmp/ccKygfrs.s:19     .text.ClearDisplayedOSD:0000000000000000 $t
+     /tmp/ccKygfrs.s:24     .text.ClearDisplayedOSD:0000000000000000 ClearDisplayedOSD
+     /tmp/ccKygfrs.s:43     .text.ClearDisplayedOSD:000000000000000c $d
+     /tmp/ccKygfrs.s:48     .text.SetDisplayedOSD:0000000000000000 $t
+     /tmp/ccKygfrs.s:53     .text.SetDisplayedOSD:0000000000000000 SetDisplayedOSD
+     /tmp/ccKygfrs.s:71     .text.SetDisplayedOSD:000000000000000c $d
+     /tmp/ccKygfrs.s:76     .text.GetDisplayedOSD:0000000000000000 $t
+     /tmp/ccKygfrs.s:81     .text.GetDisplayedOSD:0000000000000000 GetDisplayedOSD
+     /tmp/ccKygfrs.s:95     .text.GetDisplayedOSD:0000000000000008 $d
+     /tmp/ccKygfrs.s:100    .text.SetOsdStartAddress:0000000000000000 $t
+     /tmp/ccKygfrs.s:105    .text.SetOsdStartAddress:0000000000000000 SetOsdStartAddress
+     /tmp/ccKygfrs.s:122    .text.SetOsdStartAddress:000000000000000a $d
+     /tmp/ccKygfrs.s:162    .text.SetOsdSize:0000000000000000 $t
+     /tmp/ccKygfrs.s:167    .text.SetOsdSize:0000000000000000 SetOsdSize
+     /tmp/ccKygfrs.s:207    .text.SetOsdSize:0000000000000028 $d
+     /tmp/ccKygfrs.s:353    .text.SetOsdPosition:0000000000000000 $t
+     /tmp/ccKygfrs.s:358    .text.SetOsdPosition:0000000000000000 SetOsdPosition
+     /tmp/ccKygfrs.s:391    .text.SetOsdPosition:0000000000000018 $d
+     /tmp/ccKygfrs.s:467    .text.OsdDumpString:0000000000000000 $t
+     /tmp/ccKygfrs.s:472    .text.OsdDumpString:0000000000000000 OsdDumpString
+     /tmp/ccKygfrs.s:516    .text.OsdDumpString:000000000000002c $d
+     /tmp/ccKygfrs.s:521    .text.OsdDumpAttribute:0000000000000000 $t
+     /tmp/ccKygfrs.s:526    .text.OsdDumpAttribute:0000000000000000 OsdDumpAttribute
+     /tmp/ccKygfrs.s:579    .text.OsdDumpAttribute:0000000000000030 $d
+     /tmp/ccKygfrs.s:584    .text.VXIS_fSetOsdOnOff:0000000000000000 $t
+     /tmp/ccKygfrs.s:589    .text.VXIS_fSetOsdOnOff:0000000000000000 VXIS_fSetOsdOnOff
+     /tmp/ccKygfrs.s:660    .text.VXIS_fSetOsdx2:0000000000000000 $t
+     /tmp/ccKygfrs.s:665    .text.VXIS_fSetOsdx2:0000000000000000 VXIS_fSetOsdx2
+     /tmp/ccKygfrs.s:706    .text.setTransParentIndex:0000000000000000 $t
+     /tmp/ccKygfrs.s:711    .text.setTransParentIndex:0000000000000000 setTransParentIndex
+     /tmp/ccKygfrs.s:753    .bss.DisplayedOSD:0000000000000000 DisplayedOSD
+     /tmp/ccKygfrs.s:754    .bss.DisplayedOSD:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+     /tmp/ccKygfrs.s:131    .text.SetOsdStartAddress:0000000000000013 $d
+     /tmp/ccKygfrs.s:131    .text.SetOsdStartAddress:0000000000000014 $t
+     /tmp/ccKygfrs.s:216    .text.SetOsdSize:0000000000000031 $d
+     /tmp/ccKygfrs.s:216    .text.SetOsdSize:0000000000000032 $t
+     /tmp/ccKygfrs.s:400    .text.SetOsdPosition:0000000000000021 $d
+     /tmp/ccKygfrs.s:400    .text.SetOsdPosition:0000000000000022 $t
 
 UNDEFINED SYMBOLS
 VXISI2CWrite
