@@ -1,31 +1,30 @@
-ARM GAS  /tmp/ccmMM3V0.s 			page 1
+ARM GAS  /tmp/ccJpWupm.s 			page 1
 
 
-   1              		.syntax unified
-   2              		.cpu cortex-m3
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.thumb
-  14              		.file	"etc_eep.c"
-  15              		.text
-  16              	.Ltext0:
-  17              		.cfi_sections	.debug_frame
-  18              		.section	.text.GetFWRevEE,"ax",%progbits
-  19              		.align	2
-  20              		.global	GetFWRevEE
-  21              		.thumb
-  22              		.thumb_func
-  24              	GetFWRevEE:
-  25              	.LFB65:
-  26              		.file 1 "VS4210/etc_eep.c"
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"etc_eep.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.GetFWRevEE,"ax",%progbits
+  16              		.align	1
+  17              		.global	GetFWRevEE
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  21              		.fpu softvfp
+  23              	GetFWRevEE:
+  24              	.LFB68:
+  25              		.file 1 "VS4210/etc_eep.c"
    1:VS4210/etc_eep.c **** /*****************************************************************************/
    2:VS4210/etc_eep.c **** /*                                                                           										*/
    3:VS4210/etc_eep.c **** /*  VS4210   MCU                    													*/
@@ -58,10 +57,10 @@ ARM GAS  /tmp/ccmMM3V0.s 			page 1
   30:VS4210/etc_eep.c **** extern BYTE OSD_LOCKF;
   31:VS4210/etc_eep.c **** extern BYTE SEQFlag;	
   32:VS4210/etc_eep.c **** extern BYTE NowModeState;
-ARM GAS  /tmp/ccmMM3V0.s 			page 2
-
-
   33:VS4210/etc_eep.c **** extern BYTE	SelectModeType;
+ARM GAS  /tmp/ccJpWupm.s 			page 2
+
+
   34:VS4210/etc_eep.c **** 
   35:VS4210/etc_eep.c **** 
   36:VS4210/etc_eep.c **** #if 0
@@ -102,170 +101,175 @@ ARM GAS  /tmp/ccmMM3V0.s 			page 1
   71:VS4210/etc_eep.c **** #endif
   72:VS4210/etc_eep.c **** WORD GetFWRevEE()
   73:VS4210/etc_eep.c **** {
-  27              		.loc 1 73 0
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 0
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31 0000 10B5     		push	{r4, lr}
-  32              	.LCFI0:
-  33              		.cfi_def_cfa_offset 8
-  34              		.cfi_offset 4, -8
-  35              		.cfi_offset 14, -4
-  36              	.LVL0:
+  26              		.loc 1 73 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 0
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30 0000 10B5     		push	{r4, lr}
+  31              	.LCFI0:
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 4, -8
+  34              		.cfi_offset 14, -4
+  35              	.LVL0:
   74:VS4210/etc_eep.c **** 	WORD rev=0;
   75:VS4210/etc_eep.c **** 
   76:VS4210/etc_eep.c **** 	if( ReadEEP(0) != 'T' ) return 0;
-  37              		.loc 1 76 0
-  38 0002 0020     		movs	r0, #0
-  39 0004 FFF7FEFF 		bl	ReadEEP
-ARM GAS  /tmp/ccmMM3V0.s 			page 3
+  36              		.loc 1 76 0
+  37 0002 0020     		movs	r0, #0
+  38 0004 FFF7FEFF 		bl	ReadEEP
+  39              	.LVL1:
+ARM GAS  /tmp/ccJpWupm.s 			page 3
 
 
-  40              	.LVL1:
-  41 0008 5428     		cmp	r0, #84
-  42 000a 17D1     		bne	.L3
+  40 0008 5428     		cmp	r0, #84
+  41 000a 01D0     		beq	.L8
+  42 000c 0020     		movs	r0, #0
+  43              	.LVL2:
+  44              	.L1:
   77:VS4210/etc_eep.c **** 	if( ReadEEP(1) != 'O' ) return 0;
-  43              		.loc 1 77 0
-  44 000c 0120     		movs	r0, #1
-  45 000e FFF7FEFF 		bl	ReadEEP
-  46              	.LVL2:
-  47 0012 4F28     		cmp	r0, #79
-  48 0014 14D1     		bne	.L4
   78:VS4210/etc_eep.c **** 	if( ReadEEP(2) != 'A' ) return 0;
-  49              		.loc 1 78 0
-  50 0016 0220     		movs	r0, #2
-  51 0018 FFF7FEFF 		bl	ReadEEP
-  52              	.LVL3:
-  53 001c 4128     		cmp	r0, #65
-  54 001e 11D1     		bne	.L5
   79:VS4210/etc_eep.c **** 	if( ReadEEP(3) != '0' ) return 0;
-  55              		.loc 1 79 0
-  56 0020 0320     		movs	r0, #3
-  57 0022 FFF7FEFF 		bl	ReadEEP
-  58              	.LVL4:
-  59 0026 3028     		cmp	r0, #48
-  60 0028 0ED1     		bne	.L6
   80:VS4210/etc_eep.c **** 	
   81:VS4210/etc_eep.c **** 	rev = (ReadEEP(EEP_FWREV_MAJOR) )<< 8;
-  61              		.loc 1 81 0
-  62 002a 0420     		movs	r0, #4
-  63 002c FFF7FEFF 		bl	ReadEEP
-  64              	.LVL5:
-  65 0030 0402     		lsls	r4, r0, #8
-  66              	.LVL6:
   82:VS4210/etc_eep.c **** 	rev |= ReadEEP(EEP_FWREV_MINOR);
-  67              		.loc 1 82 0
-  68 0032 0520     		movs	r0, #5
-  69 0034 FFF7FEFF 		bl	ReadEEP
-  70              	.LVL7:
-  71 0038 2043     		orrs	r0, r0, r4
-  72              	.LVL8:
   83:VS4210/etc_eep.c **** 
   84:VS4210/etc_eep.c **** 	return rev;
-  73              		.loc 1 84 0
-  74 003a 10BD     		pop	{r4, pc}
-  75              	.LVL9:
-  76              	.L3:
-  76:VS4210/etc_eep.c **** 	if( ReadEEP(1) != 'O' ) return 0;
-  77              		.loc 1 76 0
-  78 003c 0020     		movs	r0, #0
-  79 003e 10BD     		pop	{r4, pc}
-  80              	.L4:
-  77:VS4210/etc_eep.c **** 	if( ReadEEP(2) != 'A' ) return 0;
-  81              		.loc 1 77 0
-  82 0040 0020     		movs	r0, #0
-  83 0042 10BD     		pop	{r4, pc}
-  84              	.L5:
-  78:VS4210/etc_eep.c **** 	if( ReadEEP(3) != '0' ) return 0;
-  85              		.loc 1 78 0
-ARM GAS  /tmp/ccmMM3V0.s 			page 4
-
-
-  86 0044 0020     		movs	r0, #0
-  87 0046 10BD     		pop	{r4, pc}
-  88              	.L6:
-  79:VS4210/etc_eep.c **** 	
-  89              		.loc 1 79 0
-  90 0048 0020     		movs	r0, #0
   85:VS4210/etc_eep.c **** 	//return 0x0001;
   86:VS4210/etc_eep.c **** }
-  91              		.loc 1 86 0
-  92 004a 10BD     		pop	{r4, pc}
-  93              		.cfi_endproc
-  94              	.LFE65:
-  96              		.section	.text.SaveFWRevEE,"ax",%progbits
-  97              		.align	2
-  98              		.global	SaveFWRevEE
-  99              		.thumb
- 100              		.thumb_func
- 102              	SaveFWRevEE:
- 103              	.LFB66:
+  45              		.loc 1 86 0
+  46 000e 10BD     		pop	{r4, pc}
+  47              	.LVL3:
+  48              	.L8:
+  77:VS4210/etc_eep.c **** 	if( ReadEEP(1) != 'O' ) return 0;
+  49              		.loc 1 77 0
+  50 0010 0120     		movs	r0, #1
+  51 0012 FFF7FEFF 		bl	ReadEEP
+  52              	.LVL4:
+  53 0016 4F28     		cmp	r0, #79
+  54 0018 01D0     		beq	.L9
+  55 001a 0020     		movs	r0, #0
+  56 001c F7E7     		b	.L1
+  57              	.L9:
+  78:VS4210/etc_eep.c **** 	if( ReadEEP(3) != '0' ) return 0;
+  58              		.loc 1 78 0
+  59 001e 0220     		movs	r0, #2
+  60 0020 FFF7FEFF 		bl	ReadEEP
+  61              	.LVL5:
+  62 0024 4128     		cmp	r0, #65
+  63 0026 01D0     		beq	.L10
+  64 0028 0020     		movs	r0, #0
+  65 002a F0E7     		b	.L1
+  66              	.L10:
+  79:VS4210/etc_eep.c **** 	
+  67              		.loc 1 79 0
+  68 002c 0320     		movs	r0, #3
+  69 002e FFF7FEFF 		bl	ReadEEP
+  70              	.LVL6:
+  71 0032 3028     		cmp	r0, #48
+  72 0034 01D0     		beq	.L11
+  73 0036 0020     		movs	r0, #0
+  74 0038 E9E7     		b	.L1
+  75              	.L11:
+  81:VS4210/etc_eep.c **** 	rev |= ReadEEP(EEP_FWREV_MINOR);
+  76              		.loc 1 81 0
+  77 003a 0420     		movs	r0, #4
+  78 003c FFF7FEFF 		bl	ReadEEP
+  79              	.LVL7:
+  80 0040 0402     		lsls	r4, r0, #8
+  81              	.LVL8:
+  82:VS4210/etc_eep.c **** 
+ARM GAS  /tmp/ccJpWupm.s 			page 4
+
+
+  82              		.loc 1 82 0
+  83 0042 0520     		movs	r0, #5
+  84 0044 FFF7FEFF 		bl	ReadEEP
+  85              	.LVL9:
+  86 0048 2043     		orrs	r0, r0, r4
+  87              	.LVL10:
+  84:VS4210/etc_eep.c **** 	//return 0x0001;
+  88              		.loc 1 84 0
+  89 004a E0E7     		b	.L1
+  90              		.cfi_endproc
+  91              	.LFE68:
+  93              		.section	.text.SaveFWRevEE,"ax",%progbits
+  94              		.align	1
+  95              		.global	SaveFWRevEE
+  96              		.syntax unified
+  97              		.thumb
+  98              		.thumb_func
+  99              		.fpu softvfp
+ 101              	SaveFWRevEE:
+ 102              	.LFB69:
   87:VS4210/etc_eep.c **** 
   88:VS4210/etc_eep.c **** void SaveFWRevEE(WORD rev)
   89:VS4210/etc_eep.c **** {
- 104              		.loc 1 89 0
- 105              		.cfi_startproc
- 106              		@ args = 0, pretend = 0, frame = 0
- 107              		@ frame_needed = 0, uses_anonymous_args = 0
- 108              	.LVL10:
- 109 0000 10B5     		push	{r4, lr}
- 110              	.LCFI1:
- 111              		.cfi_def_cfa_offset 8
- 112              		.cfi_offset 4, -8
- 113              		.cfi_offset 14, -4
- 114 0002 0446     		mov	r4, r0
+ 103              		.loc 1 89 0
+ 104              		.cfi_startproc
+ 105              		@ args = 0, pretend = 0, frame = 0
+ 106              		@ frame_needed = 0, uses_anonymous_args = 0
+ 107              	.LVL11:
+ 108 0000 10B5     		push	{r4, lr}
+ 109              	.LCFI1:
+ 110              		.cfi_def_cfa_offset 8
+ 111              		.cfi_offset 4, -8
+ 112              		.cfi_offset 14, -4
+ 113 0002 0446     		mov	r4, r0
   90:VS4210/etc_eep.c **** 	WriteEEP(0, 'T');
- 115              		.loc 1 90 0
- 116 0004 0020     		movs	r0, #0
- 117              	.LVL11:
- 118 0006 5421     		movs	r1, #84
- 119 0008 FFF7FEFF 		bl	WriteEEP
- 120              	.LVL12:
+ 114              		.loc 1 90 0
+ 115 0004 5421     		movs	r1, #84
+ 116 0006 0020     		movs	r0, #0
+ 117              	.LVL12:
+ 118 0008 FFF7FEFF 		bl	WriteEEP
+ 119              	.LVL13:
   91:VS4210/etc_eep.c **** 	WriteEEP(1, 'O');
- 121              		.loc 1 91 0
- 122 000c 0120     		movs	r0, #1
- 123 000e 4F21     		movs	r1, #79
- 124 0010 FFF7FEFF 		bl	WriteEEP
- 125              	.LVL13:
+ 120              		.loc 1 91 0
+ 121 000c 4F21     		movs	r1, #79
+ 122 000e 0120     		movs	r0, #1
+ 123 0010 FFF7FEFF 		bl	WriteEEP
+ 124              	.LVL14:
   92:VS4210/etc_eep.c **** 	WriteEEP(2, 'A');
- 126              		.loc 1 92 0
- 127 0014 0220     		movs	r0, #2
- 128 0016 4121     		movs	r1, #65
- 129 0018 FFF7FEFF 		bl	WriteEEP
- 130              	.LVL14:
+ 125              		.loc 1 92 0
+ 126 0014 4121     		movs	r1, #65
+ 127 0016 0220     		movs	r0, #2
+ 128 0018 FFF7FEFF 		bl	WriteEEP
+ 129              	.LVL15:
   93:VS4210/etc_eep.c **** 	WriteEEP(3, '0');
- 131              		.loc 1 93 0
- 132 001c 0320     		movs	r0, #3
- 133 001e 3021     		movs	r1, #48
- 134 0020 FFF7FEFF 		bl	WriteEEP
-ARM GAS  /tmp/ccmMM3V0.s 			page 5
+ 130              		.loc 1 93 0
+ 131 001c 3021     		movs	r1, #48
+ 132 001e 0320     		movs	r0, #3
+ARM GAS  /tmp/ccJpWupm.s 			page 5
 
 
- 135              	.LVL15:
+ 133 0020 FFF7FEFF 		bl	WriteEEP
+ 134              	.LVL16:
   94:VS4210/etc_eep.c **** 	WriteEEP(EEP_FWREV_MAJOR, (BYTE)(rev>>8) );
- 136              		.loc 1 94 0
- 137 0024 0420     		movs	r0, #4
- 138 0026 C4F30721 		ubfx	r1, r4, #8, #8
- 139 002a FFF7FEFF 		bl	WriteEEP
- 140              	.LVL16:
+ 135              		.loc 1 94 0
+ 136 0024 C4F30721 		ubfx	r1, r4, #8, #8
+ 137 0028 0420     		movs	r0, #4
+ 138 002a FFF7FEFF 		bl	WriteEEP
+ 139              	.LVL17:
   95:VS4210/etc_eep.c **** 	WriteEEP(EEP_FWREV_MINOR, (BYTE)rev );
- 141              		.loc 1 95 0
- 142 002e 0520     		movs	r0, #5
- 143 0030 E1B2     		uxtb	r1, r4
- 144 0032 FFF7FEFF 		bl	WriteEEP
- 145              	.LVL17:
- 146 0036 10BD     		pop	{r4, pc}
- 147              		.cfi_endproc
- 148              	.LFE66:
- 150              		.section	.text.GetDebugLevelEE,"ax",%progbits
- 151              		.align	2
- 152              		.global	GetDebugLevelEE
- 153              		.thumb
- 154              		.thumb_func
- 156              	GetDebugLevelEE:
- 157              	.LFB67:
+ 140              		.loc 1 95 0
+ 141 002e E1B2     		uxtb	r1, r4
+ 142 0030 0520     		movs	r0, #5
+ 143 0032 FFF7FEFF 		bl	WriteEEP
+ 144              	.LVL18:
   96:VS4210/etc_eep.c **** 
   97:VS4210/etc_eep.c **** }
+ 145              		.loc 1 97 0
+ 146 0036 10BD     		pop	{r4, pc}
+ 147              		.cfi_endproc
+ 148              	.LFE69:
+ 150              		.section	.text.GetDebugLevelEE,"ax",%progbits
+ 151              		.align	1
+ 152              		.global	GetDebugLevelEE
+ 153              		.syntax unified
+ 154              		.thumb
+ 155              		.thumb_func
+ 156              		.fpu softvfp
+ 158              	GetDebugLevelEE:
+ 159              	.LFB70:
   98:VS4210/etc_eep.c **** 
   99:VS4210/etc_eep.c **** #if 0/// (_DEBUG_MESSAGE_Monitor==ON)
  100:VS4210/etc_eep.c **** 
@@ -277,67 +281,55 @@ ARM GAS  /tmp/ccmMM3V0.s 			page 1
  106:VS4210/etc_eep.c **** 
  107:VS4210/etc_eep.c **** BYTE GetDebugLevelEE(void)
  108:VS4210/etc_eep.c **** {
- 158              		.loc 1 108 0
- 159              		.cfi_startproc
- 160              		@ args = 0, pretend = 0, frame = 0
- 161              		@ frame_needed = 0, uses_anonymous_args = 0
- 162 0000 08B5     		push	{r3, lr}
- 163              	.LCFI2:
- 164              		.cfi_def_cfa_offset 8
- 165              		.cfi_offset 3, -8
- 166              		.cfi_offset 14, -4
+ 160              		.loc 1 108 0
+ 161              		.cfi_startproc
+ 162              		@ args = 0, pretend = 0, frame = 0
+ 163              		@ frame_needed = 0, uses_anonymous_args = 0
+ 164 0000 08B5     		push	{r3, lr}
+ 165              	.LCFI2:
+ 166              		.cfi_def_cfa_offset 8
+ 167              		.cfi_offset 3, -8
+ 168              		.cfi_offset 14, -4
  109:VS4210/etc_eep.c **** 	return ReadEEP(EEP_DEBUGLEVEL);
- 167              		.loc 1 109 0
- 168 0002 0720     		movs	r0, #7
- 169 0004 FFF7FEFF 		bl	ReadEEP
- 170              	.LVL18:
+ 169              		.loc 1 109 0
+ 170 0002 0720     		movs	r0, #7
+ 171 0004 FFF7FEFF 		bl	ReadEEP
+ 172              	.LVL19:
  110:VS4210/etc_eep.c **** }
- 171              		.loc 1 110 0
- 172 0008 08BD     		pop	{r3, pc}
- 173              		.cfi_endproc
- 174              	.LFE67:
- 176 000a 00BF     		.section	.text.ResetOSDValue,"ax",%progbits
- 177              		.align	2
-ARM GAS  /tmp/ccmMM3V0.s 			page 6
+ 173              		.loc 1 110 0
+ 174 0008 08BD     		pop	{r3, pc}
+ARM GAS  /tmp/ccJpWupm.s 			page 6
 
 
- 178              		.global	ResetOSDValue
- 179              		.thumb
- 180              		.thumb_func
- 182              	ResetOSDValue:
- 183              	.LFB68:
+ 175              		.cfi_endproc
+ 176              	.LFE70:
+ 178              		.section	.text.ResetOSDValue,"ax",%progbits
+ 179              		.align	1
+ 180              		.global	ResetOSDValue
+ 181              		.syntax unified
+ 182              		.thumb
+ 183              		.thumb_func
+ 184              		.fpu softvfp
+ 186              	ResetOSDValue:
+ 187              	.LFB71:
  111:VS4210/etc_eep.c **** 
  112:VS4210/etc_eep.c **** //===================================================================
  113:VS4210/etc_eep.c **** void ResetOSDValue(void)
  114:VS4210/etc_eep.c **** {
- 184              		.loc 1 114 0
- 185              		.cfi_startproc
- 186              		@ args = 0, pretend = 0, frame = 0
- 187              		@ frame_needed = 0, uses_anonymous_args = 0
- 188 0000 08B5     		push	{r3, lr}
- 189              	.LCFI3:
- 190              		.cfi_def_cfa_offset 8
- 191              		.cfi_offset 3, -8
- 192              		.cfi_offset 14, -4
+ 188              		.loc 1 114 0
+ 189              		.cfi_startproc
+ 190              		@ args = 0, pretend = 0, frame = 0
+ 191              		@ frame_needed = 0, uses_anonymous_args = 0
+ 192 0000 08B5     		push	{r3, lr}
+ 193              	.LCFI3:
+ 194              		.cfi_def_cfa_offset 8
+ 195              		.cfi_offset 3, -8
+ 196              		.cfi_offset 14, -4
  115:VS4210/etc_eep.c **** Printf("\r\nReset OSD Data..");
- 193              		.loc 1 115 0
- 194 0002 0248     		ldr	r0, .L14
- 195 0004 FFF7FEFF 		bl	Printf
- 196              	.LVL19:
- 197 0008 08BD     		pop	{r3, pc}
- 198              	.L15:
- 199 000a 00BF     		.align	2
- 200              	.L14:
- 201 000c 00000000 		.word	.LC0
- 202              		.cfi_endproc
- 203              	.LFE68:
- 205              		.section	.text.ClearBasicEE,"ax",%progbits
- 206              		.align	2
- 207              		.global	ClearBasicEE
- 208              		.thumb
- 209              		.thumb_func
- 211              	ClearBasicEE:
- 212              	.LFB69:
+ 197              		.loc 1 115 0
+ 198 0002 0248     		ldr	r0, .L18
+ 199 0004 FFF7FEFF 		bl	Printf
+ 200              	.LVL20:
  116:VS4210/etc_eep.c **** #if 0
  117:VS4210/etc_eep.c **** 	   WriteEEP(EEP_AutoMode , 0x00);	  // Auto Day&Night...... OFF
  118:VS4210/etc_eep.c **** 
@@ -358,9 +350,6 @@ ARM GAS  /tmp/ccmMM3V0.s 			page 1
  133:VS4210/etc_eep.c **** 	   WriteEEP(EEP_DVRDisplay,0x00); 	 //DVR Display OSD... ON
  134:VS4210/etc_eep.c **** 	   WriteEEP(EEP_CAMAMode,0x00); 	 // MirrorA....... OFF
  135:VS4210/etc_eep.c **** 	   WriteEEP(EEP_CAMBMode,0x00); 	 // MirrorB....... OFF
-ARM GAS  /tmp/ccmMM3V0.s 			page 7
-
-
  136:VS4210/etc_eep.c **** 	   WriteEEP(EEP_CAMCMode,0x00); 	 // MirrorC....... OFF
  137:VS4210/etc_eep.c **** 	   WriteEEP(EEP_CAMRMode,0x01); 	 // MirrorR....... ON
  138:VS4210/etc_eep.c **** 	   WriteEEP(EEP_AUDIOPVOL,50);       // AudioVol
@@ -369,6 +358,9 @@ ARM GAS  /tmp/ccmMM3V0.s 			page 1
  141:VS4210/etc_eep.c **** 
  142:VS4210/etc_eep.c **** 	   AudioVol=50;
  143:VS4210/etc_eep.c **** 	 //  ChangeVol(0);
+ARM GAS  /tmp/ccJpWupm.s 			page 7
+
+
  144:VS4210/etc_eep.c **** 	   WriteEEP(EEP_PCAUDIOPVOL,50);
  145:VS4210/etc_eep.c **** 	   WriteEEP(EEP_AudioRecord,0x03); 	 // dvr audio channel
  146:VS4210/etc_eep.c **** 	
@@ -418,9 +410,6 @@ ARM GAS  /tmp/ccmMM3V0.s 			page 1
  190:VS4210/etc_eep.c **** 
  191:VS4210/etc_eep.c **** //	   ClearDataCnt(INPUTINFO_ADDR, 51);   //william-980416
  192:VS4210/etc_eep.c **** 
-ARM GAS  /tmp/ccmMM3V0.s 			page 8
-
-
  193:VS4210/etc_eep.c **** 	   LoadEEPROM();
  194:VS4210/etc_eep.c **** 
  195:VS4210/etc_eep.c **** 	  NowModeState=SelectMode;
@@ -429,6 +418,9 @@ ARM GAS  /tmp/ccmMM3V0.s 			page 1
  198:VS4210/etc_eep.c **** 	   WriteEEP(EEP_NowModeState,SelectMode);
  199:VS4210/etc_eep.c **** 			
  200:VS4210/etc_eep.c **** 		WriteEEP(EEP_SelectMode,SelectModeType);
+ARM GAS  /tmp/ccJpWupm.s 			page 8
+
+
  201:VS4210/etc_eep.c **** 		 setloopoutmode(SelectModeType) ;
  202:VS4210/etc_eep.c **** 
  203:VS4210/etc_eep.c **** LoadVideoData();
@@ -437,63 +429,65 @@ ARM GAS  /tmp/ccmMM3V0.s 			page 1
  206:VS4210/etc_eep.c **** 
  207:VS4210/etc_eep.c **** 
  208:VS4210/etc_eep.c **** }
+ 201              		.loc 1 208 0
+ 202 0008 08BD     		pop	{r3, pc}
+ 203              	.L19:
+ 204 000a 00BF     		.align	2
+ 205              	.L18:
+ 206 000c 00000000 		.word	.LC0
+ 207              		.cfi_endproc
+ 208              	.LFE71:
+ 210              		.section	.text.ClearBasicEE,"ax",%progbits
+ 211              		.align	1
+ 212              		.global	ClearBasicEE
+ 213              		.syntax unified
+ 214              		.thumb
+ 215              		.thumb_func
+ 216              		.fpu softvfp
+ 218              	ClearBasicEE:
+ 219              	.LFB72:
  209:VS4210/etc_eep.c **** 
  210:VS4210/etc_eep.c **** void ClearBasicEE(void)
  211:VS4210/etc_eep.c **** {
- 213              		.loc 1 211 0
- 214              		.cfi_startproc
- 215              		@ args = 0, pretend = 0, frame = 0
- 216              		@ frame_needed = 0, uses_anonymous_args = 0
- 217 0000 08B5     		push	{r3, lr}
- 218              	.LCFI4:
- 219              		.cfi_def_cfa_offset 8
- 220              		.cfi_offset 3, -8
- 221              		.cfi_offset 14, -4
+ 220              		.loc 1 211 0
+ 221              		.cfi_startproc
+ 222              		@ args = 0, pretend = 0, frame = 0
+ 223              		@ frame_needed = 0, uses_anonymous_args = 0
+ 224 0000 08B5     		push	{r3, lr}
+ 225              	.LCFI4:
+ 226              		.cfi_def_cfa_offset 8
+ 227              		.cfi_offset 3, -8
+ 228              		.cfi_offset 14, -4
  212:VS4210/etc_eep.c **** 
  213:VS4210/etc_eep.c **** 	Printf("\r\nClearBasicEE...");
- 222              		.loc 1 213 0
- 223 0002 0648     		ldr	r0, .L18
- 224 0004 FFF7FEFF 		bl	Printf
- 225              	.LVL20:
+ 229              		.loc 1 213 0
+ 230 0002 0648     		ldr	r0, .L22
+ 231 0004 FFF7FEFF 		bl	Printf
+ 232              	.LVL21:
  214:VS4210/etc_eep.c **** 
  215:VS4210/etc_eep.c **** 	WriteEEP(EEP_PRIORITY,0x01);	//PRIORITY.........OFF	Andy-980602
- 226              		.loc 1 215 0
- 227 0008 AD20     		movs	r0, #173
- 228 000a 0121     		movs	r1, #1
- 229 000c FFF7FEFF 		bl	WriteEEP
- 230              	.LVL21:
+ 233              		.loc 1 215 0
+ 234 0008 0121     		movs	r1, #1
+ 235 000a AD20     		movs	r0, #173
+ 236 000c FFF7FEFF 		bl	WriteEEP
+ 237              	.LVL22:
  216:VS4210/etc_eep.c **** 	Priority=1;
- 231              		.loc 1 216 0
- 232 0010 0122     		movs	r2, #1
- 233 0012 034B     		ldr	r3, .L18+4
- 234 0014 1A70     		strb	r2, [r3]
+ 238              		.loc 1 216 0
+ 239 0010 034B     		ldr	r3, .L22+4
+ 240 0012 0122     		movs	r2, #1
+ 241 0014 1A70     		strb	r2, [r3]
  217:VS4210/etc_eep.c **** 
  218:VS4210/etc_eep.c **** //	SaveVInputStdDetectModeEE(0);	// AUTO
+ARM GAS  /tmp/ccJpWupm.s 			page 9
+
+
  219:VS4210/etc_eep.c **** //	WriteEEP(EEP_CCD, 0);	// CC = OFF
  220:VS4210/etc_eep.c **** 
  221:VS4210/etc_eep.c **** 
  222:VS4210/etc_eep.c **** 	ResetOSDValue();  //Pinchi 20150212 enable
- 235              		.loc 1 222 0
- 236 0016 FFF7FEFF 		bl	ResetOSDValue
- 237              	.LVL22:
- 238 001a 08BD     		pop	{r3, pc}
- 239              	.L19:
-ARM GAS  /tmp/ccmMM3V0.s 			page 9
-
-
- 240              		.align	2
- 241              	.L18:
- 242 001c 14000000 		.word	.LC1
- 243 0020 00000000 		.word	Priority
- 244              		.cfi_endproc
- 245              	.LFE69:
- 247              		.section	.text.GetAudioVolEE,"ax",%progbits
- 248              		.align	2
- 249              		.global	GetAudioVolEE
- 250              		.thumb
- 251              		.thumb_func
- 253              	GetAudioVolEE:
- 254              	.LFB70:
+ 242              		.loc 1 222 0
+ 243 0016 FFF7FEFF 		bl	ResetOSDValue
+ 244              	.LVL23:
  223:VS4210/etc_eep.c **** 
  224:VS4210/etc_eep.c **** //	ResetVideoValue();
  225:VS4210/etc_eep.c **** 
@@ -511,177 +505,217 @@ ARM GAS  /tmp/ccmMM3V0.s 			page 1
  237:VS4210/etc_eep.c **** 	WriteEEP(EEP_DC12_PWR_START, OFF); 	
  238:VS4210/etc_eep.c **** */	
  239:VS4210/etc_eep.c **** }
+ 245              		.loc 1 239 0
+ 246 001a 08BD     		pop	{r3, pc}
+ 247              	.L23:
+ 248              		.align	2
+ 249              	.L22:
+ 250 001c 00000000 		.word	.LC1
+ 251 0020 00000000 		.word	Priority
+ 252              		.cfi_endproc
+ 253              	.LFE72:
+ 255              		.section	.text.GetAudioVolEE,"ax",%progbits
+ 256              		.align	1
+ 257              		.global	GetAudioVolEE
+ 258              		.syntax unified
+ 259              		.thumb
+ 260              		.thumb_func
+ 261              		.fpu softvfp
+ 263              	GetAudioVolEE:
+ 264              	.LFB73:
  240:VS4210/etc_eep.c **** 
  241:VS4210/etc_eep.c **** //=========  Audio =================================================
  242:VS4210/etc_eep.c **** BYTE GetAudioVolEE(void)
  243:VS4210/etc_eep.c **** {
- 255              		.loc 1 243 0
- 256              		.cfi_startproc
- 257              		@ args = 0, pretend = 0, frame = 0
- 258              		@ frame_needed = 0, uses_anonymous_args = 0
- 259 0000 08B5     		push	{r3, lr}
- 260              	.LCFI5:
- 261              		.cfi_def_cfa_offset 8
- 262              		.cfi_offset 3, -8
- 263              		.cfi_offset 14, -4
+ 265              		.loc 1 243 0
+ 266              		.cfi_startproc
+ 267              		@ args = 0, pretend = 0, frame = 0
+ 268              		@ frame_needed = 0, uses_anonymous_args = 0
+ 269 0000 08B5     		push	{r3, lr}
+ 270              	.LCFI5:
+ 271              		.cfi_def_cfa_offset 8
+ 272              		.cfi_offset 3, -8
+ 273              		.cfi_offset 14, -4
  244:VS4210/etc_eep.c **** 	return ReadEEP( EEP_AUDIOPVOL );
- 264              		.loc 1 244 0
- 265 0002 3820     		movs	r0, #56
- 266 0004 FFF7FEFF 		bl	ReadEEP
- 267              	.LVL23:
+ 274              		.loc 1 244 0
+ARM GAS  /tmp/ccJpWupm.s 			page 10
+
+
+ 275 0002 3820     		movs	r0, #56
+ 276 0004 FFF7FEFF 		bl	ReadEEP
+ 277              	.LVL24:
  245:VS4210/etc_eep.c **** }
- 268              		.loc 1 245 0
- 269 0008 08BD     		pop	{r3, pc}
- 270              		.cfi_endproc
- 271              	.LFE70:
- 273 000a 00BF     		.section	.text.SetAudioVolEE,"ax",%progbits
- 274              		.align	2
- 275              		.global	SetAudioVolEE
- 276              		.thumb
-ARM GAS  /tmp/ccmMM3V0.s 			page 10
-
-
- 277              		.thumb_func
- 279              	SetAudioVolEE:
- 280              	.LFB71:
+ 278              		.loc 1 245 0
+ 279 0008 08BD     		pop	{r3, pc}
+ 280              		.cfi_endproc
+ 281              	.LFE73:
+ 283              		.section	.text.SetAudioVolEE,"ax",%progbits
+ 284              		.align	1
+ 285              		.global	SetAudioVolEE
+ 286              		.syntax unified
+ 287              		.thumb
+ 288              		.thumb_func
+ 289              		.fpu softvfp
+ 291              	SetAudioVolEE:
+ 292              	.LFB74:
  246:VS4210/etc_eep.c **** 
  247:VS4210/etc_eep.c **** void SetAudioVolEE( BYTE vol )
  248:VS4210/etc_eep.c **** {
- 281              		.loc 1 248 0
- 282              		.cfi_startproc
- 283              		@ args = 0, pretend = 0, frame = 0
- 284              		@ frame_needed = 0, uses_anonymous_args = 0
- 285              	.LVL24:
- 286 0000 08B5     		push	{r3, lr}
- 287              	.LCFI6:
- 288              		.cfi_def_cfa_offset 8
- 289              		.cfi_offset 3, -8
- 290              		.cfi_offset 14, -4
- 291 0002 0146     		mov	r1, r0
+ 293              		.loc 1 248 0
+ 294              		.cfi_startproc
+ 295              		@ args = 0, pretend = 0, frame = 0
+ 296              		@ frame_needed = 0, uses_anonymous_args = 0
+ 297              	.LVL25:
+ 298 0000 08B5     		push	{r3, lr}
+ 299              	.LCFI6:
+ 300              		.cfi_def_cfa_offset 8
+ 301              		.cfi_offset 3, -8
+ 302              		.cfi_offset 14, -4
  249:VS4210/etc_eep.c **** 	WriteEEP( EEP_AUDIOPVOL, vol );
- 292              		.loc 1 249 0
- 293 0004 3820     		movs	r0, #56
- 294              	.LVL25:
- 295 0006 FFF7FEFF 		bl	WriteEEP
- 296              	.LVL26:
- 297 000a 08BD     		pop	{r3, pc}
- 298              		.cfi_endproc
- 299              	.LFE71:
- 301              		.section	.text.GetPCAudioVolEE,"ax",%progbits
- 302              		.align	2
- 303              		.global	GetPCAudioVolEE
- 304              		.thumb
- 305              		.thumb_func
- 307              	GetPCAudioVolEE:
- 308              	.LFB72:
+ 303              		.loc 1 249 0
+ 304 0002 0146     		mov	r1, r0
+ 305 0004 3820     		movs	r0, #56
+ 306              	.LVL26:
+ 307 0006 FFF7FEFF 		bl	WriteEEP
+ 308              	.LVL27:
  250:VS4210/etc_eep.c **** }
+ 309              		.loc 1 250 0
+ 310 000a 08BD     		pop	{r3, pc}
+ 311              		.cfi_endproc
+ 312              	.LFE74:
+ 314              		.section	.text.GetPCAudioVolEE,"ax",%progbits
+ 315              		.align	1
+ 316              		.global	GetPCAudioVolEE
+ 317              		.syntax unified
+ 318              		.thumb
+ 319              		.thumb_func
+ 320              		.fpu softvfp
+ 322              	GetPCAudioVolEE:
+ 323              	.LFB75:
  251:VS4210/etc_eep.c **** 
  252:VS4210/etc_eep.c **** BYTE GetPCAudioVolEE(void)
  253:VS4210/etc_eep.c **** {
- 309              		.loc 1 253 0
- 310              		.cfi_startproc
- 311              		@ args = 0, pretend = 0, frame = 0
- 312              		@ frame_needed = 0, uses_anonymous_args = 0
- 313 0000 08B5     		push	{r3, lr}
- 314              	.LCFI7:
- 315              		.cfi_def_cfa_offset 8
- 316              		.cfi_offset 3, -8
- 317              		.cfi_offset 14, -4
+ 324              		.loc 1 253 0
+ 325              		.cfi_startproc
+ 326              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccJpWupm.s 			page 11
+
+
+ 327              		@ frame_needed = 0, uses_anonymous_args = 0
+ 328 0000 08B5     		push	{r3, lr}
+ 329              	.LCFI7:
+ 330              		.cfi_def_cfa_offset 8
+ 331              		.cfi_offset 3, -8
+ 332              		.cfi_offset 14, -4
  254:VS4210/etc_eep.c **** 	return ReadEEP( EEP_PCAUDIOPVOL );
- 318              		.loc 1 254 0
- 319 0002 3720     		movs	r0, #55
- 320 0004 FFF7FEFF 		bl	ReadEEP
- 321              	.LVL27:
+ 333              		.loc 1 254 0
+ 334 0002 3720     		movs	r0, #55
+ 335 0004 FFF7FEFF 		bl	ReadEEP
+ 336              	.LVL28:
  255:VS4210/etc_eep.c **** }
- 322              		.loc 1 255 0
- 323 0008 08BD     		pop	{r3, pc}
- 324              		.cfi_endproc
- 325              	.LFE72:
- 327 000a 00BF     		.section	.text.SetPCAudioVolEE,"ax",%progbits
-ARM GAS  /tmp/ccmMM3V0.s 			page 11
-
-
- 328              		.align	2
- 329              		.global	SetPCAudioVolEE
- 330              		.thumb
- 331              		.thumb_func
- 333              	SetPCAudioVolEE:
- 334              	.LFB73:
+ 337              		.loc 1 255 0
+ 338 0008 08BD     		pop	{r3, pc}
+ 339              		.cfi_endproc
+ 340              	.LFE75:
+ 342              		.section	.text.SetPCAudioVolEE,"ax",%progbits
+ 343              		.align	1
+ 344              		.global	SetPCAudioVolEE
+ 345              		.syntax unified
+ 346              		.thumb
+ 347              		.thumb_func
+ 348              		.fpu softvfp
+ 350              	SetPCAudioVolEE:
+ 351              	.LFB76:
  256:VS4210/etc_eep.c **** void SetPCAudioVolEE( BYTE vol )
  257:VS4210/etc_eep.c **** {
- 335              		.loc 1 257 0
- 336              		.cfi_startproc
- 337              		@ args = 0, pretend = 0, frame = 0
- 338              		@ frame_needed = 0, uses_anonymous_args = 0
- 339              	.LVL28:
- 340 0000 08B5     		push	{r3, lr}
- 341              	.LCFI8:
- 342              		.cfi_def_cfa_offset 8
- 343              		.cfi_offset 3, -8
- 344              		.cfi_offset 14, -4
- 345 0002 0146     		mov	r1, r0
+ 352              		.loc 1 257 0
+ 353              		.cfi_startproc
+ 354              		@ args = 0, pretend = 0, frame = 0
+ 355              		@ frame_needed = 0, uses_anonymous_args = 0
+ 356              	.LVL29:
+ 357 0000 08B5     		push	{r3, lr}
+ 358              	.LCFI8:
+ 359              		.cfi_def_cfa_offset 8
+ 360              		.cfi_offset 3, -8
+ 361              		.cfi_offset 14, -4
  258:VS4210/etc_eep.c **** 	WriteEEP( EEP_PCAUDIOPVOL, vol );
- 346              		.loc 1 258 0
- 347 0004 3720     		movs	r0, #55
- 348              	.LVL29:
- 349 0006 FFF7FEFF 		bl	WriteEEP
- 350              	.LVL30:
- 351 000a 08BD     		pop	{r3, pc}
- 352              		.cfi_endproc
- 353              	.LFE73:
- 355              		.comm	newInRes,4,4
- 356              		.section	.rodata.str1.4,"aMS",%progbits,1
- 357              		.align	2
- 358              	.LC0:
- 359 0000 0D0A5265 		.ascii	"\015\012Reset OSD Data..\000"
- 359      73657420 
- 359      4F534420 
- 359      44617461 
- 359      2E2E00
- 360 0013 00       		.space	1
- 361              	.LC1:
- 362 0014 0D0A436C 		.ascii	"\015\012ClearBasicEE...\000"
- 362      65617242 
- 362      61736963 
- 362      45452E2E 
- 362      2E00
- 363              		.text
- 364              	.Letext0:
- 365              		.file 2 "/usr/include/newlib/machine/_default_types.h"
- 366              		.file 3 "/usr/include/newlib/sys/_stdint.h"
- 367              		.file 4 "VS4210/VXIS_Extern_Define.h"
- 368              		.file 5 "TP2824/tpinc/TP2802.h"
- 369              		.file 6 "Drivers/CMSIS/Include/core_cm3.h"
- 370              		.file 7 "VS4210/etc_eep.h"
- 371              		.file 8 "VS4210/printf.h"
-ARM GAS  /tmp/ccmMM3V0.s 			page 12
+ 362              		.loc 1 258 0
+ 363 0002 0146     		mov	r1, r0
+ 364 0004 3720     		movs	r0, #55
+ 365              	.LVL30:
+ 366 0006 FFF7FEFF 		bl	WriteEEP
+ 367              	.LVL31:
+ 259:VS4210/etc_eep.c **** }
+ 368              		.loc 1 259 0
+ 369 000a 08BD     		pop	{r3, pc}
+ 370              		.cfi_endproc
+ 371              	.LFE76:
+ 373              		.comm	newInRes,4,4
+ 374              		.section	.rodata.ClearBasicEE.str1.4,"aMS",%progbits,1
+ 375              		.align	2
+ 376              	.LC1:
+ 377 0000 0D0A436C 		.ascii	"\015\012ClearBasicEE...\000"
+ 377      65617242 
+ 377      61736963 
+ 377      45452E2E 
+ARM GAS  /tmp/ccJpWupm.s 			page 12
+
+
+ 377      2E00
+ 378              		.section	.rodata.ResetOSDValue.str1.4,"aMS",%progbits,1
+ 379              		.align	2
+ 380              	.LC0:
+ 381 0000 0D0A5265 		.ascii	"\015\012Reset OSD Data..\000"
+ 381      73657420 
+ 381      4F534420 
+ 381      44617461 
+ 381      2E2E00
+ 382              		.text
+ 383              	.Letext0:
+ 384              		.file 2 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/machine/_default_
+ 385              		.file 3 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/lock.h"
+ 386              		.file 4 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_types.h"
+ 387              		.file 5 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/lib/gcc/arm-none-eabi/7.3.1/include/std
+ 388              		.file 6 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/reent.h"
+ 389              		.file 7 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_stdint.h"
+ 390              		.file 8 "VS4210/VXIS_Extern_Define.h"
+ 391              		.file 9 "TP2824/tpinc/TP2802.h"
+ 392              		.file 10 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/stdlib.h"
+ 393              		.file 11 "sw_i2c/VX_swi2c.h"
+ 394              		.file 12 "VS4210/VS4210.h"
+ 395              		.file 13 "Drivers/CMSIS/Include/core_cm3.h"
+ 396              		.file 14 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 397              		.file 15 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 398              		.file 16 "VS4210/etc_eep.h"
+ 399              		.file 17 "VS4210/printf.h"
+ARM GAS  /tmp/ccJpWupm.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 etc_eep.c
-     /tmp/ccmMM3V0.s:19     .text.GetFWRevEE:0000000000000000 $t
-     /tmp/ccmMM3V0.s:24     .text.GetFWRevEE:0000000000000000 GetFWRevEE
-     /tmp/ccmMM3V0.s:97     .text.SaveFWRevEE:0000000000000000 $t
-     /tmp/ccmMM3V0.s:102    .text.SaveFWRevEE:0000000000000000 SaveFWRevEE
-     /tmp/ccmMM3V0.s:151    .text.GetDebugLevelEE:0000000000000000 $t
-     /tmp/ccmMM3V0.s:156    .text.GetDebugLevelEE:0000000000000000 GetDebugLevelEE
-     /tmp/ccmMM3V0.s:177    .text.ResetOSDValue:0000000000000000 $t
-     /tmp/ccmMM3V0.s:182    .text.ResetOSDValue:0000000000000000 ResetOSDValue
-     /tmp/ccmMM3V0.s:201    .text.ResetOSDValue:000000000000000c $d
-     /tmp/ccmMM3V0.s:206    .text.ClearBasicEE:0000000000000000 $t
-     /tmp/ccmMM3V0.s:211    .text.ClearBasicEE:0000000000000000 ClearBasicEE
-     /tmp/ccmMM3V0.s:242    .text.ClearBasicEE:000000000000001c $d
-     /tmp/ccmMM3V0.s:248    .text.GetAudioVolEE:0000000000000000 $t
-     /tmp/ccmMM3V0.s:253    .text.GetAudioVolEE:0000000000000000 GetAudioVolEE
-     /tmp/ccmMM3V0.s:274    .text.SetAudioVolEE:0000000000000000 $t
-     /tmp/ccmMM3V0.s:279    .text.SetAudioVolEE:0000000000000000 SetAudioVolEE
-     /tmp/ccmMM3V0.s:302    .text.GetPCAudioVolEE:0000000000000000 $t
-     /tmp/ccmMM3V0.s:307    .text.GetPCAudioVolEE:0000000000000000 GetPCAudioVolEE
-     /tmp/ccmMM3V0.s:328    .text.SetPCAudioVolEE:0000000000000000 $t
-     /tmp/ccmMM3V0.s:333    .text.SetPCAudioVolEE:0000000000000000 SetPCAudioVolEE
+     /tmp/ccJpWupm.s:16     .text.GetFWRevEE:0000000000000000 $t
+     /tmp/ccJpWupm.s:23     .text.GetFWRevEE:0000000000000000 GetFWRevEE
+     /tmp/ccJpWupm.s:94     .text.SaveFWRevEE:0000000000000000 $t
+     /tmp/ccJpWupm.s:101    .text.SaveFWRevEE:0000000000000000 SaveFWRevEE
+     /tmp/ccJpWupm.s:151    .text.GetDebugLevelEE:0000000000000000 $t
+     /tmp/ccJpWupm.s:158    .text.GetDebugLevelEE:0000000000000000 GetDebugLevelEE
+     /tmp/ccJpWupm.s:179    .text.ResetOSDValue:0000000000000000 $t
+     /tmp/ccJpWupm.s:186    .text.ResetOSDValue:0000000000000000 ResetOSDValue
+     /tmp/ccJpWupm.s:206    .text.ResetOSDValue:000000000000000c $d
+     /tmp/ccJpWupm.s:211    .text.ClearBasicEE:0000000000000000 $t
+     /tmp/ccJpWupm.s:218    .text.ClearBasicEE:0000000000000000 ClearBasicEE
+     /tmp/ccJpWupm.s:250    .text.ClearBasicEE:000000000000001c $d
+     /tmp/ccJpWupm.s:256    .text.GetAudioVolEE:0000000000000000 $t
+     /tmp/ccJpWupm.s:263    .text.GetAudioVolEE:0000000000000000 GetAudioVolEE
+     /tmp/ccJpWupm.s:284    .text.SetAudioVolEE:0000000000000000 $t
+     /tmp/ccJpWupm.s:291    .text.SetAudioVolEE:0000000000000000 SetAudioVolEE
+     /tmp/ccJpWupm.s:315    .text.GetPCAudioVolEE:0000000000000000 $t
+     /tmp/ccJpWupm.s:322    .text.GetPCAudioVolEE:0000000000000000 GetPCAudioVolEE
+     /tmp/ccJpWupm.s:343    .text.SetPCAudioVolEE:0000000000000000 $t
+     /tmp/ccJpWupm.s:350    .text.SetPCAudioVolEE:0000000000000000 SetPCAudioVolEE
                             *COM*:0000000000000004 newInRes
-     /tmp/ccmMM3V0.s:357    .rodata.str1.4:0000000000000000 $d
-                     .debug_frame:0000000000000010 $d
+     /tmp/ccJpWupm.s:375    .rodata.ClearBasicEE.str1.4:0000000000000000 $d
+     /tmp/ccJpWupm.s:379    .rodata.ResetOSDValue.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 ReadEEP

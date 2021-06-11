@@ -157,6 +157,8 @@ tcByte TP2824C_DataSet[] =
     0x4d, 0x0F,
     0x4e, 0x0F,  //chunyu
     0xf1, 0x00,//different with TP2826
+    0x10,0x67,//ryan@20210611 TOA changes the Brighness=0x67
+    0x12,0x70,//ryan@20210611 TOA changes the UVGAIN=0x70	
 /*cocrx
 //PTZ RX
 //	0xc6, 0x1F,//0x19,	//TXBITCNNUM
