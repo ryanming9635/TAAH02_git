@@ -1184,7 +1184,8 @@ for(;s<=e;s++)
 		  else if(Monitor_I2C==0x88)
 					  {
 					  ret= tp28xx_byte_read(s);		
-					   Printf("\r\ntp28xx,%02x,%02x",(WORD)s,(WORD)ret);
+					 // Printf("\r\ntp28xx,%02x,%02x",(WORD)s,(WORD)ret);
+					  Printf("\r\nR %02x %02x",(WORD)s,(WORD)ret);
 					  } 
 		  else if(Monitor_I2C==0x90)
 								{
