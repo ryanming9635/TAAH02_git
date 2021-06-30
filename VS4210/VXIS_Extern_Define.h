@@ -20,6 +20,7 @@
 #define _IT66021_                                	1
 #define VS4210_MUTICHIP_NUMBER 		1
 
+#define DisplayOSDEnable       			OFF
 //_MCU_ _MCU8051_ _IT66021_
 
 //#define OSD_10SEC_OFF

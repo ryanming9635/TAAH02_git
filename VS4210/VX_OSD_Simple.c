@@ -457,6 +457,7 @@ static void VX_Write_OSD_In_OutString(tByte ch , tByte *Str1,tByte *Str2, int ou
 
     if (ch == 0  )
     {
+    	#if (DisplayOSDEnable==ON)
         if (TitleFlg == 1 )
         {
             SetOsdSize(_Title0,Str1[0],1);
@@ -474,6 +475,7 @@ static void VX_Write_OSD_In_OutString(tByte ch , tByte *Str1,tByte *Str2, int ou
             OsdDumpAttribute(0x40,Str2,_Color);
             SetOsdPosition(_Bar0,ix,iy + 20 + OSDx2Flg*20);
         }
+		#endif
     }
     else if (ch == 1 )
     {
