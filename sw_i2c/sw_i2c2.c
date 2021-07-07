@@ -53,7 +53,8 @@ static const uint8_t TWI_BUS_ERROR   =3;
 static void TWI_NOP(void)
 {
     uint8_t j;
-    for (j = 0; j < 1 ; j++)
+   // for (j = 0; j < 1 ; j++)
+ for (j = 0; j < 2 ; j++)//ryan@20210623 for GD32F103RET
     {
     }
 }

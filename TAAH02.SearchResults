@@ -1,15 +1,5 @@
----- HS_Select_Win Matches (14 in 7 files) ----
-Main.c (src):2173:					HS_Select_Win(1);
-Main.c (src):2188:			//	HS_Select_Win(HDMI_SELECT_GET());
-Main.c (src):2191:					HS_Select_Win(1);
-Main.c (src):2193:				HS_Select_Win(0);
-Main.c (src):4493:void HS_Select_Win(unsigned char WinNum)	//20201214-02
-Main.h (inc):111:void HS_Select_Win(unsigned char WinNum); //20201214-01
-Monitor.c (vs4210):1413:		HS_Select_Win(ch);
-Monitor.c (vs4210):1448:		HS_Select_Win(0);
-Monitor.c (vs4210):1455:		HS_Select_Win(1);
-SysTimer.c (vs4210):1355:			//HS_Select_Win(1);
-SysTimer.c (vs4210):1362:				//HS_Select_Win(0);
-TP2802.c (tp2824):1786:				  HS_Select_Win(1);
-TP2802.h (tp2824\tpinc):138:extern void HS_Select_Win(unsigned char WinNum);	//20201214-02
-VXIS_Extern_Define.h (vs4210):594://7. Created HS_Select_Win() function to select window 0 or window 1. 20201214-02
+---- HSE_STARTUP_TIMEOUT Matches (4 in 2 files) ----
+Stm32f1xx_hal_conf.h (inc):90:#if !defined  (HSE_STARTUP_TIMEOUT)
+Stm32f1xx_hal_conf.h (inc):91:  #define HSE_STARTUP_TIMEOUT    ((uint32_t)100)   /*!< Time out for HSE start up, in ms */
+Stm32f1xx_hal_conf.h (inc):92:#endif /* HSE_STARTUP_TIMEOUT */
+Stm32f1xx_hal_rcc.h (drivers\stm32f1xx_hal_driver\inc):1206:#define HSE_TIMEOUT_VALUE              HSE_STARTUP_TIMEOUT
