@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccSlyJE8.s 			page 1
+ARM GAS  /tmp/ccHLRkD5.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
   31:VS4210/Printf.c **** static const char *_PrintColor[] = {
   32:VS4210/Printf.c **** "\033[0m",
   33:VS4210/Printf.c **** "\033[0;31m",
-ARM GAS  /tmp/ccSlyJE8.s 			page 2
+ARM GAS  /tmp/ccHLRkD5.s 			page 2
 
 
   34:VS4210/Printf.c **** "\033[0;32m",
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
   63:VS4210/Printf.c **** 	while(1) {
   64:VS4210/Printf.c **** 		
   65:VS4210/Printf.c **** 		//----- Find Formatter % -----
-ARM GAS  /tmp/ccSlyJE8.s 			page 3
+ARM GAS  /tmp/ccHLRkD5.s 			page 3
 
 
   66:VS4210/Printf.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
   87:VS4210/Printf.c **** 			ch = *fmt++;
   88:VS4210/Printf.c **** 		}
   89:VS4210/Printf.c **** 		else if( ch>='0' && ch<='9' ) {
-ARM GAS  /tmp/ccSlyJE8.s 			page 4
+ARM GAS  /tmp/ccHLRkD5.s 			page 4
 
 
   82              		.loc 1 89 0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  122 005e 30D1     		bne	.L45
  123              	.L11:
  124              	.LVL20:
-ARM GAS  /tmp/ccSlyJE8.s 			page 5
+ARM GAS  /tmp/ccHLRkD5.s 			page 5
 
 
   99:VS4210/Printf.c **** 		case 'l':
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  170 00b2 DF00     		.2byte	(.L14-.L16)/2
  171 00b4 A200     		.2byte	(.L15-.L16)/2
  172              	.LVL24:
-ARM GAS  /tmp/ccSlyJE8.s 			page 6
+ARM GAS  /tmp/ccHLRkD5.s 			page 6
 
 
  173              		.p2align 1
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  118:VS4210/Printf.c **** 					#else
  119:VS4210/Printf.c **** 					if( ch=='d' ) value = (char)va_arg( ap, char );
  120:VS4210/Printf.c **** 					else          value = (BYTE)va_arg( ap, BYTE );
-ARM GAS  /tmp/ccSlyJE8.s 			page 7
+ARM GAS  /tmp/ccHLRkD5.s 			page 7
 
 
  121:VS4210/Printf.c **** 					#endif
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  239              	.LVL34:
  240 00fc F6B2     		uxtb	r6, r6
  241              	.LVL35:
-ARM GAS  /tmp/ccSlyJE8.s 			page 8
+ARM GAS  /tmp/ccHLRkD5.s 			page 8
 
 
  242 00fe F3E7     		b	.L29
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  290              	.L22:
  130:VS4210/Printf.c **** 					else          value = (DWORD)va_arg( ap, DWORD );
  291              		.loc 1 130 0
-ARM GAS  /tmp/ccSlyJE8.s 			page 9
+ARM GAS  /tmp/ccHLRkD5.s 			page 9
 
 
  292 0130 642B     		cmp	r3, #100
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  337 0160 07EB8702 		add	r2, r7, r7, lsl #2
  338 0164 5700     		lsls	r7, r2, #1
  339              	.LVL60:
-ARM GAS  /tmp/ccSlyJE8.s 			page 10
+ARM GAS  /tmp/ccHLRkD5.s 			page 10
 
 
  340 0166 0133     		adds	r3, r3, #1
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  159:VS4210/Printf.c **** 					
  160:VS4210/Printf.c **** 					if( mask==0 )
  385              		.loc 1 160 0
-ARM GAS  /tmp/ccSlyJE8.s 			page 11
+ARM GAS  /tmp/ccHLRkD5.s 			page 11
 
 
  386 019c FF08     		lsrs	r7, r7, #3
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  419              	.LVL78:
  420              	.L39:
  179:VS4210/Printf.c **** 
-ARM GAS  /tmp/ccSlyJE8.s 			page 12
+ARM GAS  /tmp/ccHLRkD5.s 			page 12
 
 
  180:VS4210/Printf.c **** 				for(i=0; i<cnt; i++) {
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  469 0202 FFB2     		uxtb	r7, r7
  470              	.LVL91:
  471              	.L40:
-ARM GAS  /tmp/ccSlyJE8.s 			page 13
+ARM GAS  /tmp/ccHLRkD5.s 			page 13
 
 
  180:VS4210/Printf.c **** 					_outchar( Hex[(value >> (cnt-i-1)*4) & 0x000f] );
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  204:VS4210/Printf.c **** 			case 'c':
  205:VS4210/Printf.c **** 				value = va_arg( ap, int );
  502              		.loc 1 205 0
-ARM GAS  /tmp/ccSlyJE8.s 			page 14
+ARM GAS  /tmp/ccHLRkD5.s 			page 14
 
 
  503 0222 019B     		ldr	r3, [sp, #4]
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  549              		.fpu softvfp
  551              	Printf:
  552              	.LFB4:
-ARM GAS  /tmp/ccSlyJE8.s 			page 15
+ARM GAS  /tmp/ccHLRkD5.s 			page 15
 
 
  215:VS4210/Printf.c **** 
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  593              		.cfi_restore 0
  594              		.cfi_def_cfa_offset 0
  595 001a 7047     		bx	lr
-ARM GAS  /tmp/ccSlyJE8.s 			page 16
+ARM GAS  /tmp/ccHLRkD5.s 			page 16
 
 
  596              		.cfi_endproc
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  641              	.LCFI13:
  642              		.cfi_restore 14
  643              		.cfi_def_cfa_offset 16
-ARM GAS  /tmp/ccSlyJE8.s 			page 17
+ARM GAS  /tmp/ccHLRkD5.s 			page 17
 
 
  644 0018 04B0     		add	sp, sp, #16
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  693              	.LFE6:
  695              		.section	.text.GraphicsPrint,"ax",%progbits
  696              		.align	1
-ARM GAS  /tmp/ccSlyJE8.s 			page 18
+ARM GAS  /tmp/ccHLRkD5.s 			page 18
 
 
  697              		.global	GraphicsPrint
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  293:VS4210/Printf.c **** {
  294:VS4210/Printf.c **** 	if( DebugLevel >= DEBUG_INFO ) {
  295:VS4210/Printf.c **** 		while(*ptr!='\0')
-ARM GAS  /tmp/ccSlyJE8.s 			page 19
+ARM GAS  /tmp/ccHLRkD5.s 			page 19
 
 
  296:VS4210/Printf.c **** 			RS_tx(*ptr++);
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  723              		.loc 1 331 0
  724 0006 0B4B     		ldr	r3, .L76
  725 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  /tmp/ccSlyJE8.s 			page 20
+ARM GAS  /tmp/ccHLRkD5.s 			page 20
 
 
  726 000a 012B     		cmp	r3, #1
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  760              		.cfi_def_cfa_offset 0
  761 0030 7047     		bx	lr
  762              	.L77:
-ARM GAS  /tmp/ccSlyJE8.s 			page 21
+ARM GAS  /tmp/ccHLRkD5.s 			page 21
 
 
  763 0032 00BF     		.align	2
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  811      33366D00 
  812              	.LC7:
  813 0030 1B5B303B 		.ascii	"\033[0;37m\000"
-ARM GAS  /tmp/ccSlyJE8.s 			page 22
+ARM GAS  /tmp/ccHLRkD5.s 			page 22
 
 
  813      33376D00 
@@ -1277,32 +1277,32 @@ ARM GAS  /tmp/ccSlyJE8.s 			page 1
  826              		.file 12 "sw_i2c/VX_swi2c.h"
  827              		.file 13 "VS4210/VS4210.h"
  828              		.file 14 "VS4210/printf.h"
-ARM GAS  /tmp/ccSlyJE8.s 			page 23
+ARM GAS  /tmp/ccHLRkD5.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 Printf.c
-     /tmp/ccSlyJE8.s:16     .text.DoPrint:0000000000000000 $t
-     /tmp/ccSlyJE8.s:23     .text.DoPrint:0000000000000000 DoPrint
-     /tmp/ccSlyJE8.s:139    .text.DoPrint:0000000000000074 $d
-     /tmp/ccSlyJE8.s:173    .text.DoPrint:00000000000000b6 $t
-     /tmp/ccSlyJE8.s:538    .text.DoPrint:0000000000000244 $d
-     /tmp/ccSlyJE8.s:544    .text.Printf:0000000000000000 $t
-     /tmp/ccSlyJE8.s:551    .text.Printf:0000000000000000 Printf
-     /tmp/ccSlyJE8.s:600    .text.DEBUG_MESSAGE:0000000000000000 $t
-     /tmp/ccSlyJE8.s:607    .text.DEBUG_MESSAGE:0000000000000000 DEBUG_MESSAGE
-     /tmp/ccSlyJE8.s:656    .text.Puts:0000000000000000 $t
-     /tmp/ccSlyJE8.s:663    .text.Puts:0000000000000000 Puts
-     /tmp/ccSlyJE8.s:696    .text.GraphicsPrint:0000000000000000 $t
-     /tmp/ccSlyJE8.s:703    .text.GraphicsPrint:0000000000000000 GraphicsPrint
-     /tmp/ccSlyJE8.s:765    .text.GraphicsPrint:0000000000000034 $d
-     /tmp/ccSlyJE8.s:778    .data.Hex:0000000000000000 Hex
+     /tmp/ccHLRkD5.s:16     .text.DoPrint:0000000000000000 $t
+     /tmp/ccHLRkD5.s:23     .text.DoPrint:0000000000000000 DoPrint
+     /tmp/ccHLRkD5.s:139    .text.DoPrint:0000000000000074 $d
+     /tmp/ccHLRkD5.s:173    .text.DoPrint:00000000000000b6 $t
+     /tmp/ccHLRkD5.s:538    .text.DoPrint:0000000000000244 $d
+     /tmp/ccHLRkD5.s:544    .text.Printf:0000000000000000 $t
+     /tmp/ccHLRkD5.s:551    .text.Printf:0000000000000000 Printf
+     /tmp/ccHLRkD5.s:600    .text.DEBUG_MESSAGE:0000000000000000 $t
+     /tmp/ccHLRkD5.s:607    .text.DEBUG_MESSAGE:0000000000000000 DEBUG_MESSAGE
+     /tmp/ccHLRkD5.s:656    .text.Puts:0000000000000000 $t
+     /tmp/ccHLRkD5.s:663    .text.Puts:0000000000000000 Puts
+     /tmp/ccHLRkD5.s:696    .text.GraphicsPrint:0000000000000000 $t
+     /tmp/ccHLRkD5.s:703    .text.GraphicsPrint:0000000000000000 GraphicsPrint
+     /tmp/ccHLRkD5.s:765    .text.GraphicsPrint:0000000000000034 $d
+     /tmp/ccHLRkD5.s:778    .data.Hex:0000000000000000 Hex
                             *COM*:0000000000000004 newInRes
-     /tmp/ccSlyJE8.s:774    .data.Hex:0000000000000000 $d
-     /tmp/ccSlyJE8.s:781    .rodata.GraphicsPrint.str1.4:0000000000000000 $d
-     /tmp/ccSlyJE8.s:785    .rodata._PrintColor:0000000000000000 $d
-     /tmp/ccSlyJE8.s:789    .rodata._PrintColor:0000000000000000 _PrintColor
-     /tmp/ccSlyJE8.s:799    .rodata.str1.4:0000000000000000 $d
+     /tmp/ccHLRkD5.s:774    .data.Hex:0000000000000000 $d
+     /tmp/ccHLRkD5.s:781    .rodata.GraphicsPrint.str1.4:0000000000000000 $d
+     /tmp/ccHLRkD5.s:785    .rodata._PrintColor:0000000000000000 $d
+     /tmp/ccHLRkD5.s:789    .rodata._PrintColor:0000000000000000 _PrintColor
+     /tmp/ccHLRkD5.s:799    .rodata.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 RS_tx
