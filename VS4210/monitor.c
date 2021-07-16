@@ -54,6 +54,8 @@ BYTE Monitor_I2C=0x40;//0x88;//0x40;///0x90;//0x40;//0x28;//0x12;//EEPROM_24C02_
 		bit	        RS_Xbusy=0;			// bit RS_Xbusy=0;
 		bit 		RS2_Xbusy=0; 		// bit RS_Xbusy=0;
 
+BYTE bytVersionFlag=0;
+
 static bit indirect=0;
 extern BYTE TriggerFlag;
 
@@ -166,6 +168,11 @@ HAL_UART_Transmit(&huart2,&tx_buf,1,0xffff);
 //=============================================================================
 void Prompt(void)
 {
+if(bytVersionFlag)
+	bytVersionFlag=0;
+else
+{
+
 	if(day)
 	{
 	Printf("\r\nMCU_I2C[%02x][%d:%d:%d:%d]>",(WORD)Monitor_I2C,(WORD)day,(WORD)hour,(WORD)minute,(WORD)second);
@@ -182,7 +189,7 @@ void Prompt(void)
 		{
 		Printf("\r\nMCU_I2C[%02x][%d]>",(WORD)Monitor_I2C,(WORD)second);
 		}
-
+}
 }
 
 void Mon_tx(BYTE ch)
@@ -1025,7 +1032,10 @@ else
 			}
 		*/
 	}  
-	
+	else if(!stricmp( (BYTE *)argv[0],(BYTE *) "FW" )){
+		bytVersionFlag=1;
+		Printf("\r\nTAAH02 FW Version:V%04x", (WORD)GetFWRevEE());
+		}
 	else if ( !stricmp( (BYTE *)argv[0],(BYTE *) "VR" ) ) {
 			//MonReadI2C();
 	//	 ret=VXISI2CRead(Asc2Bin(argv[1])); 

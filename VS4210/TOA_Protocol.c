@@ -72,7 +72,7 @@ if ( RS2_ready())
 		if ((c == MCU_PROTOCOL_CMD_Sync)&&(protocol_state==PROTOCOL_STATE_NONE))
 		{	
 			#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-			GraphicsPrint(CYAN,"\r\n(GOT)");
+			Printf("\r\n(GOT)");
 			#endif
 			//protocol_escape_flag = 0;
 			protocol_state = PROTOCOL_STATE_Sync;

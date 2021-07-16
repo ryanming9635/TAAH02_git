@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccQzhlAu.s 			page 1
+ARM GAS  /tmp/ccQ2BhSc.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccQzhlAu.s 			page 1
   31:VS4210/TOA_Protocol.c **** #include "Printf.h"
   32:VS4210/TOA_Protocol.c **** #include "TOA_Protocol.h"
   33:VS4210/TOA_Protocol.c **** 
-ARM GAS  /tmp/ccQzhlAu.s 			page 2
+ARM GAS  /tmp/ccQ2BhSc.s 			page 2
 
 
   34:VS4210/TOA_Protocol.c **** bit protocol_escape_flag;
@@ -116,9 +116,9 @@ ARM GAS  /tmp/ccQzhlAu.s 			page 1
   72:VS4210/TOA_Protocol.c **** 		if ((c == MCU_PROTOCOL_CMD_Sync)&&(protocol_state==PROTOCOL_STATE_NONE))
   73:VS4210/TOA_Protocol.c **** 		{	
   74:VS4210/TOA_Protocol.c **** 			#if(_DEBUG_MESSAGE_UART_Protocol==ON)
-  75:VS4210/TOA_Protocol.c **** 			GraphicsPrint(CYAN,"\r\n(GOT)");
+  75:VS4210/TOA_Protocol.c **** 			Printf("\r\n(GOT)");
   76:VS4210/TOA_Protocol.c **** 			#endif
-ARM GAS  /tmp/ccQzhlAu.s 			page 3
+ARM GAS  /tmp/ccQ2BhSc.s 			page 3
 
 
   77:VS4210/TOA_Protocol.c **** 			//protocol_escape_flag = 0;
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccQzhlAu.s 			page 1
  131:VS4210/TOA_Protocol.c **** 						//GraphicsPrint(YELLOW,"(2=%02x)",(WORD)c);
  132:VS4210/TOA_Protocol.c **** 	                                        #endif
  133:VS4210/TOA_Protocol.c **** 											
-ARM GAS  /tmp/ccQzhlAu.s 			page 4
+ARM GAS  /tmp/ccQ2BhSc.s 			page 4
 
 
  134:VS4210/TOA_Protocol.c **** 						protocol_cmd=c;
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccQzhlAu.s 			page 1
  188:VS4210/TOA_Protocol.c **** 								RS2_tx((BYTE)(FWVER>>8));//DATA1
  189:VS4210/TOA_Protocol.c **** 								RS2_tx((BYTE)(FWVER));//DATA2
  190:VS4210/TOA_Protocol.c **** 									
-ARM GAS  /tmp/ccQzhlAu.s 			page 5
+ARM GAS  /tmp/ccQ2BhSc.s 			page 5
 
 
  191:VS4210/TOA_Protocol.c **** 								//Check SUM
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccQzhlAu.s 			page 1
  245:VS4210/TOA_Protocol.c **** 							CMDCount=3;
  246:VS4210/TOA_Protocol.c **** 						}
  247:VS4210/TOA_Protocol.c **** 					else if(protocol_data==0x60)
-ARM GAS  /tmp/ccQzhlAu.s 			page 6
+ARM GAS  /tmp/ccQ2BhSc.s 			page 6
 
 
  248:VS4210/TOA_Protocol.c **** 						{
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccQzhlAu.s 			page 1
  302:VS4210/TOA_Protocol.c **** 								CMDCount=3;
  303:VS4210/TOA_Protocol.c ****                             					break;
  304:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_RIGHT:
-ARM GAS  /tmp/ccQzhlAu.s 			page 7
+ARM GAS  /tmp/ccQ2BhSc.s 			page 7
 
 
  305:VS4210/TOA_Protocol.c **** 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccQzhlAu.s 			page 1
  359:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_UP_LEFT:
  360:VS4210/TOA_Protocol.c **** 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
  361:VS4210/TOA_Protocol.c **** 								GraphicsPrint(GREEN,"(UP_LEFT)");
-ARM GAS  /tmp/ccQzhlAu.s 			page 8
+ARM GAS  /tmp/ccQ2BhSc.s 			page 8
 
 
  362:VS4210/TOA_Protocol.c **** 								#endif
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccQzhlAu.s 			page 1
  416:VS4210/TOA_Protocol.c **** 								GraphicsPrint(GREEN,"(CMD:FOCUS_FAR)");
  417:VS4210/TOA_Protocol.c **** 								#endif
  418:VS4210/TOA_Protocol.c **** 								TVI_Command=0x10;
-ARM GAS  /tmp/ccQzhlAu.s 			page 9
+ARM GAS  /tmp/ccQ2BhSc.s 			page 9
 
 
  419:VS4210/TOA_Protocol.c **** 								presetNum=0x00;
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccQzhlAu.s 			page 1
  473:VS4210/TOA_Protocol.c **** 						protocol_state=PROTOCOL_STATE_NONE;									
  474:VS4210/TOA_Protocol.c **** 						} 
  475:VS4210/TOA_Protocol.c **** 							break;
-ARM GAS  /tmp/ccQzhlAu.s 			page 10
+ARM GAS  /tmp/ccQ2BhSc.s 			page 10
 
 
  476:VS4210/TOA_Protocol.c **** 
@@ -598,10 +598,10 @@ ARM GAS  /tmp/ccQzhlAu.s 			page 1
   54 0014 AD4B     		ldr	r3, .L61
   55 0016 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
   56 0018 082B     		cmp	r3, #8
-ARM GAS  /tmp/ccQzhlAu.s 			page 11
+ARM GAS  /tmp/ccQ2BhSc.s 			page 11
 
 
-  57 001a 29D8     		bhi	.L52
+  57 001a 28D8     		bhi	.L52
   58              	.LVL3:
   59              	.L4:
  106:VS4210/TOA_Protocol.c **** 		{
@@ -632,13 +632,13 @@ ARM GAS  /tmp/ccQzhlAu.s 			page 1
   80 0038 00F23783 		bhi	.L6
   81 003c DFE813F0 		tbh	[pc, r3, lsl #1]
   82              	.L8:
-  83 0040 2000     		.2byte	(.L7-.L8)/2
+  83 0040 1F00     		.2byte	(.L7-.L8)/2
   84 0042 3503     		.2byte	(.L6-.L8)/2
-  85 0044 3900     		.2byte	(.L9-.L8)/2
-  86 0046 4300     		.2byte	(.L10-.L8)/2
-  87 0048 5000     		.2byte	(.L11-.L8)/2
-  88 004a 5A00     		.2byte	(.L12-.L8)/2
-  89 004c 6700     		.2byte	(.L13-.L8)/2
+  85 0044 3800     		.2byte	(.L9-.L8)/2
+  86 0046 4200     		.2byte	(.L10-.L8)/2
+  87 0048 4F00     		.2byte	(.L11-.L8)/2
+  88 004a 5900     		.2byte	(.L12-.L8)/2
+  89 004c 6600     		.2byte	(.L13-.L8)/2
   90              	.LVL4:
   91              		.p2align 1
   92              	.L51:
@@ -650,1594 +650,1593 @@ ARM GAS  /tmp/ccQzhlAu.s 			page 1
   97 0054 DED1     		bne	.L3
   75:VS4210/TOA_Protocol.c **** 			#endif
   98              		.loc 1 75 0
-  99 0056 A049     		ldr	r1, .L61+12
- 100 0058 0620     		movs	r0, #6
- 101              	.LVL5:
- 102 005a FFF7FEFF 		bl	GraphicsPrint
- 103              	.LVL6:
+  99 0056 A048     		ldr	r0, .L61+12
+ 100              	.LVL5:
+ 101 0058 FFF7FEFF 		bl	Printf
+ 102              	.LVL6:
   78:VS4210/TOA_Protocol.c **** 			protocol_chksum = 0;
- 104              		.loc 1 78 0
- 105 005e 0123     		movs	r3, #1
-ARM GAS  /tmp/ccQzhlAu.s 			page 12
+ 103              		.loc 1 78 0
+ 104 005c 0123     		movs	r3, #1
+ 105 005e 9C4A     		ldr	r2, .L61+4
+ARM GAS  /tmp/ccQ2BhSc.s 			page 12
 
 
- 106 0060 9B4A     		ldr	r2, .L61+4
- 107 0062 1370     		strb	r3, [r2]
+ 106 0060 1370     		strb	r3, [r2]
   79:VS4210/TOA_Protocol.c **** 			protocol_data_count=1;
- 108              		.loc 1 79 0
- 109 0064 9B4A     		ldr	r2, .L61+8
- 110 0066 0021     		movs	r1, #0
- 111 0068 1170     		strb	r1, [r2]
+ 107              		.loc 1 79 0
+ 108 0062 9C4A     		ldr	r2, .L61+8
+ 109 0064 0021     		movs	r1, #0
+ 110 0066 1170     		strb	r1, [r2]
   80:VS4210/TOA_Protocol.c **** 			return;	
- 112              		.loc 1 80 0
- 113 006a 984A     		ldr	r2, .L61
- 114 006c 1370     		strb	r3, [r2]
+ 111              		.loc 1 80 0
+ 112 0068 984A     		ldr	r2, .L61
+ 113 006a 1370     		strb	r3, [r2]
   81:VS4210/TOA_Protocol.c **** 		}else if(protocol_data_count>8)//reset command error
- 115              		.loc 1 81 0
- 116 006e CBE7     		b	.L1
- 117              	.LVL7:
- 118              	.L52:
+ 114              		.loc 1 81 0
+ 115 006c CCE7     		b	.L1
+ 116              	.LVL7:
+ 117              	.L52:
   85:VS4210/TOA_Protocol.c **** 					#endif
- 119              		.loc 1 85 0
- 120 0070 9A49     		ldr	r1, .L61+16
- 121 0072 0120     		movs	r0, #1
- 122              	.LVL8:
- 123 0074 FFF7FEFF 		bl	GraphicsPrint
- 124              	.LVL9:
+ 118              		.loc 1 85 0
+ 119 006e 9B49     		ldr	r1, .L61+16
+ 120 0070 0120     		movs	r0, #1
+ 121              	.LVL8:
+ 122 0072 FFF7FEFF 		bl	GraphicsPrint
+ 123              	.LVL9:
   87:VS4210/TOA_Protocol.c **** 
- 125              		.loc 1 87 0
- 126 0078 954B     		ldr	r3, .L61+4
- 127 007a 0022     		movs	r2, #0
- 128 007c 1A70     		strb	r2, [r3]
- 129 007e CDE7     		b	.L4
- 130              	.L7:
+ 124              		.loc 1 87 0
+ 125 0076 964B     		ldr	r3, .L61+4
+ 126 0078 0022     		movs	r2, #0
+ 127 007a 1A70     		strb	r2, [r3]
+ 128 007c CEE7     		b	.L4
+ 129              	.L7:
  120:VS4210/TOA_Protocol.c **** 						protocol_state=PROTOCOL_STATE_COM1;
- 131              		.loc 1 120 0
- 132 0080 9CB9     		cbnz	r4, .L14
+ 130              		.loc 1 120 0
+ 131 007e 9CB9     		cbnz	r4, .L14
  121:VS4210/TOA_Protocol.c **** 					else
- 133              		.loc 1 121 0
- 134 0082 934B     		ldr	r3, .L61+4
- 135 0084 0322     		movs	r2, #3
- 136 0086 1A70     		strb	r2, [r3]
- 137              	.L15:
+ 132              		.loc 1 121 0
+ 133 0080 934B     		ldr	r3, .L61+4
+ 134 0082 0322     		movs	r2, #3
+ 135 0084 1A70     		strb	r2, [r3]
+ 136              	.L15:
  125:VS4210/TOA_Protocol.c **** 					break;
- 138              		.loc 1 125 0
- 139 0088 904A     		ldr	r2, .L61
- 140 008a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 141 008c 0133     		adds	r3, r3, #1
- 142 008e 1370     		strb	r3, [r2]
- 143              	.L16:
+ 137              		.loc 1 125 0
+ 138 0086 914A     		ldr	r2, .L61
+ 139 0088 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 140 008a 0133     		adds	r3, r3, #1
+ 141 008c 1370     		strb	r3, [r2]
+ 142              	.L16:
  502:VS4210/TOA_Protocol.c **** 				{
- 144              		.loc 1 502 0
- 145 0090 934B     		ldr	r3, .L61+20
- 146 0092 1B68     		ldr	r3, [r3]
- 147 0094 012B     		cmp	r3, #1
- 148 0096 B7D1     		bne	.L1
+ 143              		.loc 1 502 0
+ 144 008e 944B     		ldr	r3, .L61+20
+ 145 0090 1B68     		ldr	r3, [r3]
+ 146 0092 012B     		cmp	r3, #1
+ 147 0094 B8D1     		bne	.L1
  504:VS4210/TOA_Protocol.c **** 				#if(_DEBUG_MESSAGE_UART_Protocol==ON)
- 149              		.loc 1 504 0
- 150 0098 FFF7FEFF 		bl	Get_2824cIrq
- 151              	.LVL10:
+ 148              		.loc 1 504 0
+ 149 0096 FFF7FEFF 		bl	Get_2824cIrq
+ 150              	.LVL10:
  507:VS4210/TOA_Protocol.c **** 				#endif
-ARM GAS  /tmp/ccQzhlAu.s 			page 13
+ 151              		.loc 1 507 0
+ARM GAS  /tmp/ccQ2BhSc.s 			page 13
 
 
- 152              		.loc 1 507 0
- 153 009c 914B     		ldr	r3, .L61+24
- 154 009e 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
- 155 00a0 9149     		ldr	r1, .L61+28
- 156 00a2 0220     		movs	r0, #2
- 157 00a4 FFF7FEFF 		bl	GraphicsPrint
- 158              	.LVL11:
- 159 00a8 AEE7     		b	.L1
- 160              	.L14:
+ 152 009a 924B     		ldr	r3, .L61+24
+ 153 009c 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 154 009e 9249     		ldr	r1, .L61+28
+ 155 00a0 0220     		movs	r0, #2
+ 156 00a2 FFF7FEFF 		bl	GraphicsPrint
+ 157              	.LVL11:
+ 158 00a6 AFE7     		b	.L1
+ 159              	.L14:
  123:VS4210/TOA_Protocol.c **** 
- 161              		.loc 1 123 0
- 162 00aa 894B     		ldr	r3, .L61+4
- 163 00ac 0022     		movs	r2, #0
- 164 00ae 1A70     		strb	r2, [r3]
- 165 00b0 EAE7     		b	.L15
- 166              	.L9:
+ 160              		.loc 1 123 0
+ 161 00a8 894B     		ldr	r3, .L61+4
+ 162 00aa 0022     		movs	r2, #0
+ 163 00ac 1A70     		strb	r2, [r3]
+ 164 00ae EAE7     		b	.L15
+ 165              	.L9:
  134:VS4210/TOA_Protocol.c **** 						protocol_state=PROTOCOL_STATE_COM2;
- 167              		.loc 1 134 0
- 168 00b2 8E4B     		ldr	r3, .L61+32
- 169 00b4 1C60     		str	r4, [r3]
+ 166              		.loc 1 134 0
+ 167 00b0 8E4B     		ldr	r3, .L61+32
+ 168 00b2 1C60     		str	r4, [r3]
  135:VS4210/TOA_Protocol.c **** 						protocol_data_count++;
- 170              		.loc 1 135 0
- 171 00b6 864B     		ldr	r3, .L61+4
- 172 00b8 0422     		movs	r2, #4
- 173 00ba 1A70     		strb	r2, [r3]
+ 169              		.loc 1 135 0
+ 170 00b4 864B     		ldr	r3, .L61+4
+ 171 00b6 0422     		movs	r2, #4
+ 172 00b8 1A70     		strb	r2, [r3]
  136:VS4210/TOA_Protocol.c **** 					break;
- 174              		.loc 1 136 0
- 175 00bc 834A     		ldr	r2, .L61
- 176 00be 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 177 00c0 0133     		adds	r3, r3, #1
- 178 00c2 1370     		strb	r3, [r2]
+ 173              		.loc 1 136 0
+ 174 00ba 844A     		ldr	r2, .L61
+ 175 00bc 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 176 00be 0133     		adds	r3, r3, #1
+ 177 00c0 1370     		strb	r3, [r2]
  137:VS4210/TOA_Protocol.c **** 
- 179              		.loc 1 137 0
- 180 00c4 E4E7     		b	.L16
- 181              	.L10:
+ 178              		.loc 1 137 0
+ 179 00c2 E4E7     		b	.L16
+ 180              	.L10:
  145:VS4210/TOA_Protocol.c **** 						protocol_state=PROTOCOL_STATE_DATA1;				
- 182              		.loc 1 145 0
- 183 00c6 894A     		ldr	r2, .L61+32
- 184 00c8 1368     		ldr	r3, [r2]
- 185 00ca 44EA0324 		orr	r4, r4, r3, lsl #8
- 186 00ce 1460     		str	r4, [r2]
+ 181              		.loc 1 145 0
+ 182 00c4 894A     		ldr	r2, .L61+32
+ 183 00c6 1368     		ldr	r3, [r2]
+ 184 00c8 44EA0324 		orr	r4, r4, r3, lsl #8
+ 185 00cc 1460     		str	r4, [r2]
  146:VS4210/TOA_Protocol.c **** 					protocol_data_count++;
- 187              		.loc 1 146 0
- 188 00d0 7F4B     		ldr	r3, .L61+4
- 189 00d2 0522     		movs	r2, #5
- 190 00d4 1A70     		strb	r2, [r3]
+ 186              		.loc 1 146 0
+ 187 00ce 804B     		ldr	r3, .L61+4
+ 188 00d0 0522     		movs	r2, #5
+ 189 00d2 1A70     		strb	r2, [r3]
  147:VS4210/TOA_Protocol.c **** 					break;
- 191              		.loc 1 147 0
- 192 00d6 7D4A     		ldr	r2, .L61
- 193 00d8 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 194 00da 0133     		adds	r3, r3, #1
- 195 00dc 1370     		strb	r3, [r2]
+ 190              		.loc 1 147 0
+ 191 00d4 7D4A     		ldr	r2, .L61
+ 192 00d6 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 193 00d8 0133     		adds	r3, r3, #1
+ 194 00da 1370     		strb	r3, [r2]
  148:VS4210/TOA_Protocol.c **** 				case PROTOCOL_STATE_DATA1:	
- 196              		.loc 1 148 0
- 197 00de D7E7     		b	.L16
- 198              	.L11:
+ 195              		.loc 1 148 0
+ 196 00dc D7E7     		b	.L16
+ 197              	.L11:
  154:VS4210/TOA_Protocol.c **** 						protocol_state=PROTOCOL_STATE_DATA2;				
-ARM GAS  /tmp/ccQzhlAu.s 			page 14
+ 198              		.loc 1 154 0
+ARM GAS  /tmp/ccQ2BhSc.s 			page 14
 
 
- 199              		.loc 1 154 0
- 200 00e0 834B     		ldr	r3, .L61+36
- 201 00e2 1C60     		str	r4, [r3]
+ 199 00de 844B     		ldr	r3, .L61+36
+ 200 00e0 1C60     		str	r4, [r3]
  155:VS4210/TOA_Protocol.c **** 						protocol_data_count++;		
- 202              		.loc 1 155 0
- 203 00e4 7A4B     		ldr	r3, .L61+4
- 204 00e6 0622     		movs	r2, #6
- 205 00e8 1A70     		strb	r2, [r3]
+ 201              		.loc 1 155 0
+ 202 00e2 7B4B     		ldr	r3, .L61+4
+ 203 00e4 0622     		movs	r2, #6
+ 204 00e6 1A70     		strb	r2, [r3]
  156:VS4210/TOA_Protocol.c **** 					break;
- 206              		.loc 1 156 0
- 207 00ea 784A     		ldr	r2, .L61
- 208 00ec 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 209 00ee 0133     		adds	r3, r3, #1
- 210 00f0 1370     		strb	r3, [r2]
+ 205              		.loc 1 156 0
+ 206 00e8 784A     		ldr	r2, .L61
+ 207 00ea 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 208 00ec 0133     		adds	r3, r3, #1
+ 209 00ee 1370     		strb	r3, [r2]
  157:VS4210/TOA_Protocol.c **** 				case PROTOCOL_STATE_DATA2:	
- 211              		.loc 1 157 0
- 212 00f2 CDE7     		b	.L16
- 213              	.L12:
+ 210              		.loc 1 157 0
+ 211 00f0 CDE7     		b	.L16
+ 212              	.L12:
  162:VS4210/TOA_Protocol.c **** 						protocol_state=PROTOCOL_STATE_CHECKSUM;	
- 214              		.loc 1 162 0
- 215 00f4 7E4A     		ldr	r2, .L61+36
- 216 00f6 1368     		ldr	r3, [r2]
- 217 00f8 44EA0324 		orr	r4, r4, r3, lsl #8
- 218 00fc 1460     		str	r4, [r2]
+ 213              		.loc 1 162 0
+ 214 00f2 7F4A     		ldr	r2, .L61+36
+ 215 00f4 1368     		ldr	r3, [r2]
+ 216 00f6 44EA0324 		orr	r4, r4, r3, lsl #8
+ 217 00fa 1460     		str	r4, [r2]
  163:VS4210/TOA_Protocol.c **** 						protocol_data_count++;
- 219              		.loc 1 163 0
- 220 00fe 744B     		ldr	r3, .L61+4
- 221 0100 0722     		movs	r2, #7
- 222 0102 1A70     		strb	r2, [r3]
+ 218              		.loc 1 163 0
+ 219 00fc 744B     		ldr	r3, .L61+4
+ 220 00fe 0722     		movs	r2, #7
+ 221 0100 1A70     		strb	r2, [r3]
  164:VS4210/TOA_Protocol.c **** 					break;
- 223              		.loc 1 164 0
- 224 0104 714A     		ldr	r2, .L61
- 225 0106 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 226 0108 0133     		adds	r3, r3, #1
- 227 010a 1370     		strb	r3, [r2]
+ 222              		.loc 1 164 0
+ 223 0102 724A     		ldr	r2, .L61
+ 224 0104 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 225 0106 0133     		adds	r3, r3, #1
+ 226 0108 1370     		strb	r3, [r2]
  165:VS4210/TOA_Protocol.c **** 				case PROTOCOL_STATE_CHECKSUM:		
- 228              		.loc 1 165 0
- 229 010c C0E7     		b	.L16
- 230              	.L13:
+ 227              		.loc 1 165 0
+ 228 010a C0E7     		b	.L16
+ 229              	.L13:
  167:VS4210/TOA_Protocol.c **** 						{
- 231              		.loc 1 167 0
- 232 010e 714B     		ldr	r3, .L61+8
- 233 0110 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 234 0112 A342     		cmp	r3, r4
- 235 0114 40F0C182 		bne	.L17
+ 230              		.loc 1 167 0
+ 231 010c 714B     		ldr	r3, .L61+8
+ 232 010e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 233 0110 A342     		cmp	r3, r4
+ 234 0112 40F0C282 		bne	.L17
  169:VS4210/TOA_Protocol.c **** 							switch(protocol_cmd)
- 236              		.loc 1 169 0
- 237 0118 6C4A     		ldr	r2, .L61
- 238 011a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 239 011c 0133     		adds	r3, r3, #1
- 240 011e 1370     		strb	r3, [r2]
+ 235              		.loc 1 169 0
+ 236 0116 6D4A     		ldr	r2, .L61
+ 237 0118 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 238 011a 0133     		adds	r3, r3, #1
+ 239 011c 1370     		strb	r3, [r2]
  170:VS4210/TOA_Protocol.c **** 							{
- 241              		.loc 1 170 0
- 242 0120 724B     		ldr	r3, .L61+32
- 243 0122 1B68     		ldr	r3, [r3]
- 244 0124 102B     		cmp	r3, #16
- 245 0126 00F0D181 		beq	.L19
-ARM GAS  /tmp/ccQzhlAu.s 			page 15
+ 240              		.loc 1 170 0
+ 241 011e 734B     		ldr	r3, .L61+32
+ 242 0120 1B68     		ldr	r3, [r3]
+ 243 0122 102B     		cmp	r3, #16
+ 244 0124 00F0D281 		beq	.L19
+ 245 0128 73D8     		bhi	.L20
+ARM GAS  /tmp/ccQ2BhSc.s 			page 15
 
 
- 246 012a 73D8     		bhi	.L20
- 247 012c 042B     		cmp	r3, #4
- 248 012e 00F0B581 		beq	.L21
- 249 0132 21D9     		bls	.L53
- 250 0134 082B     		cmp	r3, #8
- 251 0136 00F07E81 		beq	.L26
- 252 013a 44D9     		bls	.L54
- 253 013c 0A2B     		cmp	r3, #10
- 254 013e 00F0DD81 		beq	.L29
- 255 0142 0C2B     		cmp	r3, #12
- 256 0144 40F08E81 		bne	.L18
+ 246 012a 042B     		cmp	r3, #4
+ 247 012c 00F0B681 		beq	.L21
+ 248 0130 21D9     		bls	.L53
+ 249 0132 082B     		cmp	r3, #8
+ 250 0134 00F07F81 		beq	.L26
+ 251 0138 44D9     		bls	.L54
+ 252 013a 0A2B     		cmp	r3, #10
+ 253 013c 00F0DE81 		beq	.L29
+ 254 0140 0C2B     		cmp	r3, #12
+ 255 0142 40F08F81 		bne	.L18
  361:VS4210/TOA_Protocol.c **** 								#endif
- 257              		.loc 1 361 0
- 258 0148 6A49     		ldr	r1, .L61+40
- 259 014a 0220     		movs	r0, #2
- 260 014c FFF7FEFF 		bl	GraphicsPrint
- 261              	.LVL12:
+ 256              		.loc 1 361 0
+ 257 0146 6B49     		ldr	r1, .L61+40
+ 258 0148 0220     		movs	r0, #2
+ 259 014a FFF7FEFF 		bl	GraphicsPrint
+ 260              	.LVL12:
  363:VS4210/TOA_Protocol.c **** 								presetNum=protocol_data;
- 262              		.loc 1 363 0
- 263 0150 694B     		ldr	r3, .L61+44
- 264 0152 0A22     		movs	r2, #10
- 265 0154 1A70     		strb	r2, [r3]
+ 261              		.loc 1 363 0
+ 262 014e 6A4B     		ldr	r3, .L61+44
+ 263 0150 0A22     		movs	r2, #10
+ 264 0152 1A70     		strb	r2, [r3]
  364:VS4210/TOA_Protocol.c **** 								TVI_speed=(protocol_data>>8);
- 266              		.loc 1 364 0
- 267 0156 664B     		ldr	r3, .L61+36
- 268 0158 1B68     		ldr	r3, [r3]
- 269 015a 684A     		ldr	r2, .L61+48
- 270 015c 1370     		strb	r3, [r2]
+ 265              		.loc 1 364 0
+ 266 0154 664B     		ldr	r3, .L61+36
+ 267 0156 1B68     		ldr	r3, [r3]
+ 268 0158 684A     		ldr	r2, .L61+48
+ 269 015a 1370     		strb	r3, [r2]
  365:VS4210/TOA_Protocol.c **** 								TVI_Chksum=0x1E;
- 271              		.loc 1 365 0
- 272 015e 1B0A     		lsrs	r3, r3, #8
- 273 0160 674A     		ldr	r2, .L61+52
- 274 0162 1370     		strb	r3, [r2]
+ 270              		.loc 1 365 0
+ 271 015c 1B0A     		lsrs	r3, r3, #8
+ 272 015e 684A     		ldr	r2, .L61+52
+ 273 0160 1370     		strb	r3, [r2]
  366:VS4210/TOA_Protocol.c **** 								ptztxflag=1;
- 275              		.loc 1 366 0
- 276 0164 674B     		ldr	r3, .L61+56
- 277 0166 1E22     		movs	r2, #30
- 278 0168 1A70     		strb	r2, [r3]
+ 274              		.loc 1 366 0
+ 275 0162 684B     		ldr	r3, .L61+56
+ 276 0164 1E22     		movs	r2, #30
+ 277 0166 1A70     		strb	r2, [r3]
  367:VS4210/TOA_Protocol.c **** 								CMDCount=3;
- 279              		.loc 1 367 0
- 280 016a 5D4B     		ldr	r3, .L61+20
- 281 016c 0122     		movs	r2, #1
- 282 016e 1A60     		str	r2, [r3]
+ 278              		.loc 1 367 0
+ 279 0168 5D4B     		ldr	r3, .L61+20
+ 280 016a 0122     		movs	r2, #1
+ 281 016c 1A60     		str	r2, [r3]
  368:VS4210/TOA_Protocol.c **** 	                          				break;
- 283              		.loc 1 368 0
- 284 0170 654B     		ldr	r3, .L61+60
- 285 0172 0322     		movs	r2, #3
- 286 0174 1A70     		strb	r2, [r3]
+ 282              		.loc 1 368 0
+ 283 016e 664B     		ldr	r3, .L61+60
+ 284 0170 0322     		movs	r2, #3
+ 285 0172 1A70     		strb	r2, [r3]
  369:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_DOWN_LEFT:	
- 287              		.loc 1 369 0
- 288 0176 75E1     		b	.L18
- 289              	.L53:
+ 286              		.loc 1 369 0
+ 287 0174 76E1     		b	.L18
+ 288              	.L53:
  170:VS4210/TOA_Protocol.c **** 							{
- 290              		.loc 1 170 0
- 291 0178 022B     		cmp	r3, #2
- 292 017a 00F07781 		beq	.L23
- 293 017e 00F22F82 		bhi	.L24
-ARM GAS  /tmp/ccQzhlAu.s 			page 16
+ 289              		.loc 1 170 0
+ 290 0176 022B     		cmp	r3, #2
+ 291 0178 00F07881 		beq	.L23
+ 292 017c 00F23082 		bhi	.L24
+ 293 0180 002B     		cmp	r3, #0
+ARM GAS  /tmp/ccQ2BhSc.s 			page 16
 
 
- 294 0182 002B     		cmp	r3, #0
- 295 0184 40F06E81 		bne	.L18
+ 294 0182 40F06F81 		bne	.L18
  267:VS4210/TOA_Protocol.c **** 								{
- 296              		.loc 1 267 0
- 297 0188 594B     		ldr	r3, .L61+36
- 298 018a 1B68     		ldr	r3, [r3]
- 299 018c 002B     		cmp	r3, #0
- 300 018e 40F06981 		bne	.L18
+ 295              		.loc 1 267 0
+ 296 0186 5A4B     		ldr	r3, .L61+36
+ 297 0188 1B68     		ldr	r3, [r3]
+ 298 018a 002B     		cmp	r3, #0
+ 299 018c 40F06A81 		bne	.L18
  269:VS4210/TOA_Protocol.c **** 									{
- 301              		.loc 1 269 0
- 302 0192 5D4B     		ldr	r3, .L61+60
- 303 0194 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 304 0196 002B     		cmp	r3, #0
- 305 0198 00F04581 		beq	.L48
+ 300              		.loc 1 269 0
+ 301 0190 5D4B     		ldr	r3, .L61+60
+ 302 0192 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 303 0194 002B     		cmp	r3, #0
+ 304 0196 00F04681 		beq	.L48
  271:VS4210/TOA_Protocol.c **** 								#if(_DEBUG_MESSAGE_UART_Protocol==ON)
- 306              		.loc 1 271 0
- 307 019c 013B     		subs	r3, r3, #1
- 308 019e 5A4A     		ldr	r2, .L61+60
- 309 01a0 1370     		strb	r3, [r2]
+ 305              		.loc 1 271 0
+ 306 019a 013B     		subs	r3, r3, #1
+ 307 019c 5A4A     		ldr	r2, .L61+60
+ 308 019e 1370     		strb	r3, [r2]
  273:VS4210/TOA_Protocol.c **** 								#endif		
- 310              		.loc 1 273 0
- 311 01a2 5A49     		ldr	r1, .L61+64
- 312 01a4 0320     		movs	r0, #3
- 313 01a6 FFF7FEFF 		bl	GraphicsPrint
- 314              	.LVL13:
+ 309              		.loc 1 273 0
+ 310 01a0 5A49     		ldr	r1, .L61+64
+ 311 01a2 0320     		movs	r0, #3
+ 312 01a4 FFF7FEFF 		bl	GraphicsPrint
+ 313              	.LVL13:
  276:VS4210/TOA_Protocol.c **** 								presetNum=0;
- 315              		.loc 1 276 0
- 316 01aa 534B     		ldr	r3, .L61+44
- 317 01ac 1422     		movs	r2, #20
- 318 01ae 1A70     		strb	r2, [r3]
+ 314              		.loc 1 276 0
+ 315 01a8 534B     		ldr	r3, .L61+44
+ 316 01aa 1422     		movs	r2, #20
+ 317 01ac 1A70     		strb	r2, [r3]
  277:VS4210/TOA_Protocol.c **** 								TVI_speed=0;
- 319              		.loc 1 277 0
- 320 01b0 0023     		movs	r3, #0
- 321 01b2 524A     		ldr	r2, .L61+48
- 322 01b4 1370     		strb	r3, [r2]
+ 318              		.loc 1 277 0
+ 319 01ae 0023     		movs	r3, #0
+ 320 01b0 524A     		ldr	r2, .L61+48
+ 321 01b2 1370     		strb	r3, [r2]
  278:VS4210/TOA_Protocol.c **** 								TVI_Chksum=0;
- 323              		.loc 1 278 0
- 324 01b6 524A     		ldr	r2, .L61+52
- 325 01b8 1370     		strb	r3, [r2]
+ 322              		.loc 1 278 0
+ 323 01b4 524A     		ldr	r2, .L61+52
+ 324 01b6 1370     		strb	r3, [r2]
  279:VS4210/TOA_Protocol.c **** 								ptztxflag=1;	
- 326              		.loc 1 279 0
- 327 01ba 524A     		ldr	r2, .L61+56
- 328 01bc 1370     		strb	r3, [r2]
+ 325              		.loc 1 279 0
+ 326 01b8 524A     		ldr	r2, .L61+56
+ 327 01ba 1370     		strb	r3, [r2]
  280:VS4210/TOA_Protocol.c **** 								
- 329              		.loc 1 280 0
- 330 01be 484B     		ldr	r3, .L61+20
- 331 01c0 0122     		movs	r2, #1
- 332 01c2 1A60     		str	r2, [r3]
- 333 01c4 4EE1     		b	.L18
- 334              	.L54:
+ 328              		.loc 1 280 0
+ 329 01bc 484B     		ldr	r3, .L61+20
+ 330 01be 0122     		movs	r2, #1
+ 331 01c0 1A60     		str	r2, [r3]
+ 332 01c2 4FE1     		b	.L18
+ 333              	.L54:
  170:VS4210/TOA_Protocol.c **** 							{
- 335              		.loc 1 170 0
- 336 01c6 072B     		cmp	r3, #7
- 337 01c8 40F04C81 		bne	.L18
+ 334              		.loc 1 170 0
+ 335 01c4 072B     		cmp	r3, #7
+ 336 01c6 40F04D81 		bne	.L18
  174:VS4210/TOA_Protocol.c **** 							 	{
- 338              		.loc 1 174 0
- 339 01cc 484B     		ldr	r3, .L61+36
-ARM GAS  /tmp/ccQzhlAu.s 			page 17
+ 337              		.loc 1 174 0
+ 338 01ca 494B     		ldr	r3, .L61+36
+ 339 01cc 1B68     		ldr	r3, [r3]
+ARM GAS  /tmp/ccQ2BhSc.s 			page 17
 
 
- 340 01ce 1B68     		ldr	r3, [r3]
- 341 01d0 C92B     		cmp	r3, #201
- 342 01d2 00F0A780 		beq	.L55
+ 340 01ce C92B     		cmp	r3, #201
+ 341 01d0 00F0A880 		beq	.L55
  196:VS4210/TOA_Protocol.c **** 						{
- 343              		.loc 1 196 0
- 344 01d6 402B     		cmp	r3, #64
- 345 01d8 04D9     		bls	.L42
+ 342              		.loc 1 196 0
+ 343 01d4 402B     		cmp	r3, #64
+ 344 01d6 04D9     		bls	.L42
  196:VS4210/TOA_Protocol.c **** 						{
- 346              		.loc 1 196 0 is_stmt 0 discriminator 1
- 347 01da A3F16402 		sub	r2, r3, #100
- 348 01de 642A     		cmp	r2, #100
- 349 01e0 00F2B680 		bhi	.L43
- 350              	.L42:
+ 345              		.loc 1 196 0 is_stmt 0 discriminator 1
+ 346 01d8 A3F16402 		sub	r2, r3, #100
+ 347 01dc 642A     		cmp	r2, #100
+ 348 01de 00F2B780 		bhi	.L43
+ 349              	.L42:
  199:VS4210/TOA_Protocol.c **** 							#endif
- 351              		.loc 1 199 0 is_stmt 1
- 352 01e4 4A49     		ldr	r1, .L61+68
- 353 01e6 0520     		movs	r0, #5
- 354 01e8 FFF7FEFF 		bl	GraphicsPrint
- 355              	.LVL14:
+ 350              		.loc 1 199 0 is_stmt 1
+ 351 01e2 4B49     		ldr	r1, .L61+68
+ 352 01e4 0520     		movs	r0, #5
+ 353 01e6 FFF7FEFF 		bl	GraphicsPrint
+ 354              	.LVL14:
  202:VS4210/TOA_Protocol.c **** 							presetNum=protocol_data;
- 356              		.loc 1 202 0
- 357 01ec 424B     		ldr	r3, .L61+44
- 358 01ee 2222     		movs	r2, #34
- 359 01f0 1A70     		strb	r2, [r3]
+ 355              		.loc 1 202 0
+ 356 01ea 434B     		ldr	r3, .L61+44
+ 357 01ec 2222     		movs	r2, #34
+ 358 01ee 1A70     		strb	r2, [r3]
  203:VS4210/TOA_Protocol.c **** 							TVI_speed=0;
- 360              		.loc 1 203 0
- 361 01f2 3F4B     		ldr	r3, .L61+36
- 362 01f4 1A68     		ldr	r2, [r3]
- 363 01f6 414B     		ldr	r3, .L61+48
- 364 01f8 1A70     		strb	r2, [r3]
+ 359              		.loc 1 203 0
+ 360 01f0 3F4B     		ldr	r3, .L61+36
+ 361 01f2 1A68     		ldr	r2, [r3]
+ 362 01f4 414B     		ldr	r3, .L61+48
+ 363 01f6 1A70     		strb	r2, [r3]
  204:VS4210/TOA_Protocol.c **** 							TVI_Chksum=0xC5;
- 365              		.loc 1 204 0
- 366 01fa 414B     		ldr	r3, .L61+52
- 367 01fc 0022     		movs	r2, #0
- 368 01fe 1A70     		strb	r2, [r3]
+ 364              		.loc 1 204 0
+ 365 01f8 414B     		ldr	r3, .L61+52
+ 366 01fa 0022     		movs	r2, #0
+ 367 01fc 1A70     		strb	r2, [r3]
  205:VS4210/TOA_Protocol.c **** 							ptztxflag=1;	
- 369              		.loc 1 205 0
- 370 0200 404B     		ldr	r3, .L61+56
- 371 0202 C522     		movs	r2, #197
- 372 0204 1A70     		strb	r2, [r3]
+ 368              		.loc 1 205 0
+ 369 01fe 414B     		ldr	r3, .L61+56
+ 370 0200 C522     		movs	r2, #197
+ 371 0202 1A70     		strb	r2, [r3]
  206:VS4210/TOA_Protocol.c **** 							CMDCount=3;
- 373              		.loc 1 206 0
- 374 0206 364B     		ldr	r3, .L61+20
- 375 0208 0122     		movs	r2, #1
- 376 020a 1A60     		str	r2, [r3]
+ 372              		.loc 1 206 0
+ 373 0204 364B     		ldr	r3, .L61+20
+ 374 0206 0122     		movs	r2, #1
+ 375 0208 1A60     		str	r2, [r3]
  207:VS4210/TOA_Protocol.c **** 
- 377              		.loc 1 207 0
- 378 020c 3E4B     		ldr	r3, .L61+60
- 379 020e 0322     		movs	r2, #3
- 380 0210 1A70     		strb	r2, [r3]
- 381 0212 27E1     		b	.L18
- 382              	.L20:
+ 376              		.loc 1 207 0
+ 377 020a 3F4B     		ldr	r3, .L61+60
+ 378 020c 0322     		movs	r2, #3
+ 379 020e 1A70     		strb	r2, [r3]
+ 380 0210 28E1     		b	.L18
+ 381              	.L20:
  170:VS4210/TOA_Protocol.c **** 							{
- 383              		.loc 1 170 0
- 384 0214 402B     		cmp	r3, #64
- 385 0216 00F0B781 		beq	.L31
- 386 021a 1DD9     		bls	.L56
-ARM GAS  /tmp/ccQzhlAu.s 			page 18
+ 382              		.loc 1 170 0
+ 383 0212 402B     		cmp	r3, #64
+ 384 0214 00F0B881 		beq	.L31
+ 385 0218 1DD9     		bls	.L56
+ 386 021a B3F5807F 		cmp	r3, #256
+ARM GAS  /tmp/ccQ2BhSc.s 			page 18
 
 
- 387 021c B3F5807F 		cmp	r3, #256
- 388 0220 00F0C881 		beq	.L36
- 389 0224 39D9     		bls	.L57
- 390 0226 41F21112 		movw	r2, #4369
- 391 022a 9342     		cmp	r3, r2
- 392 022c 00F02082 		beq	.L39
- 393 0230 42F22222 		movw	r2, #8738
- 394 0234 9342     		cmp	r3, r2
- 395 0236 40F01581 		bne	.L18
+ 387 021e 00F0C981 		beq	.L36
+ 388 0222 39D9     		bls	.L57
+ 389 0224 41F21112 		movw	r2, #4369
+ 390 0228 9342     		cmp	r3, r2
+ 391 022a 00F02182 		beq	.L39
+ 392 022e 42F22222 		movw	r2, #8738
+ 393 0232 9342     		cmp	r3, r2
+ 394 0234 40F01681 		bne	.L18
  450:VS4210/TOA_Protocol.c **** 							#endif
- 396              		.loc 1 450 0
- 397 023a 3649     		ldr	r1, .L61+72
- 398 023c 0620     		movs	r0, #6
- 399 023e FFF7FEFF 		bl	GraphicsPrint
- 400              	.LVL15:
+ 395              		.loc 1 450 0
+ 396 0238 3649     		ldr	r1, .L61+72
+ 397 023a 0620     		movs	r0, #6
+ 398 023c FFF7FEFF 		bl	GraphicsPrint
+ 399              	.LVL15:
  453:VS4210/TOA_Protocol.c **** 							dat=VXISI2CRead(addr); 	
- 401              		.loc 1 453 0
- 402 0242 2B4B     		ldr	r3, .L61+36
- 403 0244 5C78     		ldrb	r4, [r3, #1]	@ zero_extendqisi2
- 404              	.LVL16:
+ 400              		.loc 1 453 0
+ 401 0240 2B4B     		ldr	r3, .L61+36
+ 402 0242 5C78     		ldrb	r4, [r3, #1]	@ zero_extendqisi2
+ 403              	.LVL16:
  454:VS4210/TOA_Protocol.c **** 							 Printf("\r\nVS4210  Read addr=%02x  data=%02x",(WORD)addr,(WORD)dat);
- 405              		.loc 1 454 0
- 406 0246 2046     		mov	r0, r4
- 407 0248 FFF7FEFF 		bl	VXISI2CRead
- 408              	.LVL17:
+ 404              		.loc 1 454 0
+ 405 0244 2046     		mov	r0, r4
+ 406 0246 FFF7FEFF 		bl	VXISI2CRead
+ 407              	.LVL17:
  455:VS4210/TOA_Protocol.c **** 
- 409              		.loc 1 455 0
- 410 024c 0246     		mov	r2, r0
- 411 024e 2146     		mov	r1, r4
- 412 0250 3148     		ldr	r0, .L61+76
- 413              	.LVL18:
- 414 0252 FFF7FEFF 		bl	Printf
- 415              	.LVL19:
+ 408              		.loc 1 455 0
+ 409 024a 0246     		mov	r2, r0
+ 410 024c 2146     		mov	r1, r4
+ 411 024e 3248     		ldr	r0, .L61+76
+ 412              	.LVL18:
+ 413 0250 FFF7FEFF 		bl	Printf
+ 414              	.LVL19:
  457:VS4210/TOA_Protocol.c **** 							}
- 416              		.loc 1 457 0
- 417 0256 05E1     		b	.L18
- 418              	.LVL20:
- 419              	.L56:
+ 415              		.loc 1 457 0
+ 416 0254 06E1     		b	.L18
+ 417              	.LVL20:
+ 418              	.L56:
  170:VS4210/TOA_Protocol.c **** 							{
- 420              		.loc 1 170 0
- 421 0258 142B     		cmp	r3, #20
- 422 025a 00F06781 		beq	.L33
- 423 025e 202B     		cmp	r3, #32
- 424 0260 00F07C81 		beq	.L34
- 425 0264 122B     		cmp	r3, #18
- 426 0266 40F0FD80 		bne	.L18
+ 419              		.loc 1 170 0
+ 420 0256 142B     		cmp	r3, #20
+ 421 0258 00F06881 		beq	.L33
+ 422 025c 202B     		cmp	r3, #32
+ 423 025e 00F07D81 		beq	.L34
+ 424 0262 122B     		cmp	r3, #18
+ 425 0264 40F0FE80 		bne	.L18
  350:VS4210/TOA_Protocol.c **** 								#endif
- 427              		.loc 1 350 0
- 428 026a 2C49     		ldr	r1, .L61+80
- 429 026c 0220     		movs	r0, #2
- 430 026e FFF7FEFF 		bl	GraphicsPrint
- 431              	.LVL21:
+ 426              		.loc 1 350 0
+ 427 0268 2C49     		ldr	r1, .L61+80
+ 428 026a 0220     		movs	r0, #2
+ 429 026c FFF7FEFF 		bl	GraphicsPrint
+ 430              	.LVL21:
  352:VS4210/TOA_Protocol.c **** 								presetNum=protocol_data;
- 432              		.loc 1 352 0
- 433 0272 214B     		ldr	r3, .L61+44
- 434 0274 0D22     		movs	r2, #13
- 435 0276 1A70     		strb	r2, [r3]
-ARM GAS  /tmp/ccQzhlAu.s 			page 19
-
-
+ 431              		.loc 1 352 0
+ 432 0270 214B     		ldr	r3, .L61+44
+ 433 0272 0D22     		movs	r2, #13
+ 434 0274 1A70     		strb	r2, [r3]
  353:VS4210/TOA_Protocol.c **** 								TVI_speed=(protocol_data>>8);
- 436              		.loc 1 353 0
- 437 0278 1D4B     		ldr	r3, .L61+36
- 438 027a 1B68     		ldr	r3, [r3]
- 439 027c 1F4A     		ldr	r2, .L61+48
- 440 027e 1370     		strb	r3, [r2]
+ARM GAS  /tmp/ccQ2BhSc.s 			page 19
+
+
+ 435              		.loc 1 353 0
+ 436 0276 1E4B     		ldr	r3, .L61+36
+ 437 0278 1B68     		ldr	r3, [r3]
+ 438 027a 204A     		ldr	r2, .L61+48
+ 439 027c 1370     		strb	r3, [r2]
  354:VS4210/TOA_Protocol.c **** 								TVI_Chksum=0x21;
- 441              		.loc 1 354 0
- 442 0280 1B0A     		lsrs	r3, r3, #8
- 443 0282 1F4A     		ldr	r2, .L61+52
- 444 0284 1370     		strb	r3, [r2]
+ 440              		.loc 1 354 0
+ 441 027e 1B0A     		lsrs	r3, r3, #8
+ 442 0280 1F4A     		ldr	r2, .L61+52
+ 443 0282 1370     		strb	r3, [r2]
  355:VS4210/TOA_Protocol.c **** 								ptztxflag=1;
- 445              		.loc 1 355 0
- 446 0286 1F4B     		ldr	r3, .L61+56
- 447 0288 2122     		movs	r2, #33
- 448 028a 1A70     		strb	r2, [r3]
+ 444              		.loc 1 355 0
+ 445 0284 1F4B     		ldr	r3, .L61+56
+ 446 0286 2122     		movs	r2, #33
+ 447 0288 1A70     		strb	r2, [r3]
  356:VS4210/TOA_Protocol.c **** 								CMDCount=3;
- 449              		.loc 1 356 0
- 450 028c 144B     		ldr	r3, .L61+20
- 451 028e 0122     		movs	r2, #1
- 452 0290 1A60     		str	r2, [r3]
+ 448              		.loc 1 356 0
+ 449 028a 154B     		ldr	r3, .L61+20
+ 450 028c 0122     		movs	r2, #1
+ 451 028e 1A60     		str	r2, [r3]
  357:VS4210/TOA_Protocol.c ****                               					break;
- 453              		.loc 1 357 0
- 454 0292 1D4B     		ldr	r3, .L61+60
- 455 0294 0322     		movs	r2, #3
- 456 0296 1A70     		strb	r2, [r3]
+ 452              		.loc 1 357 0
+ 453 0290 1D4B     		ldr	r3, .L61+60
+ 454 0292 0322     		movs	r2, #3
+ 455 0294 1A70     		strb	r2, [r3]
  358:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_UP_LEFT:
- 457              		.loc 1 358 0
- 458 0298 E4E0     		b	.L18
- 459              	.L57:
+ 456              		.loc 1 358 0
+ 457 0296 E5E0     		b	.L18
+ 458              	.L57:
  170:VS4210/TOA_Protocol.c **** 							{
- 460              		.loc 1 170 0
- 461 029a 802B     		cmp	r3, #128
- 462 029c 40F0E280 		bne	.L18
+ 459              		.loc 1 170 0
+ 460 0298 802B     		cmp	r3, #128
+ 461 029a 40F0E380 		bne	.L18
  416:VS4210/TOA_Protocol.c **** 								#endif
- 463              		.loc 1 416 0
- 464 02a0 1F49     		ldr	r1, .L61+84
- 465 02a2 0220     		movs	r0, #2
- 466 02a4 FFF7FEFF 		bl	GraphicsPrint
- 467              	.LVL22:
+ 462              		.loc 1 416 0
+ 463 029e 2049     		ldr	r1, .L61+84
+ 464 02a0 0220     		movs	r0, #2
+ 465 02a2 FFF7FEFF 		bl	GraphicsPrint
+ 466              	.LVL22:
  418:VS4210/TOA_Protocol.c **** 								presetNum=0x00;
- 468              		.loc 1 418 0
- 469 02a8 134B     		ldr	r3, .L61+44
- 470 02aa 1022     		movs	r2, #16
- 471 02ac 1A70     		strb	r2, [r3]
+ 467              		.loc 1 418 0
+ 468 02a6 144B     		ldr	r3, .L61+44
+ 469 02a8 1022     		movs	r2, #16
+ 470 02aa 1A70     		strb	r2, [r3]
  419:VS4210/TOA_Protocol.c **** 								TVI_speed=0x00;
- 472              		.loc 1 419 0
- 473 02ae 0023     		movs	r3, #0
- 474 02b0 124A     		ldr	r2, .L61+48
- 475 02b2 1370     		strb	r3, [r2]
+ 471              		.loc 1 419 0
+ 472 02ac 0023     		movs	r3, #0
+ 473 02ae 134A     		ldr	r2, .L61+48
+ 474 02b0 1370     		strb	r3, [r2]
  420:VS4210/TOA_Protocol.c **** 								TVI_Chksum=0xC6;
- 476              		.loc 1 420 0
- 477 02b4 124A     		ldr	r2, .L61+52
- 478 02b6 1370     		strb	r3, [r2]
+ 475              		.loc 1 420 0
+ 476 02b2 134A     		ldr	r2, .L61+52
+ 477 02b4 1370     		strb	r3, [r2]
  421:VS4210/TOA_Protocol.c **** 								ptztxflag=1;
- 479              		.loc 1 421 0
- 480 02b8 124B     		ldr	r3, .L61+56
-ARM GAS  /tmp/ccQzhlAu.s 			page 20
+ 478              		.loc 1 421 0
+ 479 02b6 134B     		ldr	r3, .L61+56
+ 480 02b8 C622     		movs	r2, #198
+ARM GAS  /tmp/ccQ2BhSc.s 			page 20
 
 
- 481 02ba C622     		movs	r2, #198
- 482 02bc 1A70     		strb	r2, [r3]
+ 481 02ba 1A70     		strb	r2, [r3]
  422:VS4210/TOA_Protocol.c **** 								CMDCount=3;
- 483              		.loc 1 422 0
- 484 02be 084B     		ldr	r3, .L61+20
- 485 02c0 0122     		movs	r2, #1
- 486 02c2 1A60     		str	r2, [r3]
+ 482              		.loc 1 422 0
+ 483 02bc 084B     		ldr	r3, .L61+20
+ 484 02be 0122     		movs	r2, #1
+ 485 02c0 1A60     		str	r2, [r3]
  423:VS4210/TOA_Protocol.c ****                                 				break;
- 487              		.loc 1 423 0
- 488 02c4 104B     		ldr	r3, .L61+60
- 489 02c6 0322     		movs	r2, #3
- 490 02c8 1A70     		strb	r2, [r3]
+ 486              		.loc 1 423 0
+ 487 02c2 114B     		ldr	r3, .L61+60
+ 488 02c4 0322     		movs	r2, #3
+ 489 02c6 1A70     		strb	r2, [r3]
  424:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_PRESET_SAVE:	
- 491              		.loc 1 424 0
- 492 02ca CBE0     		b	.L18
- 493              	.L62:
- 494              		.align	2
- 495              	.L61:
- 496 02cc 00000000 		.word	.LANCHOR1
- 497 02d0 00000000 		.word	.LANCHOR0
- 498 02d4 00000000 		.word	protocol_chksum
- 499 02d8 00000000 		.word	.LC0
- 500 02dc 08000000 		.word	.LC1
- 501 02e0 00000000 		.word	ptztxflag
- 502 02e4 00000000 		.word	PtzTxChNum
- 503 02e8 10020000 		.word	.LC29
- 504 02ec 00000000 		.word	.LANCHOR2
- 505 02f0 00000000 		.word	.LANCHOR3
- 506 02f4 04010000 		.word	.LC16
- 507 02f8 00000000 		.word	TVI_Command
- 508 02fc 00000000 		.word	presetNum
- 509 0300 00000000 		.word	TVI_speed
- 510 0304 00000000 		.word	TVI_Chksum
- 511 0308 00000000 		.word	.LANCHOR4
- 512 030c 90000000 		.word	.LC8
- 513 0310 24000000 		.word	.LC2
- 514 0314 B4010000 		.word	.LC25
- 515 0318 C8010000 		.word	.LC26
- 516 031c F0000000 		.word	.LC15
- 517 0320 54010000 		.word	.LC21
- 518              	.L55:
+ 490              		.loc 1 424 0
+ 491 02c8 CCE0     		b	.L18
+ 492              	.L62:
+ 493 02ca 00BF     		.align	2
+ 494              	.L61:
+ 495 02cc 00000000 		.word	.LANCHOR1
+ 496 02d0 00000000 		.word	.LANCHOR0
+ 497 02d4 00000000 		.word	protocol_chksum
+ 498 02d8 00000000 		.word	.LC0
+ 499 02dc 08000000 		.word	.LC1
+ 500 02e0 00000000 		.word	ptztxflag
+ 501 02e4 00000000 		.word	PtzTxChNum
+ 502 02e8 10020000 		.word	.LC29
+ 503 02ec 00000000 		.word	.LANCHOR2
+ 504 02f0 00000000 		.word	.LANCHOR3
+ 505 02f4 04010000 		.word	.LC16
+ 506 02f8 00000000 		.word	TVI_Command
+ 507 02fc 00000000 		.word	presetNum
+ 508 0300 00000000 		.word	TVI_speed
+ 509 0304 00000000 		.word	TVI_Chksum
+ 510 0308 00000000 		.word	.LANCHOR4
+ 511 030c 90000000 		.word	.LC8
+ 512 0310 24000000 		.word	.LC2
+ 513 0314 B4010000 		.word	.LC25
+ 514 0318 C8010000 		.word	.LC26
+ 515 031c F0000000 		.word	.LC15
+ 516 0320 54010000 		.word	.LC21
+ 517              	.L55:
  180:VS4210/TOA_Protocol.c **** 								RS2_tx(0x00);
- 519              		.loc 1 180 0
- 520 0324 FF20     		movs	r0, #255
- 521 0326 FFF7FEFF 		bl	RS2_tx
- 522              	.LVL23:
+ 518              		.loc 1 180 0
+ 519 0324 FF20     		movs	r0, #255
+ 520 0326 FFF7FEFF 		bl	RS2_tx
+ 521              	.LVL23:
  181:VS4210/TOA_Protocol.c **** 								RS2_tx(0x00);
- 523              		.loc 1 181 0
- 524 032a 0020     		movs	r0, #0
- 525 032c FFF7FEFF 		bl	RS2_tx
- 526              	.LVL24:
+ 522              		.loc 1 181 0
+ 523 032a 0020     		movs	r0, #0
+ 524 032c FFF7FEFF 		bl	RS2_tx
+ 525              	.LVL24:
  182:VS4210/TOA_Protocol.c **** 								RS2_tx(0x07);
- 527              		.loc 1 182 0
- 528 0330 0020     		movs	r0, #0
- 529 0332 FFF7FEFF 		bl	RS2_tx
- 530              	.LVL25:
+ 526              		.loc 1 182 0
+ 527 0330 0020     		movs	r0, #0
+ 528 0332 FFF7FEFF 		bl	RS2_tx
+ 529              	.LVL25:
  183:VS4210/TOA_Protocol.c **** 
-ARM GAS  /tmp/ccQzhlAu.s 			page 21
+ 530              		.loc 1 183 0
+ARM GAS  /tmp/ccQ2BhSc.s 			page 21
 
 
- 531              		.loc 1 183 0
- 532 0336 0720     		movs	r0, #7
- 533 0338 FFF7FEFF 		bl	RS2_tx
- 534              	.LVL26:
+ 531 0336 0720     		movs	r0, #7
+ 532 0338 FFF7FEFF 		bl	RS2_tx
+ 533              	.LVL26:
  188:VS4210/TOA_Protocol.c **** 								RS2_tx((BYTE)(FWVER));//DATA2
- 535              		.loc 1 188 0
- 536 033c 1020     		movs	r0, #16
- 537 033e FFF7FEFF 		bl	RS2_tx
- 538              	.LVL27:
+ 534              		.loc 1 188 0
+ 535 033c 1020     		movs	r0, #16
+ 536 033e FFF7FEFF 		bl	RS2_tx
+ 537              	.LVL27:
  189:VS4210/TOA_Protocol.c **** 									
- 539              		.loc 1 189 0
- 540 0342 0E20     		movs	r0, #14
- 541 0344 FFF7FEFF 		bl	RS2_tx
- 542              	.LVL28:
+ 538              		.loc 1 189 0
+ 539 0342 0E20     		movs	r0, #14
+ 540 0344 FFF7FEFF 		bl	RS2_tx
+ 541              	.LVL28:
  193:VS4210/TOA_Protocol.c **** 
- 543              		.loc 1 193 0
- 544 0348 2520     		movs	r0, #37
- 545 034a FFF7FEFF 		bl	RS2_tx
- 546              	.LVL29:
- 547 034e 89E0     		b	.L18
- 548              	.L43:
+ 542              		.loc 1 193 0
+ 543 0348 2520     		movs	r0, #37
+ 544 034a FFF7FEFF 		bl	RS2_tx
+ 545              	.LVL29:
+ 546 034e 89E0     		b	.L18
+ 547              	.L43:
  210:VS4210/TOA_Protocol.c **** 						{
- 549              		.loc 1 210 0
- 550 0350 422B     		cmp	r3, #66
- 551 0352 1ED0     		beq	.L58
+ 548              		.loc 1 210 0
+ 549 0350 422B     		cmp	r3, #66
+ 550 0352 1ED0     		beq	.L58
  223:VS4210/TOA_Protocol.c **** 						{
- 552              		.loc 1 223 0
- 553 0354 A3F14702 		sub	r2, r3, #71
- 554 0358 072A     		cmp	r2, #7
- 555 035a 31D9     		bls	.L59
+ 551              		.loc 1 223 0
+ 552 0354 A3F14702 		sub	r2, r3, #71
+ 553 0358 072A     		cmp	r2, #7
+ 554 035a 31D9     		bls	.L59
  235:VS4210/TOA_Protocol.c **** 						{
- 556              		.loc 1 235 0
- 557 035c 5F2B     		cmp	r3, #95
- 558 035e 46D0     		beq	.L60
+ 555              		.loc 1 235 0
+ 556 035c 5F2B     		cmp	r3, #95
+ 557 035e 46D0     		beq	.L60
  247:VS4210/TOA_Protocol.c **** 						{
- 559              		.loc 1 247 0
- 560 0360 602B     		cmp	r3, #96
- 561 0362 5BD1     		bne	.L47
+ 558              		.loc 1 247 0
+ 559 0360 602B     		cmp	r3, #96
+ 560 0362 5BD1     		bne	.L47
  250:VS4210/TOA_Protocol.c **** 							#endif	
- 562              		.loc 1 250 0
- 563 0364 AA49     		ldr	r1, .L63
- 564 0366 0620     		movs	r0, #6
- 565 0368 FFF7FEFF 		bl	GraphicsPrint
- 566              	.LVL30:
+ 561              		.loc 1 250 0
+ 562 0364 AA49     		ldr	r1, .L63
+ 563 0366 0620     		movs	r0, #6
+ 564 0368 FFF7FEFF 		bl	GraphicsPrint
+ 565              	.LVL30:
  252:VS4210/TOA_Protocol.c **** 							presetNum=protocol_data;
- 567              		.loc 1 252 0
- 568 036c A94B     		ldr	r3, .L63+4
- 569 036e 2622     		movs	r2, #38
- 570 0370 1A70     		strb	r2, [r3]
+ 566              		.loc 1 252 0
+ 567 036c A94B     		ldr	r3, .L63+4
+ 568 036e 2622     		movs	r2, #38
+ 569 0370 1A70     		strb	r2, [r3]
  253:VS4210/TOA_Protocol.c **** 							TVI_speed=0;
- 571              		.loc 1 253 0
- 572 0372 A94B     		ldr	r3, .L63+8
- 573 0374 1A68     		ldr	r2, [r3]
- 574 0376 A94B     		ldr	r3, .L63+12
- 575 0378 1A70     		strb	r2, [r3]
+ 570              		.loc 1 253 0
+ 571 0372 A94B     		ldr	r3, .L63+8
+ 572 0374 1A68     		ldr	r2, [r3]
+ 573 0376 A94B     		ldr	r3, .L63+12
+ 574 0378 1A70     		strb	r2, [r3]
  254:VS4210/TOA_Protocol.c **** 							TVI_Chksum=00;
- 576              		.loc 1 254 0
-ARM GAS  /tmp/ccQzhlAu.s 			page 22
+ 575              		.loc 1 254 0
+ 576 037a 0023     		movs	r3, #0
+ARM GAS  /tmp/ccQ2BhSc.s 			page 22
 
 
- 577 037a 0023     		movs	r3, #0
- 578 037c A84A     		ldr	r2, .L63+16
- 579 037e 1370     		strb	r3, [r2]
+ 577 037c A84A     		ldr	r2, .L63+16
+ 578 037e 1370     		strb	r3, [r2]
  255:VS4210/TOA_Protocol.c **** 							ptztxflag=1;	
- 580              		.loc 1 255 0
- 581 0380 A84A     		ldr	r2, .L63+20
- 582 0382 1370     		strb	r3, [r2]
+ 579              		.loc 1 255 0
+ 580 0380 A84A     		ldr	r2, .L63+20
+ 581 0382 1370     		strb	r3, [r2]
  256:VS4210/TOA_Protocol.c **** 							CMDCount=3;
- 583              		.loc 1 256 0
- 584 0384 A84B     		ldr	r3, .L63+24
- 585 0386 0122     		movs	r2, #1
- 586 0388 1A60     		str	r2, [r3]
+ 582              		.loc 1 256 0
+ 583 0384 A84B     		ldr	r3, .L63+24
+ 584 0386 0122     		movs	r2, #1
+ 585 0388 1A60     		str	r2, [r3]
  257:VS4210/TOA_Protocol.c **** 						}
- 587              		.loc 1 257 0
- 588 038a A84B     		ldr	r3, .L63+28
- 589 038c 0322     		movs	r2, #3
- 590 038e 1A70     		strb	r2, [r3]
- 591 0390 68E0     		b	.L18
- 592              	.L58:
+ 586              		.loc 1 257 0
+ 587 038a A84B     		ldr	r3, .L63+28
+ 588 038c 0322     		movs	r2, #3
+ 589 038e 1A70     		strb	r2, [r3]
+ 590 0390 68E0     		b	.L18
+ 591              	.L58:
  213:VS4210/TOA_Protocol.c **** 								#endif
- 593              		.loc 1 213 0
- 594 0392 A749     		ldr	r1, .L63+32
- 595 0394 0520     		movs	r0, #5
- 596 0396 FFF7FEFF 		bl	GraphicsPrint
- 597              	.LVL31:
+ 592              		.loc 1 213 0
+ 593 0392 A749     		ldr	r1, .L63+32
+ 594 0394 0520     		movs	r0, #5
+ 595 0396 FFF7FEFF 		bl	GraphicsPrint
+ 596              	.LVL31:
  215:VS4210/TOA_Protocol.c **** 							presetNum=protocol_data;
- 598              		.loc 1 215 0
- 599 039a 9E4B     		ldr	r3, .L63+4
- 600 039c 2322     		movs	r2, #35
- 601 039e 1A70     		strb	r2, [r3]
+ 597              		.loc 1 215 0
+ 598 039a 9E4B     		ldr	r3, .L63+4
+ 599 039c 2322     		movs	r2, #35
+ 600 039e 1A70     		strb	r2, [r3]
  216:VS4210/TOA_Protocol.c **** 							TVI_speed=0;
- 602              		.loc 1 216 0
- 603 03a0 9D4B     		ldr	r3, .L63+8
- 604 03a2 1A68     		ldr	r2, [r3]
- 605 03a4 9D4B     		ldr	r3, .L63+12
- 606 03a6 1A70     		strb	r2, [r3]
+ 601              		.loc 1 216 0
+ 602 03a0 9D4B     		ldr	r3, .L63+8
+ 603 03a2 1A68     		ldr	r2, [r3]
+ 604 03a4 9D4B     		ldr	r3, .L63+12
+ 605 03a6 1A70     		strb	r2, [r3]
  217:VS4210/TOA_Protocol.c **** 							TVI_Chksum=00;
- 607              		.loc 1 217 0
- 608 03a8 0023     		movs	r3, #0
- 609 03aa 9D4A     		ldr	r2, .L63+16
- 610 03ac 1370     		strb	r3, [r2]
+ 606              		.loc 1 217 0
+ 607 03a8 0023     		movs	r3, #0
+ 608 03aa 9D4A     		ldr	r2, .L63+16
+ 609 03ac 1370     		strb	r3, [r2]
  218:VS4210/TOA_Protocol.c **** 							ptztxflag=1;
- 611              		.loc 1 218 0
- 612 03ae 9D4A     		ldr	r2, .L63+20
- 613 03b0 1370     		strb	r3, [r2]
+ 610              		.loc 1 218 0
+ 611 03ae 9D4A     		ldr	r2, .L63+20
+ 612 03b0 1370     		strb	r3, [r2]
  219:VS4210/TOA_Protocol.c **** 							CMDCount=3;
- 614              		.loc 1 219 0
- 615 03b2 9D4B     		ldr	r3, .L63+24
- 616 03b4 0122     		movs	r2, #1
- 617 03b6 1A60     		str	r2, [r3]
+ 613              		.loc 1 219 0
+ 614 03b2 9D4B     		ldr	r3, .L63+24
+ 615 03b4 0122     		movs	r2, #1
+ 616 03b6 1A60     		str	r2, [r3]
  220:VS4210/TOA_Protocol.c **** 							
- 618              		.loc 1 220 0
- 619 03b8 9C4B     		ldr	r3, .L63+28
- 620 03ba 0322     		movs	r2, #3
- 621 03bc 1A70     		strb	r2, [r3]
- 622 03be 51E0     		b	.L18
- 623              	.L59:
-ARM GAS  /tmp/ccQzhlAu.s 			page 23
-
-
+ 617              		.loc 1 220 0
+ 618 03b8 9C4B     		ldr	r3, .L63+28
+ 619 03ba 0322     		movs	r2, #3
+ 620 03bc 1A70     		strb	r2, [r3]
+ 621 03be 51E0     		b	.L18
+ 622              	.L59:
  226:VS4210/TOA_Protocol.c **** 							#endif
- 624              		.loc 1 226 0
- 625 03c0 9C49     		ldr	r1, .L63+36
- 626 03c2 0520     		movs	r0, #5
- 627 03c4 FFF7FEFF 		bl	GraphicsPrint
- 628              	.LVL32:
+ARM GAS  /tmp/ccQ2BhSc.s 			page 23
+
+
+ 623              		.loc 1 226 0
+ 624 03c0 9C49     		ldr	r1, .L63+36
+ 625 03c2 0520     		movs	r0, #5
+ 626 03c4 FFF7FEFF 		bl	GraphicsPrint
+ 627              	.LVL32:
  228:VS4210/TOA_Protocol.c **** 							presetNum=protocol_data;
- 629              		.loc 1 228 0
- 630 03c8 924B     		ldr	r3, .L63+4
- 631 03ca 2422     		movs	r2, #36
- 632 03cc 1A70     		strb	r2, [r3]
+ 628              		.loc 1 228 0
+ 629 03c8 924B     		ldr	r3, .L63+4
+ 630 03ca 2422     		movs	r2, #36
+ 631 03cc 1A70     		strb	r2, [r3]
  229:VS4210/TOA_Protocol.c **** 							TVI_speed=0;
- 633              		.loc 1 229 0
- 634 03ce 924B     		ldr	r3, .L63+8
- 635 03d0 1A68     		ldr	r2, [r3]
- 636 03d2 924B     		ldr	r3, .L63+12
- 637 03d4 1A70     		strb	r2, [r3]
+ 632              		.loc 1 229 0
+ 633 03ce 924B     		ldr	r3, .L63+8
+ 634 03d0 1A68     		ldr	r2, [r3]
+ 635 03d2 924B     		ldr	r3, .L63+12
+ 636 03d4 1A70     		strb	r2, [r3]
  230:VS4210/TOA_Protocol.c **** 							TVI_Chksum=00;
- 638              		.loc 1 230 0
- 639 03d6 0023     		movs	r3, #0
- 640 03d8 914A     		ldr	r2, .L63+16
- 641 03da 1370     		strb	r3, [r2]
+ 637              		.loc 1 230 0
+ 638 03d6 0023     		movs	r3, #0
+ 639 03d8 914A     		ldr	r2, .L63+16
+ 640 03da 1370     		strb	r3, [r2]
  231:VS4210/TOA_Protocol.c **** 							ptztxflag=1;	
- 642              		.loc 1 231 0
- 643 03dc 914A     		ldr	r2, .L63+20
- 644 03de 1370     		strb	r3, [r2]
+ 641              		.loc 1 231 0
+ 642 03dc 914A     		ldr	r2, .L63+20
+ 643 03de 1370     		strb	r3, [r2]
  232:VS4210/TOA_Protocol.c **** 							CMDCount=3;
- 645              		.loc 1 232 0
- 646 03e0 914B     		ldr	r3, .L63+24
- 647 03e2 0122     		movs	r2, #1
- 648 03e4 1A60     		str	r2, [r3]
+ 644              		.loc 1 232 0
+ 645 03e0 914B     		ldr	r3, .L63+24
+ 646 03e2 0122     		movs	r2, #1
+ 647 03e4 1A60     		str	r2, [r3]
  233:VS4210/TOA_Protocol.c ****                             			}				
- 649              		.loc 1 233 0
- 650 03e6 914B     		ldr	r3, .L63+28
- 651 03e8 0322     		movs	r2, #3
- 652 03ea 1A70     		strb	r2, [r3]
- 653 03ec 3AE0     		b	.L18
- 654              	.L60:
+ 648              		.loc 1 233 0
+ 649 03e6 914B     		ldr	r3, .L63+28
+ 650 03e8 0322     		movs	r2, #3
+ 651 03ea 1A70     		strb	r2, [r3]
+ 652 03ec 3AE0     		b	.L18
+ 653              	.L60:
  238:VS4210/TOA_Protocol.c **** 							#endif
- 655              		.loc 1 238 0
- 656 03ee 9249     		ldr	r1, .L63+40
- 657 03f0 0320     		movs	r0, #3
- 658 03f2 FFF7FEFF 		bl	GraphicsPrint
- 659              	.LVL33:
+ 654              		.loc 1 238 0
+ 655 03ee 9249     		ldr	r1, .L63+40
+ 656 03f0 0320     		movs	r0, #3
+ 657 03f2 FFF7FEFF 		bl	GraphicsPrint
+ 658              	.LVL33:
  240:VS4210/TOA_Protocol.c **** 							presetNum=protocol_data;
- 660              		.loc 1 240 0
- 661 03f6 874B     		ldr	r3, .L63+4
- 662 03f8 2522     		movs	r2, #37
- 663 03fa 1A70     		strb	r2, [r3]
+ 659              		.loc 1 240 0
+ 660 03f6 874B     		ldr	r3, .L63+4
+ 661 03f8 2522     		movs	r2, #37
+ 662 03fa 1A70     		strb	r2, [r3]
  241:VS4210/TOA_Protocol.c **** 							TVI_speed=0;
- 664              		.loc 1 241 0
- 665 03fc 864B     		ldr	r3, .L63+8
- 666 03fe 1A68     		ldr	r2, [r3]
- 667 0400 864B     		ldr	r3, .L63+12
- 668 0402 1A70     		strb	r2, [r3]
+ 663              		.loc 1 241 0
+ 664 03fc 864B     		ldr	r3, .L63+8
+ 665 03fe 1A68     		ldr	r2, [r3]
+ 666 0400 864B     		ldr	r3, .L63+12
+ 667 0402 1A70     		strb	r2, [r3]
  242:VS4210/TOA_Protocol.c **** 							TVI_Chksum=00;
- 669              		.loc 1 242 0
-ARM GAS  /tmp/ccQzhlAu.s 			page 24
+ 668              		.loc 1 242 0
+ 669 0404 0023     		movs	r3, #0
+ARM GAS  /tmp/ccQ2BhSc.s 			page 24
 
 
- 670 0404 0023     		movs	r3, #0
- 671 0406 864A     		ldr	r2, .L63+16
- 672 0408 1370     		strb	r3, [r2]
+ 670 0406 864A     		ldr	r2, .L63+16
+ 671 0408 1370     		strb	r3, [r2]
  243:VS4210/TOA_Protocol.c **** 							ptztxflag=1;	
- 673              		.loc 1 243 0
- 674 040a 864A     		ldr	r2, .L63+20
- 675 040c 1370     		strb	r3, [r2]
+ 672              		.loc 1 243 0
+ 673 040a 864A     		ldr	r2, .L63+20
+ 674 040c 1370     		strb	r3, [r2]
  244:VS4210/TOA_Protocol.c **** 							CMDCount=3;
- 676              		.loc 1 244 0
- 677 040e 864B     		ldr	r3, .L63+24
- 678 0410 0122     		movs	r2, #1
- 679 0412 1A60     		str	r2, [r3]
+ 675              		.loc 1 244 0
+ 676 040e 864B     		ldr	r3, .L63+24
+ 677 0410 0122     		movs	r2, #1
+ 678 0412 1A60     		str	r2, [r3]
  245:VS4210/TOA_Protocol.c **** 						}
- 680              		.loc 1 245 0
- 681 0414 854B     		ldr	r3, .L63+28
- 682 0416 0322     		movs	r2, #3
- 683 0418 1A70     		strb	r2, [r3]
- 684 041a 23E0     		b	.L18
- 685              	.L47:
+ 679              		.loc 1 245 0
+ 680 0414 854B     		ldr	r3, .L63+28
+ 681 0416 0322     		movs	r2, #3
+ 682 0418 1A70     		strb	r2, [r3]
+ 683 041a 23E0     		b	.L18
+ 684              	.L47:
  262:VS4210/TOA_Protocol.c **** 						#endif	
- 686              		.loc 1 262 0
- 687 041c 8749     		ldr	r1, .L63+44
- 688 041e 0120     		movs	r0, #1
- 689 0420 FFF7FEFF 		bl	GraphicsPrint
- 690              	.LVL34:
- 691 0424 1EE0     		b	.L18
- 692              	.L48:
+ 685              		.loc 1 262 0
+ 686 041c 8749     		ldr	r1, .L63+44
+ 687 041e 0120     		movs	r0, #1
+ 688 0420 FFF7FEFF 		bl	GraphicsPrint
+ 689              	.LVL34:
+ 690 0424 1EE0     		b	.L18
+ 691              	.L48:
  286:VS4210/TOA_Protocol.c **** 									#endif		
- 693              		.loc 1 286 0
- 694 0426 8649     		ldr	r1, .L63+48
- 695 0428 0320     		movs	r0, #3
- 696 042a FFF7FEFF 		bl	GraphicsPrint
- 697              	.LVL35:
+ 692              		.loc 1 286 0
+ 693 0426 8649     		ldr	r1, .L63+48
+ 694 0428 0320     		movs	r0, #3
+ 695 042a FFF7FEFF 		bl	GraphicsPrint
+ 696              	.LVL35:
  288:VS4210/TOA_Protocol.c **** 
- 698              		.loc 1 288 0
- 699 042e 7F4B     		ldr	r3, .L63+28
- 700 0430 0022     		movs	r2, #0
- 701 0432 1A70     		strb	r2, [r3]
- 702 0434 16E0     		b	.L18
- 703              	.L26:
+ 697              		.loc 1 288 0
+ 698 042e 7F4B     		ldr	r3, .L63+28
+ 699 0430 0022     		movs	r2, #0
+ 700 0432 1A70     		strb	r2, [r3]
+ 701 0434 16E0     		b	.L18
+ 702              	.L26:
  295:VS4210/TOA_Protocol.c **** 								#endif
- 704              		.loc 1 295 0
- 705 0436 8349     		ldr	r1, .L63+52
- 706 0438 0220     		movs	r0, #2
- 707 043a FFF7FEFF 		bl	GraphicsPrint
- 708              	.LVL36:
+ 703              		.loc 1 295 0
+ 704 0436 8349     		ldr	r1, .L63+52
+ 705 0438 0220     		movs	r0, #2
+ 706 043a FFF7FEFF 		bl	GraphicsPrint
+ 707              	.LVL36:
  297:VS4210/TOA_Protocol.c **** 								presetNum=protocol_data;
- 709              		.loc 1 297 0
- 710 043e 754B     		ldr	r3, .L63+4
- 711 0440 0622     		movs	r2, #6
- 712 0442 1A70     		strb	r2, [r3]
+ 708              		.loc 1 297 0
+ 709 043e 754B     		ldr	r3, .L63+4
+ 710 0440 0622     		movs	r2, #6
+ 711 0442 1A70     		strb	r2, [r3]
  298:VS4210/TOA_Protocol.c **** 								TVI_speed=(protocol_data>>8);
- 713              		.loc 1 298 0
- 714 0444 744B     		ldr	r3, .L63+8
- 715 0446 1B68     		ldr	r3, [r3]
- 716 0448 744A     		ldr	r2, .L63+12
- 717 044a 1370     		strb	r3, [r2]
-ARM GAS  /tmp/ccQzhlAu.s 			page 25
-
-
+ 712              		.loc 1 298 0
+ 713 0444 744B     		ldr	r3, .L63+8
+ 714 0446 1B68     		ldr	r3, [r3]
+ 715 0448 744A     		ldr	r2, .L63+12
+ 716 044a 1370     		strb	r3, [r2]
  299:VS4210/TOA_Protocol.c **** 								TVI_Chksum=0xDB;
- 718              		.loc 1 299 0
- 719 044c 1B0A     		lsrs	r3, r3, #8
- 720 044e 744A     		ldr	r2, .L63+16
- 721 0450 1370     		strb	r3, [r2]
+ARM GAS  /tmp/ccQ2BhSc.s 			page 25
+
+
+ 717              		.loc 1 299 0
+ 718 044c 1B0A     		lsrs	r3, r3, #8
+ 719 044e 744A     		ldr	r2, .L63+16
+ 720 0450 1370     		strb	r3, [r2]
  300:VS4210/TOA_Protocol.c **** 								ptztxflag=1;
- 722              		.loc 1 300 0
- 723 0452 744B     		ldr	r3, .L63+20
- 724 0454 DB22     		movs	r2, #219
- 725 0456 1A70     		strb	r2, [r3]
+ 721              		.loc 1 300 0
+ 722 0452 744B     		ldr	r3, .L63+20
+ 723 0454 DB22     		movs	r2, #219
+ 724 0456 1A70     		strb	r2, [r3]
  301:VS4210/TOA_Protocol.c **** 								CMDCount=3;
- 726              		.loc 1 301 0
- 727 0458 734B     		ldr	r3, .L63+24
- 728 045a 0122     		movs	r2, #1
- 729 045c 1A60     		str	r2, [r3]
+ 725              		.loc 1 301 0
+ 726 0458 734B     		ldr	r3, .L63+24
+ 727 045a 0122     		movs	r2, #1
+ 728 045c 1A60     		str	r2, [r3]
  302:VS4210/TOA_Protocol.c ****                             					break;
- 730              		.loc 1 302 0
- 731 045e 734B     		ldr	r3, .L63+28
- 732 0460 0322     		movs	r2, #3
- 733 0462 1A70     		strb	r2, [r3]
- 734              	.L18:
+ 729              		.loc 1 302 0
+ 730 045e 734B     		ldr	r3, .L63+28
+ 731 0460 0322     		movs	r2, #3
+ 732 0462 1A70     		strb	r2, [r3]
+ 733              	.L18:
  464:VS4210/TOA_Protocol.c **** 						
- 735              		.loc 1 464 0
- 736 0464 784B     		ldr	r3, .L63+56
- 737 0466 0022     		movs	r2, #0
- 738 0468 1A70     		strb	r2, [r3]
- 739 046a 11E6     		b	.L16
- 740              	.L23:
+ 734              		.loc 1 464 0
+ 735 0464 784B     		ldr	r3, .L63+56
+ 736 0466 0022     		movs	r2, #0
+ 737 0468 1A70     		strb	r2, [r3]
+ 738 046a 10E6     		b	.L16
+ 739              	.L23:
  306:VS4210/TOA_Protocol.c **** 								#endif
- 741              		.loc 1 306 0
- 742 046c 7749     		ldr	r1, .L63+60
- 743 046e 0220     		movs	r0, #2
- 744 0470 FFF7FEFF 		bl	GraphicsPrint
- 745              	.LVL37:
+ 740              		.loc 1 306 0
+ 741 046c 7749     		ldr	r1, .L63+60
+ 742 046e 0220     		movs	r0, #2
+ 743 0470 FFF7FEFF 		bl	GraphicsPrint
+ 744              	.LVL37:
  308:VS4210/TOA_Protocol.c **** 								presetNum=protocol_data;
- 746              		.loc 1 308 0
- 747 0474 674B     		ldr	r3, .L63+4
- 748 0476 0822     		movs	r2, #8
- 749 0478 1A70     		strb	r2, [r3]
+ 745              		.loc 1 308 0
+ 746 0474 674B     		ldr	r3, .L63+4
+ 747 0476 0822     		movs	r2, #8
+ 748 0478 1A70     		strb	r2, [r3]
  309:VS4210/TOA_Protocol.c **** 								TVI_speed=(protocol_data>>8);
- 750              		.loc 1 309 0
- 751 047a 674B     		ldr	r3, .L63+8
- 752 047c 1B68     		ldr	r3, [r3]
- 753 047e 674A     		ldr	r2, .L63+12
- 754 0480 1370     		strb	r3, [r2]
+ 749              		.loc 1 309 0
+ 750 047a 674B     		ldr	r3, .L63+8
+ 751 047c 1B68     		ldr	r3, [r3]
+ 752 047e 674A     		ldr	r2, .L63+12
+ 753 0480 1370     		strb	r3, [r2]
  310:VS4210/TOA_Protocol.c **** 								TVI_Chksum=0xDD;
- 755              		.loc 1 310 0
- 756 0482 1B0A     		lsrs	r3, r3, #8
- 757 0484 664A     		ldr	r2, .L63+16
- 758 0486 1370     		strb	r3, [r2]
+ 754              		.loc 1 310 0
+ 755 0482 1B0A     		lsrs	r3, r3, #8
+ 756 0484 664A     		ldr	r2, .L63+16
+ 757 0486 1370     		strb	r3, [r2]
  311:VS4210/TOA_Protocol.c **** 								ptztxflag=1;
- 759              		.loc 1 311 0
- 760 0488 664B     		ldr	r3, .L63+20
- 761 048a DD22     		movs	r2, #221
- 762 048c 1A70     		strb	r2, [r3]
+ 758              		.loc 1 311 0
+ 759 0488 664B     		ldr	r3, .L63+20
+ 760 048a DD22     		movs	r2, #221
+ 761 048c 1A70     		strb	r2, [r3]
  312:VS4210/TOA_Protocol.c **** 								CMDCount=3;
- 763              		.loc 1 312 0
-ARM GAS  /tmp/ccQzhlAu.s 			page 26
+ 762              		.loc 1 312 0
+ 763 048e 664B     		ldr	r3, .L63+24
+ARM GAS  /tmp/ccQ2BhSc.s 			page 26
 
 
- 764 048e 664B     		ldr	r3, .L63+24
- 765 0490 0122     		movs	r2, #1
- 766 0492 1A60     		str	r2, [r3]
+ 764 0490 0122     		movs	r2, #1
+ 765 0492 1A60     		str	r2, [r3]
  313:VS4210/TOA_Protocol.c ****                         				break;
- 767              		.loc 1 313 0
- 768 0494 654B     		ldr	r3, .L63+28
- 769 0496 0322     		movs	r2, #3
- 770 0498 1A70     		strb	r2, [r3]
+ 766              		.loc 1 313 0
+ 767 0494 654B     		ldr	r3, .L63+28
+ 768 0496 0322     		movs	r2, #3
+ 769 0498 1A70     		strb	r2, [r3]
  314:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_LEFT:	
- 771              		.loc 1 314 0
- 772 049a E3E7     		b	.L18
- 773              	.L21:
+ 770              		.loc 1 314 0
+ 771 049a E3E7     		b	.L18
+ 772              	.L21:
  317:VS4210/TOA_Protocol.c **** 								#endif
- 774              		.loc 1 317 0
- 775 049c 6C49     		ldr	r1, .L63+64
- 776 049e 0220     		movs	r0, #2
- 777 04a0 FFF7FEFF 		bl	GraphicsPrint
- 778              	.LVL38:
+ 773              		.loc 1 317 0
+ 774 049c 6C49     		ldr	r1, .L63+64
+ 775 049e 0220     		movs	r0, #2
+ 776 04a0 FFF7FEFF 		bl	GraphicsPrint
+ 777              	.LVL38:
  319:VS4210/TOA_Protocol.c **** 								presetNum=protocol_data;
- 779              		.loc 1 319 0
- 780 04a4 5B4B     		ldr	r3, .L63+4
- 781 04a6 0922     		movs	r2, #9
- 782 04a8 1A70     		strb	r2, [r3]
+ 778              		.loc 1 319 0
+ 779 04a4 5B4B     		ldr	r3, .L63+4
+ 780 04a6 0922     		movs	r2, #9
+ 781 04a8 1A70     		strb	r2, [r3]
  320:VS4210/TOA_Protocol.c **** 								TVI_speed=(protocol_data>>8);
- 783              		.loc 1 320 0
- 784 04aa 5B4B     		ldr	r3, .L63+8
- 785 04ac 1B68     		ldr	r3, [r3]
- 786 04ae 5B4A     		ldr	r2, .L63+12
- 787 04b0 1370     		strb	r3, [r2]
+ 782              		.loc 1 320 0
+ 783 04aa 5B4B     		ldr	r3, .L63+8
+ 784 04ac 1B68     		ldr	r3, [r3]
+ 785 04ae 5B4A     		ldr	r2, .L63+12
+ 786 04b0 1370     		strb	r3, [r2]
  321:VS4210/TOA_Protocol.c **** 								TVI_Chksum=0xDE;
- 788              		.loc 1 321 0
- 789 04b2 1B0A     		lsrs	r3, r3, #8
- 790 04b4 5A4A     		ldr	r2, .L63+16
- 791 04b6 1370     		strb	r3, [r2]
+ 787              		.loc 1 321 0
+ 788 04b2 1B0A     		lsrs	r3, r3, #8
+ 789 04b4 5A4A     		ldr	r2, .L63+16
+ 790 04b6 1370     		strb	r3, [r2]
  322:VS4210/TOA_Protocol.c **** 								ptztxflag=1;	
- 792              		.loc 1 322 0
- 793 04b8 5A4B     		ldr	r3, .L63+20
- 794 04ba DE22     		movs	r2, #222
- 795 04bc 1A70     		strb	r2, [r3]
+ 791              		.loc 1 322 0
+ 792 04b8 5A4B     		ldr	r3, .L63+20
+ 793 04ba DE22     		movs	r2, #222
+ 794 04bc 1A70     		strb	r2, [r3]
  323:VS4210/TOA_Protocol.c **** 								CMDCount=3;
- 796              		.loc 1 323 0
- 797 04be 5A4B     		ldr	r3, .L63+24
- 798 04c0 0122     		movs	r2, #1
- 799 04c2 1A60     		str	r2, [r3]
+ 795              		.loc 1 323 0
+ 796 04be 5A4B     		ldr	r3, .L63+24
+ 797 04c0 0122     		movs	r2, #1
+ 798 04c2 1A60     		str	r2, [r3]
  324:VS4210/TOA_Protocol.c ****                         				break;
- 800              		.loc 1 324 0
- 801 04c4 594B     		ldr	r3, .L63+28
- 802 04c6 0322     		movs	r2, #3
- 803 04c8 1A70     		strb	r2, [r3]
+ 799              		.loc 1 324 0
+ 800 04c4 594B     		ldr	r3, .L63+28
+ 801 04c6 0322     		movs	r2, #3
+ 802 04c8 1A70     		strb	r2, [r3]
  325:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_DOWN:	
- 804              		.loc 1 325 0
- 805 04ca CBE7     		b	.L18
- 806              	.L19:
+ 803              		.loc 1 325 0
+ 804 04ca CBE7     		b	.L18
+ 805              	.L19:
  328:VS4210/TOA_Protocol.c **** 								#endif
- 807              		.loc 1 328 0
- 808 04cc 6149     		ldr	r1, .L63+68
- 809 04ce 0220     		movs	r0, #2
-ARM GAS  /tmp/ccQzhlAu.s 			page 27
+ 806              		.loc 1 328 0
+ 807 04cc 6149     		ldr	r1, .L63+68
+ 808 04ce 0220     		movs	r0, #2
+ 809 04d0 FFF7FEFF 		bl	GraphicsPrint
+ARM GAS  /tmp/ccQ2BhSc.s 			page 27
 
 
- 810 04d0 FFF7FEFF 		bl	GraphicsPrint
- 811              	.LVL39:
+ 810              	.LVL39:
  330:VS4210/TOA_Protocol.c **** 								presetNum=protocol_data;
- 812              		.loc 1 330 0
- 813 04d4 4F4B     		ldr	r3, .L63+4
- 814 04d6 0722     		movs	r2, #7
- 815 04d8 1A70     		strb	r2, [r3]
+ 811              		.loc 1 330 0
+ 812 04d4 4F4B     		ldr	r3, .L63+4
+ 813 04d6 0722     		movs	r2, #7
+ 814 04d8 1A70     		strb	r2, [r3]
  331:VS4210/TOA_Protocol.c **** 								TVI_speed=(protocol_data>>8);
- 816              		.loc 1 331 0
- 817 04da 4F4B     		ldr	r3, .L63+8
- 818 04dc 1B68     		ldr	r3, [r3]
- 819 04de 4F4A     		ldr	r2, .L63+12
- 820 04e0 1370     		strb	r3, [r2]
+ 815              		.loc 1 331 0
+ 816 04da 4F4B     		ldr	r3, .L63+8
+ 817 04dc 1B68     		ldr	r3, [r3]
+ 818 04de 4F4A     		ldr	r2, .L63+12
+ 819 04e0 1370     		strb	r3, [r2]
  332:VS4210/TOA_Protocol.c **** 								TVI_Chksum=0xDC;
- 821              		.loc 1 332 0
- 822 04e2 1B0A     		lsrs	r3, r3, #8
- 823 04e4 4E4A     		ldr	r2, .L63+16
- 824 04e6 1370     		strb	r3, [r2]
+ 820              		.loc 1 332 0
+ 821 04e2 1B0A     		lsrs	r3, r3, #8
+ 822 04e4 4E4A     		ldr	r2, .L63+16
+ 823 04e6 1370     		strb	r3, [r2]
  333:VS4210/TOA_Protocol.c **** 								ptztxflag=1;	
- 825              		.loc 1 333 0
- 826 04e8 4E4B     		ldr	r3, .L63+20
- 827 04ea DC22     		movs	r2, #220
- 828 04ec 1A70     		strb	r2, [r3]
+ 824              		.loc 1 333 0
+ 825 04e8 4E4B     		ldr	r3, .L63+20
+ 826 04ea DC22     		movs	r2, #220
+ 827 04ec 1A70     		strb	r2, [r3]
  334:VS4210/TOA_Protocol.c **** 								CMDCount=3;
- 829              		.loc 1 334 0
- 830 04ee 4E4B     		ldr	r3, .L63+24
- 831 04f0 0122     		movs	r2, #1
- 832 04f2 1A60     		str	r2, [r3]
+ 828              		.loc 1 334 0
+ 829 04ee 4E4B     		ldr	r3, .L63+24
+ 830 04f0 0122     		movs	r2, #1
+ 831 04f2 1A60     		str	r2, [r3]
  335:VS4210/TOA_Protocol.c ****                           						break;
- 833              		.loc 1 335 0
- 834 04f4 4D4B     		ldr	r3, .L63+28
- 835 04f6 0322     		movs	r2, #3
- 836 04f8 1A70     		strb	r2, [r3]
+ 832              		.loc 1 335 0
+ 833 04f4 4D4B     		ldr	r3, .L63+28
+ 834 04f6 0322     		movs	r2, #3
+ 835 04f8 1A70     		strb	r2, [r3]
  336:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_UP_RIGHT:	
- 837              		.loc 1 336 0
- 838 04fa B3E7     		b	.L18
- 839              	.L29:
+ 836              		.loc 1 336 0
+ 837 04fa B3E7     		b	.L18
+ 838              	.L29:
  339:VS4210/TOA_Protocol.c **** 								#endif
- 840              		.loc 1 339 0
- 841 04fc 5649     		ldr	r1, .L63+72
- 842 04fe 0220     		movs	r0, #2
- 843 0500 FFF7FEFF 		bl	GraphicsPrint
- 844              	.LVL40:
+ 839              		.loc 1 339 0
+ 840 04fc 5649     		ldr	r1, .L63+72
+ 841 04fe 0220     		movs	r0, #2
+ 842 0500 FFF7FEFF 		bl	GraphicsPrint
+ 843              	.LVL40:
  341:VS4210/TOA_Protocol.c **** 								presetNum=protocol_data;
- 845              		.loc 1 341 0
- 846 0504 434B     		ldr	r3, .L63+4
- 847 0506 0C22     		movs	r2, #12
- 848 0508 1A70     		strb	r2, [r3]
+ 844              		.loc 1 341 0
+ 845 0504 434B     		ldr	r3, .L63+4
+ 846 0506 0C22     		movs	r2, #12
+ 847 0508 1A70     		strb	r2, [r3]
  342:VS4210/TOA_Protocol.c **** 								TVI_speed=(protocol_data>>8);
- 849              		.loc 1 342 0
- 850 050a 434B     		ldr	r3, .L63+8
- 851 050c 1B68     		ldr	r3, [r3]
- 852 050e 434A     		ldr	r2, .L63+12
- 853 0510 1370     		strb	r3, [r2]
+ 848              		.loc 1 342 0
+ 849 050a 434B     		ldr	r3, .L63+8
+ 850 050c 1B68     		ldr	r3, [r3]
+ 851 050e 434A     		ldr	r2, .L63+12
+ 852 0510 1370     		strb	r3, [r2]
  343:VS4210/TOA_Protocol.c **** 								TVI_Chksum=0x20;
- 854              		.loc 1 343 0
- 855 0512 1B0A     		lsrs	r3, r3, #8
-ARM GAS  /tmp/ccQzhlAu.s 			page 28
+ 853              		.loc 1 343 0
+ 854 0512 1B0A     		lsrs	r3, r3, #8
+ 855 0514 424A     		ldr	r2, .L63+16
+ARM GAS  /tmp/ccQ2BhSc.s 			page 28
 
 
- 856 0514 424A     		ldr	r2, .L63+16
- 857 0516 1370     		strb	r3, [r2]
+ 856 0516 1370     		strb	r3, [r2]
  344:VS4210/TOA_Protocol.c **** 								ptztxflag=1;	
- 858              		.loc 1 344 0
- 859 0518 424B     		ldr	r3, .L63+20
- 860 051a 2022     		movs	r2, #32
- 861 051c 1A70     		strb	r2, [r3]
+ 857              		.loc 1 344 0
+ 858 0518 424B     		ldr	r3, .L63+20
+ 859 051a 2022     		movs	r2, #32
+ 860 051c 1A70     		strb	r2, [r3]
  345:VS4210/TOA_Protocol.c **** 								CMDCount=3;
- 862              		.loc 1 345 0
- 863 051e 424B     		ldr	r3, .L63+24
- 864 0520 0122     		movs	r2, #1
- 865 0522 1A60     		str	r2, [r3]
+ 861              		.loc 1 345 0
+ 862 051e 424B     		ldr	r3, .L63+24
+ 863 0520 0122     		movs	r2, #1
+ 864 0522 1A60     		str	r2, [r3]
  346:VS4210/TOA_Protocol.c ****                           						break;
- 866              		.loc 1 346 0
- 867 0524 414B     		ldr	r3, .L63+28
- 868 0526 0322     		movs	r2, #3
- 869 0528 1A70     		strb	r2, [r3]
+ 865              		.loc 1 346 0
+ 866 0524 414B     		ldr	r3, .L63+28
+ 867 0526 0322     		movs	r2, #3
+ 868 0528 1A70     		strb	r2, [r3]
  347:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_DOWN_RIGHT:
- 870              		.loc 1 347 0
- 871 052a 9BE7     		b	.L18
- 872              	.L33:
+ 869              		.loc 1 347 0
+ 870 052a 9BE7     		b	.L18
+ 871              	.L33:
  372:VS4210/TOA_Protocol.c **** 								#endif
- 873              		.loc 1 372 0
- 874 052c 4B49     		ldr	r1, .L63+76
- 875 052e 0220     		movs	r0, #2
- 876 0530 FFF7FEFF 		bl	GraphicsPrint
- 877              	.LVL41:
+ 872              		.loc 1 372 0
+ 873 052c 4B49     		ldr	r1, .L63+76
+ 874 052e 0220     		movs	r0, #2
+ 875 0530 FFF7FEFF 		bl	GraphicsPrint
+ 876              	.LVL41:
  374:VS4210/TOA_Protocol.c **** 								presetNum=protocol_data;
- 878              		.loc 1 374 0
- 879 0534 374B     		ldr	r3, .L63+4
- 880 0536 0B22     		movs	r2, #11
- 881 0538 1A70     		strb	r2, [r3]
+ 877              		.loc 1 374 0
+ 878 0534 374B     		ldr	r3, .L63+4
+ 879 0536 0B22     		movs	r2, #11
+ 880 0538 1A70     		strb	r2, [r3]
  375:VS4210/TOA_Protocol.c **** 								TVI_speed=(protocol_data>>8);
- 882              		.loc 1 375 0
- 883 053a 374B     		ldr	r3, .L63+8
- 884 053c 1B68     		ldr	r3, [r3]
- 885 053e 374A     		ldr	r2, .L63+12
- 886 0540 1370     		strb	r3, [r2]
+ 881              		.loc 1 375 0
+ 882 053a 374B     		ldr	r3, .L63+8
+ 883 053c 1B68     		ldr	r3, [r3]
+ 884 053e 374A     		ldr	r2, .L63+12
+ 885 0540 1370     		strb	r3, [r2]
  376:VS4210/TOA_Protocol.c **** 								TVI_Chksum=0x1F;
- 887              		.loc 1 376 0
- 888 0542 1B0A     		lsrs	r3, r3, #8
- 889 0544 364A     		ldr	r2, .L63+16
- 890 0546 1370     		strb	r3, [r2]
+ 886              		.loc 1 376 0
+ 887 0542 1B0A     		lsrs	r3, r3, #8
+ 888 0544 364A     		ldr	r2, .L63+16
+ 889 0546 1370     		strb	r3, [r2]
  377:VS4210/TOA_Protocol.c **** 								ptztxflag=1;
- 891              		.loc 1 377 0
- 892 0548 364B     		ldr	r3, .L63+20
- 893 054a 1F22     		movs	r2, #31
- 894 054c 1A70     		strb	r2, [r3]
+ 890              		.loc 1 377 0
+ 891 0548 364B     		ldr	r3, .L63+20
+ 892 054a 1F22     		movs	r2, #31
+ 893 054c 1A70     		strb	r2, [r3]
  378:VS4210/TOA_Protocol.c **** 								CMDCount=3;
- 895              		.loc 1 378 0
- 896 054e 364B     		ldr	r3, .L63+24
- 897 0550 0122     		movs	r2, #1
- 898 0552 1A60     		str	r2, [r3]
+ 894              		.loc 1 378 0
+ 895 054e 364B     		ldr	r3, .L63+24
+ 896 0550 0122     		movs	r2, #1
+ 897 0552 1A60     		str	r2, [r3]
  379:VS4210/TOA_Protocol.c ****                               					break;
- 899              		.loc 1 379 0
- 900 0554 354B     		ldr	r3, .L63+28
- 901 0556 0322     		movs	r2, #3
-ARM GAS  /tmp/ccQzhlAu.s 			page 29
+ 898              		.loc 1 379 0
+ 899 0554 354B     		ldr	r3, .L63+28
+ 900 0556 0322     		movs	r2, #3
+ 901 0558 1A70     		strb	r2, [r3]
+ARM GAS  /tmp/ccQ2BhSc.s 			page 29
 
 
- 902 0558 1A70     		strb	r2, [r3]
  380:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_ZOOM_IN:
- 903              		.loc 1 380 0
- 904 055a 83E7     		b	.L18
- 905              	.L34:
+ 902              		.loc 1 380 0
+ 903 055a 83E7     		b	.L18
+ 904              	.L34:
  383:VS4210/TOA_Protocol.c **** 								#endif
- 906              		.loc 1 383 0
- 907 055c 4049     		ldr	r1, .L63+80
- 908 055e 0220     		movs	r0, #2
- 909 0560 FFF7FEFF 		bl	GraphicsPrint
- 910              	.LVL42:
+ 905              		.loc 1 383 0
+ 906 055c 4049     		ldr	r1, .L63+80
+ 907 055e 0220     		movs	r0, #2
+ 908 0560 FFF7FEFF 		bl	GraphicsPrint
+ 909              	.LVL42:
  385:VS4210/TOA_Protocol.c **** 								presetNum=0x00;
- 911              		.loc 1 385 0
- 912 0564 2B4B     		ldr	r3, .L63+4
- 913 0566 1322     		movs	r2, #19
- 914 0568 1A70     		strb	r2, [r3]
+ 910              		.loc 1 385 0
+ 911 0564 2B4B     		ldr	r3, .L63+4
+ 912 0566 1322     		movs	r2, #19
+ 913 0568 1A70     		strb	r2, [r3]
  386:VS4210/TOA_Protocol.c **** 								TVI_speed=0x00;
- 915              		.loc 1 386 0
- 916 056a 0023     		movs	r3, #0
- 917 056c 2B4A     		ldr	r2, .L63+12
- 918 056e 1370     		strb	r3, [r2]
+ 914              		.loc 1 386 0
+ 915 056a 0023     		movs	r3, #0
+ 916 056c 2B4A     		ldr	r2, .L63+12
+ 917 056e 1370     		strb	r3, [r2]
  387:VS4210/TOA_Protocol.c **** 								TVI_Chksum=0xC9;
- 919              		.loc 1 387 0
- 920 0570 2B4A     		ldr	r2, .L63+16
- 921 0572 1370     		strb	r3, [r2]
+ 918              		.loc 1 387 0
+ 919 0570 2B4A     		ldr	r2, .L63+16
+ 920 0572 1370     		strb	r3, [r2]
  388:VS4210/TOA_Protocol.c **** 								ptztxflag=1;
- 922              		.loc 1 388 0
- 923 0574 2B4B     		ldr	r3, .L63+20
- 924 0576 C922     		movs	r2, #201
- 925 0578 1A70     		strb	r2, [r3]
+ 921              		.loc 1 388 0
+ 922 0574 2B4B     		ldr	r3, .L63+20
+ 923 0576 C922     		movs	r2, #201
+ 924 0578 1A70     		strb	r2, [r3]
  389:VS4210/TOA_Protocol.c **** 								CMDCount=3;
- 926              		.loc 1 389 0
- 927 057a 2B4B     		ldr	r3, .L63+24
- 928 057c 0122     		movs	r2, #1
- 929 057e 1A60     		str	r2, [r3]
+ 925              		.loc 1 389 0
+ 926 057a 2B4B     		ldr	r3, .L63+24
+ 927 057c 0122     		movs	r2, #1
+ 928 057e 1A60     		str	r2, [r3]
  390:VS4210/TOA_Protocol.c ****                           					break;
- 930              		.loc 1 390 0
- 931 0580 2A4B     		ldr	r3, .L63+28
- 932 0582 0322     		movs	r2, #3
- 933 0584 1A70     		strb	r2, [r3]
+ 929              		.loc 1 390 0
+ 930 0580 2A4B     		ldr	r3, .L63+28
+ 931 0582 0322     		movs	r2, #3
+ 932 0584 1A70     		strb	r2, [r3]
  391:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_ZOOM_OUT:
- 934              		.loc 1 391 0
- 935 0586 6DE7     		b	.L18
- 936              	.L31:
+ 933              		.loc 1 391 0
+ 934 0586 6DE7     		b	.L18
+ 935              	.L31:
  394:VS4210/TOA_Protocol.c **** 								#endif
- 937              		.loc 1 394 0
- 938 0588 3649     		ldr	r1, .L63+84
- 939 058a 0220     		movs	r0, #2
- 940 058c FFF7FEFF 		bl	GraphicsPrint
- 941              	.LVL43:
+ 936              		.loc 1 394 0
+ 937 0588 3649     		ldr	r1, .L63+84
+ 938 058a 0220     		movs	r0, #2
+ 939 058c FFF7FEFF 		bl	GraphicsPrint
+ 940              	.LVL43:
  396:VS4210/TOA_Protocol.c **** 								presetNum=0x00;
- 942              		.loc 1 396 0
- 943 0590 204B     		ldr	r3, .L63+4
- 944 0592 1222     		movs	r2, #18
- 945 0594 1A70     		strb	r2, [r3]
+ 941              		.loc 1 396 0
+ 942 0590 204B     		ldr	r3, .L63+4
+ 943 0592 1222     		movs	r2, #18
+ 944 0594 1A70     		strb	r2, [r3]
  397:VS4210/TOA_Protocol.c **** 								TVI_speed=0x00;
- 946              		.loc 1 397 0
-ARM GAS  /tmp/ccQzhlAu.s 			page 30
+ 945              		.loc 1 397 0
+ 946 0596 0023     		movs	r3, #0
+ARM GAS  /tmp/ccQ2BhSc.s 			page 30
 
 
- 947 0596 0023     		movs	r3, #0
- 948 0598 204A     		ldr	r2, .L63+12
- 949 059a 1370     		strb	r3, [r2]
+ 947 0598 204A     		ldr	r2, .L63+12
+ 948 059a 1370     		strb	r3, [r2]
  398:VS4210/TOA_Protocol.c **** 								TVI_Chksum=0xC8;
- 950              		.loc 1 398 0
- 951 059c 204A     		ldr	r2, .L63+16
- 952 059e 1370     		strb	r3, [r2]
+ 949              		.loc 1 398 0
+ 950 059c 204A     		ldr	r2, .L63+16
+ 951 059e 1370     		strb	r3, [r2]
  399:VS4210/TOA_Protocol.c **** 								ptztxflag=1;
- 953              		.loc 1 399 0
- 954 05a0 204B     		ldr	r3, .L63+20
- 955 05a2 C822     		movs	r2, #200
- 956 05a4 1A70     		strb	r2, [r3]
+ 952              		.loc 1 399 0
+ 953 05a0 204B     		ldr	r3, .L63+20
+ 954 05a2 C822     		movs	r2, #200
+ 955 05a4 1A70     		strb	r2, [r3]
  400:VS4210/TOA_Protocol.c **** 								CMDCount=3;
- 957              		.loc 1 400 0
- 958 05a6 204B     		ldr	r3, .L63+24
- 959 05a8 0122     		movs	r2, #1
- 960 05aa 1A60     		str	r2, [r3]
+ 956              		.loc 1 400 0
+ 957 05a6 204B     		ldr	r3, .L63+24
+ 958 05a8 0122     		movs	r2, #1
+ 959 05aa 1A60     		str	r2, [r3]
  401:VS4210/TOA_Protocol.c ****                           			  		break;
- 961              		.loc 1 401 0
- 962 05ac 1F4B     		ldr	r3, .L63+28
- 963 05ae 0322     		movs	r2, #3
- 964 05b0 1A70     		strb	r2, [r3]
+ 960              		.loc 1 401 0
+ 961 05ac 1F4B     		ldr	r3, .L63+28
+ 962 05ae 0322     		movs	r2, #3
+ 963 05b0 1A70     		strb	r2, [r3]
  402:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_FOCUS_NEAR:	
- 965              		.loc 1 402 0
- 966 05b2 57E7     		b	.L18
- 967              	.L36:
+ 964              		.loc 1 402 0
+ 965 05b2 57E7     		b	.L18
+ 966              	.L36:
  405:VS4210/TOA_Protocol.c **** 								#endif
- 968              		.loc 1 405 0
- 969 05b4 2C49     		ldr	r1, .L63+88
- 970 05b6 0220     		movs	r0, #2
- 971 05b8 FFF7FEFF 		bl	GraphicsPrint
- 972              	.LVL44:
+ 967              		.loc 1 405 0
+ 968 05b4 2C49     		ldr	r1, .L63+88
+ 969 05b6 0220     		movs	r0, #2
+ 970 05b8 FFF7FEFF 		bl	GraphicsPrint
+ 971              	.LVL44:
  407:VS4210/TOA_Protocol.c **** 								presetNum=0x00;
- 973              		.loc 1 407 0
- 974 05bc 154B     		ldr	r3, .L63+4
- 975 05be 1122     		movs	r2, #17
- 976 05c0 1A70     		strb	r2, [r3]
+ 972              		.loc 1 407 0
+ 973 05bc 154B     		ldr	r3, .L63+4
+ 974 05be 1122     		movs	r2, #17
+ 975 05c0 1A70     		strb	r2, [r3]
  408:VS4210/TOA_Protocol.c **** 								TVI_speed=0x00;
- 977              		.loc 1 408 0
- 978 05c2 0023     		movs	r3, #0
- 979 05c4 154A     		ldr	r2, .L63+12
- 980 05c6 1370     		strb	r3, [r2]
+ 976              		.loc 1 408 0
+ 977 05c2 0023     		movs	r3, #0
+ 978 05c4 154A     		ldr	r2, .L63+12
+ 979 05c6 1370     		strb	r3, [r2]
  409:VS4210/TOA_Protocol.c **** 								TVI_Chksum=0xC7;
- 981              		.loc 1 409 0
- 982 05c8 154A     		ldr	r2, .L63+16
- 983 05ca 1370     		strb	r3, [r2]
+ 980              		.loc 1 409 0
+ 981 05c8 154A     		ldr	r2, .L63+16
+ 982 05ca 1370     		strb	r3, [r2]
  410:VS4210/TOA_Protocol.c **** 								ptztxflag=1;
- 984              		.loc 1 410 0
- 985 05cc 154B     		ldr	r3, .L63+20
- 986 05ce C722     		movs	r2, #199
- 987 05d0 1A70     		strb	r2, [r3]
+ 983              		.loc 1 410 0
+ 984 05cc 154B     		ldr	r3, .L63+20
+ 985 05ce C722     		movs	r2, #199
+ 986 05d0 1A70     		strb	r2, [r3]
  411:VS4210/TOA_Protocol.c **** 								CMDCount=3;
- 988              		.loc 1 411 0
- 989 05d2 154B     		ldr	r3, .L63+24
- 990 05d4 0122     		movs	r2, #1
- 991 05d6 1A60     		str	r2, [r3]
+ 987              		.loc 1 411 0
+ 988 05d2 154B     		ldr	r3, .L63+24
+ 989 05d4 0122     		movs	r2, #1
+ 990 05d6 1A60     		str	r2, [r3]
  412:VS4210/TOA_Protocol.c ****                                 				break;
-ARM GAS  /tmp/ccQzhlAu.s 			page 31
+ 991              		.loc 1 412 0
+ARM GAS  /tmp/ccQ2BhSc.s 			page 31
 
 
- 992              		.loc 1 412 0
- 993 05d8 144B     		ldr	r3, .L63+28
- 994 05da 0322     		movs	r2, #3
- 995 05dc 1A70     		strb	r2, [r3]
+ 992 05d8 144B     		ldr	r3, .L63+28
+ 993 05da 0322     		movs	r2, #3
+ 994 05dc 1A70     		strb	r2, [r3]
  413:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_FOCUS_FAR:
- 996              		.loc 1 413 0
- 997 05de 41E7     		b	.L18
- 998              	.L24:
+ 995              		.loc 1 413 0
+ 996 05de 41E7     		b	.L18
+ 997              	.L24:
  427:VS4210/TOA_Protocol.c **** 								#endif
- 999              		.loc 1 427 0
- 1000 05e0 2249     		ldr	r1, .L63+92
- 1001 05e2 0520     		movs	r0, #5
- 1002 05e4 FFF7FEFF 		bl	GraphicsPrint
- 1003              	.LVL45:
+ 998              		.loc 1 427 0
+ 999 05e0 2249     		ldr	r1, .L63+92
+ 1000 05e2 0520     		movs	r0, #5
+ 1001 05e4 FFF7FEFF 		bl	GraphicsPrint
+ 1002              	.LVL45:
  429:VS4210/TOA_Protocol.c **** 							presetNum=protocol_data;
- 1004              		.loc 1 429 0
- 1005 05e8 0A4B     		ldr	r3, .L63+4
- 1006 05ea 2122     		movs	r2, #33
- 1007 05ec 1A70     		strb	r2, [r3]
+ 1003              		.loc 1 429 0
+ 1004 05e8 0A4B     		ldr	r3, .L63+4
+ 1005 05ea 2122     		movs	r2, #33
+ 1006 05ec 1A70     		strb	r2, [r3]
  430:VS4210/TOA_Protocol.c **** 							TVI_speed=0;
- 1008              		.loc 1 430 0
- 1009 05ee 0A4B     		ldr	r3, .L63+8
- 1010 05f0 1A68     		ldr	r2, [r3]
- 1011 05f2 0A4B     		ldr	r3, .L63+12
- 1012 05f4 1A70     		strb	r2, [r3]
+ 1007              		.loc 1 430 0
+ 1008 05ee 0A4B     		ldr	r3, .L63+8
+ 1009 05f0 1A68     		ldr	r2, [r3]
+ 1010 05f2 0A4B     		ldr	r3, .L63+12
+ 1011 05f4 1A70     		strb	r2, [r3]
  431:VS4210/TOA_Protocol.c **** 							TVI_Chksum=00;
- 1013              		.loc 1 431 0
- 1014 05f6 0023     		movs	r3, #0
- 1015 05f8 094A     		ldr	r2, .L63+16
- 1016 05fa 1370     		strb	r3, [r2]
+ 1012              		.loc 1 431 0
+ 1013 05f6 0023     		movs	r3, #0
+ 1014 05f8 094A     		ldr	r2, .L63+16
+ 1015 05fa 1370     		strb	r3, [r2]
  432:VS4210/TOA_Protocol.c **** 							ptztxflag=1;	
- 1017              		.loc 1 432 0
- 1018 05fc 094A     		ldr	r2, .L63+20
- 1019 05fe 1370     		strb	r3, [r2]
+ 1016              		.loc 1 432 0
+ 1017 05fc 094A     		ldr	r2, .L63+20
+ 1018 05fe 1370     		strb	r3, [r2]
  433:VS4210/TOA_Protocol.c **** 							CMDCount=3;
- 1020              		.loc 1 433 0
- 1021 0600 094B     		ldr	r3, .L63+24
- 1022 0602 0122     		movs	r2, #1
- 1023 0604 1A60     		str	r2, [r3]
+ 1019              		.loc 1 433 0
+ 1020 0600 094B     		ldr	r3, .L63+24
+ 1021 0602 0122     		movs	r2, #1
+ 1022 0604 1A60     		str	r2, [r3]
  434:VS4210/TOA_Protocol.c ****                                     				break;	
- 1024              		.loc 1 434 0
- 1025 0606 094B     		ldr	r3, .L63+28
- 1026 0608 0322     		movs	r2, #3
- 1027 060a 1A70     		strb	r2, [r3]
+ 1023              		.loc 1 434 0
+ 1024 0606 094B     		ldr	r3, .L63+28
+ 1025 0608 0322     		movs	r2, #3
+ 1026 060a 1A70     		strb	r2, [r3]
  435:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_VS4210_W:
- 1028              		.loc 1 435 0
- 1029 060c 2AE7     		b	.L18
- 1030              	.L64:
- 1031 060e 00BF     		.align	2
- 1032              	.L63:
- 1033 0610 6C000000 		.word	.LC6
- 1034 0614 00000000 		.word	TVI_Command
- 1035 0618 00000000 		.word	.LANCHOR3
- 1036 061c 00000000 		.word	presetNum
- 1037 0620 00000000 		.word	TVI_speed
- 1038 0624 00000000 		.word	TVI_Chksum
- 1039 0628 00000000 		.word	ptztxflag
-ARM GAS  /tmp/ccQzhlAu.s 			page 32
+ 1027              		.loc 1 435 0
+ 1028 060c 2AE7     		b	.L18
+ 1029              	.L64:
+ 1030 060e 00BF     		.align	2
+ 1031              	.L63:
+ 1032 0610 6C000000 		.word	.LC6
+ 1033 0614 00000000 		.word	TVI_Command
+ 1034 0618 00000000 		.word	.LANCHOR3
+ 1035 061c 00000000 		.word	presetNum
+ 1036 0620 00000000 		.word	TVI_speed
+ 1037 0624 00000000 		.word	TVI_Chksum
+ 1038 0628 00000000 		.word	ptztxflag
+ 1039 062c 00000000 		.word	.LANCHOR4
+ARM GAS  /tmp/ccQ2BhSc.s 			page 32
 
 
- 1040 062c 00000000 		.word	.LANCHOR4
- 1041 0630 38000000 		.word	.LC3
- 1042 0634 48000000 		.word	.LC4
- 1043 0638 5C000000 		.word	.LC5
- 1044 063c 80000000 		.word	.LC7
- 1045 0640 9C000000 		.word	.LC9
- 1046 0644 B0000000 		.word	.LC10
- 1047 0648 00000000 		.word	.LANCHOR0
- 1048 064c BC000000 		.word	.LC11
- 1049 0650 C8000000 		.word	.LC12
- 1050 0654 D4000000 		.word	.LC13
- 1051 0658 E0000000 		.word	.LC14
- 1052 065c 10010000 		.word	.LC17
- 1053 0660 20010000 		.word	.LC18
- 1054 0664 30010000 		.word	.LC19
- 1055 0668 40010000 		.word	.LC20
- 1056 066c 64010000 		.word	.LC22
- 1057              	.L39:
+ 1040 0630 38000000 		.word	.LC3
+ 1041 0634 48000000 		.word	.LC4
+ 1042 0638 5C000000 		.word	.LC5
+ 1043 063c 80000000 		.word	.LC7
+ 1044 0640 9C000000 		.word	.LC9
+ 1045 0644 B0000000 		.word	.LC10
+ 1046 0648 00000000 		.word	.LANCHOR0
+ 1047 064c BC000000 		.word	.LC11
+ 1048 0650 C8000000 		.word	.LC12
+ 1049 0654 D4000000 		.word	.LC13
+ 1050 0658 E0000000 		.word	.LC14
+ 1051 065c 10010000 		.word	.LC17
+ 1052 0660 20010000 		.word	.LC18
+ 1053 0664 30010000 		.word	.LC19
+ 1054 0668 40010000 		.word	.LC20
+ 1055 066c 64010000 		.word	.LC22
+ 1056              	.L39:
  439:VS4210/TOA_Protocol.c **** 							#endif
- 1058              		.loc 1 439 0
- 1059 0670 1249     		ldr	r1, .L65
- 1060 0672 0420     		movs	r0, #4
- 1061 0674 FFF7FEFF 		bl	GraphicsPrint
- 1062              	.LVL46:
+ 1057              		.loc 1 439 0
+ 1058 0670 1249     		ldr	r1, .L65
+ 1059 0672 0420     		movs	r0, #4
+ 1060 0674 FFF7FEFF 		bl	GraphicsPrint
+ 1061              	.LVL46:
  441:VS4210/TOA_Protocol.c **** 							dat=	(BYTE)protocol_data; 	
- 1063              		.loc 1 441 0
- 1064 0678 114B     		ldr	r3, .L65+4
- 1065 067a 1968     		ldr	r1, [r3]
- 1066 067c C1F30724 		ubfx	r4, r1, #8, #8
- 1067              	.LVL47:
+ 1062              		.loc 1 441 0
+ 1063 0678 114B     		ldr	r3, .L65+4
+ 1064 067a 1968     		ldr	r1, [r3]
+ 1065 067c C1F30724 		ubfx	r4, r1, #8, #8
+ 1066              	.LVL47:
  443:VS4210/TOA_Protocol.c **** 							dat=	VXISI2CRead(addr); 	
- 1068              		.loc 1 443 0
- 1069 0680 C9B2     		uxtb	r1, r1
- 1070 0682 2046     		mov	r0, r4
- 1071 0684 FFF7FEFF 		bl	VXISI2CWrite
- 1072              	.LVL48:
+ 1067              		.loc 1 443 0
+ 1068 0680 C9B2     		uxtb	r1, r1
+ 1069 0682 2046     		mov	r0, r4
+ 1070 0684 FFF7FEFF 		bl	VXISI2CWrite
+ 1071              	.LVL48:
  444:VS4210/TOA_Protocol.c **** 							 Printf("\r\nVS4210  Write addr=%02x  data=%02x",(WORD)addr,(WORD)dat);
- 1073              		.loc 1 444 0
- 1074 0688 2046     		mov	r0, r4
- 1075 068a FFF7FEFF 		bl	VXISI2CRead
- 1076              	.LVL49:
+ 1072              		.loc 1 444 0
+ 1073 0688 2046     		mov	r0, r4
+ 1074 068a FFF7FEFF 		bl	VXISI2CRead
+ 1075              	.LVL49:
  445:VS4210/TOA_Protocol.c **** 
- 1077              		.loc 1 445 0
- 1078 068e 0246     		mov	r2, r0
- 1079 0690 2146     		mov	r1, r4
- 1080 0692 0C48     		ldr	r0, .L65+8
- 1081              	.LVL50:
- 1082 0694 FFF7FEFF 		bl	Printf
- 1083              	.LVL51:
+ 1076              		.loc 1 445 0
+ 1077 068e 0246     		mov	r2, r0
+ 1078 0690 2146     		mov	r1, r4
+ 1079 0692 0C48     		ldr	r0, .L65+8
+ 1080              	.LVL50:
+ 1081 0694 FFF7FEFF 		bl	Printf
+ 1082              	.LVL51:
  447:VS4210/TOA_Protocol.c **** case MCU_PROTOCOL_CMD_VS4210_R:	
- 1084              		.loc 1 447 0
- 1085 0698 E4E6     		b	.L18
- 1086              	.LVL52:
- 1087              	.L17:
+ 1083              		.loc 1 447 0
+ 1084 0698 E4E6     		b	.L18
+ 1085              	.LVL52:
+ 1086              	.L17:
  471:VS4210/TOA_Protocol.c **** 						#endif
- 1088              		.loc 1 471 0
- 1089 069a 0B49     		ldr	r1, .L65+12
-ARM GAS  /tmp/ccQzhlAu.s 			page 33
+ 1087              		.loc 1 471 0
+ 1088 069a 0B49     		ldr	r1, .L65+12
+ 1089 069c 0120     		movs	r0, #1
+ARM GAS  /tmp/ccQ2BhSc.s 			page 33
 
 
- 1090 069c 0120     		movs	r0, #1
- 1091 069e FFF7FEFF 		bl	GraphicsPrint
- 1092              	.LVL53:
+ 1090 069e FFF7FEFF 		bl	GraphicsPrint
+ 1091              	.LVL53:
  473:VS4210/TOA_Protocol.c **** 						} 
- 1093              		.loc 1 473 0
- 1094 06a2 0A4B     		ldr	r3, .L65+16
- 1095 06a4 0022     		movs	r2, #0
- 1096 06a6 1A70     		strb	r2, [r3]
- 1097 06a8 F2E4     		b	.L16
- 1098              	.L6:
+ 1092              		.loc 1 473 0
+ 1093 06a2 0A4B     		ldr	r3, .L65+16
+ 1094 06a4 0022     		movs	r2, #0
+ 1095 06a6 1A70     		strb	r2, [r3]
+ 1096 06a8 F1E4     		b	.L16
+ 1097              	.L6:
  495:VS4210/TOA_Protocol.c **** 						#endif
- 1099              		.loc 1 495 0
- 1100 06aa 0949     		ldr	r1, .L65+20
- 1101 06ac 0120     		movs	r0, #1
- 1102 06ae FFF7FEFF 		bl	GraphicsPrint
- 1103              	.LVL54:
+ 1098              		.loc 1 495 0
+ 1099 06aa 0949     		ldr	r1, .L65+20
+ 1100 06ac 0120     		movs	r0, #1
+ 1101 06ae FFF7FEFF 		bl	GraphicsPrint
+ 1102              	.LVL54:
  497:VS4210/TOA_Protocol.c **** 							break;
- 1104              		.loc 1 497 0
- 1105 06b2 064B     		ldr	r3, .L65+16
- 1106 06b4 0022     		movs	r2, #0
- 1107 06b6 1A70     		strb	r2, [r3]
+ 1103              		.loc 1 497 0
+ 1104 06b2 064B     		ldr	r3, .L65+16
+ 1105 06b4 0022     		movs	r2, #0
+ 1106 06b6 1A70     		strb	r2, [r3]
  498:VS4210/TOA_Protocol.c **** 			}
- 1108              		.loc 1 498 0
- 1109 06b8 EAE4     		b	.L16
- 1110              	.L66:
- 1111 06ba 00BF     		.align	2
- 1112              	.L65:
- 1113 06bc 78010000 		.word	.LC23
- 1114 06c0 00000000 		.word	.LANCHOR3
- 1115 06c4 8C010000 		.word	.LC24
- 1116 06c8 EC010000 		.word	.LC27
- 1117 06cc 00000000 		.word	.LANCHOR0
- 1118 06d0 00020000 		.word	.LC28
- 1119              	.LBE2:
- 1120              		.cfi_endproc
- 1121              	.LFE68:
- 1123              		.global	CMDCount
- 1124              		.global	protocol_data
- 1125              		.global	protocol_cmd
- 1126              		.global	protocol_data_count
- 1127              		.comm	protocol_chksum,1,1
- 1128              		.comm	protocol_param,1,1
- 1129              		.comm	protocol_len,1,1
- 1130              		.comm	protocol_type,1,1
- 1131              		.global	protocol_state
- 1132              		.comm	protocol_escape_flag,4,4
- 1133              		.comm	newInRes,4,4
- 1134              		.section	.bss.CMDCount,"aw",%nobits
- 1135              		.set	.LANCHOR4,. + 0
- 1138              	CMDCount:
- 1139 0000 00       		.space	1
- 1140              		.section	.bss.protocol_cmd,"aw",%nobits
- 1141              		.align	2
- 1142              		.set	.LANCHOR2,. + 0
- 1145              	protocol_cmd:
- 1146 0000 00000000 		.space	4
- 1147              		.section	.bss.protocol_data,"aw",%nobits
-ARM GAS  /tmp/ccQzhlAu.s 			page 34
+ 1107              		.loc 1 498 0
+ 1108 06b8 E9E4     		b	.L16
+ 1109              	.L66:
+ 1110 06ba 00BF     		.align	2
+ 1111              	.L65:
+ 1112 06bc 78010000 		.word	.LC23
+ 1113 06c0 00000000 		.word	.LANCHOR3
+ 1114 06c4 8C010000 		.word	.LC24
+ 1115 06c8 EC010000 		.word	.LC27
+ 1116 06cc 00000000 		.word	.LANCHOR0
+ 1117 06d0 00020000 		.word	.LC28
+ 1118              	.LBE2:
+ 1119              		.cfi_endproc
+ 1120              	.LFE68:
+ 1122              		.global	CMDCount
+ 1123              		.global	protocol_data
+ 1124              		.global	protocol_cmd
+ 1125              		.global	protocol_data_count
+ 1126              		.comm	protocol_chksum,1,1
+ 1127              		.comm	protocol_param,1,1
+ 1128              		.comm	protocol_len,1,1
+ 1129              		.comm	protocol_type,1,1
+ 1130              		.global	protocol_state
+ 1131              		.comm	protocol_escape_flag,4,4
+ 1132              		.comm	newInRes,4,4
+ 1133              		.section	.bss.CMDCount,"aw",%nobits
+ 1134              		.set	.LANCHOR4,. + 0
+ 1137              	CMDCount:
+ 1138 0000 00       		.space	1
+ 1139              		.section	.bss.protocol_cmd,"aw",%nobits
+ 1140              		.align	2
+ 1141              		.set	.LANCHOR2,. + 0
+ 1144              	protocol_cmd:
+ 1145 0000 00000000 		.space	4
+ 1146              		.section	.bss.protocol_data,"aw",%nobits
+ 1147              		.align	2
+ARM GAS  /tmp/ccQ2BhSc.s 			page 34
 
 
- 1148              		.align	2
- 1149              		.set	.LANCHOR3,. + 0
- 1152              	protocol_data:
- 1153 0000 00000000 		.space	4
- 1154              		.section	.bss.protocol_data_count,"aw",%nobits
- 1155              		.set	.LANCHOR1,. + 0
- 1158              	protocol_data_count:
- 1159 0000 00       		.space	1
- 1160              		.section	.bss.protocol_state,"aw",%nobits
- 1161              		.set	.LANCHOR0,. + 0
- 1164              	protocol_state:
- 1165 0000 00       		.space	1
- 1166              		.section	.rodata.TOAReceivePaser.str1.4,"aMS",%progbits,1
- 1167              		.align	2
- 1168              	.LC0:
- 1169 0000 0D0A2847 		.ascii	"\015\012(GOT)\000"
- 1169      4F542900 
- 1170              	.LC1:
- 1171 0008 0D0A2870 		.ascii	"\015\012(protocol_data_count>8)\000"
- 1171      726F746F 
- 1171      636F6C5F 
- 1171      64617461 
- 1171      5F636F75 
- 1172 0022 0000     		.space	2
- 1173              	.LC2:
- 1174 0024 28434D44 		.ascii	"(CMD:PRESET_LOAD)\000"
- 1174      3A505245 
- 1174      5345545F 
- 1174      4C4F4144 
- 1174      2900
- 1175 0036 0000     		.space	2
- 1176              	.LC3:
- 1177 0038 28434D44 		.ascii	"(CMD:AUTO_SCAN)\000"
- 1177      3A415554 
- 1177      4F5F5343 
- 1177      414E2900 
- 1178              	.LC4:
- 1179 0048 28434D44 		.ascii	"(CMD:GROUP_TOUR)\000"
- 1179      3A47524F 
- 1179      55505F54 
- 1179      4F555229 
- 1179      00
- 1180 0059 000000   		.space	3
- 1181              	.LC5:
- 1182 005c 28434D44 		.ascii	"(CMD:OSD_MENU)\000"
- 1182      3A4F5344 
- 1182      5F4D454E 
- 1182      552900
- 1183 006b 00       		.space	1
- 1184              	.LC6:
- 1185 006c 28434D44 		.ascii	"(CMD:FOCUS_ADJUST)\000"
- 1185      3A464F43 
- 1185      55535F41 
- 1185      444A5553 
- 1185      542900
- 1186 007f 00       		.space	1
- 1187              	.LC7:
-ARM GAS  /tmp/ccQzhlAu.s 			page 35
+ 1148              		.set	.LANCHOR3,. + 0
+ 1151              	protocol_data:
+ 1152 0000 00000000 		.space	4
+ 1153              		.section	.bss.protocol_data_count,"aw",%nobits
+ 1154              		.set	.LANCHOR1,. + 0
+ 1157              	protocol_data_count:
+ 1158 0000 00       		.space	1
+ 1159              		.section	.bss.protocol_state,"aw",%nobits
+ 1160              		.set	.LANCHOR0,. + 0
+ 1163              	protocol_state:
+ 1164 0000 00       		.space	1
+ 1165              		.section	.rodata.TOAReceivePaser.str1.4,"aMS",%progbits,1
+ 1166              		.align	2
+ 1167              	.LC0:
+ 1168 0000 0D0A2847 		.ascii	"\015\012(GOT)\000"
+ 1168      4F542900 
+ 1169              	.LC1:
+ 1170 0008 0D0A2870 		.ascii	"\015\012(protocol_data_count>8)\000"
+ 1170      726F746F 
+ 1170      636F6C5F 
+ 1170      64617461 
+ 1170      5F636F75 
+ 1171 0022 0000     		.space	2
+ 1172              	.LC2:
+ 1173 0024 28434D44 		.ascii	"(CMD:PRESET_LOAD)\000"
+ 1173      3A505245 
+ 1173      5345545F 
+ 1173      4C4F4144 
+ 1173      2900
+ 1174 0036 0000     		.space	2
+ 1175              	.LC3:
+ 1176 0038 28434D44 		.ascii	"(CMD:AUTO_SCAN)\000"
+ 1176      3A415554 
+ 1176      4F5F5343 
+ 1176      414E2900 
+ 1177              	.LC4:
+ 1178 0048 28434D44 		.ascii	"(CMD:GROUP_TOUR)\000"
+ 1178      3A47524F 
+ 1178      55505F54 
+ 1178      4F555229 
+ 1178      00
+ 1179 0059 000000   		.space	3
+ 1180              	.LC5:
+ 1181 005c 28434D44 		.ascii	"(CMD:OSD_MENU)\000"
+ 1181      3A4F5344 
+ 1181      5F4D454E 
+ 1181      552900
+ 1182 006b 00       		.space	1
+ 1183              	.LC6:
+ 1184 006c 28434D44 		.ascii	"(CMD:FOCUS_ADJUST)\000"
+ 1184      3A464F43 
+ 1184      55535F41 
+ 1184      444A5553 
+ 1184      542900
+ 1185 007f 00       		.space	1
+ 1186              	.LC7:
+ 1187 0080 2831434D 		.ascii	"(1CMD: ERROR)\000"
+ARM GAS  /tmp/ccQ2BhSc.s 			page 35
 
 
- 1188 0080 2831434D 		.ascii	"(1CMD: ERROR)\000"
- 1188      443A2045 
- 1188      52524F52 
- 1188      2900
- 1189 008e 0000     		.space	2
- 1190              	.LC8:
- 1191 0090 28434D44 		.ascii	"(CMD:STOP)\000"
- 1191      3A53544F 
- 1191      502900
- 1192 009b 00       		.space	1
- 1193              	.LC9:
- 1194 009c 28434D44 		.ascii	"(CMD:STOP no work)\000"
- 1194      3A53544F 
- 1194      50206E6F 
- 1194      20776F72 
- 1194      6B2900
- 1195 00af 00       		.space	1
- 1196              	.LC10:
- 1197 00b0 28434D44 		.ascii	"(CMD:UP)\000"
- 1197      3A555029 
- 1197      00
- 1198 00b9 000000   		.space	3
- 1199              	.LC11:
- 1200 00bc 28434D44 		.ascii	"(CMD:RIGHT)\000"
- 1200      3A524947 
- 1200      48542900 
- 1201              	.LC12:
- 1202 00c8 28434D44 		.ascii	"(CMD:LEFT)\000"
- 1202      3A4C4546 
- 1202      542900
- 1203 00d3 00       		.space	1
- 1204              	.LC13:
- 1205 00d4 28434D44 		.ascii	"(CMD:DOWN)\000"
- 1205      3A444F57 
- 1205      4E2900
- 1206 00df 00       		.space	1
- 1207              	.LC14:
- 1208 00e0 28434D44 		.ascii	"(CMD:UP_RIGHT)\000"
- 1208      3A55505F 
- 1208      52494748 
- 1208      542900
- 1209 00ef 00       		.space	1
- 1210              	.LC15:
- 1211 00f0 28434D44 		.ascii	"(CMD:DOWN_RIGHT)\000"
- 1211      3A444F57 
- 1211      4E5F5249 
- 1211      47485429 
- 1211      00
- 1212 0101 000000   		.space	3
- 1213              	.LC16:
- 1214 0104 2855505F 		.ascii	"(UP_LEFT)\000"
- 1214      4C454654 
- 1214      2900
- 1215 010e 0000     		.space	2
- 1216              	.LC17:
- 1217 0110 28434D44 		.ascii	"(CMD:DOWN_LEFT)\000"
- 1217      3A444F57 
-ARM GAS  /tmp/ccQzhlAu.s 			page 36
+ 1187      443A2045 
+ 1187      52524F52 
+ 1187      2900
+ 1188 008e 0000     		.space	2
+ 1189              	.LC8:
+ 1190 0090 28434D44 		.ascii	"(CMD:STOP)\000"
+ 1190      3A53544F 
+ 1190      502900
+ 1191 009b 00       		.space	1
+ 1192              	.LC9:
+ 1193 009c 28434D44 		.ascii	"(CMD:STOP no work)\000"
+ 1193      3A53544F 
+ 1193      50206E6F 
+ 1193      20776F72 
+ 1193      6B2900
+ 1194 00af 00       		.space	1
+ 1195              	.LC10:
+ 1196 00b0 28434D44 		.ascii	"(CMD:UP)\000"
+ 1196      3A555029 
+ 1196      00
+ 1197 00b9 000000   		.space	3
+ 1198              	.LC11:
+ 1199 00bc 28434D44 		.ascii	"(CMD:RIGHT)\000"
+ 1199      3A524947 
+ 1199      48542900 
+ 1200              	.LC12:
+ 1201 00c8 28434D44 		.ascii	"(CMD:LEFT)\000"
+ 1201      3A4C4546 
+ 1201      542900
+ 1202 00d3 00       		.space	1
+ 1203              	.LC13:
+ 1204 00d4 28434D44 		.ascii	"(CMD:DOWN)\000"
+ 1204      3A444F57 
+ 1204      4E2900
+ 1205 00df 00       		.space	1
+ 1206              	.LC14:
+ 1207 00e0 28434D44 		.ascii	"(CMD:UP_RIGHT)\000"
+ 1207      3A55505F 
+ 1207      52494748 
+ 1207      542900
+ 1208 00ef 00       		.space	1
+ 1209              	.LC15:
+ 1210 00f0 28434D44 		.ascii	"(CMD:DOWN_RIGHT)\000"
+ 1210      3A444F57 
+ 1210      4E5F5249 
+ 1210      47485429 
+ 1210      00
+ 1211 0101 000000   		.space	3
+ 1212              	.LC16:
+ 1213 0104 2855505F 		.ascii	"(UP_LEFT)\000"
+ 1213      4C454654 
+ 1213      2900
+ 1214 010e 0000     		.space	2
+ 1215              	.LC17:
+ 1216 0110 28434D44 		.ascii	"(CMD:DOWN_LEFT)\000"
+ 1216      3A444F57 
+ 1216      4E5F4C45 
+ARM GAS  /tmp/ccQ2BhSc.s 			page 36
 
 
- 1217      4E5F4C45 
- 1217      46542900 
- 1218              	.LC18:
- 1219 0120 28434D44 		.ascii	"(CMD:ZOOM_IN)\000"
- 1219      3A5A4F4F 
- 1219      4D5F494E 
- 1219      2900
- 1220 012e 0000     		.space	2
- 1221              	.LC19:
- 1222 0130 28434D44 		.ascii	"(CMD:ZOOM_OUT)\000"
- 1222      3A5A4F4F 
- 1222      4D5F4F55 
- 1222      542900
- 1223 013f 00       		.space	1
- 1224              	.LC20:
- 1225 0140 28434D44 		.ascii	"(CMD:FOCUS_NEAR)\000"
- 1225      3A464F43 
- 1225      55535F4E 
- 1225      45415229 
- 1225      00
- 1226 0151 000000   		.space	3
- 1227              	.LC21:
- 1228 0154 28434D44 		.ascii	"(CMD:FOCUS_FAR)\000"
- 1228      3A464F43 
- 1228      55535F46 
- 1228      41522900 
- 1229              	.LC22:
- 1230 0164 28434D44 		.ascii	"(CMD:PRESET_SAVE)\000"
- 1230      3A505245 
- 1230      5345545F 
- 1230      53415645 
- 1230      2900
- 1231 0176 0000     		.space	2
- 1232              	.LC23:
- 1233 0178 0D0A2843 		.ascii	"\015\012(CMD:VS4210_W)\000"
- 1233      4D443A56 
- 1233      53343231 
- 1233      305F5729 
- 1233      00
- 1234 0189 000000   		.space	3
- 1235              	.LC24:
- 1236 018c 0D0A5653 		.ascii	"\015\012VS4210  Write addr=%02x  data=%02x\000"
- 1236      34323130 
- 1236      20205772 
- 1236      69746520 
- 1236      61646472 
- 1237 01b1 000000   		.space	3
- 1238              	.LC25:
- 1239 01b4 0D0A2843 		.ascii	"\015\012(CMD:VS4210_R)\000"
- 1239      4D443A56 
- 1239      53343231 
- 1239      305F5229 
- 1239      00
- 1240 01c5 000000   		.space	3
- 1241              	.LC26:
- 1242 01c8 0D0A5653 		.ascii	"\015\012VS4210  Read addr=%02x  data=%02x\000"
- 1242      34323130 
-ARM GAS  /tmp/ccQzhlAu.s 			page 37
+ 1216      46542900 
+ 1217              	.LC18:
+ 1218 0120 28434D44 		.ascii	"(CMD:ZOOM_IN)\000"
+ 1218      3A5A4F4F 
+ 1218      4D5F494E 
+ 1218      2900
+ 1219 012e 0000     		.space	2
+ 1220              	.LC19:
+ 1221 0130 28434D44 		.ascii	"(CMD:ZOOM_OUT)\000"
+ 1221      3A5A4F4F 
+ 1221      4D5F4F55 
+ 1221      542900
+ 1222 013f 00       		.space	1
+ 1223              	.LC20:
+ 1224 0140 28434D44 		.ascii	"(CMD:FOCUS_NEAR)\000"
+ 1224      3A464F43 
+ 1224      55535F4E 
+ 1224      45415229 
+ 1224      00
+ 1225 0151 000000   		.space	3
+ 1226              	.LC21:
+ 1227 0154 28434D44 		.ascii	"(CMD:FOCUS_FAR)\000"
+ 1227      3A464F43 
+ 1227      55535F46 
+ 1227      41522900 
+ 1228              	.LC22:
+ 1229 0164 28434D44 		.ascii	"(CMD:PRESET_SAVE)\000"
+ 1229      3A505245 
+ 1229      5345545F 
+ 1229      53415645 
+ 1229      2900
+ 1230 0176 0000     		.space	2
+ 1231              	.LC23:
+ 1232 0178 0D0A2843 		.ascii	"\015\012(CMD:VS4210_W)\000"
+ 1232      4D443A56 
+ 1232      53343231 
+ 1232      305F5729 
+ 1232      00
+ 1233 0189 000000   		.space	3
+ 1234              	.LC24:
+ 1235 018c 0D0A5653 		.ascii	"\015\012VS4210  Write addr=%02x  data=%02x\000"
+ 1235      34323130 
+ 1235      20205772 
+ 1235      69746520 
+ 1235      61646472 
+ 1236 01b1 000000   		.space	3
+ 1237              	.LC25:
+ 1238 01b4 0D0A2843 		.ascii	"\015\012(CMD:VS4210_R)\000"
+ 1238      4D443A56 
+ 1238      53343231 
+ 1238      305F5229 
+ 1238      00
+ 1239 01c5 000000   		.space	3
+ 1240              	.LC26:
+ 1241 01c8 0D0A5653 		.ascii	"\015\012VS4210  Read addr=%02x  data=%02x\000"
+ 1241      34323130 
+ 1241      20205265 
+ARM GAS  /tmp/ccQ2BhSc.s 			page 37
 
 
- 1242      20205265 
- 1242      61642061 
- 1242      6464723D 
- 1243              	.LC27:
- 1244 01ec 28434845 		.ascii	"(CHECKUSM ERROR)\000"
- 1244      434B5553 
- 1244      4D204552 
- 1244      524F5229 
- 1244      00
- 1245 01fd 000000   		.space	3
- 1246              	.LC28:
- 1247 0200 0D0A2832 		.ascii	"\015\012(2CMD: ERROR)\000"
- 1247      434D443A 
- 1247      20455252 
- 1247      4F522900 
- 1248              	.LC29:
- 1249 0210 28413D25 		.ascii	"(A=%d)\000"
- 1249      642900
- 1250              		.text
- 1251              	.Letext0:
- 1252              		.file 2 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/machine/_default_
- 1253              		.file 3 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/lock.h"
- 1254              		.file 4 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_types.h"
- 1255              		.file 5 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/lib/gcc/arm-none-eabi/7.3.1/include/std
- 1256              		.file 6 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/reent.h"
- 1257              		.file 7 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_stdint.h"
- 1258              		.file 8 "VS4210/VXIS_Extern_Define.h"
- 1259              		.file 9 "VS4210/VS4210.h"
- 1260              		.file 10 "Drivers/CMSIS/Include/core_cm3.h"
- 1261              		.file 11 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
- 1262              		.file 12 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
- 1263              		.file 13 "sw_i2c/VX_swi2c.h"
- 1264              		.file 14 "VS4210/VS4210_param_Mode88.h"
- 1265              		.file 15 "VS4210/VS4210_param_Modex26.h"
- 1266              		.file 16 "TP2824/tpinc/TP2802.h"
- 1267              		.file 17 "VS4210/TOA_Protocol.h"
- 1268              		.file 18 "VS4210/Printf.h"
- 1269              		.file 19 "Inc/main.h"
-ARM GAS  /tmp/ccQzhlAu.s 			page 38
+ 1241      61642061 
+ 1241      6464723D 
+ 1242              	.LC27:
+ 1243 01ec 28434845 		.ascii	"(CHECKUSM ERROR)\000"
+ 1243      434B5553 
+ 1243      4D204552 
+ 1243      524F5229 
+ 1243      00
+ 1244 01fd 000000   		.space	3
+ 1245              	.LC28:
+ 1246 0200 0D0A2832 		.ascii	"\015\012(2CMD: ERROR)\000"
+ 1246      434D443A 
+ 1246      20455252 
+ 1246      4F522900 
+ 1247              	.LC29:
+ 1248 0210 28413D25 		.ascii	"(A=%d)\000"
+ 1248      642900
+ 1249              		.text
+ 1250              	.Letext0:
+ 1251              		.file 2 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/machine/_default_
+ 1252              		.file 3 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/lock.h"
+ 1253              		.file 4 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_types.h"
+ 1254              		.file 5 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/lib/gcc/arm-none-eabi/7.3.1/include/std
+ 1255              		.file 6 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/reent.h"
+ 1256              		.file 7 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_stdint.h"
+ 1257              		.file 8 "VS4210/VXIS_Extern_Define.h"
+ 1258              		.file 9 "VS4210/VS4210.h"
+ 1259              		.file 10 "Drivers/CMSIS/Include/core_cm3.h"
+ 1260              		.file 11 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 1261              		.file 12 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 1262              		.file 13 "sw_i2c/VX_swi2c.h"
+ 1263              		.file 14 "VS4210/VS4210_param_Mode88.h"
+ 1264              		.file 15 "VS4210/VS4210_param_Modex26.h"
+ 1265              		.file 16 "TP2824/tpinc/TP2802.h"
+ 1266              		.file 17 "VS4210/TOA_Protocol.h"
+ 1267              		.file 18 "VS4210/Printf.h"
+ 1268              		.file 19 "Inc/main.h"
+ARM GAS  /tmp/ccQ2BhSc.s 			page 38
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 TOA_Protocol.c
-     /tmp/ccQzhlAu.s:16     .text.TOAReceivePaser:0000000000000000 $t
-     /tmp/ccQzhlAu.s:23     .text.TOAReceivePaser:0000000000000000 TOAReceivePaser
-     /tmp/ccQzhlAu.s:83     .text.TOAReceivePaser:0000000000000040 $d
-     /tmp/ccQzhlAu.s:91     .text.TOAReceivePaser:000000000000004e $t
-     /tmp/ccQzhlAu.s:496    .text.TOAReceivePaser:00000000000002cc $d
+     /tmp/ccQ2BhSc.s:16     .text.TOAReceivePaser:0000000000000000 $t
+     /tmp/ccQ2BhSc.s:23     .text.TOAReceivePaser:0000000000000000 TOAReceivePaser
+     /tmp/ccQ2BhSc.s:83     .text.TOAReceivePaser:0000000000000040 $d
+     /tmp/ccQ2BhSc.s:91     .text.TOAReceivePaser:000000000000004e $t
+     /tmp/ccQ2BhSc.s:495    .text.TOAReceivePaser:00000000000002cc $d
                             *COM*:0000000000000001 protocol_chksum
-     /tmp/ccQzhlAu.s:520    .text.TOAReceivePaser:0000000000000324 $t
-     /tmp/ccQzhlAu.s:1033   .text.TOAReceivePaser:0000000000000610 $d
-     /tmp/ccQzhlAu.s:1059   .text.TOAReceivePaser:0000000000000670 $t
-     /tmp/ccQzhlAu.s:1113   .text.TOAReceivePaser:00000000000006bc $d
-     /tmp/ccQzhlAu.s:1138   .bss.CMDCount:0000000000000000 CMDCount
-     /tmp/ccQzhlAu.s:1152   .bss.protocol_data:0000000000000000 protocol_data
-     /tmp/ccQzhlAu.s:1145   .bss.protocol_cmd:0000000000000000 protocol_cmd
-     /tmp/ccQzhlAu.s:1158   .bss.protocol_data_count:0000000000000000 protocol_data_count
+     /tmp/ccQ2BhSc.s:519    .text.TOAReceivePaser:0000000000000324 $t
+     /tmp/ccQ2BhSc.s:1032   .text.TOAReceivePaser:0000000000000610 $d
+     /tmp/ccQ2BhSc.s:1058   .text.TOAReceivePaser:0000000000000670 $t
+     /tmp/ccQ2BhSc.s:1112   .text.TOAReceivePaser:00000000000006bc $d
+     /tmp/ccQ2BhSc.s:1137   .bss.CMDCount:0000000000000000 CMDCount
+     /tmp/ccQ2BhSc.s:1151   .bss.protocol_data:0000000000000000 protocol_data
+     /tmp/ccQ2BhSc.s:1144   .bss.protocol_cmd:0000000000000000 protocol_cmd
+     /tmp/ccQ2BhSc.s:1157   .bss.protocol_data_count:0000000000000000 protocol_data_count
                             *COM*:0000000000000001 protocol_param
                             *COM*:0000000000000001 protocol_len
                             *COM*:0000000000000001 protocol_type
-     /tmp/ccQzhlAu.s:1164   .bss.protocol_state:0000000000000000 protocol_state
+     /tmp/ccQ2BhSc.s:1163   .bss.protocol_state:0000000000000000 protocol_state
                             *COM*:0000000000000004 protocol_escape_flag
                             *COM*:0000000000000004 newInRes
-     /tmp/ccQzhlAu.s:1139   .bss.CMDCount:0000000000000000 $d
-     /tmp/ccQzhlAu.s:1141   .bss.protocol_cmd:0000000000000000 $d
-     /tmp/ccQzhlAu.s:1148   .bss.protocol_data:0000000000000000 $d
-     /tmp/ccQzhlAu.s:1159   .bss.protocol_data_count:0000000000000000 $d
-     /tmp/ccQzhlAu.s:1165   .bss.protocol_state:0000000000000000 $d
-     /tmp/ccQzhlAu.s:1167   .rodata.TOAReceivePaser.str1.4:0000000000000000 $d
+     /tmp/ccQ2BhSc.s:1138   .bss.CMDCount:0000000000000000 $d
+     /tmp/ccQ2BhSc.s:1140   .bss.protocol_cmd:0000000000000000 $d
+     /tmp/ccQ2BhSc.s:1147   .bss.protocol_data:0000000000000000 $d
+     /tmp/ccQ2BhSc.s:1158   .bss.protocol_data_count:0000000000000000 $d
+     /tmp/ccQ2BhSc.s:1164   .bss.protocol_state:0000000000000000 $d
+     /tmp/ccQ2BhSc.s:1166   .rodata.TOAReceivePaser.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 RS2_ready
 RS2_rx
+Printf
 GraphicsPrint
 Get_2824cIrq
 VXISI2CRead
-Printf
 ptztxflag
 PtzTxChNum
 TVI_Command

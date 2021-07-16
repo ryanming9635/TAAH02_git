@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccRhiP7z.s 			page 1
+ARM GAS  /tmp/ccG8Bke4.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
   32:Src/main.c    **** #endif
   33:Src/main.c    **** 
   34:Src/main.c    **** #include "VXIS_Extern_Define.h"
-ARM GAS  /tmp/ccRhiP7z.s 			page 2
+ARM GAS  /tmp/ccG8Bke4.s 			page 2
 
 
   35:Src/main.c    **** #include "sw_i2c0.h"  //TP2824
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
   89:Src/main.c    **** TIM_HandleTypeDef htim2;
   90:Src/main.c    **** 
   91:Src/main.c    **** /* USER CODE BEGIN PV */
-ARM GAS  /tmp/ccRhiP7z.s 			page 3
+ARM GAS  /tmp/ccG8Bke4.s 			page 3
 
 
   92:Src/main.c    **** volatile tByte VS4210_ADDR = 0x40 ;
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  146:Src/main.c    **** unsigned int volatile Tim1_count=0;
  147:Src/main.c    **** bit OSD_Show_Flg = 0 ;
  148:Src/main.c    **** 
-ARM GAS  /tmp/ccRhiP7z.s 			page 4
+ARM GAS  /tmp/ccG8Bke4.s 			page 4
 
 
  149:Src/main.c    **** static int TimeOutCount ;
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  203:Src/main.c    **** static volatile tWord  u16Vendor ;
  204:Src/main.c    **** static volatile tByte  u8IRcode ;
  205:Src/main.c    **** static volatile tByte  u8IRCheckcode ;
-ARM GAS  /tmp/ccRhiP7z.s 			page 5
+ARM GAS  /tmp/ccG8Bke4.s 			page 5
 
 
  206:Src/main.c    **** static volatile tByte  PreIR_Code = 0 ;
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  260:Src/main.c    ****         return -1;
  261:Src/main.c    ****     }
  262:Src/main.c    ****     // arbitrary timeout 1000
-ARM GAS  /tmp/ccRhiP7z.s 			page 6
+ARM GAS  /tmp/ccG8Bke4.s 			page 6
 
 
  263:Src/main.c    ****     HAL_StatusTypeDef status =
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  317:Src/main.c    ****     case HDMI_AUDIO_2:
  318:Src/main.c    **** //        A_AUDIO = 0 ;
  319:Src/main.c    **** //        B_AUDIO = 1 ;
-ARM GAS  /tmp/ccRhiP7z.s 			page 7
+ARM GAS  /tmp/ccG8Bke4.s 			page 7
 
 
  320:Src/main.c    **** //        H1_AUDIO= 1 ;
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  374:Src/main.c    **** void SET_Audio_Mute(unsigned char mode )
  375:Src/main.c    **** {
  376:Src/main.c    **** 
-ARM GAS  /tmp/ccRhiP7z.s 			page 8
+ARM GAS  /tmp/ccG8Bke4.s 			page 8
 
 
  377:Src/main.c    **** if(mode==ON)
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  431:Src/main.c    ****         printf("RxBufIndex=%d,str=%s\r\n",RxBufIndex, gRxbuf);
  432:Src/main.c    ****         if ( RxBufIndex >= 4 )
  433:Src/main.c    ****         {
-ARM GAS  /tmp/ccRhiP7z.s 			page 9
+ARM GAS  /tmp/ccG8Bke4.s 			page 9
 
 
  434:Src/main.c    ****             if ((gRxbuf[0] =='G') && (gRxbuf[3]=='g'))
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  488:Src/main.c    ****         break ;
  489:Src/main.c    ****     }
  490:Src/main.c    ****     case VS4210_LOOP_MODE0_w3:
-ARM GAS  /tmp/ccRhiP7z.s 			page 10
+ARM GAS  /tmp/ccG8Bke4.s 			page 10
 
 
  491:Src/main.c    ****     {
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  545:Src/main.c    ****    	  OSD_MIRROR[2]=CAMC_M;	
  546:Src/main.c    ****    	  OSD_MIRROR[3]=CAMR_M;	
  547:Src/main.c    **** 	gabVXIS_Input_mirrorH[0]=CAMA_M; 		  
-ARM GAS  /tmp/ccRhiP7z.s 			page 11
+ARM GAS  /tmp/ccG8Bke4.s 			page 11
 
 
  548:Src/main.c    **** 	gabVXIS_Input_mirrorH[1]=CAMB_M; 		  
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  602:Src/main.c    **** 			 pVS4210_JointKind1.WindowMap.WMap1 =2 ;
  603:Src/main.c    **** 			 pVS4210_JointKind1.WindowMap.WMap2 =4 ;
  604:Src/main.c    **** 		   OSD_MIRROR[0]=CAMA_M; 
-ARM GAS  /tmp/ccRhiP7z.s 			page 12
+ARM GAS  /tmp/ccG8Bke4.s 			page 12
 
 
  605:Src/main.c    **** 		   OSD_MIRROR[1]=CAMB_M; 
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  659:Src/main.c    ****    {
  660:Src/main.c    **** 		   pVS4210_JointKind1.OutputMode = VS4210_1080P_MODE8 ;
  661:Src/main.c    **** 		   pVS4210_JointKind1.WindowMap.WMap0 =2 ;
-ARM GAS  /tmp/ccRhiP7z.s 			page 13
+ARM GAS  /tmp/ccG8Bke4.s 			page 13
 
 
  662:Src/main.c    **** 		   pVS4210_JointKind1.WindowMap.WMap1 =1 ;
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  716:Src/main.c    **** 		   printf("VS4210_MODE8 ch3 ch1 ch2\r\n") ;
  717:Src/main.c    **** 		   break ;
  718:Src/main.c    **** 	   }   
-ARM GAS  /tmp/ccRhiP7z.s 			page 14
+ARM GAS  /tmp/ccG8Bke4.s 			page 14
 
 
  719:Src/main.c    **** case VS4210_LOOP_MODE8_314:
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  773:Src/main.c    **** 				 OSD_SPEAKER[2]=OFF;  
  774:Src/main.c    **** 				 //  pVS4210_JointKind1.WindowMap.WMap3 =4 ;
  775:Src/main.c    **** 				   printf("VS4210_MODE8 ch4 ch1 ch3\r\n") ;
-ARM GAS  /tmp/ccRhiP7z.s 			page 15
+ARM GAS  /tmp/ccG8Bke4.s 			page 15
 
 
  776:Src/main.c    **** 				   break ;
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  830:Src/main.c    **** 	   pVS4210_JointKind1.OutputMode = VS4210_1080P_MODE10 ;
  831:Src/main.c    **** 	   pVS4210_JointKind1.WindowMap.WMap0 =4 ;
  832:Src/main.c    **** 	   pVS4210_JointKind1.WindowMap.WMap1 =1 ;
-ARM GAS  /tmp/ccRhiP7z.s 			page 16
+ARM GAS  /tmp/ccG8Bke4.s 			page 16
 
 
  833:Src/main.c    **** 	   pVS4210_JointKind1.WindowMap.WMap2 =2 ;
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  887:Src/main.c    ****     case VS4210_LOOP_MODE9:
  888:Src/main.c    ****     {
  889:Src/main.c    ****         pVS4210_JointKind1.OutputMode = VS4210_1080P_MODE9 ;
-ARM GAS  /tmp/ccRhiP7z.s 			page 17
+ARM GAS  /tmp/ccG8Bke4.s 			page 17
 
 
  890:Src/main.c    ****         pVS4210_JointKind1.WindowMap.WMap0 =1 ;
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  944:Src/main.c    ****    	  OSD_MIRROR[1]=CAMB_M;	
  945:Src/main.c    ****        gabVXIS_Input_mirrorH[0]=CAMR_M;			  
  946:Src/main.c    **** 	gabVXIS_Input_mirrorH[1]=CAMB_M; 	  
-ARM GAS  /tmp/ccRhiP7z.s 			page 18
+ARM GAS  /tmp/ccG8Bke4.s 			page 18
 
 
  947:Src/main.c    **** 	  OSD_SPEAKER[0]=ON;
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1001:Src/main.c    ****    	  OSD_MIRROR[1]=CAMR_M;	
 1002:Src/main.c    ****        gabVXIS_Input_mirrorH[0]=CAMB_M;			  
 1003:Src/main.c    **** 	gabVXIS_Input_mirrorH[1]=CAMR_M; 	  
-ARM GAS  /tmp/ccRhiP7z.s 			page 19
+ARM GAS  /tmp/ccG8Bke4.s 			page 19
 
 
 1004:Src/main.c    **** 	  OSD_SPEAKER[0]=OFF;
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1058:Src/main.c    **** 
 1059:Src/main.c    **** case VS4210_LOOP_MODE12_31:
 1060:Src/main.c    ****   {
-ARM GAS  /tmp/ccRhiP7z.s 			page 20
+ARM GAS  /tmp/ccG8Bke4.s 			page 20
 
 
 1061:Src/main.c    ****    pVS4210_JointKind1.OutputMode = VS4210_1080P_MODE12 ;
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1115:Src/main.c    **** /*
 1116:Src/main.c    **** static int GetKet_State(void)
 1117:Src/main.c    **** {
-ARM GAS  /tmp/ccRhiP7z.s 			page 21
+ARM GAS  /tmp/ccG8Bke4.s 			page 21
 
 
 1118:Src/main.c    ****     int re = 0  ;
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1172:Src/main.c    **** 				REGA1=HDMIRX_ReadI2C_Byte(0xa1);
 1173:Src/main.c    **** 				REGA2=HDMIRX_ReadI2C_Byte(0xa2);
 1174:Src/main.c    **** 				
-ARM GAS  /tmp/ccRhiP7z.s 			page 22
+ARM GAS  /tmp/ccG8Bke4.s 			page 22
 
 
 1175:Src/main.c    **** 				if((REG9C==0xbc)&&(REG9D==0x07)&&(REGA1==0x10)&&(REGA2==0xB8))
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1229:Src/main.c    **** 						OSDStateFlg = 1 ;
 1230:Src/main.c    **** 						OSDSecCount = 0 ;
 1231:Src/main.c    **** 					}
-ARM GAS  /tmp/ccRhiP7z.s 			page 23
+ARM GAS  /tmp/ccG8Bke4.s 			page 23
 
 
 1232:Src/main.c    **** 					gbVXIS_InputMode[gHDMI_Index] =_OSD_No_Signal ;
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1286:Src/main.c    **** 						OSD_Show_Flg = 1 ;
 1287:Src/main.c    **** 						Tim1_count = 0 ;
 1288:Src/main.c    **** 						OSDStateFlg = 1 ;
-ARM GAS  /tmp/ccRhiP7z.s 			page 24
+ARM GAS  /tmp/ccG8Bke4.s 			page 24
 
 
 1289:Src/main.c    **** 						OSDSecCount = 0 ;
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1343:Src/main.c    **** 			SaveFWRevEE(FWVER);
 1344:Src/main.c    **** 			Printf("\r\nCurr.FW:%04x", (WORD)GetFWRevEE());
 1345:Src/main.c    **** 		}
-ARM GAS  /tmp/ccRhiP7z.s 			page 25
+ARM GAS  /tmp/ccG8Bke4.s 			page 25
 
 
 1346:Src/main.c    **** 
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1400:Src/main.c    **** 		//#endif
 1401:Src/main.c    **** 		//	PWMLevelTemp=128;
 1402:Src/main.c    **** 	}
-ARM GAS  /tmp/ccRhiP7z.s 			page 26
+ARM GAS  /tmp/ccG8Bke4.s 			page 26
 
 
 1403:Src/main.c    **** 
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1457:Src/main.c    **** 
 1458:Src/main.c    **** 	//Printf("\r\nLADC0=%02x",(WORD)val);
 1459:Src/main.c    **** 	page = ReadTW88( 0xff );
-ARM GAS  /tmp/ccRhiP7z.s 			page 27
+ARM GAS  /tmp/ccG8Bke4.s 			page 27
 
 
 1460:Src/main.c    **** 	WriteTW88( 0xff, 0x00 );		// set page 0
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1514:Src/main.c    **** //	MCUTimerDelayXms(50);
 1515:Src/main.c    **** 	BL_ENABLE(ON);
 1516:Src/main.c    **** //	BL_PWM(ON);
-ARM GAS  /tmp/ccRhiP7z.s 			page 28
+ARM GAS  /tmp/ccG8Bke4.s 			page 28
 
 
 1517:Src/main.c    **** 
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1571:Src/main.c    **** 	Set_Timer();
 1572:Src/main.c    **** 	Set_Init_GPIO();
 1573:Src/main.c    **** 
-ARM GAS  /tmp/ccRhiP7z.s 			page 29
+ARM GAS  /tmp/ccG8Bke4.s 			page 29
 
 
 1574:Src/main.c    **** 	TIM4_PWM(0);
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1628:Src/main.c    **** {
 1629:Src/main.c    **** #if 0
 1630:Src/main.c    **** 	 PowerFlag = ReadEEP(EEP_Powerflag);
-ARM GAS  /tmp/ccRhiP7z.s 			page 30
+ARM GAS  /tmp/ccG8Bke4.s 			page 30
 
 
 1631:Src/main.c    **** 	 SelectModeType = ReadEEP(EEP_SelectMode);
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1685:Src/main.c    **** 			if(!(TriggerMode==0x08))
 1686:Src/main.c    **** 			{
 1687:Src/main.c    **** 				//Printf("\r\n(**PowerFlag=%02x)",(WORD)PowerFlag);
-ARM GAS  /tmp/ccRhiP7z.s 			page 31
+ARM GAS  /tmp/ccG8Bke4.s 			page 31
 
 
 1688:Src/main.c    **** 				LCDPowerON(1);//修正power on時顯示太慢問題
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1742:Src/main.c    **** Printf("\r\n(Power ON..)");		
 1743:Src/main.c    **** 
 1744:Src/main.c    **** 
-ARM GAS  /tmp/ccRhiP7z.s 			page 32
+ARM GAS  /tmp/ccG8Bke4.s 			page 32
 
 
 1745:Src/main.c    **** }
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1799:Src/main.c    ****   MX_TIM3_Init();
 1800:Src/main.c    ****   MX_USART1_UART_Init();
 1801:Src/main.c    ****   MX_USART2_UART_Init();
-ARM GAS  /tmp/ccRhiP7z.s 			page 33
+ARM GAS  /tmp/ccG8Bke4.s 			page 33
 
 
 1802:Src/main.c    **** //  MX_ADC1_Init();
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1856:Src/main.c    ****       HDMIRX_WriteI2C_Byte(0x89 ,0x80);
 1857:Src/main.c    **** 
 1858:Src/main.c    **** #ifdef VICTOR_DEBUG
-ARM GAS  /tmp/ccRhiP7z.s 			page 34
+ARM GAS  /tmp/ccG8Bke4.s 			page 34
 
 
 1859:Src/main.c    ****       val = HDMIRX_ReadI2C_Byte(0x02) ;
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1913:Src/main.c    ****   //pVS4210_MutiWindows1.OutputMode = VS4210_1080P_MODE6 ;  // 1_3 windows
 1914:Src/main.c    ****   //pVS4210_MutiWindows1.OutputMode = VS4210_1080P_MODE12 ;  // 4windows
 1915:Src/main.c    **** //  pVS4210_MutiWindows1.WindowMap.WMap0 = 1 ; //set ch1 = video1
-ARM GAS  /tmp/ccRhiP7z.s 			page 35
+ARM GAS  /tmp/ccG8Bke4.s 			page 35
 
 
 1916:Src/main.c    **** //  pVS4210_MutiWindows1.WindowMap.WMap1 = 2 ; //set ch2 = video2
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1970:Src/main.c    **** 
 1971:Src/main.c    **** //RX
 1972:Src/main.c    ****   ManVidRes = RES1920X1080 ; //0x01
-ARM GAS  /tmp/ccRhiP7z.s 			page 36
+ARM GAS  /tmp/ccG8Bke4.s 			page 36
 
 
 1973:Src/main.c    **** //Init_TP280x_RegSet();
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2027:Src/main.c    **** //	SET_VX8812_SD_Video_Out(_NTSC);
 2028:Src/main.c    **** //	SET_VX8812_SD_Video_Out(_PAL);
 2029:Src/main.c    **** 
-ARM GAS  /tmp/ccRhiP7z.s 			page 37
+ARM GAS  /tmp/ccG8Bke4.s 			page 37
 
 
 2030:Src/main.c    **** //  Printf("\r\nMain Loop...");
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2084:Src/main.c    **** //	GetRS232_CMD();
 2085:Src/main.c    **** 	//getmcukeystate() ;
 2086:Src/main.c    **** 	/*
-ARM GAS  /tmp/ccRhiP7z.s 			page 38
+ARM GAS  /tmp/ccG8Bke4.s 			page 38
 
 
 2087:Src/main.c    **** 	if (IR_END_Flg ==1 )
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2141:Src/main.c    **** 		   }
 2142:Src/main.c    **** 	
 2143:Src/main.c    **** 		   if (OSDStateFlg == 1 )
-ARM GAS  /tmp/ccRhiP7z.s 			page 39
+ARM GAS  /tmp/ccG8Bke4.s 			page 39
 
 
 2144:Src/main.c    **** 		   {
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2198:Src/main.c    **** 	#endif
 2199:Src/main.c    **** 
 2200:Src/main.c    **** #endif
-ARM GAS  /tmp/ccRhiP7z.s 			page 40
+ARM GAS  /tmp/ccG8Bke4.s 			page 40
 
 
 2201:Src/main.c    **** }
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2255:Src/main.c    **** 	 tcByte *Addrn ; 
 2256:Src/main.c    **** 	 Addrn = &VS4210_Addr_88param[0] ; 
 2257:Src/main.c    ****  
-ARM GAS  /tmp/ccRhiP7z.s 			page 41
+ARM GAS  /tmp/ccG8Bke4.s 			page 41
 
 
 2258:Src/main.c    **** 	 for (i=0 ; i< VS4210_INIT_NUMBER ; i++)
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2312:Src/main.c    **** VXISI2CWrite(0x26,0x65); 
 2313:Src/main.c    **** VXISI2CWrite(0x27,0x38); 
 2314:Src/main.c    **** VXISI2CWrite(0x28,0xF0); 
-ARM GAS  /tmp/ccRhiP7z.s 			page 42
+ARM GAS  /tmp/ccG8Bke4.s 			page 42
 
 
 2315:Src/main.c    **** VXISI2CWrite(0x29,0x00); 
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2369:Src/main.c    **** VXISI2CWrite(0x5F,0x00); 
 2370:Src/main.c    **** VXISI2CWrite(0x60,0xB4); 
 2371:Src/main.c    **** VXISI2CWrite(0x61,0x51); 
-ARM GAS  /tmp/ccRhiP7z.s 			page 43
+ARM GAS  /tmp/ccG8Bke4.s 			page 43
 
 
 2372:Src/main.c    **** VXISI2CWrite(0x62,0x33); 
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2426:Src/main.c    **** VXISI2CWrite(0x98,0x29); 
 2427:Src/main.c    **** VXISI2CWrite(0x99,0x90); 
 2428:Src/main.c    **** VXISI2CWrite(0x9A,0x80); 
-ARM GAS  /tmp/ccRhiP7z.s 			page 44
+ARM GAS  /tmp/ccG8Bke4.s 			page 44
 
 
 2429:Src/main.c    **** VXISI2CWrite(0x9B,0x04); 
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2483:Src/main.c    **** VXISI2CWrite(0xD1,0x3F); 
 2484:Src/main.c    **** VXISI2CWrite(0xD2,0xC2); 
 2485:Src/main.c    **** VXISI2CWrite(0xD3,0x3F); 
-ARM GAS  /tmp/ccRhiP7z.s 			page 45
+ARM GAS  /tmp/ccG8Bke4.s 			page 45
 
 
 2486:Src/main.c    **** VXISI2CWrite(0xD4,0x00); 
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2540:Src/main.c    **** VXISI2CWrite(0x08,0x21);
 2541:Src/main.c    **** VXISI2CWrite(0x09,0x0A);
 2542:Src/main.c    **** VXISI2CWrite(0x0A,0x21);
-ARM GAS  /tmp/ccRhiP7z.s 			page 46
+ARM GAS  /tmp/ccG8Bke4.s 			page 46
 
 
 2543:Src/main.c    **** VXISI2CWrite(0x0B,0x0A);
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2597:Src/main.c    **** VXISI2CWrite(0x41,0x60);
 2598:Src/main.c    **** VXISI2CWrite(0x42,0x5F);
 2599:Src/main.c    **** VXISI2CWrite(0x43,0x37);
-ARM GAS  /tmp/ccRhiP7z.s 			page 47
+ARM GAS  /tmp/ccG8Bke4.s 			page 47
 
 
 2600:Src/main.c    **** VXISI2CWrite(0x44,0x14);
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2654:Src/main.c    **** VXISI2CWrite(0x7B,0xFF);
 2655:Src/main.c    **** VXISI2CWrite(0x7C,0xFF);
 2656:Src/main.c    **** VXISI2CWrite(0x7D,0xF0);
-ARM GAS  /tmp/ccRhiP7z.s 			page 48
+ARM GAS  /tmp/ccG8Bke4.s 			page 48
 
 
 2657:Src/main.c    **** VXISI2CWrite(0x7E,0x80);
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2711:Src/main.c    **** VXISI2CWrite(0xB4,0x00);
 2712:Src/main.c    **** VXISI2CWrite(0xB5,0x00);
 2713:Src/main.c    **** VXISI2CWrite(0xB6,0x00);
-ARM GAS  /tmp/ccRhiP7z.s 			page 49
+ARM GAS  /tmp/ccG8Bke4.s 			page 49
 
 
 2714:Src/main.c    **** VXISI2CWrite(0xB8,0x00);
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2768:Src/main.c    **** VXISI2CWrite(0xFC,0x00);
 2769:Src/main.c    **** VXISI2CWrite(0xFD,0x00);
 2770:Src/main.c    **** VXISI2CWrite(0xFE,0x00);
-ARM GAS  /tmp/ccRhiP7z.s 			page 50
+ARM GAS  /tmp/ccG8Bke4.s 			page 50
 
 
 2771:Src/main.c    **** VXISI2CWrite(0xFF,0x00);
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2825:Src/main.c    **** 	VXISI2CWrite(0x1E,0x20);	
 2826:Src/main.c    **** 	VXISI2CWrite(0x1F,0x31);	
 2827:Src/main.c    **** 	VXISI2CWrite(0x20,0x60);	
-ARM GAS  /tmp/ccRhiP7z.s 			page 51
+ARM GAS  /tmp/ccG8Bke4.s 			page 51
 
 
 2828:Src/main.c    **** 	VXISI2CWrite(0x21,0x39);	
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2882:Src/main.c    **** 	VXISI2CWrite(0x58,0x00);	
 2883:Src/main.c    **** 	VXISI2CWrite(0x59,0x08);	
 2884:Src/main.c    **** 	VXISI2CWrite(0x5A,0x10);	
-ARM GAS  /tmp/ccRhiP7z.s 			page 52
+ARM GAS  /tmp/ccG8Bke4.s 			page 52
 
 
 2885:Src/main.c    **** 	VXISI2CWrite(0x5B,0x00);	
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2939:Src/main.c    **** 	VXISI2CWrite(0x91,0x41);	
 2940:Src/main.c    **** 	VXISI2CWrite(0x92,0xC4);	
 2941:Src/main.c    **** 	VXISI2CWrite(0x93,0x81);	
-ARM GAS  /tmp/ccRhiP7z.s 			page 53
+ARM GAS  /tmp/ccG8Bke4.s 			page 53
 
 
 2942:Src/main.c    **** 	VXISI2CWrite(0x94,0xC9);	
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2996:Src/main.c    **** 	VXISI2CWrite(0xD6,0x00);	
 2997:Src/main.c    **** 	VXISI2CWrite(0xD7,0x10);	
 2998:Src/main.c    **** 	VXISI2CWrite(0xD8,0x00);	
-ARM GAS  /tmp/ccRhiP7z.s 			page 54
+ARM GAS  /tmp/ccG8Bke4.s 			page 54
 
 
 2999:Src/main.c    **** 	VXISI2CWrite(0xDC,0x77);	
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3053:Src/main.c    **** 	VXISI2CWrite(0x0C,0x00);
 3054:Src/main.c    **** 	VXISI2CWrite(0x0D,0x20);
 3055:Src/main.c    **** 	VXISI2CWrite(0x0E,0x10);
-ARM GAS  /tmp/ccRhiP7z.s 			page 55
+ARM GAS  /tmp/ccG8Bke4.s 			page 55
 
 
 3056:Src/main.c    **** 	VXISI2CWrite(0x0F,0x00);
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3110:Src/main.c    **** 	VXISI2CWrite(0x45,0x04);
 3111:Src/main.c    **** 	VXISI2CWrite(0x46,0x00);
 3112:Src/main.c    **** 	VXISI2CWrite(0x47,0x00);
-ARM GAS  /tmp/ccRhiP7z.s 			page 56
+ARM GAS  /tmp/ccG8Bke4.s 			page 56
 
 
 3113:Src/main.c    **** 	VXISI2CWrite(0x48,0x00);
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3167:Src/main.c    **** 	VXISI2CWrite(0x7F,0x00);
 3168:Src/main.c    **** 	VXISI2CWrite(0x80,0x00);
 3169:Src/main.c    **** 	VXISI2CWrite(0x81,0x34);
-ARM GAS  /tmp/ccRhiP7z.s 			page 57
+ARM GAS  /tmp/ccG8Bke4.s 			page 57
 
 
 3170:Src/main.c    **** 	VXISI2CWrite(0x82,0x40);
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3224:Src/main.c    **** 	VXISI2CWrite(0xB9,0x00);
 3225:Src/main.c    **** 	VXISI2CWrite(0xBA,0x01);
 3226:Src/main.c    **** 	VXISI2CWrite(0xBB,0x00);
-ARM GAS  /tmp/ccRhiP7z.s 			page 58
+ARM GAS  /tmp/ccG8Bke4.s 			page 58
 
 
 3227:Src/main.c    **** 	VXISI2CWrite(0xBC,0x90);
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3281:Src/main.c    **** 					 
 3282:Src/main.c    **** 
 3283:Src/main.c    **** 
-ARM GAS  /tmp/ccRhiP7z.s 			page 59
+ARM GAS  /tmp/ccG8Bke4.s 			page 59
 
 
 3284:Src/main.c    **** }
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3338:Src/main.c    **** 	VXISI2CWrite(0x31,0x80);
 3339:Src/main.c    **** 	VXISI2CWrite(0x32,0x80);
 3340:Src/main.c    **** 	VXISI2CWrite(0x33,0x80);
-ARM GAS  /tmp/ccRhiP7z.s 			page 60
+ARM GAS  /tmp/ccG8Bke4.s 			page 60
 
 
 3341:Src/main.c    **** 	VXISI2CWrite(0x34,0xA0);
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3395:Src/main.c    **** 	VXISI2CWrite(0x6B,0x6E);
 3396:Src/main.c    **** 	VXISI2CWrite(0x6C,0x6E);
 3397:Src/main.c    **** 	VXISI2CWrite(0x6D,0x00);
-ARM GAS  /tmp/ccRhiP7z.s 			page 61
+ARM GAS  /tmp/ccG8Bke4.s 			page 61
 
 
 3398:Src/main.c    **** 	VXISI2CWrite(0x6E,0x00);
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3452:Src/main.c    **** 	VXISI2CWrite(0xA4,0xE1);
 3453:Src/main.c    **** 	VXISI2CWrite(0xA5,0x38);
 3454:Src/main.c    **** 	VXISI2CWrite(0xA6,0xC2);
-ARM GAS  /tmp/ccRhiP7z.s 			page 62
+ARM GAS  /tmp/ccG8Bke4.s 			page 62
 
 
 3455:Src/main.c    **** 	VXISI2CWrite(0xA7,0x70);
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3509:Src/main.c    **** 	VXISI2CWrite(0xEC,0x88);
 3510:Src/main.c    **** 	VXISI2CWrite(0xED,0x00);
 3511:Src/main.c    **** 	VXISI2CWrite(0xEE,0x00);
-ARM GAS  /tmp/ccRhiP7z.s 			page 63
+ARM GAS  /tmp/ccG8Bke4.s 			page 63
 
 
 3512:Src/main.c    **** 	VXISI2CWrite(0xEF,0x00);
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3566:Src/main.c    **** 	VXISI2CWrite(0x1E,0x20);
 3567:Src/main.c    **** 	VXISI2CWrite(0x1F,0xA4);
 3568:Src/main.c    **** 	VXISI2CWrite(0x20,0x50);
-ARM GAS  /tmp/ccRhiP7z.s 			page 64
+ARM GAS  /tmp/ccG8Bke4.s 			page 64
 
 
 3569:Src/main.c    **** 	VXISI2CWrite(0x21,0xE2);
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3623:Src/main.c    **** 	VXISI2CWrite(0x57,0x04);
 3624:Src/main.c    **** 	VXISI2CWrite(0x58,0x00);
 3625:Src/main.c    **** 	VXISI2CWrite(0x59,0x08);
-ARM GAS  /tmp/ccRhiP7z.s 			page 65
+ARM GAS  /tmp/ccG8Bke4.s 			page 65
 
 
 3626:Src/main.c    **** 	VXISI2CWrite(0x5A,0x10);
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3680:Src/main.c    **** 	VXISI2CWrite(0x90,0xCC);
 3681:Src/main.c    **** 	VXISI2CWrite(0x91,0x41);
 3682:Src/main.c    **** 	VXISI2CWrite(0x92,0xC4);
-ARM GAS  /tmp/ccRhiP7z.s 			page 66
+ARM GAS  /tmp/ccG8Bke4.s 			page 66
 
 
 3683:Src/main.c    **** 	VXISI2CWrite(0x93,0x84);
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3737:Src/main.c    **** 	VXISI2CWrite(0xC9,0x00);
 3738:Src/main.c    **** 	VXISI2CWrite(0xCA,0x00);
 3739:Src/main.c    **** 	VXISI2CWrite(0xCB,0x00);
-ARM GAS  /tmp/ccRhiP7z.s 			page 67
+ARM GAS  /tmp/ccG8Bke4.s 			page 67
 
 
 3740:Src/main.c    **** 	VXISI2CWrite(0xCC,0x00);
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3794:Src/main.c    **** /**
 3795:Src/main.c    ****   * @brief System Clock Configuration
 3796:Src/main.c    ****   * @retval None
-ARM GAS  /tmp/ccRhiP7z.s 			page 68
+ARM GAS  /tmp/ccG8Bke4.s 			page 68
 
 
 3797:Src/main.c    ****   */
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3851:Src/main.c    ****   /** Initializes the CPU, AHB and APB busses clocks 
 3852:Src/main.c    ****   */
 3853:Src/main.c    ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-ARM GAS  /tmp/ccRhiP7z.s 			page 69
+ARM GAS  /tmp/ccG8Bke4.s 			page 69
 
 
 3854:Src/main.c    ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3908:Src/main.c    ****   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
 3909:Src/main.c    ****   {
 3910:Src/main.c    ****     Error_Handler();
-ARM GAS  /tmp/ccRhiP7z.s 			page 70
+ARM GAS  /tmp/ccG8Bke4.s 			page 70
 
 
 3911:Src/main.c    ****   }
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3965:Src/main.c    ****   {
 3966:Src/main.c    ****    Error_Handler();
 3967:Src/main.c    ****   }
-ARM GAS  /tmp/ccRhiP7z.s 			page 71
+ARM GAS  /tmp/ccG8Bke4.s 			page 71
 
 
 3968:Src/main.c    ****   
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 4022:Src/main.c    ****   }
 4023:Src/main.c    ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
 4024:Src/main.c    ****   if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
-ARM GAS  /tmp/ccRhiP7z.s 			page 72
+ARM GAS  /tmp/ccG8Bke4.s 			page 72
 
 
 4025:Src/main.c    ****   {
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 4079:Src/main.c    **** static void MX_USART2_UART_Init(void)
 4080:Src/main.c    **** {
 4081:Src/main.c    **** 
-ARM GAS  /tmp/ccRhiP7z.s 			page 73
+ARM GAS  /tmp/ccG8Bke4.s 			page 73
 
 
 4082:Src/main.c    ****   /* USER CODE BEGIN USART2_Init 0 */
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
   46              	.LBB2:
 4115:Src/main.c    **** 
 4116:Src/main.c    ****   /* GPIO Ports Clock Enable */
-ARM GAS  /tmp/ccRhiP7z.s 			page 74
+ARM GAS  /tmp/ccG8Bke4.s 			page 74
 
 
 4117:Src/main.c    ****   __HAL_RCC_GPIOA_CLK_ENABLE();
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 4124:Src/main.c    **** 
 4125:Src/main.c    ****   /*Configure GPIO pins : TX_RST_Pin TP2824_RST_Pin VS_RST_Pin */
 4126:Src/main.c    ****   GPIO_InitStruct.Pin = VIDEO_LOSS;
-ARM GAS  /tmp/ccRhiP7z.s 			page 75
+ARM GAS  /tmp/ccG8Bke4.s 			page 75
 
 
   94              		.loc 1 4126 0
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 4153:Src/main.c    ****    GPIO_InitStruct.Pin =DOWN_KEY_Pin|UP_KEY_Pin|MENU_KEY_Pin|POWER_KEY_Pin/*|TOUCH_INT*/;
 4154:Src/main.c    ****   // GPIO_InitStruct.Pin =MENU_KEY_Pin|POWER_KEY_Pin;
 4155:Src/main.c    ****    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-ARM GAS  /tmp/ccRhiP7z.s 			page 76
+ARM GAS  /tmp/ccG8Bke4.s 			page 76
 
 
 4156:Src/main.c    ****    GPIO_InitStruct.Pull = GPIO_PULLUP;
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 4190:Src/main.c    **** 
 4191:Src/main.c    ****    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
  142              		.loc 1 4191 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 77
+ARM GAS  /tmp/ccG8Bke4.s 			page 77
 
 
  143 00a8 0796     		str	r6, [sp, #28]
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  166              		@ sp needed
  167 00c6 F0BD     		pop	{r4, r5, r6, r7, pc}
  168              	.L4:
-ARM GAS  /tmp/ccRhiP7z.s 			page 78
+ARM GAS  /tmp/ccG8Bke4.s 			page 78
 
 
  169              		.align	2
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  218              		.loc 1 4016 0
  219 001e 0923     		movs	r3, #9
  220 0020 EB60     		str	r3, [r5, #12]
-ARM GAS  /tmp/ccRhiP7z.s 			page 79
+ARM GAS  /tmp/ccG8Bke4.s 			page 79
 
 
 4017:Src/main.c    ****   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  268              	MX_USART1_UART_Init:
  269              	.LFB97:
 4046:Src/main.c    **** 
-ARM GAS  /tmp/ccRhiP7z.s 			page 80
+ARM GAS  /tmp/ccG8Bke4.s 			page 80
 
 
  270              		.loc 1 4046 0
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  315              		.syntax unified
  316              		.thumb
  317              		.thumb_func
-ARM GAS  /tmp/ccRhiP7z.s 			page 81
+ARM GAS  /tmp/ccG8Bke4.s 			page 81
 
 
  318              		.fpu softvfp
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  362              		.cfi_endproc
  363              	.LFE98:
  365              		.section	.text.HDMI_AudioModeDetect,"ax",%progbits
-ARM GAS  /tmp/ccRhiP7z.s 			page 82
+ARM GAS  /tmp/ccG8Bke4.s 			page 82
 
 
  366              		.align	1
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  414              		.cfi_def_cfa_offset 4
  415              		@ sp needed
  416 0034 5DF804FB 		ldr	pc, [sp], #4
-ARM GAS  /tmp/ccRhiP7z.s 			page 83
+ARM GAS  /tmp/ccG8Bke4.s 			page 83
 
 
  417              	.L20:
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  468 0008 1446     		mov	r4, r2
  263:Src/main.c    ****         HAL_UART_Transmit(&huart1, (uint8_t*)data, (uint16_t)len, 1000);
  469              		.loc 1 263 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 84
+ARM GAS  /tmp/ccG8Bke4.s 			page 84
 
 
  470 000a 4FF47A73 		mov	r3, #1000
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  520              		@ frame_needed = 0, uses_anonymous_args = 0
  521              	.LVL23:
  522 0000 38B5     		push	{r3, r4, r5, lr}
-ARM GAS  /tmp/ccRhiP7z.s 			page 85
+ARM GAS  /tmp/ccG8Bke4.s 			page 85
 
 
  523              	.LCFI13:
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  295:Src/main.c    ****         break ;
  571              		.loc 1 295 0
  572 0040 0122     		movs	r2, #1
-ARM GAS  /tmp/ccRhiP7z.s 			page 86
+ARM GAS  /tmp/ccG8Bke4.s 			page 86
 
 
  573 0042 4FF40041 		mov	r1, #32768
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  314:Src/main.c    ****         break ;
  620              		.loc 1 314 0
  621 008e 2278     		ldrb	r2, [r4]	@ zero_extendqisi2
-ARM GAS  /tmp/ccRhiP7z.s 			page 87
+ARM GAS  /tmp/ccG8Bke4.s 			page 87
 
 
  622 0090 3B4B     		ldr	r3, .L41+16
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  668 00d8 294B     		ldr	r3, .L41+16
  669 00da 1A70     		strb	r2, [r3]
  334:Src/main.c    **** 
-ARM GAS  /tmp/ccRhiP7z.s 			page 88
+ARM GAS  /tmp/ccG8Bke4.s 			page 88
 
 
  670              		.loc 1 334 0
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  716              		.loc 1 352 0
  717 0124 92E7     		b	.L32
  718              	.LVL54:
-ARM GAS  /tmp/ccRhiP7z.s 			page 89
+ARM GAS  /tmp/ccG8Bke4.s 			page 89
 
 
  719              	.L38:
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  765 016e 00BF     		.align	2
  766              	.L41:
  767 0170 00000000 		.word	.LANCHOR0
-ARM GAS  /tmp/ccRhiP7z.s 			page 90
+ARM GAS  /tmp/ccG8Bke4.s 			page 90
 
 
  768 0174 00080140 		.word	1073809408
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  818 001e 0821     		movs	r1, #8
  819 0020 0148     		ldr	r0, .L48
  820              	.LVL67:
-ARM GAS  /tmp/ccRhiP7z.s 			page 91
+ARM GAS  /tmp/ccG8Bke4.s 			page 91
 
 
  821 0022 FFF7FEFF 		bl	HAL_GPIO_WritePin
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  874 0000 174B     		ldr	r3, .L60
  875 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  876 0004 012B     		cmp	r3, #1
-ARM GAS  /tmp/ccRhiP7z.s 			page 92
+ARM GAS  /tmp/ccG8Bke4.s 			page 92
 
 
  877 0006 00D0     		beq	.L58
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  924 0038 F9D1     		bne	.L52
  436:Src/main.c    ****                 memcpy(&achstr[0], &gRxbuf[1], 2 ) ;
  925              		.loc 1 436 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 93
+ARM GAS  /tmp/ccG8Bke4.s 			page 93
 
 
  926 003a 0023     		movs	r3, #0
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  977              		.cfi_offset 6, -8
  978              		.cfi_offset 14, -4
  979 0002 0446     		mov	r4, r0
-ARM GAS  /tmp/ccRhiP7z.s 			page 94
+ARM GAS  /tmp/ccG8Bke4.s 			page 94
 
 
  458:Src/main.c    ****     {
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1027              		.loc 1 467 0
  1028 0050 AC4B     		ldr	r3, .L83+20
  1029 0052 1D70     		strb	r5, [r3]
-ARM GAS  /tmp/ccRhiP7z.s 			page 95
+ARM GAS  /tmp/ccG8Bke4.s 			page 95
 
 
  1030              	.L63:
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1073              		.loc 1 475 0
  1074 0090 9A49     		ldr	r1, .L83+12
  1075 0092 4A70     		strb	r2, [r1, #1]
-ARM GAS  /tmp/ccRhiP7z.s 			page 96
+ARM GAS  /tmp/ccG8Bke4.s 			page 96
 
 
  476:Src/main.c    ****         printf("VS4210_MODE0_w1\r\n") ;
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1119 00c8 1A70     		strb	r2, [r3]
  493:Src/main.c    ****    	OSD_MIRROR[0]=CAMR_M;	
  1120              		.loc 1 493 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 97
+ARM GAS  /tmp/ccG8Bke4.s 			page 97
 
 
  1121 00ca 0422     		movs	r2, #4
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1164 0104 1E70     		strb	r6, [r3]
  509:Src/main.c    ****    	  OSD_MIRROR[2]=CAMC_M;	
  1165              		.loc 1 509 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 98
+ARM GAS  /tmp/ccG8Bke4.s 			page 98
 
 
  1166 0106 814A     		ldr	r2, .L83+28
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1207 0138 2022     		movs	r2, #32
  1208 013a 1A70     		strb	r2, [r3]
  528:Src/main.c    ****         pVS4210_JointKind1.WindowMap.WMap1 =2 ;
-ARM GAS  /tmp/ccRhiP7z.s 			page 99
+ARM GAS  /tmp/ccG8Bke4.s 			page 99
 
 
  1209              		.loc 1 528 0
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1252 0172 1870     		strb	r0, [r3]
  918:Src/main.c    ****   	OSD_SPEAKER[0]=ON;
  1253              		.loc 1 918 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 100
+ARM GAS  /tmp/ccG8Bke4.s 			page 100
 
 
  1254 0174 5970     		strb	r1, [r3, #1]
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1296 01aa 0021     		movs	r1, #0
  1297 01ac 1970     		strb	r1, [r3]
  934:Src/main.c    ****         printf("VS4210_MODE12 ch1 ch4\r\n") ;	
-ARM GAS  /tmp/ccRhiP7z.s 			page 101
+ARM GAS  /tmp/ccG8Bke4.s 			page 101
 
 
  1298              		.loc 1 934 0
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1340 01e4 5348     		ldr	r0, .L83+68
  1341              	.LVL105:
  1342 01e6 FFF7FEFF 		bl	puts
-ARM GAS  /tmp/ccRhiP7z.s 			page 102
+ARM GAS  /tmp/ccG8Bke4.s 			page 102
 
 
  1343              	.LVL106:
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1385 021e 19E7     		b	.L63
  1386              	.LVL110:
  1387              	.L76:
-ARM GAS  /tmp/ccRhiP7z.s 			page 103
+ARM GAS  /tmp/ccG8Bke4.s 			page 103
 
 
  969:Src/main.c    ****         pVS4210_JointKind1.WindowMap.WMap0 =2 ;
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1430 0256 264B     		ldr	r3, .L83
  1431 0258 4022     		movs	r2, #64
  1432 025a 1A70     		strb	r2, [r3]
-ARM GAS  /tmp/ccRhiP7z.s 			page 104
+ARM GAS  /tmp/ccG8Bke4.s 			page 104
 
 
  984:Src/main.c    ****         pVS4210_JointKind1.WindowMap.WMap1 =3 ;
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1475 0292 5A70     		strb	r2, [r3, #1]
  999:Src/main.c    **** 	  OSD_MIRROR[0]=CAMB_M;	
  1476              		.loc 1 999 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 105
+ARM GAS  /tmp/ccG8Bke4.s 			page 105
 
 
  1477 0294 0422     		movs	r2, #4
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1519              		.loc 1 1016 0
  1520 02cc 094B     		ldr	r3, .L83+4
  1521 02ce 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
-ARM GAS  /tmp/ccRhiP7z.s 			page 106
+ARM GAS  /tmp/ccG8Bke4.s 			page 106
 
 
  1522              	.LVL120:
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1569 0340 E8000000 		.word	.LC14
  1570 0344 00010000 		.word	.LC15
  1571 0348 18010000 		.word	.LC16
-ARM GAS  /tmp/ccRhiP7z.s 			page 107
+ARM GAS  /tmp/ccG8Bke4.s 			page 107
 
 
  1572              	.LVL122:
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1614              		.loc 1 1044 0
  1615 0380 194B     		ldr	r3, .L85
  1616 0382 4022     		movs	r2, #64
-ARM GAS  /tmp/ccRhiP7z.s 			page 108
+ARM GAS  /tmp/ccG8Bke4.s 			page 108
 
 
  1617 0384 1A70     		strb	r2, [r3]
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1659 03ba 0322     		movs	r2, #3
  1660 03bc 5A70     		strb	r2, [r3, #1]
 1063:Src/main.c    ****   OSD_MIRROR[0]=CAMC_M; 
-ARM GAS  /tmp/ccRhiP7z.s 			page 109
+ARM GAS  /tmp/ccG8Bke4.s 			page 109
 
 
  1661              		.loc 1 1063 0
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1708              		.section	.text.CHECK_HDMI720P50,"ax",%progbits
  1709              		.align	1
  1710              		.global	CHECK_HDMI720P50
-ARM GAS  /tmp/ccRhiP7z.s 			page 110
+ARM GAS  /tmp/ccG8Bke4.s 			page 110
 
 
  1711              		.syntax unified
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1759              		.loc 1 1175 0
  1760 0028 BC2C     		cmp	r4, #188
  1761 002a 02D0     		beq	.L94
-ARM GAS  /tmp/ccRhiP7z.s 			page 111
+ARM GAS  /tmp/ccG8Bke4.s 			page 111
 
 
 1168:Src/main.c    **** 	gHDMI_Index=0;	
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1807 004e 0193     		str	r3, [sp, #4]
  1808 0050 0124     		movs	r4, #1
  1809              	.LVL147:
-ARM GAS  /tmp/ccRhiP7z.s 			page 112
+ARM GAS  /tmp/ccG8Bke4.s 			page 112
 
 
  1810 0052 0094     		str	r4, [sp]
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1862 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  1863 000c 142B     		cmp	r3, #20
  1864 000e 03D0     		beq	.L119
-ARM GAS  /tmp/ccRhiP7z.s 			page 113
+ARM GAS  /tmp/ccG8Bke4.s 			page 113
 
 
 1201:Src/main.c    **** 			}
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1911 004e 1C70     		strb	r4, [r3]
 1196:Src/main.c    **** 			{
  1912              		.loc 1 1196 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 114
+ARM GAS  /tmp/ccG8Bke4.s 			page 114
 
 
  1913 0050 012C     		cmp	r4, #1
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  1959 009a 5D48     		ldr	r0, .L129+40
  1960 009c FFF7FEFF 		bl	printf
  1961              	.LVL157:
-ARM GAS  /tmp/ccRhiP7z.s 			page 115
+ARM GAS  /tmp/ccG8Bke4.s 			page 115
 
 
 1225:Src/main.c    **** 					{
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2005              		.loc 1 1246 0
  2006 00de 012C     		cmp	r4, #1
  2007 00e0 05D0     		beq	.L124
-ARM GAS  /tmp/ccRhiP7z.s 			page 116
+ARM GAS  /tmp/ccG8Bke4.s 			page 116
 
 
 1250:Src/main.c    **** 
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2054 0128 404B     		ldr	r3, .L129+68
  2055 012a 33F81530 		ldrh	r3, [r3, r5, lsl #1]
  2056 012e 404A     		ldr	r2, .L129+72
-ARM GAS  /tmp/ccRhiP7z.s 			page 117
+ARM GAS  /tmp/ccG8Bke4.s 			page 117
 
 
  2057 0130 32F81520 		ldrh	r2, [r2, r5, lsl #1]
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2103 0182 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  2104 0184 FBB1     		cbz	r3, .L127
  2105              	.L115:
-ARM GAS  /tmp/ccRhiP7z.s 			page 118
+ARM GAS  /tmp/ccG8Bke4.s 			page 118
 
 
 1295:Src/main.c    **** 							{
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1295:Src/main.c    **** 							{
  2153              		.loc 1 1295 0 discriminator 1
  2154 01d0 074B     		ldr	r3, .L129+8
-ARM GAS  /tmp/ccRhiP7z.s 			page 119
+ARM GAS  /tmp/ccG8Bke4.s 			page 119
 
 
  2155 01d2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2209              	main_init:
  2210              	.LFB77:
 1333:Src/main.c    **** 
-ARM GAS  /tmp/ccRhiP7z.s 			page 120
+ARM GAS  /tmp/ccG8Bke4.s 			page 120
 
 
  2211              		.loc 1 1333 0
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2258              	.L137:
 1342:Src/main.c    **** 			SaveFWRevEE(FWVER);
  2259              		.loc 1 1342 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 121
+ARM GAS  /tmp/ccG8Bke4.s 			page 121
 
 
  2260 0034 104D     		ldr	r5, .L139+4
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2306 007c 24000000 		.word	.LC26
  2307 0080 60000000 		.word	.LC27
  2308 0084 7C000000 		.word	.LC28
-ARM GAS  /tmp/ccRhiP7z.s 			page 122
+ARM GAS  /tmp/ccG8Bke4.s 			page 122
 
 
  2309 0088 00000000 		.word	DebugLevel
@@ -7318,7 +7318,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2364              		.cfi_startproc
  2365              		@ args = 0, pretend = 0, frame = 0
  2366              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 123
+ARM GAS  /tmp/ccG8Bke4.s 			page 123
 
 
  2367 0000 10B5     		push	{r4, lr}
@@ -7378,7 +7378,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2418              		.cfi_offset 4, -8
  2419              		.cfi_offset 14, -4
  2420 0002 88B0     		sub	sp, sp, #32
-ARM GAS  /tmp/ccRhiP7z.s 			page 124
+ARM GAS  /tmp/ccG8Bke4.s 			page 124
 
 
  2421              	.LCFI31:
@@ -7438,7 +7438,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2469              		.loc 1 1380 0
  2470              		.cfi_startproc
  2471              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 125
+ARM GAS  /tmp/ccG8Bke4.s 			page 125
 
 
  2472              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -7498,7 +7498,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2517 0036 012B     		cmp	r3, #1
  2518 0038 1FD1     		bne	.L153
 1432:Src/main.c    **** 				PWMLevel-=1;
-ARM GAS  /tmp/ccRhiP7z.s 			page 126
+ARM GAS  /tmp/ccG8Bke4.s 			page 126
 
 
  2519              		.loc 1 1432 0
@@ -7558,7 +7558,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2564              		.loc 1 1434 0
  2565 006e 9342     		cmp	r3, r2
  2566 0070 EAD2     		bcs	.L155
-ARM GAS  /tmp/ccRhiP7z.s 			page 127
+ARM GAS  /tmp/ccG8Bke4.s 			page 127
 
 
 1435:Src/main.c    **** 
@@ -7618,7 +7618,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2618              		.global	WaitPowerOn
  2619              		.syntax unified
  2620              		.thumb
-ARM GAS  /tmp/ccRhiP7z.s 			page 128
+ARM GAS  /tmp/ccG8Bke4.s 			page 128
 
 
  2621              		.thumb_func
@@ -7678,7 +7678,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2667 0032 1121     		movs	r1, #17
  2668 0034 4FF47A70 		mov	r0, #1000
  2669 0038 FFF7FEFF 		bl	MCUTimerActiveTimerEvent
-ARM GAS  /tmp/ccRhiP7z.s 			page 129
+ARM GAS  /tmp/ccG8Bke4.s 			page 129
 
 
  2670              	.LVL215:
@@ -7738,7 +7738,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2713 0070 FFF7FEFF 		bl	PowerLED
  2714              	.LVL225:
 1681:Src/main.c    **** 			//	AudioMute(OFF);
-ARM GAS  /tmp/ccRhiP7z.s 			page 130
+ARM GAS  /tmp/ccG8Bke4.s 			page 130
 
 
  2715              		.loc 1 1681 0
@@ -7798,7 +7798,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2767 000a 044B     		ldr	r3, .L182
  2768 000c 185D     		ldrb	r0, [r3, r4]	@ zero_extendqisi2
  2769              	.LVL231:
-ARM GAS  /tmp/ccRhiP7z.s 			page 131
+ARM GAS  /tmp/ccG8Bke4.s 			page 131
 
 
  2770 000e FFF7FEFF 		bl	VXISI2CWrite
@@ -7858,7 +7858,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2819 000e 08BD     		pop	{r3, pc}
  2820              	.L187:
  2821              		.align	2
-ARM GAS  /tmp/ccRhiP7z.s 			page 132
+ARM GAS  /tmp/ccG8Bke4.s 			page 132
 
 
  2822              	.L186:
@@ -7918,7 +7918,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2874              		.thumb
  2875              		.thumb_func
  2876              		.fpu softvfp
-ARM GAS  /tmp/ccRhiP7z.s 			page 133
+ARM GAS  /tmp/ccG8Bke4.s 			page 133
 
 
  2878              	TP_bt1120_NTSC_1080P_mode0_w0:
@@ -7978,7 +7978,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2928 0004 FFF7FEFF 		bl	Printf
  2929              	.LVL243:
 2794:Src/main.c    **** 	#if 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 134
+ARM GAS  /tmp/ccG8Bke4.s 			page 134
 
 
  2930              		.loc 1 2794 0
@@ -8038,7 +8038,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  2980 001c FFF7FEFF 		bl	VXISI2CWrite
  2981              	.LVL248:
 3045:Src/main.c    **** 	VXISI2CWrite(0x05,0x80);
-ARM GAS  /tmp/ccRhiP7z.s 			page 135
+ARM GAS  /tmp/ccG8Bke4.s 			page 135
 
 
  2982              		.loc 1 3045 0
@@ -8098,7 +8098,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3027              		.loc 1 3054 0
  3028 0068 2021     		movs	r1, #32
  3029 006a 0D20     		movs	r0, #13
-ARM GAS  /tmp/ccRhiP7z.s 			page 136
+ARM GAS  /tmp/ccG8Bke4.s 			page 136
 
 
  3030 006c FFF7FEFF 		bl	VXISI2CWrite
@@ -8158,7 +8158,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3075 00b4 FFF7FEFF 		bl	VXISI2CWrite
  3076              	.LVL267:
 3064:Src/main.c    **** 	VXISI2CWrite(0x18,0xC8);
-ARM GAS  /tmp/ccRhiP7z.s 			page 137
+ARM GAS  /tmp/ccG8Bke4.s 			page 137
 
 
  3077              		.loc 1 3064 0
@@ -8218,7 +8218,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3122              		.loc 1 3073 0
  3123 0100 5A21     		movs	r1, #90
  3124 0102 2020     		movs	r0, #32
-ARM GAS  /tmp/ccRhiP7z.s 			page 138
+ARM GAS  /tmp/ccG8Bke4.s 			page 138
 
 
  3125 0104 FFF7FEFF 		bl	VXISI2CWrite
@@ -8278,7 +8278,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3170 014c FFF7FEFF 		bl	VXISI2CWrite
  3171              	.LVL286:
 3083:Src/main.c    **** 	VXISI2CWrite(0x2B,0x01);
-ARM GAS  /tmp/ccRhiP7z.s 			page 139
+ARM GAS  /tmp/ccG8Bke4.s 			page 139
 
 
  3172              		.loc 1 3083 0
@@ -8338,7 +8338,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3217              		.loc 1 3092 0
  3218 0198 8021     		movs	r1, #128
  3219 019a 3320     		movs	r0, #51
-ARM GAS  /tmp/ccRhiP7z.s 			page 140
+ARM GAS  /tmp/ccG8Bke4.s 			page 140
 
 
  3220 019c FFF7FEFF 		bl	VXISI2CWrite
@@ -8398,7 +8398,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3265 01e4 FFF7FEFF 		bl	VXISI2CWrite
  3266              	.LVL305:
 3102:Src/main.c    **** 	VXISI2CWrite(0x3E,0x80);
-ARM GAS  /tmp/ccRhiP7z.s 			page 141
+ARM GAS  /tmp/ccG8Bke4.s 			page 141
 
 
  3267              		.loc 1 3102 0
@@ -8458,7 +8458,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3312              		.loc 1 3112 0
  3313 0230 0021     		movs	r1, #0
  3314 0232 4720     		movs	r0, #71
-ARM GAS  /tmp/ccRhiP7z.s 			page 142
+ARM GAS  /tmp/ccG8Bke4.s 			page 142
 
 
  3315 0234 FFF7FEFF 		bl	VXISI2CWrite
@@ -8518,7 +8518,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3360 027c FFF7FEFF 		bl	VXISI2CWrite
  3361              	.LVL324:
 3122:Src/main.c    **** 	VXISI2CWrite(0x53,0x04);
-ARM GAS  /tmp/ccRhiP7z.s 			page 143
+ARM GAS  /tmp/ccG8Bke4.s 			page 143
 
 
  3362              		.loc 1 3122 0
@@ -8578,7 +8578,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3407              		.loc 1 3131 0
  3408 02c8 0021     		movs	r1, #0
  3409 02ca 5B20     		movs	r0, #91
-ARM GAS  /tmp/ccRhiP7z.s 			page 144
+ARM GAS  /tmp/ccG8Bke4.s 			page 144
 
 
  3410 02cc FFF7FEFF 		bl	VXISI2CWrite
@@ -8638,7 +8638,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3455 0314 FFF7FEFF 		bl	VXISI2CWrite
  3456              	.LVL343:
 3141:Src/main.c    **** 	VXISI2CWrite(0x66,0xFF);
-ARM GAS  /tmp/ccRhiP7z.s 			page 145
+ARM GAS  /tmp/ccG8Bke4.s 			page 145
 
 
  3457              		.loc 1 3141 0
@@ -8698,7 +8698,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3502              		.loc 1 3150 0
  3503 0360 0021     		movs	r1, #0
  3504 0362 6E20     		movs	r0, #110
-ARM GAS  /tmp/ccRhiP7z.s 			page 146
+ARM GAS  /tmp/ccG8Bke4.s 			page 146
 
 
  3505 0364 FFF7FEFF 		bl	VXISI2CWrite
@@ -8758,7 +8758,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3550 03ac FFF7FEFF 		bl	VXISI2CWrite
  3551              	.LVL362:
 3160:Src/main.c    **** 	VXISI2CWrite(0x79,0xFF);
-ARM GAS  /tmp/ccRhiP7z.s 			page 147
+ARM GAS  /tmp/ccG8Bke4.s 			page 147
 
 
  3552              		.loc 1 3160 0
@@ -8818,7 +8818,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3598              	.L204:
  3599 03fa 00BF     		.align	2
  3600              	.L202:
-ARM GAS  /tmp/ccRhiP7z.s 			page 148
+ARM GAS  /tmp/ccG8Bke4.s 			page 148
 
 
  3601 03fc 00000000 		.word	.LC35
@@ -8878,7 +8878,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3646 0444 FFF7FEFF 		bl	VXISI2CWrite
  3647              	.LVL380:
 3178:Src/main.c    **** 	VXISI2CWrite(0x8B,0x7E);
-ARM GAS  /tmp/ccRhiP7z.s 			page 149
+ARM GAS  /tmp/ccG8Bke4.s 			page 149
 
 
  3648              		.loc 1 3178 0
@@ -8938,7 +8938,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3693              		.loc 1 3187 0
  3694 0490 3121     		movs	r1, #49
  3695 0492 9320     		movs	r0, #147
-ARM GAS  /tmp/ccRhiP7z.s 			page 150
+ARM GAS  /tmp/ccG8Bke4.s 			page 150
 
 
  3696 0494 FFF7FEFF 		bl	VXISI2CWrite
@@ -8998,7 +8998,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3741 04dc FFF7FEFF 		bl	VXISI2CWrite
  3742              	.LVL399:
 3197:Src/main.c    **** 	VXISI2CWrite(0x9E,0x04);
-ARM GAS  /tmp/ccRhiP7z.s 			page 151
+ARM GAS  /tmp/ccG8Bke4.s 			page 151
 
 
  3743              		.loc 1 3197 0
@@ -9058,7 +9058,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3788              		.loc 1 3206 0
  3789 0528 C221     		movs	r1, #194
  3790 052a A620     		movs	r0, #166
-ARM GAS  /tmp/ccRhiP7z.s 			page 152
+ARM GAS  /tmp/ccG8Bke4.s 			page 152
 
 
  3791 052c FFF7FEFF 		bl	VXISI2CWrite
@@ -9118,7 +9118,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3836 0574 FFF7FEFF 		bl	VXISI2CWrite
  3837              	.LVL418:
 3216:Src/main.c    **** 	VXISI2CWrite(0xB1,0x00);
-ARM GAS  /tmp/ccRhiP7z.s 			page 153
+ARM GAS  /tmp/ccG8Bke4.s 			page 153
 
 
  3838              		.loc 1 3216 0
@@ -9178,7 +9178,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3883              		.loc 1 3225 0
  3884 05c0 0121     		movs	r1, #1
  3885 05c2 BA20     		movs	r0, #186
-ARM GAS  /tmp/ccRhiP7z.s 			page 154
+ARM GAS  /tmp/ccG8Bke4.s 			page 154
 
 
  3886 05c4 FFF7FEFF 		bl	VXISI2CWrite
@@ -9238,7 +9238,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3931 060c FFF7FEFF 		bl	VXISI2CWrite
  3932              	.LVL437:
 3235:Src/main.c    **** 	VXISI2CWrite(0xD0,0xFF);
-ARM GAS  /tmp/ccRhiP7z.s 			page 155
+ARM GAS  /tmp/ccG8Bke4.s 			page 155
 
 
  3933              		.loc 1 3235 0
@@ -9298,7 +9298,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  3978              		.loc 1 3244 0
  3979 0658 0021     		movs	r1, #0
  3980 065a D820     		movs	r0, #216
-ARM GAS  /tmp/ccRhiP7z.s 			page 156
+ARM GAS  /tmp/ccG8Bke4.s 			page 156
 
 
  3981 065c FFF7FEFF 		bl	VXISI2CWrite
@@ -9358,7 +9358,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4026 06a4 FFF7FEFF 		bl	VXISI2CWrite
  4027              	.LVL456:
 3254:Src/main.c    **** 	VXISI2CWrite(0xE6,0x00);
-ARM GAS  /tmp/ccRhiP7z.s 			page 157
+ARM GAS  /tmp/ccG8Bke4.s 			page 157
 
 
  4028              		.loc 1 3254 0
@@ -9418,7 +9418,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4073              		.loc 1 3263 0
  4074 06f0 0021     		movs	r1, #0
  4075 06f2 EE20     		movs	r0, #238
-ARM GAS  /tmp/ccRhiP7z.s 			page 158
+ARM GAS  /tmp/ccG8Bke4.s 			page 158
 
 
  4076 06f4 FFF7FEFF 		bl	VXISI2CWrite
@@ -9478,7 +9478,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4121 073c FFF7FEFF 		bl	VXISI2CWrite
  4122              	.LVL475:
 3273:Src/main.c    **** 	VXISI2CWrite(0xF9,0x01);
-ARM GAS  /tmp/ccRhiP7z.s 			page 159
+ARM GAS  /tmp/ccG8Bke4.s 			page 159
 
 
  4123              		.loc 1 3273 0
@@ -9538,7 +9538,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4170              		.global	SET_VS4210_1280_720_out
  4171              		.syntax unified
  4172              		.thumb
-ARM GAS  /tmp/ccRhiP7z.s 			page 160
+ARM GAS  /tmp/ccG8Bke4.s 			page 160
 
 
  4173              		.thumb_func
@@ -9598,7 +9598,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4220              	.LVL490:
 3296:Src/main.c    **** 	VXISI2CWrite(0x08,0x40);
  4221              		.loc 1 3296 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 161
+ARM GAS  /tmp/ccG8Bke4.s 			page 161
 
 
  4222 0038 0821     		movs	r1, #8
@@ -9658,7 +9658,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4267 0080 8021     		movs	r1, #128
  4268 0082 1020     		movs	r0, #16
  4269 0084 FFF7FEFF 		bl	VXISI2CWrite
-ARM GAS  /tmp/ccRhiP7z.s 			page 162
+ARM GAS  /tmp/ccG8Bke4.s 			page 162
 
 
  4270              	.LVL500:
@@ -9718,7 +9718,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4315              	.LVL509:
 3315:Src/main.c    **** 	VXISI2CWrite(0x1B,0x00);
  4316              		.loc 1 3315 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 163
+ARM GAS  /tmp/ccG8Bke4.s 			page 163
 
 
  4317 00d0 2321     		movs	r1, #35
@@ -9778,7 +9778,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4362 0118 5A21     		movs	r1, #90
  4363 011a 2320     		movs	r0, #35
  4364 011c FFF7FEFF 		bl	VXISI2CWrite
-ARM GAS  /tmp/ccRhiP7z.s 			page 164
+ARM GAS  /tmp/ccG8Bke4.s 			page 164
 
 
  4365              	.LVL519:
@@ -9838,7 +9838,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4410              	.LVL528:
 3334:Src/main.c    **** 	VXISI2CWrite(0x2E,0x12);
  4411              		.loc 1 3334 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 165
+ARM GAS  /tmp/ccG8Bke4.s 			page 165
 
 
  4412 0168 0021     		movs	r1, #0
@@ -9898,7 +9898,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4457 01b0 4621     		movs	r1, #70
  4458 01b2 3620     		movs	r0, #54
  4459 01b4 FFF7FEFF 		bl	VXISI2CWrite
-ARM GAS  /tmp/ccRhiP7z.s 			page 166
+ARM GAS  /tmp/ccG8Bke4.s 			page 166
 
 
  4460              	.LVL538:
@@ -9958,7 +9958,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4505              	.LVL547:
 3354:Src/main.c    **** 	VXISI2CWrite(0x42,0x5F);
  4506              		.loc 1 3354 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 167
+ARM GAS  /tmp/ccG8Bke4.s 			page 167
 
 
  4507 0200 6021     		movs	r1, #96
@@ -10018,7 +10018,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4552 0248 2021     		movs	r1, #32
  4553 024a 4B20     		movs	r0, #75
  4554 024c FFF7FEFF 		bl	VXISI2CWrite
-ARM GAS  /tmp/ccRhiP7z.s 			page 168
+ARM GAS  /tmp/ccG8Bke4.s 			page 168
 
 
  4555              	.LVL557:
@@ -10078,7 +10078,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4600              	.LVL566:
 3373:Src/main.c    **** 	VXISI2CWrite(0x56,0x40);
  4601              		.loc 1 3373 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 169
+ARM GAS  /tmp/ccG8Bke4.s 			page 169
 
 
  4602 0298 E021     		movs	r1, #224
@@ -10138,7 +10138,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4647 02e0 0821     		movs	r1, #8
  4648 02e2 5E20     		movs	r0, #94
  4649 02e4 FFF7FEFF 		bl	VXISI2CWrite
-ARM GAS  /tmp/ccRhiP7z.s 			page 170
+ARM GAS  /tmp/ccG8Bke4.s 			page 170
 
 
  4650              	.LVL576:
@@ -10198,7 +10198,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4695              	.LVL585:
 3392:Src/main.c    **** 	VXISI2CWrite(0x69,0x88);
  4696              		.loc 1 3392 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 171
+ARM GAS  /tmp/ccG8Bke4.s 			page 171
 
 
  4697 0330 AB21     		movs	r1, #171
@@ -10258,7 +10258,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4742 0378 0021     		movs	r1, #0
  4743 037a 7120     		movs	r0, #113
  4744 037c FFF7FEFF 		bl	VXISI2CWrite
-ARM GAS  /tmp/ccRhiP7z.s 			page 172
+ARM GAS  /tmp/ccG8Bke4.s 			page 172
 
 
  4745              	.LVL595:
@@ -10318,7 +10318,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4790              	.LVL604:
 3411:Src/main.c    **** 	VXISI2CWrite(0x7C,0xFF);
  4791              		.loc 1 3411 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 173
+ARM GAS  /tmp/ccG8Bke4.s 			page 173
 
 
  4792 03c8 FF21     		movs	r1, #255
@@ -10378,7 +10378,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4838 0410 0521     		movs	r1, #5
  4839 0412 8320     		movs	r0, #131
  4840 0414 FFF7FEFF 		bl	VXISI2CWrite
-ARM GAS  /tmp/ccRhiP7z.s 			page 174
+ARM GAS  /tmp/ccG8Bke4.s 			page 174
 
 
  4841              	.LVL613:
@@ -10438,7 +10438,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4886              	.LVL622:
 3429:Src/main.c    **** 	VXISI2CWrite(0x8E,0x8C);
  4887              		.loc 1 3429 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 175
+ARM GAS  /tmp/ccG8Bke4.s 			page 175
 
 
  4888 0460 2C21     		movs	r1, #44
@@ -10498,7 +10498,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4933 04a8 F321     		movs	r1, #243
  4934 04aa 9620     		movs	r0, #150
  4935 04ac FFF7FEFF 		bl	VXISI2CWrite
-ARM GAS  /tmp/ccRhiP7z.s 			page 176
+ARM GAS  /tmp/ccG8Bke4.s 			page 176
 
 
  4936              	.LVL632:
@@ -10558,7 +10558,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  4981              	.LVL641:
 3448:Src/main.c    **** 	VXISI2CWrite(0xA1,0xD9);
  4982              		.loc 1 3448 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 177
+ARM GAS  /tmp/ccG8Bke4.s 			page 177
 
 
  4983 04f8 2F21     		movs	r1, #47
@@ -10618,7 +10618,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5028 0540 1E21     		movs	r1, #30
  5029 0542 A920     		movs	r0, #169
  5030 0544 FFF7FEFF 		bl	VXISI2CWrite
-ARM GAS  /tmp/ccRhiP7z.s 			page 178
+ARM GAS  /tmp/ccG8Bke4.s 			page 178
 
 
  5031              	.LVL651:
@@ -10678,7 +10678,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5076              	.LVL660:
 3467:Src/main.c    **** 	VXISI2CWrite(0xB4,0x00);
  5077              		.loc 1 3467 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 179
+ARM GAS  /tmp/ccG8Bke4.s 			page 179
 
 
  5078 0590 0021     		movs	r1, #0
@@ -10738,7 +10738,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5123 05d8 0121     		movs	r1, #1
  5124 05da BD20     		movs	r0, #189
  5125 05dc FFF7FEFF 		bl	VXISI2CWrite
-ARM GAS  /tmp/ccRhiP7z.s 			page 180
+ARM GAS  /tmp/ccG8Bke4.s 			page 180
 
 
  5126              	.LVL670:
@@ -10798,7 +10798,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5171              	.LVL679:
 3486:Src/main.c    **** 	VXISI2CWrite(0xD3,0x3F);
  5172              		.loc 1 3486 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 181
+ARM GAS  /tmp/ccG8Bke4.s 			page 181
 
 
  5173 0628 C221     		movs	r1, #194
@@ -10858,7 +10858,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5218 0670 AF21     		movs	r1, #175
  5219 0672 DE20     		movs	r0, #222
  5220 0674 FFF7FEFF 		bl	VXISI2CWrite
-ARM GAS  /tmp/ccRhiP7z.s 			page 182
+ARM GAS  /tmp/ccG8Bke4.s 			page 182
 
 
  5221              	.LVL689:
@@ -10918,7 +10918,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5266              	.LVL698:
 3505:Src/main.c    **** 	VXISI2CWrite(0xE9,0x00);
  5267              		.loc 1 3505 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 183
+ARM GAS  /tmp/ccG8Bke4.s 			page 183
 
 
  5268 06c0 0F21     		movs	r1, #15
@@ -10978,7 +10978,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5313 0708 4321     		movs	r1, #67
  5314 070a F120     		movs	r0, #241
  5315 070c FFF7FEFF 		bl	VXISI2CWrite
-ARM GAS  /tmp/ccRhiP7z.s 			page 184
+ARM GAS  /tmp/ccG8Bke4.s 			page 184
 
 
  5316              	.LVL708:
@@ -11038,7 +11038,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5361              	.LVL717:
 3524:Src/main.c    **** 	VXISI2CWrite(0xFC,0x00);
  5362              		.loc 1 3524 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 185
+ARM GAS  /tmp/ccG8Bke4.s 			page 185
 
 
  5363 0758 0021     		movs	r1, #0
@@ -11098,7 +11098,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5412 0002 FE48     		ldr	r0, .L212
  5413 0004 FFF7FEFF 		bl	Printf
  5414              	.LVL723:
-ARM GAS  /tmp/ccRhiP7z.s 			page 186
+ARM GAS  /tmp/ccG8Bke4.s 			page 186
 
 
 3536:Src/main.c    **** 	VXISI2CWrite(0x01,0x00);
@@ -11158,7 +11158,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3545:Src/main.c    **** 	VXISI2CWrite(0x0A,0x40);
  5460              		.loc 1 3545 0
  5461 0050 0A21     		movs	r1, #10
-ARM GAS  /tmp/ccRhiP7z.s 			page 187
+ARM GAS  /tmp/ccG8Bke4.s 			page 187
 
 
  5462 0052 0920     		movs	r0, #9
@@ -11218,7 +11218,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5507 009a 1220     		movs	r0, #18
  5508 009c FFF7FEFF 		bl	VXISI2CWrite
  5509              	.LVL742:
-ARM GAS  /tmp/ccRhiP7z.s 			page 188
+ARM GAS  /tmp/ccG8Bke4.s 			page 188
 
 
 3555:Src/main.c    **** 	VXISI2CWrite(0x14,0x38);
@@ -11278,7 +11278,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3564:Src/main.c    **** 	VXISI2CWrite(0x1D,0x00);
  5555              		.loc 1 3564 0
  5556 00e8 0021     		movs	r1, #0
-ARM GAS  /tmp/ccRhiP7z.s 			page 189
+ARM GAS  /tmp/ccG8Bke4.s 			page 189
 
 
  5557 00ea 1C20     		movs	r0, #28
@@ -11338,7 +11338,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5602 0132 2520     		movs	r0, #37
  5603 0134 FFF7FEFF 		bl	VXISI2CWrite
  5604              	.LVL761:
-ARM GAS  /tmp/ccRhiP7z.s 			page 190
+ARM GAS  /tmp/ccG8Bke4.s 			page 190
 
 
 3574:Src/main.c    **** 	VXISI2CWrite(0x27,0x38);
@@ -11398,7 +11398,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3583:Src/main.c    **** 	VXISI2CWrite(0x30,0x38);
  5650              		.loc 1 3583 0
  5651 0180 8021     		movs	r1, #128
-ARM GAS  /tmp/ccRhiP7z.s 			page 191
+ARM GAS  /tmp/ccG8Bke4.s 			page 191
 
 
  5652 0182 2F20     		movs	r0, #47
@@ -11458,7 +11458,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5697 01ca 3820     		movs	r0, #56
  5698 01cc FFF7FEFF 		bl	VXISI2CWrite
  5699              	.LVL780:
-ARM GAS  /tmp/ccRhiP7z.s 			page 192
+ARM GAS  /tmp/ccG8Bke4.s 			page 192
 
 
 3593:Src/main.c    **** 	VXISI2CWrite(0x3A,0x73);
@@ -11518,7 +11518,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3602:Src/main.c    **** 	VXISI2CWrite(0x43,0x37);
  5745              		.loc 1 3602 0
  5746 0218 5F21     		movs	r1, #95
-ARM GAS  /tmp/ccRhiP7z.s 			page 193
+ARM GAS  /tmp/ccG8Bke4.s 			page 193
 
 
  5747 021a 4220     		movs	r0, #66
@@ -11578,7 +11578,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5792 0262 4B20     		movs	r0, #75
  5793 0264 FFF7FEFF 		bl	VXISI2CWrite
  5794              	.LVL799:
-ARM GAS  /tmp/ccRhiP7z.s 			page 194
+ARM GAS  /tmp/ccG8Bke4.s 			page 194
 
 
 3612:Src/main.c    **** 	VXISI2CWrite(0x4D,0x00);
@@ -11638,7 +11638,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3621:Src/main.c    **** 	VXISI2CWrite(0x56,0x5C);
  5840              		.loc 1 3621 0
  5841 02b0 6021     		movs	r1, #96
-ARM GAS  /tmp/ccRhiP7z.s 			page 195
+ARM GAS  /tmp/ccG8Bke4.s 			page 195
 
 
  5842 02b2 5520     		movs	r0, #85
@@ -11698,7 +11698,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5887 02fa 5E20     		movs	r0, #94
  5888 02fc FFF7FEFF 		bl	VXISI2CWrite
  5889              	.LVL818:
-ARM GAS  /tmp/ccRhiP7z.s 			page 196
+ARM GAS  /tmp/ccG8Bke4.s 			page 196
 
 
 3631:Src/main.c    **** 	VXISI2CWrite(0x60,0xE0);
@@ -11758,7 +11758,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3640:Src/main.c    **** 	VXISI2CWrite(0x69,0x88);
  5935              		.loc 1 3640 0
  5936 0348 AB21     		movs	r1, #171
-ARM GAS  /tmp/ccRhiP7z.s 			page 197
+ARM GAS  /tmp/ccG8Bke4.s 			page 197
 
 
  5937 034a 6820     		movs	r0, #104
@@ -11818,7 +11818,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  5982 0392 7120     		movs	r0, #113
  5983 0394 FFF7FEFF 		bl	VXISI2CWrite
  5984              	.LVL837:
-ARM GAS  /tmp/ccRhiP7z.s 			page 198
+ARM GAS  /tmp/ccG8Bke4.s 			page 198
 
 
 3650:Src/main.c    **** 	VXISI2CWrite(0x73,0x00);
@@ -11878,7 +11878,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3659:Src/main.c    **** 	VXISI2CWrite(0x7C,0xFF);
  6030              		.loc 1 3659 0
  6031 03e0 FF21     		movs	r1, #255
-ARM GAS  /tmp/ccRhiP7z.s 			page 199
+ARM GAS  /tmp/ccG8Bke4.s 			page 199
 
 
  6032 03e2 7B20     		movs	r0, #123
@@ -11938,7 +11938,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  6078 042a 8320     		movs	r0, #131
  6079 042c FFF7FEFF 		bl	VXISI2CWrite
  6080              	.LVL855:
-ARM GAS  /tmp/ccRhiP7z.s 			page 200
+ARM GAS  /tmp/ccG8Bke4.s 			page 200
 
 
 3668:Src/main.c    **** 	VXISI2CWrite(0x85,0xFD);
@@ -11998,7 +11998,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3677:Src/main.c    **** 	VXISI2CWrite(0x8E,0x8C);
  6126              		.loc 1 3677 0
  6127 0478 1721     		movs	r1, #23
-ARM GAS  /tmp/ccRhiP7z.s 			page 201
+ARM GAS  /tmp/ccG8Bke4.s 			page 201
 
 
  6128 047a 8D20     		movs	r0, #141
@@ -12058,7 +12058,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  6173 04c2 9620     		movs	r0, #150
  6174 04c4 FFF7FEFF 		bl	VXISI2CWrite
  6175              	.LVL874:
-ARM GAS  /tmp/ccRhiP7z.s 			page 202
+ARM GAS  /tmp/ccG8Bke4.s 			page 202
 
 
 3687:Src/main.c    **** 	VXISI2CWrite(0x98,0x29);
@@ -12118,7 +12118,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3696:Src/main.c    **** 	VXISI2CWrite(0xA1,0xD8);
  6221              		.loc 1 3696 0
  6222 0510 8021     		movs	r1, #128
-ARM GAS  /tmp/ccRhiP7z.s 			page 203
+ARM GAS  /tmp/ccG8Bke4.s 			page 203
 
 
  6223 0512 A020     		movs	r0, #160
@@ -12178,7 +12178,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  6268 055a A920     		movs	r0, #169
  6269 055c FFF7FEFF 		bl	VXISI2CWrite
  6270              	.LVL893:
-ARM GAS  /tmp/ccRhiP7z.s 			page 204
+ARM GAS  /tmp/ccG8Bke4.s 			page 204
 
 
 3706:Src/main.c    **** 	VXISI2CWrite(0xAB,0x00);
@@ -12238,7 +12238,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3715:Src/main.c    **** 	VXISI2CWrite(0xB4,0x00);
  6316              		.loc 1 3715 0
  6317 05a8 0021     		movs	r1, #0
-ARM GAS  /tmp/ccRhiP7z.s 			page 205
+ARM GAS  /tmp/ccG8Bke4.s 			page 205
 
 
  6318 05aa B320     		movs	r0, #179
@@ -12298,7 +12298,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  6363 05f2 BC20     		movs	r0, #188
  6364 05f4 FFF7FEFF 		bl	VXISI2CWrite
  6365              	.LVL912:
-ARM GAS  /tmp/ccRhiP7z.s 			page 206
+ARM GAS  /tmp/ccG8Bke4.s 			page 206
 
 
 3725:Src/main.c    **** 	VXISI2CWrite(0xBE,0x2C);
@@ -12358,7 +12358,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3734:Src/main.c    **** 	VXISI2CWrite(0xC7,0x00);
  6411              		.loc 1 3734 0
  6412 0640 0021     		movs	r1, #0
-ARM GAS  /tmp/ccRhiP7z.s 			page 207
+ARM GAS  /tmp/ccG8Bke4.s 			page 207
 
 
  6413 0642 C620     		movs	r0, #198
@@ -12418,7 +12418,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  6458 068a CF20     		movs	r0, #207
  6459 068c FFF7FEFF 		bl	VXISI2CWrite
  6460              	.LVL931:
-ARM GAS  /tmp/ccRhiP7z.s 			page 208
+ARM GAS  /tmp/ccG8Bke4.s 			page 208
 
 
 3744:Src/main.c    **** 	VXISI2CWrite(0xD1,0x3F);
@@ -12478,7 +12478,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3753:Src/main.c    **** 	VXISI2CWrite(0xDA,0x00);
  6506              		.loc 1 3753 0
  6507 06d8 0021     		movs	r1, #0
-ARM GAS  /tmp/ccRhiP7z.s 			page 209
+ARM GAS  /tmp/ccG8Bke4.s 			page 209
 
 
  6508 06da D920     		movs	r0, #217
@@ -12538,7 +12538,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  6553 0722 E220     		movs	r0, #226
  6554 0724 FFF7FEFF 		bl	VXISI2CWrite
  6555              	.LVL950:
-ARM GAS  /tmp/ccRhiP7z.s 			page 210
+ARM GAS  /tmp/ccG8Bke4.s 			page 210
 
 
 3763:Src/main.c    **** 	VXISI2CWrite(0xE4,0x3C);
@@ -12598,7 +12598,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3772:Src/main.c    **** 	VXISI2CWrite(0xED,0x00);
  6601              		.loc 1 3772 0
  6602 0770 8821     		movs	r1, #136
-ARM GAS  /tmp/ccRhiP7z.s 			page 211
+ARM GAS  /tmp/ccG8Bke4.s 			page 211
 
 
  6603 0772 EC20     		movs	r0, #236
@@ -12658,7 +12658,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  6648 07ba F520     		movs	r0, #245
  6649 07bc FFF7FEFF 		bl	VXISI2CWrite
  6650              	.LVL969:
-ARM GAS  /tmp/ccRhiP7z.s 			page 212
+ARM GAS  /tmp/ccG8Bke4.s 			page 212
 
 
 3782:Src/main.c    **** 	VXISI2CWrite(0xF7,0x80);
@@ -12718,7 +12718,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 3791:Src/main.c    **** 
  6696              		.loc 1 3791 0
  6697 0808 0721     		movs	r1, #7
-ARM GAS  /tmp/ccRhiP7z.s 			page 213
+ARM GAS  /tmp/ccG8Bke4.s 			page 213
 
 
  6698 080a FF20     		movs	r0, #255
@@ -12778,7 +12778,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  6748 0020 0A96     		str	r6, [sp, #40]
 3843:Src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
  6749              		.loc 1 3843 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 214
+ARM GAS  /tmp/ccG8Bke4.s 			page 214
 
 
  6750 0022 1023     		movs	r3, #16
@@ -12838,7 +12838,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 4223:Src/main.c    **** 
 4224:Src/main.c    **** /* USER CODE BEGIN 4 */
 4225:Src/main.c    **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-ARM GAS  /tmp/ccRhiP7z.s 			page 215
+ARM GAS  /tmp/ccG8Bke4.s 			page 215
 
 
 4226:Src/main.c    **** {
@@ -12898,7 +12898,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 4268:Src/main.c    **** 		//if(Time5ms==0)
 4269:Src/main.c    **** 		{
 4270:Src/main.c    **** 			//if(HAL_GPIO_ReadPin(UP_KEY_GPIO_Port,UP_KEY_Pin)==_FALSE)
-ARM GAS  /tmp/ccRhiP7z.s 			page 216
+ARM GAS  /tmp/ccG8Bke4.s 			page 216
 
 
 4271:Src/main.c    **** 			//	TempKey|=0x01;
@@ -12958,7 +12958,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 4325:Src/main.c    ****                     //memset(aIR_PlusTime , 0 , 40 )  ;
 4326:Src/main.c    ****                     IR_4BYTE = 0 ;
 4327:Src/main.c    ****                     IR_StartFlg = 0 ;
-ARM GAS  /tmp/ccRhiP7z.s 			page 217
+ARM GAS  /tmp/ccG8Bke4.s 			page 217
 
 
 4328:Src/main.c    ****                 }
@@ -13018,7 +13018,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 4382:Src/main.c    **** 		tic03=0;
 4383:Src/main.c    **** 		if(_ReadKey() ) {
 4384:Src/main.c    **** 			
-ARM GAS  /tmp/ccRhiP7z.s 			page 218
+ARM GAS  /tmp/ccG8Bke4.s 			page 218
 
 
 4385:Src/main.c    **** 			if( keytic==3 ) {
@@ -13078,7 +13078,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  6814 000e 0133     		adds	r3, r3, #1
  6815 0010 DBB2     		uxtb	r3, r3
  6816 0012 1370     		strb	r3, [r2]
-ARM GAS  /tmp/ccRhiP7z.s 			page 219
+ARM GAS  /tmp/ccG8Bke4.s 			page 219
 
 
 4235:Src/main.c    **** 	tic04++;
@@ -13138,7 +13138,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  6861 0056 012B     		cmp	r3, #1
  6862 0058 D6D1     		bne	.L217
 4260:Src/main.c    ****             }
-ARM GAS  /tmp/ccRhiP7z.s 			page 220
+ARM GAS  /tmp/ccG8Bke4.s 			page 220
 
 
  6863              		.loc 1 4260 0
@@ -13198,7 +13198,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 4437:Src/main.c    **** 
 4438:Src/main.c    **** /*
 4439:Src/main.c    **** 		if (Rx_indx==0)
-ARM GAS  /tmp/ccRhiP7z.s 			page 221
+ARM GAS  /tmp/ccG8Bke4.s 			page 221
 
 
 4440:Src/main.c    ****         {
@@ -13258,7 +13258,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  6927 001a 531C     		adds	r3, r2, #1
  6928 001c DBB2     		uxtb	r3, r3
  6929 001e 0B70     		strb	r3, [r1]
-ARM GAS  /tmp/ccRhiP7z.s 			page 222
+ARM GAS  /tmp/ccG8Bke4.s 			page 222
 
 
  6930 0020 1449     		ldr	r1, .L231+12
@@ -13318,7 +13318,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  6977              	.L232:
  6978 0066 00BF     		.align	2
  6979              	.L231:
-ARM GAS  /tmp/ccRhiP7z.s 			page 223
+ARM GAS  /tmp/ccG8Bke4.s 			page 223
 
 
  6980 0068 00380140 		.word	1073821696
@@ -13378,7 +13378,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 4494:Src/main.c    **** {
  7024              		.loc 1 4494 0
  7025              		.cfi_startproc
-ARM GAS  /tmp/ccRhiP7z.s 			page 224
+ARM GAS  /tmp/ccG8Bke4.s 			page 224
 
 
  7026              		@ args = 0, pretend = 0, frame = 0
@@ -13438,7 +13438,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 4508:Src/main.c    **** 			//#if (_External_Sync==ON)
 4509:Src/main.c    **** 			//VXISI2CWrite( 0x32, 0x00 );
 4510:Src/main.c    **** 			  VXISI2CWrite( 0x19, 0x00 );
-ARM GAS  /tmp/ccRhiP7z.s 			page 225
+ARM GAS  /tmp/ccG8Bke4.s 			page 225
 
 
  7067              		.loc 1 4510 0
@@ -13498,7 +13498,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 4523:Src/main.c    **** 				}
  7102              		.loc 1 4523 0
  7103 0066 0021     		movs	r1, #0
-ARM GAS  /tmp/ccRhiP7z.s 			page 226
+ARM GAS  /tmp/ccG8Bke4.s 			page 226
 
 
  7104 0068 0846     		mov	r0, r1
@@ -13558,7 +13558,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7141 009c 0ED0     		beq	.L250
  7142              	.L240:
 4545:Src/main.c    **** 		{
-ARM GAS  /tmp/ccRhiP7z.s 			page 227
+ARM GAS  /tmp/ccG8Bke4.s 			page 227
 
 
 4546:Src/main.c    **** 			if(  mode[0]==7 )
@@ -13618,7 +13618,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7148              		.loc 1 4594 0
  7149 00a6 0121     		movs	r1, #1
  7150 00a8 0846     		mov	r0, r1
-ARM GAS  /tmp/ccRhiP7z.s 			page 228
+ARM GAS  /tmp/ccG8Bke4.s 			page 228
 
 
  7151 00aa FFF7FEFF 		bl	Set_Video_Loss_OSD
@@ -13678,7 +13678,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7189 00de 1020     		movs	r0, #16
  7190 00e0 FFF7FEFF 		bl	VXISI2CWrite
  7191              	.LVL1011:
-ARM GAS  /tmp/ccRhiP7z.s 			page 229
+ARM GAS  /tmp/ccG8Bke4.s 			page 229
 
 
  7192 00e4 DBE7     		b	.L240
@@ -13738,7 +13738,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7238 0120 00000000 		.word	.LC38
  7239 0124 00000000 		.word	pVS4210_MutiWindows1
  7240 0128 00000000 		.word	.LANCHOR9
-ARM GAS  /tmp/ccRhiP7z.s 			page 230
+ARM GAS  /tmp/ccG8Bke4.s 			page 230
 
 
  7241 012c 00000000 		.word	.LANCHOR25
@@ -13798,7 +13798,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2117:Src/main.c    **** 			   {
  7293              		.loc 1 2117 0
  7294 001c 5C4A     		ldr	r2, .L283+4
-ARM GAS  /tmp/ccRhiP7z.s 			page 231
+ARM GAS  /tmp/ccG8Bke4.s 			page 231
 
 
  7295 001e 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
@@ -13858,7 +13858,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 2136:Src/main.c    **** 		   }
  7341              		.loc 1 2136 0
  7342 0068 4A4B     		ldr	r3, .L283+8
-ARM GAS  /tmp/ccRhiP7z.s 			page 232
+ARM GAS  /tmp/ccG8Bke4.s 			page 232
 
 
  7343 006a 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
@@ -13918,7 +13918,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7389              		.loc 1 2205 0 is_stmt 0 discriminator 1
  7390 00b0 FFF7FEFF 		bl	RS_ready
  7391              	.LVL1028:
-ARM GAS  /tmp/ccRhiP7z.s 			page 233
+ARM GAS  /tmp/ccG8Bke4.s 			page 233
 
 
  7392 00b4 0028     		cmp	r0, #0
@@ -13978,7 +13978,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7436 00f2 88D8     		bhi	.L277
  7437              	.L261:
 2102:Src/main.c    **** 
-ARM GAS  /tmp/ccRhiP7z.s 			page 234
+ARM GAS  /tmp/ccG8Bke4.s 			page 234
 
 
  7438              		.loc 1 2102 0
@@ -14038,7 +14038,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7483              		.loc 1 2143 0
  7484 0138 1C4B     		ldr	r3, .L283+32
  7485 013a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  /tmp/ccRhiP7z.s 			page 235
+ARM GAS  /tmp/ccG8Bke4.s 			page 235
 
 
  7486 013c 012B     		cmp	r3, #1
@@ -14098,7 +14098,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7531 0180 0128     		cmp	r0, #1
  7532 0182 90D0     		beq	.L282
 2193:Src/main.c    **** 				}
-ARM GAS  /tmp/ccRhiP7z.s 			page 236
+ARM GAS  /tmp/ccG8Bke4.s 			page 236
 
 
  7533              		.loc 1 2193 0
@@ -14158,7 +14158,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
 1768:Src/main.c    ****   
  7588              		.loc 1 1768 0
  7589 0006 FFF7FEFF 		bl	HAL_Init
-ARM GAS  /tmp/ccRhiP7z.s 			page 237
+ARM GAS  /tmp/ccG8Bke4.s 			page 237
 
 
  7590              	.LVL1042:
@@ -14218,7 +14218,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7631 0040 3220     		movs	r0, #50
  7632 0042 FFF7FEFF 		bl	msleep
  7633              	.LVL1055:
-ARM GAS  /tmp/ccRhiP7z.s 			page 238
+ARM GAS  /tmp/ccG8Bke4.s 			page 238
 
 
 1825:Src/main.c    ****   HAL_UART_Receive_IT(&huart2,(uint8_t*)Rx2_data, 1);	//activate UART receive interrupt every time
@@ -14278,7 +14278,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7680              	.L287:
 1853:Src/main.c    ****       dbg_Printf("Init HDMI RX,Chip(%d)....\r\n",(int)i ) ;
  7681              		.loc 1 1853 0 discriminator 3
-ARM GAS  /tmp/ccRhiP7z.s 			page 239
+ARM GAS  /tmp/ccG8Bke4.s 			page 239
 
 
  7682 0094 4A4B     		ldr	r3, .L292+24
@@ -14338,7 +14338,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7728              	.LVL1072:
  7729 00dc 0025     		movs	r5, #0
  7730 00de 2570     		strb	r5, [r4]
-ARM GAS  /tmp/ccRhiP7z.s 			page 240
+ARM GAS  /tmp/ccG8Bke4.s 			page 240
 
 
 1876:Src/main.c    ****   pVS4210_MutiWindows1.OutputSize = _OUTPUT_1080P60 ;
@@ -14398,7 +14398,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7773              		.loc 1 1907 0
  7774 0122 40F27373 		movw	r3, #1907
  7775 0126 4A46     		mov	r2, r9
-ARM GAS  /tmp/ccRhiP7z.s 			page 241
+ARM GAS  /tmp/ccG8Bke4.s 			page 241
 
 
  7776 0128 4146     		mov	r1, r8
@@ -14458,7 +14458,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7817 0160 2022     		movs	r2, #32
  7818 0162 6D21     		movs	r1, #109
  7819 0164 FFF7FEFF 		bl	memset
-ARM GAS  /tmp/ccRhiP7z.s 			page 242
+ARM GAS  /tmp/ccG8Bke4.s 			page 242
 
 
  7820              	.LVL1082:
@@ -14518,7 +14518,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7864              	.LVL1091:
 2031:Src/main.c    **** 
  7865              		.loc 1 2031 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 243
+ARM GAS  /tmp/ccG8Bke4.s 			page 243
 
 
  7866 019e 1848     		ldr	r0, .L292+88
@@ -14578,7 +14578,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7912              		.cfi_startproc
  7913              		@ args = 0, pretend = 0, frame = 0
  7914              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 244
+ARM GAS  /tmp/ccG8Bke4.s 			page 244
 
 
  7915              		@ link register save eliminated.
@@ -14638,7 +14638,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  7966              		.comm	htim2,64,4
  7967              		.comm	hadc1,48,4
  7968              		.comm	huart2,64,4
-ARM GAS  /tmp/ccRhiP7z.s 			page 245
+ARM GAS  /tmp/ccG8Bke4.s 			page 245
 
 
  7969              		.comm	huart1,64,4
@@ -14698,7 +14698,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  8051              		.set	.LANCHOR15,. + 0
  8054              	OSDSecCount:
  8055 0000 00       		.space	1
-ARM GAS  /tmp/ccRhiP7z.s 			page 246
+ARM GAS  /tmp/ccG8Bke4.s 			page 246
 
 
  8056              		.section	.bss.OSD_MIRROR,"aw",%nobits
@@ -14758,7 +14758,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  8134              		.set	.LANCHOR2,. + 0
  8137              	Transfer_cplt:
  8138 0000 00       		.space	1
-ARM GAS  /tmp/ccRhiP7z.s 			page 247
+ARM GAS  /tmp/ccG8Bke4.s 			page 247
 
 
  8139              		.section	.bss.TxCount,"aw",%nobits
@@ -14818,7 +14818,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  8213 0000 00       		.space	1
  8214              		.section	.bss.tim3count,"aw",%nobits
  8215              		.align	2
-ARM GAS  /tmp/ccRhiP7z.s 			page 248
+ARM GAS  /tmp/ccG8Bke4.s 			page 248
 
 
  8216              		.set	.LANCHOR22,. + 0
@@ -14878,7 +14878,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  8298              		.set	.LANCHOR31,. + 0
  8301              	gMode0LoopSecCmpVal:
  8302 0000 0A       		.byte	10
-ARM GAS  /tmp/ccRhiP7z.s 			page 249
+ARM GAS  /tmp/ccG8Bke4.s 			page 249
 
 
  8303              		.section	.data.gRxLoopFlg,"aw",%progbits
@@ -14938,7 +14938,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  8334              	.LC39:
  8335 0014 25732C25 		.ascii	"%s,%s,%d:ch1, HDMI=720P50  no support\015\012\000"
  8335      732C2564 
-ARM GAS  /tmp/ccRhiP7z.s 			page 250
+ARM GAS  /tmp/ccG8Bke4.s 			page 250
 
 
  8335      3A636831 
@@ -14998,7 +14998,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  8363      67205653 
  8363      34323130 
  8363      20414844 
-ARM GAS  /tmp/ccRhiP7z.s 			page 251
+ARM GAS  /tmp/ccG8Bke4.s 			page 251
 
 
  8364              		.section	.rodata.TP_bt1120_720P_1080P_mode0_w0.str1.4,"aMS",%progbits,1
@@ -15037,44 +15037,44 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  8381      6F776572 
  8381      204F4E2E 
  8381      2E2900
- 8382              		.section	.rodata.__FUNCTION__.9364,"a",%progbits
+ 8382              		.section	.rodata.__FUNCTION__.9366,"a",%progbits
  8383              		.align	2
  8384              		.set	.LANCHOR8,. + 0
- 8387              	__FUNCTION__.9364:
+ 8387              	__FUNCTION__.9366:
  8388 0000 43484543 		.ascii	"CHECK_HDMI720P50\000"
  8388      4B5F4844 
  8388      4D493732 
  8388      30503530 
  8388      00
- 8389              		.section	.rodata.__FUNCTION__.9369,"a",%progbits
+ 8389              		.section	.rodata.__FUNCTION__.9371,"a",%progbits
  8390              		.align	2
  8391              		.set	.LANCHOR11,. + 0
- 8394              	__FUNCTION__.9369:
+ 8394              	__FUNCTION__.9371:
  8395 0000 48444D49 		.ascii	"HDMI_VideoModeDetect\000"
  8395      5F566964 
  8395      656F4D6F 
  8395      64654465 
  8395      74656374 
- 8396              		.section	.rodata.__FUNCTION__.9416,"a",%progbits
+ 8396              		.section	.rodata.__FUNCTION__.9418,"a",%progbits
  8397              		.align	2
  8398              		.set	.LANCHOR34,. + 0
-ARM GAS  /tmp/ccRhiP7z.s 			page 252
+ARM GAS  /tmp/ccG8Bke4.s 			page 252
 
 
- 8401              	__FUNCTION__.9416:
+ 8401              	__FUNCTION__.9418:
  8402 0000 6D61696E 		.ascii	"main\000"
  8402      00
- 8403              		.section	.rodata.__FUNCTION__.9427,"a",%progbits
+ 8403              		.section	.rodata.__FUNCTION__.9429,"a",%progbits
  8404              		.align	2
  8405              		.set	.LANCHOR32,. + 0
- 8408              	__FUNCTION__.9427:
+ 8408              	__FUNCTION__.9429:
  8409 0000 6D61696E 		.ascii	"main_loop\000"
  8409      5F6C6F6F 
  8409      7000
- 8410              		.section	.rodata.__FUNCTION__.9506,"a",%progbits
+ 8410              		.section	.rodata.__FUNCTION__.9508,"a",%progbits
  8411              		.align	2
  8412              		.set	.LANCHOR25,. + 0
- 8415              	__FUNCTION__.9506:
+ 8415              	__FUNCTION__.9508:
  8416 0000 48535F53 		.ascii	"HS_Select_Win\000"
  8416      656C6563 
  8416      745F5769 
@@ -15118,7 +15118,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  8434              		.section	.rodata.main_init.str1.4,"aMS",%progbits,1
  8435              		.align	2
  8436              	.LC24:
-ARM GAS  /tmp/ccRhiP7z.s 			page 253
+ARM GAS  /tmp/ccG8Bke4.s 			page 253
 
 
  8437 0000 0D0A5072 		.ascii	"\015\012Prev.FW:%04x\015\012\000"
@@ -15178,7 +15178,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  8461      31305F4D 
  8461      4F444530 
  8461      5F77300D 
-ARM GAS  /tmp/ccRhiP7z.s 			page 254
+ARM GAS  /tmp/ccG8Bke4.s 			page 254
 
 
  8461      00
@@ -15238,7 +15238,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  8485      34206368 
  8486 00b7 00       		.space	1
  8487              	.LC12:
-ARM GAS  /tmp/ccRhiP7z.s 			page 255
+ARM GAS  /tmp/ccG8Bke4.s 			page 255
 
 
  8488 00b8 56533432 		.ascii	"VS4210_MODE12 ch4 ch3\015\000"
@@ -15298,7 +15298,7 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  8510              		.text
  8511              	.Letext0:
  8512              		.file 2 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/machine/_default_
-ARM GAS  /tmp/ccRhiP7z.s 			page 256
+ARM GAS  /tmp/ccG8Bke4.s 			page 256
 
 
  8513              		.file 3 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/sys/_stdint.h"
@@ -15345,289 +15345,289 @@ ARM GAS  /tmp/ccRhiP7z.s 			page 1
  8554              		.file 44 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/string.h"
  8555              		.file 45 "VS4210/keyremo.h"
  8556              		.file 46 "VS4210/Etc_eep.h"
-ARM GAS  /tmp/ccRhiP7z.s 			page 257
+ARM GAS  /tmp/ccG8Bke4.s 			page 257
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccRhiP7z.s:16     .text.MX_GPIO_Init:0000000000000000 $t
-     /tmp/ccRhiP7z.s:22     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
-     /tmp/ccRhiP7z.s:171    .text.MX_GPIO_Init:00000000000000c8 $d
-     /tmp/ccRhiP7z.s:179    .text.MX_TIM3_Init:0000000000000000 $t
-     /tmp/ccRhiP7z.s:185    .text.MX_TIM3_Init:0000000000000000 MX_TIM3_Init
-     /tmp/ccRhiP7z.s:256    .text.MX_TIM3_Init:000000000000004c $d
+     /tmp/ccG8Bke4.s:16     .text.MX_GPIO_Init:0000000000000000 $t
+     /tmp/ccG8Bke4.s:22     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+     /tmp/ccG8Bke4.s:171    .text.MX_GPIO_Init:00000000000000c8 $d
+     /tmp/ccG8Bke4.s:179    .text.MX_TIM3_Init:0000000000000000 $t
+     /tmp/ccG8Bke4.s:185    .text.MX_TIM3_Init:0000000000000000 MX_TIM3_Init
+     /tmp/ccG8Bke4.s:256    .text.MX_TIM3_Init:000000000000004c $d
                             *COM*:0000000000000040 htim3
-     /tmp/ccRhiP7z.s:262    .text.MX_USART1_UART_Init:0000000000000000 $t
-     /tmp/ccRhiP7z.s:268    .text.MX_USART1_UART_Init:0000000000000000 MX_USART1_UART_Init
-     /tmp/ccRhiP7z.s:308    .text.MX_USART1_UART_Init:0000000000000024 $d
+     /tmp/ccG8Bke4.s:262    .text.MX_USART1_UART_Init:0000000000000000 $t
+     /tmp/ccG8Bke4.s:268    .text.MX_USART1_UART_Init:0000000000000000 MX_USART1_UART_Init
+     /tmp/ccG8Bke4.s:308    .text.MX_USART1_UART_Init:0000000000000024 $d
                             *COM*:0000000000000040 huart1
-     /tmp/ccRhiP7z.s:314    .text.MX_USART2_UART_Init:0000000000000000 $t
-     /tmp/ccRhiP7z.s:320    .text.MX_USART2_UART_Init:0000000000000000 MX_USART2_UART_Init
-     /tmp/ccRhiP7z.s:360    .text.MX_USART2_UART_Init:0000000000000024 $d
+     /tmp/ccG8Bke4.s:314    .text.MX_USART2_UART_Init:0000000000000000 $t
+     /tmp/ccG8Bke4.s:320    .text.MX_USART2_UART_Init:0000000000000000 MX_USART2_UART_Init
+     /tmp/ccG8Bke4.s:360    .text.MX_USART2_UART_Init:0000000000000024 $d
                             *COM*:0000000000000040 huart2
-     /tmp/ccRhiP7z.s:366    .text.HDMI_AudioModeDetect:0000000000000000 $t
-     /tmp/ccRhiP7z.s:372    .text.HDMI_AudioModeDetect:0000000000000000 HDMI_AudioModeDetect
-     /tmp/ccRhiP7z.s:436    .text.HDMI_AudioModeDetect:0000000000000050 $d
+     /tmp/ccG8Bke4.s:366    .text.HDMI_AudioModeDetect:0000000000000000 $t
+     /tmp/ccG8Bke4.s:372    .text.HDMI_AudioModeDetect:0000000000000000 HDMI_AudioModeDetect
+     /tmp/ccG8Bke4.s:436    .text.HDMI_AudioModeDetect:0000000000000050 $d
                             *COM*:0000000000000001 gPreAudioSampleFreq
-     /tmp/ccRhiP7z.s:444    .text._write:0000000000000000 $t
-     /tmp/ccRhiP7z.s:451    .text._write:0000000000000000 _write
-     /tmp/ccRhiP7z.s:503    .text._write:0000000000000030 $d
-     /tmp/ccRhiP7z.s:508    .text.Audio_Sel:0000000000000000 $t
-     /tmp/ccRhiP7z.s:515    .text.Audio_Sel:0000000000000000 Audio_Sel
-     /tmp/ccRhiP7z.s:537    .text.Audio_Sel:000000000000000e $d
-     /tmp/ccRhiP7z.s:767    .text.Audio_Sel:0000000000000170 $d
-     /tmp/ccRhiP7z.s:776    .text.SET_Audio_Mute:0000000000000000 $t
-     /tmp/ccRhiP7z.s:783    .text.SET_Audio_Mute:0000000000000000 SET_Audio_Mute
-     /tmp/ccRhiP7z.s:827    .text.SET_Audio_Mute:0000000000000028 $d
-     /tmp/ccRhiP7z.s:833    .text.InitialTimerEvent:0000000000000000 $t
-     /tmp/ccRhiP7z.s:840    .text.InitialTimerEvent:0000000000000000 InitialTimerEvent
-     /tmp/ccRhiP7z.s:860    .text.GetRS232_CMD:0000000000000000 $t
-     /tmp/ccRhiP7z.s:867    .text.GetRS232_CMD:0000000000000000 GetRS232_CMD
-     /tmp/ccRhiP7z.s:949    .text.GetRS232_CMD:0000000000000060 $d
-     /tmp/ccRhiP7z.s:958    .text.setloopoutmode:0000000000000000 $t
-     /tmp/ccRhiP7z.s:965    .text.setloopoutmode:0000000000000000 setloopoutmode
-     /tmp/ccRhiP7z.s:985    .text.setloopoutmode:000000000000000c $d
-     /tmp/ccRhiP7z.s:1005   .text.setloopoutmode:0000000000000034 $t
-     /tmp/ccRhiP7z.s:1549   .text.setloopoutmode:00000000000002f0 $d
+     /tmp/ccG8Bke4.s:444    .text._write:0000000000000000 $t
+     /tmp/ccG8Bke4.s:451    .text._write:0000000000000000 _write
+     /tmp/ccG8Bke4.s:503    .text._write:0000000000000030 $d
+     /tmp/ccG8Bke4.s:508    .text.Audio_Sel:0000000000000000 $t
+     /tmp/ccG8Bke4.s:515    .text.Audio_Sel:0000000000000000 Audio_Sel
+     /tmp/ccG8Bke4.s:537    .text.Audio_Sel:000000000000000e $d
+     /tmp/ccG8Bke4.s:767    .text.Audio_Sel:0000000000000170 $d
+     /tmp/ccG8Bke4.s:776    .text.SET_Audio_Mute:0000000000000000 $t
+     /tmp/ccG8Bke4.s:783    .text.SET_Audio_Mute:0000000000000000 SET_Audio_Mute
+     /tmp/ccG8Bke4.s:827    .text.SET_Audio_Mute:0000000000000028 $d
+     /tmp/ccG8Bke4.s:833    .text.InitialTimerEvent:0000000000000000 $t
+     /tmp/ccG8Bke4.s:840    .text.InitialTimerEvent:0000000000000000 InitialTimerEvent
+     /tmp/ccG8Bke4.s:860    .text.GetRS232_CMD:0000000000000000 $t
+     /tmp/ccG8Bke4.s:867    .text.GetRS232_CMD:0000000000000000 GetRS232_CMD
+     /tmp/ccG8Bke4.s:949    .text.GetRS232_CMD:0000000000000060 $d
+     /tmp/ccG8Bke4.s:958    .text.setloopoutmode:0000000000000000 $t
+     /tmp/ccG8Bke4.s:965    .text.setloopoutmode:0000000000000000 setloopoutmode
+     /tmp/ccG8Bke4.s:985    .text.setloopoutmode:000000000000000c $d
+     /tmp/ccG8Bke4.s:1005   .text.setloopoutmode:0000000000000034 $t
+     /tmp/ccG8Bke4.s:1549   .text.setloopoutmode:00000000000002f0 $d
                             *COM*:000000000000000a pVS4210_JointKind1
                             *COM*:0000000000000001 CAMA_M
                             *COM*:0000000000000004 gabVXIS_Input_mirrorH
                             *COM*:0000000000000001 CAMB_M
                             *COM*:0000000000000001 CAMC_M
                             *COM*:0000000000000001 CAMR_M
-     /tmp/ccRhiP7z.s:1575   .text.setloopoutmode:000000000000034c $t
-     /tmp/ccRhiP7z.s:1694   .text.setloopoutmode:00000000000003e8 $d
-     /tmp/ccRhiP7z.s:1709   .text.CHECK_HDMI720P50:0000000000000000 $t
-     /tmp/ccRhiP7z.s:1716   .text.CHECK_HDMI720P50:0000000000000000 CHECK_HDMI720P50
-     /tmp/ccRhiP7z.s:1824   .text.CHECK_HDMI720P50:0000000000000068 $d
-     /tmp/ccRhiP7z.s:1833   .text.HDMI_VideoModeDetect:0000000000000000 $t
-     /tmp/ccRhiP7z.s:1839   .text.HDMI_VideoModeDetect:0000000000000000 HDMI_VideoModeDetect
-     /tmp/ccRhiP7z.s:2175   .text.HDMI_VideoModeDetect:00000000000001e8 $d
+     /tmp/ccG8Bke4.s:1575   .text.setloopoutmode:000000000000034c $t
+     /tmp/ccG8Bke4.s:1694   .text.setloopoutmode:00000000000003e8 $d
+     /tmp/ccG8Bke4.s:1709   .text.CHECK_HDMI720P50:0000000000000000 $t
+     /tmp/ccG8Bke4.s:1716   .text.CHECK_HDMI720P50:0000000000000000 CHECK_HDMI720P50
+     /tmp/ccG8Bke4.s:1824   .text.CHECK_HDMI720P50:0000000000000068 $d
+     /tmp/ccG8Bke4.s:1833   .text.HDMI_VideoModeDetect:0000000000000000 $t
+     /tmp/ccG8Bke4.s:1839   .text.HDMI_VideoModeDetect:0000000000000000 HDMI_VideoModeDetect
+     /tmp/ccG8Bke4.s:2175   .text.HDMI_VideoModeDetect:00000000000001e8 $d
                             *COM*:0000000000000004 newInRes
                             *COM*:000000000000000a pVS4210_MutiWindows1
-ARM GAS  /tmp/ccRhiP7z.s 			page 258
+ARM GAS  /tmp/ccG8Bke4.s 			page 258
 
 
-     /tmp/ccRhiP7z.s:2202   .text.main_init:0000000000000000 $t
-     /tmp/ccRhiP7z.s:2209   .text.main_init:0000000000000000 main_init
-     /tmp/ccRhiP7z.s:2304   .text.main_init:0000000000000074 $d
+     /tmp/ccG8Bke4.s:2202   .text.main_init:0000000000000000 $t
+     /tmp/ccG8Bke4.s:2209   .text.main_init:0000000000000000 main_init
+     /tmp/ccG8Bke4.s:2304   .text.main_init:0000000000000074 $d
                             *COM*:0000000000000001 DebugLevel
-     /tmp/ccRhiP7z.s:2314   .text.LCDPowerON:0000000000000000 $t
-     /tmp/ccRhiP7z.s:2321   .text.LCDPowerON:0000000000000000 LCDPowerON
-     /tmp/ccRhiP7z.s:2334   .text.LCDPowerOFF:0000000000000000 $t
-     /tmp/ccRhiP7z.s:2341   .text.LCDPowerOFF:0000000000000000 LCDPowerOFF
-     /tmp/ccRhiP7z.s:2354   .text.uComOnChipInitial:0000000000000000 $t
-     /tmp/ccRhiP7z.s:2361   .text.uComOnChipInitial:0000000000000000 uComOnChipInitial
-     /tmp/ccRhiP7z.s:2396   .text.uComOnChipInitial:0000000000000024 $d
-     /tmp/ccRhiP7z.s:2401   .text.user_pwm_setvalue:0000000000000000 $t
-     /tmp/ccRhiP7z.s:2408   .text.user_pwm_setvalue:0000000000000000 user_pwm_setvalue
-     /tmp/ccRhiP7z.s:2455   .text.user_pwm_setvalue:0000000000000028 $d
+     /tmp/ccG8Bke4.s:2314   .text.LCDPowerON:0000000000000000 $t
+     /tmp/ccG8Bke4.s:2321   .text.LCDPowerON:0000000000000000 LCDPowerON
+     /tmp/ccG8Bke4.s:2334   .text.LCDPowerOFF:0000000000000000 $t
+     /tmp/ccG8Bke4.s:2341   .text.LCDPowerOFF:0000000000000000 LCDPowerOFF
+     /tmp/ccG8Bke4.s:2354   .text.uComOnChipInitial:0000000000000000 $t
+     /tmp/ccG8Bke4.s:2361   .text.uComOnChipInitial:0000000000000000 uComOnChipInitial
+     /tmp/ccG8Bke4.s:2396   .text.uComOnChipInitial:0000000000000024 $d
+     /tmp/ccG8Bke4.s:2401   .text.user_pwm_setvalue:0000000000000000 $t
+     /tmp/ccG8Bke4.s:2408   .text.user_pwm_setvalue:0000000000000000 user_pwm_setvalue
+     /tmp/ccG8Bke4.s:2455   .text.user_pwm_setvalue:0000000000000028 $d
                             *COM*:0000000000000040 htim2
-     /tmp/ccRhiP7z.s:2460   .text.AdjustAutoDayNight:0000000000000000 $t
-     /tmp/ccRhiP7z.s:2467   .text.AdjustAutoDayNight:0000000000000000 AdjustAutoDayNight
-     /tmp/ccRhiP7z.s:2590   .text.AdjustAutoDayNight:000000000000008c $d
-     /tmp/ccRhiP7z.s:2597   .text.LoadEEPROM:0000000000000000 $t
-     /tmp/ccRhiP7z.s:2604   .text.LoadEEPROM:0000000000000000 LoadEEPROM
-     /tmp/ccRhiP7z.s:2617   .text.WaitPowerOn:0000000000000000 $t
-     /tmp/ccRhiP7z.s:2624   .text.WaitPowerOn:0000000000000000 WaitPowerOn
-     /tmp/ccRhiP7z.s:2729   .text.WaitPowerOn:0000000000000084 $d
-     /tmp/ccRhiP7z.s:2736   .text.VS4210_FULL88init2:0000000000000000 $t
-     /tmp/ccRhiP7z.s:2743   .text.VS4210_FULL88init2:0000000000000000 VS4210_FULL88init2
-     /tmp/ccRhiP7z.s:2787   .text.VS4210_FULL88init2:000000000000001c $d
-     /tmp/ccRhiP7z.s:2792   .text.TP_bt1120_1080P_1080P_mode0_w0:0000000000000000 $t
-     /tmp/ccRhiP7z.s:2799   .text.TP_bt1120_1080P_1080P_mode0_w0:0000000000000000 TP_bt1120_1080P_1080P_mode0_w0
-     /tmp/ccRhiP7z.s:2823   .text.TP_bt1120_1080P_1080P_mode0_w0:0000000000000010 $d
-     /tmp/ccRhiP7z.s:2829   .text.TP_bt1120_720P_1080P_mode0_w0:0000000000000000 $t
-     /tmp/ccRhiP7z.s:2836   .text.TP_bt1120_720P_1080P_mode0_w0:0000000000000000 TP_bt1120_720P_1080P_mode0_w0
-     /tmp/ccRhiP7z.s:2865   .text.TP_bt1120_720P_1080P_mode0_w0:0000000000000018 $d
-     /tmp/ccRhiP7z.s:2871   .text.TP_bt1120_NTSC_1080P_mode0_w0:0000000000000000 $t
-     /tmp/ccRhiP7z.s:2878   .text.TP_bt1120_NTSC_1080P_mode0_w0:0000000000000000 TP_bt1120_NTSC_1080P_mode0_w0
-     /tmp/ccRhiP7z.s:2902   .text.TP_bt1120_NTSC_1080P_mode0_w0:0000000000000010 $d
-     /tmp/ccRhiP7z.s:2908   .text.TP_bt1120_PAL_1080P_mode0_w0:0000000000000000 $t
-     /tmp/ccRhiP7z.s:2915   .text.TP_bt1120_PAL_1080P_mode0_w0:0000000000000000 TP_bt1120_PAL_1080P_mode0_w0
-     /tmp/ccRhiP7z.s:2939   .text.TP_bt1120_PAL_1080P_mode0_w0:0000000000000010 $d
-     /tmp/ccRhiP7z.s:2945   .text.SET_VS4210_720_480_out:0000000000000000 $t
-     /tmp/ccRhiP7z.s:2952   .text.SET_VS4210_720_480_out:0000000000000000 SET_VS4210_720_480_out
-     /tmp/ccRhiP7z.s:3601   .text.SET_VS4210_720_480_out:00000000000003fc $d
-     /tmp/ccRhiP7z.s:3604   .text.SET_VS4210_720_480_out:0000000000000400 $t
-     /tmp/ccRhiP7z.s:4169   .text.SET_VS4210_1280_720_out:0000000000000000 $t
-     /tmp/ccRhiP7z.s:4176   .text.SET_VS4210_1280_720_out:0000000000000000 SET_VS4210_1280_720_out
-     /tmp/ccRhiP7z.s:4825   .text.SET_VS4210_1280_720_out:00000000000003fc $d
-     /tmp/ccRhiP7z.s:4828   .text.SET_VS4210_1280_720_out:0000000000000400 $t
-     /tmp/ccRhiP7z.s:5393   .text.SET_AHD_MDOE:0000000000000000 $t
-     /tmp/ccRhiP7z.s:5400   .text.SET_AHD_MDOE:0000000000000000 SET_AHD_MDOE
-     /tmp/ccRhiP7z.s:6049   .text.SET_AHD_MDOE:00000000000003fc $d
-     /tmp/ccRhiP7z.s:6052   .text.SET_AHD_MDOE:0000000000000400 $t
-     /tmp/ccRhiP7z.s:6707   .text.SystemClock_Config:0000000000000000 $t
-     /tmp/ccRhiP7z.s:6714   .text.SystemClock_Config:0000000000000000 SystemClock_Config
-     /tmp/ccRhiP7z.s:6787   .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 $t
-     /tmp/ccRhiP7z.s:6794   .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 HAL_TIM_PeriodElapsedCallback
-     /tmp/ccRhiP7z.s:6873   .text.HAL_TIM_PeriodElapsedCallback:0000000000000064 $d
-     /tmp/ccRhiP7z.s:6887   .text.HAL_UART_RxCpltCallback:0000000000000000 $t
-     /tmp/ccRhiP7z.s:6894   .text.HAL_UART_RxCpltCallback:0000000000000000 HAL_UART_RxCpltCallback
-ARM GAS  /tmp/ccRhiP7z.s 			page 259
+     /tmp/ccG8Bke4.s:2460   .text.AdjustAutoDayNight:0000000000000000 $t
+     /tmp/ccG8Bke4.s:2467   .text.AdjustAutoDayNight:0000000000000000 AdjustAutoDayNight
+     /tmp/ccG8Bke4.s:2590   .text.AdjustAutoDayNight:000000000000008c $d
+     /tmp/ccG8Bke4.s:2597   .text.LoadEEPROM:0000000000000000 $t
+     /tmp/ccG8Bke4.s:2604   .text.LoadEEPROM:0000000000000000 LoadEEPROM
+     /tmp/ccG8Bke4.s:2617   .text.WaitPowerOn:0000000000000000 $t
+     /tmp/ccG8Bke4.s:2624   .text.WaitPowerOn:0000000000000000 WaitPowerOn
+     /tmp/ccG8Bke4.s:2729   .text.WaitPowerOn:0000000000000084 $d
+     /tmp/ccG8Bke4.s:2736   .text.VS4210_FULL88init2:0000000000000000 $t
+     /tmp/ccG8Bke4.s:2743   .text.VS4210_FULL88init2:0000000000000000 VS4210_FULL88init2
+     /tmp/ccG8Bke4.s:2787   .text.VS4210_FULL88init2:000000000000001c $d
+     /tmp/ccG8Bke4.s:2792   .text.TP_bt1120_1080P_1080P_mode0_w0:0000000000000000 $t
+     /tmp/ccG8Bke4.s:2799   .text.TP_bt1120_1080P_1080P_mode0_w0:0000000000000000 TP_bt1120_1080P_1080P_mode0_w0
+     /tmp/ccG8Bke4.s:2823   .text.TP_bt1120_1080P_1080P_mode0_w0:0000000000000010 $d
+     /tmp/ccG8Bke4.s:2829   .text.TP_bt1120_720P_1080P_mode0_w0:0000000000000000 $t
+     /tmp/ccG8Bke4.s:2836   .text.TP_bt1120_720P_1080P_mode0_w0:0000000000000000 TP_bt1120_720P_1080P_mode0_w0
+     /tmp/ccG8Bke4.s:2865   .text.TP_bt1120_720P_1080P_mode0_w0:0000000000000018 $d
+     /tmp/ccG8Bke4.s:2871   .text.TP_bt1120_NTSC_1080P_mode0_w0:0000000000000000 $t
+     /tmp/ccG8Bke4.s:2878   .text.TP_bt1120_NTSC_1080P_mode0_w0:0000000000000000 TP_bt1120_NTSC_1080P_mode0_w0
+     /tmp/ccG8Bke4.s:2902   .text.TP_bt1120_NTSC_1080P_mode0_w0:0000000000000010 $d
+     /tmp/ccG8Bke4.s:2908   .text.TP_bt1120_PAL_1080P_mode0_w0:0000000000000000 $t
+     /tmp/ccG8Bke4.s:2915   .text.TP_bt1120_PAL_1080P_mode0_w0:0000000000000000 TP_bt1120_PAL_1080P_mode0_w0
+     /tmp/ccG8Bke4.s:2939   .text.TP_bt1120_PAL_1080P_mode0_w0:0000000000000010 $d
+     /tmp/ccG8Bke4.s:2945   .text.SET_VS4210_720_480_out:0000000000000000 $t
+     /tmp/ccG8Bke4.s:2952   .text.SET_VS4210_720_480_out:0000000000000000 SET_VS4210_720_480_out
+     /tmp/ccG8Bke4.s:3601   .text.SET_VS4210_720_480_out:00000000000003fc $d
+     /tmp/ccG8Bke4.s:3604   .text.SET_VS4210_720_480_out:0000000000000400 $t
+     /tmp/ccG8Bke4.s:4169   .text.SET_VS4210_1280_720_out:0000000000000000 $t
+     /tmp/ccG8Bke4.s:4176   .text.SET_VS4210_1280_720_out:0000000000000000 SET_VS4210_1280_720_out
+     /tmp/ccG8Bke4.s:4825   .text.SET_VS4210_1280_720_out:00000000000003fc $d
+     /tmp/ccG8Bke4.s:4828   .text.SET_VS4210_1280_720_out:0000000000000400 $t
+     /tmp/ccG8Bke4.s:5393   .text.SET_AHD_MDOE:0000000000000000 $t
+     /tmp/ccG8Bke4.s:5400   .text.SET_AHD_MDOE:0000000000000000 SET_AHD_MDOE
+     /tmp/ccG8Bke4.s:6049   .text.SET_AHD_MDOE:00000000000003fc $d
+     /tmp/ccG8Bke4.s:6052   .text.SET_AHD_MDOE:0000000000000400 $t
+     /tmp/ccG8Bke4.s:6707   .text.SystemClock_Config:0000000000000000 $t
+     /tmp/ccG8Bke4.s:6714   .text.SystemClock_Config:0000000000000000 SystemClock_Config
+     /tmp/ccG8Bke4.s:6787   .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 $t
+     /tmp/ccG8Bke4.s:6794   .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 HAL_TIM_PeriodElapsedCallback
+     /tmp/ccG8Bke4.s:6873   .text.HAL_TIM_PeriodElapsedCallback:0000000000000064 $d
+     /tmp/ccG8Bke4.s:6887   .text.HAL_UART_RxCpltCallback:0000000000000000 $t
+     /tmp/ccG8Bke4.s:6894   .text.HAL_UART_RxCpltCallback:0000000000000000 HAL_UART_RxCpltCallback
+ARM GAS  /tmp/ccG8Bke4.s 			page 259
 
 
-     /tmp/ccRhiP7z.s:6980   .text.HAL_UART_RxCpltCallback:0000000000000068 $d
-     /tmp/ccRhiP7z.s:6994   .text.HAL_GPIO_EXTI_Callback:0000000000000000 $t
-     /tmp/ccRhiP7z.s:7001   .text.HAL_GPIO_EXTI_Callback:0000000000000000 HAL_GPIO_EXTI_Callback
-     /tmp/ccRhiP7z.s:7015   .text.HS_Select_Win:0000000000000000 $t
-     /tmp/ccRhiP7z.s:7022   .text.HS_Select_Win:0000000000000000 HS_Select_Win
-     /tmp/ccRhiP7z.s:7237   .text.HS_Select_Win:000000000000011c $d
-     /tmp/ccRhiP7z.s:7255   .text.main_loop:0000000000000000 $t
-     /tmp/ccRhiP7z.s:7262   .text.main_loop:0000000000000000 main_loop
-     /tmp/ccRhiP7z.s:7541   .text.main_loop:000000000000018c $d
-     /tmp/ccRhiP7z.s:7562   .text.main:0000000000000000 $t
-     /tmp/ccRhiP7z.s:7569   .text.main:0000000000000000 main
-     /tmp/ccRhiP7z.s:7875   .text.main:00000000000001a8 $d
+     /tmp/ccG8Bke4.s:6980   .text.HAL_UART_RxCpltCallback:0000000000000068 $d
+     /tmp/ccG8Bke4.s:6994   .text.HAL_GPIO_EXTI_Callback:0000000000000000 $t
+     /tmp/ccG8Bke4.s:7001   .text.HAL_GPIO_EXTI_Callback:0000000000000000 HAL_GPIO_EXTI_Callback
+     /tmp/ccG8Bke4.s:7015   .text.HS_Select_Win:0000000000000000 $t
+     /tmp/ccG8Bke4.s:7022   .text.HS_Select_Win:0000000000000000 HS_Select_Win
+     /tmp/ccG8Bke4.s:7237   .text.HS_Select_Win:000000000000011c $d
+     /tmp/ccG8Bke4.s:7255   .text.main_loop:0000000000000000 $t
+     /tmp/ccG8Bke4.s:7262   .text.main_loop:0000000000000000 main_loop
+     /tmp/ccG8Bke4.s:7541   .text.main_loop:000000000000018c $d
+     /tmp/ccG8Bke4.s:7562   .text.main:0000000000000000 $t
+     /tmp/ccG8Bke4.s:7569   .text.main:0000000000000000 main
+     /tmp/ccG8Bke4.s:7875   .text.main:00000000000001a8 $d
                             *COM*:0000000000000100 ExOsdContent
-     /tmp/ccRhiP7z.s:7902   .text.Error_Handler:0000000000000000 $t
-     /tmp/ccRhiP7z.s:7909   .text.Error_Handler:0000000000000000 Error_Handler
-     /tmp/ccRhiP7z.s:8263   .data.OSDStateFlg:0000000000000000 OSDStateFlg
-     /tmp/ccRhiP7z.s:8054   .bss.OSDSecCount:0000000000000000 OSDSecCount
-     /tmp/ccRhiP7z.s:8306   .data.gRxLoopFlg:0000000000000000 gRxLoopFlg
-     /tmp/ccRhiP7z.s:8075   .bss.OSD_Show_Flg:0000000000000000 OSD_Show_Flg
-     /tmp/ccRhiP7z.s:8131   .bss.Tim1_count:0000000000000000 Tim1_count
-     /tmp/ccRhiP7z.s:8143   .bss.TxCount:0000000000000000 TxCount
-     /tmp/ccRhiP7z.s:8163   .bss.bSignal:0000000000000000 bSignal
-     /tmp/ccRhiP7z.s:8301   .data.gMode0LoopSecCmpVal:0000000000000000 gMode0LoopSecCmpVal
-     /tmp/ccRhiP7z.s:8189   .bss.gMode0LoopSecCount:0000000000000000 gMode0LoopSecCount
-     /tmp/ccRhiP7z.s:8183   .bss.gMode0LoopFlg:0000000000000000 gMode0LoopFlg
-     /tmp/ccRhiP7z.s:8177   .bss.gMode0LoopCount:0000000000000000 gMode0LoopCount
-     /tmp/ccRhiP7z.s:8202   .bss.gbAUDO_INDEX:0000000000000000 gbAUDO_INDEX
+     /tmp/ccG8Bke4.s:7902   .text.Error_Handler:0000000000000000 $t
+     /tmp/ccG8Bke4.s:7909   .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/ccG8Bke4.s:8263   .data.OSDStateFlg:0000000000000000 OSDStateFlg
+     /tmp/ccG8Bke4.s:8054   .bss.OSDSecCount:0000000000000000 OSDSecCount
+     /tmp/ccG8Bke4.s:8306   .data.gRxLoopFlg:0000000000000000 gRxLoopFlg
+     /tmp/ccG8Bke4.s:8075   .bss.OSD_Show_Flg:0000000000000000 OSD_Show_Flg
+     /tmp/ccG8Bke4.s:8131   .bss.Tim1_count:0000000000000000 Tim1_count
+     /tmp/ccG8Bke4.s:8143   .bss.TxCount:0000000000000000 TxCount
+     /tmp/ccG8Bke4.s:8163   .bss.bSignal:0000000000000000 bSignal
+     /tmp/ccG8Bke4.s:8301   .data.gMode0LoopSecCmpVal:0000000000000000 gMode0LoopSecCmpVal
+     /tmp/ccG8Bke4.s:8189   .bss.gMode0LoopSecCount:0000000000000000 gMode0LoopSecCount
+     /tmp/ccG8Bke4.s:8183   .bss.gMode0LoopFlg:0000000000000000 gMode0LoopFlg
+     /tmp/ccG8Bke4.s:8177   .bss.gMode0LoopCount:0000000000000000 gMode0LoopCount
+     /tmp/ccG8Bke4.s:8202   .bss.gbAUDO_INDEX:0000000000000000 gbAUDO_INDEX
                             *COM*:0000000000000001 gPrebAUDO_INDEX
-     /tmp/ccRhiP7z.s:7988   .bss.CheckSelectInputMode:0000000000000000 CheckSelectInputMode
-     /tmp/ccRhiP7z.s:8124   .bss.SelectInputMode:0000000000000000 SelectInputMode
-     /tmp/ccRhiP7z.s:8257   .data.OSDPreSecCount:0000000000000000 OSDPreSecCount
-     /tmp/ccRhiP7z.s:8282   .data.PrebVXIS_InputMode:0000000000000000 PrebVXIS_InputMode
-     /tmp/ccRhiP7z.s:7982   .bss.CURRENT_CH:0000000000000000 CURRENT_CH
-     /tmp/ccRhiP7z.s:8250   .data.BOOT_ISSUE:0000000000000000 BOOT_ISSUE
-     /tmp/ccRhiP7z.s:8068   .bss.OSD_SPEAKER:0000000000000000 OSD_SPEAKER
-     /tmp/ccRhiP7z.s:8061   .bss.OSD_MIRROR:0000000000000000 OSD_MIRROR
+     /tmp/ccG8Bke4.s:7988   .bss.CheckSelectInputMode:0000000000000000 CheckSelectInputMode
+     /tmp/ccG8Bke4.s:8124   .bss.SelectInputMode:0000000000000000 SelectInputMode
+     /tmp/ccG8Bke4.s:8257   .data.OSDPreSecCount:0000000000000000 OSDPreSecCount
+     /tmp/ccG8Bke4.s:8282   .data.PrebVXIS_InputMode:0000000000000000 PrebVXIS_InputMode
+     /tmp/ccG8Bke4.s:7982   .bss.CURRENT_CH:0000000000000000 CURRENT_CH
+     /tmp/ccG8Bke4.s:8250   .data.BOOT_ISSUE:0000000000000000 BOOT_ISSUE
+     /tmp/ccG8Bke4.s:8068   .bss.OSD_SPEAKER:0000000000000000 OSD_SPEAKER
+     /tmp/ccG8Bke4.s:8061   .bss.OSD_MIRROR:0000000000000000 OSD_MIRROR
                             *COM*:0000000000000001 Priority
                             *COM*:0000000000000001 SelectModeType
-     /tmp/ccRhiP7z.s:8224   .bss.tptic:0000000000000000 tptic
-     /tmp/ccRhiP7z.s:8212   .bss.keytic:0000000000000000 keytic
-     /tmp/ccRhiP7z.s:8275   .data.PowerFlag:0000000000000000 PowerFlag
+     /tmp/ccG8Bke4.s:8224   .bss.tptic:0000000000000000 tptic
+     /tmp/ccG8Bke4.s:8212   .bss.keytic:0000000000000000 keytic
+     /tmp/ccG8Bke4.s:8275   .data.PowerFlag:0000000000000000 PowerFlag
                             *COM*:0000000000000001 TimeStep
-     /tmp/ccRhiP7z.s:8269   .data.PWMLevel:0000000000000000 PWMLevel
-     /tmp/ccRhiP7z.s:7976   .bss.AutoDayNightDelay:0000000000000000 AutoDayNightDelay
-     /tmp/ccRhiP7z.s:8048   .bss.LightSensor_ADC:0000000000000000 LightSensor_ADC
-     /tmp/ccRhiP7z.s:7994   .bss.DayNightLevel:0000000000000000 DayNightLevel
-     /tmp/ccRhiP7z.s:8207   .bss.half_scaler:0000000000000000 half_scaler
+     /tmp/ccG8Bke4.s:8269   .data.PWMLevel:0000000000000000 PWMLevel
+     /tmp/ccG8Bke4.s:7976   .bss.AutoDayNightDelay:0000000000000000 AutoDayNightDelay
+     /tmp/ccG8Bke4.s:8048   .bss.LightSensor_ADC:0000000000000000 LightSensor_ADC
+     /tmp/ccG8Bke4.s:7994   .bss.DayNightLevel:0000000000000000 DayNightLevel
+     /tmp/ccG8Bke4.s:8207   .bss.half_scaler:0000000000000000 half_scaler
                             *COM*:0000000000000001 ManVidRes
-     /tmp/ccRhiP7z.s:8295   .data.VS8812_ADDR:0000000000000000 VS8812_ADDR
-     /tmp/ccRhiP7z.s:8290   .data.VS4210_ADDR:0000000000000000 VS4210_ADDR
+     /tmp/ccG8Bke4.s:8295   .data.VS8812_ADDR:0000000000000000 VS8812_ADDR
+     /tmp/ccG8Bke4.s:8290   .data.VS4210_ADDR:0000000000000000 VS4210_ADDR
                             *COM*:0000000000000030 hadc1
-     /tmp/ccRhiP7z.s:7977   .bss.AutoDayNightDelay:0000000000000000 $d
-     /tmp/ccRhiP7z.s:7983   .bss.CURRENT_CH:0000000000000000 $d
-     /tmp/ccRhiP7z.s:7989   .bss.CheckSelectInputMode:0000000000000000 $d
-     /tmp/ccRhiP7z.s:7995   .bss.DayNightLevel:0000000000000000 $d
-     /tmp/ccRhiP7z.s:7997   .bss.DebugFlg:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8000   .bss.DebugFlg:0000000000000000 DebugFlg
-ARM GAS  /tmp/ccRhiP7z.s 			page 260
+     /tmp/ccG8Bke4.s:7977   .bss.AutoDayNightDelay:0000000000000000 $d
+     /tmp/ccG8Bke4.s:7983   .bss.CURRENT_CH:0000000000000000 $d
+     /tmp/ccG8Bke4.s:7989   .bss.CheckSelectInputMode:0000000000000000 $d
+     /tmp/ccG8Bke4.s:7995   .bss.DayNightLevel:0000000000000000 $d
+     /tmp/ccG8Bke4.s:7997   .bss.DebugFlg:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8000   .bss.DebugFlg:0000000000000000 DebugFlg
+ARM GAS  /tmp/ccG8Bke4.s 			page 260
 
 
-     /tmp/ccRhiP7z.s:8003   .bss.IR_4BYTE:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8006   .bss.IR_4BYTE:0000000000000000 IR_4BYTE
-     /tmp/ccRhiP7z.s:8011   .bss.IR_Code:0000000000000000 IR_Code
-     /tmp/ccRhiP7z.s:8012   .bss.IR_Code:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8016   .bss.IR_END_Flg:0000000000000000 IR_END_Flg
-     /tmp/ccRhiP7z.s:8017   .bss.IR_END_Flg:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8021   .bss.IR_IRQFlg:0000000000000000 IR_IRQFlg
-     /tmp/ccRhiP7z.s:8022   .bss.IR_IRQFlg:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8026   .bss.IR_IRQ_Index:0000000000000000 IR_IRQ_Index
-     /tmp/ccRhiP7z.s:8027   .bss.IR_IRQ_Index:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8029   .bss.IR_PlusTimeVal:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8032   .bss.IR_PlusTimeVal:0000000000000000 IR_PlusTimeVal
-     /tmp/ccRhiP7z.s:8037   .bss.IR_ShiftCount:0000000000000000 IR_ShiftCount
-     /tmp/ccRhiP7z.s:8038   .bss.IR_ShiftCount:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8042   .bss.IR_StartFlg:0000000000000000 IR_StartFlg
-     /tmp/ccRhiP7z.s:8043   .bss.IR_StartFlg:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8045   .bss.LightSensor_ADC:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8055   .bss.OSDSecCount:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8057   .bss.OSD_MIRROR:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8064   .bss.OSD_SPEAKER:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8071   .bss.OSD_Show_Flg:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8080   .bss.PreIR_Code:0000000000000000 PreIR_Code
-     /tmp/ccRhiP7z.s:8081   .bss.PreIR_Code:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8085   .bss.PreIR_IRQ_Index:0000000000000000 PreIR_IRQ_Index
-     /tmp/ccRhiP7z.s:8086   .bss.PreIR_IRQ_Index:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8088   .bss.Rx2_data:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8092   .bss.Rx2_data:0000000000000000 Rx2_data
-     /tmp/ccRhiP7z.s:8095   .bss.RxBufIndex:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8099   .bss.RxBufIndex:0000000000000000 RxBufIndex
-     /tmp/ccRhiP7z.s:8102   .bss.Rx_data:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8106   .bss.Rx_data:0000000000000000 Rx_data
-     /tmp/ccRhiP7z.s:8109   .bss.Rx_indx:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8112   .bss.Rx_indx:0000000000000000 Rx_indx
-     /tmp/ccRhiP7z.s:8115   .bss.RxiCount:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8118   .bss.RxiCount:0000000000000000 RxiCount
-     /tmp/ccRhiP7z.s:8125   .bss.SelectInputMode:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8127   .bss.Tim1_count:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8137   .bss.Transfer_cplt:0000000000000000 Transfer_cplt
-     /tmp/ccRhiP7z.s:8138   .bss.Transfer_cplt:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8144   .bss.TxCount:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8146   .bss.TxiCount:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8149   .bss.TxiCount:0000000000000000 TxiCount
-     /tmp/ccRhiP7z.s:8152   .bss.bOldSignal:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8156   .bss.bOldSignal:0000000000000000 bOldSignal
-     /tmp/ccRhiP7z.s:8159   .bss.bSignal:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8166   .bss.gAudioSampleFreq:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8170   .bss.gAudioSampleFreq:0000000000000000 gAudioSampleFreq
-     /tmp/ccRhiP7z.s:8173   .bss.gMode0LoopCount:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8184   .bss.gMode0LoopFlg:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8190   .bss.gMode0LoopSecCount:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8192   .bss.gRxbuf:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8196   .bss.gRxbuf:0000000000000000 gRxbuf
-     /tmp/ccRhiP7z.s:8203   .bss.gbAUDO_INDEX:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8208   .bss.half_scaler:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8213   .bss.keytic:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8215   .bss.tim3count:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8219   .bss.tim3count:0000000000000000 tim3count
-ARM GAS  /tmp/ccRhiP7z.s 			page 261
+     /tmp/ccG8Bke4.s:8003   .bss.IR_4BYTE:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8006   .bss.IR_4BYTE:0000000000000000 IR_4BYTE
+     /tmp/ccG8Bke4.s:8011   .bss.IR_Code:0000000000000000 IR_Code
+     /tmp/ccG8Bke4.s:8012   .bss.IR_Code:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8016   .bss.IR_END_Flg:0000000000000000 IR_END_Flg
+     /tmp/ccG8Bke4.s:8017   .bss.IR_END_Flg:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8021   .bss.IR_IRQFlg:0000000000000000 IR_IRQFlg
+     /tmp/ccG8Bke4.s:8022   .bss.IR_IRQFlg:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8026   .bss.IR_IRQ_Index:0000000000000000 IR_IRQ_Index
+     /tmp/ccG8Bke4.s:8027   .bss.IR_IRQ_Index:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8029   .bss.IR_PlusTimeVal:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8032   .bss.IR_PlusTimeVal:0000000000000000 IR_PlusTimeVal
+     /tmp/ccG8Bke4.s:8037   .bss.IR_ShiftCount:0000000000000000 IR_ShiftCount
+     /tmp/ccG8Bke4.s:8038   .bss.IR_ShiftCount:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8042   .bss.IR_StartFlg:0000000000000000 IR_StartFlg
+     /tmp/ccG8Bke4.s:8043   .bss.IR_StartFlg:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8045   .bss.LightSensor_ADC:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8055   .bss.OSDSecCount:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8057   .bss.OSD_MIRROR:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8064   .bss.OSD_SPEAKER:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8071   .bss.OSD_Show_Flg:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8080   .bss.PreIR_Code:0000000000000000 PreIR_Code
+     /tmp/ccG8Bke4.s:8081   .bss.PreIR_Code:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8085   .bss.PreIR_IRQ_Index:0000000000000000 PreIR_IRQ_Index
+     /tmp/ccG8Bke4.s:8086   .bss.PreIR_IRQ_Index:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8088   .bss.Rx2_data:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8092   .bss.Rx2_data:0000000000000000 Rx2_data
+     /tmp/ccG8Bke4.s:8095   .bss.RxBufIndex:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8099   .bss.RxBufIndex:0000000000000000 RxBufIndex
+     /tmp/ccG8Bke4.s:8102   .bss.Rx_data:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8106   .bss.Rx_data:0000000000000000 Rx_data
+     /tmp/ccG8Bke4.s:8109   .bss.Rx_indx:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8112   .bss.Rx_indx:0000000000000000 Rx_indx
+     /tmp/ccG8Bke4.s:8115   .bss.RxiCount:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8118   .bss.RxiCount:0000000000000000 RxiCount
+     /tmp/ccG8Bke4.s:8125   .bss.SelectInputMode:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8127   .bss.Tim1_count:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8137   .bss.Transfer_cplt:0000000000000000 Transfer_cplt
+     /tmp/ccG8Bke4.s:8138   .bss.Transfer_cplt:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8144   .bss.TxCount:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8146   .bss.TxiCount:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8149   .bss.TxiCount:0000000000000000 TxiCount
+     /tmp/ccG8Bke4.s:8152   .bss.bOldSignal:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8156   .bss.bOldSignal:0000000000000000 bOldSignal
+     /tmp/ccG8Bke4.s:8159   .bss.bSignal:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8166   .bss.gAudioSampleFreq:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8170   .bss.gAudioSampleFreq:0000000000000000 gAudioSampleFreq
+     /tmp/ccG8Bke4.s:8173   .bss.gMode0LoopCount:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8184   .bss.gMode0LoopFlg:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8190   .bss.gMode0LoopSecCount:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8192   .bss.gRxbuf:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8196   .bss.gRxbuf:0000000000000000 gRxbuf
+     /tmp/ccG8Bke4.s:8203   .bss.gbAUDO_INDEX:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8208   .bss.half_scaler:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8213   .bss.keytic:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8215   .bss.tim3count:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8219   .bss.tim3count:0000000000000000 tim3count
+ARM GAS  /tmp/ccG8Bke4.s 			page 261
 
 
-     /tmp/ccRhiP7z.s:8225   .bss.tptic:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8227   .bss.u16Vendor:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8230   .bss.u16Vendor:0000000000000000 u16Vendor
-     /tmp/ccRhiP7z.s:8235   .bss.u8IRCheckcode:0000000000000000 u8IRCheckcode
-     /tmp/ccRhiP7z.s:8236   .bss.u8IRCheckcode:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8240   .bss.u8IRcode:0000000000000000 u8IRcode
-     /tmp/ccRhiP7z.s:8241   .bss.u8IRcode:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8245   .bss.u8PowerFlg:0000000000000000 u8PowerFlg
-     /tmp/ccRhiP7z.s:8246   .bss.u8PowerFlg:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8253   .data.OSDPreSecCount:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8278   .data.PrebVXIS_InputMode:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8309   .rodata.CHECK_HDMI720P50.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8316   .rodata.GetRS232_CMD.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8323   .rodata.HDMI_VideoModeDetect.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8330   .rodata.HS_Select_Win.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8345   .rodata.SET_AHD_MDOE.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8349   .rodata.SET_Audio_Mute.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8353   .rodata.SET_VS4210_1280_720_out.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8357   .rodata.SET_VS4210_720_480_out.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8361   .rodata.TP_bt1120_1080P_1080P_mode0_w0.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8365   .rodata.TP_bt1120_720P_1080P_mode0_w0.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8369   .rodata.TP_bt1120_NTSC_1080P_mode0_w0.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8373   .rodata.TP_bt1120_PAL_1080P_mode0_w0.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8377   .rodata.WaitPowerOn.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8383   .rodata.__FUNCTION__.9364:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8387   .rodata.__FUNCTION__.9364:0000000000000000 __FUNCTION__.9364
-     /tmp/ccRhiP7z.s:8390   .rodata.__FUNCTION__.9369:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8394   .rodata.__FUNCTION__.9369:0000000000000000 __FUNCTION__.9369
-     /tmp/ccRhiP7z.s:8397   .rodata.__FUNCTION__.9416:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8401   .rodata.__FUNCTION__.9416:0000000000000000 __FUNCTION__.9416
-     /tmp/ccRhiP7z.s:8404   .rodata.__FUNCTION__.9427:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8408   .rodata.__FUNCTION__.9427:0000000000000000 __FUNCTION__.9427
-     /tmp/ccRhiP7z.s:8411   .rodata.__FUNCTION__.9506:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8415   .rodata.__FUNCTION__.9506:0000000000000000 __FUNCTION__.9506
-     /tmp/ccRhiP7z.s:8418   .rodata.main.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8435   .rodata.main_init.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8452   .rodata.main_loop.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:8459   .rodata.setloopoutmode.str1.4:0000000000000000 $d
-     /tmp/ccRhiP7z.s:542    .text.Audio_Sel:0000000000000013 $d
-     /tmp/ccRhiP7z.s:542    .text.Audio_Sel:0000000000000014 $t
+     /tmp/ccG8Bke4.s:8225   .bss.tptic:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8227   .bss.u16Vendor:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8230   .bss.u16Vendor:0000000000000000 u16Vendor
+     /tmp/ccG8Bke4.s:8235   .bss.u8IRCheckcode:0000000000000000 u8IRCheckcode
+     /tmp/ccG8Bke4.s:8236   .bss.u8IRCheckcode:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8240   .bss.u8IRcode:0000000000000000 u8IRcode
+     /tmp/ccG8Bke4.s:8241   .bss.u8IRcode:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8245   .bss.u8PowerFlg:0000000000000000 u8PowerFlg
+     /tmp/ccG8Bke4.s:8246   .bss.u8PowerFlg:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8253   .data.OSDPreSecCount:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8278   .data.PrebVXIS_InputMode:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8309   .rodata.CHECK_HDMI720P50.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8316   .rodata.GetRS232_CMD.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8323   .rodata.HDMI_VideoModeDetect.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8330   .rodata.HS_Select_Win.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8345   .rodata.SET_AHD_MDOE.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8349   .rodata.SET_Audio_Mute.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8353   .rodata.SET_VS4210_1280_720_out.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8357   .rodata.SET_VS4210_720_480_out.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8361   .rodata.TP_bt1120_1080P_1080P_mode0_w0.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8365   .rodata.TP_bt1120_720P_1080P_mode0_w0.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8369   .rodata.TP_bt1120_NTSC_1080P_mode0_w0.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8373   .rodata.TP_bt1120_PAL_1080P_mode0_w0.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8377   .rodata.WaitPowerOn.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8383   .rodata.__FUNCTION__.9366:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8387   .rodata.__FUNCTION__.9366:0000000000000000 __FUNCTION__.9366
+     /tmp/ccG8Bke4.s:8390   .rodata.__FUNCTION__.9371:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8394   .rodata.__FUNCTION__.9371:0000000000000000 __FUNCTION__.9371
+     /tmp/ccG8Bke4.s:8397   .rodata.__FUNCTION__.9418:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8401   .rodata.__FUNCTION__.9418:0000000000000000 __FUNCTION__.9418
+     /tmp/ccG8Bke4.s:8404   .rodata.__FUNCTION__.9429:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8408   .rodata.__FUNCTION__.9429:0000000000000000 __FUNCTION__.9429
+     /tmp/ccG8Bke4.s:8411   .rodata.__FUNCTION__.9508:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8415   .rodata.__FUNCTION__.9508:0000000000000000 __FUNCTION__.9508
+     /tmp/ccG8Bke4.s:8418   .rodata.main.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8435   .rodata.main_init.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8452   .rodata.main_loop.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:8459   .rodata.setloopoutmode.str1.4:0000000000000000 $d
+     /tmp/ccG8Bke4.s:542    .text.Audio_Sel:0000000000000013 $d
+     /tmp/ccG8Bke4.s:542    .text.Audio_Sel:0000000000000014 $t
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
@@ -15645,7 +15645,7 @@ Printf
 MCUTimerInitialTimerEvent
 printf
 strtol
-ARM GAS  /tmp/ccRhiP7z.s 			page 262
+ARM GAS  /tmp/ccG8Bke4.s 			page 262
 
 
 puts
@@ -15705,7 +15705,7 @@ mode
 TP_InputMode
 HDMITX_DevLoopProc
 OSD_Clear_All
-ARM GAS  /tmp/ccRhiP7z.s 			page 263
+ARM GAS  /tmp/ccG8Bke4.s 			page 263
 
 
 Monitor

@@ -63,6 +63,7 @@ extern unsigned char hdmirxwr( unsigned char RegAddr,unsigned char DataIn);
 extern tByte HDMIRX_ReadI2C_Byte(tByte RegAddr);
 extern tByte HDMIRX_WriteI2C_Byte(tByte RegAddr,tByte val);
 extern void TP_bt1120_720P_1080P_mode0_w0(void);
+extern WORD GetFWRevEE(void);
 
 
 
