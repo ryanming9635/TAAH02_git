@@ -1236,6 +1236,7 @@ return ret;
 						Set_Video_Loss_OSD(0,ON);
 					//MCUTimerActiveTimerEvent(SEC(2), _SYSTEM_TIMER_EVENT_SET_VIDEO_LOSS);	
 					//VXISI2CWrite(0x9C,0x0A);
+						if(i==0)
 						SET_Audio_Mute(ON);
 				}
 			}

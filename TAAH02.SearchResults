@@ -1,22 +1,8 @@
----- Get_2824cIrq Matches (21 in 6 files) ----
-Main.c (src):2215:		Get_2824cIrq();//check tp2824 COC
-Main.h (inc):109:extern void Get_2824cIrq(void);//cocrx
-Printf.h (vs4210):59:#define _DEBUG_MESSAGE_Get_2824cIrq                		OFF
-Printf.h (vs4210):106:#define _DEBUG_MESSAGE_Get_2824cIrq                		ON
-TOA_Protocol.c (vs4210):504:				Get_2824cIrq();//check tp2824 COC
-TP2802.c (tp2824):2479:			 Get_2824cIrq();
-TP2802.c (tp2824):2485:			 Get_2824cIrq();
-TP2802.c (tp2824):2517:					 Get_2824cIrq();
-TP2802.c (tp2824):2521:					 Get_2824cIrq();		 
-TP2802.c (tp2824):2606:		//	 Get_2824cIrq();
-TP2802.c (tp2824):3514:void Get_2824cIrq(void)//cocrx
-TP2802.c (tp2824):3557:		#if(_DEBUG_MESSAGE_Get_2824cIrq==ON)
-TP2802.c (tp2824):3571:				#if(_DEBUG_MESSAGE_Get_2824cIrq==ON)
-TP2802.c (tp2824):3607:				#if(_DEBUG_MESSAGE_Get_2824cIrq==ON)
-TP2802.c (tp2824):3619:					#if(_DEBUG_MESSAGE_Get_2824cIrq==ON)
-TP2802.c (tp2824):3655:				#if(_DEBUG_MESSAGE_Get_2824cIrq==ON)
-TP2802.c (tp2824):3667:					#if(_DEBUG_MESSAGE_Get_2824cIrq==ON)
-TP2802.c (tp2824):3703:				#if(_DEBUG_MESSAGE_Get_2824cIrq==ON)
-TP2802.c (tp2824):3715:					#if(_DEBUG_MESSAGE_Get_2824cIrq==ON)
-TP2802.c (tp2824):4318:	#if (_DEBUG_MESSAGE_Get_2824cIrq==ON)
-TP2802.h (tp2824\tpinc):119:void Get_2824cIrq(void);//cocrx
+---- VS4210_SetInModeOutMode Matches (7 in 4 files) ----
+Main.c (src):1265:					VS4210_SetInModeOutMode(i , gbVXIS_InputMode[i] , pVS4210_MutiWindows1.OutputMode );
+TP2802.c (tp2824):2268:                 //   VS4210_SetInModeOutMode(i,newInRes[i] ,gbVXIS_OuputModeflg )  ;
+TP2802.c (tp2824):2283:        printf("VS4210_SetInModeOutMode(),i=%d,newInRes=%d,OuputModeflg=%d\r\n",(int)i ,(int)newInRes[i],(int) gbVXIS_OuputModeflg ) ;
+TP2802.c (tp2824):3126:                    VS4210_SetInModeOutMode(i,newInRes[i] ,gbVXIS_OuputModeflg )  ;
+VS4210.c (vs4210):3880:tByte  VS4210_SetInModeOutMode(tByte ch,tByte inmode,tByte outmode )
+VS4210.h (vs4210):35:extern tByte VS4210_SetInModeOutMode(tByte ch ,tByte inmode ,tByte outmode )  ;
+VS4210.h (vs4210):41:extern tByte VS4210_SetInModeOutMode(tByte ch ,tByte inmode ,tByte outmode )  ;
