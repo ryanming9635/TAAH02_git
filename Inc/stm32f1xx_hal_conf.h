@@ -88,8 +88,11 @@
 #endif /* HSE_VALUE */
 
 #if !defined  (HSE_STARTUP_TIMEOUT)
-//  #define HSE_STARTUP_TIMEOUT    ((uint32_t)100)   /*!< Time out for HSE start up, in ms */
-#define HSE_STARTUP_TIMEOUT    ((uint32_t)0xFFFF)	 ///GD32F103x
+	#if  (_GD32F103RET==OFF)
+ 	 #define HSE_STARTUP_TIMEOUT    ((uint32_t)100)   /*!< Time out for HSE start up, in ms */
+	#else
+	#define HSE_STARTUP_TIMEOUT    ((uint32_t)0xFFFF)	 ///GD32F103x
+	#endif
 
 #endif /* HSE_STARTUP_TIMEOUT */
 

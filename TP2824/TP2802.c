@@ -1336,8 +1336,8 @@ tByte Set_HDA(tByte ch)
         {
             I2CDeviceSet2(TP2824C_HDA_DataSet[0],TP2824C_HDA_DataSet[index] );
 
-		if(mode[ch]==R1080P30)
-			    tp28xx_byte_write(0x19, 0x3A);
+		//if(mode[ch]==R1080P30)
+		//	    tp28xx_byte_write(0x19, 0x3A);
 			
         }
         tmp=tp28xx_byte_read(0x14);

@@ -1,8 +1,20 @@
----- VS4210_SetInModeOutMode Matches (7 in 4 files) ----
-Main.c (src):1265:					VS4210_SetInModeOutMode(i , gbVXIS_InputMode[i] , pVS4210_MutiWindows1.OutputMode );
-TP2802.c (tp2824):2268:                 //   VS4210_SetInModeOutMode(i,newInRes[i] ,gbVXIS_OuputModeflg )  ;
-TP2802.c (tp2824):2283:        printf("VS4210_SetInModeOutMode(),i=%d,newInRes=%d,OuputModeflg=%d\r\n",(int)i ,(int)newInRes[i],(int) gbVXIS_OuputModeflg ) ;
-TP2802.c (tp2824):3126:                    VS4210_SetInModeOutMode(i,newInRes[i] ,gbVXIS_OuputModeflg )  ;
-VS4210.c (vs4210):3880:tByte  VS4210_SetInModeOutMode(tByte ch,tByte inmode,tByte outmode )
-VS4210.h (vs4210):35:extern tByte VS4210_SetInModeOutMode(tByte ch ,tByte inmode ,tByte outmode )  ;
-VS4210.h (vs4210):41:extern tByte VS4210_SetInModeOutMode(tByte ch ,tByte inmode ,tByte outmode )  ;
+---- OsdDumpAttribute Matches (19 in 3 files) ----
+VX_OSD.c (vs4210):167:void OsdDumpAttribute(tByte OSDaddr,tByte *Strdata,tByte index)
+VX_OSD.h (vs4210):152:void OsdDumpAttribute(tByte OSDaddr,tByte *Strdata,tByte index) ; 
+VX_OSD_Simple.c (vs4210):466:            OsdDumpAttribute(0x00,Str1,_Color);
+VX_OSD_Simple.c (vs4210):475:            OsdDumpAttribute(0x40,Str2,_Color);
+VX_OSD_Simple.c (vs4210):487:            OsdDumpAttribute(0x10,Str1,_Color);
+VX_OSD_Simple.c (vs4210):496:            OsdDumpAttribute(0x50,Str2,_Color);
+VX_OSD_Simple.c (vs4210):507:            OsdDumpAttribute(0x20,Str1,_Color);
+VX_OSD_Simple.c (vs4210):516:            OsdDumpAttribute(0x60,Str2,_Color);
+VX_OSD_Simple.c (vs4210):527:            OsdDumpAttribute(0x30,Str1,_Color);
+VX_OSD_Simple.c (vs4210):536:            OsdDumpAttribute(0x70,Str2,_Color);
+VX_OSD_Simple.c (vs4210):938:    OsdDumpAttribute(0x80, &len, _MenuColor );
+VX_OSD_Simple.c (vs4210):943:        OsdDumpAttribute(0x80 + Indexoffset + FontLenx2 , &len, _MenuSelColor  );
+VX_OSD_Simple.c (vs4210):944:        //OsdDumpAttribute(0x80 + FontLenx2 , &len, _MenuSelColor  );
+VX_OSD_Simple.c (vs4210):952:    OsdDumpAttribute(0x80, &len, _MenuColor );
+VX_OSD_Simple.c (vs4210):957:        OsdDumpAttribute(0x80 + Indexoffset + FontLenx2 , &len, _MenuSelColor  );
+VX_OSD_Simple.c (vs4210):988://    OsdDumpAttribute(0x80 , &len, _MenuColor );
+VX_OSD_Simple.c (vs4210):991://    OsdDumpAttribute(0x80 + Indexoffset , &len, _MenuSelColor  );
+VX_OSD_Simple.c (vs4210):994:    OsdDumpAttribute(0x80+ (FontLenx2 +2), &len, _MenuColor );
+VX_OSD_Simple.c (vs4210):997:    OsdDumpAttribute(0x80 + Indexoffset +FontLenx2 , &len, _MenuSelColor  );

@@ -21,6 +21,8 @@
 #define VS4210_MUTICHIP_NUMBER 		1
 
 #define DisplayOSDEnable       			OFF
+#define _GD32F103RET				OFF			
+
 //_MCU_ _MCU8051_ _IT66021_
 
 //#define OSD_10SEC_OFF
