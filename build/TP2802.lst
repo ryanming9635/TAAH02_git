@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccmWs6qW.s 			page 1
+ARM GAS  /tmp/ccSTfybG.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
   32:TP2824/TP2802.c **** //TP2802D EQ for short cable option
   33:TP2824/TP2802.c **** #define TP2802D_EQ_SHORT 0x0d
   34:TP2824/TP2802.c **** #define TP2802D_CGAIN_SHORT 0x74
-ARM GAS  /tmp/ccmWs6qW.s 			page 2
+ARM GAS  /tmp/ccSTfybG.s 			page 2
 
 
   35:TP2824/TP2802.c **** //#define TP2802D_EQ_SHORT 0x01
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
   89:TP2824/TP2802.c **** extern bit ptztxflag;
   90:TP2824/TP2802.c **** */
   91:TP2824/TP2802.c **** BYTE AHDcmd1,AHDcmd2,AHDcmd3,AHDcmd4;
-ARM GAS  /tmp/ccmWs6qW.s 			page 3
+ARM GAS  /tmp/ccSTfybG.s 			page 3
 
 
   92:TP2824/TP2802.c **** BYTE TVI_Command;
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  146:TP2824/TP2802.c **** {
  147:TP2824/TP2802.c ****     0x40, 0x04,
  148:TP2824/TP2802.c ****     0x07, 0xC0,
-ARM GAS  /tmp/ccmWs6qW.s 			page 4
+ARM GAS  /tmp/ccSTfybG.s 			page 4
 
 
  149:TP2824/TP2802.c ****     0x0B, 0xC0,
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  203:TP2824/TP2802.c **** 
  204:TP2824/TP2802.c **** 
  205:TP2824/TP2802.c **** tcByte TP2826_MODE_DataSet[5][20]=
-ARM GAS  /tmp/ccmWs6qW.s 			page 5
+ARM GAS  /tmp/ccSTfybG.s 			page 5
 
 
  206:TP2824/TP2802.c **** {
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  260:TP2824/TP2802.c ****     0x38, 0x00,
  261:TP2824/TP2802.c ****     0x3A, 0x32,
  262:TP2824/TP2802.c ****     0x3B, 0x05,
-ARM GAS  /tmp/ccmWs6qW.s 			page 6
+ARM GAS  /tmp/ccSTfybG.s 			page 6
 
 
  263:TP2824/TP2802.c ****     0x26, 0x04,
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  317:TP2824/TP2802.c ****     0x3c, 0x00,
  318:TP2824/TP2802.c **** 
  319:TP2824/TP2802.c ****     0x3d, 0x01, //ADC reset
-ARM GAS  /tmp/ccmWs6qW.s 			page 7
+ARM GAS  /tmp/ccSTfybG.s 			page 7
 
 
  320:TP2824/TP2802.c ****     0xff, 0xff
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  374:TP2824/TP2802.c ****     {0x43,0x10,0xa0,0x12,0x70,0x68,0x5e,0x62,0xbb,0x96,0xc0,0x84,0xff},
  375:TP2824/TP2802.c ****     {0x43,0x11,0xb0,0x02,0x70,0x60,0x5e,0x7a,0x4a,0x4d,0xf0,0x84,0xff}
  376:TP2824/TP2802.c **** };
-ARM GAS  /tmp/ccmWs6qW.s 			page 8
+ARM GAS  /tmp/ccSTfybG.s 			page 8
 
 
  377:TP2824/TP2802.c **** 
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  431:TP2824/TP2802.c **** //		0x07, 0xc0,
  432:TP2824/TP2802.c **** //		0x0b, 0xc0,
  433:TP2824/TP2802.c ****     0x2b, 0x44,
-ARM GAS  /tmp/ccmWs6qW.s 			page 9
+ARM GAS  /tmp/ccSTfybG.s 			page 9
 
 
  434:TP2824/TP2802.c ****     0x23, 0x50,
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  488:TP2824/TP2802.c **** 		0x40, 0x10,
  489:TP2824/TP2802.c **** 		0xc8, 0x21,
  490:TP2824/TP2802.c **** 		0xe0, 0x21,
-ARM GAS  /tmp/ccmWs6qW.s 			page 10
+ARM GAS  /tmp/ccSTfybG.s 			page 10
 
 
  491:TP2824/TP2802.c **** 		0x40, 0x00,
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  545:TP2824/TP2802.c **** 	0xa7, 0x00,
  546:TP2824/TP2802.c **** 	0xff, 0xff
  547:TP2824/TP2802.c **** };
-ARM GAS  /tmp/ccmWs6qW.s 			page 11
+ARM GAS  /tmp/ccSTfybG.s 			page 11
 
 
  548:TP2824/TP2802.c **** 
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  602:TP2824/TP2802.c **** 	
  603:TP2824/TP2802.c **** 	0xa7, 0x24,
  604:TP2824/TP2802.c **** 	
-ARM GAS  /tmp/ccmWs6qW.s 			page 12
+ARM GAS  /tmp/ccSTfybG.s 			page 12
 
 
  605:TP2824/TP2802.c **** 	0xff, 0xff
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  659:TP2824/TP2802.c **** 	 0xc4, 0x00,	
  660:TP2824/TP2802.c **** 	 0xc5, 0x00,	
  661:TP2824/TP2802.c **** 	 0xc6, 0x15,	
-ARM GAS  /tmp/ccmWs6qW.s 			page 13
+ARM GAS  /tmp/ccSTfybG.s 			page 13
 
 
  662:TP2824/TP2802.c **** 	 0xc7, 0x5B,	
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  716:TP2824/TP2802.c **** 	 0x5a, 0x01,
  717:TP2824/TP2802.c **** 	 //TXLINE2DATA
  718:TP2824/TP2802.c **** 	 0x5b, 0x00,
-ARM GAS  /tmp/ccmWs6qW.s 			page 14
+ARM GAS  /tmp/ccSTfybG.s 			page 14
 
 
  719:TP2824/TP2802.c **** 	 0x5c, 0x02,
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  773:TP2824/TP2802.c **** 	 //TXLINE3DATA
  774:TP2824/TP2802.c **** 	 0x62, 0x00,
  775:TP2824/TP2802.c **** 	 0x63, 0x00,
-ARM GAS  /tmp/ccmWs6qW.s 			page 15
+ARM GAS  /tmp/ccSTfybG.s 			page 15
 
 
  776:TP2824/TP2802.c **** 	 0x64, 0x00,
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  830:TP2824/TP2802.c **** 	 0x5b, 0x00,
  831:TP2824/TP2802.c **** 	 0x5c, 0x00,
  832:TP2824/TP2802.c **** 	 0x5d, 0x00,
-ARM GAS  /tmp/ccmWs6qW.s 			page 16
+ARM GAS  /tmp/ccSTfybG.s 			page 16
 
 
  833:TP2824/TP2802.c **** 	 0x5e, 0x00,
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  887:TP2824/TP2802.c **** 	 0x56, 0x00,
  888:TP2824/TP2802.c **** 	 0x57, 0x00,
  889:TP2824/TP2802.c **** 	 0x58, 0x00,
-ARM GAS  /tmp/ccmWs6qW.s 			page 17
+ARM GAS  /tmp/ccSTfybG.s 			page 17
 
 
  890:TP2824/TP2802.c **** 	 0x59, 0x00,//cmd2 [LSB first]
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  944:TP2824/TP2802.c **** 	#endif
  945:TP2824/TP2802.c **** 
  946:TP2824/TP2802.c **** 	while ( *RegSet != 0xFF ) {
-ARM GAS  /tmp/ccmWs6qW.s 			page 18
+ARM GAS  /tmp/ccSTfybG.s 			page 18
 
 
  947:TP2824/TP2802.c **** 
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1001:TP2824/TP2802.c **** 
 1002:TP2824/TP2802.c **** 	Reg40 = tp28xx_byte_read(TVII2CAddress,0x40);
 1003:TP2824/TP2802.c **** 
-ARM GAS  /tmp/ccmWs6qW.s 			page 19
+ARM GAS  /tmp/ccSTfybG.s 			page 19
 
 
 1004:TP2824/TP2802.c **** 	mask = 0x01 << bitpos;
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1058:TP2824/TP2802.c **** 	tp28xx_byte_write(TVII2CAddress,0x4b,dat);
 1059:TP2824/TP2802.c **** 
 1060:TP2824/TP2802.c **** }
-ARM GAS  /tmp/ccmWs6qW.s 			page 20
+ARM GAS  /tmp/ccSTfybG.s 			page 20
 
 
 1061:TP2824/TP2802.c **** */
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1115:TP2824/TP2802.c ****     {
 1116:TP2824/TP2802.c ****     case R1080P30:
 1117:TP2824/TP2802.c ****         index=1;//1080p30
-ARM GAS  /tmp/ccmWs6qW.s 			page 21
+ARM GAS  /tmp/ccSTfybG.s 			page 21
 
 
 1118:TP2824/TP2802.c ****         sys=1;//V1
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1172:TP2824/TP2802.c ****     case PAL:
 1173:TP2824/TP2802.c ****         index=8;
 1174:TP2824/TP2802.c ****         sys=4;
-ARM GAS  /tmp/ccmWs6qW.s 			page 22
+ARM GAS  /tmp/ccSTfybG.s 			page 22
 
 
 1175:TP2824/TP2802.c ****         ManVidResRx=RES1920X576;
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1229:TP2824/TP2802.c ****         index=17;//4M30
 1230:TP2824/TP2802.c ****         sys=1;//V1
 1231:TP2824/TP2802.c ****         ManVidResRx=RES1280X720;
-ARM GAS  /tmp/ccmWs6qW.s 			page 23
+ARM GAS  /tmp/ccSTfybG.s 			page 23
 
 
 1232:TP2824/TP2802.c ****         printf("4M30");
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1286:TP2824/TP2802.c **** #else
 1287:TP2824/TP2802.c ****     tmp=tp28xx_byte_read(0x02);
 1288:TP2824/TP2802.c ****     tmp |= 0x80;
-ARM GAS  /tmp/ccmWs6qW.s 			page 24
+ARM GAS  /tmp/ccSTfybG.s 			page 24
 
 
 1289:TP2824/TP2802.c ****     tp28xx_byte_write(0x02, tmp);
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1343:TP2824/TP2802.c ****         tmp=tp28xx_byte_read(0x14);
 1344:TP2824/TP2802.c ****         tmp |= 0x40;
 1345:TP2824/TP2802.c **** 
-ARM GAS  /tmp/ccmWs6qW.s 			page 25
+ARM GAS  /tmp/ccSTfybG.s 			page 25
 
 
 1346:TP2824/TP2802.c **** 		
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1400:TP2824/TP2802.c ****         else if(TP2824C == chip)
 1401:TP2824/TP2802.c ****         {
 1402:TP2824/TP2802.c ****             I2CDeviceSet2( TP2824C_HDC_DataSet[0],TP2824C_HDC_DataSet[index] );
-ARM GAS  /tmp/ccmWs6qW.s 			page 26
+ARM GAS  /tmp/ccSTfybG.s 			page 26
 
 
 1403:TP2824/TP2802.c ****         }
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1457:TP2824/TP2802.c **** //	printf("video status 0x%02x on ch%01x\r\n",(tWord)VDLOSS,(tWord)ch);
 1458:TP2824/TP2802.c **** 
 1459:TP2824/TP2802.c ****     if(VDLOSS)	printf("No ");
-ARM GAS  /tmp/ccmWs6qW.s 			page 27
+ARM GAS  /tmp/ccSTfybG.s 			page 27
 
 
 1460:TP2824/TP2802.c **** 
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1514:TP2824/TP2802.c ****     tp28xx_byte_write(0x39, 0x42);
 1515:TP2824/TP2802.c ****     tp28xx_byte_write(0x09, 0x24);
 1516:TP2824/TP2802.c ****     tmp = tp28xx_byte_read(0x06);   // soft reset and auto agc when cable is unplug
-ARM GAS  /tmp/ccmWs6qW.s 			page 28
+ARM GAS  /tmp/ccSTfybG.s 			page 28
 
 
 1517:TP2824/TP2802.c ****     tmp &= 0x7b;
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
   44              		.section	.text.tp28xx_SYSCLK_V1,"ax",%progbits
   45              		.align	1
   46              		.syntax unified
-ARM GAS  /tmp/ccmWs6qW.s 			page 29
+ARM GAS  /tmp/ccSTfybG.s 			page 29
 
 
   47              		.thumb
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
   95              		.cfi_endproc
   96              	.LFE72:
   98              		.section	.text.tp28xx_SYSCLK_V2,"ax",%progbits
-ARM GAS  /tmp/ccmWs6qW.s 			page 30
+ARM GAS  /tmp/ccSTfybG.s 			page 30
 
 
   99              		.align	1
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  146 002a 10BD     		pop	{r4, pc}
  147              	.L10:
  148              		.align	2
-ARM GAS  /tmp/ccmWs6qW.s 			page 31
+ARM GAS  /tmp/ccSTfybG.s 			page 31
 
 
  149              	.L9:
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  196              	.LVL23:
 1562:TP2824/TP2802.c ****     tp28xx_byte_write(0x06, 0xb2);
  197              		.loc 1 1562 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 32
+ARM GAS  /tmp/ccSTfybG.s 			page 32
 
 
  198 002a B221     		movs	r1, #178
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1585:TP2824/TP2802.c ****     {
 1586:TP2824/TP2802.c ****         tp2853C_reset_default();
 1587:TP2824/TP2802.c ****     }
-ARM GAS  /tmp/ccmWs6qW.s 			page 33
+ARM GAS  /tmp/ccSTfybG.s 			page 33
 
 
 1588:TP2824/TP2802.c ****     else if(TP2853C == chip )
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  275              		@ frame_needed = 0, uses_anonymous_args = 0
  276              	.LVL33:
  277 0000 10B5     		push	{r4, lr}
-ARM GAS  /tmp/ccmWs6qW.s 			page 34
+ARM GAS  /tmp/ccSTfybG.s 			page 34
 
 
  278              	.LCFI5:
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  327              		.cfi_offset 3, -16
  328              		.cfi_offset 4, -12
  329              		.cfi_offset 5, -8
-ARM GAS  /tmp/ccmWs6qW.s 			page 35
+ARM GAS  /tmp/ccSTfybG.s 			page 35
 
 
  330              		.cfi_offset 14, -4
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  379              		.cfi_offset 14, -4
  989:TP2824/TP2802.c ****     //tp28xx_byte_write(0x40,0x04); //chunyu
  380              		.loc 1 989 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 36
+ARM GAS  /tmp/ccSTfybG.s 			page 36
 
 
  381 0002 0146     		mov	r1, r0
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  434 002a 7F00     		.2byte	(.L43-.L35)/2
  435 002c 9100     		.2byte	(.L44-.L35)/2
  436 002e F700     		.2byte	(.L60-.L35)/2
-ARM GAS  /tmp/ccmWs6qW.s 			page 37
+ARM GAS  /tmp/ccSTfybG.s 			page 37
 
 
  437 0030 F700     		.2byte	(.L60-.L35)/2
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  486 0080 FFF7FEFF 		bl	I2CDeviceSet2
  487              	.LVL56:
 1244:TP2824/TP2802.c **** {
-ARM GAS  /tmp/ccmWs6qW.s 			page 38
+ARM GAS  /tmp/ccSTfybG.s 			page 38
 
 
  488              		.loc 1 1244 0
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  533 00ce FFF7FEFF 		bl	tp28xx_byte_read
  534              	.LVL59:
 1280:TP2824/TP2802.c **** 
-ARM GAS  /tmp/ccmWs6qW.s 			page 39
+ARM GAS  /tmp/ccSTfybG.s 			page 39
 
 
  535              		.loc 1 1280 0
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  579              		.loc 1 1132 0
  580 010a 0125     		movs	r5, #1
 1131:TP2824/TP2802.c ****         sys=1;//V1
-ARM GAS  /tmp/ccmWs6qW.s 			page 40
+ARM GAS  /tmp/ccSTfybG.s 			page 40
 
 
  581              		.loc 1 1131 0
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  623 0136 0022     		movs	r2, #0
  624 0138 1A70     		strb	r2, [r3]
 1155:TP2824/TP2802.c ****         break;
-ARM GAS  /tmp/ccmWs6qW.s 			page 41
+ARM GAS  /tmp/ccSTfybG.s 			page 41
 
 
  625              		.loc 1 1155 0
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  667 0166 0624     		movs	r4, #6
 1170:TP2824/TP2802.c **** 
  668              		.loc 1 1170 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 42
+ARM GAS  /tmp/ccSTfybG.s 			page 42
 
 
  669 0168 81E7     		b	.L33
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  711 0194 4748     		ldr	r0, .L69+60
  712              	.LVL93:
  713 0196 FFF7FEFF 		bl	printf
-ARM GAS  /tmp/ccmWs6qW.s 			page 43
+ARM GAS  /tmp/ccSTfybG.s 			page 43
 
 
  714              	.LVL94:
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  756 01c4 3E48     		ldr	r0, .L69+72
  757              	.LVL102:
  758 01c6 FFF7FEFF 		bl	printf
-ARM GAS  /tmp/ccmWs6qW.s 			page 44
+ARM GAS  /tmp/ccSTfybG.s 			page 44
 
 
  759              	.LVL103:
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  801 01f4 3548     		ldr	r0, .L69+84
  802              	.LVL111:
  803 01f6 FFF7FEFF 		bl	printf
-ARM GAS  /tmp/ccmWs6qW.s 			page 45
+ARM GAS  /tmp/ccSTfybG.s 			page 45
 
 
  804              	.LVL112:
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  849 023a 0144     		add	r1, r1, r0
  850 023c FFF7FEFF 		bl	I2CDeviceSet2
  851              	.LVL118:
-ARM GAS  /tmp/ccmWs6qW.s 			page 46
+ARM GAS  /tmp/ccSTfybG.s 			page 46
 
 
  852 0240 30E7     		b	.L54
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  901 02ac 48000000 		.word	.LC8
  902 02b0 4C000000 		.word	.LC9
  903 02b4 54000000 		.word	.LC10
-ARM GAS  /tmp/ccmWs6qW.s 			page 47
+ARM GAS  /tmp/ccSTfybG.s 			page 47
 
 
  904 02b8 5C000000 		.word	.LC11
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  958 0018 3E       		.byte	(.L82-.L74)/2
  959 0019 3E       		.byte	(.L82-.L74)/2
  960 001a 0D       		.byte	(.L83-.L74)/2
-ARM GAS  /tmp/ccmWs6qW.s 			page 48
+ARM GAS  /tmp/ccSTfybG.s 			page 48
 
 
  961 001b 07       		.byte	(.L75-.L74)/2
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1005 004a FFF7FEFF 		bl	tp28xx_byte_read
  1006              	.LVL131:
  1007              	.L72:
-ARM GAS  /tmp/ccmWs6qW.s 			page 49
+ARM GAS  /tmp/ccSTfybG.s 			page 49
 
 
 1354:TP2824/TP2802.c **** 
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1056 00a4 00000000 		.word	.LANCHOR11
  1057              		.cfi_endproc
  1058              	.LFE74:
-ARM GAS  /tmp/ccmWs6qW.s 			page 50
+ARM GAS  /tmp/ccSTfybG.s 			page 50
 
 
  1060              		.section	.text.Set_HDC,"ax",%progbits
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1111 0022 02E0     		b	.L93
  1112              	.LVL140:
  1113              	.L96:
-ARM GAS  /tmp/ccmWs6qW.s 			page 51
+ARM GAS  /tmp/ccSTfybG.s 			page 51
 
 
 1367:TP2824/TP2802.c ****         break;
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1158 0060 FFF7FEFF 		bl	I2CDeviceSet2
  1159              	.LVL145:
  1160 0064 F0E7     		b	.L99
-ARM GAS  /tmp/ccmWs6qW.s 			page 52
+ARM GAS  /tmp/ccSTfybG.s 			page 52
 
 
  1161              	.L106:
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1213              	.LFB76:
 1410:TP2824/TP2802.c ****     tByte CVSTD;
  1214              		.loc 1 1410 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 53
+ARM GAS  /tmp/ccSTfybG.s 			page 53
 
 
  1215              		.cfi_startproc
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1260 002a 00BF     		.align	2
  1261              	.L118:
  1262 002c 00000000 		.word	.LC20
-ARM GAS  /tmp/ccmWs6qW.s 			page 54
+ARM GAS  /tmp/ccSTfybG.s 			page 54
 
 
  1263 0030 10000000 		.word	.LC21
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1312 0022 0348     		ldr	r0, .L124+4
  1313              	.LVL165:
  1314 0024 FFF7FEFF 		bl	printf
-ARM GAS  /tmp/ccmWs6qW.s 			page 55
+ARM GAS  /tmp/ccSTfybG.s 			page 55
 
 
  1315              	.LVL166:
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1477:TP2824/TP2802.c ****     agc += tp28xx_byte_read(0x04);
  1367              		.loc 1 1477 0
  1368 001c 0420     		movs	r0, #4
-ARM GAS  /tmp/ccmWs6qW.s 			page 56
+ARM GAS  /tmp/ccSTfybG.s 			page 56
 
 
  1369 001e FFF7FEFF 		bl	tp28xx_byte_read
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1414              		.loc 1 1503 0
  1415 0062 38BD     		pop	{r3, r4, r5, pc}
  1416              	.LVL189:
-ARM GAS  /tmp/ccmWs6qW.s 			page 57
+ARM GAS  /tmp/ccSTfybG.s 			page 57
 
 
  1417              	.L131:
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1605:TP2824/TP2802.c **** {
  1467              		.loc 1 1605 0
  1468              		.cfi_startproc
-ARM GAS  /tmp/ccmWs6qW.s 			page 58
+ARM GAS  /tmp/ccSTfybG.s 			page 58
 
 
  1469              		@ args = 0, pretend = 0, frame = 0
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1626:TP2824/TP2802.c **** 
 1627:TP2824/TP2802.c ****             tp28xx_byte_write(0x07, 0x80|tmp);
  1502              		.loc 1 1627 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 59
+ARM GAS  /tmp/ccSTfybG.s 			page 59
 
 
  1503 001c 45F08001 		orr	r1, r5, #128
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1614:TP2824/TP2802.c ****         {
  1537              		.loc 1 1614 0
  1538 004c 3FB3     		cbz	r7, .L134
-ARM GAS  /tmp/ccmWs6qW.s 			page 60
+ARM GAS  /tmp/ccSTfybG.s 			page 60
 
 
 1616:TP2824/TP2802.c **** 
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1582              		.loc 1 1640 0
  1583 007a 3F2C     		cmp	r4, #63
  1584 007c 00D9     		bls	.L141
-ARM GAS  /tmp/ccmWs6qW.s 			page 61
+ARM GAS  /tmp/ccSTfybG.s 			page 61
 
 
  1585 007e 3F24     		movs	r4, #63
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1629              	.LVL224:
 1656:TP2824/TP2802.c **** 
 1657:TP2824/TP2802.c **** 	  BYTE ret=0;
-ARM GAS  /tmp/ccmWs6qW.s 			page 62
+ARM GAS  /tmp/ccSTfybG.s 			page 62
 
 
 1658:TP2824/TP2802.c **** 	
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1679 0036 48D9     		bls	.L165
 1657:TP2824/TP2802.c **** 	
  1680              		.loc 1 1657 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 63
+ARM GAS  /tmp/ccSTfybG.s 			page 63
 
 
  1681 0038 0020     		movs	r0, #0
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1720              	.L155:
 1675:TP2824/TP2802.c **** 		           ret=_TRUE;	
 1676:TP2824/TP2802.c **** 				break;
-ARM GAS  /tmp/ccmWs6qW.s 			page 64
+ARM GAS  /tmp/ccSTfybG.s 			page 64
 
 
 1677:TP2824/TP2802.c **** 		case VS4210_LOOP_MODE12_12: 
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1697:TP2824/TP2802.c **** 	case VS4210_LOOP_MODE12_32:
 1698:TP2824/TP2802.c **** 		if((ch==CH1)||(ch==CH4))
  1752              		.loc 1 1698 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 65
+ARM GAS  /tmp/ccSTfybG.s 			page 65
 
 
  1753 0080 0028     		cmp	r0, #0
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1785              		.loc 1 1717 0
  1786 00a0 0028     		cmp	r0, #0
  1787 00a2 30D0     		beq	.L180
-ARM GAS  /tmp/ccmWs6qW.s 			page 66
+ARM GAS  /tmp/ccSTfybG.s 			page 66
 
 
  1788              		.loc 1 1717 0 is_stmt 0 discriminator 1
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1817              		.loc 1 1739 0
  1818 00be 0120     		movs	r0, #1
  1819              	.LVL251:
-ARM GAS  /tmp/ccmWs6qW.s 			page 67
+ARM GAS  /tmp/ccSTfybG.s 			page 67
 
 
  1820              	.L148:
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1861              	.LVL264:
  1862              	.L170:
  1863 00de 0120     		movs	r0, #1
-ARM GAS  /tmp/ccmWs6qW.s 			page 68
+ARM GAS  /tmp/ccSTfybG.s 			page 68
 
 
  1864              	.LVL265:
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1911 0102 0120     		movs	r0, #1
  1912              	.LVL279:
  1913 0104 7047     		bx	lr
-ARM GAS  /tmp/ccmWs6qW.s 			page 69
+ARM GAS  /tmp/ccSTfybG.s 			page 69
 
 
  1914              	.LVL280:
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1768:TP2824/TP2802.c **** 		
 1769:TP2824/TP2802.c ****             if(VIDEO_UNPLUG == state[i])
 1770:TP2824/TP2802.c ****             {
-ARM GAS  /tmp/ccmWs6qW.s 			page 70
+ARM GAS  /tmp/ccSTfybG.s 			page 70
 
 
 1771:TP2824/TP2802.c ****                 if(count[i] < MAX_COUNT) count[i]++;
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1825:TP2824/TP2802.c ****                     if(count[i] < MAX_COUNT) count[i]++;
 1826:TP2824/TP2802.c **** 				#if 0
 1827:TP2824/TP2802.c **** 				if(VideoSave[i]==_TRUE)
-ARM GAS  /tmp/ccmWs6qW.s 			page 71
+ARM GAS  /tmp/ccSTfybG.s 			page 71
 
 
 1828:TP2824/TP2802.c **** 				{
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1882:TP2824/TP2802.c **** 			*/
 1883:TP2824/TP2802.c **** 			{
 1884:TP2824/TP2802.c ****                     state[i] = VIDEO_UNLOCK;
-ARM GAS  /tmp/ccmWs6qW.s 			page 72
+ARM GAS  /tmp/ccSTfybG.s 			page 72
 
 
 1885:TP2824/TP2802.c ****                     count[i] = 0;
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1939:TP2824/TP2802.c ****             {
 1940:TP2824/TP2802.c ****                 if( flag_MEGA && (count[i]&0x02) )//TP2853C 3M auto detect test
 1941:TP2824/TP2802.c ****                     fmt = R4M30;
-ARM GAS  /tmp/ccmWs6qW.s 			page 73
+ARM GAS  /tmp/ccSTfybG.s 			page 73
 
 
 1942:TP2824/TP2802.c ****                 else
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1996:TP2824/TP2802.c ****                     {
 1997:TP2824/TP2802.c ****                         mode[i] &= 0xf7;
 1998:TP2824/TP2802.c ****                         Set_VidRes(i);
-ARM GAS  /tmp/ccmWs6qW.s 			page 74
+ARM GAS  /tmp/ccSTfybG.s 			page 74
 
 
 1999:TP2824/TP2802.c ****                         //printf("TVI_Set_VidRes\r\n");
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2053:TP2824/TP2802.c ****                 {
 2054:TP2824/TP2802.c ****                     extern tByte half_scaler;
 2055:TP2824/TP2802.c ****                     if(half_scaler) //down scaler output
-ARM GAS  /tmp/ccmWs6qW.s 			page 75
+ARM GAS  /tmp/ccSTfybG.s 			page 75
 
 
 2056:TP2824/TP2802.c ****                     {
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2110:TP2824/TP2802.c ****                         if (i == 2)
 2111:TP2824/TP2802.c ****                         {
 2112:TP2824/TP2802.c ****                             tmpab = tp28xx_byte_read(0xfb) ;
-ARM GAS  /tmp/ccmWs6qW.s 			page 76
+ARM GAS  /tmp/ccSTfybG.s 			page 76
 
 
 2113:TP2824/TP2802.c ****                             tmpab = (tmpab & 0xF0) | 0x08 ;
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2167:TP2824/TP2802.c ****                         if(Set_HDA(i))
 2168:TP2824/TP2802.c ****                         {
 2169:TP2824/TP2802.c ****                             std[i] = HDA;
-ARM GAS  /tmp/ccmWs6qW.s 			page 77
+ARM GAS  /tmp/ccSTfybG.s 			page 77
 
 
 2170:TP2824/TP2802.c ****                             printf("turn to A ch%02x\r\n", (tWord)i);
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2224:TP2824/TP2802.c ****             }
 2225:TP2824/TP2802.c ****             else if(EQ_COUNT == count[i])
 2226:TP2824/TP2802.c ****             {
-ARM GAS  /tmp/ccmWs6qW.s 			page 78
+ARM GAS  /tmp/ccSTfybG.s 			page 78
 
 
 2227:TP2824/TP2802.c ****                 gain = ReadGain();
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2281:TP2824/TP2802.c **** */
 2282:TP2824/TP2802.c **** 			
 2283:TP2824/TP2802.c ****         printf("VS4210_SetInModeOutMode(),i=%d,newInRes=%d,OuputModeflg=%d\r\n",(int)i ,(int)newInR
-ARM GAS  /tmp/ccmWs6qW.s 			page 79
+ARM GAS  /tmp/ccSTfybG.s 			page 79
 
 
 2284:TP2824/TP2802.c **** 
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2338:TP2824/TP2802.c ****                         {
 2339:TP2824/TP2802.c ****                             tp28xx_byte_write(0x07, 0x80|(gain/3));  // manual mode
 2340:TP2824/TP2802.c ****                         }
-ARM GAS  /tmp/ccmWs6qW.s 			page 80
+ARM GAS  /tmp/ccSTfybG.s 			page 80
 
 
 2341:TP2824/TP2802.c ****                     }
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2395:TP2824/TP2802.c **** 					tp28xx_byte_read(0xB6);
 2396:TP2824/TP2802.c **** 					tp28xx_byte_read(0xB5);
 2397:TP2824/TP2802.c **** 					tp28xx_byte_read(0xB4);
-ARM GAS  /tmp/ccmWs6qW.s 			page 81
+ARM GAS  /tmp/ccSTfybG.s 			page 81
 
 
 2398:TP2824/TP2802.c **** 
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2452:TP2824/TP2802.c **** 					tp28xx_byte_write(0x40, i);
 2453:TP2824/TP2802.c **** 					tp28xx_byte_write(0xbe, 0x80);
 2454:TP2824/TP2802.c **** 					tp28xx_byte_read(0xB6);
-ARM GAS  /tmp/ccmWs6qW.s 			page 82
+ARM GAS  /tmp/ccSTfybG.s 			page 82
 
 
 2455:TP2824/TP2802.c **** 					tp28xx_byte_read(0xB5);
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2509:TP2824/TP2802.c **** 	for(i=0;i<4;i++)
 2510:TP2824/TP2802.c **** 	{
 2511:TP2824/TP2802.c **** 			
-ARM GAS  /tmp/ccmWs6qW.s 			page 83
+ARM GAS  /tmp/ccSTfybG.s 			page 83
 
 
 2512:TP2824/TP2802.c **** 					if((std[i]==TVI)&&(mode[i]!=NTSC) &&( mode[i]!=PAL)&& (state[i] == VIDEO_LOCKED))
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  1972              		.loc 1 2537 0
  1973 0012 0120     		movs	r0, #1
  1974              	.LVL289:
-ARM GAS  /tmp/ccmWs6qW.s 			page 84
+ARM GAS  /tmp/ccSTfybG.s 			page 84
 
 
  1975 0014 FCE7     		b	.L189
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2549:TP2824/TP2802.c ****     {
 2550:TP2824/TP2802.c ****         if(!Det_VideoLoss(ch))
  2021              		.loc 1 2550 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 85
+ARM GAS  /tmp/ccSTfybG.s 			page 85
 
 
  2022 0014 2846     		mov	r0, r5
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2064              		.global	Scan_Channels
  2065              		.syntax unified
  2066              		.thumb
-ARM GAS  /tmp/ccmWs6qW.s 			page 86
+ARM GAS  /tmp/ccSTfybG.s 			page 86
 
 
  2067              		.thumb_func
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2110 001e F4D1     		bne	.L205
 2575:TP2824/TP2802.c ****         {
 2576:TP2824/TP2802.c ****             //Sel_VD_Out(ch);
-ARM GAS  /tmp/ccmWs6qW.s 			page 87
+ARM GAS  /tmp/ccSTfybG.s 			page 87
 
 
 2577:TP2824/TP2802.c ****             Sel_ch = ch;
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2154 0010 4420     		movs	r0, #68
  2155              	.LVL312:
  2156 0012 FFF7FEFF 		bl	tp28xx_byte_write
-ARM GAS  /tmp/ccmWs6qW.s 			page 88
+ARM GAS  /tmp/ccSTfybG.s 			page 88
 
 
  2157              	.LVL313:
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2614:TP2824/TP2802.c **** 
 2615:TP2824/TP2802.c ****     TVII2CAddress = 0x88;
  2189              		.loc 1 2615 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 89
+ARM GAS  /tmp/ccSTfybG.s 			page 89
 
 
  2190 0002 644B     		ldr	r3, .L238
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2229              		.loc 1 2629 0
  2230 0034 FD20     		movs	r0, #253
  2231 0036 FFF7FEFF 		bl	tp28xx_byte_read
-ARM GAS  /tmp/ccmWs6qW.s 			page 90
+ARM GAS  /tmp/ccSTfybG.s 			page 90
 
 
  2232              	.LVL322:
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2278 0076 6F       		.byte	(.L216-.L218)/2
  2279 0077 6F       		.byte	(.L216-.L218)/2
  2280 0078 6F       		.byte	(.L216-.L218)/2
-ARM GAS  /tmp/ccmWs6qW.s 			page 91
+ARM GAS  /tmp/ccSTfybG.s 			page 91
 
 
  2281 0079 6F       		.byte	(.L216-.L218)/2
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2664:TP2824/TP2802.c ****         break;
 2665:TP2824/TP2802.c **** 
 2666:TP2824/TP2802.c ****     case TP2853C:
-ARM GAS  /tmp/ccmWs6qW.s 			page 92
+ARM GAS  /tmp/ccSTfybG.s 			page 92
 
 
 2667:TP2824/TP2802.c ****         flag_CVBS = 1;
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2318 00a0 002B     		cmp	r3, #0
  2319 00a2 55D1     		bne	.L233
  2320              	.L225:
-ARM GAS  /tmp/ccmWs6qW.s 			page 93
+ARM GAS  /tmp/ccSTfybG.s 			page 93
 
 
 2711:TP2824/TP2802.c **** /*
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2765:TP2824/TP2802.c **** 	if( VideoSave[i] ==_TRUE)
 2766:TP2824/TP2802.c **** 	{
 2767:TP2824/TP2802.c **** 	/*
-ARM GAS  /tmp/ccmWs6qW.s 			page 94
+ARM GAS  /tmp/ccSTfybG.s 			page 94
 
 
 2768:TP2824/TP2802.c **** 	  count[i] =0;
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2822:TP2824/TP2802.c **** 	  std[i] = ReadEEP(EEP_TP2824_STD0+(i*3));
 2823:TP2824/TP2802.c **** 	  mode[i] = ReadEEP(EEP_TP2824_STD0+(i*3)+1);
 2824:TP2824/TP2802.c **** 	  */
-ARM GAS  /tmp/ccmWs6qW.s 			page 95
+ARM GAS  /tmp/ccSTfybG.s 			page 95
 
 
 2825:TP2824/TP2802.c **** 	  Init_TP280x_CHx_RegSet(Tp2802_Boot_Set_std,i);
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2871:TP2824/TP2802.c **** 		mode[CH4]= R1080P25;
  2329              		.loc 1 2871 0
  2330 00ae DA70     		strb	r2, [r3, #3]
-ARM GAS  /tmp/ccmWs6qW.s 			page 96
+ARM GAS  /tmp/ccSTfybG.s 			page 96
 
 
 2872:TP2824/TP2802.c **** 		
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2905:TP2824/TP2802.c **** 	#endif
 2906:TP2824/TP2802.c **** }
  2352              		.loc 1 2906 0 is_stmt 1
-ARM GAS  /tmp/ccmWs6qW.s 			page 97
+ARM GAS  /tmp/ccSTfybG.s 			page 97
 
 
  2353 00ca 38BD     		pop	{r3, r4, r5, pc}
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2396              		.loc 1 2667 0
  2397 00fa 0123     		movs	r3, #1
  2398 00fc 294A     		ldr	r2, .L238+16
-ARM GAS  /tmp/ccmWs6qW.s 			page 98
+ARM GAS  /tmp/ccSTfybG.s 			page 98
 
 
  2399 00fe 1360     		str	r3, [r2]
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2442              		.loc 1 2636 0
  2443 0134 1F4C     		ldr	r4, .L238+32
  2444 0136 ACE7     		b	.L223
-ARM GAS  /tmp/ccmWs6qW.s 			page 99
+ARM GAS  /tmp/ccSTfybG.s 			page 99
 
 
  2445              	.L236:
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2488 016a 1D55     		strb	r5, [r3, r4]
 2896:TP2824/TP2802.c **** 	TP_InputMode=7;
  2489              		.loc 1 2896 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 100
+ARM GAS  /tmp/ccSTfybG.s 			page 100
 
 
  2490 016c 0120     		movs	r0, #1
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2539 01d8 34000000 		.word	.LC29
  2540 01dc 00000000 		.word	.LANCHOR21
  2541 01e0 00000000 		.word	count
-ARM GAS  /tmp/ccmWs6qW.s 			page 101
+ARM GAS  /tmp/ccSTfybG.s 			page 101
 
 
  2542 01e4 00000000 		.word	state
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2945:TP2824/TP2802.c **** 						}
 2946:TP2824/TP2802.c **** 					}
 2947:TP2824/TP2802.c **** 	
-ARM GAS  /tmp/ccmWs6qW.s 			page 102
+ARM GAS  /tmp/ccSTfybG.s 			page 102
 
 
 2948:TP2824/TP2802.c **** 					//tp28xx_byte_write(0xf6  , REG_F6[i]);
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3002:TP2824/TP2802.c **** 							tmp=tp28xx_byte_read(0x35);
 3003:TP2824/TP2802.c **** 							tmp |= 0x40;
 3004:TP2824/TP2802.c **** 							tp28xx_byte_write(0x35, tmp);						 
-ARM GAS  /tmp/ccmWs6qW.s 			page 103
+ARM GAS  /tmp/ccSTfybG.s 			page 103
 
 
 3005:TP2824/TP2802.c **** 	
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3059:TP2824/TP2802.c **** 								tp28xx_byte_write(0xfb, tmpab);
 3060:TP2824/TP2802.c **** 							}
 3061:TP2824/TP2802.c **** 							else if (i == 3)
-ARM GAS  /tmp/ccmWs6qW.s 			page 104
+ARM GAS  /tmp/ccSTfybG.s 			page 104
 
 
 3062:TP2824/TP2802.c **** 							{
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3116:TP2824/TP2802.c ****                 {
 3117:TP2824/TP2802.c ****                     newInRes[i] = _OSD_720X576I50 ;
 3118:TP2824/TP2802.c ****                 }
-ARM GAS  /tmp/ccmWs6qW.s 			page 105
+ARM GAS  /tmp/ccSTfybG.s 			page 105
 
 
 3119:TP2824/TP2802.c ****                 else
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3173:TP2824/TP2802.c ****  break;
 3174:TP2824/TP2802.c **** 		   case Tp2802_Boot_Set_COC:
 3175:TP2824/TP2802.c **** 		   //	{
-ARM GAS  /tmp/ccmWs6qW.s 			page 106
+ARM GAS  /tmp/ccSTfybG.s 			page 106
 
 
 3176:TP2824/TP2802.c ****                 if( TVI != std[i] )
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3230:TP2824/TP2802.c **** 						   
 3231:TP2824/TP2802.c **** 					   }
 3232:TP2824/TP2802.c **** 			   
-ARM GAS  /tmp/ccmWs6qW.s 			page 107
+ARM GAS  /tmp/ccSTfybG.s 			page 107
 
 
 3233:TP2824/TP2802.c **** 					   if( HDA == std[i] )
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2567              	.LCFI21:
  2568              		.cfi_def_cfa_offset 4
  2569              		.cfi_offset 4, -4
-ARM GAS  /tmp/ccmWs6qW.s 			page 108
+ARM GAS  /tmp/ccSTfybG.s 			page 108
 
 
 3280:TP2824/TP2802.c ****     unsigned char i;
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2607 002c 43F00403 		orr	r3, r3, #4
  2608 0030 074C     		ldr	r4, .L248
  2609 0032 2380     		strh	r3, [r4]	@ movhi
-ARM GAS  /tmp/ccmWs6qW.s 			page 109
+ARM GAS  /tmp/ccSTfybG.s 			page 109
 
 
  2610 0034 EDE7     		b	.L243
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2659              	.LCFI23:
  2660              		.cfi_def_cfa_offset 8
  2661              		.cfi_offset 4, -8
-ARM GAS  /tmp/ccmWs6qW.s 			page 110
+ARM GAS  /tmp/ccSTfybG.s 			page 110
 
 
  2662              		.cfi_offset 5, -4
@@ -6598,7 +6598,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2698 0022 60F07F00 		orn	r0, r0, #127
  2699              	.LVL371:
  2700 0026 C0B2     		uxtb	r0, r0
-ARM GAS  /tmp/ccmWs6qW.s 			page 111
+ARM GAS  /tmp/ccSTfybG.s 			page 111
 
 
  2701              	.LVL372:
@@ -6658,7 +6658,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2746              	.LFE92:
  2748              		.section	.text.AHDBitsReverse,"ax",%progbits
  2749              		.align	1
-ARM GAS  /tmp/ccmWs6qW.s 			page 112
+ARM GAS  /tmp/ccSTfybG.s 			page 112
 
 
  2750              		.global	AHDBitsReverse
@@ -6718,7 +6718,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2793 001c EDB2     		uxtb	r5, r5
  2794              	.LVL382:
 3329:TP2824/TP2802.c **** 		cnt-=2;
-ARM GAS  /tmp/ccmWs6qW.s 			page 113
+ARM GAS  /tmp/ccSTfybG.s 			page 113
 
 
  2795              		.loc 1 3329 0 discriminator 3
@@ -6778,7 +6778,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2838              	.LVL395:
  2839 0046 D2B2     		uxtb	r2, r2
  2840              	.LVL396:
-ARM GAS  /tmp/ccmWs6qW.s 			page 114
+ARM GAS  /tmp/ccSTfybG.s 			page 114
 
 
  2841              	.L261:
@@ -6838,7 +6838,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2886 000c 0121     		movs	r1, #1
  2887 000e 2846     		mov	r0, r5
  2888 0010 FFF7FEFF 		bl	SwapBit
-ARM GAS  /tmp/ccmWs6qW.s 			page 115
+ARM GAS  /tmp/ccSTfybG.s 			page 115
 
 
  2889              	.LVL401:
@@ -6898,7 +6898,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  2938              	.LVL406:
  2939 0000 38B5     		push	{r3, r4, r5, lr}
  2940              	.LCFI28:
-ARM GAS  /tmp/ccmWs6qW.s 			page 116
+ARM GAS  /tmp/ccSTfybG.s 			page 116
 
 
  2941              		.cfi_def_cfa_offset 16
@@ -6958,7 +6958,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3360:TP2824/TP2802.c **** //20200511 COC  >>
 3361:TP2824/TP2802.c **** void TVICommandToAHData(void)
 3362:TP2824/TP2802.c **** {
-ARM GAS  /tmp/ccmWs6qW.s 			page 117
+ARM GAS  /tmp/ccSTfybG.s 			page 117
 
 
  2991              		.loc 1 3362 0
@@ -7018,7 +7018,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3020              		.loc 1 3387 0
  3021 0024 082B     		cmp	r3, #8
  3022 0026 46D0     		beq	.L299
-ARM GAS  /tmp/ccmWs6qW.s 			page 118
+ARM GAS  /tmp/ccSTfybG.s 			page 118
 
 
 3388:TP2824/TP2802.c **** 	{
@@ -7078,7 +7078,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3042 0040 112B     		cmp	r3, #17
  3043 0042 69D0     		beq	.L306
 3423:TP2824/TP2802.c **** 	{
-ARM GAS  /tmp/ccmWs6qW.s 			page 119
+ARM GAS  /tmp/ccSTfybG.s 			page 119
 
 
 3424:TP2824/TP2802.c **** 		AHDcmd1=0x01;
@@ -7138,7 +7138,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3062              		.loc 1 3459 0
  3063 0060 232B     		cmp	r3, #35
  3064 0062 00F08D80 		beq	.L313
-ARM GAS  /tmp/ccmWs6qW.s 			page 120
+ARM GAS  /tmp/ccSTfybG.s 			page 120
 
 
 3460:TP2824/TP2802.c **** 	{
@@ -7198,7 +7198,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3091              		.loc 1 3374 0
  3092 008c 4F4B     		ldr	r3, .L317+20
  3093 008e 0022     		movs	r2, #0
-ARM GAS  /tmp/ccmWs6qW.s 			page 121
+ARM GAS  /tmp/ccSTfybG.s 			page 121
 
 
  3094 0090 1A70     		strb	r2, [r3]
@@ -7258,7 +7258,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3139 00d0 7047     		bx	lr
  3140              	.L301:
 3399:TP2824/TP2802.c **** 		AHDcmd2=0x0a;
-ARM GAS  /tmp/ccmWs6qW.s 			page 122
+ARM GAS  /tmp/ccSTfybG.s 			page 122
 
 
  3141              		.loc 1 3399 0
@@ -7318,7 +7318,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3186 0110 2F4B     		ldr	r3, .L317+24
  3187 0112 0022     		movs	r2, #0
  3188 0114 1A70     		strb	r2, [r3]
-ARM GAS  /tmp/ccmWs6qW.s 			page 123
+ARM GAS  /tmp/ccSTfybG.s 			page 123
 
 
  3189 0116 7047     		bx	lr
@@ -7378,7 +7378,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3234 0154 1370     		strb	r3, [r2]
 3445:TP2824/TP2802.c **** 		AHDcmd3=0x00;
  3235              		.loc 1 3445 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 124
+ARM GAS  /tmp/ccSTfybG.s 			page 124
 
 
  3236 0156 1E4A     		ldr	r2, .L317+24
@@ -7438,7 +7438,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3280              		.loc 1 3467 0
  3281 0194 0E4B     		ldr	r3, .L317+24
  3282 0196 0722     		movs	r2, #7
-ARM GAS  /tmp/ccmWs6qW.s 			page 125
+ARM GAS  /tmp/ccSTfybG.s 			page 125
 
 
  3283 0198 1A70     		strb	r2, [r3]
@@ -7498,7 +7498,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3333 0000 08B5     		push	{r3, lr}
  3334              	.LCFI29:
  3335              		.cfi_def_cfa_offset 8
-ARM GAS  /tmp/ccmWs6qW.s 			page 126
+ARM GAS  /tmp/ccSTfybG.s 			page 126
 
 
  3336              		.cfi_offset 3, -8
@@ -7558,7 +7558,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3375 003c FFF7FEFF 		bl	tp28xx_byte_write
  3376              	.LVL420:
 3501:TP2824/TP2802.c **** 	tp28xx_byte_write(0x60, 0x00);
-ARM GAS  /tmp/ccmWs6qW.s 			page 127
+ARM GAS  /tmp/ccSTfybG.s 			page 127
 
 
  3377              		.loc 1 3501 0
@@ -7618,7 +7618,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3514:TP2824/TP2802.c **** void Get_2824cIrq(void)//cocrx
 3515:TP2824/TP2802.c **** {
  3421              		.loc 1 3515 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 128
+ARM GAS  /tmp/ccSTfybG.s 			page 128
 
 
  3422              		.cfi_startproc
@@ -7678,7 +7678,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3542:TP2824/TP2802.c **** 				//delay(1);//5ms
 3543:TP2824/TP2802.c **** 				pcnt=0;
 3544:TP2824/TP2802.c **** 				for(addr=0x8A;addr<=0xA1;addr++)//Line1 & Line2
-ARM GAS  /tmp/ccmWs6qW.s 			page 129
+ARM GAS  /tmp/ccSTfybG.s 			page 129
 
 
 3545:TP2824/TP2802.c **** 				{
@@ -7738,7 +7738,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3599:TP2824/TP2802.c **** 				//delay(1);//5ms
 3600:TP2824/TP2802.c **** 				tp28xx_byte_write(0xa7, 0x83);
 3601:TP2824/TP2802.c **** 				
-ARM GAS  /tmp/ccmWs6qW.s 			page 130
+ARM GAS  /tmp/ccSTfybG.s 			page 130
 
 
 3602:TP2824/TP2802.c **** 				for(pcnt=0;pcnt<5;pcnt++)
@@ -7798,7 +7798,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3656:TP2824/TP2802.c **** 				printf("\r\nCOC2:");
 3657:TP2824/TP2802.c **** 				for(pcnt=0;pcnt<6;pcnt++)
 3658:TP2824/TP2802.c **** 					printf(" %02X",COCRX2[pcnt]);
-ARM GAS  /tmp/ccmWs6qW.s 			page 131
+ARM GAS  /tmp/ccSTfybG.s 			page 131
 
 
 3659:TP2824/TP2802.c **** 				printf(" %02X",COCRX2[9]);
@@ -7858,7 +7858,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3713:TP2824/TP2802.c **** 				{
 3714:TP2824/TP2802.c **** 					QuadBoxId|=1;//1:ch1 / 2:ch2 / 4:ch3 / 8:ch4
 3715:TP2824/TP2802.c **** 					#if(_DEBUG_MESSAGE_Get_2824cIrq==ON)
-ARM GAS  /tmp/ccmWs6qW.s 			page 132
+ARM GAS  /tmp/ccSTfybG.s 			page 132
 
 
 3716:TP2824/TP2802.c **** 					printf("QuadBoxId %02x\r\n",  QuadBoxId);
@@ -7918,7 +7918,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3770:TP2824/TP2802.c **** 							cmd2=0x14;
 3771:TP2824/TP2802.c **** 						else if(TVI_Command==0x0D)//down + right
 3772:TP2824/TP2802.c **** 							cmd2=0x12;
-ARM GAS  /tmp/ccmWs6qW.s 			page 133
+ARM GAS  /tmp/ccSTfybG.s 			page 133
 
 
 3773:TP2824/TP2802.c **** 						else if(TVI_Command==0x17)//PRESET x
@@ -7978,7 +7978,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3827:TP2824/TP2802.c **** 							break;
 3828:TP2824/TP2802.c **** 							
 3829:TP2824/TP2802.c **** 						case 0x06://up
-ARM GAS  /tmp/ccmWs6qW.s 			page 134
+ARM GAS  /tmp/ccSTfybG.s 			page 134
 
 
 3830:TP2824/TP2802.c **** 							tp28xx_byte_write(0x6e, 0x08);
@@ -8038,7 +8038,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3884:TP2824/TP2802.c **** 					//stop command
 3885:TP2824/TP2802.c **** 					tp28xx_byte_write(0x5a, 0x00);
 3886:TP2824/TP2802.c **** 					tp28xx_byte_write(0x60, 0x00);
-ARM GAS  /tmp/ccmWs6qW.s 			page 135
+ARM GAS  /tmp/ccSTfybG.s 			page 135
 
 
 3887:TP2824/TP2802.c **** 					tp28xx_byte_write(0x66, 0x00);
@@ -8098,7 +8098,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3941:TP2824/TP2802.c **** 					#else
 3942:TP2824/TP2802.c **** 					tp28xx_byte_write(0x5a, AHDBitsReverse(AHDcmd1));
 3943:TP2824/TP2802.c **** 					tp28xx_byte_write(0x60, AHDBitsReverse(AHDcmd2));
-ARM GAS  /tmp/ccmWs6qW.s 			page 136
+ARM GAS  /tmp/ccSTfybG.s 			page 136
 
 
 3944:TP2824/TP2802.c **** 					tp28xx_byte_write(0x66, AHDBitsReverse(AHDcmd3));
@@ -8158,7 +8158,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3532:TP2824/TP2802.c **** 
  3477              		.loc 1 3532 0
  3478 0038 B420     		movs	r0, #180
-ARM GAS  /tmp/ccmWs6qW.s 			page 137
+ARM GAS  /tmp/ccSTfybG.s 			page 137
 
 
  3479 003a FFF7FEFF 		bl	tp28xx_byte_read
@@ -8218,7 +8218,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3523 0086 984B     		ldr	r3, .L398+16
  3524 0088 1D5D     		ldrb	r5, [r3, r4]	@ zero_extendqisi2
  3525 008a 002D     		cmp	r5, #0
-ARM GAS  /tmp/ccmWs6qW.s 			page 138
+ARM GAS  /tmp/ccSTfybG.s 			page 138
 
 
  3526 008c 40F01B82 		bne	.L359
@@ -8278,7 +8278,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3569 00d8 00F01482 		beq	.L379
 3761:TP2824/TP2802.c **** 							cmd2=0x04;
  3570              		.loc 1 3761 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 139
+ARM GAS  /tmp/ccSTfybG.s 			page 139
 
 
  3571 00dc 092B     		cmp	r3, #9
@@ -8338,7 +8338,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3613              		.loc 1 3546 0 discriminator 3
  3614 011e 2046     		mov	r0, r4
  3615 0120 FFF7FEFF 		bl	tp28xx_byte_read
-ARM GAS  /tmp/ccmWs6qW.s 			page 140
+ARM GAS  /tmp/ccSTfybG.s 			page 140
 
 
  3616              	.LVL439:
@@ -8398,7 +8398,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3555:TP2824/TP2802.c **** 					COCRX4[pcnt]=tpRxD[pcnt+2];
  3661              		.loc 1 3555 0 is_stmt 1
  3662 0158 0523     		movs	r3, #5
-ARM GAS  /tmp/ccmWs6qW.s 			page 141
+ARM GAS  /tmp/ccSTfybG.s 			page 141
 
 
  3663              	.LVL448:
@@ -8458,7 +8458,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3708 018a 5D4C     		ldr	r4, .L398+40
  3709              	.LVL458:
  3710 018c 617A     		ldrb	r1, [r4, #9]	@ zero_extendqisi2
-ARM GAS  /tmp/ccmWs6qW.s 			page 142
+ARM GAS  /tmp/ccSTfybG.s 			page 142
 
 
  3711 018e 5E48     		ldr	r0, .L398+48
@@ -8518,7 +8518,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3755              	.LVL462:
  3756              	.L335:
 3594:TP2824/TP2802.c **** 					pcnt++;
-ARM GAS  /tmp/ccmWs6qW.s 			page 143
+ARM GAS  /tmp/ccSTfybG.s 			page 143
 
 
  3757              		.loc 1 3594 0 discriminator 3
@@ -8578,7 +8578,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3802              		.loc 1 3602 0 is_stmt 0 discriminator 1
  3803 0212 042B     		cmp	r3, #4
  3804 0214 F7D9     		bls	.L337
-ARM GAS  /tmp/ccmWs6qW.s 			page 144
+ARM GAS  /tmp/ccSTfybG.s 			page 144
 
 
 3604:TP2824/TP2802.c **** 					COCRX3[pcnt]=tpRxD[pcnt+2];
@@ -8638,7 +8638,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3850 0246 F6D9     		bls	.L341
 3611:TP2824/TP2802.c **** 				#endif
  3851              		.loc 1 3611 0 is_stmt 1
-ARM GAS  /tmp/ccmWs6qW.s 			page 145
+ARM GAS  /tmp/ccSTfybG.s 			page 145
 
 
  3852 0248 324C     		ldr	r4, .L398+60
@@ -8698,7 +8698,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3896              		.loc 1 3640 0
  3897 0296 8A24     		movs	r4, #138
  3898 0298 08E0     		b	.L343
-ARM GAS  /tmp/ccmWs6qW.s 			page 146
+ARM GAS  /tmp/ccSTfybG.s 			page 146
 
 
  3899              	.LVL486:
@@ -8758,7 +8758,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  3944              	.LVL495:
  3945              	.L345:
 3650:TP2824/TP2802.c **** 					COCRX2[pcnt]=tpRxD[pcnt+1];
-ARM GAS  /tmp/ccmWs6qW.s 			page 147
+ARM GAS  /tmp/ccSTfybG.s 			page 147
 
 
  3946              		.loc 1 3650 0 is_stmt 0 discriminator 1
@@ -8818,7 +8818,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3657:TP2824/TP2802.c **** 					printf(" %02X",COCRX2[pcnt]);
  3995              		.loc 1 3657 0
  3996 0338 0024     		movs	r4, #0
-ARM GAS  /tmp/ccmWs6qW.s 			page 148
+ARM GAS  /tmp/ccSTfybG.s 			page 148
 
 
  3997              	.LVL501:
@@ -8878,7 +8878,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4042 037a 382B     		cmp	r3, #56
  4043 037c 7FF475AE 		bne	.L342
 3671:TP2824/TP2802.c **** 					{
-ARM GAS  /tmp/ccmWs6qW.s 			page 149
+ARM GAS  /tmp/ccSTfybG.s 			page 149
 
 
  4044              		.loc 1 3671 0 is_stmt 0 discriminator 1
@@ -8938,7 +8938,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4089 03ba FFF7FEFF 		bl	tp28xx_byte_write
  4090              	.LVL516:
 3696:TP2824/TP2802.c **** 				
-ARM GAS  /tmp/ccmWs6qW.s 			page 150
+ARM GAS  /tmp/ccSTfybG.s 			page 150
 
 
  4091              		.loc 1 3696 0
@@ -8998,7 +8998,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4136 03f0 8A48     		ldr	r0, .L400+28
  4137 03f2 FFF7FEFF 		bl	printf
  4138              	.LVL524:
-ARM GAS  /tmp/ccmWs6qW.s 			page 151
+ARM GAS  /tmp/ccSTfybG.s 			page 151
 
 
 3705:TP2824/TP2802.c **** 					printf(" %02X",COCRX1[pcnt]);
@@ -9058,7 +9058,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3719:TP2824/TP2802.c **** 					{
  4184              		.loc 1 3719 0
  4185 0436 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
-ARM GAS  /tmp/ccmWs6qW.s 			page 152
+ARM GAS  /tmp/ccSTfybG.s 			page 152
 
 
  4186 0438 382B     		cmp	r3, #56
@@ -9118,7 +9118,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4232              	.LVL543:
 3786:TP2824/TP2802.c **** 						tp28xx_byte_write(0x59, cmd2);//command byte 2
  4233              		.loc 1 3786 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 153
+ARM GAS  /tmp/ccSTfybG.s 			page 153
 
 
  4234 047a 3146     		mov	r1, r6
@@ -9178,7 +9178,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4280 04c4 1A60     		str	r2, [r3]
  4281              	.L359:
 3814:TP2824/TP2802.c **** 				{
-ARM GAS  /tmp/ccmWs6qW.s 			page 154
+ARM GAS  /tmp/ccSTfybG.s 			page 154
 
 
  4282              		.loc 1 3814 0
@@ -9238,7 +9238,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4327 04fc AAE7     		b	.L361
  4328              	.L378:
 3740:TP2824/TP2802.c **** 						
-ARM GAS  /tmp/ccmWs6qW.s 			page 155
+ARM GAS  /tmp/ccSTfybG.s 			page 155
 
 
  4329              		.loc 1 3740 0
@@ -9298,7 +9298,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4370 0528 94E7     		b	.L361
  4371              	.L385:
 3740:TP2824/TP2802.c **** 						
-ARM GAS  /tmp/ccmWs6qW.s 			page 156
+ARM GAS  /tmp/ccSTfybG.s 			page 156
 
 
  4372              		.loc 1 3740 0
@@ -9358,7 +9358,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 3806:TP2824/TP2802.c **** 						delay(10);//50ms
  4417              		.loc 1 3806 0
  4418 0566 4121     		movs	r1, #65
-ARM GAS  /tmp/ccmWs6qW.s 			page 157
+ARM GAS  /tmp/ccSTfybG.s 			page 157
 
 
  4419 0568 6F20     		movs	r0, #111
@@ -9418,7 +9418,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4466 05b2 91       		.byte	(.L364-.L366)/2
  4467 05b3 91       		.byte	(.L364-.L366)/2
  4468 05b4 91       		.byte	(.L364-.L366)/2
-ARM GAS  /tmp/ccmWs6qW.s 			page 158
+ARM GAS  /tmp/ccSTfybG.s 			page 158
 
 
  4469 05b5 91       		.byte	(.L364-.L366)/2
@@ -9478,7 +9478,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4514 05f4 0E4B     		ldr	r3, .L400+48
  4515 05f6 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
  4516 05f8 1248     		ldr	r0, .L400+68
-ARM GAS  /tmp/ccmWs6qW.s 			page 159
+ARM GAS  /tmp/ccSTfybG.s 			page 159
 
 
  4517 05fa FFF7FEFF 		bl	printf
@@ -9538,7 +9538,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4565              		.loc 1 3837 0
  4566 066a 0421     		movs	r1, #4
  4567 066c 6E20     		movs	r0, #110
-ARM GAS  /tmp/ccmWs6qW.s 			page 160
+ARM GAS  /tmp/ccSTfybG.s 			page 160
 
 
  4568 066e FFF7FEFF 		bl	tp28xx_byte_write
@@ -9598,7 +9598,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4612 06ae 0121     		movs	r1, #1
  4613 06b0 6E20     		movs	r0, #110
  4614 06b2 FFF7FEFF 		bl	tp28xx_byte_write
-ARM GAS  /tmp/ccmWs6qW.s 			page 161
+ARM GAS  /tmp/ccSTfybG.s 			page 161
 
 
  4615              	.LVL588:
@@ -9658,7 +9658,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4659              	.LVL596:
 3877:TP2824/TP2802.c **** 					//SetRegPage(0x04);	
  4660              		.loc 1 3877 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 162
+ARM GAS  /tmp/ccSTfybG.s 			page 162
 
 
  4661 06f6 304B     		ldr	r3, .L402
@@ -9718,7 +9718,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4707              	.LVL606:
 3899:TP2824/TP2802.c **** 					tp28xx_byte_write(0x66, AHDBitsReverse(AHDcmd3));
  4708              		.loc 1 3899 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 163
+ARM GAS  /tmp/ccSTfybG.s 			page 163
 
 
  4709 0744 1E4E     		ldr	r6, .L402+8
@@ -9778,7 +9778,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4756 0794 0F4A     		ldr	r2, .L402+28
  4757 0796 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
  4758 0798 0F49     		ldr	r1, .L402+32
-ARM GAS  /tmp/ccmWs6qW.s 			page 164
+ARM GAS  /tmp/ccSTfybG.s 			page 164
 
 
  4759 079a 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
@@ -9838,7 +9838,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4810              		.loc 1 3969 0
  4811              		.cfi_startproc
  4812              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 165
+ARM GAS  /tmp/ccSTfybG.s 			page 165
 
 
  4813              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -9898,7 +9898,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4853              		.loc 1 3983 0
  4854 0038 0321     		movs	r1, #3
  4855 003a CF20     		movs	r0, #207
-ARM GAS  /tmp/ccmWs6qW.s 			page 166
+ARM GAS  /tmp/ccSTfybG.s 			page 166
 
 
  4856 003c FFF7FEFF 		bl	tp28xx_byte_write
@@ -9958,7 +9958,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4900 0082 E120     		movs	r0, #225
  4901 0084 FFF7FEFF 		bl	tp28xx_byte_write
  4902              	.LVL634:
-ARM GAS  /tmp/ccmWs6qW.s 			page 167
+ARM GAS  /tmp/ccSTfybG.s 			page 167
 
 
 3994:TP2824/TP2802.c **** 		  tp28xx_byte_write( 0xe2, 0x00);
@@ -10018,7 +10018,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 4003:TP2824/TP2802.c **** 		  tp28xx_byte_write( 0xeb, 0x10);
  4948              		.loc 1 4003 0
  4949 00d0 1021     		movs	r1, #16
-ARM GAS  /tmp/ccmWs6qW.s 			page 168
+ARM GAS  /tmp/ccSTfybG.s 			page 168
 
 
  4950 00d2 EB20     		movs	r0, #235
@@ -10078,7 +10078,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  4996              	TP2824_PTZ_mode:
  4997              	.LFB100:
 4014:TP2824/TP2802.c **** 
-ARM GAS  /tmp/ccmWs6qW.s 			page 169
+ARM GAS  /tmp/ccSTfybG.s 			page 169
 
 
 4015:TP2824/TP2802.c **** void TP2824_PTZ_mode(unsigned char ch, unsigned char mod)
@@ -10138,7 +10138,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5019              	.LVL654:
  5020              	.L408:
 4048:TP2824/TP2802.c **** 	tp28xx_byte_write( PTZ_reg[ch][i], PTZ_dat[2][i]);
-ARM GAS  /tmp/ccmWs6qW.s 			page 170
+ARM GAS  /tmp/ccSTfybG.s 			page 170
 
 
  5021              		.loc 1 4048 0 discriminator 3
@@ -10198,7 +10198,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5039 0028 38BD     		pop	{r3, r4, r5, pc}
  5040              	.LVL657:
  5041              	.L411:
-ARM GAS  /tmp/ccmWs6qW.s 			page 171
+ARM GAS  /tmp/ccSTfybG.s 			page 171
 
 
  5042 002a 00BF     		.align	2
@@ -10258,7 +10258,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 4111:TP2824/TP2802.c ****         {
 4112:TP2824/TP2802.c ****             index = 3;
 4113:TP2824/TP2802.c ****         }
-ARM GAS  /tmp/ccmWs6qW.s 			page 172
+ARM GAS  /tmp/ccSTfybG.s 			page 172
 
 
 4114:TP2824/TP2802.c ****         else if(PTZ_RX_ACP3 == mod)
@@ -10318,7 +10318,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 4128:TP2824/TP2802.c **** 
 4129:TP2824/TP2802.c **** void TP2824C_PTZ_mode(unsigned char chip, unsigned char ch, unsigned char mod)
 4130:TP2824/TP2802.c **** {
-ARM GAS  /tmp/ccmWs6qW.s 			page 173
+ARM GAS  /tmp/ccSTfybG.s 			page 173
 
 
  5110              		.loc 1 4130 0
@@ -10378,7 +10378,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 4174:TP2824/TP2802.c ****         }
 4175:TP2824/TP2802.c ****         else if(PTZ_HDC == mod) // test
 4176:TP2824/TP2802.c ****         {
-ARM GAS  /tmp/ccmWs6qW.s 			page 174
+ARM GAS  /tmp/ccSTfybG.s 			page 174
 
 
 4177:TP2824/TP2802.c ****                 index = 5;
@@ -10438,7 +10438,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5161              		.thumb
  5162              		.thumb_func
  5163              		.fpu softvfp
-ARM GAS  /tmp/ccmWs6qW.s 			page 175
+ARM GAS  /tmp/ccSTfybG.s 			page 175
 
 
  5165              	HDA_SetACPV2Data:
@@ -10498,7 +10498,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5203 0016 06D8     		bhi	.L430
 4198:TP2824/TP2802.c **** 	
  5204              		.loc 1 4198 0 is_stmt 1
-ARM GAS  /tmp/ccmWs6qW.s 			page 176
+ARM GAS  /tmp/ccSTfybG.s 			page 176
 
 
  5205 0018 E400     		lsls	r4, r4, #3
@@ -10558,7 +10558,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5249              		.loc 1 4213 0
  5250              		.cfi_startproc
  5251              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 177
+ARM GAS  /tmp/ccSTfybG.s 			page 177
 
 
  5252              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -10618,7 +10618,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 4226:TP2824/TP2802.c ****     while(i--)
  5294              		.loc 1 4226 0
  5295 0030 5C1E     		subs	r4, r3, #1
-ARM GAS  /tmp/ccmWs6qW.s 			page 178
+ARM GAS  /tmp/ccSTfybG.s 			page 178
 
 
  5296              	.LVL696:
@@ -10678,7 +10678,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 4241:TP2824/TP2802.c **** 		presetNum=0;
  5337              		.loc 1 4241 0
  5338 0006 0023     		movs	r3, #0
-ARM GAS  /tmp/ccmWs6qW.s 			page 179
+ARM GAS  /tmp/ccSTfybG.s 			page 179
 
 
  5339 0008 064A     		ldr	r2, .L438+4
@@ -10738,7 +10738,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5385 0002 4448     		ldr	r0, .L442
  5386 0004 FFF7FEFF 		bl	printf
  5387              	.LVL699:
-ARM GAS  /tmp/ccmWs6qW.s 			page 180
+ARM GAS  /tmp/ccSTfybG.s 			page 180
 
 
 4252:TP2824/TP2802.c **** 
@@ -10798,7 +10798,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5430 004a C120     		movs	r0, #193
  5431 004c FFF7FEFF 		bl	tp28xx_byte_write
  5432              	.LVL708:
-ARM GAS  /tmp/ccmWs6qW.s 			page 181
+ARM GAS  /tmp/ccSTfybG.s 			page 181
 
 
 4264:TP2824/TP2802.c **** 	tp28xx_byte_write(0xc2,0x0b);
@@ -10858,7 +10858,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5477              	.LVL717:
 4274:TP2824/TP2802.c **** 	tp28xx_byte_write(0xcd,0x09); 
  5478              		.loc 1 4274 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 182
+ARM GAS  /tmp/ccSTfybG.s 			page 182
 
 
  5479 0098 0921     		movs	r1, #9
@@ -10918,7 +10918,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5524 00e0 3921     		movs	r1, #57
  5525 00e2 D620     		movs	r0, #214
  5526 00e4 FFF7FEFF 		bl	tp28xx_byte_write
-ARM GAS  /tmp/ccmWs6qW.s 			page 183
+ARM GAS  /tmp/ccSTfybG.s 			page 183
 
 
  5527              	.LVL727:
@@ -10978,7 +10978,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5572              		.loc 1 1750 0
  5573              		.cfi_startproc
  5574              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 184
+ARM GAS  /tmp/ccSTfybG.s 			page 184
 
 
  5575              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -11038,7 +11038,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5622 0026 083B     		subs	r3, r3, #8
  5623 0028 DBB2     		uxtb	r3, r3
  5624 002a 012B     		cmp	r3, #1
-ARM GAS  /tmp/ccmWs6qW.s 			page 185
+ARM GAS  /tmp/ccSTfybG.s 			page 185
 
 
  5625 002c 5CD9     		bls	.L519
@@ -11098,7 +11098,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5669 006e 5A55     		strb	r2, [r3, r5]
 1896:TP2824/TP2802.c ****                         printf("video unlocked ch%02x \r\n", (tWord)i);                        
  5670              		.loc 1 1896 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 186
+ARM GAS  /tmp/ccSTfybG.s 			page 186
 
 
  5671 0070 2146     		mov	r1, r4
@@ -11158,7 +11158,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5717 00ae 834B     		ldr	r3, .L564+8
  5718 00b0 5B5D     		ldrb	r3, [r3, r5]	@ zero_extendqisi2
  5719 00b2 022B     		cmp	r3, #2
-ARM GAS  /tmp/ccmWs6qW.s 			page 187
+ARM GAS  /tmp/ccSTfybG.s 			page 187
 
 
  5720 00b4 00F0CC80 		beq	.L527
@@ -11218,7 +11218,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5766 00ee A1E7     		b	.L453
  5767              	.L520:
 1823:TP2824/TP2802.c ****                 {
-ARM GAS  /tmp/ccmWs6qW.s 			page 188
+ARM GAS  /tmp/ccSTfybG.s 			page 188
 
 
  5768              		.loc 1 1823 0
@@ -11278,7 +11278,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5813 012e 6948     		ldr	r0, .L564+32
  5814              	.LVL757:
  5815 0130 FFF7FEFF 		bl	printf
-ARM GAS  /tmp/ccmWs6qW.s 			page 189
+ARM GAS  /tmp/ccSTfybG.s 			page 189
 
 
  5816              	.LVL758:
@@ -11338,7 +11338,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5861              		.loc 1 1910 0
  5862 0170 00F00702 		and	r2, r0, #7
  5863              	.LVL766:
-ARM GAS  /tmp/ccmWs6qW.s 			page 190
+ARM GAS  /tmp/ccSTfybG.s 			page 190
 
 
 1911:TP2824/TP2802.c ****             if(NTPAL == cvstd && flag_CVBS)
@@ -11398,7 +11398,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1916:TP2824/TP2802.c ****                 else
  5907              		.loc 1 1916 0
  5908 01ae 0922     		movs	r2, #9
-ARM GAS  /tmp/ccmWs6qW.s 			page 191
+ARM GAS  /tmp/ccSTfybG.s 			page 191
 
 
  5909              	.LVL770:
@@ -11458,7 +11458,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  5954              	.LVL777:
  5955              	.L532:
 1953:TP2824/TP2802.c ****                     tmp = tp28xx_byte_read(0x04);
-ARM GAS  /tmp/ccmWs6qW.s 			page 192
+ARM GAS  /tmp/ccSTfybG.s 			page 192
 
 
  5956              		.loc 1 1953 0
@@ -11518,7 +11518,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6002              	.L509:
 1929:TP2824/TP2802.c ****             }
  6003              		.loc 1 1929 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 193
+ARM GAS  /tmp/ccSTfybG.s 			page 193
 
 
  6004 0224 0D22     		movs	r2, #13
@@ -11578,7 +11578,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 1992:TP2824/TP2802.c ****                 if( (R720P30V2 == mode[i]) || (R720P25V2 == mode[i]) )
  6049              		.loc 1 1992 0
  6050 025e 254B     		ldr	r3, .L564+64
-ARM GAS  /tmp/ccmWs6qW.s 			page 194
+ARM GAS  /tmp/ccSTfybG.s 			page 194
 
 
  6051 0260 1C70     		strb	r4, [r3]
@@ -11638,7 +11638,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6097 02ac FFF7FEFF 		bl	printf
  6098              	.LVL795:
  6099 02b0 02E7     		b	.L449
-ARM GAS  /tmp/ccmWs6qW.s 			page 195
+ARM GAS  /tmp/ccSTfybG.s 			page 195
 
 
  6100              	.L565:
@@ -11698,7 +11698,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2010:TP2824/TP2802.c ****                     tp28xx_byte_write(0xfb, REG_FA[i]);
  6150              		.loc 1 2010 0
  6151 0338 B54B     		ldr	r3, .L566+8
-ARM GAS  /tmp/ccmWs6qW.s 			page 196
+ARM GAS  /tmp/ccSTfybG.s 			page 196
 
 
  6152 033a 5D5D     		ldrb	r5, [r3, r5]	@ zero_extendqisi2
@@ -11758,7 +11758,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6195 0384 5B5D     		ldrb	r3, [r3, r5]	@ zero_extendqisi2
  6196 0386 083B     		subs	r3, r3, #8
  6197 0388 DBB2     		uxtb	r3, r3
-ARM GAS  /tmp/ccmWs6qW.s 			page 197
+ARM GAS  /tmp/ccSTfybG.s 			page 197
 
 
  6198 038a 012B     		cmp	r3, #1
@@ -11818,7 +11818,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6242              		.loc 1 2401 0
  6243 03ce 0120     		movs	r0, #1
  6244 03d0 FFF7FEFF 		bl	delay
-ARM GAS  /tmp/ccmWs6qW.s 			page 198
+ARM GAS  /tmp/ccSTfybG.s 			page 198
 
 
  6245              	.LVL809:
@@ -11878,7 +11878,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6290 041a B520     		movs	r0, #181
  6291 041c FFF7FEFF 		bl	tp28xx_byte_read
  6292              	.LVL816:
-ARM GAS  /tmp/ccmWs6qW.s 			page 199
+ARM GAS  /tmp/ccSTfybG.s 			page 199
 
 
 2456:TP2824/TP2802.c **** 
@@ -11938,7 +11938,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2138:TP2824/TP2802.c ****                     if(mode[i] == NTSC || mode[i] == PAL)
  6338              		.loc 1 2138 0
  6339 0462 0146     		mov	r1, r0
-ARM GAS  /tmp/ccmWs6qW.s 			page 200
+ARM GAS  /tmp/ccSTfybG.s 			page 200
 
 
  6340 0464 6F48     		ldr	r0, .L566+28
@@ -11998,7 +11998,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6383              		.loc 1 2149 0
  6384 04b6 2946     		mov	r1, r5
  6385 04b8 5B48     		ldr	r0, .L566+32
-ARM GAS  /tmp/ccmWs6qW.s 			page 201
+ARM GAS  /tmp/ccSTfybG.s 			page 201
 
 
  6386 04ba FFF7FEFF 		bl	printf
@@ -12058,7 +12058,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6432 0504 7FF4D8AD 		bne	.L449
 2165:TP2824/TP2802.c ****                     {
  6433              		.loc 1 2165 0 is_stmt 1
-ARM GAS  /tmp/ccmWs6qW.s 			page 202
+ARM GAS  /tmp/ccSTfybG.s 			page 202
 
 
  6434 0508 0B1F     		subs	r3, r1, #4
@@ -12118,7 +12118,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6478 054a 7FF6B5AD 		bls	.L449
 2181:TP2824/TP2802.c ****                     printf("Reg01 %02x\r\n", (tWord)tmp);
  6479              		.loc 1 2181 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 203
+ARM GAS  /tmp/ccSTfybG.s 			page 203
 
 
  6480 054e 0120     		movs	r0, #1
@@ -12178,7 +12178,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6524 058a 224B     		ldr	r3, .L566+12
  6525 058c 5B5D     		ldrb	r3, [r3, r5]	@ zero_extendqisi2
  6526 058e 012B     		cmp	r3, #1
-ARM GAS  /tmp/ccmWs6qW.s 			page 204
+ARM GAS  /tmp/ccSTfybG.s 			page 204
 
 
  6527 0590 22D0     		beq	.L550
@@ -12238,7 +12238,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6571              		.loc 1 2190 0
  6572 05d8 1948     		ldr	r0, .L566+56
  6573 05da FFF7FEFF 		bl	printf
-ARM GAS  /tmp/ccmWs6qW.s 			page 205
+ARM GAS  /tmp/ccSTfybG.s 			page 205
 
 
  6574              	.LVL847:
@@ -12298,7 +12298,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
 2213:TP2824/TP2802.c ****                 egain[i][2] = egain[i][1];
  6622              		.loc 1 2213 0
  6623 064c 864F     		ldr	r7, .L568
-ARM GAS  /tmp/ccmWs6qW.s 			page 206
+ARM GAS  /tmp/ccSTfybG.s 			page 206
 
 
  6624 064e 07EB8506 		add	r6, r7, r5, lsl #2
@@ -12358,7 +12358,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6668              		.loc 1 2228 0
  6669 069a 754B     		ldr	r3, .L568+8
  6670 069c 5B5D     		ldrb	r3, [r3, r5]	@ zero_extendqisi2
-ARM GAS  /tmp/ccmWs6qW.s 			page 207
+ARM GAS  /tmp/ccSTfybG.s 			page 207
 
 
  6671 069e 754F     		ldr	r7, .L568+12
@@ -12418,7 +12418,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6716              		.loc 1 2259 0
  6717 06e4 654B     		ldr	r3, .L568+20
  6718 06e6 5A5D     		ldrb	r2, [r3, r5]	@ zero_extendqisi2
-ARM GAS  /tmp/ccmWs6qW.s 			page 208
+ARM GAS  /tmp/ccSTfybG.s 			page 208
 
 
  6719 06e8 654B     		ldr	r3, .L568+24
@@ -12478,7 +12478,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6765 0730 FFF7FEFF 		bl	printf
  6766              	.LVL858:
  6767 0734 C0E4     		b	.L449
-ARM GAS  /tmp/ccmWs6qW.s 			page 209
+ARM GAS  /tmp/ccSTfybG.s 			page 209
 
 
  6768              	.L553:
@@ -12538,7 +12538,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6814 0778 3D4B     		ldr	r3, .L568+8
  6815 077a 5B5D     		ldrb	r3, [r3, r5]	@ zero_extendqisi2
  6816 077c 012B     		cmp	r3, #1
-ARM GAS  /tmp/ccmWs6qW.s 			page 210
+ARM GAS  /tmp/ccSTfybG.s 			page 210
 
 
  6817 077e 03D0     		beq	.L562
@@ -12598,7 +12598,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6863 07c6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  6864 07c8 243B     		subs	r3, r3, #36
  6865 07ca DBB2     		uxtb	r3, r3
-ARM GAS  /tmp/ccmWs6qW.s 			page 211
+ARM GAS  /tmp/ccSTfybG.s 			page 211
 
 
  6866 07cc 012B     		cmp	r3, #1
@@ -12658,7 +12658,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6911              		.loc 1 2416 0
  6912 0810 FFF7FEFF 		bl	Init_COC_PTZOUT1
  6913              	.LVL871:
-ARM GAS  /tmp/ccmWs6qW.s 			page 212
+ARM GAS  /tmp/ccSTfybG.s 			page 212
 
 
 2419:TP2824/TP2802.c **** 					
@@ -12718,7 +12718,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  6958              	.LVL881:
 2444:TP2824/TP2802.c **** 				}
  6959              		.loc 1 2444 0
-ARM GAS  /tmp/ccmWs6qW.s 			page 213
+ARM GAS  /tmp/ccSTfybG.s 			page 213
 
 
  6960 085a 154B     		ldr	r3, .L568+72
@@ -12778,7 +12778,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7013              		.cfi_offset 14, -4
 4297:TP2824/TP2802.c **** #if 0
 4298:TP2824/TP2802.c **** VXISI2CWrite(0x40,0x04);
-ARM GAS  /tmp/ccmWs6qW.s 			page 214
+ARM GAS  /tmp/ccSTfybG.s 			page 214
 
 
 4299:TP2824/TP2802.c **** VXISI2CWrite(0x56,0x02);
@@ -12838,7 +12838,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7053              		.global	TP2826_HDC_DataSet
  7054              		.global	TP2824C_HDA_DataSet
  7055              		.global	TP2826_HDA_DataSet
-ARM GAS  /tmp/ccmWs6qW.s 			page 215
+ARM GAS  /tmp/ccSTfybG.s 			page 215
 
 
  7056              		.global	TP2824C_MODE_DataSet
@@ -12898,7 +12898,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7110              		.align	2
  7113              	Flisheye_CAM:
  7114 0000 00000000 		.space	4
-ARM GAS  /tmp/ccmWs6qW.s 			page 216
+ARM GAS  /tmp/ccSTfybG.s 			page 216
 
 
  7115              		.section	.bss.Flisheye_VLOSS_Count,"aw",%nobits
@@ -12958,7 +12958,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7178      20726573 
  7178      20646574 
  7178      6563742E 
-ARM GAS  /tmp/ccmWs6qW.s 			page 217
+ARM GAS  /tmp/ccSTfybG.s 			page 217
 
 
  7178      2E2E00
@@ -13018,7 +13018,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7205 0094 4D616E56 		.ascii	"ManVidResRx=0x%02x\015\012\000"
  7205      69645265 
  7205      7352783D 
-ARM GAS  /tmp/ccmWs6qW.s 			page 218
+ARM GAS  /tmp/ccSTfybG.s 			page 218
 
 
  7205      30782530 
@@ -13078,7 +13078,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7228 0162 0000     		.space	2
  7229              	.LC57:
  7230 0164 6261636B 		.ascii	"back to T ch%02x\015\012\000"
-ARM GAS  /tmp/ccmWs6qW.s 			page 219
+ARM GAS  /tmp/ccSTfybG.s 			page 219
 
 
  7230      20746F20 
@@ -13138,7 +13138,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7255 0238 45516465 		.ascii	"EQdet %d\015\012\000"
  7255      74202564 
  7255      0D0A00
-ARM GAS  /tmp/ccmWs6qW.s 			page 220
+ARM GAS  /tmp/ccSTfybG.s 			page 220
 
 
  7256 0243 00       		.space	1
@@ -13198,7 +13198,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7285      2C253032 
  7285      782C2530 
  7285      32782074 
-ARM GAS  /tmp/ccmWs6qW.s 			page 221
+ARM GAS  /tmp/ccSTfybG.s 			page 221
 
 
  7286 008b 00       		.space	1
@@ -13258,7 +13258,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7320 0006 04       		.byte	4
  7321 0007 00       		.byte	0
  7322 0008 00       		.byte	0
-ARM GAS  /tmp/ccmWs6qW.s 			page 222
+ARM GAS  /tmp/ccSTfybG.s 			page 222
 
 
  7323 0009 60       		.byte	96
@@ -13318,7 +13318,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7377 003f 07       		.byte	7
  7378 0040 08       		.byte	8
  7379 0041 09       		.byte	9
-ARM GAS  /tmp/ccmWs6qW.s 			page 223
+ARM GAS  /tmp/ccSTfybG.s 			page 223
 
 
  7380 0042 04       		.byte	4
@@ -13378,7 +13378,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7436 0029 6F       		.byte	111
  7437 002a 10       		.byte	16
  7438 002b 11       		.byte	17
-ARM GAS  /tmp/ccmWs6qW.s 			page 224
+ARM GAS  /tmp/ccSTfybG.s 			page 224
 
 
  7439 002c 12       		.byte	18
@@ -13438,7 +13438,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7495 0026 00       		.byte	0
  7496 0027 00       		.byte	0
  7497 0028 00       		.byte	0
-ARM GAS  /tmp/ccmWs6qW.s 			page 225
+ARM GAS  /tmp/ccSTfybG.s 			page 225
 
 
  7498 0029 0E       		.byte	14
@@ -13498,7 +13498,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7554 0013 C7       		.byte	-57
  7555 0014 C8       		.byte	-56
  7556 0015 DA       		.byte	-38
-ARM GAS  /tmp/ccmWs6qW.s 			page 226
+ARM GAS  /tmp/ccSTfybG.s 			page 226
 
 
  7557 0016 DB       		.byte	-37
@@ -13558,7 +13558,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7621 0004 F0       		.byte	-16
  7622              		.section	.rodata.SYS_MODE,"a",%progbits
  7623              		.align	2
-ARM GAS  /tmp/ccmWs6qW.s 			page 227
+ARM GAS  /tmp/ccSTfybG.s 			page 227
 
 
  7624              		.set	.LANCHOR1,. + 0
@@ -13618,7 +13618,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7665 0051 000000   		.space	3
  7666              	.LC10:
  7667 0054 334D3138 		.ascii	"3M18\000"
-ARM GAS  /tmp/ccmWs6qW.s 			page 228
+ARM GAS  /tmp/ccSTfybG.s 			page 228
 
 
  7667      00
@@ -13678,7 +13678,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7708 0008 3A       		.byte	58
  7709 0009 01       		.byte	1
  7710 000a 30       		.byte	48
-ARM GAS  /tmp/ccmWs6qW.s 			page 229
+ARM GAS  /tmp/ccSTfybG.s 			page 229
 
 
  7711 000b 48       		.byte	72
@@ -13738,7 +13738,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7765 0041 60       		.byte	96
  7766 0042 86       		.byte	-122
  7767 0043 10       		.byte	16
-ARM GAS  /tmp/ccmWs6qW.s 			page 230
+ARM GAS  /tmp/ccSTfybG.s 			page 230
 
 
  7768 0044 87       		.byte	-121
@@ -13798,7 +13798,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7824 0026 FF       		.byte	-1
  7825 0027 4A       		.byte	74
  7826 0028 13       		.byte	19
-ARM GAS  /tmp/ccmWs6qW.s 			page 231
+ARM GAS  /tmp/ccSTfybG.s 			page 231
 
 
  7827 0029 16       		.byte	22
@@ -13858,7 +13858,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7881 005f 15       		.byte	21
  7882 0060 F0       		.byte	-16
  7883 0061 07       		.byte	7
-ARM GAS  /tmp/ccmWs6qW.s 			page 232
+ARM GAS  /tmp/ccSTfybG.s 			page 232
 
 
  7884 0062 09       		.byte	9
@@ -13918,7 +13918,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7938 0098 25       		.byte	37
  7939 0099 DC       		.byte	-36
  7940 009a 0A       		.byte	10
-ARM GAS  /tmp/ccmWs6qW.s 			page 233
+ARM GAS  /tmp/ccSTfybG.s 			page 233
 
 
  7941 009b FF       		.byte	-1
@@ -13978,7 +13978,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  7995 00d1 13       		.byte	19
  7996 00d2 EC       		.byte	-20
  7997 00d3 80       		.byte	-128
-ARM GAS  /tmp/ccmWs6qW.s 			page 234
+ARM GAS  /tmp/ccSTfybG.s 			page 234
 
 
  7998 00d4 B0       		.byte	-80
@@ -14038,7 +14038,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8054 0010 4D       		.byte	77
  8055 0011 03       		.byte	3
  8056 0012 4E       		.byte	78
-ARM GAS  /tmp/ccmWs6qW.s 			page 235
+ARM GAS  /tmp/ccSTfybG.s 			page 235
 
 
  8057 0013 33       		.byte	51
@@ -14098,7 +14098,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8115 0014 48       		.byte	72
  8116 0015 BB       		.byte	-69
  8117 0016 2E       		.byte	46
-ARM GAS  /tmp/ccmWs6qW.s 			page 236
+ARM GAS  /tmp/ccSTfybG.s 			page 236
 
 
  8118 0017 90       		.byte	-112
@@ -14158,7 +14158,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8174 0008 C4       		.byte	-60
  8175 0009 10       		.byte	16
  8176 000a C5       		.byte	-59
-ARM GAS  /tmp/ccmWs6qW.s 			page 237
+ARM GAS  /tmp/ccSTfybG.s 			page 237
 
 
  8177 000b 11       		.byte	17
@@ -14218,7 +14218,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8231 0041 00       		.byte	0
  8232 0042 CB       		.byte	-53
  8233 0043 07       		.byte	7
-ARM GAS  /tmp/ccmWs6qW.s 			page 238
+ARM GAS  /tmp/ccSTfybG.s 			page 238
 
 
  8234 0044 CC       		.byte	-52
@@ -14278,7 +14278,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8290 0016 55       		.byte	85
  8291 0017 00       		.byte	0
  8292 0018 56       		.byte	86
-ARM GAS  /tmp/ccmWs6qW.s 			page 239
+ARM GAS  /tmp/ccSTfybG.s 			page 239
 
 
  8293 0019 00       		.byte	0
@@ -14338,7 +14338,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8349 0007 00       		.byte	0
  8350 0008 C1       		.byte	-63
  8351 0009 00       		.byte	0
-ARM GAS  /tmp/ccmWs6qW.s 			page 240
+ARM GAS  /tmp/ccSTfybG.s 			page 240
 
 
  8352 000a C4       		.byte	-60
@@ -14398,7 +14398,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8406 0040 6C       		.byte	108
  8407 0041 00       		.byte	0
  8408 0042 FF       		.byte	-1
-ARM GAS  /tmp/ccmWs6qW.s 			page 241
+ARM GAS  /tmp/ccSTfybG.s 			page 241
 
 
  8409 0043 FF       		.byte	-1
@@ -14458,7 +14458,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8467 0015 27       		.byte	39
  8468 0016 72       		.byte	114
  8469 0017 80       		.byte	-128
-ARM GAS  /tmp/ccmWs6qW.s 			page 242
+ARM GAS  /tmp/ccSTfybG.s 			page 242
 
 
  8470 0018 77       		.byte	119
@@ -14518,7 +14518,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8524 004e 4A       		.byte	74
  8525 004f FF       		.byte	-1
  8526              		.section	.rodata.TP2824C_HDC_DataSet,"a",%progbits
-ARM GAS  /tmp/ccmWs6qW.s 			page 243
+ARM GAS  /tmp/ccSTfybG.s 			page 243
 
 
  8527              		.align	2
@@ -14578,7 +14578,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8583 0033 42       		.byte	66
  8584 0034 40       		.byte	64
  8585 0035 48       		.byte	72
-ARM GAS  /tmp/ccmWs6qW.s 			page 244
+ARM GAS  /tmp/ccSTfybG.s 			page 244
 
 
  8586 0036 67       		.byte	103
@@ -14638,7 +14638,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8642 0004 2B       		.byte	43
  8643 0005 2D       		.byte	45
  8644 0006 2E       		.byte	46
-ARM GAS  /tmp/ccmWs6qW.s 			page 245
+ARM GAS  /tmp/ccSTfybG.s 			page 245
 
 
  8645 0007 30       		.byte	48
@@ -14698,7 +14698,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8699 003d 3C       		.byte	60
  8700 003e FF       		.byte	-1
  8701 003f 2D       		.byte	45
-ARM GAS  /tmp/ccmWs6qW.s 			page 246
+ARM GAS  /tmp/ccSTfybG.s 			page 246
 
 
  8702 0040 00       		.byte	0
@@ -14758,7 +14758,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8758              	TP2824C_TVI_FHD_PTZ_DataSet:
  8759 0000 C0       		.byte	-64
  8760 0001 00       		.byte	0
-ARM GAS  /tmp/ccmWs6qW.s 			page 247
+ARM GAS  /tmp/ccSTfybG.s 			page 247
 
 
  8761 0002 C2       		.byte	-62
@@ -14818,7 +14818,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8815 0038 D0       		.byte	-48
  8816 0039 00       		.byte	0
  8817 003a D1       		.byte	-47
-ARM GAS  /tmp/ccmWs6qW.s 			page 248
+ARM GAS  /tmp/ccSTfybG.s 			page 248
 
 
  8818 003b 00       		.byte	0
@@ -14878,7 +14878,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8876 0005 30       		.byte	48
  8877 0006 31       		.byte	49
  8878 0007 32       		.byte	50
-ARM GAS  /tmp/ccmWs6qW.s 			page 249
+ARM GAS  /tmp/ccSTfybG.s 			page 249
 
 
  8879 0008 33       		.byte	51
@@ -14938,7 +14938,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8933              		.set	.LANCHOR13,. + 0
  8936              	TP2826_HDC_DataSet:
  8937 0000 0C       		.byte	12
-ARM GAS  /tmp/ccmWs6qW.s 			page 250
+ARM GAS  /tmp/ccSTfybG.s 			page 250
 
 
  8938 0001 15       		.byte	21
@@ -14998,7 +14998,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  8992 0037 6F       		.byte	111
  8993 0038 33       		.byte	51
  8994 0039 5A       		.byte	90
-ARM GAS  /tmp/ccmWs6qW.s 			page 251
+ARM GAS  /tmp/ccSTfybG.s 			page 251
 
 
  8995 003a 04       		.byte	4
@@ -15058,7 +15058,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  9051 0008 31       		.byte	49
  9052 0009 32       		.byte	50
  9053 000a 33       		.byte	51
-ARM GAS  /tmp/ccmWs6qW.s 			page 252
+ARM GAS  /tmp/ccSTfybG.s 			page 252
 
 
  9054 000b 39       		.byte	57
@@ -15118,7 +15118,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  9108 0041 68       		.byte	104
  9109 0042 5E       		.byte	94
  9110 0043 62       		.byte	98
-ARM GAS  /tmp/ccmWs6qW.s 			page 253
+ARM GAS  /tmp/ccSTfybG.s 			page 253
 
 
  9111 0044 BB       		.byte	-69
@@ -15178,7 +15178,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  9167 0012 FF       		.byte	-1
  9168 0013 FF       		.byte	-1
  9169              		.section	.rodata.TP2833_HDA_DataSet,"a",%progbits
-ARM GAS  /tmp/ccmWs6qW.s 			page 254
+ARM GAS  /tmp/ccSTfybG.s 			page 254
 
 
  9170              		.align	2
@@ -15238,7 +15238,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  9228 0007 30       		.byte	48
  9229 0008 31       		.byte	49
  9230 0009 32       		.byte	50
-ARM GAS  /tmp/ccmWs6qW.s 			page 255
+ARM GAS  /tmp/ccSTfybG.s 			page 255
 
 
  9231 000a 33       		.byte	51
@@ -15298,7 +15298,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  9285 0040 4A       		.byte	74
  9286 0041 4D       		.byte	77
  9287 0042 F0       		.byte	-16
-ARM GAS  /tmp/ccmWs6qW.s 			page 256
+ARM GAS  /tmp/ccSTfybG.s 			page 256
 
 
  9288 0043 04       		.byte	4
@@ -15358,7 +15358,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  9346 0007 70       		.byte	112
  9347 0008 26       		.byte	38
  9348 0009 01       		.byte	1
-ARM GAS  /tmp/ccmWs6qW.s 			page 257
+ARM GAS  /tmp/ccSTfybG.s 			page 257
 
 
  9349 000a 4D       		.byte	77
@@ -15418,7 +15418,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  9405 002c 68       		.byte	104
  9406 002d 5E       		.byte	94
  9407 002e 62       		.byte	98
-ARM GAS  /tmp/ccmWs6qW.s 			page 258
+ARM GAS  /tmp/ccSTfybG.s 			page 258
 
 
  9408 002f BB       		.byte	-69
@@ -15478,7 +15478,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  9466 0000 2B       		.byte	43
  9467 0001 2D       		.byte	45
  9468 0002 2E       		.byte	46
-ARM GAS  /tmp/ccmWs6qW.s 			page 259
+ARM GAS  /tmp/ccSTfybG.s 			page 259
 
 
  9469 0003 30       		.byte	48
@@ -15538,7 +15538,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  9525 0003 2B       		.byte	43
  9526 0004 2D       		.byte	45
  9527 0005 2E       		.byte	46
-ARM GAS  /tmp/ccmWs6qW.s 			page 260
+ARM GAS  /tmp/ccSTfybG.s 			page 260
 
 
  9528 0006 30       		.byte	48
@@ -15598,7 +15598,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  9582 003c 2E       		.byte	46
  9583 003d 90       		.byte	-112
  9584 003e 5A       		.byte	90
-ARM GAS  /tmp/ccmWs6qW.s 			page 261
+ARM GAS  /tmp/ccSTfybG.s 			page 261
 
 
  9585 003f 04       		.byte	4
@@ -15658,7 +15658,7 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  9641 0030 0A       		.byte	10
  9642 0031 84       		.byte	-124
  9643 0032 F0       		.byte	-16
-ARM GAS  /tmp/ccmWs6qW.s 			page 262
+ARM GAS  /tmp/ccSTfybG.s 			page 262
 
 
  9644 0033 2D       		.byte	45
@@ -15718,86 +15718,86 @@ ARM GAS  /tmp/ccmWs6qW.s 			page 1
  9698              		.file 15 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
  9699              		.file 16 "/home/ryan/xun/gcc-arm-none-eabi-7-2018-q2-update/arm-none-eabi/include/stdio.h"
  9700              		.file 17 "VS4210/Printf.h"
-ARM GAS  /tmp/ccmWs6qW.s 			page 263
+ARM GAS  /tmp/ccSTfybG.s 			page 263
 
 
  9701              		.file 18 "VS4210/keyremo.h"
  9702              		.file 19 "<built-in>"
-ARM GAS  /tmp/ccmWs6qW.s 			page 264
+ARM GAS  /tmp/ccSTfybG.s 			page 264
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 TP2802.c
-     /tmp/ccmWs6qW.s:16     .text.tp2824_reset_default:0000000000000000 $t
-     /tmp/ccmWs6qW.s:22     .text.tp2824_reset_default:0000000000000000 tp2824_reset_default
-     /tmp/ccmWs6qW.s:45     .text.tp28xx_SYSCLK_V1:0000000000000000 $t
-     /tmp/ccmWs6qW.s:51     .text.tp28xx_SYSCLK_V1:0000000000000000 tp28xx_SYSCLK_V1
-     /tmp/ccmWs6qW.s:94     .text.tp28xx_SYSCLK_V1:0000000000000028 $d
-     /tmp/ccmWs6qW.s:99     .text.tp28xx_SYSCLK_V2:0000000000000000 $t
-     /tmp/ccmWs6qW.s:105    .text.tp28xx_SYSCLK_V2:0000000000000000 tp28xx_SYSCLK_V2
-     /tmp/ccmWs6qW.s:150    .text.tp28xx_SYSCLK_V2:000000000000002c $d
-     /tmp/ccmWs6qW.s:155    .text.tp2853C_reset_default:0000000000000000 $t
-     /tmp/ccmWs6qW.s:161    .text.tp2853C_reset_default:0000000000000000 tp2853C_reset_default
-     /tmp/ccmWs6qW.s:208    .text.TP28xx_reset_default:0000000000000000 $t
-     /tmp/ccmWs6qW.s:214    .text.TP28xx_reset_default:0000000000000000 TP28xx_reset_default
-     /tmp/ccmWs6qW.s:263    .text.I2CDeviceSet1:0000000000000000 $t
-     /tmp/ccmWs6qW.s:270    .text.I2CDeviceSet1:0000000000000000 I2CDeviceSet1
-     /tmp/ccmWs6qW.s:310    .text.I2CDeviceSet2:0000000000000000 $t
-     /tmp/ccmWs6qW.s:317    .text.I2CDeviceSet2:0000000000000000 I2CDeviceSet2
-     /tmp/ccmWs6qW.s:361    .text.SetRegPage:0000000000000000 $t
-     /tmp/ccmWs6qW.s:368    .text.SetRegPage:0000000000000000 SetRegPage
-     /tmp/ccmWs6qW.s:392    .text.Set_VidRes:0000000000000000 $t
-     /tmp/ccmWs6qW.s:399    .text.Set_VidRes:0000000000000000 Set_VidRes
-     /tmp/ccmWs6qW.s:422    .text.Set_VidRes:0000000000000012 $d
-     /tmp/ccmWs6qW.s:461    .text.Set_VidRes:0000000000000060 $t
-     /tmp/ccmWs6qW.s:888    .text.Set_VidRes:0000000000000278 $d
+     /tmp/ccSTfybG.s:16     .text.tp2824_reset_default:0000000000000000 $t
+     /tmp/ccSTfybG.s:22     .text.tp2824_reset_default:0000000000000000 tp2824_reset_default
+     /tmp/ccSTfybG.s:45     .text.tp28xx_SYSCLK_V1:0000000000000000 $t
+     /tmp/ccSTfybG.s:51     .text.tp28xx_SYSCLK_V1:0000000000000000 tp28xx_SYSCLK_V1
+     /tmp/ccSTfybG.s:94     .text.tp28xx_SYSCLK_V1:0000000000000028 $d
+     /tmp/ccSTfybG.s:99     .text.tp28xx_SYSCLK_V2:0000000000000000 $t
+     /tmp/ccSTfybG.s:105    .text.tp28xx_SYSCLK_V2:0000000000000000 tp28xx_SYSCLK_V2
+     /tmp/ccSTfybG.s:150    .text.tp28xx_SYSCLK_V2:000000000000002c $d
+     /tmp/ccSTfybG.s:155    .text.tp2853C_reset_default:0000000000000000 $t
+     /tmp/ccSTfybG.s:161    .text.tp2853C_reset_default:0000000000000000 tp2853C_reset_default
+     /tmp/ccSTfybG.s:208    .text.TP28xx_reset_default:0000000000000000 $t
+     /tmp/ccSTfybG.s:214    .text.TP28xx_reset_default:0000000000000000 TP28xx_reset_default
+     /tmp/ccSTfybG.s:263    .text.I2CDeviceSet1:0000000000000000 $t
+     /tmp/ccSTfybG.s:270    .text.I2CDeviceSet1:0000000000000000 I2CDeviceSet1
+     /tmp/ccSTfybG.s:310    .text.I2CDeviceSet2:0000000000000000 $t
+     /tmp/ccSTfybG.s:317    .text.I2CDeviceSet2:0000000000000000 I2CDeviceSet2
+     /tmp/ccSTfybG.s:361    .text.SetRegPage:0000000000000000 $t
+     /tmp/ccSTfybG.s:368    .text.SetRegPage:0000000000000000 SetRegPage
+     /tmp/ccSTfybG.s:392    .text.Set_VidRes:0000000000000000 $t
+     /tmp/ccSTfybG.s:399    .text.Set_VidRes:0000000000000000 Set_VidRes
+     /tmp/ccSTfybG.s:422    .text.Set_VidRes:0000000000000012 $d
+     /tmp/ccSTfybG.s:461    .text.Set_VidRes:0000000000000060 $t
+     /tmp/ccSTfybG.s:888    .text.Set_VidRes:0000000000000278 $d
                             *COM*:0000000000000001 mode
                             *COM*:0000000000000001 ManVidResRx
                             *COM*:0000000000000001 chip
-     /tmp/ccmWs6qW.s:921    .text.Set_HDA:0000000000000000 $t
-     /tmp/ccmWs6qW.s:928    .text.Set_HDA:0000000000000000 Set_HDA
-     /tmp/ccmWs6qW.s:948    .text.Set_HDA:000000000000000e $d
-     /tmp/ccmWs6qW.s:962    .text.Set_HDA:000000000000001c $t
-     /tmp/ccmWs6qW.s:1051   .text.Set_HDA:0000000000000090 $d
-     /tmp/ccmWs6qW.s:1061   .text.Set_HDC:0000000000000000 $t
-     /tmp/ccmWs6qW.s:1068   .text.Set_HDC:0000000000000000 Set_HDC
-     /tmp/ccmWs6qW.s:1088   .text.Set_HDC:000000000000000e $d
-     /tmp/ccmWs6qW.s:1102   .text.Set_HDC:000000000000001c $t
-     /tmp/ccmWs6qW.s:1196   .text.Set_HDC:000000000000009c $d
-     /tmp/ccmWs6qW.s:1205   .text.Det_VidRes:0000000000000000 $t
-     /tmp/ccmWs6qW.s:1212   .text.Det_VidRes:0000000000000000 Det_VidRes
-     /tmp/ccmWs6qW.s:1262   .text.Det_VidRes:000000000000002c $d
-     /tmp/ccmWs6qW.s:1268   .text.Det_VideoLoss:0000000000000000 $t
-     /tmp/ccmWs6qW.s:1275   .text.Det_VideoLoss:0000000000000000 Det_VideoLoss
-     /tmp/ccmWs6qW.s:1320   .text.Det_VideoLoss:000000000000002c $d
-     /tmp/ccmWs6qW.s:1326   .text.ManualAGC:0000000000000000 $t
-     /tmp/ccmWs6qW.s:1333   .text.ManualAGC:0000000000000000 ManualAGC
-     /tmp/ccmWs6qW.s:1420   .text.ManualAGC:0000000000000064 $d
-     /tmp/ccmWs6qW.s:1425   .text.ReadGain:0000000000000000 $t
-     /tmp/ccmWs6qW.s:1432   .text.ReadGain:0000000000000000 ReadGain
-     /tmp/ccmWs6qW.s:1458   .text.SetCGain:0000000000000000 $t
-     /tmp/ccmWs6qW.s:1465   .text.SetCGain:0000000000000000 SetCGain
-     /tmp/ccmWs6qW.s:1615   .text.INPUT_VIDEO_CHECK:0000000000000000 $t
-     /tmp/ccmWs6qW.s:1622   .text.INPUT_VIDEO_CHECK:0000000000000000 INPUT_VIDEO_CHECK
-     /tmp/ccmWs6qW.s:1637   .text.INPUT_VIDEO_CHECK:000000000000000c $d
-     /tmp/ccmWs6qW.s:1934   .text.INPUT_VIDEO_CHECK:0000000000000114 $d
-     /tmp/ccmWs6qW.s:1939   .text.Det_HLock:0000000000000000 $t
-     /tmp/ccmWs6qW.s:1946   .text.Det_HLock:0000000000000000 Det_HLock
-ARM GAS  /tmp/ccmWs6qW.s 			page 265
+     /tmp/ccSTfybG.s:921    .text.Set_HDA:0000000000000000 $t
+     /tmp/ccSTfybG.s:928    .text.Set_HDA:0000000000000000 Set_HDA
+     /tmp/ccSTfybG.s:948    .text.Set_HDA:000000000000000e $d
+     /tmp/ccSTfybG.s:962    .text.Set_HDA:000000000000001c $t
+     /tmp/ccSTfybG.s:1051   .text.Set_HDA:0000000000000090 $d
+     /tmp/ccSTfybG.s:1061   .text.Set_HDC:0000000000000000 $t
+     /tmp/ccSTfybG.s:1068   .text.Set_HDC:0000000000000000 Set_HDC
+     /tmp/ccSTfybG.s:1088   .text.Set_HDC:000000000000000e $d
+     /tmp/ccSTfybG.s:1102   .text.Set_HDC:000000000000001c $t
+     /tmp/ccSTfybG.s:1196   .text.Set_HDC:000000000000009c $d
+     /tmp/ccSTfybG.s:1205   .text.Det_VidRes:0000000000000000 $t
+     /tmp/ccSTfybG.s:1212   .text.Det_VidRes:0000000000000000 Det_VidRes
+     /tmp/ccSTfybG.s:1262   .text.Det_VidRes:000000000000002c $d
+     /tmp/ccSTfybG.s:1268   .text.Det_VideoLoss:0000000000000000 $t
+     /tmp/ccSTfybG.s:1275   .text.Det_VideoLoss:0000000000000000 Det_VideoLoss
+     /tmp/ccSTfybG.s:1320   .text.Det_VideoLoss:000000000000002c $d
+     /tmp/ccSTfybG.s:1326   .text.ManualAGC:0000000000000000 $t
+     /tmp/ccSTfybG.s:1333   .text.ManualAGC:0000000000000000 ManualAGC
+     /tmp/ccSTfybG.s:1420   .text.ManualAGC:0000000000000064 $d
+     /tmp/ccSTfybG.s:1425   .text.ReadGain:0000000000000000 $t
+     /tmp/ccSTfybG.s:1432   .text.ReadGain:0000000000000000 ReadGain
+     /tmp/ccSTfybG.s:1458   .text.SetCGain:0000000000000000 $t
+     /tmp/ccSTfybG.s:1465   .text.SetCGain:0000000000000000 SetCGain
+     /tmp/ccSTfybG.s:1615   .text.INPUT_VIDEO_CHECK:0000000000000000 $t
+     /tmp/ccSTfybG.s:1622   .text.INPUT_VIDEO_CHECK:0000000000000000 INPUT_VIDEO_CHECK
+     /tmp/ccSTfybG.s:1637   .text.INPUT_VIDEO_CHECK:000000000000000c $d
+     /tmp/ccSTfybG.s:1934   .text.INPUT_VIDEO_CHECK:0000000000000114 $d
+     /tmp/ccSTfybG.s:1939   .text.Det_HLock:0000000000000000 $t
+     /tmp/ccSTfybG.s:1946   .text.Det_HLock:0000000000000000 Det_HLock
+ARM GAS  /tmp/ccSTfybG.s 			page 265
 
 
-     /tmp/ccmWs6qW.s:1980   .text.Set_ResWithAutoDet:0000000000000000 $t
-     /tmp/ccmWs6qW.s:1987   .text.Set_ResWithAutoDet:0000000000000000 Set_ResWithAutoDet
-     /tmp/ccmWs6qW.s:2058   .text.Set_ResWithAutoDet:0000000000000044 $d
-     /tmp/ccmWs6qW.s:2063   .text.Scan_Channels:0000000000000000 $t
-     /tmp/ccmWs6qW.s:2070   .text.Scan_Channels:0000000000000000 Scan_Channels
-     /tmp/ccmWs6qW.s:2127   .text.Set_PLL_StartUp:0000000000000000 $t
-     /tmp/ccmWs6qW.s:2134   .text.Set_PLL_StartUp:0000000000000000 Set_PLL_StartUp
-     /tmp/ccmWs6qW.s:2169   .text.Init_TP280x_RegSet:0000000000000000 $t
-     /tmp/ccmWs6qW.s:2176   .text.Init_TP280x_RegSet:0000000000000000 Init_TP280x_RegSet
-     /tmp/ccmWs6qW.s:2260   .text.Init_TP280x_RegSet:0000000000000064 $d
-     /tmp/ccmWs6qW.s:2298   .text.Init_TP280x_RegSet:000000000000008a $t
-     /tmp/ccmWs6qW.s:2522   .text.Init_TP280x_RegSet:0000000000000194 $d
+     /tmp/ccSTfybG.s:1980   .text.Set_ResWithAutoDet:0000000000000000 $t
+     /tmp/ccSTfybG.s:1987   .text.Set_ResWithAutoDet:0000000000000000 Set_ResWithAutoDet
+     /tmp/ccSTfybG.s:2058   .text.Set_ResWithAutoDet:0000000000000044 $d
+     /tmp/ccSTfybG.s:2063   .text.Scan_Channels:0000000000000000 $t
+     /tmp/ccSTfybG.s:2070   .text.Scan_Channels:0000000000000000 Scan_Channels
+     /tmp/ccSTfybG.s:2127   .text.Set_PLL_StartUp:0000000000000000 $t
+     /tmp/ccSTfybG.s:2134   .text.Set_PLL_StartUp:0000000000000000 Set_PLL_StartUp
+     /tmp/ccSTfybG.s:2169   .text.Init_TP280x_RegSet:0000000000000000 $t
+     /tmp/ccSTfybG.s:2176   .text.Init_TP280x_RegSet:0000000000000000 Init_TP280x_RegSet
+     /tmp/ccSTfybG.s:2260   .text.Init_TP280x_RegSet:0000000000000064 $d
+     /tmp/ccSTfybG.s:2298   .text.Init_TP280x_RegSet:000000000000008a $t
+     /tmp/ccSTfybG.s:2522   .text.Init_TP280x_RegSet:0000000000000194 $d
                             *COM*:0000000000000001 TVII2CAddress
                             *COM*:0000000000000001 revision
                             *COM*:0000000000000004 flag_CVBS
@@ -15807,26 +15807,26 @@ DEFINED SYMBOLS
                             *COM*:0000000000000001 count
                             *COM*:0000000000000001 state
                             *COM*:0000000000000001 std
-     /tmp/ccmWs6qW.s:2551   .text.ConvertData:0000000000000000 $t
-     /tmp/ccmWs6qW.s:2558   .text.ConvertData:0000000000000000 ConvertData
-     /tmp/ccmWs6qW.s:2637   .text.ConvertData:0000000000000050 $d
+     /tmp/ccSTfybG.s:2551   .text.ConvertData:0000000000000000 $t
+     /tmp/ccSTfybG.s:2558   .text.ConvertData:0000000000000000 ConvertData
+     /tmp/ccSTfybG.s:2637   .text.ConvertData:0000000000000050 $d
                             *COM*:0000000000000002 PTZ_pelco
                             *COM*:0000000000000010 PTZ_buf
-     /tmp/ccmWs6qW.s:2643   .text.SwapBit:0000000000000000 $t
-     /tmp/ccmWs6qW.s:2650   .text.SwapBit:0000000000000000 SwapBit
-     /tmp/ccmWs6qW.s:2743   .text.SwapBit:0000000000000058 $d
+     /tmp/ccSTfybG.s:2643   .text.SwapBit:0000000000000000 $t
+     /tmp/ccSTfybG.s:2650   .text.SwapBit:0000000000000000 SwapBit
+     /tmp/ccSTfybG.s:2743   .text.SwapBit:0000000000000058 $d
                             *COM*:0000000000000001 crc
-     /tmp/ccmWs6qW.s:2749   .text.AHDBitsReverse:0000000000000000 $t
-     /tmp/ccmWs6qW.s:2756   .text.AHDBitsReverse:0000000000000000 AHDBitsReverse
-     /tmp/ccmWs6qW.s:2857   .text.HDC_SetData:0000000000000000 $t
-     /tmp/ccmWs6qW.s:2864   .text.HDC_SetData:0000000000000000 HDC_SetData
-     /tmp/ccmWs6qW.s:2920   .text.HDC_SetData:0000000000000044 $d
-     /tmp/ccmWs6qW.s:2925   .text.HDA_SetData:0000000000000000 $t
-     /tmp/ccmWs6qW.s:2932   .text.HDA_SetData:0000000000000000 HDA_SetData
-     /tmp/ccmWs6qW.s:2977   .text.HDA_SetData:000000000000002c $d
-     /tmp/ccmWs6qW.s:2982   .text.TVICommandToAHData:0000000000000000 $t
-     /tmp/ccmWs6qW.s:2989   .text.TVICommandToAHData:0000000000000000 TVICommandToAHData
-     /tmp/ccmWs6qW.s:3309   .text.TVICommandToAHData:00000000000001b8 $d
+     /tmp/ccSTfybG.s:2749   .text.AHDBitsReverse:0000000000000000 $t
+     /tmp/ccSTfybG.s:2756   .text.AHDBitsReverse:0000000000000000 AHDBitsReverse
+     /tmp/ccSTfybG.s:2857   .text.HDC_SetData:0000000000000000 $t
+     /tmp/ccSTfybG.s:2864   .text.HDC_SetData:0000000000000000 HDC_SetData
+     /tmp/ccSTfybG.s:2920   .text.HDC_SetData:0000000000000044 $d
+     /tmp/ccSTfybG.s:2925   .text.HDA_SetData:0000000000000000 $t
+     /tmp/ccSTfybG.s:2932   .text.HDA_SetData:0000000000000000 HDA_SetData
+     /tmp/ccSTfybG.s:2977   .text.HDA_SetData:000000000000002c $d
+     /tmp/ccSTfybG.s:2982   .text.TVICommandToAHData:0000000000000000 $t
+     /tmp/ccSTfybG.s:2989   .text.TVICommandToAHData:0000000000000000 TVICommandToAHData
+     /tmp/ccSTfybG.s:3309   .text.TVICommandToAHData:00000000000001b8 $d
                             *COM*:0000000000000001 TVI_speed
                             *COM*:0000000000000001 AHDcmd3
                             *COM*:0000000000000001 presetNum
@@ -15834,171 +15834,171 @@ DEFINED SYMBOLS
                             *COM*:0000000000000001 TVI_Command
                             *COM*:0000000000000001 AHDcmd1
                             *COM*:0000000000000001 AHDcmd2
-     /tmp/ccmWs6qW.s:3320   .text.ACPSTOPCOMMAND:0000000000000000 $t
-     /tmp/ccmWs6qW.s:3327   .text.ACPSTOPCOMMAND:0000000000000000 ACPSTOPCOMMAND
-     /tmp/ccmWs6qW.s:3412   .text.Get_2824cIrq:0000000000000000 $t
-     /tmp/ccmWs6qW.s:3419   .text.Get_2824cIrq:0000000000000000 Get_2824cIrq
-     /tmp/ccmWs6qW.s:3956   .text.Get_2824cIrq:00000000000002d8 $d
+     /tmp/ccSTfybG.s:3320   .text.ACPSTOPCOMMAND:0000000000000000 $t
+     /tmp/ccSTfybG.s:3327   .text.ACPSTOPCOMMAND:0000000000000000 ACPSTOPCOMMAND
+     /tmp/ccSTfybG.s:3412   .text.Get_2824cIrq:0000000000000000 $t
+     /tmp/ccSTfybG.s:3419   .text.Get_2824cIrq:0000000000000000 Get_2824cIrq
+     /tmp/ccSTfybG.s:3956   .text.Get_2824cIrq:00000000000002d8 $d
                             *COM*:0000000000000004 ptztxflag
                             *COM*:000000000000001a tpRxD
                             *COM*:000000000000000c COCRX4
                             *COM*:000000000000000c COCRX3
-ARM GAS  /tmp/ccmWs6qW.s 			page 266
+ARM GAS  /tmp/ccSTfybG.s 			page 266
 
 
                             *COM*:000000000000000c COCRX2
-     /tmp/ccmWs6qW.s:3977   .text.Get_2824cIrq:0000000000000320 $t
-     /tmp/ccmWs6qW.s:4462   .text.Get_2824cIrq:00000000000005ae $d
-     /tmp/ccmWs6qW.s:4472   .text.Get_2824cIrq:00000000000005b8 $t
-     /tmp/ccmWs6qW.s:4523   .text.Get_2824cIrq:0000000000000600 $d
+     /tmp/ccSTfybG.s:3977   .text.Get_2824cIrq:0000000000000320 $t
+     /tmp/ccSTfybG.s:4462   .text.Get_2824cIrq:00000000000005ae $d
+     /tmp/ccSTfybG.s:4472   .text.Get_2824cIrq:00000000000005b8 $t
+     /tmp/ccSTfybG.s:4523   .text.Get_2824cIrq:0000000000000600 $d
                             *COM*:000000000000000c COCRX1
                             *COM*:0000000000000001 TVI_Chksum
-     /tmp/ccmWs6qW.s:4543   .text.Get_2824cIrq:0000000000000648 $t
-     /tmp/ccmWs6qW.s:4786   .text.Get_2824cIrq:00000000000007b8 $d
-     /tmp/ccmWs6qW.s:4801   .text.TP2824_PTZ_init:0000000000000000 $t
-     /tmp/ccmWs6qW.s:4808   .text.TP2824_PTZ_init:0000000000000000 TP2824_PTZ_init
-     /tmp/ccmWs6qW.s:4989   .text.TP2824_PTZ_mode:0000000000000000 $t
-     /tmp/ccmWs6qW.s:4996   .text.TP2824_PTZ_mode:0000000000000000 TP2824_PTZ_mode
-     /tmp/ccmWs6qW.s:5044   .text.TP2824_PTZ_mode:000000000000002c $d
-     /tmp/ccmWs6qW.s:5050   .text.TP2824C_RX_init:0000000000000000 $t
-     /tmp/ccmWs6qW.s:5057   .text.TP2824C_RX_init:0000000000000000 TP2824C_RX_init
-     /tmp/ccmWs6qW.s:5096   .text.TP2824C_RX_init:0000000000000020 $d
-     /tmp/ccmWs6qW.s:5101   .text.TP2824C_PTZ_mode:0000000000000000 $t
-     /tmp/ccmWs6qW.s:5108   .text.TP2824C_PTZ_mode:0000000000000000 TP2824C_PTZ_mode
-     /tmp/ccmWs6qW.s:5152   .text.TP2824C_PTZ_mode:0000000000000024 $d
-     /tmp/ccmWs6qW.s:5158   .text.HDA_SetACPV2Data:0000000000000000 $t
-     /tmp/ccmWs6qW.s:5165   .text.HDA_SetACPV2Data:0000000000000000 HDA_SetACPV2Data
-     /tmp/ccmWs6qW.s:5240   .text.TP2824C_StartTX:0000000000000000 $t
-     /tmp/ccmWs6qW.s:5247   .text.TP2824C_StartTX:0000000000000000 TP2824C_StartTX
-     /tmp/ccmWs6qW.s:5319   .text.COC_test:0000000000000000 $t
-     /tmp/ccmWs6qW.s:5326   .text.COC_test:0000000000000000 COC_test
-     /tmp/ccmWs6qW.s:5357   .text.COC_test:0000000000000020 $d
-     /tmp/ccmWs6qW.s:5366   .text.Init_COC_PTZOUT1:0000000000000000 $t
-     /tmp/ccmWs6qW.s:5373   .text.Init_COC_PTZOUT1:0000000000000000 Init_COC_PTZOUT1
-     /tmp/ccmWs6qW.s:5558   .text.Init_COC_PTZOUT1:0000000000000114 $d
-     /tmp/ccmWs6qW.s:5563   .text.EQ_Detect:0000000000000000 $t
-     /tmp/ccmWs6qW.s:5570   .text.EQ_Detect:0000000000000000 EQ_Detect
-     /tmp/ccmWs6qW.s:6103   .text.EQ_Detect:00000000000002b4 $d
+     /tmp/ccSTfybG.s:4543   .text.Get_2824cIrq:0000000000000648 $t
+     /tmp/ccSTfybG.s:4786   .text.Get_2824cIrq:00000000000007b8 $d
+     /tmp/ccSTfybG.s:4801   .text.TP2824_PTZ_init:0000000000000000 $t
+     /tmp/ccSTfybG.s:4808   .text.TP2824_PTZ_init:0000000000000000 TP2824_PTZ_init
+     /tmp/ccSTfybG.s:4989   .text.TP2824_PTZ_mode:0000000000000000 $t
+     /tmp/ccSTfybG.s:4996   .text.TP2824_PTZ_mode:0000000000000000 TP2824_PTZ_mode
+     /tmp/ccSTfybG.s:5044   .text.TP2824_PTZ_mode:000000000000002c $d
+     /tmp/ccSTfybG.s:5050   .text.TP2824C_RX_init:0000000000000000 $t
+     /tmp/ccSTfybG.s:5057   .text.TP2824C_RX_init:0000000000000000 TP2824C_RX_init
+     /tmp/ccSTfybG.s:5096   .text.TP2824C_RX_init:0000000000000020 $d
+     /tmp/ccSTfybG.s:5101   .text.TP2824C_PTZ_mode:0000000000000000 $t
+     /tmp/ccSTfybG.s:5108   .text.TP2824C_PTZ_mode:0000000000000000 TP2824C_PTZ_mode
+     /tmp/ccSTfybG.s:5152   .text.TP2824C_PTZ_mode:0000000000000024 $d
+     /tmp/ccSTfybG.s:5158   .text.HDA_SetACPV2Data:0000000000000000 $t
+     /tmp/ccSTfybG.s:5165   .text.HDA_SetACPV2Data:0000000000000000 HDA_SetACPV2Data
+     /tmp/ccSTfybG.s:5240   .text.TP2824C_StartTX:0000000000000000 $t
+     /tmp/ccSTfybG.s:5247   .text.TP2824C_StartTX:0000000000000000 TP2824C_StartTX
+     /tmp/ccSTfybG.s:5319   .text.COC_test:0000000000000000 $t
+     /tmp/ccSTfybG.s:5326   .text.COC_test:0000000000000000 COC_test
+     /tmp/ccSTfybG.s:5357   .text.COC_test:0000000000000020 $d
+     /tmp/ccSTfybG.s:5366   .text.Init_COC_PTZOUT1:0000000000000000 $t
+     /tmp/ccSTfybG.s:5373   .text.Init_COC_PTZOUT1:0000000000000000 Init_COC_PTZOUT1
+     /tmp/ccSTfybG.s:5558   .text.Init_COC_PTZOUT1:0000000000000114 $d
+     /tmp/ccSTfybG.s:5563   .text.EQ_Detect:0000000000000000 $t
+     /tmp/ccSTfybG.s:5570   .text.EQ_Detect:0000000000000000 EQ_Detect
+     /tmp/ccSTfybG.s:6103   .text.EQ_Detect:00000000000002b4 $d
                             *COM*:0000000000000001 flag_LOCKED
                             *COM*:0000000000000004 sywd
                             *COM*:0000000000000001 CurCH
-     /tmp/ccmWs6qW.s:6128   .text.EQ_Detect:0000000000000310 $t
-     /tmp/ccmWs6qW.s:6603   .text.EQ_Detect:0000000000000608 $d
+     /tmp/ccSTfybG.s:6128   .text.EQ_Detect:0000000000000310 $t
+     /tmp/ccSTfybG.s:6603   .text.EQ_Detect:0000000000000608 $d
                             *COM*:0000000000000004 egain
-     /tmp/ccmWs6qW.s:6623   .text.EQ_Detect:000000000000064c $t
-     /tmp/ccmWs6qW.s:6969   .text.EQ_Detect:0000000000000868 $d
-     /tmp/ccmWs6qW.s:6996   .text.Set_Mirror_COC:0000000000000000 $t
-     /tmp/ccmWs6qW.s:7003   .text.Set_Mirror_COC:0000000000000000 Set_Mirror_COC
-     /tmp/ccmWs6qW.s:7785   .rodata.TP2802_FORMAT_DataSet:0000000000000000 TP2802_FORMAT_DataSet
-     /tmp/ccmWs6qW.s:8341   .rodata.TP2824C_CVIHD_PTZ_DataSet:0000000000000000 TP2824C_CVIHD_PTZ_DataSet
-     /tmp/ccmWs6qW.s:8267   .rodata.TP2824C_CVBS_PTZ_DataSet:0000000000000000 TP2824C_CVBS_PTZ_DataSet
-     /tmp/ccmWs6qW.s:8165   .rodata.TP2824C_AHD_FHD_PTZ_DataSet:0000000000000000 TP2824C_AHD_FHD_PTZ_DataSet
-     /tmp/ccmWs6qW.s:8758   .rodata.TP2824C_TVI_FHD_PTZ_DataSet:0000000000000000 TP2824C_TVI_FHD_PTZ_DataSet
-     /tmp/ccmWs6qW.s:7699   .rodata.TP2802D_DataSet:0000000000000000 TP2802D_DataSet
-     /tmp/ccmWs6qW.s:8037   .rodata.TP2822_DataSet:0000000000000000 TP2822_DataSet
-     /tmp/ccmWs6qW.s:8094   .rodata.TP2823_MODE_DataSet:0000000000000000 TP2823_MODE_DataSet
-     /tmp/ccmWs6qW.s:8067   .rodata.TP2823_DataSet:0000000000000000 TP2823_DataSet
-     /tmp/ccmWs6qW.s:9360   .rodata.TP2834_MODE_DataSet:0000000000000000 TP2834_MODE_DataSet
-     /tmp/ccmWs6qW.s:9338   .rodata.TP2834_DataSet:0000000000000000 TP2834_DataSet
-     /tmp/ccmWs6qW.s:9174   .rodata.TP2833_HDA_DataSet:0000000000000000 TP2833_HDA_DataSet
-     /tmp/ccmWs6qW.s:9220   .rodata.TP2833_MODE_DataSet:0000000000000000 TP2833_MODE_DataSet
-     /tmp/ccmWs6qW.s:9148   .rodata.TP2833_DataSet:0000000000000000 TP2833_DataSet
-ARM GAS  /tmp/ccmWs6qW.s 			page 267
+     /tmp/ccSTfybG.s:6623   .text.EQ_Detect:000000000000064c $t
+     /tmp/ccSTfybG.s:6969   .text.EQ_Detect:0000000000000868 $d
+     /tmp/ccSTfybG.s:6996   .text.Set_Mirror_COC:0000000000000000 $t
+     /tmp/ccSTfybG.s:7003   .text.Set_Mirror_COC:0000000000000000 Set_Mirror_COC
+     /tmp/ccSTfybG.s:7785   .rodata.TP2802_FORMAT_DataSet:0000000000000000 TP2802_FORMAT_DataSet
+     /tmp/ccSTfybG.s:8341   .rodata.TP2824C_CVIHD_PTZ_DataSet:0000000000000000 TP2824C_CVIHD_PTZ_DataSet
+     /tmp/ccSTfybG.s:8267   .rodata.TP2824C_CVBS_PTZ_DataSet:0000000000000000 TP2824C_CVBS_PTZ_DataSet
+     /tmp/ccSTfybG.s:8165   .rodata.TP2824C_AHD_FHD_PTZ_DataSet:0000000000000000 TP2824C_AHD_FHD_PTZ_DataSet
+     /tmp/ccSTfybG.s:8758   .rodata.TP2824C_TVI_FHD_PTZ_DataSet:0000000000000000 TP2824C_TVI_FHD_PTZ_DataSet
+     /tmp/ccSTfybG.s:7699   .rodata.TP2802D_DataSet:0000000000000000 TP2802D_DataSet
+     /tmp/ccSTfybG.s:8037   .rodata.TP2822_DataSet:0000000000000000 TP2822_DataSet
+     /tmp/ccSTfybG.s:8094   .rodata.TP2823_MODE_DataSet:0000000000000000 TP2823_MODE_DataSet
+     /tmp/ccSTfybG.s:8067   .rodata.TP2823_DataSet:0000000000000000 TP2823_DataSet
+     /tmp/ccSTfybG.s:9360   .rodata.TP2834_MODE_DataSet:0000000000000000 TP2834_MODE_DataSet
+     /tmp/ccSTfybG.s:9338   .rodata.TP2834_DataSet:0000000000000000 TP2834_DataSet
+     /tmp/ccSTfybG.s:9174   .rodata.TP2833_HDA_DataSet:0000000000000000 TP2833_HDA_DataSet
+     /tmp/ccSTfybG.s:9220   .rodata.TP2833_MODE_DataSet:0000000000000000 TP2833_MODE_DataSet
+     /tmp/ccSTfybG.s:9148   .rodata.TP2833_DataSet:0000000000000000 TP2833_DataSet
+ARM GAS  /tmp/ccSTfybG.s 			page 267
 
 
-     /tmp/ccmWs6qW.s:9296   .rodata.TP2834_Audio_DataSet:0000000000000000 TP2834_Audio_DataSet
-     /tmp/ccmWs6qW.s:9521   .rodata.TP2853C_HDC_DataSet:0000000000000000 TP2853C_HDC_DataSet
-     /tmp/ccmWs6qW.s:9465   .rodata.TP2853C_HDA_DataSet:0000000000000000 TP2853C_HDA_DataSet
-     /tmp/ccmWs6qW.s:9592   .rodata.TP2853C_MODE_DataSet:0000000000000000 TP2853C_MODE_DataSet
-     /tmp/ccmWs6qW.s:9431   .rodata.TP2853C_DataSet:0000000000000000 TP2853C_DataSet
-     /tmp/ccmWs6qW.s:8531   .rodata.TP2824C_HDC_DataSet:0000000000000000 TP2824C_HDC_DataSet
-     /tmp/ccmWs6qW.s:8936   .rodata.TP2826_HDC_DataSet:0000000000000000 TP2826_HDC_DataSet
-     /tmp/ccmWs6qW.s:8445   .rodata.TP2824C_HDA_DataSet:0000000000000000 TP2824C_HDA_DataSet
-     /tmp/ccmWs6qW.s:8870   .rodata.TP2826_HDA_DataSet:0000000000000000 TP2826_HDA_DataSet
-     /tmp/ccmWs6qW.s:8637   .rodata.TP2824C_MODE_DataSet:0000000000000000 TP2824C_MODE_DataSet
-     /tmp/ccmWs6qW.s:9042   .rodata.TP2826_MODE_DataSet:0000000000000000 TP2826_MODE_DataSet
-     /tmp/ccmWs6qW.s:8840   .rodata.TP2826_DataSet:0000000000000000 TP2826_DataSet
-     /tmp/ccmWs6qW.s:8415   .rodata.TP2824C_DataSet:0000000000000000 TP2824C_DataSet
-     /tmp/ccmWs6qW.s:7136   .bss.QuadBoxMode:0000000000000000 QuadBoxMode
-     /tmp/ccmWs6qW.s:7131   .bss.QuadBoxId:0000000000000000 QuadBoxId
-     /tmp/ccmWs6qW.s:7125   .bss.PtzTxChNum:0000000000000000 PtzTxChNum
-     /tmp/ccmWs6qW.s:7151   .data.PreCOCSelectModeType:0000000000000000 PreCOCSelectModeType
-     /tmp/ccmWs6qW.s:7142   .data.COCSelectModeType:0000000000000000 COCSelectModeType
-     /tmp/ccmWs6qW.s:7119   .bss.Flisheye_VLOSS_Count:0000000000000000 Flisheye_VLOSS_Count
-     /tmp/ccmWs6qW.s:7160   .data.TP_InputMode:0000000000000000 TP_InputMode
+     /tmp/ccSTfybG.s:9296   .rodata.TP2834_Audio_DataSet:0000000000000000 TP2834_Audio_DataSet
+     /tmp/ccSTfybG.s:9521   .rodata.TP2853C_HDC_DataSet:0000000000000000 TP2853C_HDC_DataSet
+     /tmp/ccSTfybG.s:9465   .rodata.TP2853C_HDA_DataSet:0000000000000000 TP2853C_HDA_DataSet
+     /tmp/ccSTfybG.s:9592   .rodata.TP2853C_MODE_DataSet:0000000000000000 TP2853C_MODE_DataSet
+     /tmp/ccSTfybG.s:9431   .rodata.TP2853C_DataSet:0000000000000000 TP2853C_DataSet
+     /tmp/ccSTfybG.s:8531   .rodata.TP2824C_HDC_DataSet:0000000000000000 TP2824C_HDC_DataSet
+     /tmp/ccSTfybG.s:8936   .rodata.TP2826_HDC_DataSet:0000000000000000 TP2826_HDC_DataSet
+     /tmp/ccSTfybG.s:8445   .rodata.TP2824C_HDA_DataSet:0000000000000000 TP2824C_HDA_DataSet
+     /tmp/ccSTfybG.s:8870   .rodata.TP2826_HDA_DataSet:0000000000000000 TP2826_HDA_DataSet
+     /tmp/ccSTfybG.s:8637   .rodata.TP2824C_MODE_DataSet:0000000000000000 TP2824C_MODE_DataSet
+     /tmp/ccSTfybG.s:9042   .rodata.TP2826_MODE_DataSet:0000000000000000 TP2826_MODE_DataSet
+     /tmp/ccSTfybG.s:8840   .rodata.TP2826_DataSet:0000000000000000 TP2826_DataSet
+     /tmp/ccSTfybG.s:8415   .rodata.TP2824C_DataSet:0000000000000000 TP2824C_DataSet
+     /tmp/ccSTfybG.s:7136   .bss.QuadBoxMode:0000000000000000 QuadBoxMode
+     /tmp/ccSTfybG.s:7131   .bss.QuadBoxId:0000000000000000 QuadBoxId
+     /tmp/ccSTfybG.s:7125   .bss.PtzTxChNum:0000000000000000 PtzTxChNum
+     /tmp/ccSTfybG.s:7151   .data.PreCOCSelectModeType:0000000000000000 PreCOCSelectModeType
+     /tmp/ccSTfybG.s:7142   .data.COCSelectModeType:0000000000000000 COCSelectModeType
+     /tmp/ccSTfybG.s:7119   .bss.Flisheye_VLOSS_Count:0000000000000000 Flisheye_VLOSS_Count
+     /tmp/ccSTfybG.s:7160   .data.TP_InputMode:0000000000000000 TP_InputMode
                             *COM*:0000000000000001 Flisheye_COC
-     /tmp/ccmWs6qW.s:7113   .bss.Flisheye_CAM:0000000000000000 Flisheye_CAM
-     /tmp/ccmWs6qW.s:7606   .rodata.REG_FA:0000000000000000 REG_FA
-     /tmp/ccmWs6qW.s:7596   .rodata.REG_F7:0000000000000000 REG_F7
-     /tmp/ccmWs6qW.s:7586   .rodata.REG_F6:0000000000000000 REG_F6
-     /tmp/ccmWs6qW.s:7616   .rodata.SYS_AND:0000000000000000 SYS_AND
-     /tmp/ccmWs6qW.s:7627   .rodata.SYS_MODE:0000000000000000 SYS_MODE
+     /tmp/ccSTfybG.s:7113   .bss.Flisheye_CAM:0000000000000000 Flisheye_CAM
+     /tmp/ccSTfybG.s:7606   .rodata.REG_FA:0000000000000000 REG_FA
+     /tmp/ccSTfybG.s:7596   .rodata.REG_F7:0000000000000000 REG_F7
+     /tmp/ccSTfybG.s:7586   .rodata.REG_F6:0000000000000000 REG_F6
+     /tmp/ccSTfybG.s:7616   .rodata.SYS_AND:0000000000000000 SYS_AND
+     /tmp/ccSTfybG.s:7627   .rodata.SYS_MODE:0000000000000000 SYS_MODE
                             *COM*:0000000000000001 VideoSave
-     /tmp/ccmWs6qW.s:7167   .data.newInRes:0000000000000000 newInRes
-     /tmp/ccmWs6qW.s:7110   .bss.Flisheye_CAM:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7116   .bss.Flisheye_VLOSS_Count:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7126   .bss.PtzTxChNum:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7132   .bss.QuadBoxId:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7137   .bss.QuadBoxMode:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7139   .data.COCSelectModeType:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7148   .data.PreCOCSelectModeType:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7163   .data.newInRes:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7173   .rodata.Det_VidRes.str1.4:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7180   .rodata.Det_VideoLoss.str1.4:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7186   .rodata.EQ_Detect.str1.4:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7260   .rodata.Get_2824cIrq.str1.4:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7290   .rodata.Init_COC_PTZOUT1.str1.4:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7294   .rodata.Init_TP280x_RegSet.str1.4:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7305   .rodata.ManualAGC.str1.4:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7309   .rodata.PTZ_RX_dat.8822:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7313   .rodata.PTZ_RX_dat.8822:0000000000000000 PTZ_RX_dat.8822
-     /tmp/ccmWs6qW.s:7390   .rodata.PTZ_dat.8812:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7394   .rodata.PTZ_dat.8812:0000000000000000 PTZ_dat.8812
-     /tmp/ccmWs6qW.s:7452   .rodata.PTZ_dat.8834:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7456   .rodata.PTZ_dat.8834:0000000000000000 PTZ_dat.8834
-     /tmp/ccmWs6qW.s:7530   .rodata.PTZ_reg.8811:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7534   .rodata.PTZ_reg.8811:0000000000000000 PTZ_reg.8811
-     /tmp/ccmWs6qW.s:7564   .rodata.PTZ_reg.8833:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7568   .rodata.PTZ_reg.8833:0000000000000000 PTZ_reg.8833
-     /tmp/ccmWs6qW.s:7582   .rodata.REG_F6:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7592   .rodata.REG_F7:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7602   .rodata.REG_FA:0000000000000000 $d
-ARM GAS  /tmp/ccmWs6qW.s 			page 268
+     /tmp/ccSTfybG.s:7167   .data.newInRes:0000000000000000 newInRes
+     /tmp/ccSTfybG.s:7110   .bss.Flisheye_CAM:0000000000000000 $d
+     /tmp/ccSTfybG.s:7116   .bss.Flisheye_VLOSS_Count:0000000000000000 $d
+     /tmp/ccSTfybG.s:7126   .bss.PtzTxChNum:0000000000000000 $d
+     /tmp/ccSTfybG.s:7132   .bss.QuadBoxId:0000000000000000 $d
+     /tmp/ccSTfybG.s:7137   .bss.QuadBoxMode:0000000000000000 $d
+     /tmp/ccSTfybG.s:7139   .data.COCSelectModeType:0000000000000000 $d
+     /tmp/ccSTfybG.s:7148   .data.PreCOCSelectModeType:0000000000000000 $d
+     /tmp/ccSTfybG.s:7163   .data.newInRes:0000000000000000 $d
+     /tmp/ccSTfybG.s:7173   .rodata.Det_VidRes.str1.4:0000000000000000 $d
+     /tmp/ccSTfybG.s:7180   .rodata.Det_VideoLoss.str1.4:0000000000000000 $d
+     /tmp/ccSTfybG.s:7186   .rodata.EQ_Detect.str1.4:0000000000000000 $d
+     /tmp/ccSTfybG.s:7260   .rodata.Get_2824cIrq.str1.4:0000000000000000 $d
+     /tmp/ccSTfybG.s:7290   .rodata.Init_COC_PTZOUT1.str1.4:0000000000000000 $d
+     /tmp/ccSTfybG.s:7294   .rodata.Init_TP280x_RegSet.str1.4:0000000000000000 $d
+     /tmp/ccSTfybG.s:7305   .rodata.ManualAGC.str1.4:0000000000000000 $d
+     /tmp/ccSTfybG.s:7309   .rodata.PTZ_RX_dat.8822:0000000000000000 $d
+     /tmp/ccSTfybG.s:7313   .rodata.PTZ_RX_dat.8822:0000000000000000 PTZ_RX_dat.8822
+     /tmp/ccSTfybG.s:7390   .rodata.PTZ_dat.8812:0000000000000000 $d
+     /tmp/ccSTfybG.s:7394   .rodata.PTZ_dat.8812:0000000000000000 PTZ_dat.8812
+     /tmp/ccSTfybG.s:7452   .rodata.PTZ_dat.8834:0000000000000000 $d
+     /tmp/ccSTfybG.s:7456   .rodata.PTZ_dat.8834:0000000000000000 PTZ_dat.8834
+     /tmp/ccSTfybG.s:7530   .rodata.PTZ_reg.8811:0000000000000000 $d
+     /tmp/ccSTfybG.s:7534   .rodata.PTZ_reg.8811:0000000000000000 PTZ_reg.8811
+     /tmp/ccSTfybG.s:7564   .rodata.PTZ_reg.8833:0000000000000000 $d
+     /tmp/ccSTfybG.s:7568   .rodata.PTZ_reg.8833:0000000000000000 PTZ_reg.8833
+     /tmp/ccSTfybG.s:7582   .rodata.REG_F6:0000000000000000 $d
+     /tmp/ccSTfybG.s:7592   .rodata.REG_F7:0000000000000000 $d
+     /tmp/ccSTfybG.s:7602   .rodata.REG_FA:0000000000000000 $d
+ARM GAS  /tmp/ccSTfybG.s 			page 268
 
 
-     /tmp/ccmWs6qW.s:7612   .rodata.SYS_AND:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7623   .rodata.SYS_MODE:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7634   .rodata.Set_ResWithAutoDet.str1.4:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7638   .rodata.Set_VidRes.str1.4:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7696   .rodata.TP2802D_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:7781   .rodata.TP2802_FORMAT_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:8034   .rodata.TP2822_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:8063   .rodata.TP2823_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:8091   .rodata.TP2823_MODE_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:8161   .rodata.TP2824C_AHD_FHD_PTZ_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:8263   .rodata.TP2824C_CVBS_PTZ_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:8337   .rodata.TP2824C_CVIHD_PTZ_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:8411   .rodata.TP2824C_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:8441   .rodata.TP2824C_HDA_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:8527   .rodata.TP2824C_HDC_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:8633   .rodata.TP2824C_MODE_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:8754   .rodata.TP2824C_TVI_FHD_PTZ_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:8836   .rodata.TP2826_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:8866   .rodata.TP2826_HDA_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:8932   .rodata.TP2826_HDC_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:9038   .rodata.TP2826_MODE_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:9144   .rodata.TP2833_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:9170   .rodata.TP2833_HDA_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:9216   .rodata.TP2833_MODE_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:9292   .rodata.TP2834_Audio_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:9334   .rodata.TP2834_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:9356   .rodata.TP2834_MODE_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:9427   .rodata.TP2853C_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:9461   .rodata.TP2853C_HDA_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:9517   .rodata.TP2853C_HDC_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:9588   .rodata.TP2853C_MODE_DataSet:0000000000000000 $d
-     /tmp/ccmWs6qW.s:1672   .text.INPUT_VIDEO_CHECK:000000000000002f $d
-     /tmp/ccmWs6qW.s:1672   .text.INPUT_VIDEO_CHECK:0000000000000030 $t
+     /tmp/ccSTfybG.s:7612   .rodata.SYS_AND:0000000000000000 $d
+     /tmp/ccSTfybG.s:7623   .rodata.SYS_MODE:0000000000000000 $d
+     /tmp/ccSTfybG.s:7634   .rodata.Set_ResWithAutoDet.str1.4:0000000000000000 $d
+     /tmp/ccSTfybG.s:7638   .rodata.Set_VidRes.str1.4:0000000000000000 $d
+     /tmp/ccSTfybG.s:7696   .rodata.TP2802D_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:7781   .rodata.TP2802_FORMAT_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:8034   .rodata.TP2822_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:8063   .rodata.TP2823_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:8091   .rodata.TP2823_MODE_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:8161   .rodata.TP2824C_AHD_FHD_PTZ_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:8263   .rodata.TP2824C_CVBS_PTZ_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:8337   .rodata.TP2824C_CVIHD_PTZ_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:8411   .rodata.TP2824C_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:8441   .rodata.TP2824C_HDA_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:8527   .rodata.TP2824C_HDC_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:8633   .rodata.TP2824C_MODE_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:8754   .rodata.TP2824C_TVI_FHD_PTZ_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:8836   .rodata.TP2826_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:8866   .rodata.TP2826_HDA_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:8932   .rodata.TP2826_HDC_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:9038   .rodata.TP2826_MODE_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:9144   .rodata.TP2833_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:9170   .rodata.TP2833_HDA_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:9216   .rodata.TP2833_MODE_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:9292   .rodata.TP2834_Audio_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:9334   .rodata.TP2834_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:9356   .rodata.TP2834_MODE_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:9427   .rodata.TP2853C_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:9461   .rodata.TP2853C_HDA_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:9517   .rodata.TP2853C_HDC_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:9588   .rodata.TP2853C_MODE_DataSet:0000000000000000 $d
+     /tmp/ccSTfybG.s:1672   .text.INPUT_VIDEO_CHECK:000000000000002f $d
+     /tmp/ccSTfybG.s:1672   .text.INPUT_VIDEO_CHECK:0000000000000030 $t
 
 UNDEFINED SYMBOLS
 tp28xx_byte_write
