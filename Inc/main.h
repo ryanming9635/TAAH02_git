@@ -55,7 +55,7 @@ extern "C" {
 #define	MCU_FW_Sub0			0		
 #define	MCU_FW_Sub1			6	
 */
-#define	FWVER				0x1013
+#define	FWVER				0x1100
 
 #define	_NTSC			1
 #define	_PAL			2
